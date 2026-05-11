@@ -1,13 +1,11 @@
 categories: ["cs.CV", "cs.LG", "cs.AI"]
 keywords:
-  - "open vocabulary"
-  - "open-vocabulary"
-  - "open vocabulary segmentation"
-  - "open-vocabulary segmentation"
+  - "Medical segmentation"
   - "vision language model"
-  - "training-free"
-  - "training free"
+  - "large language model"
+  - "segmentation"
 
+  
 # exclude_keywords: # 选择排除的关键词
 #   - "Large Language Model"
 #   - "LLM"
