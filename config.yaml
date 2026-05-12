@@ -30,9 +30,9 @@ email:
   enabled: true
   subject: "[arXiv] Daily Digest"
   smtp_server: "smtp.qq.com"
-  smtp_port: 465
+  smtp_port: 587
   smtp_pass_env: "SMTP_PASS"
-  tls: "ssl"  # auto / ssl / starttls
+  tls: "starttls"  # auto / ssl / starttls
   debug: false     # true 可打印 SMTP 调试日志
   detail: "full"  # simple / full
   max_items: 30
