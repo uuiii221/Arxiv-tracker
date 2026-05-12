@@ -29,7 +29,7 @@ summary:
 email:
   enabled: true
   subject: "[arXiv] Daily Digest"
-  smtp_server: "pop.qq.com"
+  smtp_server: "smtp.qq.com"
   smtp_port: 587
   smtp_pass_env: "SMTP_PASS"
   tls: "starttls"  # auto / ssl / starttls
