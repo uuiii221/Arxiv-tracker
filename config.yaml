@@ -25,7 +25,7 @@ summary:
 
 # —— 邮件发送（QQ 邮箱） ——
 email:
-  enabled: true
+  enabled: false
   subject: "[arXiv] Daily Digest"
   smtp_server: "smtp.qq.com"
   smtp_port: 587
@@ -46,9 +46,9 @@ llm:
   # api_key_env: "OPENAI_COMPAT_API_KEY"
   
   # Deepseek的版本
-  base_url: "https://api.deepseek.com"
-  model: "deepseek-v4-pro"
-  api_key_env: "DS_API_KEY"
+  #base_url: "https://api.deepseek.com"
+  #model: "deepseek-v4-pro"
+  #api_key_env: "DS_API_KEY"
   
 
   system_prompt_en: |
