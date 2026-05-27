@@ -1,8 +1,18 @@
 categories: ["cs.CV", "cs.LG", "cs.AI"]
 keywords:
-  - "Medical segmentation"
-  - "segmentation"
-
+  - "medical image segmentation",
+  - "medical segmentation",
+  - "lesion segmentation",
+  - "lung segmentation",
+  - "chest x-ray segmentation",
+  - "CXR segmentation",
+  - "radiology report segmentation",
+  - "weakly supervised medical segmentation",
+  - "vision-language medical segmentation",
+  - "medical visual grounding",
+  - "MedSAM",
+  - "SAM medical image",
+  - "radiology report grounding",
   
 # exclude_keywords: # 选择排除的关键词
 #   - "Large Language Model"
@@ -25,7 +35,7 @@ summary:
 
 # —— 邮件发送（QQ 邮箱） ——
 email:
-  enabled: false
+  enabled: true
   subject: "[arXiv] Daily Digest"
   smtp_server: "smtp.qq.com"
   smtp_port: 587
@@ -46,9 +56,9 @@ llm:
   # api_key_env: "OPENAI_COMPAT_API_KEY"
   
   # Deepseek的版本
-  #base_url: "https://api.deepseek.com"
-  #model: "deepseek-v4-pro"
-  #api_key_env: "DS_API_KEY"
+  base_url: "https://api.deepseek.com"
+  model: "deepseek-v4-pro"
+  api_key_env: "DS_API_KEY"
   
 
   system_prompt_en: |
