@@ -1,18 +1,18 @@
 categories: ["cs.CV", "cs.LG", "cs.AI"]
 keywords:
-  - "medical image segmentation",
-  - "medical segmentation",
-  - "lesion segmentation",
-  - "lung segmentation",
-  - "chest x-ray segmentation",
-  - "CXR segmentation",
-  - "radiology report segmentation",
-  - "weakly supervised medical segmentation",
-  - "vision-language medical segmentation",
-  - "medical visual grounding",
-  - "MedSAM",
-  - "SAM medical image",
-  - "radiology report grounding",
+  - "medical image segmentation"
+  - "medical segmentation"
+  - "lesion segmentation"
+  - "lung segmentation"
+  - "chest x-ray segmentation"
+  - "CXR segmentation"
+  - "radiology report segmentation"
+  - "weakly supervised medical segmentation"
+  - "vision-language medical segmentation"
+  - "medical visual grounding"
+  - "MedSAM"
+  - "SAM medical image"
+  - "radiology report grounding"
   
 # exclude_keywords: # 选择排除的关键词
 #   - "Large Language Model"
