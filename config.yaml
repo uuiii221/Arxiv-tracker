@@ -1,24 +1,22 @@
 categories: ["cs.CV", "cs.LG", "eess.IV", "cs.AI"]
 keywords:
   - "medical image segmentation"
+  - "medical imaging segmentation"
   - "biomedical image segmentation"
-  - "organ segmentation"
-  - "tumor segmentation"
-  - "lesion segmentation"
-  - "nuclei segmentation"
-  - "vessel segmentation"
-  - "CT segmentation"
-  - "MRI segmentation"
-  - "ultrasound segmentation"
-  - "MedSAM"
-  - "medical SAM"
-  - "diffusion medical segmentation"
-  - "semi-supervised medical segmentation"
-  - "multimodal medical segmentation"
+  - "medical semantic segmentation"
+  - "medical image analysis segmentation"
+  - "segmentation of medical images"
+  - "segmentation in medical imaging"
+  - "segmentation for medical images"
   
-# exclude_keywords: # 选择排除的关键词
-#   - "Large Language Model"
-#   - "LLM"
+exclude_keywords: # 选择排除的关键词
+  - "remote sensing"
+  - "autonomous driving"
+  - "street scene"
+  - "point cloud"
+  - "video segmentation"
+  - "natural image segmentation"
+  - "satellite image"
   
 logic: "AND"                 # 组间逻辑：categories 与 keywords 间 AND/OR
 max_results: 5
