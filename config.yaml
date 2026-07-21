@@ -1,15 +1,25 @@
-categories: ["cs.CV", "cs.LG", "eess.IV", "cs.AI"]
+categories:
+  - "cs.CV"
+  - "cs.LG"
+  - "cs.AI"
+  - "eess.IV"
+  - "physics.med-ph"
+
 keywords:
   - "medical image segmentation"
-  - "medical imaging segmentation"
+  - "medical segmentation"
   - "biomedical image segmentation"
-  - "medical semantic segmentation"
-  - "medical image analysis segmentation"
-  - "segmentation of medical images"
-  - "segmentation in medical imaging"
-  - "segmentation for medical images"
-  
-exclude_keywords: # 选择排除的关键词
+  - "organ segmentation"
+  - "lesion segmentation"
+  - "tumor segmentation"
+  - "anatomical segmentation"
+  - "volumetric segmentation"
+  - "CT segmentation"
+  - "MRI segmentation"
+  - "ultrasound segmentation"
+  - "pathology image segmentation"
+
+exclude_keywords:
   - "remote sensing"
   - "autonomous driving"
   - "street scene"
@@ -86,7 +96,7 @@ site:
   accent: "#2563eb"     # 主题色（可自定义）
 
 freshness:
-  since_days: 3650           # 只看最近 N 天内新提交/更新（1=近24h）
+  since_days: 365           # 只看最近 N 天内新提交/更新（1=近24h）
   unique_only: true       # 开启跨天去重（见过的 arXiv ID 不再重复发）
   state_path: ".state/seen.json"  # 去重状态文件（会随 docs 一起提交保存）
   fallback_when_empty: false # 当今天无新增时，是否回退展示最近的Top若干（建议false）
