@@ -1,0 +1,158 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.17693v1",
+    "title": "Memory-Supported Synergistic Adaptation for Training-Free Test-Time Medical Image Segmentation",
+    "authors": [
+      "Lingrui Li",
+      "Nan Pu",
+      "Dong Zhao",
+      "Wenjing Li",
+      "Andrew P French",
+      "Zhun Zhong",
+      "Xin Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-20T08:41:47+00:00",
+    "updated": "2026-07-20T08:41:47+00:00",
+    "comments": "18 pages, ECCV 2026",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Test-time adaptation (TTA) aims to mitigate distribution shifts by adapting models with unlabeled target data at inference time. While TTA with vision-language models (VLMs) has shown promising results in classification, extending it to medical image segmentation remains challenging. In this setting, the adaptation gains from optimizing on VLM-generated predictions are often outweighed by the degradation to the VLM's strong pretrained features caused by noisy, update-driven learning, resulting in limited and unstable improvements. We therefore propose Memory-Supported Synergistic Adaptation (MSSA), a novel training-free TTA framework for medical image segmentation. Without updating model parameters, MSSA dynamically selects reliable image-text predictions to construct an online memory, uses them as text-guided semantic priors, and couples them with cross-image structural alignment for robust adaptation. Specifically, MSSA consists of (i) a noise-aware memory construction module that filters and stabilizes cross-modal predictions, and (ii) a relevance-driven prototype alignment module that aligns the target sample with structurally consistent memory samples and their reliable predictions to improve adaptation. Extensive experiments on multiple medical segmentation benchmarks demonstrate that MSSA consistently improves VLM-based segmentation models and outperforms existing fine-tuning-based TTA methods by a clear margin, with gains of up to 12.2% DSC and 11.7% mIoU. Project page: https://lingrayy.github.io/MSSA/ .",
+    "html_url": "https://arxiv.org/abs/2607.17693v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.17693v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [
+      "https://lingrayy.github.io/MSSA/"
+    ],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.17341v1",
+    "title": "Understanding From Human Perspective: A Multi-agent System for Interactive Egocentric Medical Image Segmentation",
+    "authors": [
+      "Rongjun Ge",
+      "Dongyang Wang",
+      "Heng Zhu",
+      "Zhirui Li",
+      "Yang Chen",
+      "Yuting He"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-19T17:05:13+00:00",
+    "updated": "2026-07-19T17:05:13+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Interactive egocentric medical image segmentation (IEMIS) plays an important role in smart-glasses-assisted medical image review, segmenting the medical targets a clinician refers to from their egocentric view. Once it succeeds, the object-level visual evidence it provides strengthens the review and underpins fine-grained analysis and clinical decision-making. However, the instruction and the video both come from the user's egocentric perspective, which poses two challenges. (1) Semantic ambiguity leaves the model unable to confirm the user-intended target. (2) Visual variability makes the segmentation jump from frame to frame. In this paper, we propose EgoMed-Agent, a multi-agent system that understands the target from the human perspective through two workflows. (1) The \\textit{Target Confirmation Workflow} grounds the instruction against candidate targets with a reliability score, confirming the target when the grounding is reliable and asking the user to clarify when it is not, thereby confirming the segmentation target. (2) The \\textit{Localization-Guided Propagation Workflow} couples mask propagation with per-frame target localization, using the localized target to correct the propagated mask whenever the two diverge, so the segmentation stays on the target across the egocentric video. Extensive experiments show that EgoMed-Agent reaches 71.34\\% average Dice, far above the best text-prompted baseline (11.70\\%). Our code is available at \\href{https://github.com/wdyyyyyy/EgoMed-Agent}{our project page}.",
+    "html_url": "https://arxiv.org/abs/2607.17341v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.17341v1",
+    "code_urls": [
+      "https://github.com/wdyyyyyy/EgoMed-Agent}{our",
+      "https://github.com/wdyyyyyy/EgoMed-Agent",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.17329v1",
+    "title": "MIS-HCC: Hierarchical Channel Clustering for Efficient Medical Image Segmentation",
+    "authors": [
+      "Bo Zhao",
+      "Haoran Yu",
+      "Lifei Liu",
+      "Zongcheng Chu",
+      "Yining Liu",
+      "Chang Liu",
+      "Szu-Yu Chen",
+      "Zequn Xie"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-19T16:39:48+00:00",
+    "updated": "2026-07-19T16:39:48+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation models require both high accuracy and lightweight design to accommodate real-world medical applications. The deployment of these models on resource-limited medical platforms remains a significant challenge due to their high computational and parameter requirements. Existing pruning methods for model compression mostly overlook the intrinsic connections and similarity between the internal structures of complex deep neural networks. As a result, compressed models may not effectively retain the basic features of the pretrained network. To solve this problem, we propose a hierarchical clustering compression method for medical image segmentation models (MIS-HCC). This approach employs hierarchical clustering to partition channels and fuse their parameters efficiently. Specifically, it leverages the Wasserstein distance to represent similarity of channels within layers of pre-trained network, forming a similarity matrix that guides the clustering process. Channels within each cluster are then fused to produce a compressed network. Experimental results on three medical image datasets application demonstrate that MIS-HCC outperforms the state-of-the-art methods in both accuracy and compression efficiency, offering an effective solution for deploying medical image segmentation models on resource-limited medical platforms.",
+    "html_url": "https://arxiv.org/abs/2607.17329v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.17329v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.16705v1",
+    "title": "OFD-Net: Teacher-Free Reliable Semi-supervised Medical Image Segmentation with Orthogonal Feature Disentanglement Net of Foreground-Background",
+    "authors": [
+      "Shao-feng Jiang",
+      "Zhe-yang Jing",
+      "Qin Lu",
+      "Huan-huan Shi",
+      "Zhen Chen",
+      "Cong-xuan zhang",
+      "Chen Yi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-18T08:39:40+00:00",
+    "updated": "2026-07-18T08:39:40+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Semi-supervised learning (SSL) is an effective solution for medical image segmentation with limited annotations. Existing SSL methods mainly rely on pseudo-labels generated by teacher-student supervision or cross-network consistency. However, these methods lack an explicit structural reference for judging pseudo-label quality. Low-quality pseudo-labels may lead to unreliable training, error accumulation and confirmation bias when processing unlabeled data with substantial appearance variations. To address this issue, we proposed OFD-Net, a teacher-free single-network framework for reliable semi-supervised medical image segmentation. OFD-Net employs an Orthogonal Feature Disentanglement Module (OFDM) to capture OFD features for reliable SSL by disentangling unlabeled data into background and foreground representations with a reliable structural distribution, thereby effectively reducing error accumulation and alleviating confirmation bias among unlabeled data. Specifically, OFD-Net explicitly employs a Disentanglement Guidance Module (DGM) to inject the resulting structural priors of foreground-background into the decoder by deformable convolution processing, and outputs predictions with clearer foreground representations. Based on DGM and the OFDM, we further develop a reliability-aware pseudo-label learning mechanism that evaluates unlabeled supervision according to the structural consistency between the main prediction and the disentangled foreground-background responses, and then down-weights unreliable regions during training. Extensive experiments on four public medical image segmentation benchmarks, namely ISIC-2016, Kvasir-SEG, Synapse, and ACDC, validate the effectiveness of OFD-Net. These results confirm that orthogonal foreground-background disentanglement enables OFD-Net to establish an efficient and reliable training paradigm within a teacher-free single-network framework.",
+    "html_url": "https://arxiv.org/abs/2607.16705v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.16705v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.15396v1",
+    "title": "Partial Information Decomposition as a Multi-Contrast 3D MRI Selection Strategy for Resource-Constrained Deep Neural Network Training in Brain Tumor Segmentation",
+    "authors": [
+      "Agamdeep Chopra",
+      "Mehmet Kurt"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-16T18:53:41+00:00",
+    "updated": "2026-07-16T18:53:41+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-contrast 3D MRI segmentation can be computationally demanding when all available sequences are used. We evaluate a pre-training Partial Information Decomposition framework that ranks input pairs according to their redundant, unique, and synergistic information about regional tumor burden and selects the highest-ranked pair for downstream training. Applied to T1n, T1c, T2w, and T2-FLAIR MRI, the framework selected T1c+T2-FLAIR. We then trained eleven architecturally identical lightweight 3D U-Nets using different input configurations. On an independent test cohort, T1c+T2-FLAIR was the strongest two-input configuration and ranked second overall in mean Dice (0.676 versus 0.687 for all four inputs). Independent Shapley analysis on the full-input model also identified T2-FLAIR and T1c as the most influential inputs and their pairwise interaction as the strongest. These findings demonstrate the practical value of PID based pre-training selection for identifying compact, informative MRI input sets before costly 3D model development.",
+    "html_url": "https://arxiv.org/abs/2607.15396v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.15396v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
