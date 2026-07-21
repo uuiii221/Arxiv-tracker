@@ -1,0 +1,157 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.15231v1",
+    "title": "CRISP: Constrained Refinement via Iterative Squeezing Process for Robust Medical Image Segmentation under Domain Shift",
+    "authors": [
+      "Yizhou Fang",
+      "Pujin Cheng",
+      "Yixiang Liu",
+      "Xiaoying Tang",
+      "Longxi Zhou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-16T17:32:26+00:00",
+    "updated": "2026-07-16T17:32:26+00:00",
+    "comments": "X pages, 3 figures, 3 tables; submitted to AAAI 2027",
+    "journal_ref": null,
+    "venue_inferred": "AAAI 2027",
+    "summary": "Distribution shift in medical imaging remains a central bottleneck for the clinical translation of medical AI. Failure to address it can lead to severe performance degradation in unseen environments and exacerbate health inequities. Existing methods for domain adaptation are inherently limited by exhausting predefined possibilities through simulated shifts or pseudo-supervision. Such strategies struggle in the open-ended and unpredictable real world, where distribution shifts are effectively infinite. To address this challenge, we adopt the \"Rank Stability of Positive Regions\" as a working assumption under distribution shift, and use it to derive robust spatial hints for source-only segmentation. Guided by this assumption, we propose CRISP, a model-agnostic framework that, unlike deployment-time adaptation, requires no test-time parameter updates and no target-domain data--a target-free, plug-in refinement framework that segments with frozen weights. Rather than using ranking to directly output masks, CRISP exploits the stability of probability rankings under distribution shift to derive robust spatial priors. Via latent feature perturbation, perturbation-invariant high-grade regions define a high-precision (HP) core, while voxels that remain potentially foreground under at least one perturbation define a high-recall (HR) support; these dual priors are then recursively refined under perturbation. We then design an iterative training framework that progressively squeezes HP and HR toward the final segmentation. Extensive evaluations on multi-center cardiac MRI and CT-based lung vessel segmentation demonstrate CRISP's superior robustness, significantly outperforming state-of-the-art methods with striking HD95 reductions of up to 0.14 (7.0% improvement), 1.90 (13.1% improvement), and 8.39 (38.9% improvement) pixels across multi-center, demographic, and modality shifts, respectively.",
+    "html_url": "https://arxiv.org/abs/2607.15231v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.15231v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.14870v1",
+    "title": "One-for-All Adaptive Radiotherapy Planning Agent: A Foundation Framework for Daily CBCT-guided Radiotherapy",
+    "authors": [
+      "Shaoyan Pan",
+      "Kirk Jon Luca",
+      "Yuan Gao",
+      "Shansong Wang",
+      "Mingzhe Hu",
+      "Ryan Sanford",
+      "Mojtaba Safari",
+      "Justin Roper",
+      "Zhen Tian",
+      "Tonghe Wang",
+      "Xiaofeng Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "physics.med-ph"
+    ],
+    "published": "2026-07-16T11:44:33+00:00",
+    "updated": "2026-07-16T11:44:33+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In this work, we introduce the One-for-All Adaptive Radiotherapy Planning Agent, a unified foundation-model-based system that performs complete, treatment-specific online adaptive planning directly from daily cone-beam CT in under two minutes. The agent first autonomously predicts all essential planning components, including synthetic CT generation, multimodal alignment, and tumor/organ segmentation. It then intelligently leverages these outputs to execute the final clinical plan design, providing a comprehensive, automated solution for daily treatment. We also demonstrate that the agent enables clinicians to define planning with intent and intervene at critical decision points, ensuring a \"human-in-the-loop\" framework that generates acceptable plans before final approval. Evaluated on multiple datasets spanning head-and-neck, lung, abdominal, and prostate cancers with both photon and proton therapy, the proposed framework achieves clinically acceptable accuracy and plan quality comparable to clinically generated treatment plans, with target dose errors (D98) generally within 2.0 Gy of the reference plan. The strong performance of the One-for-All agent highlights the promise of a unified foundation-model approach and opens opportunities for fast, scalable, and fully automated online adaptive radiotherapy across diverse clinical scenarios.",
+    "html_url": "https://arxiv.org/abs/2607.14870v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.14870v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.14328v1",
+    "title": "ViPSAM: Visual Prompting Medical Image Segmentation Using Segment Anything Model",
+    "authors": [
+      "San Lee",
+      "Nalee Kim",
+      "Jeong Il Yu",
+      "Hee Chul Park",
+      "Boah Kim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-07-15T19:46:32+00:00",
+    "updated": "2026-07-15T19:46:32+00:00",
+    "comments": "Accepted at MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "In proton therapy planning, respiratory-gated non-contrast CT (NCCT) is commonly used for lesion segmentation; however, accurate delineation remains challenging due to low lesion-to-background contrast. Although learning-based methods have shown strong performance, they often struggle with non-contrast image segmentation. Inspired by clinical practice, where contrast-enhanced MRI is referenced to delineate lesions on NCCT, we propose ViPSAM, a visual prompting framework that leverages complementary cross-modality information. Built upon the Segment Anything Model (SAM), ViPSAM introduces a visual prompt encoder to extract guidance features from contrast-enhanced images and a visual-guided cross-attention module to integrate non-contrast and contrast-enhanced features, thereby enhancing lesion-relevant representations in low-contrast regions. The mask decoder is further adapted in a parameter-efficient manner to utilize visual prompts effectively. We evaluate the proposed method on liver lesion segmentation using NCCT acquired for proton therapy. Experimental results demonstrate that ViPSAM outperforms representative U-Net- and SAM-based methods, indicating that cross-modality visual prompting enables more robust and accurate segmentation in non-contrast images.",
+    "html_url": "https://arxiv.org/abs/2607.14328v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.14328v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.16327v1",
+    "title": "Localization-Infused Vision-Language Semantic Fusion for Text-Guided Medical Image Segmentation",
+    "authors": [
+      "Songyue Han",
+      "Mingye Zou",
+      "Shuchang Ye",
+      "Lei Bi",
+      "Mingyuan Meng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-15T14:06:17+00:00",
+    "updated": "2026-07-15T14:06:17+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is essential for modern computer-aided medicine. Recently, text-guided segmentation has shown promise by incorporating clinician-formulated textual reports as semantic guidance for image segmentation. These reports describe target appearance, location, and neighboring anatomy, providing explicit guidance for localization and delineation. Existing text-guided segmentation methods typically extract textual semantics implicitly through a pretrained text encoder and then integrate vision-language semantics via straightforward image-text feature fusion. However, these methods do not explicitly capture target-oriented information embedded in textual reports, particularly target location, and do not explore multi-level information fusion strategies beyond basic feature-level fusion, limiting the extraction and integration of critical textual semantics. In this study, we propose LoG, a localization-infused vision-language fusion framework for text-guided medical image segmentation. By jointly performing multi-scale target localization tasks, LoG explicitly captures target-oriented vision-language semantics and enables three-level localization-infused semantic fusion: (i) localization-guided feature fusion that directly infuses location-relevant semantics into visual features, (ii) localization-gated attention fusion that redirects multi-scale localization predictions to reinforce critical regions, and (iii) localization-constrained loss fusion that supervises segmentation based on spatial consistency with target localization. Extensive experiments on three benchmark datasets, involving three medical imaging modalities with paired textual reports, demonstrate that LoG achieves Dice scores of 91.59%, 80.71%, and 94.59% on QaTa-COV19, MosMedData+, and Kvasir-SEG, respectively, consistently outperforming state-of-the-art medical image segmentation methods.",
+    "html_url": "https://arxiv.org/abs/2607.16327v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.16327v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.13506v1",
+    "title": "TRACE-PCa: Predicting Prostate Cancer Progression from Longitudinal MRI During Active Surveillance",
+    "authors": [
+      "Hongye Zeng",
+      "Shreeram Athreya",
+      "Dingyuan Dai",
+      "Steve Raman",
+      "Leonard Marks",
+      "William Speier",
+      "Corey Arnold"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-15T07:00:50+00:00",
+    "updated": "2026-07-15T07:00:50+00:00",
+    "comments": "7 pages, 4 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Active surveillance (AS) is the preferred strategy for favorable-risk prostate cancer, yet current protocols rely on scheduled repeat biopsies, most of which reveal no progression and are unnecessary. Existing risk-stratification tools operate on single time-point imaging or depend on explicit lesion segmentation, limiting their ability to capture longitudinal change and excluding patients without an MRI-visible lesion. In this study, we propose an end-to-end temporal and multimodal model for predicting pathological progression during AS without lesion segmentation. We encode each serial scan with a pretrained 3D MRI foundation model and introduce a temporal attention gate that recalibrates the multi-visit features to amplify focal imaging changes associated with progression. The gated imaging representation is then fused with clinical variables in a multimodal framework to estimate the probability of progression. Validated on a longitudinal AS cohort, our approach consistently outperforms competing baselines and performs comparably to the radiologist assessment representing current clinical practice. It maintains high negative predictive value while achieving higher positive predictive value, demonstrating its potential to safely reduce unnecessary biopsies during surveillance.",
+    "html_url": "https://arxiv.org/abs/2607.13506v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.13506v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
