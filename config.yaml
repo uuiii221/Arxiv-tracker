@@ -7,26 +7,11 @@ categories:
 
 keywords:
   - "medical image segmentation"
-  - "medical segmentation"
-  - "biomedical image segmentation"
   - "organ segmentation"
   - "lesion segmentation"
   - "tumor segmentation"
-  - "anatomical segmentation"
-  - "volumetric segmentation"
-  - "CT segmentation"
-  - "MRI segmentation"
-  - "ultrasound segmentation"
-  - "pathology image segmentation"
 
-exclude_keywords:
-  - "remote sensing"
-  - "autonomous driving"
-  - "street scene"
-  - "point cloud"
-  - "video segmentation"
-  - "natural image segmentation"
-  - "satellite image"
+exclude_keywords: []
   
 logic: "AND"                 # 组间逻辑：categories 与 keywords 间 AND/OR
 max_results: 5
