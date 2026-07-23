@@ -1,0 +1,151 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.19901v1",
+    "title": "StrokeSeg2: Stroke Lesion Segmentation in Clinical Research Workflows",
+    "authors": [
+      "Youwan Mahé",
+      "Axel Plessis",
+      "Stéphanie Leplaideur",
+      "Elise Bannier",
+      "Florent Leray",
+      "Francesca Galassi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-22T08:35:19+00:00",
+    "updated": "2026-07-22T08:35:19+00:00",
+    "comments": "",
+    "journal_ref": "Efficient Medical AI (EMA4MICCAI) Workshop 2026, Oct 2026, Strasbourg, France",
+    "venue_inferred": null,
+    "summary": "Deep learning frameworks like nnU-Net achieve state-of-theart brain lesion segmentation performance but remain difficult to deploy in clinical research environments due to, among other reasons, software dependencies and computational requirements. We introduce StrokeSeg2, a lightweight, modular, cross-platform C++/Qt framework designed to adapt resource-intensive 3D stroke segmentation pipelines into portable and reproducible applications. To improve compatibility with standard clinical workstations, we investigate the combined effect of architectural compression through knowledge distillation and inference optimisation using ONNX Runtime with Float16 quantisation. Across heterogeneous hardware configurations (CPU, integrated GPU, and dedicated GPU) architectural distillation emerged as the primary contributor to efficiency gains, contributing to over 90% reduction in energy consumption and an average 84% reduction in inference time. Specifically, we identify a 0.84M-parameter student model as the most favourable trade-off, reducing the original 102.3M-parameter teacher architecture to a 2.1 MB disk footprint while preserving robust lesion localisation and competitive segmentation performance. This small footprint supports the development of a self-contained installer for clinical workstation targets. Finally, StrokeSeg2 packages these optimisations into standalone installers for Windows, macOS, and Linux. By providing both graphical and commandline interfaces without Docker or external environment dependencies, StrokeSeg2 facilitates deployment of high-performance segmentation workflows for routine clinical research pipelines.",
+    "html_url": "https://arxiv.org/abs/2607.19901v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.19901v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.12896v1",
+    "title": "UniMedSeg: Unified In-Context Learning for Multi-Paradigm 2D/3D Medical Image Segmentation",
+    "authors": [
+      "Yunzhou Li",
+      "Jiesi Hu",
+      "Yanwu Yang",
+      "Hanyang Peng",
+      "Chenfei Ye",
+      "Jianfeng Cao",
+      "Yixuan Yuan",
+      "Ting Ma"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-14T15:34:46+00:00",
+    "updated": "2026-07-14T15:34:46+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation foundation models are expected to generalize across diverse clinical scenarios, yet existing universal methods remain fragmented by prompt paradigms and spatial dimensions. Visual in-context learning, interactive segmentation, and language-guided segmentation are typically handled by paradigm-specific models, while 2D and 3D images are also modeled separately. Such isolation prevents heterogeneous annotations and data from being jointly absorbed by a single scalable model and limits cross-paradigm knowledge transfer. To address this bottleneck, we propose UniMedSeg, a Transformer-centric universal segmentation framework that maps visual examples, geometric interactions, language instructions, and 2D/3D images into a shared sequence space, enabling heterogeneous medical supervision to be jointly learned through a unified in-context interface without prompt- or dimension-specific branches. To overcome the long-sequence memory bottleneck caused by visual contexts, we introduce Decoupled Split Attention, which reduces attention complexity to linear while preserving hardware-friendly computation and focused context-target interaction. Extensively trained and evaluated on a large corpus curated from 27 public datasets, UniMedSeg achieves state-of-the-art performance across visual in-context, interactive, and language-guided segmentation without task-specific fine-tuning, demonstrating strong generalization on diverse held-out tasks. The code and model weights are publicly available at https://github.com/Lii1228/UniMedSeg",
+    "html_url": "https://arxiv.org/abs/2607.12896v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.12896v1",
+    "code_urls": [
+      "https://github.com/Lii1228/UniMedSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.12684v1",
+    "title": "Lesion Segmentation in Moderate to Severe Traumatic Brain Injury: An nnU-Net Based Approach with Adaptive Normalization in the AIMS-TBI 2025 Challenge",
+    "authors": [
+      "Inhwa Son",
+      "Gaeun Lee",
+      "Sohyeon Sim",
+      "Kwang-Hyun Uhm"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-14T12:10:54+00:00",
+    "updated": "2026-07-14T12:10:54+00:00",
+    "comments": "2nd place, AIMS-TBI Challenge at MICCAI 2025",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2025",
+    "summary": "The segmentation of lesions in Moderate to Severe Traumatic Brain Injury (msTBI) from T1-weighted MRI presents a significant clinical challenge due to the profound heterogeneity of lesion characteristics in terms of size, shape, and location. To address this, the AIMS-TBI 2025 Challenge was organized to promote the development of robust and accurate segmentation algorithms. In this paper, we present our deep learning-based solution. Our methodology employs the nnU-Net framework with an adaptive intensity normalization strategy confined to the brain parenchyma, effectively reducing inter-subject variability and mitigating artifacts from non-brain structures. Upon final evaluation on the held-out test set, our method demonstrated highly competitive performance on the official leaderboard, achieving an Overall Dice Coefficient of 0.6305. The model obtained a Dice score of 0.4805 for lesion segmentation and 0.9324 for non-lesion tissue. While the lesion Dice reflects the difficulty of detecting highly heterogeneous lesions, the high non-lesion Dice primarily indicates the model's strong ability to correctly identify non-lesion voxels, demonstrating good specificity in differentiating lesion from non-lesion regions. These results demonstrate that incorporating anatomically constrained normalization within the nnU-Net pipeline is a powerful and effective strategy for tackling the complexities of msTBI lesion segmentation.",
+    "html_url": "https://arxiv.org/abs/2607.12684v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.12684v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.12602v1",
+    "title": "Decouple and Reason: Anatomically Guided Two-Stage Voxel-Level Grounding of Free-Text Findings in 3D Chest CT",
+    "authors": [
+      "Kwang-Hyun Uhm",
+      "Inhwa Son",
+      "Sung-Jea Ko"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-14T10:26:14+00:00",
+    "updated": "2026-07-14T10:26:14+00:00",
+    "comments": "Accepted to MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Automatic voxel-level grounding of free-text findings in 3D chest Computed Tomography (CT) is critical for clinical interpretability. However, this task remains highly challenging due to the intricate spatial complexity of large 3D volumes and the heterogeneity of free-text findings. Existing end-to-end approaches often struggle to simultaneously learn the localized feature representations required for accurate 3D segmentation and the complex semantic understanding needed for text alignment, leading to suboptimal grounding performance. To overcome this fundamental limitation, we propose a novel decoupled framework that disentangles the problem into two specialized stages: (1) class-agnostic lesion segmentation and (2) text-volume reasoning. This structural separation allows the model to first extract candidate sub-volumes by localizing potential abnormalities. Subsequently, intensive cross-modal reasoning is performed to align these localized sub-volumes with free-text medical findings. To resolve the spatial ambiguities inherent in local regions, the reasoning module is augmented with explicit anatomical guidance, utilizing relative spatial coordinates and lung lobe priors. Evaluated on the ReXGroundingCT benchmark, our method achieves state-of-the-art performance in overall grounding quality on the official leaderboard. These results demonstrate that decoupling detection from reasoning is a highly effective paradigm for handling the complexity of 3D medical visual grounding. Our code is publicly available at https://github.com/khuhm/DAGG.",
+    "html_url": "https://arxiv.org/abs/2607.12602v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.12602v1",
+    "code_urls": [
+      "https://github.com/khuhm/DAGG",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.12586v1",
+    "title": "Medical Image Segmentation based on Deep Active Contour and Mean Curvature Loss Function",
+    "authors": [
+      "Xiao-qiang Zhai",
+      "Zhi-feng Pang",
+      "Peng Zheng",
+      "Ze-wen Li",
+      "Yan-zhe Hou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-07-14T09:56:03+00:00",
+    "updated": "2026-07-14T09:56:03+00:00",
+    "comments": "15 pages, 4 figures. Keywords: medical image segmentation, curvature regularization, loss function, active contour model, mean curvature, deep learning. Under review at Biomedical Signal Processing and Control",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a crucial task in the field of clinical analysis and applications. Though deep learning techniques recently play a crucial role in several scenarios, the training at the individual pixel level leads to a lack of geometric prior information. Scholars proposed to integrate the Chan-Vese model into the loss function for training which can take into account the region and length of the region inside and outside the segmentation process and then improve the performance in medical image segmentation. However, these methods still lack an effective characterization of the segmented region. To overcome this problem, we introduce the mean curvature as a geometric natural constraint and propose a Deep Active Contour and Mean Curvature (DACMC) loss function where the convolution kernel is used to approximate the mean curvature to save computational cost. We have validated the performance of our method on the liver and spleen dataset. Our proposed method demonstrates new state-of-the-art performance on several segmentation datasets.",
+    "html_url": "https://arxiv.org/abs/2607.12586v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.12586v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
