@@ -1,6 +1,8 @@
 {
   "ids": [
+    "http://arxiv.org/abs/2511.09588v3",
     "http://arxiv.org/abs/2512.08216v4",
+    "http://arxiv.org/abs/2607.11096v1",
     "http://arxiv.org/abs/2607.12586v1",
     "http://arxiv.org/abs/2607.12602v1",
     "http://arxiv.org/abs/2607.12684v1",
@@ -19,6 +21,9 @@
     "http://arxiv.org/abs/2607.18763v1",
     "http://arxiv.org/abs/2607.18773v1",
     "http://arxiv.org/abs/2607.19137v1",
-    "http://arxiv.org/abs/2607.19901v1"
+    "http://arxiv.org/abs/2607.19901v1",
+    "http://arxiv.org/abs/2607.20557v1",
+    "http://arxiv.org/abs/2607.20583v1",
+    "http://arxiv.org/abs/2607.20955v1"
   ]
 }

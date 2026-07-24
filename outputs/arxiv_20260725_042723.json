@@ -1,0 +1,169 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.20955v1",
+    "title": "FSB-Net: Frequency-Spatial Boundary Network for Brain Stroke Lesion Segmentation in Non-Contrast CT",
+    "authors": [
+      "Linke Fan",
+      "Xianglong Li",
+      "Huixin Huang",
+      "Kai Shu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-23T06:31:38+00:00",
+    "updated": "2026-07-23T06:31:38+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate segmentation of brain stroke lesions in non-contrast computed tomography (NCCT) scans is critical for rapid clinical decision-making, yet remains difficult due to the low contrast between lesion and normal brain tissue, heterogeneous lesion morphology across ischemic and hemorrhagic subtypes, and ambiguous boundaries caused by partial volume effects. Current deep learning approaches primarily optimize region-level overlap but lack explicit boundary modeling, leading to imprecise delineation that can affect volumetric assessment and treatment planning. We propose FSB-Net, a frequency-spatial boundary network that leverages frequency-domain analysis for boundary-aware stroke lesion segmentation. FSB-Net introduces three components: (i) a Wavelet Boundary Detection Head (WBDH) that applies the discrete wavelet transform to multi-scale encoder features, extracting high-frequency sub-bands as boundary representations; (ii) a Frequency-Spatial Cross-Attention Module (FSCAM) that performs bidirectional attention between wavelet boundary features and spatial decoder features for selective boundary enhancement; and (iii) a Spectral Boundary Loss that penalizes high-frequency discrepancies in the Fourier domain to optimize boundary sharpness. Built on a PVTv2-B2 encoder, FSB-Net is evaluated on a public Brain Stroke CT dataset containing both ischemic and hemorrhagic cases. Experimental results show that FSB-Net outperforms U-Net, UNet++, MANet, and DeepLabV3+ across all metrics, achieving state-of-the-art performance in mean Dice, mean IoU, and HD95.",
+    "html_url": "https://arxiv.org/abs/2607.20955v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.20955v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.20583v1",
+    "title": "Foundation-model-guided radiogenomic discovery linking cancer genomes to cancer scans",
+    "authors": [
+      "Frederik Hauke",
+      "Jeremias Krause",
+      "Patrick Wienholt",
+      "Christiane Kuhl",
+      "Ingo Kurth",
+      "Sikander Hayat",
+      "Jakob Nikolas Kather",
+      "Sven Nebelung",
+      "Daniel Truhn"
+    ],
+    "primary_category": null,
+    "categories": [
+      "q-bio.GN",
+      "cs.AI"
+    ],
+    "published": "2026-07-22T12:20:58+00:00",
+    "updated": "2026-07-22T12:20:58+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The function of many genes is still unknown, and conventional driver-discovery methods, which rely on how frequently a gene is mutated, cannot assess genes that are only rarely affected. Here we pair Evo~2-based genome analysis with routine clinical imaging to identify gene--phenotype associations at genome-wide scale. For every somatic mutation across three TCGA cohorts (cRCC=clear cell renal cell carcinoma, HCC=hepatocellular carcinoma, and BC=breast cancer; $n = 340$ total), Evo~2 predicts a severity score, with no task-specific training. Per-gene severity summaries are then correlated with radiomic features extracted from paired tumor segmentations, controlling for total mutation burden. In TCGA-cRCC ($n = 162$), this sweep recovers established renal-cancer drivers and identifies 46 additional genes reaching false discovery rate (FDR) significance absent from curated cancer-gene panels, several of which are Mendelian ciliopathy and cytoskeletal-disease genes. These results demonstrate that pairing a genomic language model with widely available clinical imaging can serve as a hypothesis-free discovery tool for gene--imaging associations invisible to conventional approaches.",
+    "html_url": "https://arxiv.org/abs/2607.20583v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.20583v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.20557v1",
+    "title": "Monkey King Bang: A Unified Scientific Multimodal Foundation Model",
+    "authors": [
+      "Hesen Chen",
+      "Xinyu Su",
+      "Xiaomeng Yang",
+      "Yuetan Lin",
+      "Zixiong Yang",
+      "Junyi An",
+      "Fenglei Cao",
+      "Yifeng Jiao",
+      "Yunqi Zhang",
+      "Yuan Cheng",
+      "Zhiyu Tan",
+      "Hao Li",
+      "Libo Wu",
+      "Yuan Qi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "published": "2026-07-17T13:56:50+00:00",
+    "updated": "2026-07-17T13:56:50+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Scientific discovery is increasingly shifting from isolated disciplines to multi-domain reasoning, and AI for science faces a similar transition. Existing systems are either specialised for individual domains or unify scientific data mainly through text tokenisation and prompt-based interfaces, limiting their ability to handle diverse scientific inputs, produce modality-native outputs, and support joint understanding, reasoning, and generation across scientific domains. We introduce MKB, a unified scientific multimodal model for both understanding and generation, built around a shared Transformer backbone and modality-tailored encoders, adapters, and decoders. MKB covers six scientific branches, including DNA, RNA, proteins, small molecules, earth science, and medical images, and supports native outputs such as biological sequences, molecular strings, meteorological fields, and segmentation masks. Training follows a two-stage modality-then-language curriculum: Stage 1 aligns modality-specific components with the frozen backbone, and Stage 2 consolidates them with the language backbone using mixed scientific and general corpora. Experiments show that MKB achieves competitive scientific understanding across biological and molecular benchmarks, produces high-fidelity native outputs for weather forecasting, biological generation, and medical-image segmentation, and largely retains the general capabilities of its Qwen3-VL backbone. These results demonstrate the feasibility of the proposed paradigm, suggesting that shared-backbone models with modality-tailored components can provide a promising foundation for future cross-domain scientific multimodal exploration. The model and code are publicly available at https://github.com/Shanghai-Academy-of-AI-For-Science/MKB and https://huggingface.co/sais-org/MKB.",
+    "html_url": "https://arxiv.org/abs/2607.20557v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.20557v1",
+    "code_urls": [
+      "https://github.com/Shanghai-Academy-of-AI-For-Science/MKB",
+      "https://huggingface.co/sais-org/MKB",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.09588v3",
+    "title": "Diffusion-Based Quality Control of Medical Image Segmentations across Organs",
+    "authors": [
+      "Vincenzo Marcianò",
+      "Hava Chaptoukaev",
+      "Virginia Fernandez",
+      "M. Jorge Cardoso",
+      "Sébastien Ourselin",
+      "Michela Antonelli",
+      "Maria A. Zuluaga"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "q-bio.QM"
+    ],
+    "published": "2025-11-12T13:24:53+00:00",
+    "updated": "2026-07-13T09:32:57+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation using deep learning (DL) has enabled the development of automated analysis pipelines for large-scale population studies. However, state-of-the-art DL methods are prone to hallucinations, which can result in anatomically implausible segmentations. With manual correction impractical at scale, automated quality control (QC) techniques have to address the challenge. While promising, existing QC methods are organ-specific, limiting their generalizability and usability beyond their original intended task. To overcome this limitation, we propose no-new Quality Control (nnQC), a robust QC framework based on a diffusion-generative paradigm that self-adapts to any input organ dataset. Central to nnQC is a novel Team of Experts (ToE) architecture, where two specialized experts independently encode 3D spatial awareness, represented by the relative spatial position of an axial slice, and anatomical information derived from visual features from the original image. A weighted conditional module dynamically combines the pair of independent embeddings, or opinions to condition the sampling mechanism within a diffusion process, enabling the generation of a spatially aware pseudo-ground truth for predicting QC scores. Within its framework, nnQC integrates fingerprint adaptation to ensure adaptability across organs, datasets, and imaging modalities. We evaluated nnQC on seven organs using twelve publicly available datasets. Our results demonstrate that nnQC consistently outperforms state-of-the-art methods across all experiments, including cases where segmentation masks are highly degraded or completely missing, confirming its versatility and effectiveness across different organs.",
+    "html_url": "https://arxiv.org/abs/2511.09588v3",
+    "pdf_url": "https://arxiv.org/pdf/2511.09588v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.11096v1",
+    "title": "Difference-Driven Gating: Adaptive Feature Fusion for U-Net Decoder",
+    "authors": [
+      "Kai Li",
+      "Xuechao Zou",
+      "Jiashen Fu",
+      "Zijun Yan",
+      "Xintong Wang",
+      "Xiaolin Hu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.SD",
+      "stat.ML"
+    ],
+    "published": "2026-07-13T05:06:35+00:00",
+    "updated": "2026-07-13T05:06:35+00:00",
+    "comments": "15 pages, 13 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The U-Net style models have been widely used in many applications. A critical step in these models is to reconstruct the lower-level features using a top-down decoder. This reconstruction requires precise fusion of high-level semantics and low-level details. Existing attention-based fusion methods typically derive attention weights from the top-down decoder features (global) alone or the correlation between the top-down decoder features and the bottom-up encoder features (local), then modulate the encoder features using these weights. In this work, we explore a different paradigm: deriving attention weights from the difference between the two feature streams. To this end, we propose two difference-based gating approaches: Feature-difference gating (FDG), which directly uses the absolute difference between global and local features to generate adaptive gating maps, and Entropy-difference gating (EDG), which measures the representational certainty of each stream via information entropy and uses their signed entropy difference to derive the attention weights. Both methods produce coupled gating maps that simultaneously modulate the global and local features. Experiments on different tasks including medical image segmentation, remote sensing image cloud removal and speech separation showed that both methods outperformed existing attention-based fusion methods, and EDG performed better. The results suggested a new paradigm for multi-scale feature fusion in the U-Net style structures.",
+    "html_url": "https://arxiv.org/abs/2607.11096v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.11096v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
