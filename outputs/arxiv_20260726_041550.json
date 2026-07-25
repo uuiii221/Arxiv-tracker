@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.11962v1",
+    "title": "Contrastive Joint-Embedding Prediction for Representation Learning in Structural MRI",
+    "authors": [
+      "Fabian Mager",
+      "Lars Kai Hansen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-07-12T10:48:13+00:00",
+    "updated": "2026-07-12T10:48:13+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Self-supervised learning offers a compelling approach for medical imaging, where labeled data are scarce and acquisition costs are high. We present COJEPA, a self-supervised framework for volumetric brain MRI that combines a joint-embedding predictive architecture (JEPA) with a contrastive loss (CO), targeting two complementary properties: local predictivity and global discriminability. The model is trained without labels on T1-weighted structural MRI from two cohorts (HCP-YA and AABC, $N{=}2286$, ages 22 to 90), extending I-JEPA to 3D with foreground-aware block masking, a hierarchical convolutional patch embedding, and world-space sinusoidal positional encodings. We evaluate all three objectives across zero-shot twin retrieval, brain tumor segmentation (BraTS 2024), and age regression (OpenBHB). COJEPA achieves the best monozygotic twin recall at rank@1 (0.84), the best finetuning age MAE (2.55 years on OpenBHB 3.0T), and matches CO on BraTS whole-tumor Dice, demonstrating that the combined objective yields representations that are simultaneously discriminative and locally structured.",
+    "html_url": "https://arxiv.org/abs/2607.11962v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.11962v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.15271v3",
+    "title": "SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation",
+    "authors": [
+      "Tianhao Fu",
+      "Austin Wang",
+      "Charles Chen",
+      "Roby Aldave-Garza",
+      "Yucheng Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-04-16T17:42:42+00:00",
+    "updated": "2026-07-10T19:43:23+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Reliable uncertainty estimation is critical for medical image segmentation, where automated contours feed downstream quantification and clinical decision support. Many strong uncertainty methods require repeated inference, while efficient single-forward-pass alternatives often provide weaker failure ranking or rely on restrictive feature-space assumptions. We present $\\textbf{SegWithU}$, a post-hoc framework that augments a frozen pretrained segmentation backbone with a lightweight uncertainty head. SegWithU taps intermediate backbone features and models uncertainty as perturbation energy in a compact probe space using rank-1 posterior probes. It produces two voxel-wise uncertainty maps: a calibration-oriented map for probability tempering and a ranking-oriented map for error detection and selective prediction. Across ACDC, BraTS2024, and LiTS, SegWithU is the strongest and most consistent single-forward-pass baseline, achieving AUROC/AURC of $0.9838/2.4885$, $0.9946/0.2660$, and $0.9925/0.8193$, respectively, while preserving segmentation quality. These results suggest that perturbation-based uncertainty modeling is an effective and practical route to reliability-aware medical segmentation.\n  Source code is available at https://github.com/ProjectNeura/SegWithU.",
+    "html_url": "https://arxiv.org/abs/2604.15271v3",
+    "pdf_url": "https://arxiv.org/pdf/2604.15271v3",
+    "code_urls": [
+      "https://github.com/ProjectNeura/SegWithU",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.09892v1",
+    "title": "Next-Dense-Stride Prediction for Multimodal Autoregressive Visual Modeling",
+    "authors": [
+      "Chicago Y. Park",
+      "Jialin Mao",
+      "Xiaojian Xu",
+      "Taha Kass-Hout",
+      "Ulugbek S. Kamilov",
+      "Cao Xiao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI"
+    ],
+    "published": "2026-07-10T18:32:27+00:00",
+    "updated": "2026-07-10T18:32:27+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We introduce DenseAR, a new generative paradigm that reformulates autoregressive image generation as coarse-to-fine next-dense-stride prediction using a compact single-scale tokenizer. Our key insight is that traversing a single-scale latent grid with progressively denser strides naturally captures the transition from global structure to fine detail. This addresses two limitations of existing autoregressive models at once: the slow inference of raster-order autoregression, which DenseAR avoids by predicting multiple tokens in parallel, and the heavy cost of multi-scale approaches, which need long, multi-resolution token sequences to achieve coarse-to-fine prediction. Building on our efficient framework and the flexibility of autoregressive modeling, we further extend DenseAR to a unified model that handles multiple modalities and imaging tasks within a single backbone. We validate DenseAR on both medical and natural images. On multi-contrast brain MRI, a single DenseAR model unifies cross-modal translation, modality-conditioned generation, and tumor segmentation, while remaining competitive with task-specific methods. On ImageNet, DenseAR improves class-conditional generation quality (FID and IS) over both a single-grid baseline without stride ordering and a multi-scale tokenizer-based baseline.",
+    "html_url": "https://arxiv.org/abs/2607.09892v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.09892v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.09481v1",
+    "title": "Decoupling Language Guidance from Backbones for Text-Guided Medical Segmentation",
+    "authors": [
+      "Yungeng Liu",
+      "Xuanzi Fang",
+      "Haijin Zeng",
+      "Qi Dai",
+      "Yongyong Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-10T14:57:36+00:00",
+    "updated": "2026-07-10T14:57:36+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Text-guided medical image segmentation leverages clinical semantics to improve lesion delineation, yet many existing models bind cross-modal fusion, supervision, and decoder design into a task-specific architecture. Such tight coupling makes it difficult to reuse language guidance modules across heterogeneous vision and text backbones, and often requires redesigning the network when the encoder pair changes. This paper presents BTHA, a backbone-transferable hierarchical adapter framework for text-guided medical image segmentation. BTHA is built around a stable feature-level interface: given multi-scale visual features and a text representation, it injects semantic guidance through shape-preserving adapters while maintaining the decoder-side tensor contract. To make this interface effective, we introduce a Hierarchical Coarse-to-Fine Supervision Strategy that decomposes learning into global image-text alignment, multi-scale auxiliary localization, and boundary-aware final mask refinement. We further design a Scale-Adaptive Gated Semantic Guidance (SAGSG) adapter, where resolution-specific gates adaptively control textual injection and channel recalibration suppresses redundant cross-modal responses. Evaluations across diverse vision and text backbones show that the same adapter and supervision design remains effective across convolutional and transformer-based visual encoders as well as different language encoders. Experiments on four public datasets further demonstrate that BTHA improves strong text-guided baselines with modest computational overhead.",
+    "html_url": "https://arxiv.org/abs/2607.09481v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.09481v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.01115v2",
+    "title": "LUMOS: Latent Universal Medical Priors for Segmentation",
+    "authors": [
+      "Zhuonan Liang",
+      "Wei Guo",
+      "Jie Gan",
+      "Yaxuan Song",
+      "Runnan Chen",
+      "Hang Chang",
+      "Weidong Cai"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-01T13:55:34+00:00",
+    "updated": "2026-07-10T14:42:18+00:00",
+    "comments": "13 pages, 10 figures, 12 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "General vision foundation models (VFMs) have been primarily developed on natural images, and their utility for medical image segmentation is therefore often considered to depend on costly adaptation or domain-specific fine-tuning. In this paper, we revisit this assumption from a different perspective: rather than requiring VFM segmentors to relearn visual regularities, we investigate whether the low-level visual priors necessary for anatomical delineation already lie dormant within general VFMs. We observe that frozen VFMs, despite lacking medical supervision, encode transferable visual regularities. These properties are not exclusive to natural images but are also fundamental to medical image understanding. Motivated by this observation, we propose Latent Universal Medical PriOrs for Segmentation (LUMOS), a novel framework that amplifies general VFM priors to conventional medical segmentors. LUMOS consists of two key components: (1) Pathfinder that distills visual cues from a frozen vision foundation model, and (2) Inspiror that sparks the conventional medical networks with spatial guidance from distilled visual regularities. In this way, the segmentor is relieved from learning complex visual regularities entirely from limited medical annotations and can instead focus on task-specific anatomical delineation. Across diverse medical datasets and token-based VFMs, LUMOS shows that general VFMs can serve as spatial prior generators when their frozen token spaces preserve patch-level pattern relevance. DINO provides stable matched-backbone gains, while SigLIP exposes VFM-specific sensitivity caused by its different token granularity and representation objective.",
+    "html_url": "https://arxiv.org/abs/2603.01115v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.01115v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
