@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.08679v1",
+    "title": "Multi-Resolution Feature Stem for Diabetic Retinopathy lesion segmentation",
+    "authors": [
+      "Indranil Dutta",
+      "Taehee Jeong"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-09T16:42:23+00:00",
+    "updated": "2026-07-09T16:42:23+00:00",
+    "comments": "2026 International Conference on Advances in Artificial Intelligence and Machine Learning (AAIML), 20-22 March 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Diabetic Retinopathy (DR) is a leading cause of preventable blindness worldwide, requiring automated lesion segmentation using deep learning models for early detection and monitoring. However, DR lesions vary dramatically in size from tiny microaneurysms to large hemorrhages and exudates. This variability creates conflicting demands on the model architecture and input resolution, posing a challenge for effective design. This work investigates the impact of input resolution on different lesion types. Through systematic experimentation with multiple architectures (U-Net, UNet++, Vision Transformers, DeepLabV3+) at $512 \\times 512$ and $1024 \\times 1024$ resolutions, we identify a critical, counter-intuitive phenomenon where increasing input resolution has opposing effects on different lesion types. We demonstrate that while higher resolution is essential for resolving fine-grained microaneurysms, it can unexpectedly degrade performance on larger hemorrhages. This finding challenges the common assumption that higher resolution is uniformly beneficial. To address this, we propose a novel Multi-Resolution Feature Stem, an input-level pyramid integrated with a UNet++ backbone. This architecture processes multiple scales in parallel, capturing fine-grained details without sacrificing contextual information. This work contributes crucial empirical evidence of this complex, resolution-dependent behavior and a practical, parameter-efficient architecture that successfully resolves this trade-off.",
+    "html_url": "https://arxiv.org/abs/2607.08679v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.08679v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.07416v1",
+    "title": "VCDP: Variation-Conditioned Distributional Proxy Learning for Semi-Supervised Medical Image Segmentation",
+    "authors": [
+      "Zimu Zhang",
+      "Yiheng Zhong",
+      "Zhuoru Zhang",
+      "Yingzhen Hu",
+      "Yanan He",
+      "Fanliang Meng",
+      "Xiaofeng Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-08T13:46:53+00:00",
+    "updated": "2026-07-08T13:46:53+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Semi-supervised 3D medical image segmentation reduces the need for dense voxel-level annotations by exploiting unlabeled volumes. Although existing methods such as consistency regularization, pseudo-labeling, and co-training improve prediction-level robustness, they often provide insufficient feature-space organization for anatomically complex structures, especially small organs and ambiguous boundary regions with large intra-class variations. To address this issue, we propose Variation-Conditioned Distributional Proxy Learning (VCDP), a plug-and-play training-only regularization module for semi-supervised 3D medical image segmentation. VCDP represents each class with a learnable Gaussian distribution for shared class semantics and multiple variation prototypes for fine-grained intra-class patterns. A unified variation-conditioned compatibility score is further formulated to fuse distributional similarity and soft variation aggregation, guiding voxel embeddings to align with both global organ identity and local anatomical variations. VCDP is attached to decoder features during training and removed during inference, introducing no additional inference cost. Experiments on multi-organ segmentation benchmarks show that VCDP improves most evaluated baselines, particularly for small, ambiguous, and highly variable organs. Our anonymous code is released at https://anonymous.4open.science/r/VCDP_code-41ED.",
+    "html_url": "https://arxiv.org/abs/2607.07416v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.07416v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://anonymous.4open.science/r/VCDP_code-41ED"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.07038v1",
+    "title": "TRACE-Seg3D: Counterfactual Context Auditing For Robust 3D Glioma Segmentation Under Institutional Shift",
+    "authors": [
+      "Nguyen Linh Dan Le",
+      "Nguyen Pham Hoang Le",
+      "Tran Dang Khoi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-08T06:15:14+00:00",
+    "updated": "2026-07-08T06:15:14+00:00",
+    "comments": "16 pages, 5 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation models can achieve strong benchmark performance while remaining sensitive to scanner, protocol, and institutional variation. These context shifts alter image appearance without changing the underlying lesion, allowing models to exploit nuisance cues that Dice and HD95 fail to expose. We present TRACE-Seg3D, a counterfactual context auditing framework for robust 3D medical image segmentation. TRACE-Seg3D preserves lesion-relevant evidence and systematically varies imaging context to quantify prediction stability under controlled context shifts. The framework pairs each segmentation with audit evidence for context sensitivity and anatomical plausibility, enabling case-level reliability assessment beyond overlap-based evaluation. Experiments on BraTS and UTSW glioma segmentation benchmarks demonstrate competitive in-distribution and cross-domain performance. TRACE-Seg3D also exposes context-sensitive failure modes missed by conventional metrics. These results establish counterfactual context auditing as a practical route toward transparent and reliable 3D medical image segmentation under distribution shift. Our code is available at https://github.com/danleneurocom/Counterfactual-Representation-Network.",
+    "html_url": "https://arxiv.org/abs/2607.07038v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.07038v1",
+    "code_urls": [
+      "https://github.com/danleneurocom/Counterfactual-Representation-Network",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.07019v1",
+    "title": "SHTA: Semantic Hard Token Correction and Center Alignment for Semi-Supervised Medical Image Segmentation",
+    "authors": [
+      "Zhuoru Zhang",
+      "Yiheng Zhong",
+      "Zimu Zhang",
+      "Xiaofeng Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-08T05:30:24+00:00",
+    "updated": "2026-07-08T05:30:24+00:00",
+    "comments": "9 pages, 7 figures, 4 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Recent advances in semi-supervised medical image segmentation have achieved remarkable performance through prediction consistency, pseudo-label supervision, and hard-region supervision. However, these methods primarily improve supervision quality rather than explicitly enforcing semantic consistency in the learned representations of hard regions. Consequently, even under increasingly stronger prediction-level supervision, difficult regions exhibiting unstable semantic assignment often fail to establish semantically consistent representations during training, thereby limiting further segmentation improvement. To address this issue, we propose SHTA (Semantic Hard Token Correction and Center Alignment), a lightweight training-time semantic representation branch. Instead of introducing additional prediction supervision, SHTA refines intermediate semantic representations through Semantic Assignment, Hard Token Refinement, and Semantic Center Alignment, thereby improving semantic consistency in hard regions while preserving the original prediction pathway and introducing no additional inference cost. We integrate SHTA into representative semi-supervised segmentation frameworks, including GA-CPS, CPS, URPC, and MagicNet, and conduct evaluations on the Synapse and AMOS datasets. Experimental results demonstrate that SHTA delivers consistent paired improvements across frameworks, with especially clear gains in segmentation accuracy, weak-organ recovery, and semantic ambiguity reduction, while incurring only training-time overhead. The code is available at https://anonymous.4open.science/r/release_SHTA-42D5/.",
+    "html_url": "https://arxiv.org/abs/2607.07019v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.07019v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://anonymous.4open.science/r/release_SHTA-42D5/"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.06972v1",
+    "title": "HPR-SAM: Hierarchical Probabilistic Representation Learning for Prompt-free SAM-based Medical Image Segmentation",
+    "authors": [
+      "Yingzhen Hu",
+      "Yiheng Zhong",
+      "Keying Zhu",
+      "Zimu Zhang",
+      "Zihan Ye",
+      "Sifan Song",
+      "Jionglong Su",
+      "Xiaofeng Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-08T03:49:08+00:00",
+    "updated": "2026-07-08T03:49:08+00:00",
+    "comments": "9 pages, 4 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Prompt-free adaptation of the Segment Anything Model (SAM) has emerged as a promising paradigm for automatic medical image segmentation. Existing methods mainly focus on prompt generation, while overlooking that prompt quality is fundamentally constrained by the expressiveness of anatomical representations. However, deterministic prototypes or semantic tokens are insufficient to jointly capture global anatomical priors, intra-structure diversity, and local structural reliability. To address this limitation, we propose the Hierarchical Probabilistic Representation (HPR) framework, which learns complementary anatomical representations through Distributional Anatomical Representation (DAR), Multi-component Anatomical Representation (MAR), and Local Reliability Representation (LRR), and integrates their predictions via Hierarchical Prediction Fusion (HPF) while remaining compatible with the original SAM decoder. Experiments on the Synapse, LA, and PROMISE12 datasets demonstrate that HPR-SAM achieves state-of-the-art performance on Synapse and the best performance under few-shot settings on LA and PROMISE12, validating the effectiveness of the proposed hierarchical probabilistic representation learning framework for prompt-free medical image segmentation. Code is available at https://anonymous.4open.science/r/HPR-SAM-E4AF.",
+    "html_url": "https://arxiv.org/abs/2607.06972v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.06972v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://anonymous.4open.science/r/HPR-SAM-E4AF"
+    ]
+  }
+]
