@@ -1,0 +1,161 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.22371v1",
+    "title": "Active few-shot segmentation by reinforcing data selection",
+    "authors": [
+      "Chenlan Zhao",
+      "Benny Wong",
+      "Timothy F. Lundberg",
+      "Ahmed M. Elsayed",
+      "Abdallah Aljarkas",
+      "Hamad A. Aljamaan",
+      "Lynn Karam",
+      "Qianye Yang",
+      "Yipeng Hu",
+      "Claire C. Villette",
+      "Shaheer U. Saeed"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-24T14:58:35+00:00",
+    "updated": "2026-07-24T14:58:35+00:00",
+    "comments": "Accepted at EMA4MICCAI 2026 - The 2nd MICCAI Workshop on Efficient Medical AI",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI",
+    "summary": "Few-shot learning enables medical image segmentation models to adapt to new tasks using only a small number of labelled examples. However, adaptation performance depends strongly on which examples are selected for the support set. Effective support sets should capture relevant variation within the target domain and be informative for adaptation, with constituent samples providing complementary information. Despite this, existing active data selection approaches largely prioritise samples individually and do not explicitly account for interactions between examples. In this work, we propose a reinforcement learning framework for support-set selection in few-shot medical image segmentation, enabling support sets to be optimised jointly rather than through independent sample scoring. Given a pool of unlabelled candidate images, an agent directly predicts a support set that maximises downstream segmentation performance. Experiments on a cross-institutional pelvic MRI dataset demonstrate improvements over random selection and current state-of-the-art methods. Our findings highlight the importance of support-set complementarity for effective adaptation and demonstrate the potential of reinforcement learning for optimising adaptation sets.",
+    "html_url": "https://arxiv.org/abs/2607.22371v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.22371v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.22332v1",
+    "title": "SLIP: Segmentation with Low-latency Interactive Prompting for 3D Medical Images",
+    "authors": [
+      "Baptiste Podvin",
+      "Alexandre Ancel",
+      "Flavio Milana",
+      "Chiara Innocenzi",
+      "Davide Arrigo",
+      "Federico Espinola Schulze",
+      "Guido Torzilli",
+      "Jacques Marescaux",
+      "Daniel George",
+      "Alexandre Hostettler",
+      "Toby Collins"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-24T14:12:02+00:00",
+    "updated": "2026-07-24T14:12:02+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Interactive deep image segmentation enables efficient medical image annotation by iteratively refining predictions from user prompts, such as positive and negative clicks. Recent patch-based methods, including nnInteractive, achieve strong segmentation performance but remain limited in annotation workflows by high interaction latency, limited responsiveness to successive interactions, and the lack of support for reversible prompting. Furthermore, evaluation relies predominantly on simulated rather than controlled real-user interaction studies. We present SLIP, an end-to-end trainable framework for interactive 3D medical image segmentation that decouples image encoding from prompt-guided refinement. Image features are computed once and reused, while a lightweight patch memory bank maintains an interaction-aware segmentation state shared across patches. This representation enables prediction updates by propagating interaction context throughout the image, supports reversible prompting without recomputing image features, and substantially reduces interaction latency. By separating image representation from interactive reasoning, SLIP remains compatible with a wide range of image encoders. We train a single SLIP model for general interactive segmentation across diverse anatomical structures and imaging modalities. Beyond standard simulated evaluation, we conduct a controlled prospective user study comparing manual segmentation, nnInteractive, and SLIP across three clinical annotation tasks, six expert participants, and subjective usability measures, addressing the limited human validation of interactive segmentation methods. SLIP achieves SOTA interactive segmentation performance across 13 public datasets while providing lower interaction latency, greater responsiveness, support for reversible prompting, and higher user preference than existing approaches.",
+    "html_url": "https://arxiv.org/abs/2607.22332v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.22332v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.28799v2",
+    "title": "PSP: Harnessing Position and Shape Priors for Cross-Domain Few-Shot Medical Image Segmentation",
+    "authors": [
+      "Bin Xu",
+      "Yazhou Zhu",
+      "Haofeng Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-27T08:10:12+00:00",
+    "updated": "2026-07-24T02:56:47+00:00",
+    "comments": "This manuscript was posted before obtaining the necessary approval from all responsible parties. At the request of the supervising author, we are withdrawing the manuscript",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Few-Shot Medical Image Segmentation (FSMIS) offers a powerful solution to data scarcity but struggles to generalize across different imaging modalities. This performance collapse stems primarily from the drastic texture discrepancies between domains, which mislead models trained on source-specific intensity distributions. While existing methods attempt to align frequency or local texture features, they often fail to decouple semantic structure from domain-specific appearance. To address this, we identify a critical invariance: despite distinct imaging physics, the position and geometric shape of organs remain robustly consistent across modalities. Therefore, we propose a novel framework that harnesses Position and Shape Priors (PSP) for cross-domain FSMIS. Specifically, PSP first introduces a Position Coordinate Embedding (PCE) module to inject relative spatial coordinates for rapid organ localization. Subsequently, a Shape Prototype Modulation (SPM) module constructs domain-invariant structural prototypes via explicit shape priors, effectively filtering out texture noise. Furthermore, the Hybrid-Prototype Prediction (HPP) module adaptively calibrates the support prototype to the query feature distribution, mitigating feature misalignment. Extensive experiments on two public medical imaging datasets demonstrate that PSP significantly outperforms state-of-the-art methods.",
+    "html_url": "https://arxiv.org/abs/2606.28799v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.28799v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.06007v1",
+    "title": "OBBSeg: Irregular Lesion Segmentation under Oriented Bounding Box Annotations",
+    "authors": [
+      "Jun Wei",
+      "Xinchang Liu",
+      "Yu Liu",
+      "Chuhua Yang",
+      "Shuhui Wang",
+      "Hui Huang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-07T08:48:22+00:00",
+    "updated": "2026-07-07T08:48:22+00:00",
+    "comments": "18 pages, 7 figures. ECCV 2026",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Pixel-level annotation remains a major bottleneck in medical image segmentation, making weak supervision an attractive yet under-constrained alternative. We propose OBBSeg, an intermediate supervision paradigm guided by Oriented Bounding Boxes (OBBs) that bridges the gap between full and weak supervision. By jointly encoding spatial extent and orientation, OBBs provide compact geometric supervision that better aligns with elongated or anisotropic lesions, reducing the ambiguity of coarse box annotations. To mitigate the inherent rectangular bias of OBBs, we introduce a Mask-to-OBB loss, a differentiable formulation that enforces geometric consistency between predicted masks and OBB regions. Furthermore, we incorporate prompt-driven semantic guidance through two complementary modules-PAFE and DBFE-which enhance foreground representation and suppress background interference. Extensive experiments on 13 datasets across 5 imaging modalities show that OBBSeg not only outperforms existing weakly supervised methods but also achieves performance comparable to fully supervised approaches, demonstrating its potential for efficient and scalable medical image segmentation. The code is available at https://github.com/StarLxc3/OBBSeg.",
+    "html_url": "https://arxiv.org/abs/2607.06007v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.06007v1",
+    "code_urls": [
+      "https://github.com/StarLxc3/OBBSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.04024v2",
+    "title": "Volumetric Directional Diffusion: Anchoring Uncertainty Quantification in Anatomical Consensus for Ambiguous Medical Image Segmentation",
+    "authors": [
+      "Chao Wu",
+      "Mahesh Bhosale",
+      "Kangxian Xie",
+      "Pouya Karimian",
+      "David Doermann",
+      "Mingchen Gao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-04T12:58:43+00:00",
+    "updated": "2026-07-07T04:53:06+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Ambiguous 3D medical image segmentation often involves boundaries where different expert delineations are non-identical yet clinically plausible. Modeling such inter-observer variability requires a careful balance between diversity and anatomical fidelity: deterministic models preserve coherent volumetric structures but collapse expert disagreement into a single mask, while stochastic generative models can produce diverse samples but may introduce disconnected components or slice-to-slice inconsistency when generating full 3D masks from unstructured noise. We propose Volumetric Directional Diffusion (VDD), a prior-anchored diffusion framework that shifts stochastic generation from full-mask synthesis to residual boundary exploration. VDD uses a coarse consensus prediction as an anatomical anchor and learns a directional diffusion process to generate plausible boundary variations around ambiguous regions while preserving stable volumetric topology. Experiments on three multi-rater datasets, including LIDC-IDRI, KiTS21, and ISBI 2015, show that VDD improves uncertainty distribution alignment while maintaining competitive segmentation accuracy and 3D structural consistency. These results suggest that prior-anchored residual diffusion can model clinically plausible expert disagreement without sacrificing anatomical fidelity.",
+    "html_url": "https://arxiv.org/abs/2603.04024v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.04024v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
