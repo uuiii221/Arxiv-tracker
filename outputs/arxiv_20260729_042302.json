@@ -1,0 +1,154 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.24288v1",
+    "title": "Superpixel-Based QUBO for Scalable Quantum-Enhanced Medical Image Segmentation",
+    "authors": [
+      "Mohammad Chalhoub",
+      "Mahdi Chehimi",
+      "Laia Domingo",
+      "Omar Alhussein",
+      "Ahmed Farouk",
+      "Saif Al-Kuwari"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.NI",
+      "quant-ph"
+    ],
+    "published": "2026-07-27T11:37:40+00:00",
+    "updated": "2026-07-27T11:37:40+00:00",
+    "comments": "7 pages, 2 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Quadratic unconstrained binary optimization (QUBO) has emerged as a powerful framework for medical computing problems. Binary decision variables naturally represent clinical choices, making QUBO formulations well-suited for quantum annealing hardware. However, a fundamental scalability challenge limits practical deployment: problem size grows rapidly with input dimensionality, creating computational bottlenecks that restrict applications to simplified scenarios. This paper addresses this challenge through hierarchical problem reduction, as demonstrated in medical image segmentation, where pixel-level QUBO formulations create over 65,000 variables for a 256x256 image, forcing existing approaches to downsample to 42x42 resolution and discard 97% of pixel information. A superpixel-based QUBO framework is proposed using simple linear iterative clustering (SLIC) to group pixels into perceptually meaningful regions, then formulate segmentation as QUBO over a region adjacency graph (RAG) combining min-cut and smoothness objectives. Validation on INbreast mammography breast cancer images demonstrates a 4.2% improvement in segmentation quality (mean IoU 0.76 vs 0.73) with 33 computational speedup (0.67s vs 21.97s) and a 97.3% reduction in problem size (1764 to 48 variables), all achieved while processing full-resolution images rather than downsampled versions. The reduced problem size also fits well within current quantum annealer connectivity limits, removing the embedding overhead that has historically blocked direct deployment of pixel-level QUBO segmentation on quantum hardware.",
+    "html_url": "https://arxiv.org/abs/2607.24288v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.24288v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.08164v2",
+    "title": "How Much MRI Preprocessing Is Enough? A Cost-Utility Study for Brain MRI Foundation Models",
+    "authors": [
+      "Jiangshuan Pang",
+      "Wangyang Tang",
+      "Jing Yan",
+      "Zhixuan Cheng",
+      "Youzhe He",
+      "Yiting Deng",
+      "Zhenkun Zhuang",
+      "Shiping Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-06T13:26:01+00:00",
+    "updated": "2026-07-27T09:55:59+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "MRI preprocessing defines the input distribution seen by brain MRI foundation models, yet it is usually treated as routine data cleaning rather than a modeling choice. We ask how much preprocessing is worth its computational cost for self-supervised 3D MRI pretraining. Keeping the corpus, 3D ViT backbone, masking protocol, and downstream evaluations fixed, we compare a graded P0-P7 preprocessing spectrum for masked autoencoding (MAE) and joint-embedding predictive learning (JEPA) on 20,000 heterogeneous brain MRI volumes, then transfer the encoders to IDH prediction, MCI classification, brain age regression, and GLI/PED tumor segmentation. The results do not support a simple \"more is better\" rule. P0/P1 are numerically unstable, making P2 the lowest-cost feasible level; beyond P2, choosing the best feasible preprocessing level improves aggregate utility by only 3.4 percentage points for MAE and 1.8 percentage points for JEPA, with most paired gains statistically unresolved. Stronger preprocessing is beneficial only in selected regimes: IDH improves modestly, AGE and GLI/PED are often near or best at P2, and MCI shows the clearest empirical P7 gain. Cross-level MCI transfer further shows that much of the P7 advantage can be recovered by applying stronger preprocessing downstream, without requiring P7 throughout pretraining. These findings recast MRI preprocessing as a downstream-aware cost-utility decision rather than a default escalation pipeline. Code is available at https://github.com/PangJiangShuan/PreBrain.",
+    "html_url": "https://arxiv.org/abs/2606.08164v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.08164v2",
+    "code_urls": [
+      "https://github.com/PangJiangShuan/PreBrain",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.24210v1",
+    "title": "Effect of User-Prompted Priors on Semi-Automated Cancer Lesion Segmentation in Whole-Body Computed Tomography",
+    "authors": [
+      "Isac Stark",
+      "Johan Öfverstedt",
+      "Elin Lundström",
+      "Simon Ekström",
+      "Håkan Ahlström",
+      "Joel Kullberg"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-27T09:41:51+00:00",
+    "updated": "2026-07-27T09:41:51+00:00",
+    "comments": "Accepted at MIUA (Medical Image Understanding and Analysis). To appear in Lecture Notes in Computer Science (LNCS). 12 pages, 2 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In clinical oncology studies, metastatic cancer is commonly evaluated using \"Response Evaluation Criteria in Solid Tumors\" (RECIST), in which the diameter of up to five lesions is measured and followed over the course of treatment. However, RECIST shows limited correlation with overall survival. Total tumour volume (TTV) is a stronger predictor but typically relies on manual ground-truth segmentation of all lesions, which is time-consuming and requires expert domain knowledge. Semi-automated approaches leveraging user-prompted priors, such as bounding boxes and single-slice contours, as inputs to automated segmentation methods can facilitate the generation of ground-truth segmentations. This work investigates the impact of different user-prompted priors on semi-automated cancer lesion segmentation performance in whole-body computed tomography. Across 3-fold cross-validation and external testing, more complex spatial priors consistently improved performance, with contour priors from three orthogonal planes (axial, coronal and sagittal) achieving the best results. On the external test (n=3865 lesions), this approach achieved a mean Dice score of 0.882, compared to a mean Dice score of 0.671 for the baseline model with no spatial prior. These findings suggest that the use of multi-plane orthogonal user-prompted priors can improve semi-automated tumour lesion segmentation and support efficient generation of high-quality volumetric ground-truth data.",
+    "html_url": "https://arxiv.org/abs/2607.24210v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.24210v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.18894v6",
+    "title": "Not All Pixels Are Equal: Pixel-wise Meta-Learning for Medical Segmentation with Noisy Labels",
+    "authors": [
+      "Chenyu Mu",
+      "Guihai Chen",
+      "Xun Yang",
+      "Erkun Yang",
+      "Cheng Deng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-11-24T08:51:02+00:00",
+    "updated": "2026-07-27T01:44:57+00:00",
+    "comments": "Major updates to the paper's results and experimental methods",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is crucial for clinical applications, but it is frequently disrupted by noisy annotations and ambiguous anatomical boundaries, limiting its application in real-world scenarios. Existing methods often directly adapt noisy label learning techniques designed for instance classification, overlooking the pixel-wise heterogeneity in medical segmentation with its spatially and anatomically varying difficulties. Consequently, global assumptions or simple confidence metrics fail to address these local variations, leaving boundary ambiguities unresolved. To address this issue, we propose MetaDCSeg, a robust framework that dynamically learns optimal pixel-wise weights to suppress the influence of noisy labels while preserving reliable annotations. By explicitly modeling boundary uncertainty through a Dynamic Center Distance (DCD) mechanism, our approach utilizes weighted feature distances for foreground, background, and boundary centers, directing the model's attention toward hard-to-segment pixels near ambiguous boundaries. This strategy enables more precise handling of structural boundaries, which are often overlooked by existing methods, and significantly enhances segmentation performance. Extensive experiments across four benchmark datasets with varying noise levels demonstrate that MetaDCSeg outperforms existing state-of-the-art methods.",
+    "html_url": "https://arxiv.org/abs/2511.18894v6",
+    "pdf_url": "https://arxiv.org/pdf/2511.18894v6",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.23626v1",
+    "title": "Segmentation Robustness and Predictive Utility in Glioblastoma Radiomics: Evidence for a Trade-off in Survival Modelling",
+    "authors": [
+      "Mariya Miteva",
+      "Maria Nisheva-Pavlova"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-07-26T12:20:08+00:00",
+    "updated": "2026-07-26T12:20:08+00:00",
+    "comments": "Accepted as a full paper at HCist 2026 and for publication in Procedia Computer Science",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Radiomic biomarkers derived from magnetic resonance imaging (MRI) have been widely investigated as non-invasive tools for tumor characterization and prognostic modeling in glioblastoma (GBM). However, their clinical translation remains limited, in part due to sensitivity to tumor segmentation variability. In this study, we systematically investigate the relationship between feature robustness and predictive utility in GBM survival modeling using the University of Pennsylvania Glioblastoma Imaging, Genomics, and Radiomics (UPENN-GBM) cohort. A total of 4,752 radiomic features were obtained from multiparametric MRI across three tumor subregions: enhancing tumor (ET), peritumoral edema (ED), and necrotic core (NC). Feature robustness was quantified using the intraclass correlation coefficient (ICC) based on the automatic and expert-refined segmentation versions. Among features with valid ICC estimates, 48.1% were classified as robust. Survival prediction was evaluated using cross-validation with Coxnet, Random Survival Forest, and Gradient Boosting Survival Analysis models. In this cohort, radiomic feature inclusion showed no consistent improvement over the clinical baseline, and robustness filtering produced no detectable performance gain. Model-selected features were less robust than the overall feature pool, indicating a lack of enrichment for robustness. These findings suggest that robustness alone is not a reliable criterion for feature selection in radiomics-based survival modelling.",
+    "html_url": "https://arxiv.org/abs/2607.23626v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.23626v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
