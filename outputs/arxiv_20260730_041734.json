@@ -1,0 +1,145 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.25432v1",
+    "title": "Bi-Level Collaborative Learning for Few-Shot Scribble-Supervised Medical Image Segmentation",
+    "authors": [
+      "Xiang-Xiang Su",
+      "Yufan Ye",
+      "Yihang Zheng",
+      "Min Gan",
+      "Guang-Yong Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-28T08:26:40+00:00",
+    "updated": "2026-07-28T08:26:40+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Scribble annotations offer an efficient alternative to costly pixel-wise labeling for medical image segmentation, yet in real clinical scenarios, scribble-annotated samples are often still limited, imposing the dual challenges of sparse supervision and annotated sample scarcity. These compounded constraints severely deprive models of the structural evidence needed for complete region recovery and precise boundary delineation. To break this bottleneck, we propose a bi-level collaborative learning framework for few-shot scribble-supervised medical image segmentation. Specifically, an upper-level learnable superpixel model is introduced to provide region-structural priors for lower-level segmentation, while superpixel-based region-wise pseudo-label propagation and a spatial-prior-guided filtering strategy are performed to generate reliable dense pseudo-labels for segmentation learning. Meanwhile, the anatomical semantics learned by the lower-level segmentation model under the guidance of the current superpixels are fed back to the upper level, further driving it to learn region-structural representations better aligned with the segmentation task. Through bidirectional interaction and collaborative learning between the upper and lower levels, the proposed framework significantly outperforms existing state-of-the-art scribble-supervised methods on the ACDC and Prostate datasets under the few-shot scribble-supervised setting.",
+    "html_url": "https://arxiv.org/abs/2607.25432v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.25432v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.25014v1",
+    "title": "Unifying Active Learning and Semi-Supervised Learning for Medical Image Segmentation",
+    "authors": [
+      "Bahram Jafrasteh",
+      "Cheng Wan",
+      "Heejong Kim",
+      "Johannes C. Paetzold",
+      "Qingyu Zhao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "stat.ML"
+    ],
+    "published": "2026-07-27T19:10:12+00:00",
+    "updated": "2026-07-27T19:10:12+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In practical settings, medical image segmentation models are often developed with limited annotated data rather than fully labeled datasets. Training frequently begins in ultra-low labeled regimes where only a small number of volumes are annotated. In such scenarios, practitioners must simultaneously decide which cases to annotate and how to best use the remaining unlabeled data. Although active learning (AL) and semi-supervised learning (SSL) both target annotation scarcity, they are typically designed and optimized independently, resulting in objective mismatch and unstable training during early-stage \"cold start\" conditions. We propose RegAL, a unified active semi-supervised framework governed by a shared topology-aware Pareto optimization that couples sample acquisition with unlabeled data utilization. RegAL evaluates images along three complementary axes, voxel-wise uncertainty, feature diversity, and a novel topological consistency metric, to select anatomically informative edge cases for annotation. On the other hand, the same criteria are used to identify geometrically stable atlas candidates for diffeomorphic registration-guided augmentation to train a self-supervised Mean Teacher segmentation network. Across BraTS 2021, dHCP, and ProstateX, RegAL remains stable with few labeled volumes and consistently outperforms state-of-the-art AL, SSL, and active semi-supervised baselines across Dice and boundary-distance (ASD, HD95) metrics under extreme annotation scarcity.",
+    "html_url": "https://arxiv.org/abs/2607.25014v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.25014v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2602.10508v2",
+    "title": "Med-SegLens: Latent-Level Model Diffing for Interpretable Medical Image Segmentation",
+    "authors": [
+      "Salma J. Ahmed",
+      "Emad A. Mohammed",
+      "Azam Asilian Bidgoli"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-02-11T04:15:36+00:00",
+    "updated": "2026-07-26T19:58:39+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Modern segmentation models achieve strong predictive performance but remain largely opaque, limiting our ability to diagnose failures, understand dataset shift, or intervene in a principled manner. We introduce \\textbf{Med-SegLens}, a model-diffing framework that decomposes segmentation model activations into interpretable latent features using sparse autoencoders trained on SegFormer and U-Net. Through cross-architecture and cross-dataset latent alignment across healthy, adult, pediatric, and sub-Saharan African glioma cohorts, we identify a stable backbone of shared representations, while dataset shift is driven by differential reliance on population-specific latents. We show that these latents act as causal bottlenecks for segmentation failures, and that targeted latent-level interventions can correct errors and improve cross-dataset adaption without retraining, recovering performance in 70% of failure cases and improving Dice score from 39.4% to 74.2%. Our results demonstrate that latent-level model diffing provides a practical and mechanistic tool for diagnosing failures and mitigating dataset shift in segmentation models.",
+    "html_url": "https://arxiv.org/abs/2602.10508v2",
+    "pdf_url": "https://arxiv.org/pdf/2602.10508v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.04705v2",
+    "title": "Enhancing MedSAM with a Lightweight Box Predictor for Medical Image Segmentation",
+    "authors": [
+      "Amirhossein Movahedisefat",
+      "Amirreza Fateh",
+      "Mohammad Reza Mohammadi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-06-03T10:34:15+00:00",
+    "updated": "2026-07-25T10:33:51+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Semantic segmentation in medical imaging is a critical yet challenging task due to data scarcity and high variability across modalities. While foundation models like the Segment Anything Model (SAM) show promise, they often struggle with medical images without specific adaptation. Moreover, point prompts, despite being the most natural form of user interaction, provide insufficient spatial context for reliable segmentation, particularly when target structures are irregular or poorly contrasted. In this paper, we propose an enhanced segmentation framework that integrates a lightweight Box Predictor module into the MedSAM architecture. The Box Predictor estimates an approximate bounding box from a single user click using localized image embedding features, providing spatial guidance that reduces the ambiguity of point prompts, while introducing only 1.6M additional parameters and negligible inference overhead. We introduce a two-stage training pipeline where the Box Predictor is trained independently before being integrated into MedSAM. To validate the generalization capability of our method, we conduct extensive evaluations on four diverse datasets (FLARE22, BRISC, BUSI, LungSegDB) spanning distinct imaging modalities, including CT, MRI, and Ultrasound. Our method improves segmentation accuracy and robustness across varied anatomical structures and imaging domains, achieving Dice scores of 0.89 (BUSI), 0.93 (FLARE22), 0.88 (BRISC), and 0.98 (LungSegDB). Code is available at https://github.com/Amirhosseinmovahedi/MedSAM-BoxPredictor",
+    "html_url": "https://arxiv.org/abs/2606.04705v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.04705v2",
+    "code_urls": [
+      "https://github.com/Amirhosseinmovahedi/MedSAM-BoxPredictor",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.22891v1",
+    "title": "AdaKAN: A dual-branch adaptive Kolmogorov-Arnold network for medical image segmentation",
+    "authors": [
+      "Dalia Alzu'bi",
+      "Deep Bhattacharyya",
+      "Ali Ayub",
+      "A. Ben Hamza"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-24T20:02:50+00:00",
+    "updated": "2026-07-24T20:02:50+00:00",
+    "comments": "",
+    "journal_ref": "Pattern Recognition Letters, 2026",
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a fundamental task in computer-aided diagnosis, yet it remains challenging due to the complexity of anatomical structures and the variability across imaging modalities. In this paper, we propose AdaKAN, an Adaptive Kolmogorov-Arnold Network (KAN) that synergistically integrates convolutional operations with a novel efficient KAN (EffiKAN) block, comprised of an efficient attention mechanism and an adaptive KAN (AdaptKAN) module. This module features a dual-branch design: one branch employs a KAN layer with Bernstein polynomial activations for globally smooth and stable function approximation, while the other branch performs channel-wise refinement through projection operations and adaptive scaling. AdaKAN adopts a U-shaped architecture that effectively captures both long-range dependencies and fine-grained local features, overcoming the limitations of conventional convolutional and Transformer-based segmentation models. Skip connections are employed to preserve spatial details during encoding and facilitate accurate reconstruction during decoding. Extensive experiments conducted on diverse medical imaging datasets demonstrate that AdaKAN achieves state-of-the-art performance in segmentation accuracy.",
+    "html_url": "https://arxiv.org/abs/2607.22891v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.22891v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
