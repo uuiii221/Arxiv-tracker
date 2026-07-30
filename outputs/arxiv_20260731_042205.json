@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.04201v2",
+    "title": "Topology-Constrained Quantized nnUNet for Efficient and Anatomically Accurate 3D Tooth Segmentation",
+    "authors": [
+      "Paarth Prasad",
+      "Ruchika Malhotra"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-05T18:42:15+00:00",
+    "updated": "2026-07-29T17:27:59+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We propose a topology-constrained quantized nnUNet framework for efficient and anatomically accurate 3D tooth segmentation, addressing the challenges of spatial distortion introduced by quantization in deep learning models. The proposed method integrates a novel tooth-specific topological loss into quantization-aware training, preserving critical anatomical structures such as tooth count, adjacency relationships, and cavity integrity while maintaining computational efficiency. The system employs an 8-bit quantized nnUNet backbone, where weights and activations are dynamically calibrated to minimize precision loss during inference. Furthermore, the topological loss combines connected-component analysis, adjacency consistency, and hole detection penalties, ensuring anatomical fidelity without modifying the underlying network architecture. The joint optimization objective harmonizes cross-entropy loss, quantization regularization, and topological constraints, enabling end-to-end training with gradient approximations for persistent homology terms. Experiments demonstrate that our approach significantly reduces topological errors compared to conventional quantized models, achieving clinically plausible segmentations on dental CBCT scans. The method retains the hardware efficiency of integer-only inference, making it suitable for deployment in resource-constrained clinical environments. This work bridges the gap between computational efficiency and anatomical precision in medical image segmentation, offering a practical solution for real-world dental applications.",
+    "html_url": "https://arxiv.org/abs/2605.04201v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.04201v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.26829v1",
+    "title": "BATS: Resource-Efficient Volumetric Segmentation with Boundary-Aware Mixed-Resolution Tokens",
+    "authors": [
+      "David Hagerman",
+      "Roman Naeem",
+      "Fredrik Kahl"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-07-29T12:21:40+00:00",
+    "updated": "2026-07-29T12:21:40+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Many high-performing volumetric segmentation models maintain dense multi-scale feature maps, leading to high activation memory and inference cost. We present BATS (Boundary-Aware Token Selection), a 3D medical image segmentation architecture that concentrates fine-resolution processing near predicted class boundaries. A dense boundary predictor identifies where additional resolution is needed, while a fine-first context cascade constructs an input-dependent mixed-resolution hierarchy. Homogeneous regions are represented coarsely, with finer tokens retained around boundaries, thin structures, and small targets. The sparse hierarchy is refined and rasterised into a dense segmentation.\n  BATS predicts boundary relevance independently at every resolution level, preventing an erroneous coarse-scale decision from suppressing fine-scale evidence. Parent cluster attention further injects hierarchical ancestor tokens into local attention neighbourhoods, providing cross-scale context without dense multi-scale feature maps or cross-scale neighbour search.\n  We evaluate BATS on five public CT and MRI datasets using the standardised nnU-Net Revisited protocol. BATS achieves the highest LiTS Dice among the compared methods and averages within 0.37 Dice points of the strongest dense baseline, MedNeXt-L, across the five datasets. Relative to MedNeXt-L, it reduces peak allocated GPU memory by more than 53% on KiTS, LiTS, and BraTS. Inference is up to 30% faster on KiTS and LiTS, which retain fewer tokens, but slower on the more token-dense BraTS. Mixed-resolution processing therefore provides consistent memory savings, while runtime and accuracy gains depend on dataset boundary density.",
+    "html_url": "https://arxiv.org/abs/2607.26829v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.26829v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.26542v1",
+    "title": "From Spatial Semantics to Temporal Context: Leveraging Gaze Trajectory for Weakly Supervised Medical Image Segmentation",
+    "authors": [
+      "Shaoxuan Wu",
+      "Xiao Zhang",
+      "Xiaodi Zhao",
+      "Yunzhi Tian",
+      "Yilin Tang",
+      "Jun Feng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-29T07:13:31+00:00",
+    "updated": "2026-07-29T07:13:31+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation heavily depends on labor-intensive and time-consuming pixel-level annotations. Eye tracking offers a cost-effective solution that can be naturally integrated into clinical workflows. Recorded by eye trackers, gaze conveys the spatial regions of clinicians' attention through fixations and the temporal context of clinicians' progressive visual perception from trajectories. Nevertheless, effective modeling of temporal trajectories remains challenging, and noise in gaze caused by exploratory fixations greatly limits segmentation performance. To overcome these limitations, we propose the Trajectory-guided Uncertainty-aware Network (TrailNet), which exploits gaze-supervised medical image segmentation from spatial semantics modeling to temporal context by jointly leveraging fixations and trajectories. Specifically, the proposed trajectory-guided spatio-temporal encoder models temporal context and establishes complementary interactions with image spatial semantics to strengthen target perception. Furthermore, the multi-scale uncertainty decoder leverages category mutual-exclusivity constraints to produce deterministic predictions and mitigate supervision uncertainty induced by noise. To enable gaze-free inference, we further introduce a cycle distillation strategy that transfers feature-level knowledge via teacher-student networks. Experimental results on two public datasets demonstrate that TrailNet outperforms state-of-the-art methods, achieving Dice scores of 81.25% and 81.85%, respectively.",
+    "html_url": "https://arxiv.org/abs/2607.26542v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.26542v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.26498v1",
+    "title": "HERMES: A Hybrid Ensemble for Head-and-Neck Tumor Segmentation, TN Staging, and Recurrence-Free Survival on PET/CT",
+    "authors": [
+      "Kai Wang",
+      "Meixu Chen",
+      "Elie Nasr",
+      "Ryan Lanning",
+      "Moyed Miften"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-07-29T05:47:18+00:00",
+    "updated": "2026-07-29T05:47:18+00:00",
+    "comments": "12 pages, 4 figures, 3 tables, conference",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We present HERMES (Hybrid Ensemble for Radiotherapy-target segmentation, Malignancy staging, and Event-free Survival), a single containerized algorithm for the three HECKTOR 2026 subtasks: segmentation of the primary tumor (GTVp) and pathological lymph nodes (GTVn), radiological T/N staging, and recurrence-free survival (RFS), computed from a paired FDG-PET/CT scan and an electronic health record. A 10-fold ensemble of STU-Net Small networks produces the segmentation; the predicted mask then drives two downstream tasks. Rather than pass a generic radiomics vector to the staging models, we derive from the predicted masks a compact set of geometry features aligned with the size and number axes of AJCC/UICC 7th-edition radiological N/T staging. On internal cross-validation these features raise N-stage balanced accuracy from 0.691 to 0.720 (+0.030), our largest single design gain, at lower feature dimensionality. For prognosis we combine complementary deep and clinical risk experts in an equal-weight ensemble, and train one deep expert with a concordance-tracking survival loss of our own, whose value approximates the concordance index during training. Every component was selected on honest out-of-fold predictions under a regularization-oriented protocol, with no tuning on the public validation set, and deployed as two decorrelated submissions. On the HECKTOR 2026 validation leaderboard, HERMES achieved a weighted score of 0.6454 (Mean Dice 0.641, T balanced accuracy 0.580, N balanced accuracy 0.642, RFS C-index 0.679) and qualified for the testing phase. Team: AMC_HNC.",
+    "html_url": "https://arxiv.org/abs/2607.26498v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.26498v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.27519v2",
+    "title": "SPROUT: A Scalable Diffusion Foundation Model for Agricultural Vision",
+    "authors": [
+      "Shuai Xiang",
+      "James Burridge",
+      "Shouyang Liu",
+      "Hao Lu",
+      "Tokihiro Fukatsu",
+      "Yinqiang Zheng",
+      "Wei Guo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-29T04:55:52+00:00",
+    "updated": "2026-07-29T04:05:35+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Image-based plant phenotyping depends on dense structural understanding of crops, yet pixel-level annotation remains expensive across species, organs, growth stages, and field conditions. General-purpose vision foundation models offer a natural route to label efficiency, but their web-scale pretraining objectives transfer weakly to agricultural imagery, where semantics are often determined by fine organ geometry inside repetitive, texture-dominated scenes. We introduce SPROUT, a diffusion foundation model for multi-crop plant phenotyping. SPROUT learns from 2.6~million unlabeled open-field images using a VAE-free pixel-space Diffusion Transformer, and selects transferable features with a label-free effective-rank criterion over denoising timesteps. This design shifts pretraining from crop-based invariance to structure-preserving denoising, making the representation better aligned with dense phenotyping tasks. We evaluate SPROUT across dense phenotyping tasks, including organ segmentation, crop-weed parsing, depth estimation, and counting. SPROUT consistently improves over strong web-pretrained baselines, with the largest gains on dense structural prediction, and shows favorable label and compute efficiency compared with general-purpose and crop-specific foundation models.",
+    "html_url": "https://arxiv.org/abs/2603.27519v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.27519v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
