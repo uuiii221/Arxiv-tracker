@@ -1,0 +1,155 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.28565v1",
+    "title": "MIND: Multimodal Intent-Driven Network via Diffusion Transformers for Medical Image Fusion",
+    "authors": [
+      "Yunzhan Fu",
+      "Xiangyu Shen",
+      "Yifei Sun",
+      "Yuhan Chen",
+      "Jian Wu",
+      "Hongxia Xu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-30T17:30:21+00:00",
+    "updated": "2026-07-30T17:30:21+00:00",
+    "comments": "14pages, 14 figures, accepted by ACM MM2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image fusion aims to integrate complementary information from diverse imaging modalities to support clinical diagnosis. Existing methods typically apply uniform fusion rules globally, lacking a deep understanding of diagnostic intents and pathological structures. To address these limitations, we propose MIND, a Multimodal Intent-Driven Network via Diffusion Transformers (DiTs) for medical image fusion. Specifically, we utilize BioMedGPT to generate intent-driven fusion texts from source images, guiding the fusion process with pathology-aware diagnostic intents. To combat the loss of 2D spatial continuity caused by 1D sequence flattening in DiTs, we design a Multi-scale Latent Adapter. This module explicitly extracts source image features before serialization, injecting them into the network via strict dimensional alignment to effectively supplement image features. To resolve the semantic shift caused by decoupling image outputs from diagnostic intents, we design a medical semantic consistency loss. This loss ensures deep semantic locking between fused images and fusion texts while maintaining the stability of the underlying physical manifold reconstruction. Comprehensive experiments on the Harvard, BraTS, and GFP datasets reveal that MIND delivers superior fusion quality, significantly improves downstream brain tumor segmentation accuracy, and enables flexible interactive fusion, holding significant promise for intent-driven intelligent clinical decision support systems.",
+    "html_url": "https://arxiv.org/abs/2607.28565v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.28565v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.28487v1",
+    "title": "AuricularWorld: Hierarchical Action-Guided World Modeling for Fine-Grained Auricular Structure Segmentation from CT Scans",
+    "authors": [
+      "Jingwen Yang",
+      "Senmao Wang",
+      "Luoyao Kang",
+      "Runmeng Cui",
+      "Keying Zhang",
+      "Yunjia Bao",
+      "Haifan Gong",
+      "Lin Lin",
+      "Haiyue Jiang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-30T16:38:30+00:00",
+    "updated": "2026-07-30T16:38:30+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Fine-grained segmentation of auricular structures in CT is challenging because the ear occupies a small image region, cartilage boundaries are highly irregular, and interfaces between cartilage and surrounding soft tissues are often ambiguous. Clinical annotations may also include both composite structures containing cartilage and adjacent skin and their corresponding cartilage-only regions, producing nested and overlapping labels. We propose a world-model-based segmentation framework that enables iterative anatomical reasoning beyond conventional feed-forward prediction. Built on an encoder-decoder architecture, the framework introduces a deterministic recurrent state-space model into the intermediate latent space. Multi-scale encoder features and partially decoded representations are fused to form a structural observation that initializes the latent dynamics. During inference, the model performs a three-step latent rollout without ground-truth guidance. Hierarchical anatomical actions update the recurrent state and progressively refine the latent representation. The resulting latent trajectory is projected back into the decoder and combined with high-resolution features to produce the final segmentation. To learn reliable latent transitions, we introduce a balanced hierarchical action objective that addresses foreground sparsity, missing anatomical groups, and imbalance between add and remove operations. Extensive experiments show that the proposed framework consistently improves segmentation accuracy and reduces HD95 by more than 43% for small, irregular, and overlapping auricular structures in CT. These results demonstrate the effectiveness of latent world-model reasoning for challenging medical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2607.28487v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.28487v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.27856v1",
+    "title": "Benchmarking Foundation and Large Language Models for Few-Shot Medical Image Segmentation",
+    "authors": [
+      "Jinghong Liu",
+      "Yuchuan Deng",
+      "Fanping Liu",
+      "Meng Huang",
+      "Xirong Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-30T08:34:36+00:00",
+    "updated": "2026-07-30T08:34:36+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Few-shot medical image segmentation (FS-MIS) aims to segment novel regions of interest (ROIs) from a few annotated support examples. Despite rapid progress, existing FS-MIS solutions span diverse paradigms but are evaluated under inconsistent settings, leaving their relative effectiveness unclear. We introduce FAME, a unified benchmark for evaluating FS-MIS solutions, covering specialists, SAM-based methods, CLIP-based methods, and MLLM-based methods. FAME contains 14,958 test samples across 7 anatomical sites, 9 imaging modalities, and 14 ROI categories, and evaluates models under zero-shot and ten-shot settings with additional assessment of target-absence recognition and generalization under covariate and semantic shifts. Our evaluation reveals several findings. First, effective few-shot segmentation depends on how models exploit support examples: direct visual adaptation generally outperforms prompt-based strategies. Second, increasing support examples improves performance only when models can effectively utilize them. Third, semantic transfer remains substantially more challenging than imaging-domain adaptation, and strong localization ability does not necessarily imply reliable target-absence recognition. We hope FAME provides a comprehensive understanding of current FS-MIS solutions and facilitates the development of more effective and reliable few-shot medical segmentation methods.",
+    "html_url": "https://arxiv.org/abs/2607.27856v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.27856v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.26395v1",
+    "title": "Registration-Grounded Spectral Fusion for Unregistered WLI/NBI Endoscopic Lesion Segmentation",
+    "authors": [
+      "Pengyu Jie",
+      "Wanquan Liu",
+      "Rui He",
+      "Pengcheng Li",
+      "Weiping Wen",
+      "Deyu Meng",
+      "Junwei Han",
+      "Chenqiang Gao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-29T02:09:28+00:00",
+    "updated": "2026-07-29T02:09:28+00:00",
+    "comments": "11 pages",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "White-light imaging (WLI) and narrow-band imaging (NBI) provide complementary views of endoscopic lesions, but their paired observations are often spatially misaligned due to viewpoint changes, tissue deformation, and sequential handheld acquisition. This makes direct WLI/NBI fusion prone to mixing non-corresponding regions and may even degrade segmentation around lesion boundaries. To address this problem, we propose a reliability-aware complex-domain fusion framework for paired-but-unregistered WLI/NBI lesion segmentation. The framework first establishes topology-regularized feature correspondence and further estimates where the cross-modal correspondence is reliable. Guided by this reliability, the model selectively fuses WLI and NBI features in a learnable complex representation. In this representation, WLI-derived cues mainly provide appearance-related magnitude responses, while NBI-derived cues provide structure-sensitive phase responses. Unlike conventional real-valued or symmetric multimodal fusion, the proposed method explicitly models the different roles of WLI and NBI and suppresses unreliable cross-modal interaction in locally mismatched regions. Experiments on paired WLI/NBI endoscopic datasets show that the proposed reliability-aware registration grounding and complex-domain fusion consistently improve lesion segmentation performance. Role-reversal and module ablation studies further validate the necessity of both the modality-role design and reliability-guided cross-modal interaction.",
+    "html_url": "https://arxiv.org/abs/2607.26395v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.26395v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.26276v1",
+    "title": "Comparing the Performance of Foundation Model Derived Embeddings with Traditional Approaches for Distant Metastasis Prediction in Head and Neck Cancer",
+    "authors": [
+      "Erich Schmitz",
+      "Meixu Chen",
+      "Bowen Jing",
+      "Jing Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-07-28T21:17:33+00:00",
+    "updated": "2026-07-28T21:17:33+00:00",
+    "comments": "27 pages including supplemental materials, 5 main figures, 2 supplemental figures, 5 main tables, 7 supplemental tables. Poster Abstract at 2026 AAPM Meeting and Exhibition",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Background: Early prediction of distant metastasis (DM) risk in head and neck cancer (HNC) can enable timely interventions that may improve treatment outcomes. Many current machine learning methods rely on prior knowledge of the region of interest such as tumor segmentations, which require expert knowledge, is time-consuming and introduces user-dependent variability. Medical image-based foundation models have recently been developed for specific imaging modalities to streamline down-stream prediction tasks by extracting modality-relevant features. Purpose: In this study, we evaluate the effectiveness of using a foundation model as the feature extractor to predict DM risk in HNC patients and compare its performance with traditional approaches that require prior knowledge on the regions of interest. Methods: Preoperative CT images of 2327 patients from the RADCURE dataset were used. Three features-sets were created including radiomics, deep-learning based features, and CT Foundation derived features. The feature-sets were used individually in a multi-layer perceptron (MLP) to predict DM risk. Results: The model using CT Foundation embeddings outperformed the radiomics and deep learning-based models, achieving a Receiver Operating Characteristic Area Under the Curve (AUC) of 0.791, compared to AUC values of 0.772 and 0.753 for the radiomics and deep learning-based models, respectively. The CT Foundation based model had similar performance to a model that combined the use of radiomics and deep learning-based features that achieved an AUC of 0.794. Conclusions: Features based on foundation models offer a promising alternative to traditional radiomics while reducing the need for domain expertise and extensively annotated datasets. Their minimal preprocessing requirements also make them a more accessible and scalable option.",
+    "html_url": "https://arxiv.org/abs/2607.26276v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.26276v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
