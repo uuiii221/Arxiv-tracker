@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.22727v1",
+    "title": "Trustworthy Medical Segmentation: Uncertainty-Aware U-Net Evaluation Under Clinical Image Degradation",
+    "authors": [
+      "Pranav Kaliaperumal",
+      "Manisha Kaliaperumal"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-07-22T06:35:33+00:00",
+    "updated": "2026-07-22T06:35:33+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation models often report high benchmark accuracy under ideal imaging conditions, yet their failures under clinical degradation can be quiet: sensor noise, patient motion, low- resolution acquisition, and contrast variability may all alter model behavior without producing an obvious warning. We present a reproducible framework for evaluating uncertainty-aware segmentation under con- trolled clinical degradation. Our experiments use a synthetic multimodal brain tumor MRI cohort generated with a biophysical phantom simulator that follows the BraTS protocol. We train U-Net and Attention U-Net baselines for multi-class tumor sub-region segmentation and augment both models with Monte Carlo dropout to estimate per-voxel uncertainty. Across eight clinically motivated corruption types at five severity levels, we measure segmentation accuracy, calibration, failure detection, and selective prediction coverage. On clean data, Attention U-Net achieves a whole-tumor Dice of 0.990; under severe Gaussian noise, its performance falls to 0.089. Predictive uncertainty rises with degradation and tracks segmentation error (Pearson r = 0.53 under severity-3 Gaussian noise), allowing us to flag failures with an AUROC of 0.843. These results argue for uncertainty-aware inference as a practical safety layer in physician-in-the-loop radiology workflows. We release the code, trained models, and evaluation protocol to support direct reproduction.",
+    "html_url": "https://arxiv.org/abs/2607.22727v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.22727v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.22718v1",
+    "title": "DAMamba-UNet3D: A Parameter-Efficient Mamba State Space U-Net with Dynamic Adaptive Scan for 3D Medical Image Segmentation",
+    "authors": [
+      "Mohammad Arafat Hussain",
+      "Ellen Grant",
+      "Yangming Ou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-21T16:42:48+00:00",
+    "updated": "2026-07-21T16:42:48+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We propose parameter-efficient SSM-based U-Net architectures for 3D medical image segmentation. Convolutional U-Nets afford O(n) local mixing per layer but lack explicit global context; transformers provide global reasoning at O(n^2) cost in sequence length $n$. State-space models (SSMs), such as Mamba, offer $O(n)$ global propagation per block. Yet, existing medical SSM segmenters rely on fixed scan patterns and large parameter budgets. Dynamic Adaptive Scan (DAS), which learns data-dependent reordering before selective scan, has not been applied to medical imaging or extended to 3D volumes. We propose DAMamba-UNet3D, a hybrid encoder-decoder that integrates tri-plane 3D-DAS blocks at encoder stages E2-E4 while retaining convolutions elsewhere (~5.3M parameters). On BraTS 2020 five-fold cross-validation, DAMamba-UNet3D achieves mean Dice 0.815+/-0.013 (full-volume per-case evaluation) at ~13x lower parameter cost than SegMamba (0.824+\\-0.014, ~70M). At comparable scale, DAMamba-L (~70M), a wide DAS-native variant with encoder-only DAMamba and a convolutional bottleneck, reaches 0.829+\\-0.012, surpassing retrained SegMamba by 0.5pt. Component ablations show that encoder-only DAS placement is critical as bottleneck and decoder SSM blocks lower Dice. Together, the results suggest that learned tri-plane DAS in a hybrid U-Net is competitive with, and under our large-scale design may improve upon, SegMamba's fixed Tri-orientated Mamba (ToM) scanning on BraTS 2020. Code: https://github.com/marafathussain/DAMamba-UNet3D.",
+    "html_url": "https://arxiv.org/abs/2607.22718v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.22718v1",
+    "code_urls": [
+      "https://github.com/marafathussain/DAMamba-UNet3D",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.19402v1",
+    "title": "When Does Consensus Beat Voting? A Critical Analysis of Statistical Label Fusion in Medical Image Segmentation",
+    "authors": [
+      "Renjie He"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-07-06T19:25:21+00:00",
+    "updated": "2026-07-06T19:25:21+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "This paper provides a rigorous, self-contained investigation of consensus segmentation. We derive the mathematical foundations from first principles -- the generative model, EM algorithm, Van Leemput's marginalization analysis, identifiability conditions, Spatial STAPLE, and deep variational formulations -- and validate each theoretical prediction through controlled experiments. The central finding is sobering: under common conditions, STAPLE reduces to thresholded majority voting, suffers 95% EM suboptimality, and collapses under class imbalance. These are not edge cases but typical scenarios in medical imaging. Majority voting -- simple, non-parametric, and robust -- is a surprisingly strong baseline that the field has perhaps too hastily dismissed in favor of more \"sophisticated\" methods. At the same time, the deep consensus model demonstrates that the consensus problem is not inherently difficult -- it becomes tractable when the image is used alongside the labels. And conformal prediction shows that formal uncertainty guarantees are achievable and practical. We hope this work encourages practitioners to critically evaluate their consensus methods rather than applying STAPLE by default, and provides the mathematical and empirical foundation for more principled approaches.",
+    "html_url": "https://arxiv.org/abs/2607.19402v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.19402v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.05035v1",
+    "title": "RUFNet: Query-Guided Support Mask Refinement and Uncertainty Fusion based on Hybrid Mamba for Few-Shot Brain Tumor Segmentation",
+    "authors": [
+      "Dongyi He",
+      "Xiangkai Wang",
+      "Binbing Xu",
+      "Bin Jiang",
+      "Hongjie Yan",
+      "Weixiang Liu",
+      "Wai Ting Siok",
+      "Nizhuan Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-06T13:16:51+00:00",
+    "updated": "2026-07-06T13:16:51+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Few-shot brain tumor segmentation remains challenging due to noisy support masks, inter-patient variations between support and query images, and the lack of pixel-wise confidence estimation. This study proposes RUFNet, a Hybrid Mamba-based few-shot framework that combines support mask refinement with uncertainty-aware posterior fusion. To preserve support-query dependencies with manageable cost, RUFNet adopts a Hybrid Mamba interaction backbone with linear complexity. To reduce support-mask noise, an Attention-Guided Mask Refinement module (AGMR) uses query features to recalibrate support masks and improve prototype consistency. To handle ambiguous predictions, an Uncertainty-Aware Posterior Fusion module (UAPF) estimates pixel-wise variance and adaptively balances few-shot predictions with query-aligned priors. On the Brain Tumor Segmentation Challenge (BraTS) 2020 dataset, RUFNet achieves Dice coefficients of 84.3% and 86.1% in the 1-way 1-shot and 1-way 5-shot settings, respectively, outperforming the compared state-of-the-art methods. These results suggest that Hybrid Mamba interaction, mask refinement and uncertainty modelling can improve the robustness of few-shot medical image segmentation. The official implementation code is available at https://github.com/hdy6438/RUFNet.",
+    "html_url": "https://arxiv.org/abs/2607.05035v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.05035v1",
+    "code_urls": [
+      "https://github.com/hdy6438/RUFNet",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.04249v1",
+    "title": "Beyond Random Sampling: Distribution-Aware Alignment for Semi-Supervised Medical Image Segmentation",
+    "authors": [
+      "Weihao Yan",
+      "Yeqiang Qian",
+      "Yi Dong",
+      "Ming Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-05T11:59:47+00:00",
+    "updated": "2026-07-05T11:59:47+00:00",
+    "comments": "19 pages, 5 figures, accepted by ECCV 2026",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Precise medical image segmentation is crucial for clinical diagnosis and treatment planning, yet relies heavily on expensive expert annotations. Semi-supervised medical image segmentation (SSMIS) offers a cost-effective solution but typically operates under the assumption of independent and identically distributed (i.i.d.) data, defaulting to random sampling. While statistically valid at scale, this strategy suffers from severe representation bias in low-data regimes, failing to capture the heterogeneous medical data manifold. To address this, we propose a highly data-efficient framework driven by distribution alignment. First, we introduce an offline Distribution-Aware Sample Selection strategy. By leveraging Vision Foundation Models (VFMs) and our designed Density-K-Center algorithm, we explicitly identify representative structural anchors, establishing a more representative labeled domain. Second, to bridge the remaining distribution gap, we propose the Memory-guided Copy-Paste (MCP) module. Tailored for the inherent class imbalance in medical scans, MCP leverages a semantic memory mechanism to retrieve historically consistent priors for cross-domain alignment, encouraging semantic consistency. Coupled with an easy-to-hard progressive schedule, this framework effectively mitigates early-stage pseudo-label noise. Extensive experiments on six diverse 2D and 3D datasets demonstrate strong segmentation performance, particularly in extremely low-labeled scenarios (\\eg, 1/16 ratio).",
+    "html_url": "https://arxiv.org/abs/2607.04249v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.04249v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
