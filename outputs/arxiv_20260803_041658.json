@@ -1,0 +1,155 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2601.16064v2",
+    "title": "Phi-SegNet: Phase-Integrated Supervision for Medical Image Segmentation",
+    "authors": [
+      "Shams Nafisa Ali",
+      "Taufiq Hasan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-01-22T16:00:41+00:00",
+    "updated": "2026-07-04T17:32:23+00:00",
+    "comments": "13 pages, 9 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Deep learning has substantially advanced medical image segmentation, yet achieving robust generalization across diverse imaging modalities and anatomical structures remains a major challenge. A key contributor to this limitation lies in how existing architectures, ranging from CNNs to Transformers and their hybrids, primarily encode spatial information while overlooking frequency-domain representations that capture rich structural and textural cues. Although recent studies have begun exploring spectral information at the feature level, supervision-level integration of frequency cues-crucial for fine-grained object localization-remains largely untapped. To this end, we propose Phi-SegNet, a CNN-based architecture that incorporates phase-aware information at both architectural and optimization levels. The network integrates Bi-Feature Mask Former (BFMF) modules that blend neighboring encoder features to reduce semantic gaps, and Reverse Fourier Attention (RFA) blocks that refine decoder outputs using phase-regularized features. A dedicated phase-aware loss aligns these features with structural priors, forming a closed feedback loop that emphasizes boundary precision. Evaluated on five public datasets spanning X-ray, US, histopathology, MRI, and colonoscopy, Phi-SegNet consistently achieved state-of-the-art performance, with an average relative improvement of 1.54+/-1.26% in IoU and 0.98+/-0.71% in F1-score over the next best-performing model. In cross-dataset generalization scenarios involving unseen datasets from the known domain, it also exhibits robust and superior performance, highlighting its adaptability and modality-agnostic design. These findings demonstrate the potential of leveraging spectral priors in both feature representation and supervision, paving the way for generalized segmentation frameworks that excel in fine-grained object localization. Our code is available on GitHub.",
+    "html_url": "https://arxiv.org/abs/2601.16064v2",
+    "pdf_url": "https://arxiv.org/pdf/2601.16064v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2412.13533v4",
+    "title": "Language-guided Medical Image Segmentation with Target-informed Multi-level Contrastive Alignments",
+    "authors": [
+      "Mingjian Li",
+      "Mingyuan Meng",
+      "Shuchang Ye",
+      "Mingye Zou",
+      "Michael Fulham",
+      "Lei Bi",
+      "Jinman Kim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2024-12-18T06:19:03+00:00",
+    "updated": "2026-07-04T15:54:57+00:00",
+    "comments": "Published in Expert Systems with Applications (ESWA)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a fundamental task in numerous medical engineering applications. Recently, language-guided segmentation has shown promise in medical scenarios where textual clinical reports are readily available as semantic guidance. Clinical reports contain diagnostic information provided by clinicians, which can provide auxiliary textual semantics to guide segmentation. However, existing language-guided segmentation methods neglect the inherent pattern gaps between image and text modalities, resulting in sub-optimal visual-language integration. Contrastive learning is a well-recognized approach to align image-text patterns, but it has not been optimized for bridging the pattern gaps in medical language-guided segmentation that relies primarily on medical image details to characterize the underlying disease/targets. Current contrastive alignment techniques typically align high-level global semantics without involving low-level localized target information, and thus cannot deliver fine-grained textual guidance on crucial image details. In this study, we propose a Target-informed Multi-level Contrastive Alignment framework (TMCA) to bridge image-text pattern gaps for medical language-guided segmentation. TMCA enables target-informed image-text alignments and fine-grained textual guidance by introducing: (i) a target-sensitive semantic distance module that utilizes target information for more granular image-text alignment modeling, (ii) a multi-level contrastive alignment strategy that directs fine-grained textual guidance to multi-scale image details, and (iii) a language-guided target enhancement module that reinforces attention to critical image regions based on the aligned image-text patterns. Extensive experiments on four public benchmark datasets demonstrate that TMCA enabled superior performance over state-of-the-art language-guided medical image segmentation methods.",
+    "html_url": "https://arxiv.org/abs/2412.13533v4",
+    "pdf_url": "https://arxiv.org/pdf/2412.13533v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.03931v1",
+    "title": "GLOW-FDG: Generalized cancer LesiOn Whole-body segmentation model for $^{18}$F-FDG-PET/CT",
+    "authors": [
+      "Maksym Fritsak",
+      "Maximilian Rokuss",
+      "Hubert S. Gabryś",
+      "Yannick Kirchhoff",
+      "Benjamin Hamm",
+      "Sebastian M. Christ",
+      "Nicolas Martz",
+      "Isabelle Opitz",
+      "Rolf Stahel",
+      "Martin Hüllner",
+      "Matthias Guckenberger",
+      "Klaus Maier-Hein",
+      "Stephanie Tanadini-Lang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-07-04T15:51:28+00:00",
+    "updated": "2026-07-04T15:51:28+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Whole-body fluorodeoxyglucose positron emission tomography combined with computed tomography is widely used in cancer care, but manual lesion delineation is slow, subjective, and difficult to scale. We present GLOW-FDG, an open-source artificial intelligence model for whole-body cancer lesion segmentation in fluorodeoxyglucose positron emission tomography and computed tomography. The model was trained on 1,563 scans spanning multiple cancer types and evaluated on 185 external scans from independent institutions. Across breast cancer, nonmetastatic and oligometastatic lung cancer, head and neck cancer, and metastatic melanoma, GLOW-FDG consistently outperformed publicly available benchmark models in lesion detection, while reducing false positives and maintaining strong segmentation accuracy. Quantification of total tumor burden and total lesion glycolysis was robust across cohorts, and performance approached the variability observed between expert radiation oncologists. These results support GLOW-FDG as a generalizable tool for automated cancer segmentation and quantitative imaging biomarker extraction in whole-body imaging.",
+    "html_url": "https://arxiv.org/abs/2607.03931v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.03931v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.03203v1",
+    "title": "Mutually Exclusive Multiclass Lesion Segmentation in Neuroimaging: Binary-Guided Weak Supervision with Inter-Class Orthogonality",
+    "authors": [
+      "Ashutosh Kumar",
+      "Vivek Dhamale",
+      "Vaanathi Sundaresan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-07-03T11:16:01+00:00",
+    "updated": "2026-07-03T11:16:01+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Weakly supervised segmentation of co-occurring neuroimaging lesion subclasses remains challenging due to overlapping activations, noisy pseudo-labels, and the absence of explicit inter-class exclusivity constraints. We propose BiMEx-MS (Binary-guided Mutually Exclusive Multiclass Segmentation), a framework that decomposes multiclass segmentation into whole-lesion localization and exclusive class assignment: a binary localization module provides a class-frequency-agnostic structural prior confining multiclass predictions within the detected lesion domain, while a multi-exit classification architecture with supervised contrastive pretraining produces multi-scale class-discriminative activation maps aggregated via a class-specific attention network. Inter-class exclusivity is enforced through a tri-partite loss comprising per-class separation, inter-class orthogonality, and binary-multiclass spatial consensus, followed by hierarchical morphological pseudo-label refinement. Evaluated across brain tumor MRI (BraTS 2020, BraTS 2023 SSA) and intracranial hemorrhage CT (RSNA-ICH to BHSD) against sixteen weakly supervised baselines, BiMEx-MS achieves Edema HD95 of 29.56 mm (the only method below 40 mm) and subdural hemorrhage Dice of 0.704, with gains consistently largest on boundary metrics and rare subtypes. Cross-dataset generalization, backbone ablations across six architectures, and uncertainty quantification confirm that structural guidance rather than model capacity drives performance. Code: https://github.com/ashutoshkr45/BiMEx-MS-Neuro.",
+    "html_url": "https://arxiv.org/abs/2607.03203v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.03203v1",
+    "code_urls": [
+      "https://github.com/ashutoshkr45/BiMEx-MS-Neuro",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.03103v1",
+    "title": "SNR-Adaptive Unified Diffusion for Multi-Task Medical Image Segmentation",
+    "authors": [
+      "Jiahao Liu",
+      "Hang Wei",
+      "Shuai Wu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-03T08:38:39+00:00",
+    "updated": "2026-07-03T08:38:39+00:00",
+    "comments": "Accepted to IEEE SMC 2026. 6 pages, 15 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Clinical cardiac imaging pipelines currently deploy separate models for each dataset and modality, incurring redundant training costs and precluding knowledge sharing across anatomically related tasks. Consolidating semi-supervised learning, unsupervised domain adaptation, and domain generalisation into one model is therefore a practical necessity, yet naive joint training exposes a fundamental barrier: conflicting label semantics between datasets collapse LA Dice from 90.31\\% to 83.38\\%, while gradient imbalance across tasks of unequal complexity suppresses the weaker tasks throughout training. We present UniT-Diff, a unified diffusion segmentation framework that resolves these conflicts through three targeted mechanisms. An 11-channel task-specific output space physically partitions label categories, eliminating cross-task gradient sign reversal by construction. SNR-Adaptive Task Conditioning (SATC) scales the task token by the log signal-to-noise ratio of the current diffusion timestep, suppressing domain-specific bias during coarse denoising and restoring full task guidance as the signal clears. Task-Type-Aware Conditional Dropout (TTACD) permanently removes the task token for domain-generalisation inputs, routing them through a shared neutral pathway that draws on cross-dataset cardiac anatomy rather than source-vendor statistics. Under a single parameter set, UniT-Diff surpasses independently trained task-specific baselines on all three benchmarks simultaneously: +0.87\\% on LA, +1.77\\% on MMWHS, and +0.88\\% on MNMS.",
+    "html_url": "https://arxiv.org/abs/2607.03103v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.03103v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
