@@ -1,0 +1,160 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.29568v1",
+    "title": "DynoDINO: Harnessing Dynamic Latent Information from DINO Features for Multi-Phase Medical Image Segmentation",
+    "authors": [
+      "Yu-Pu Hsu",
+      "Jen-Jee Chen",
+      "Yu-Chee Tseng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-31T15:55:54+00:00",
+    "updated": "2026-07-31T15:55:54+00:00",
+    "comments": "21 pages, 8 figures, 14 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-phase Contrast-Enhanced Computed Tomography (CECT) plays a central role in the diagnosis and characterization of focal lesions by capturing temporal enhancement patterns across multiple acquisition phases. Accurate lesion segmentation from such data remains challenging because clinically relevant contrast kinetics are distributed across phases, while anatomical inconsistencies, respiratory motion, and incomplete acquisitions often lead to inter-phase misalignment and interrupted temporal information. Conventional segmentation frameworks typically process each phase independently or rely on simple fusion strategies, limiting their temporal reasoning capability.\n  To address these challenges, we propose DynoDINO, a unified framework tailored to address the core challenges of multi-phase medical image segmentation. DynoDINO first performs slice-level alignment to establish inter-phase anatomical correspondence and then employs a Multi-phase Fusion Model to jointly enhance temporal correlations across phases. Our fusion model incorporates a Mix-attention (MA) mechanism for efficient multi-phase feature calibration and an Adaptive Gating Mechanism with difference-based residual learning to selectively preserve diagnostically relevant contrast variations while suppressing artifacts caused by residual misalignment. In addition, the adaptive gating mechanism improves training stability by preventing feature degradation caused by unguided subtraction operations.\n  Experiments on three large-scale datasets, including LiTS, PLC-CECT, and WAW-TACE, demonstrate that DynoDINO consistently improves boundary delineation and structural fidelity under standard, shifted, and missing-phase conditions.",
+    "html_url": "https://arxiv.org/abs/2607.29568v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.29568v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.29509v1",
+    "title": "Leveraging Transfer Learning with Class-Specific Decoders for Laparoscopic Segmentation",
+    "authors": [
+      "Priya Tomar",
+      "Aditya Parikh",
+      "Christian Bauckhage",
+      "Rafet Sifa"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-07-31T15:13:02+00:00",
+    "updated": "2026-07-31T15:13:02+00:00",
+    "comments": "Paper already Published in IEEE Big data 2025",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Effective multi-organ segmentation in surgical data requires learning the intricate anatomical features and alleviating the challenge of class imbalance, which results from relatively lower proportions of small and limitedly exposed structures. Recent works on laparoscopic multi-organ segmentation focus on learning structure-specific features through class-specific decoder architectures and report favorable results. This work extends the decoder-focused architectures to investigate knowledge sharing in the cross-surgical domain. We utilize two datasets representing different surgical domains, rectal and cholecystectomy surgeries, to explore how surgical conceptual knowledge transfers under partially common anatomical representations. Additionally, we compare the feature adaptation for the encoder and decoder at different training stages to analyse the knowledge adaptation and retention in the network. Our results corroborate previous findings on decoder-specific architectures and demonstrate that the organ-specific decoder model (CEMD), fully fine-tuned after cross-domain pre-training, achieves the highest segmentation performance (62.4\\% dice) while converging substantially faster than training from scratch. However, we also find that class imbalance in surgical data remains a persistent challenge that transfer learning does not fully resolve for underrepresented anatomical structures.",
+    "html_url": "https://arxiv.org/abs/2607.29509v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.29509v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.29394v1",
+    "title": "Dense Temporal Contrast Synthesis via Conditioned Latent Transport",
+    "authors": [
+      "Smriti Joshi",
+      "Apostolia Tsirikoglou",
+      "Daniel M. Lang",
+      "Richard Osuala",
+      "Noah Márquez Varaa",
+      "Alejandro Guzman",
+      "Grzegorz Skorupko",
+      "Sebastian Ibarra Arregui",
+      "Lidia Garrucho",
+      "Akane Ohashi",
+      "Dimitra Ntoula",
+      "Eugen Divjak",
+      "Oğuz Lafcı",
+      "Jan C. Peeken",
+      "Julia A. Schnabel",
+      "Fredrik Strand",
+      "Oliver Diaz",
+      "Karim Lekadir"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-31T13:12:58+00:00",
+    "updated": "2026-07-31T13:12:58+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Dynamic contrast-enhanced magnetic resonance imaging (DCE-MRI) is essential for breast cancer management, but reliance on gadolinium-based contrast agents (GBCAs) restricts use in contraindicated populations, prolongs scan protocols, and presents environmental toxicity concerns. Contrast synthesis offers a non-invasive alternative; however, existing approaches struggle to balance spatial realism with temporal continuity, suffer from slow iterative sampling, underutilize structural priors, and lack clinical validation. We propose a novel conditioned latent transport framework that predicts contrast enhancement in a single forward pass. By anchoring the latent trajectory to the pre-contrast anatomy and applying continuous time conditioning, the model synthesizes patient-specific contrast evolution at any acquisition time. The proposed approach outperforms baseline and the state-of-the-art models across spatial, perceptual, temporal, and distributional metrics. Evaluated on an independent external cohort, the method demonstrates robustness to domain shifts induced by scanner noise as well as differing acquisition protocol. Furthermore, our synthetic contrast enhancement significantly improved downstream tumor segmentation performance, yielding a 22.4% relative increase in Dice coefficient (0.60 vs. 0.49 baseline pre-contrast, p < 0.01), reducing boundary segmentation error by over 39%, while outperforming all other generative model baselines. Finally, a reader study involving four breast radiologists evaluated the image quality, kinetic fidelity, and diagnostic viability of our synthesized sequences across 40 randomly selected cases. The results demonstrated that in 70% of cases, synthesized images provided sufficient clinical information to support the same management decisions as real DCE-MRI, suggesting a path toward safer and faster contrast-free or contrast-reduced imaging workflows.",
+    "html_url": "https://arxiv.org/abs/2607.29394v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.29394v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.29266v1",
+    "title": "OsteoCAD: A Human-in-the-Loop Cloud-Edge Framework for Bone Tumor Segmentation",
+    "authors": [
+      "Maximo Rodriguez-Herrero",
+      "Dante D. Sanchez-Gallegos",
+      "Heriberto Aguirre-Meneses",
+      "Marco Antonio Núñez-Gaona",
+      "J. L. Gonzalez-Compean",
+      "Jesus Carretero"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-31T10:38:11+00:00",
+    "updated": "2026-07-31T10:38:11+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Artificial Intelligence (AI) and Deep Learning (DL) have notably advanced medical image analysis, yet many health- care organizations struggle to adopt them due to limited com- putational resources and specialized expertise. To address these barriers, we introduce OsteoCAD, a modular eHealth framework that democratizes access to DL tools in clinical practice. Osteo- CAD delivers end-to-end DL capabilities-from dataset creation and preprocessing to model training and inference-through an integrated and user-friendly interface. To mitigate local hardware constraints, the framework securely connects to remote GPU infrastructures. We validate OsteoCAD's feasibility through a real-world case study in Mexico focused on large bone tumor segmentation. The results demonstrate the framework's ability to enable DL-powered eHealth solutions without demanding ad- vanced technical expertise or complex local configurations.",
+    "html_url": "https://arxiv.org/abs/2607.29266v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.29266v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.28858v1",
+    "title": "A Unified Benchmark of Deep Learning Models for Multi-task 3D Brain Tumor Segmentation from Magnetic Resonance Imaging",
+    "authors": [
+      "Diego J. Torrejón",
+      "Luna Y. Hernández",
+      "Javier Sánchez"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-30T21:56:03+00:00",
+    "updated": "2026-07-30T21:56:03+00:00",
+    "comments": "27 pages, 16 figures, 8 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Automatic brain tumor segmentation from magnetic resonance imaging (MRI) has become a fundamental task in computer-assisted diagnosis, treatment planning, and disease monitoring. Although numerous deep learning architectures have recently been proposed, objective comparisons remain challenging because published studies often employ different datasets, preprocessing strategies, training protocols, and evaluation procedures. This work presents a unified experimental benchmark for comparing representative convolutional neural networks (CNNs), Transformer-based models, and recent State Space Model (SSM) architectures under homogeneous experimental conditions. Five state-of-the-art three-dimensional segmentation models, including 3D U-Net, SegResNet, Swin UNETR, SegMamba, and SegMambaV2, are evaluated on two brain tumor segmentation datasets representing distinct clinical scenarios: intracranial meningioma segmentation (BraTS 2023) and post-treatment glioma segmentation (BraTS 2024). All architectures are trained using identical preprocessing, data augmentation, optimization strategies, and evaluation protocols to ensure a fair comparison. Performance is assessed using segmentation accuracy metrics together with computational cost indicators, including inference time and the size of each model. The results provide practical insights into the trade-offs between segmentation accuracy and computational efficiency, highlighting the suitability of different architectural paradigms for challenging three-dimensional brain tumor segmentation tasks.",
+    "html_url": "https://arxiv.org/abs/2607.28858v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.28858v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
