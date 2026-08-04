@@ -1,0 +1,167 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.00872v1",
+    "title": "Similarity Weighted Aggregation with Global Differential Privacy for Federated Brain Lesion Segmentation",
+    "authors": [
+      "Muhammad Irfan Khan",
+      "Eero Lehtonen",
+      "Joni Obradovic",
+      "Elina Kontio",
+      "Esa Alhoniemi",
+      "Suleiman A. Khan",
+      "Mojtaba Jafaritadi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.AI",
+      "cs.CR",
+      "cs.CV"
+    ],
+    "published": "2026-08-01T21:23:32+00:00",
+    "updated": "2026-08-01T21:23:32+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Federated Learning (FL) enables collaborative training of machine learning models across multiple institutions without sharing sensitive data, making it particularly suitable for medical imaging applications. However, heterogeneous data distributions across institutions and potential information leakage through model updates remain important challenges. In this work, we propose DP-SimAgg, a privacy-preserving federated learning framework that integrates similarity-weighted aggregation with a server-side differential privacy mechanism. The proposed method applies L2 clipping to bound collaborator updates, computes similarity-based aggregation weights to mitigate the effects of non-IID data distributions, and injects calibrated Gaussian noise at the central server, providing per-round privacy guarantees under the assumed sensitivity bound. The framework is implemented using Intel's OpenFL platform and evaluated on the FeTS 2022 dataset consisting of 1251 multi-modal MRI scans for brain tumor segmentation. Experimental results demonstrate that DP-SimAgg maintains competitive segmentation performance while providing privacy protection. Under a strict per-round privacy budget (epsilon = 1, cumulative epsilon_total = 20 over 20 rounds), the method achieves Dice scores of 0.6357, 0.5305, and 0.5274 for the enhancing tumor (ET), tumor core (TC), and whole tumor (WT) regions, respectively. With a more relaxed per-round budget (epsilon = 10, cumulative epsilon_total = 200), performance approaches that of the non-private baseline while incorporating a central Gaussian mechanism with per-round (epsilon, delta)-DP accounting under the assumed sensitivity bound. These results highlight the potential of DP-SimAgg for enabling privacy-preserving collaborative learning in medical imaging applications.",
+    "html_url": "https://arxiv.org/abs/2608.00872v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.00872v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.28771v1",
+    "title": "Do Medical Foundation Models Generalize on the African Brain?",
+    "authors": [
+      "Kaouther Mouheb",
+      "Gonzalo Esteban Mosquera Rojas",
+      "Juancito van Leeuwen",
+      "Stefan Klein",
+      "Esther E. Bron"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-30T18:46:57+00:00",
+    "updated": "2026-07-30T18:46:57+00:00",
+    "comments": "Submitted to the AFRICAI workshop (Held in conjunction with MICCAI 2026, Strasbourg, France)",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Medical foundation models (FMs) are increasingly used for brain MRI analysis. However, their evaluation remains dominated by high-resource datasets, leaving generalization to African cohorts underexplored. We assess whether FMs generalize equally to African and non-African brain MRI data across two tasks: dementia classification using a Nigerian dataset and brain tumor segmentation using BraTS-Africa. We evaluate two generalist FMs (BrainIAC, 3DINO) and two segmentation-specific FMs (MedSAM2, Medical-SAM2) against a from-scratch baseline. For classification, FMs provide limited gains (highest ROC-AUC of 0.86 with BrainIAC), whereas for segmentation they consistently improve performance, reaching up to 0.86 Dice with MedSAM2. Performance differences between African and non-African cohorts are inconsistent and appear more related to dataset size than data origin. These results suggest that FMs do not exhibit an inherent bias against African cohorts, and highlight the limited availability and diversity of African neuroimaging datasets as the main barrier to robust evaluation and deployment.",
+    "html_url": "https://arxiv.org/abs/2607.28771v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.28771v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.09575v2",
+    "title": "Annotation-free deep learning for detection and segmentation of fetal germinal matrix-intraventricular hemorrhage in brain MRI",
+    "authors": [
+      "Mingxuan Liu",
+      "Yingqi Hao",
+      "Yi Liao",
+      "Juncheng Zhu",
+      "Haoxiang Li",
+      "Hongjia Yang",
+      "Yifei Chen",
+      "Yijin Li",
+      "Kasidit Anmahapong",
+      "Zihan Li",
+      "Jialan Zheng",
+      "Min Kang",
+      "Yan Song",
+      "Hua Lai",
+      "Xiaoling Zhou",
+      "Nan Sun",
+      "Rong Hu",
+      "Gang Ning",
+      "Haibo Qu",
+      "Qiyuan Tian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-10T14:39:30+00:00",
+    "updated": "2026-07-03T04:18:20+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Prenatal germinal matrix-intraventricular hemorrhage (GMH-IVH) is a leading cause of infant mortality and neurodevelopmental impairment, yet its manual diagnosis and lesion segmentation on fetal brain MRI are labor-intensive and error-prone. Although supervised deep learning offers potential for automation, it typically requires large amounts of annotated GMH-IVH data, which are challenging to obtain for such a rare condition (0.5-0.9 per 1000 pregnancies). To address these problems, an annotation-free deep learning framework, FreeHemoSeg, was developed for automated detection and segmentation of GMH-IVH without any real patient annotations. Instead of learning from expert labels, FreeHemoSeg was trained on pseudo GMH-IVH images synthesized from normal fetal data guided by medical priors. The framework was evaluated in a retrospective multicentre study of 1,674 stacks of 2D T2-weighted MRI from 558 pregnant women, using data from one hospital for internal training and validation and two hospitals for external validation. FreeHemoSeg achieved the highest diagnostic and segmentation performance in both internal validation (AUROC: 0.959; AUPR: 0.928; sensitivity: 0.914; specificity: 0.966; DSC: 0.559) and external validation (AUROC: 0.930; AUPR: 0.884; sensitivity: 0.824; specificity: 0.943; DSC: 0.512), outperforming a supervised model trained on limited empirical data and unsupervised anomaly detection methods. Moreover, FreeHemoSeg assistance improved radiologists' sensitivity (from 0.882 to 0.941-1.000) and diagnostic confidence, while reducing interpretation time by 16.0-52.7%. We anticipate its immediate utility in supporting earlier diagnosis, prognostic counselling, and perinatal planning for fetal GMH-IVH. Code: https://github.com/Arktis2022/FreeHemoSeg.",
+    "html_url": "https://arxiv.org/abs/2605.09575v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.09575v2",
+    "code_urls": [
+      "https://github.com/Arktis2022/FreeHemoSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.18176v2",
+    "title": "Atlas is Your Perfect Context: One-Shot Customization for Generalizable Foundational Medical Image Segmentation",
+    "authors": [
+      "Ziyu Zhang",
+      "Yi Yu",
+      "Simeng Zhu",
+      "Ahmed Aly",
+      "Yunhe Gao",
+      "Ning Gu",
+      "Yuan Xue"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-12-20T02:29:16+00:00",
+    "updated": "2026-07-03T03:36:51+00:00",
+    "comments": "ECCV 2026",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Accurate segmentation of anatomical structures in medical images is essential for diagnosis and treatment planning. While recent interactive segmentation foundation models enhance generalization through large-scale multimodal pretraining, they still depend on precise prompts and can fail in underrepresented clinical contexts (e.g., small organs-at-risk). We present AtlasSegFM, an atlas-guided framework that customizes off-the-shelf foundation models to new clinical contexts with a single annotated example. AtlasSegFM 1) performs atlas-query registration to generate context-aware prompts, 2) refines the segmentation with a frozen foundation model, and 3) applies a lightweight adaptive fusion module to combine atlas priors with foundation-model inputs and predictions. Extensive experiments on six public and in-house datasets across radiotherapy and vascular scenarios show consistent gains, with the largest improvements on small and delicate structures. AtlasSegFM provides a lightweight, deployable solution for one-shot customization of segmentation foundation models in real-world clinical workflows.",
+    "html_url": "https://arxiv.org/abs/2512.18176v2",
+    "pdf_url": "https://arxiv.org/pdf/2512.18176v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.02185v1",
+    "title": "RadiomicNet: A Hybrid Radiomics-Guided Lightweight Architecture for Interpretable Medical Image Segmentation",
+    "authors": [
+      "Mohammad Amanour Rahman"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-07-02T13:54:33+00:00",
+    "updated": "2026-07-02T13:54:33+00:00",
+    "comments": "Accepted at the IEEE ICIP 2026 LBDL 2 Workshop",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Deep learning has achieved remarkable performance in medical image segmentation, yet it suffers from critical limitations: mathematical intractability, substantial parameter requirements, and lack of clinical interpretability. We propose RadiomicNet, a novel two-stream hybrid architecture that enhances standard deep learning by integrating handcrafted radiomics features directly into the segmentation learning process. The key contribution is the Radiomics Attention Gate (RAG), which leverages Gray-Level Co-occurrence Matrix (GLCM) and Local Binary Pattern (LBP) features to modulate skip-connection attention in a lightweight MobileNetV2-based encoder-decoder, providing ante-hoc interpretability without post-hoc approximations. A novel Radiomics Consistency Loss further enforces alignment between texture complexity and prediction uncertainty, reducing Expected Calibration Error (ECE) from 0.142 to 0.118. RadiomicNet achieves a Dice Similarity Coefficient (DSC) of 0.763 +/- 0.231 on the Breast Ultrasound Images (BUSI) dataset and 0.854 +/- 0.112 on Kvasir-SEG, outperforming U-KAN by 1.2% and 1.8%, respectively (p < 0.05, Wilcoxon signed-rank test), with only 3.27M parameters, 9.5x fewer than standard U-Net and 4.3x fewer than U-KAN. Gradient-based feature importance analysis reveals that GLCM dissimilarity (15.24%), GLCM energy (14.56%), and LBP entropy (11.49%) are the dominant radiomics cues, providing clinically meaningful explanations for segmentation decisions. The proposed approach demonstrates that compact, interpretable models grounded in domain knowledge can deliver state-of-the-art segmentation performance with substantially reduced computational overhead.",
+    "html_url": "https://arxiv.org/abs/2607.02185v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.02185v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
