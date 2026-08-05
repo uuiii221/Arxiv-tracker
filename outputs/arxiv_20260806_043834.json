@@ -1,0 +1,150 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2603.18792v2",
+    "title": "Rethinking Uncertainty Quantification and Entanglement in Image Segmentation",
+    "authors": [
+      "Jakob Lønborg Christensen",
+      "Vedrana Andersen Dahl",
+      "Morten Rieger Hannemose",
+      "Anders Bjorholm Dahl",
+      "Christian F. Baumgartner"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-19T11:43:26+00:00",
+    "updated": "2026-08-04T09:49:42+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Uncertainty quantification (UQ) is crucial in safety-critical applications such as medical image segmentation. Total uncertainty is typically decomposed into data-related aleatoric uncertainty (AU) and model-related epistemic uncertainty (EU). Many methods exist for modeling AU (such as Probabilistic UNet, Diffusion) and EU (such as ensembles, MC Dropout), but it is unclear how they interact when combined. Additionally, recent work has revealed substantial entanglement between AU and EU, undermining the interpretability and practical usefulness of the decomposition. We present a comprehensive empirical study covering a broad range of AU-EU model combinations, propose a metric to quantify uncertainty entanglement, and evaluate both across downstream UQ tasks. Ensembles consistently exhibit lower entanglement and superior performance. Softmax models usually beat other AU methods, except in calibration where the results are dataset-dependent. A softmax ensemble performs remarkably well on all tasks. Finally, we analyze potential sources of uncertainty entanglement and outline directions for mitigating this effect.",
+    "html_url": "https://arxiv.org/abs/2603.18792v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.18792v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.20297v2",
+    "title": "MedCRP-CL: Continual Medical Image Segmentation via Bayesian Nonparametric Semantic Modality Discovery",
+    "authors": [
+      "Ziyuan Gao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-05-19T11:28:16+00:00",
+    "updated": "2026-08-04T02:49:15+00:00",
+    "comments": "Accepted to ICML 2026",
+    "journal_ref": null,
+    "venue_inferred": "ICML 2026",
+    "summary": "Medical image segmentation faces a fundamental challenge in continual learning: data arrives sequentially from heterogeneous sources, yet effective continual learning requires discovering which tasks share sufficient structure to benefit from joint learning. Existing methods either apply uniform constraints across all tasks, causing catastrophic forgetting when tasks conflict, or require predefined task groupings that cannot anticipate future task diversity. We introduce MedCRP-CL, a framework that performs online task structure discovery and structure-aware continual learning. Leveraging the Chinese Restaurant Process (CRP), our method dynamically infers task groupings from clinical text prompts as tasks arrive, without requiring predefined cluster counts or access to future tasks. We term these discovered groupings semantic modalities, as they capture finer-grained structure than physical imaging modalities by integrating anatomical region and pathological context. Guided by this discovered structure, we maintain semantic modality-specific LoRA adapters regularized by intra-modality EWC, ensuring parameter isolation across dissimilar task groups while facilitating knowledge transfer within similar ones. The framework is also replay-free, storing only aggregate statistics rather than raw patient data. Experiments on 16 medical segmentation tasks across four imaging modalities demonstrate that MedCRP-CL achieves 73.3% Dice score with only 4.1% forgetting, outperforming the best baseline by 8.0% while requiring 6$\\times$ fewer parameters. Code is available at https://github.com/zygao930/MedCRP-CL.",
+    "html_url": "https://arxiv.org/abs/2605.20297v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.20297v2",
+    "code_urls": [
+      "https://github.com/zygao930/MedCRP-CL",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.26498v2",
+    "title": "HERMES: A Hybrid Ensemble for Head-and-Neck Tumor Segmentation, TN Staging, and Recurrence-Free Survival on PET/CT",
+    "authors": [
+      "Kai Wang",
+      "Meixu Chen",
+      "Elie Nasr",
+      "Ryan Lanning",
+      "Moyed Miften"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-07-29T05:47:18+00:00",
+    "updated": "2026-08-04T00:02:12+00:00",
+    "comments": "12 pages, 4 figures, 3 tables, conference",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We present HERMES (Hybrid Ensemble for Radiotherapy-target segmentation, Malignancy staging, and Event-free Survival), a single containerized algorithm for the three HECKTOR 2026 subtasks: segmentation of the primary tumor (GTVp) and pathological lymph nodes (GTVn), radiological T/N staging, and recurrence-free survival (RFS), computed from a paired FDG-PET/CT scan and an electronic health record. A 10-fold ensemble of STU-Net Small networks produces the segmentation; the predicted mask then drives two downstream tasks. Rather than pass a generic radiomics vector to the staging models, we derive from the predicted masks a compact set of geometry features aligned with the size and number axes of AJCC/UICC 7th-edition radiological N/T staging. On internal cross-validation these features raise N-stage balanced accuracy from 0.691 to 0.720 (+0.030), our largest single design gain, at lower feature dimensionality. For prognosis we combine complementary deep and clinical risk experts in an equal-weight ensemble, and train one deep expert with a concordance-tracking survival loss of our own, whose value approximates the concordance index during training. Every component was selected on honest out-of-fold predictions under a regularization-oriented protocol, with no tuning on the public validation set, and deployed as two decorrelated submissions. On the HECKTOR 2026 validation leaderboard, HERMES achieved a weighted score of 0.6454 (Mean Dice 0.641, T balanced accuracy 0.580, N balanced accuracy 0.642, RFS C-index 0.679) and qualified for the testing phase. Team: AMC_HNC.",
+    "html_url": "https://arxiv.org/abs/2607.26498v2",
+    "pdf_url": "https://arxiv.org/pdf/2607.26498v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.02805v1",
+    "title": "A Unified 2D Framework for DeepLesion Detection, Segmentation and Short Report Generation",
+    "authors": [
+      "Ruida Cheng",
+      "Tejas S. Mathai",
+      "Benjamin Hou",
+      "Qingqing Zhu",
+      "Zhiyong Lu",
+      "Matthew McAuliffe",
+      "Ronald M. Summers"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-03T19:01:30+00:00",
+    "updated": "2026-08-03T19:01:30+00:00",
+    "comments": "18 pages, 8 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In previous work, we integrated large language models (LLMs) into the lesion segmentation model based on the ULS23 DeepLesion dataset, using short-form findings from the reports. In this study, we developed a unified 2D lesion analysis framework that integrates LLM-based reasoning, lesion bounding box detection, segmentation, and radiology report generation from the original DeepLesion dataset. In the testing phase, we achieved relatively high lesion bounding box detection accuracy with mAP50 of 70.1%, mAP50-95 of 46.4%; Lesion segmentation performance with a Dice score of 62.6%; short report generation accuracy with BLEU_1 score of 64.3%, BLEU_4 score of 49.6%, METEOR of 34.7%, and ROUGE_L of 60.1%. In this work, we address the challenging issue of segmentation in the original DeepLesion dataset and achieve a 28.5% Dice score improvement over the nnUNet lesion segmentation model. We also integrated spatial and anatomical context into the DeepLesion short report generation. We released the implementation, dataset, and models on Github. https://github.com/ruida/2D_DeepLesion_Foundation",
+    "html_url": "https://arxiv.org/abs/2608.02805v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.02805v1",
+    "code_urls": [
+      "https://github.com/ruida/2D_DeepLesion_Foundation",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.02051v1",
+    "title": "Embracing Intra-Class Heterogeneity for Semi-Supervised Medical Image Segmentation: From Diversity to Precision",
+    "authors": [
+      "Yuqi Liu",
+      "Yufei Chen",
+      "Wei Fu",
+      "Xiaodong Yue",
+      "Shuo Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-02T11:26:11+00:00",
+    "updated": "2026-07-02T11:26:11+00:00",
+    "comments": "Accepted by Medical Image Analysis",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Due to the scarcity of expert-annotated data, Semi-Supervised Medical Image Segmentation (SSMIS) has emerged as a promising approach. Many anatomical structures in medical images exhibit significant intra-class heterogeneity, with different regions showing heterogeneous intensity patterns within the same structure. However, existing methods inadequately exploit this intensity-manifested intra-class heterogeneity, resulting in uniform structural representations and imprecise segmentation. Furthermore, the scarcity of labeled data makes it more difficult to effectively capture such complex heterogeneity. To address this, we propose Multiple Prototype Contrastive Learning (MPCL), an SSMIS framework that possesses better diversity and better precision. It consists of three novel designs: First, we provide structural representations with better diversity and propose Intensity-aligned Heterogeneous Prototype Generation (IHPG) that effectively models intra-class heterogeneity by generating multiple prototypes aligned with intensity characteristics. Second, we further enhance more diverse structural representations and build a solid foundation for more precise segmentation through Prototypical Space Optimization (PSO) that systematically optimizes a more discriminative and generalizable prototypical space. Finally, we achieve segmentation results with better precision through Dual-branch Knowledge Alignment (DKA) that efficiently promotes intra-class heterogeneity knowledge transfer from prototypical space to the segmentation network. Extensive experiments on three medical image datasets with significant intra-class heterogeneity demonstrate that MPCL significantly outperforms existing methods, especially under extremely limited labeled data.",
+    "html_url": "https://arxiv.org/abs/2607.02051v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.02051v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
