@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.01001v1",
+    "title": "Foundation Models vs. Radiomics for Lung Computed Tomography: A Benchmark of Feature Extractors, Classification Heads, and Segmentation Choices",
+    "authors": [
+      "Nils Neukirch",
+      "Martin Maurer",
+      "Nils Strodthoff"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-07-01T14:37:30+00:00",
+    "updated": "2026-07-01T14:37:30+00:00",
+    "comments": "17 pages, 8 figures, 2 tables, Code is available at https://github.com/AI4HealthUOL/lung-ct-benchmarking",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Radiomics is the established approach for CT-based lung cancer phenotyping, yet comparisons with foundation models rarely isolate contributions of feature extractor, classification head, and segmentation choice, or test cross-cohort robustness. We benchmark five feature extractors (Curia, Curia-2, DINOv3, Radiomics2D, Radiomics3D), seven classification heads (TabPFN, TabICL, XGBoost, CatBoost, Random Forest, logistic regression, Ridge), and three segmentation regimes on five tasks: tumor volume and stage classification, 2-year survival prediction, histology classification, and age prediction. Models are trained on LUNG1 (n=338) and evaluated on an internal test set (n=84) and the external LUNG2 cohort (n=211), with worst-case cross-cohort performance as the primary metric. The dominant design factor is task-dependent: segmentation drives volume and stage classification, while classifier choice drives survival, histology, and age prediction. Radiomics is competitive for tumor volume, tumor stage and survival (partly due to label-derivation effects for the former); Curia variants reach comparable peak scores for survival; DINOv3 falls slightly short across tasks. Patch and slice aggregation have negligible impact. We recommend Curia with tumor segmentation and a CatBoost head as a safe default, achieving the best mean rank across the three primary clinical tasks, though task-specific selection consistently outperforms any cross-task default. When tumor delineations are unavailable, Curia-2 with lung segmentation and logistic regression offers a competitive alternative. All pipelines use a two-stage design suited to small cohort sizes where end-to-end fine-tuning would risk overfitting.",
+    "html_url": "https://arxiv.org/abs/2607.01001v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.01001v1",
+    "code_urls": [
+      "https://github.com/AI4HealthUOL/lung-ct-benchmarking",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.19570v2",
+    "title": "RF-HiT: Rectified Flow Hierarchical Transformer for General Medical Image Segmentation",
+    "authors": [
+      "Ahmed Marouane Djouamaa",
+      "Abir Belaala",
+      "Abdellah Zakaria Sellam",
+      "Salah Eddine Bekhouche",
+      "Cosimo Distante",
+      "Abdenour Hadid"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-21T15:24:39+00:00",
+    "updated": "2026-07-01T14:34:25+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate medical image segmentation requires both long-range contextual reasoning and precise boundary delineation, a task where existing transformer- and diffusion-based paradigms are frequently bottlenecked by quadratic computational complexity and prohibitive inference latency. We propose RF-HiT, a Rectified Flow Hierarchical Transformer that integrates an Hourglass Transformer backbone with a multi-scale hierarchical encoder for anatomically guided feature conditioning. Unlike prior diffusion-based approaches that rely on hundreds of denoising steps, RF-HiT leverages rectified flow with efficient transformer blocks, achieving linear complexity and requiring only a few discretization steps. The model further fuses conditioning features at each resolution via learnable interpolation, enabling effective multi-scale feature integration with minimal computational overhead. As a result, RF-HiT achieves a strong efficiency-performance trade-off, requiring only 10.14 GFLOPs, 13.6M parameters, and inference in as few as 3 steps. Despite its compact design, RF-HiT attains 91.27% mean Dice on ACDC and 87.40% on BraTS 2021, achieving performance comparable to or exceeding that of significantly more intensive architectures. These results suggest that RF-HiT is a promising, computationally efficient foundation for clinical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2604.19570v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.19570v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.12110v5",
+    "title": "MediRound: Multi-Round Entity-Level Reasoning Segmentation in Medical Images",
+    "authors": [
+      "Qinyue Tong",
+      "Ziqian Lu",
+      "Jun Liu",
+      "Rui Zuo",
+      "Zheming Lu",
+      "Yueming Jin"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-11-15T08:59:21+00:00",
+    "updated": "2026-07-01T13:10:45+00:00",
+    "comments": "In this version, we have improved some suboptimal expressions in the manuscript and completed the authors' information, such as ORCID IDs",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Despite notable progress in text-guided medical image segmentation nowadays, these methods are limited to single-round dialogues and fail to support multi-round reasoning, which is important for medical education scenarios. In this work, we introduce Multi-Round Entity-Level Medical Reasoning Segmentation (MEMR-Seg), a new task that requires generating segmentation masks through multi-round queries with entity-level reasoning, helping learners progressively develop their understanding of medical knowledge. To support this task, we construct MR-MedSeg, a large-scale dataset of 177K multi-round medical segmentation dialogues, featuring entity-based reasoning across rounds. Furthermore, we propose MediRound, an effective baseline model designed for multi-round medical reasoning segmentation. To mitigate the inherent error propagation within the chain-like pipeline of multi-round segmentation, we introduce a lightweight yet effective Judgment & Correction Mechanism during model inference. Experimental results demonstrate that our method effectively addresses the MEMR-Seg task and outperforms conventional medical referring segmentation methods. The project is available at https://github.com/Edisonhimself/MediRound.",
+    "html_url": "https://arxiv.org/abs/2511.12110v5",
+    "pdf_url": "https://arxiv.org/pdf/2511.12110v5",
+    "code_urls": [
+      "https://github.com/Edisonhimself/MediRound",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.22963v2",
+    "title": "Concept Alignment Contrast and Long-Short Prompt Memory for Test-Time Adaptation of SAM3 in Medical Image Segmentation",
+    "authors": [
+      "Yubo Zhou",
+      "Jianghao Wu",
+      "Ping Ye",
+      "Shaoting Zhang",
+      "Guotai Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-22T07:43:19+00:00",
+    "updated": "2026-07-01T07:02:05+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Concept segmentation models like Segment Anything Model 3 (SAM3) show strong generalization on natural images, yet their performance degrades in medical imaging due to the domain gap caused by different imaging principles and styles. Test-Time Adaptation (TTA) is essential for improving the testing performance by updating the model on the fly without annotations. However, existing vision-language TTA methods are mainly driven by image-level uncertainty minimization, which does not necessarily reflect region-level semantic correctness in medical segmentation. Moreover, they often lack mechanisms to maintain stability in continual one-pass adaptation, leading to limited performance when reliable dense supervision is missing for segmentation. To address these issues, we propose Concept Alignment Contrast and LongShort Prompt Memory for Test-Time Adaptation (CM-TTA) of SAM3 for medical images. First, for a test sample with multiple augmentations, we introduce a novel Concept Alignment Contrast (CAC) metric, which leverages textual-visual semantic consistency to robustly evaluate prediction quality to select the best augmented view as the supervision. Second, to balance rapid and stable adaptation, we design a Long-Short Prompt Memory (LSPM) module. The short memory dynamically fuses recent prompts based on CAC scores for agile local adaptation, while the long memory maintains a stable global prompt to generate enhanced pseudo-labels. Finally, a Densely Supervised Prompt Update (DSPU) strategy is proposed to optimize the prompt embeddings with enhanced pseudo labels as dense supervision. Extensive experiments on prostate and skin lesion segmentation demonstrate that our CM-TTA framework significantly outperforms existing methods for TTA of SAM3. The code is available at https://github.com/SherlockZYB/CM-TTA.",
+    "html_url": "https://arxiv.org/abs/2606.22963v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.22963v2",
+    "code_urls": [
+      "https://github.com/SherlockZYB/CM-TTA",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.00409v1",
+    "title": "MedCAGD: Context-Aware Gated Decoder for Efficient Medical Image Segmentation",
+    "authors": [
+      "Saad Wazir",
+      "Patrick Dominique Vibild",
+      "Dinh Phu Tran",
+      "Seongah Kim",
+      "Daeyoung Kim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-01T04:07:20+00:00",
+    "updated": "2026-07-01T04:07:20+00:00",
+    "comments": "Accepted at the European Conference on Computer Vision (ECCV 2026)",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Medical image segmentation relies on the ability of encoder-decoder architectures to translate rich feature representations into accurate pixel-level predictions under challenging conditions such as low contrast, structural ambiguity, and scale variability. While recent advances in large-scale pretraining and transformer-based encoders have substantially improved feature extraction, segmentation accuracy remains constrained by decoder design, particularly in terms of cross-scale alignment, contextual integration, and boundary preservation. In this work, we revisit medical image segmentation from a decoder-centric perspective and propose a context-aware gated decoder that systematically regulates feature fusion and contextual aggregation throughout the decoding process. The proposed decoder integrates lightweight multi-scale channel recalibration, gated skip fusion with spatial competition and a global context aggregation mechanism that injects encoder-wide information into intermediate decoding stages. This design enables effective translation of strong pretrained encoder representations into spatially consistent predictions. Extensive experiments across 11 medical image segmentation benchmarks validate the effectiveness and demonstrate that the proposed approach consistently outperforms strong baselines while remaining computationally practical. Code: https://github.com/saadwazir/MedCAGD",
+    "html_url": "https://arxiv.org/abs/2607.00409v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.00409v1",
+    "code_urls": [
+      "https://github.com/saadwazir/MedCAGD",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
