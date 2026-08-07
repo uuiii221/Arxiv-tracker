@@ -1,0 +1,149 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.06264v1",
+    "title": "OTLesMix: Wasserstein Barycenter and Optimal Transport Map for Synthetic Lesion Generation with Diverse Shapes and Locations",
+    "authors": [
+      "Robin Trombetta",
+      "Carole Lartizien"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG",
+      "eess.IV"
+    ],
+    "published": "2026-08-06T16:54:15+00:00",
+    "updated": "2026-08-06T16:54:15+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The development of deep learning over the past decade has revolutionized medical imaging segmentation, allowing the extraction of precise descriptors from large volumes to characterize pathologies. Data augmentation is a technique widely regarded as a way to improve model training. It includes simple transformations like spatial operations or intensity modifications, but also more advanced synthesis techniques. Their goal is to generate new realistic samples from an existing dataset to diversify the images used during training. Among them, several propose different mixing strategies to combine real samples. However, one of their major shortcomings is to yield limited variability in terms of generated lesion shapes and locations. In this work, we introduce a novel image synthesis method, called OTLesMix, that leverages Wasserstein barycenter and optimal transport plan to generate realistic and diverse samples. We evaluated our method on three brain lesion segmentation tasks, on which it improves the Dice score compared to a model trained without synthetic data by 2.9 to 6.6 points, and outperforms state-of-the-art mix-based methods.",
+    "html_url": "https://arxiv.org/abs/2608.06264v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.06264v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2501.02140v2",
+    "title": "Tree-NET: Enhancing 2D Medical Image Segmentation Through Efficient Low-Level Feature Training",
+    "authors": [
+      "Orhan Demirci",
+      "Bulent Yilmaz"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2025-01-03T23:17:01+00:00",
+    "updated": "2026-08-06T11:55:27+00:00",
+    "comments": "This manuscript is 24 pages long, includes 10 figures and 4 tables, and presents a novel framework for medical image segmentation. It has been accepted from Neural Computing and Applications journal",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "This paper introduces Tree-NET, a novel framework for medical image segmentation that leverages bottleneck supervision to enhance both segmentation accuracy and computational efficiency. While previous studies have applied bottleneck feature supervision to segmentation tasks, it has typically been limited to the training phase, offering no computational benefits during inference. To the best of our knowledge, this is the first framework to employ dual bottleneck supervision for segmentation, leveraging latent space features at both the input and output stages. This approach reduces input and label dimensions with minimal parameter overhead while preserving accuracy. Tree-NET features a three-component architecture: Encoder-Net and Decoder-Net, which compress input and label data via autoencoding, and Bridge-Net, a segmentation model trained on these compressed representations. By operating entirely on dense, low-dimensional features, Tree-NET improves runtime efficiency and can be integrated into existing segmentation models without modifying their internal structures or increasing model size. We evaluate Tree-NET on two key segmentation tasks: skin lesion and polyp segmentation using various backbone models, including U-NET, U-NET++, and Polyp-PVT. Experimental results show that Tree-NET reduces FLOPs by a factor of 4 to 13 and decreases memory usage while maintaining segmentation accuracy comparable to baseline models. For example, with an untrained U-NET++ backbone, Tree-NET improves the Dice score on ISIC 2018 from 0.829 to 0.862 and the IoU from 0.736 to 0.787. On CVC-ClinicDB, it achieves a Dice score of 0.946 and an IoU of 0.901 using a Polyp-PVT backbone, matching or surpassing baseline performance. These findings underscore Tree-NET's potential as a robust and efficient solution for medical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2501.02140v2",
+    "pdf_url": "https://arxiv.org/pdf/2501.02140v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.05844v1",
+    "title": "Curia-MAE: Multi-Modal Multi-Anatomy MAE Pre-Training for 3D Medical Image Segmentation",
+    "authors": [
+      "Théo Danielou",
+      "Antoine Saporta",
+      "Léo Alberge",
+      "Corentin Dancette"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-06T10:17:23+00:00",
+    "updated": "2026-08-06T10:17:23+00:00",
+    "comments": "Accepted at ECCV 2026 Workshop AI4M3D",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Radiology foundation models learn transferable representations that can be adapted to new tasks by training only small layers on top of a frozen encoder. Dense prediction tasks such as 3D segmentation are, however, underrepresented in their evaluation, and, with the encoder kept frozen, pre-trained models still fall short of nnU-Net, the state-of-the-art reference trained from scratch. To close this gap we extend convolutional MAE pre-training with a robust reconstruction objective, a feature regularizer, and a local-global similarity objective. Using this method, we propose Curia-MAE, a multi-modal, multi-anatomy MAE model pre-trained on 300,000 CT and MRI images covering a large number of anatomical sites. On eight anatomy- and lesion-focused segmentation benchmarks, Curia-MAE improves frozen-encoder performance over a strong MAE baseline, while remaining competitive under full finetuning and superior on lesion tasks, where labeled data is scarce. These results indicate that a single frozen encoder can be reused across diverse segmentation tasks, reducing the cost of adapting and deploying such models in clinical workflows. We will make our pre-trained model weights publicly available.",
+    "html_url": "https://arxiv.org/abs/2608.05844v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.05844v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.05683v1",
+    "title": "DistMedVL: Distributional Vision-Language Alignment for Uncertainty-Aware Medical Image Segmentation",
+    "authors": [
+      "Jiaxuan Li",
+      "Qing Xu",
+      "Xiangjian He",
+      "Yue Li",
+      "Daokun Zhang",
+      "Fiseha B. Tesema",
+      "Rong Qu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.MM"
+    ],
+    "published": "2026-08-06T07:17:14+00:00",
+    "updated": "2026-08-06T07:17:14+00:00",
+    "comments": "10 pages, 5 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Cross-modal alignment of visual and textual representations is fundamental to multimodal medical image understanding, yet remains hindered by uncertainty in both modalities under real-world clinical conditions. Existing vision-language segmentation methods rely on deterministic cross-modal matching, which overlooks aleatoric uncertainty from ambiguous boundaries and epistemic uncertainty from limited training data, leading to fragile performance under domain shift. To address this issue, we propose DistMedVL, a probabilistic vision-language framework that introduces a lightweight Probabilistic Cross-Modal Adapter (PCM-Adapter) upon frozen encoders to explicitly model representational uncertainty. Specifically, the PCM-Adapter comprises two sequential modules for progressive probabilistic alignment. We first devise a Mahalanobis Alignment Module (MAM) that models textual tokens as Gaussian distributions and computes patch-text compatibility via Mahalanobis distance, yielding variance-conditioned matching that downweights unreliable feature dimensions. Moreover, we devise a Distribution Flow Module (DFM) that estimates modality-wise confidence parameters and performs vision-guided refinement of textual distributions, accommodating distributional variation across imaging modalities. Extensive experiments across eight medical segmentation benchmarks demonstrate that DistMedVL outperforms state-of-the-art methods with only 6.3M trainable parameters, exhibiting superior data efficiency, perturbation robustness and cross-dataset generalization.",
+    "html_url": "https://arxiv.org/abs/2608.05683v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.05683v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.05389v1",
+    "title": "Text-Guided Refinement of Multi-sequence Glioma Subregion Segmentation with a Vision-Language Foundation Model",
+    "authors": [
+      "Zach Eidex",
+      "Yu-nong Lin",
+      "Mojtaba Safari",
+      "Sean Pitroda",
+      "Ralph Weichselbaum",
+      "Zhen Tian",
+      "Xiaofeng Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-05T20:17:02+00:00",
+    "updated": "2026-08-05T20:17:02+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Background: Accurate glioma subregion delineation is important for radiotherapy planning and longitudinal monitoring, but manual contour correction is time-consuming. Models such as nnU-Net may generalize imperfectly and lack clinician-directed text correction.\n  Purpose: We investigated adapting a three-dimensional (3D) vision-language foundation model for text-guided brain tumor segmentation refinement.\n  Methods: We developed a lightweight VoxTell-based framework. Pretrained VoxTell generated initial masks. Oracle prompts derived from segmentation errors encoded target, action, location, imaging evidence, edit size, and preservation constraints. Frozen Qwen/VoxTell prompt embeddings were injected through trainable projections into its multiscale decoder conditioning; other weights remained frozen. Training, validation, and testing used 901, 100, and 250 BraTS-GLI cases. Cross-dataset transfer was evaluated on 100 meningioma, metastasis, pediatric tumor, and UPENN-GBM cases.\n  Results: On the internal test set using post-contrast T1-weighted input, correct instructions improved subregion Dice similarity coefficient (DSC; enhancing tumor, edema, and necrotic/non-enhancing core) from $0.774\\pm0.158$ to $0.796\\pm0.137$. They outperformed blank prompts ($0.762\\pm0.155$; Holm-adjusted $p<0.001$, $d_z=0.71$) and contradictory prompts ($0.770\\pm0.163$; $p<0.001$, $d_z=0.48$). In cross-dataset testing, correct instructions improved DSC from $0.527\\pm0.287$ to $0.550\\pm0.278$ and outperformed contradictory instructions ($0.504\\pm0.275$; $p<0.001$, $d_z=0.43$).\n  Conclusion: A 3D vision-language foundation model can perform instruction-guided refinement of glioma subregion segmentations. Sensitivity to correct, blank, and contradictory prompts suggests text-dependent contour editing rather than nonspecific post-processing, supporting further evaluation as a clinician-in-the-loop tool.",
+    "html_url": "https://arxiv.org/abs/2608.05389v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.05389v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
