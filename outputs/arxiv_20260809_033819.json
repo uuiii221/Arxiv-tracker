@@ -1,0 +1,160 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.05333v1",
+    "title": "Context Matters: Support Set Selection and Failure Detection for In-Context Medical Image Segmentation",
+    "authors": [
+      "Youssef Gehad",
+      "Emmanuel Zerefa",
+      "Krish Kabra",
+      "Guha Balakrishnan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-05T18:43:42+00:00",
+    "updated": "2026-08-05T18:43:42+00:00",
+    "comments": "10 pages",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In-context learning (ICL) adapts medical image segmentation models to unseen structures and modalities without retraining by conditioning on a task-specific support set of image-mask exemplars. Because this support set is the model's only task-specific signal, its composition directly influences segmentation performance. In this work, we investigate the support set as a controllable determinant of ICL reliability. First, we compare random sampling against similarity-based selection, where exemplars are retrieved based on their visual similarity to the query image. Second, we train a transformer-based classifier to predict, from the query and support images alone, whether a segmentation will fall below a specified Intersection-over-Union (IoU) threshold. Using MultiverSeg with DINOv3 embeddings across four benchmarks and three imaging modalities, we show that similarity-based selection consistently matches or outperforms random sampling, with the largest gains at the smallest support set sizes. Furthermore, our classifier predicts segmentation failure above chance on all four benchmarks. Ultimately, these results demonstrate that the reliability of in-context segmentation can be both improved via informed support selection and anticipated before use, providing practical mechanisms for safer clinical deployment.",
+    "html_url": "https://arxiv.org/abs/2608.05333v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.05333v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.24109v2",
+    "title": "SemiSAM-O1: Pushing the Boundary of Annotation-Efficient Medical Image Segmentation with Generalist Knowledge Fusion",
+    "authors": [
+      "Yichi Zhang",
+      "Le Xue",
+      "Bichun Xu",
+      "Judong Luo",
+      "Zhigang Wu",
+      "Yu Fu",
+      "Zixin Hu",
+      "Yuan Cheng",
+      "Yuan Qi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-27T07:04:48+00:00",
+    "updated": "2026-08-05T18:31:35+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Semi-supervised learning (SSL) has become a promising solution to alleviate the annotation burden of deep learning-based medical image segmentation models. While recent advances in foundation model-driven SSL have pushed the boundary to extremely limited annotation scenarios, they fail to maintain robust competitive performance in complex imaging modalities. In this paper, we propose SemiSAM-O1, an annotation-efficient framework using only one annotated template case for segmentation. SemiSAM-O1 extends the specialist-generalist collaborative learning framework to the extreme one-label setting by fully exploiting the foundation model's feature representation capability beyond its prompting interface. SemiSAM-O1 operates in two stages. In the first stage, the foundation model's encoder extracts dense features from all volumes, and class prototypes derived from the single annotated template are propagated to the unlabeled pool via feature similarity to produce coarse initial pseudo-labels. In the second stage, an iterative training-and-refinement loop progressively improves both the segmentation model and the pseudo-labels over multiple rounds, where each round trains the model from scratch on current pseudo-labels and generates updated predictions with voxel-wise uncertainty estimates. An uncertainty-guided refinement step further leverages the foundation model's global feature space to correct high-uncertainty regions by aggregating labels from their most similar confident neighbors, establishing a virtuous cycle of mutual improvement. Extensive experiments on a wide range of segmentation tasks across different modalities and anatomical targets demonstrate that SemiSAM-O1 significantly narrows the performance gap between one-label semi-supervised learning and full supervision, while significantly reducing the computational overhead of online foundation model inference.",
+    "html_url": "https://arxiv.org/abs/2604.24109v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.24109v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.00370v1",
+    "title": "Enhancing Prostate Cancer Segmentation for Multi-Domain Generalization using a novel Parallel-Route Coherent Mixup Regularization Training",
+    "authors": [
+      "Josiah Simeth",
+      "Sudharsan Madhavan",
+      "Victoria Brennan",
+      "Sean McBride",
+      "James Janopaul-Naylor",
+      "Justin Haseltine",
+      "Daniel Gorovets",
+      "Himanshu Nagar",
+      "Neelam Tyagi",
+      "Harini Veeraraghavan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-07-01T03:10:14+00:00",
+    "updated": "2026-07-01T03:10:14+00:00",
+    "comments": "28 pages, 5 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "MRI guided adaptive radiotherapy (MRgART) for prostate cancer (PCa) targets tumors while sparing organs from unnecessary radiation. Daily treatment adaptation requires accurate segmentation of tumors and organs. Manual delineation can be time and cost prohibitive. Deep learning segmentation methods have limited success applied to datasets distinct from training, hampering generalizability and adoption of MRgART. We develop a novel parallel route coherent mixup (PaRC-mix) training approach for single source to multi-domain generalization. PaRC-mix creates feature augmentations at multiple network layers through linear combination of features from different training samples in a batch. PaRC-mix training was implemented on two deep and residually connected networks, a multiple resolution residual network (MRRN) and UNet++ to segment PCa dominant intraprostatic lesions from apparent diffusion coefficient images. Models were trained on 2,029 samples from 3.0T GE MRI and tested on 1,547 PCa samples from 5 datasets acquired using 3T Siemens, 3T Philips, and 1.5T Elekta Unity MR-Linac scanners. PaRC-mix training led to significantly more accurate tumor detection and segmentation for both networks compared to training without mixup as well as input-mix training. PaRC-mix also achieved better recall to precision tradeoff than mixup applied only on the network backbone or input-mixup. Using a normalized composite DSC, HD95, and MSD score the accuracy gap between aggressive and non-aggressive lesions decreased from 21.1 and 19.5 for MRRN and UNet++ models trained without mixup to 5.2 and 7.9 with same models trained with PaRC-mix. This paper presents an easy to implement network agnostic approach to feature augmentation in multi-stream networks that enhances generalizability for the difficult problem of prostate cancer lesion segmentation.",
+    "html_url": "https://arxiv.org/abs/2607.00370v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.00370v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.00223v1",
+    "title": "Does Your ViT Still Need U-Net for Segmentation?",
+    "authors": [
+      "Xin Li",
+      "Wenhui Zhu",
+      "Xuanzhao Dong",
+      "Xiwen Chen",
+      "Yanxi Chen",
+      "Yujian Xiong",
+      "Hao Wang",
+      "Oana M. Dumitrascu",
+      "Yalin Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-30T22:02:12+00:00",
+    "updated": "2026-06-30T22:02:12+00:00",
+    "comments": "8 pages, 4 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is dominated by U-Net-style encoder-decoder architectures. Vision Transformers (ViTs) overcome the limited receptive field of convolutional networks through self-attention, enabling modeling of long-range dependencies. Early ViT-based segmentation methods typically retained U-Net-style decoders because pretrained ViT representations were insufficient to support accurate dense prediction. Recent advances in large-scale pretraining have redefined the representation capability of ViTs, reducing the reliance on U-Net-style decoder architectures in modern vision models. This prompts two questions: Is the U-Net paradigm still necessary for medical image segmentation? If not, how should an encoder-only segmentation framework be designed? Motivated by these questions, we explore key architectural choices for encoder-only medical image segmentation based on modern ViT backbones and establish a query-based encoder-only design with multi-level query modeling and learnable block fusion, realized in Encoder-only Segmentation (EoSeg). Extensive experiments across seven benchmark datasets spanning CT, MRI, histopathology, endoscopy, and dermoscopy validate the effectiveness of the proposed design across diverse medical imaging modalities, including mDice scores of 85.50% on Synapse, 91.73% on ACDC, and 93.27% on GlaS. The results demonstrate that a U-Net-style decoder is no longer necessary for medical image segmentation with modern ViT backbones and further show that EoSeg provides an effective encoder-only design. Code is available at: https://github.com/Retinal-Research/EoSeg",
+    "html_url": "https://arxiv.org/abs/2607.00223v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.00223v1",
+    "code_urls": [
+      "https://github.com/Retinal-Research/EoSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.15305v2",
+    "title": "CoMNet: A MedNeXt-CorrDiff Framework for Multi-Site Brain Tumor Segmentation",
+    "authors": [
+      "Michael L. Evans",
+      "MD Fayaz Bin Hossen",
+      "MD Shibly Sadique",
+      "Walia Farzana",
+      "Khan M. Iftekharuddin"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-13T13:51:10+00:00",
+    "updated": "2026-06-30T15:45:04+00:00",
+    "comments": "15 pages, 6 figures, 2 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate brain tumor segmentation from multiparametric magnetic resonance imaging (MRI) is critical for treatment planning, response assessment, and neuro-oncology research. However, automated segmentation remains a difficult task in computer vision because of variation in tumor appearance and MRI protocols across patient scans. Moreover, clinically important regions such as enhancing tumor and tumor core are often small relative to the full brain volume, further increasing the difficulty of achieving high voxel-level precision. These challenges are amplified in multi-site datasets, where differences in scanner hardware and acquisition parameters can introduce non-biological variation. To address this, networks must learn tumor-specific features while remaining robust to site-dependent noise. In this paper, we show that an ensemble of multi-fold predictions from a modern 3D convolutional segmentation network with corrective diffusion (CorrDiff) post-processing improves brain tumor segmentation across datasets. We propose CoMNet, an ensembled MedNeXt-CorrDiff framework for accurate multi-site brain tumor segmentation. In this framework, we use MedNeXt as the primary segmentation model for feature learning, while a corrective diffusion block learns to refine the residual errors in the individual prediction maps before probabilistic thresholding. This process reduces the variance across fold predictions by correcting fold-specific residual errors and aggregating them into a consensus mask that is less sensitive to site-dependent imaging variability. Our proposed framework achieved the highest Dice score compared to two baseline models on the UTSW-Glioma and BraTS-SSA datasets. Experimental results support the use of corrective diffusion and fold-level probability ensembling as meaningful additions to existing state-of-the-art models for accurate glioma segmentation on multi-site datasets.",
+    "html_url": "https://arxiv.org/abs/2606.15305v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.15305v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
