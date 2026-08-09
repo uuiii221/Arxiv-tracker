@@ -1,0 +1,159 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2606.31839v1",
+    "title": "Towards Voxel Spacing Consistency for Medical Image Segmentation",
+    "authors": [
+      "Xin You",
+      "Runze Yang",
+      "Minghui Zhang",
+      "Hanxiao Zhang",
+      "Han Li",
+      "Yi Yu",
+      "Jie Yang",
+      "Nassir Navab",
+      "Yun Gu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-30T15:42:23+00:00",
+    "updated": "2026-06-30T15:42:23+00:00",
+    "comments": "12 pages, 6 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Volumetric medical image segmentation is essential for both preoperative diagnosis and intraoperative guidance. While recent years have witnessed rapid progress in segmentation architectures, comparatively little attention is paid to the physical voxel spacing of anatomical data. Indeed, volumetric image resampling is a ubiquitous preprocessing step before segmentation, yet its interaction with downstream segmentation has not been systematically exploited. In this work, we study the correlation between image resampling and segmentation, and propose Consispace, a semantic-aware resampling framework that achieves consistent voxel spacing in the axial direction while preserving anatomical and semantic consistency. Consispace introduces an ODE-based anatomical constraint to model inter-slice dynamics with a continuous interpolator, enabling faithful reconstruction under complex anatomical transitions beyond discrete interpolation. To further couple resampling with segmentation objectives, we leverage dense features from a pretrained vision model to build intra-slice semantic correlation maps and inject class-wise semantic consistency via feature reweighting during resampling. Both intra-slice and inter-slice constraints are integrated into an implicit neural network, supporting arbitrary-scale resampling. Extensive experiments on multiple datasets demonstrate that Consispace achieves superior reconstruction quality and perceptual fidelity, produces smoother inter-slice anatomy, and improves downstream segmentation performance when used as a preprocessing step.",
+    "html_url": "https://arxiv.org/abs/2606.31839v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.31839v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.30577v2",
+    "title": "APRIL-MedSeg: A Modular Medical Image Segmentation Toolbox Embracing Modern Paradigms",
+    "authors": [
+      "Juntao Jiang",
+      "Jinsheng Bai",
+      "Linxuan Fan",
+      "Yali Bi",
+      "Jiangning Zhang",
+      "Yong Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-29T17:20:26+00:00",
+    "updated": "2026-06-30T14:59:05+00:00",
+    "comments": "31 pages, 1 figure, and 8 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We present APRIL-MedSeg, a YAML-driven modular framework for 2D medical image segmentation. It provides a unified and extensible ecosystem that decomposes segmentation networks into reusable components. Also, the framework integrates a broad spectrum of advanced paradigms, including semi-supervised learning, domain adaptation, knowledge distillation, weakly supervised learning, and text-guided segmentation as well as foundation model support. A registry-based configuration system with inheritance enables flexible and reproducible experiment management, supporting seamless switching across models, datasets, and training strategies. In addition, the framework provides a unified interface for medical datasets, augmentation pipelines, deployment utilities and model ensembling. Overall, APRIL-MedSeg is designed as a general-purpose research and development platform that bridges algorithmic innovation and practical deployment, while also serving as a structured ecosystem for systematically organizing and reproducing advances in medical image segmentation. The code is available at https://github.com/juntaoJianggavin/APRIL-MedSeg under an Apache 2.0 license.",
+    "html_url": "https://arxiv.org/abs/2606.30577v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.30577v2",
+    "code_urls": [
+      "https://github.com/juntaoJianggavin/APRIL-MedSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.02571v1",
+    "title": "Dual-Adaptive SAM3: Hierarchical Routing over Low-Rank Expert Layers for Parameter-Efficient Medical Image Segmentation",
+    "authors": [
+      "Ying Chen",
+      "Jinyue Li",
+      "Kun Wang",
+      "Qiankun Li",
+      "Yang Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-30T08:14:18+00:00",
+    "updated": "2026-06-30T08:14:18+00:00",
+    "comments": "Accepted by MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "The Segment Anything Model with Concepts (SAM3) heralds a new paradigm for open-vocabulary segmentation through natural language interaction, offering significant potential for medical image analysis. However, effectively adapting such a powerful vision-language model to the diverse and nuanced domain of medical imaging remains a key challenge. Naive fine-tuning is parameter-inefficient, while standard Mixture-of-Experts (MoE) methods introduce prohibitive computational overhead, limiting their clinical applicability. To address this, we propose Dual-Adaptive SAM3 (DA-SAM3), a novel framework that achieves both high segmentation accuracy and extreme parameter efficiency via a dual-adaptive specialization mechanism. Our first adaptation is task-aware: a Dynamic Expert Router (DER) that sparsely activates the most relevant experts by jointly reasoning about the visual input and the textual concept prompt, mimicking a clinical consultation process. Our second adaptation is parameter-aware: a Decomposed Parameterized Experts (DPE) design that represents each expert as a shared frozen base (inherited from the pretrained SAM3) and a lightweight trainable low-rank delta, reducing MoE parameter overhead by over 80\\%. Extensive experiments on multiple public medical segmentation benchmarks demonstrate that Dual-Adaptive SAM3 not only matches or exceeds the accuracy of fully fine-tuned SAM3 and standard MoE baselines, but also achieves a notable 5\\% gain over current state-of-the-art methods, with interpretable results validating its effectiveness. The code is available at: https://github.com/Reconsider80/DA-SAM3.",
+    "html_url": "https://arxiv.org/abs/2607.02571v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.02571v1",
+    "code_urls": [
+      "https://github.com/Reconsider80/DA-SAM3",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2509.22476v2",
+    "title": "Multi-Channel Uncertainty-Weighted Score Matching for Conditional Diffusion in Medical UDA",
+    "authors": [
+      "Chen Li",
+      "Meilong Xu",
+      "Xiaoling Hu",
+      "Weimin Lyu",
+      "Chao Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-09-26T15:23:17+00:00",
+    "updated": "2026-06-29T21:57:15+00:00",
+    "comments": "28 pages, 7 figures. Accepted by ECCV'2026",
+    "journal_ref": null,
+    "venue_inferred": "ECCV",
+    "summary": "Robust medical image segmentation across modalities remains challenging due to severe domain shifts and the lack of target-domain labels. While diffusion models have been explored for cross-domain generation and augmentation, target-domain conditional diffusion training typically relies on highly noisy pseudo masks; naively conditioning on a single Arg-Max pseudo-label can corrupt diffusion training and downstream segmentation. We propose UPDiff-UDA, a unified UDA framework whose core is an uncertainty-guided training objective for target-domain conditional diffusion. Given an imperfect source-trained segmenter, we use its per-pixel softmax distribution to form ranked pseudo-label maps (Arg-Max, Arg-2nd, Arg-3rd, ...). Each map yields a conditional score estimate, and we aggregate them via pixel-wise confidence weighting to obtain an uncertainty-reweighted score for score matching, improving robustness to pseudo-label noise while leveraging alternative plausible labels in uncertain regions. We further provide a theoretical justification showing that confidence-weighted aggregation follows a minimum-MSE convex-combination principle under the segmenter-induced surrogate label distribution. To improve pseudo-condition quality, we also introduce a feature-guided, low-degree-of-freedom Bézier curve adaptation to reduce appearance gaps. Experiments on multiple public datasets and modality shifts show that UPDiff-UDA generates high-fidelity labeled target-style samples for augmentation and consistently outperforms strong UDA baselines. The code for this project is available at: https://github.com/superlc1995/Multi-Channel-Uncertainty-Diffusion-UDA",
+    "html_url": "https://arxiv.org/abs/2509.22476v2",
+    "pdf_url": "https://arxiv.org/pdf/2509.22476v2",
+    "code_urls": [
+      "https://github.com/superlc1995/Multi-Channel-Uncertainty-Diffusion-UDA",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.30374v1",
+    "title": "Set-Inclusive Uncertainty Modeling for Robust Brain Tumor Segmentation",
+    "authors": [
+      "Seunghun Baek",
+      "Jihwan Park",
+      "Jaeyoon Sim",
+      "Hoseok Lee",
+      "Seungjoo Lee",
+      "Won Hwa Kim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-06-29T14:35:55+00:00",
+    "updated": "2026-06-29T14:35:55+00:00",
+    "comments": "MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Multimodal MRI is essential for accurate brain tumor segmentation. However, acquiring all modalities at inference is often challenging in practice, which causes intrinsic uncertainty due to unavoidable information loss. Without modeling this uncertainty, existing methods encode incomplete evidence into deterministic representations that appear plausible but lack reliability. In this regime, we propose a probabilistic representation framework that models representations as Gaussian distributions, where their mean captures task information and their variance measures uncertainty from missing evidence. To make variance reflect information deficiency, we regularize the mean from each partial configuration toward its full-modality counterpart, while scaling the variance with the discrepancy between their aligned means. We further introduce a set-inclusive strategy that exploits the hierarchical structure of modality subsets and enforces an ordering constraint to maintain their consistent uncertainty relationships. Extensive experiments on BraTS 2018 and 2020 demonstrate that our approach offers superior performance over baselines across diverse missing-modality scenarios. Code and model checkpoint are available at https://github.com/atlas-sky/SIUM.",
+    "html_url": "https://arxiv.org/abs/2606.30374v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.30374v1",
+    "code_urls": [
+      "https://github.com/atlas-sky/SIUM",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
