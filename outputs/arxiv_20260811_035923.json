@@ -1,0 +1,166 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.07340v1",
+    "title": "H2AL: Hyperbolic Hierarchy-aware Aggregative Learning for Registration-based Few-shot Medical Image Segmentation",
+    "authors": [
+      "Jia Wang",
+      "Jiaming Cai",
+      "Zunying Hu",
+      "Zhanjie Wu",
+      "Jinyuan Liu",
+      "Hua Cheng",
+      "Yun Peng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-07T15:36:53+00:00",
+    "updated": "2026-08-07T15:36:53+00:00",
+    "comments": "10 pages, 9 figures. Accepted at ACM Multimedia 2026 (MM '26)",
+    "journal_ref": null,
+    "venue_inferred": "MM",
+    "summary": "Registration-based Few-shot medical image segmentation (RFMIS) aims to generate pseudo-labels for unlabeled images by warping a labeled image through registration. However, existing methods primarily perform pixel-level optimization and inference in Euclidean space, treating anatomical structures as flat and disjoint. This neglect of inherent hierarchies degrades pseudo-label quality and weakens the discrimination of ambiguous regions, limiting the segmentation performance. To overcome this challenge, we propose a Hyperbolic Hierarchy-aware Aggregative Learning framework for RFMIS, termed H2AL, that enhances both deformation plausibility and anatomical discrimination for dual-task learning. Specifically, we introduce a Hyperbolic Hierarchy-aware Infusion (H2I) module, which leverages the hierarchical modeling capability of hyperbolic space to learn precise hierarchy-aware representations via transformation-guided supervised hyperbolic contrastive learning, and injects such hierarchical priors into Euclidean space through a gated infusion block while preserving semantic richness. Furthermore, we propose an end-to-end joint optimization algorithm by gradient aggregation, where the gradients from the registration and segmentation decoders, embedding semantic and hierarchical cues, are aggregated to update the shared encoder to promote collaborative learning across tasks. Extensive experiments on two anatomical regions, with five experimental settings, demonstrate the effectiveness and efficiency of our method in both registration and segmentation. The code is publicly available at https://github.com/JiamingCai469/H2AL.",
+    "html_url": "https://arxiv.org/abs/2608.07340v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.07340v1",
+    "code_urls": [
+      "https://github.com/JiamingCai469/H2AL",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.05844v2",
+    "title": "Curia-MAE: Multi-Modal Multi-Anatomy MAE Pre-Training for 3D Medical Image Segmentation",
+    "authors": [
+      "Théo Danielou",
+      "Antoine Saporta",
+      "Léo Alberge",
+      "Corentin Dancette"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-06T10:17:23+00:00",
+    "updated": "2026-08-07T15:11:56+00:00",
+    "comments": "Accepted at ECCV 2026 Workshop AI4M3D",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Radiology foundation models learn transferable representations that can be adapted to new tasks by training only small layers on top of a frozen encoder. Dense prediction tasks such as 3D segmentation are, however, underrepresented in their evaluation, and, with the encoder kept frozen, pre-trained models still fall short of nnU-Net, the state-of-the-art reference trained from scratch. To close this gap we extend convolutional MAE pre-training with a robust reconstruction objective, a feature regularizer, and a local-global similarity objective. Using this method, we propose Curia-MAE, a multi-modal, multi-anatomy MAE model pre-trained on 300,000 CT and MRI images covering a large number of anatomical sites. On eight anatomy- and lesion-focused segmentation benchmarks, Curia-MAE improves frozen-encoder performance over a strong MAE baseline, while remaining competitive under full finetuning and superior on lesion tasks, where labeled data is scarce. These results indicate that a single frozen encoder can be reused across diverse segmentation tasks, reducing the cost of adapting and deploying such models in clinical workflows. Curia-MAE pre-trained model weights are made publicly available at https://huggingface.co/raidium/Curia-MAE.",
+    "html_url": "https://arxiv.org/abs/2608.05844v2",
+    "pdf_url": "https://arxiv.org/pdf/2608.05844v2",
+    "code_urls": [
+      "https://huggingface.co/raidium/Curia-MAE",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.30108v1",
+    "title": "LETT-NeXt: A Lightweight RECIST-Guided Model for 3D CT Lesion Segmentation",
+    "authors": [
+      "Sebastian Aas",
+      "Elias Stenhede",
+      "Arian Ranjbar"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-29T10:44:51+00:00",
+    "updated": "2026-06-29T10:44:51+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "RECIST diameter measurements are widely used for tumor response assessment, but they provide only a limited 2D description of lesion extent. We present LETT-NeXt, a lightweight RECIST-guided model that predicts 3D lesion masks from CT volumes and RECIST markers for the CVPR 2026 Foundation Models for Pan-cancer Segmentation in CT Images competition. LETT-NeXt extracts a RECIST-centered regional crop, encodes the RECIST line and endpoints as two prompt channels, and concatenates them with the CT input. A compact MedNeXt-v2 encoder--decoder predicts the lesion mask, followed by prompt-aware component selection and adaptive AutoZoom inference. On the public validation set, LETT-NeXt achieved a Dice Similarity Coefficient (DSC) of 79.4 $\\pm$ 10.1 and a Normalized Surface Dice (NSD) of 72.3 $\\pm$ 16.2. On the hidden test set, it achieved a DSC of 73.9 and an NSD of 67.3, corresponding to a challenge score of 70.6\\%. On the public validation mirror, LETT-NeXt completed CPU inference in 6.9 $\\pm$ 3.0 s per case with a peak memory use of 3.6 GB. Code is available at github.com/Ahus-AIM/lett-next.",
+    "html_url": "https://arxiv.org/abs/2606.30108v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.30108v1",
+    "code_urls": [
+      "http://github.com/Ahus-AIM/lett-next",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.02564v1",
+    "title": "From Raw Segmentations to Simulation-Ready Cardiac Meshes: An Automated Framework for Anatomical Reconstruction and Virtual Cohort Generation",
+    "authors": [
+      "Francesco Fabbri",
+      "Martino Andrea Scarpolini",
+      "Paolo Ciancarella",
+      "Francesco Tudisco",
+      "Roberto Verzicco",
+      "Alessandro Ricci",
+      "Francesco Viola"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "q-bio.TO"
+    ],
+    "published": "2026-06-29T09:07:05+00:00",
+    "updated": "2026-06-29T09:07:05+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Computational models of the human heart are widely used to study electromechanical and fluid-dynamical cardiac function and to support applications such as in silico clinical trials. However, most studies remain limited to single or patient-specific anatomies, restricting the inclusion of population-level variability required for uncertainty quantification. A key challenge is translating medical-image segmentations, which may contain artifacts, mesh defects or disjoint domains, into topologically coherent geometries suitable for multiphysics simulations.\n  In this work, we present a semi-automatic pipeline that converts CT-based segmentations into simulation-ready cardiac meshes within a few minutes while preserving anatomical and topological consistency. Building on modern deep learning segmentation methods, the framework incorporates a template-based registration stage to regularize artifacts and enforce mesh-quality constraints. A Chamfer-distance morphing strategy deforms a high-quality template toward each segmented heart, matching individual chambers while preserving topology.\n  The resulting meshes are watertight, isotopological, and endowed with consistent point-to-point correspondence. The pipeline is validated on 58 healthy cardiac CT scans, including all cardiac chambers and proximal vessel segments. The resulting meshes can be represented in a unified shape space, enabling the construction of a statistical shape model of the heart and major vessels. Principal Component Analysis shows that a low-dimensional latent space efficiently captures population variability, while Gaussian Mixture Modeling enables synthetic anatomy generation. Overall, the proposed framework (released open-source) provides a pathway from raw segmentations to simulation-ready cardiac geometries, enabling anatomically consistent virtual cohorts for large-scale in silico studies.",
+    "html_url": "https://arxiv.org/abs/2607.02564v1",
+    "pdf_url": "https://arxiv.org/pdf/2607.02564v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.05522v2",
+    "title": "Tumor-aware augmentation with task-guided attention analysis improves rectal cancer segmentation from magnetic resonance images",
+    "authors": [
+      "Aneesh Rangnekar",
+      "Joao Miranda",
+      "Natally Horvat",
+      "Stephanie Chahwan",
+      "Samir Alrayess",
+      "Aditya Apte",
+      "Aditi Iyer",
+      "Eve LoCastro",
+      "Revathi Ravella",
+      "Marc J Gollub",
+      "Iva Petkovska",
+      "Jesse Joshua Smith",
+      "Paul Romesser",
+      "Julio Garcia-Aguilar",
+      "Harini Veeraraghavan",
+      "Joseph O. Deasy"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-06T23:46:46+00:00",
+    "updated": "2026-06-28T23:06:46+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Although self-supervised pretraining is expected to learn broadly transferable representations, its effectiveness across imaging modalities substantially different from the pretraining domain, and on complex tumor-segmentation tasks, remains understudied. Evaluating CT-pretrained transformers on MRI rectal cancer segmentation, we identified two interacting failure modes in CT-to-MRI transfer: (a) inefficient token usage caused by zero-padding to match pretrained input dimensions, and (b) ineffective feature adaptation. We investigated these vulnerabilities using two primary CT-pretrained hierarchical shifted-window transformer backbones, SMIT and Swin UNETR, together with VoCo as a large-scale-pretrained supporting benchmark; these models differ in pretraining objectives and datasets. Mechanistic analysis leveraged an attention dilution index (ADI), an entropy-based metric quantifying attention diverted toward uninformative padding tokens, and centered kernel alignment (CKA) to measure feature reuse during MRI adaptation. ADI increased with zero-padding, while high feature reuse did not necessarily translate to improved downstream accuracy. To mitigate these issues, we introduced two interventions: a tumor-aware augmentation strategy to expand tumor appearance heterogeneity coverage, and an anisotropic cropping strategy to restore token efficiency. Fine-tuning with these strategies on identical rectal MRI datasets yielded detection rates of 91.1% (225/247) and 88.7% (219/247) for the primary SMIT and Swin UNETR backbones, with the supporting VoCo benchmark reaching 90.3% (223/247), demonstrating significantly improved robustness under CT-to-MRI transfer. This study is among the first to examine when pretrained transformers fail to transfer across imaging modalities and demonstrates how targeted mitigation strategies can systematically overcome cross-modality transfer limitations.",
+    "html_url": "https://arxiv.org/abs/2605.05522v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.05522v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
