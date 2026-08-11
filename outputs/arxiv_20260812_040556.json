@@ -1,0 +1,157 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2603.27519v3",
+    "title": "SPROUT: A Scalable Diffusion Foundation Model for Agricultural Vision",
+    "authors": [
+      "Shuai Xiang",
+      "James Burridge",
+      "Shouyang Liu",
+      "Hao Lu",
+      "Tokihiro Fukatsu",
+      "Yinqiang Zheng",
+      "Wei Guo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-29T04:55:52+00:00",
+    "updated": "2026-08-10T13:48:10+00:00",
+    "comments": "Code: https://github.com/UTokyo-FieldPhenomics-Lab/SPROUT Dataset: https://huggingface.co/datasets/XIANG-Shuai/MCD-2.6m",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Image-based plant phenotyping depends on dense structural understanding of crops, yet pixel-level annotation remains expensive across species, organs, growth stages, and field conditions. General-purpose vision foundation models offer a natural route to label efficiency, but their web-scale pretraining objectives transfer weakly to agricultural imagery, where semantics are often determined by fine organ geometry inside repetitive, texture-dominated scenes. We introduce SPROUT, a diffusion foundation model for multi-crop plant phenotyping. SPROUT learns from 2.6 million unlabeled open-field images (MCD-2.6M) using a pixel-space Diffusion Transformer, and selects transferable features with a label-free effective-rank criterion over denoising timesteps. This design shifts pretraining from crop-based invariance to structure-preserving denoising, making the representation better aligned with dense phenotyping tasks. We evaluate SPROUT across dense phenotyping tasks, including organ segmentation, crop-weed parsing, depth estimation, and counting. SPROUT consistently improves over strong web-pretrained baselines, with the largest gains on dense structural prediction, and shows favorable label and compute efficiency compared with general-purpose and crop-specific foundation models. The source code and MCD-2.6M dataset are publicly available.",
+    "html_url": "https://arxiv.org/abs/2603.27519v3",
+    "pdf_url": "https://arxiv.org/pdf/2603.27519v3",
+    "code_urls": [
+      "https://github.com/UTokyo-FieldPhenomics-Lab/SPROUT",
+      "https://huggingface.co/datasets/XIANG-Shuai/MCD-2.6m",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.09391v1",
+    "title": "CoInS-Net: A Continuous Position-Aware Network for Joint Medical Image Interpolation and Segmentation",
+    "authors": [
+      "Yujia Sun",
+      "Ningfeng Que",
+      "Peiting Shi",
+      "Rongrong Fu",
+      "Yingying Yang",
+      "Xinhang Li",
+      "Yin Dai"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-10T10:19:16+00:00",
+    "updated": "2026-08-10T10:19:16+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate medical image interpolation and anatomical structure segmentation are fundamental for computer-aided diagnosis and treatment planning. Anisotropic medical volumes with sparse through-plane sampling often suffer from structural discontinuity and boundary blur, hindering reliable clinical image analysis. Most existing methods implement interpolation and segmentation independently, which introduces redundant computation and fails to fully exploit complementary cross-slice structural information between sequential slices. To address these issues, we propose a continuous position-aware interaction network, termed CoInS-Net, for joint frame interpolation and lesion segmentation. Unlike conventional cascaded interpolation-then-segmentation paradigms, the framework enables bidirectional interaction under a shared Swin encoder with continuous spatial coordinate queries. A spatially continuous position interpolation module generates target-position features at every scale from the relative coordinate and physical spacing, and a prototype-based task mutual interaction module lets the segmentation and interpolation branches exchange global structure through a small set of shared prototypes rather than dense feature mixing. A multi-scale task-cooperative decoder further separates each scale into shared and task-specific components, so the two tasks reinforce common anatomy while preserving their distinct requirements down to the boundary level, without extra annotations. Experiments on four public medical imaging datasets with diverse modalities and anatomical regions demonstrate that the proposed method outperforms conventional single-task schemes. The joint optimization framework effectively realizes mutual promotion between interpolation and segmentation tasks, providing a reliable and universal technical scheme for intelligent clinical medical image analysis.",
+    "html_url": "https://arxiv.org/abs/2608.09391v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.09391v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2601.17504v2",
+    "title": "BMDS-Net:Deployment-aware multi-modal brain tumor segmentation with adaptive fusion,decoder regularization,and Bayesian calibration",
+    "authors": [
+      "Yan Zhou",
+      "Suncheng Xiang",
+      "Zhen Huang",
+      "Yue Ouyang",
+      "Yingqiu Li",
+      "Zehua Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "q-bio.QM"
+    ],
+    "published": "2026-01-24T16:06:43+00:00",
+    "updated": "2026-08-10T07:15:23+00:00",
+    "comments": "21 pages, 6 figures. Manuscript prepared for submission to ACM HEALTH",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-modal MRI enables detailed brain tumor sub-region segmentation, but clinical deployment remains affected by missing sequences,boundary errors, and overconfident predictions. We present BMDS-Net, a two-stage Swin UNETR framework that combines adaptivemodality fusion, boundary-aware decoder regularization, and efficient Bayesian calibration. The deterministic stage adds zero-initializedmultimodal contextual fusion (MMCF) and residual-gated deep decoder supervision (DDS) to modulate modality contributions andregularize hierarchical boundary reconstruction. The second stage replaces only the final convolutional layer with a Bayesian layer,enabling Monte Carlo uncertainty estimates with limited additional training cost.\n  On BraTS 2021 (1,251 cases), BMDS-Net achieved Dice scores of 0.9293, 0.9098, and 0.8675 for WT, TC, and ET, with HD95 values of 2.27, 2.22, and 3.27 mm. Configuration comparisons showed that auxiliary supervision favored complete-input segmentation, whereas the complete MMCF+gated-DDS configuration was most robust under single-modality removal. Bayesian BMDS-Net achieved an expected calibration error of 0.0037, close to a three-model ensemble (0.0035) at approximately 60% lower training cost. On BraTS 2020, the same protocol preserved the leading internal ranking of the complete configuration among five Swin UNETR-controlled variants. The implementation code is available at https://github.com/RyanZhou168/BMDS-Net.",
+    "html_url": "https://arxiv.org/abs/2601.17504v2",
+    "pdf_url": "https://arxiv.org/pdf/2601.17504v2",
+    "code_urls": [
+      "https://github.com/RyanZhou168/BMDS-Net",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.08575v1",
+    "title": "CDGC-Net: 3D Medical Image Segmentation with Cooperative Dual-Scale Self-Attention and Grouped Channel Modeling",
+    "authors": [
+      "Zheyang Jing",
+      "Qin Lu",
+      "Jianwang Li",
+      "Yujie Yang",
+      "Chen Yi",
+      "Shaofeng Jiang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-09T08:29:46+00:00",
+    "updated": "2026-08-09T08:29:46+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate 3D medical image segmentation requires the integration of long-range anatomical context with fine boundary detail. Existing methods often model global and local features in separate modules or feature levels and perform channel recalibration independently. This may cause semantic mismatch between global context and local boundaries, insufficient channel relationship modeling, weak spatial-channel interaction, and redundant representations. We propose CDGC-Net, a 3D medical image segmentation network that combines cooperative dual-scale spatial attention with grouped hierarchical channel modeling. With-in each CDGC block, Cooperative Dual-Scale Self-Attention (CDSA) assigns attention heads to parallel local-window and global-sparse branches. The two branches capture fine spatial details and long-range anatomical context at the same feature level. Their outputs are concatenated into an $N\\times C$ spatial representation and directly passed to Grouped Hierarchical Channel Attention (GHCA). GHCA organizes the channels into $r$ groups and models both within-group and cross-group dependencies. CDSA and GHCA reuse a shared key projection to maintain a consistent feature reference. Residual feature alignment subsequently integrates the refined features with the original representation. On the Synapse, ACDC, BraTS, and LA datasets, CDGC-Net achieved mean DSC values of 86.96\\%, 92.91\\%, 82.56\\%, and 93.52\\%, respectively, exceeding the next-highest reported values by 0.39, 0.47, 0.17, and 0.32 percentage points. CDGC-Net contains 25.83M parameters and 28.62G FLOPs for an input size of $64\\times128\\times128$, reducing these quantities by 39.87\\% and 40.30\\%, respectively, relative to UNETR++. These results indicate a favorable trade-off between segmentation accuracy and computational complexity.",
+    "html_url": "https://arxiv.org/abs/2608.08575v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.08575v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.08368v1",
+    "title": "PARAGraph: Pathology-Anatomy-Aware Hierarchical Graph for Diabetic Retinopathy Grading",
+    "authors": [
+      "Ziyang Zhang",
+      "Yuankai Huo",
+      "Yalin Zheng",
+      "He Zhao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-08T23:40:32+00:00",
+    "updated": "2026-08-08T23:40:32+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Diabetic retinopathy (DR) remains a leading cause of vision loss among working-age adults worldwide, making reliable severity grading clinically important. Despite strong performance, most deep models formulate DR grading as image-level classification and do not explicitly model clinically grounded evidence, such as lesion types and spatial relations. In this paper, we propose PARAGraph, a Pathology-Anatomy-Aware Hierarchical Graph framework for DR grading. PARAGraph represents each image as a three-level hierarchical graph with lesion-level nodes, intermediate category and region nodes, and global anatomical and semantic nodes. To incorporate medical priors into nodes, we construct an optic disc-fovea-anchored coordinate frame that provides a scale- and rotation-normalized retinal reference system. Within this frame, lesion nodes are encoded with category, normalized area, and anatomical coordinates. To mitigate noisy lesion segmentation, PARAGraph uses a dual-fusion strategy that introduces global visual context into a graph semantic node and a decision-level prediction branch, improving robustness when lesion evidence is unreliable. Extensive experiments on Messidor-2, APTOS, and DDR show that PARAGraph achieves consistent DR grading performance over state-of-the-art methods. Interpretability and robustness analyses further demonstrate that its predictions are clinically grounded, closely associated with lesion evidence and robust to lesion segmentation noise.",
+    "html_url": "https://arxiv.org/abs/2608.08368v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.08368v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
