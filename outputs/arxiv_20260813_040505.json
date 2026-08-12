@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.11076v1",
+    "title": "Foundation Model-Enabled Efficient Data Sampling (FEEDS): A label-efficient training strategy for pan-cancer, multi-tracer PET/CT datasets",
+    "authors": [
+      "Biratal Raj Wagle",
+      "Bashirul Azam Biswas",
+      "Grant Chau",
+      "Matthew E. Maeder",
+      "Muhammad Azeem Arshad",
+      "Michael S. Leapman",
+      "James B. Yu",
+      "Indrani Bhattacharya"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-11T15:38:44+00:00",
+    "updated": "2026-08-11T15:38:44+00:00",
+    "comments": "Code is publicly available on https://github.com/Image-and-Multimodal-Data-Analytics/FEEDS",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Automated lesion segmentation in whole-body PET/CT imaging can assist clinicians with cancer detection, staging, and treatment planning across radiotracers and cancer types. However, training lesion segmentation models that capture variations in lesion size, distribution, and appearance requires large annotated datasets, whose creation is both time- and expertise-intensive. As a result, models trained on limited labeled PET/CT data often lack the accuracy and generalizability needed for clinical use. We present FEEDS (Foundation model-Enabled Efficient Data Sampling), a label- and compute-efficient learning strategy that uses vision foundation model embeddings to select the most informative and diverse unlabeled cases for expert annotation. Unlike unsupervised, semi-supervised, and active learning approaches, FEEDS is a one-step training paradigm requiring only a limited, representative training set, making it label- and compute-efficient. We train and validate FEEDS using the AutoPET-III dataset. We test its accuracy and generalizability on three held-out sets: AutoPET-III, DeepPSMA, and an internal Dartmouth-Hitchcock Medical Center dataset. We evaluate clinical utility at the voxel, lesion, and anatomic region level to assess performance in high-risk areas and treatment planning utility. FEEDS outperforms random-sampling-based labeling, pseudolabel-based semi-supervised learning, and training with limited labeled data alone. It generalizes across all three test sets, FDG and PSMA tracers, and multiple diseases, matching fully-labeled (100\\%) training performance with 70\\% less annotation burden. FEEDS addresses the challenge of label scarcity in an automatic lesion segmentation framework by providing a practical approach for constructing representative and diverse annotation queues from large, unannotated clinical repositories.",
+    "html_url": "https://arxiv.org/abs/2608.11076v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.11076v1",
+    "code_urls": [
+      "https://github.com/Image-and-Multimodal-Data-Analytics/FEEDS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.07616v2",
+    "title": "HSMLA: Hierarchical Softmax Multi-scale Linear Attention for Efficient Vision Transformers",
+    "authors": [
+      "Dong Liu",
+      "Yanxuan Yu",
+      "Renata Borovica-Gajic",
+      "Tong Geng",
+      "Ying Nian Wu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-07T03:47:04+00:00",
+    "updated": "2026-08-11T05:54:31+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Vision transformers face significant computational overheads in high-resolution dense prediction due to the quadratic complexity of self-attention. Linear attention offers efficiency but sacrifices local context modeling. We propose \\textbf{HSMLA (Hierarchical Softmax Multi-scale Linear Attention)}, which combines ReLU-based linear attention for global context, selective softmax refinement for critical local features, and multi-scale token representations via depthwise convolutions. HSMLA achieves superior accuracy-efficiency trade-offs: up to $4.2\\times$ inference-time speedup across dense prediction tasks, $87.3%$ Dice with $3.2\\times$ speedup on CT organ segmentation, and $94.2%$ AUC with $4.1\\times$ speedup on pathology WSI.",
+    "html_url": "https://arxiv.org/abs/2608.07616v2",
+    "pdf_url": "https://arxiv.org/pdf/2608.07616v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.08191v1",
+    "title": "BAP-MOS: Bandit-Based Adaptive Prompting for Boundary-Sensitive Multi-Organ Segmentation",
+    "authors": [
+      "Satvik Praveen",
+      "Shengji Jin",
+      "Ahmed Lamidi",
+      "Xin Qian",
+      "Yi Sheng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-08T15:33:09+00:00",
+    "updated": "2026-08-08T15:33:09+00:00",
+    "comments": "9 pages, 5 figures. Source code available at https://github.com/SatvikPraveen/BAP-MOS",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-organ ultrasound segmentation remains challenging when anatomically adjacent structures must be delineated jointly, as localized boundary errors can persist even when Dice scores are high. To address these challenges, we propose Boundary-Adaptive Prompting for Multi-Organ Segmentation (BAP-MOS), a closed-loop adaptive prompting framework. BAP-MOS formulates prompt selection as an organ-specific multi-armed bandit problem over box, point, and combined prompts. An outer Tree-structured Parzen Estimator (TPE) loop selects the prompt-selection parameter vector, while an inner UCB-Tuned loop adapts per-organ prompt preferences during fine-tuning using a bounded Dice--MSD--HD95 validation-probe reward. The framework further introduces an organ-scaled negative prompt ring to adapt sparse prompt geometry across anatomical scales, while keeping the image and prompt encoders frozen and updating only the mask decoder. We evaluate BAP-MOS on pooled prostate-region TRUS cohorts against U-Net, nnU-Net, MedSAM, fixed-prompt SAM/MedSAM, and adaptive policy variants. On this benchmark, BAP-MOS achieves Dice 0.982, HD95 0.482, and MSD 0.204, reducing HD95 by approximately 48% and MSD by 45% relative to the strongest conventional baseline. To verify the generalization ability of the framework, we tested it on the external PFUS1 pelvic-floor ultrasound corpus using MedSAM and its adaptive strategy variants, and the results were good. These results support adaptive prompt allocation as an effective mechanism for improving boundary-sensitive multi-organ ultrasound segmentation without modifying the foundation-model backbone. Source Code is available at: https://github.com/SatvikPraveen/BAP-MOS",
+    "html_url": "https://arxiv.org/abs/2608.08191v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.08191v1",
+    "code_urls": [
+      "https://github.com/SatvikPraveen/BAP-MOS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.12602v2",
+    "title": "Decouple and Reason: Anatomically Guided Two-Stage Voxel-Level Grounding of Free-Text Findings in 3D Chest CT",
+    "authors": [
+      "Kwang-Hyun Uhm",
+      "Inhwa Son",
+      "Sung-Jea Ko"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-14T10:26:14+00:00",
+    "updated": "2026-08-08T07:20:49+00:00",
+    "comments": "Accepted to MICCAI 2026 (Spotlight Presentation)",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026 Spotlight",
+    "summary": "Automatic voxel-level grounding of free-text findings in 3D chest Computed Tomography (CT) is critical for clinical interpretability. However, this task remains highly challenging due to the intricate spatial complexity of large 3D volumes and the heterogeneity of free-text findings. Existing end-to-end approaches often struggle to simultaneously learn the localized feature representations required for accurate 3D segmentation and the complex semantic understanding needed for text alignment, leading to suboptimal grounding performance. To overcome this fundamental limitation, we propose a novel decoupled framework that disentangles the problem into two specialized stages: (1) class-agnostic lesion segmentation and (2) text-volume reasoning. This structural separation allows the model to first extract candidate sub-volumes by localizing potential abnormalities. Subsequently, intensive cross-modal reasoning is performed to align these localized sub-volumes with free-text medical findings. To resolve the spatial ambiguities inherent in local regions, the reasoning module is augmented with explicit anatomical guidance, utilizing relative spatial coordinates and lung lobe priors. Evaluated on the ReXGroundingCT benchmark, our method achieves state-of-the-art performance in overall grounding quality on the official leaderboard. These results demonstrate that decoupling detection from reasoning is a highly effective paradigm for handling the complexity of 3D medical visual grounding. Our code is publicly available at https://github.com/khuhm/DAGG.",
+    "html_url": "https://arxiv.org/abs/2607.12602v2",
+    "pdf_url": "https://arxiv.org/pdf/2607.12602v2",
+    "code_urls": [
+      "https://github.com/khuhm/DAGG",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.17570v2",
+    "title": "Fine-UNETR for PSMA PET/CT Lesion Segmentation: Automated Tumor Quantification and Overall Survival Stratification in Prostate Cancer",
+    "authors": [
+      "Mansour Abtahi",
+      "Chae Moon Hong",
+      "Nikhil Deveshwar",
+      "Stellamaris Nwihim",
+      "Minkyung Lee",
+      "Peder E. Z. Larson",
+      "Thomas A. Hope"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-06-16T06:19:44+00:00",
+    "updated": "2026-06-26T23:07:51+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Introduction: To develop and evaluate Fine-UNETR, a Vision Transformer-based architecture for automated segmentation of PSMA-avid lesions on whole-body PET/CT, and to assess clinical utility of AI-derived tumor burden biomarkers for overall survival stratification in radioligand therapy. Methods: In this retrospective study, 373 PSMA PET/CT scans (mean age, 71+-8 years) from patients with prostate cancer were analyzed. Fine-UNETR, a modified UNETR with 8x8x8 voxel patch embedding and axial sliding window training, was trained on 299 scans and validated on 74 scans. Overall survival stratification was assessed in an independent cohort of 67 pre-radioligand therapy patients using Kaplan-Meier analysis and log-rank testing. External validation was performed on 192 cases from the AutoPET IV PSMA PET/CT dataset. Results: Fine-UNETR achieved a Dice similarity coefficient (DSC) of 66.63%, sensitivity of 70.27%, precision of 67.77%, and a lesion detection rate of 79.53% (96.05% for lesions with SUVmax >= 5). On the external validation dataset, the model achieved a DSC of 44.11% and a lesion detection rate of 87.18%, indicating that lesion detection performance was preserved despite reduced voxel-level overlap. AI-derived biomarkers showed excellent agreement with ground truth (total tumor volume: r=0.984; total lesion uptake: r=0.989; lesion count: r=0.960). In the clinical cohort, total tumor volume (p=0.0019), SUVmax (p=0.014), and SUVmean (p=0.016) significantly stratified overall survival. Conclusion: Fine-UNETR enables accurate automated whole-body PSMA lesion segmentation and tumor burden quantification. Performance on an external dataset demonstrates robustness despite evidence of domain shift. AI-derived biomarkers significantly stratified overall survival in a pre-radioligand therapy cohort, supporting the clinical utility of automated PSMA PET/CT quantification for prognostication.",
+    "html_url": "https://arxiv.org/abs/2606.17570v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.17570v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
