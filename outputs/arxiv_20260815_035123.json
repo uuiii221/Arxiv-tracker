@@ -1,0 +1,149 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.12658v1",
+    "title": "Inference-Time Orthogonal Seeding Enables Geometry-Aligned 3D Organ Segmentation for Slice-Propagation Methods",
+    "authors": [
+      "Md Rakibul Haque",
+      "Tushar Kataria",
+      "Shireen Y. Elhabian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-12T23:44:26+00:00",
+    "updated": "2026-08-12T23:44:26+00:00",
+    "comments": "8 Pages Accepted at MLMI Workshop MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Dense voxel-level annotation remains a major bottleneck in 3D medical image segmentation. Single-slice propagation methods such as Sli2Vol reduce this burden by propagating one annotated seed slice through a volume using label-free registration. However, axial-only propagation accumulates errors with distance from the seed, especially in surface-distance metrics, because it ignores coronal and sagittal evidence and therefore underuses the 3D information available in CT/MRI volumes. To better leverage volumetric geometry, we study how key training and inference choices affect slice-propagation models, including single-axis versus multi-axis label-free registration, single-seed versus multi-seed propagation, and orthogonal seed configurations. Instead of propagating from a single axial seed, we use three orthogonal seeds---one axial, one coronal, and one sagittal---and fuse their propagated labels with a simple label-free rule. Our results show that the training paradigm has limited impact: an axially trained network applied to off-axis seeds captures nearly all the improvement, while explicit three-axis training adds little. Instead, performance is driven by inference-time seed geometry, especially orthogonality rather than the number of annotated slices, as a budget-matched three-axial control provides no benefit and can even degrade performance. On a multi-organ CT cohort, orthogonal seeding with the axial Sli2Vol backbone improves Dice by 21.9%, Normalized Surface Dice by 25.5%, and reduces Average Hausdorff Distance by 53.5% over the single-axis baseline.",
+    "html_url": "https://arxiv.org/abs/2608.12658v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.12658v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.26712v1",
+    "title": "MLFFM-SegDiff: A Multi-Level Feature Fusion Diffusion Model for Skin Lesion Segmentation",
+    "authors": [
+      "Jingjun Gu",
+      "Chaojie Shen",
+      "Yifeng Cao",
+      "Wei Zhang",
+      "Yiliu Li",
+      "Aobo Fan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-06-25T07:45:28+00:00",
+    "updated": "2026-06-25T07:45:28+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Skin lesion segmentation is a key task in computer-aided dermatological diagnosis, where accuracy directly impacts downstream analysis and disease classification. However, dermoscopic images are challenging due to blurred boundaries, low contrast, large shape variations, and artifacts such as hair and shadows. Recently, diffusion models have shown strong performance in medical image segmentation thanks to their progressive denoising and distribution modeling capabilities. Nevertheless, existing diffusion-based methods still suffer from limited cross-level feature interaction and insufficient boundary detail recovery.\n  To address these issues, we propose MLFFM-SegDiff, a multi-level feature fusion diffusion model for skin lesion segmentation. Built on a diffusion framework, the method introduces a dual-path U-Net encoder, a Multi-Level Feature Fusion Module (MLFFM), and a boundary-sensitive loss function. The dual-path encoder enhances interaction between noisy mask features and dermoscopic image features. MLFFM improves skip connections via attention, scale alignment, and adaptive cross-level fusion. These designs enable the decoder to jointly leverage shallow boundary cues and deep semantic representations, improving mask reconstruction quality.\n  Experiments on ISIC2018, PH2, and HAM10000 demonstrate that MLFFM-SegDiff outperforms representative methods including DermoSegDiff, U-Net, and SwinUNETR across Accuracy, F1-score, Jaccard index, Recall, and Dice. In particular, it achieves an average Jaccard index of 0.8546 and Dice coefficient of 0.9207. These results validate the effectiveness of the proposed multi-level feature fusion strategy for improving lesion segmentation performance. The code will be released at https://github.com/Qacket/MLFFM-SegDiff.git after publication.",
+    "html_url": "https://arxiv.org/abs/2606.26712v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.26712v1",
+    "code_urls": [
+      "https://github.com/Qacket/MLFFM-SegDiff.git",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.16325v2",
+    "title": "Attention-Based Prototype Calibration for Multi-Rater Few-Shot Medical Image Segmentation",
+    "authors": [
+      "Truong Vu",
+      "Minh Khoi Ho",
+      "Yutong Xie"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-15T07:31:08+00:00",
+    "updated": "2026-06-24T18:04:28+00:00",
+    "comments": "Accepted to MICCAI 2026. This is the pre-review submitted version, not the camera-ready version. The final authenticated version will be available in the MICCAI 2026 proceedings",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Few-shot medical image segmentation methods typically assume a single ground-truth annotation, overlooking systematic variability across expert raters commonly observed in clinical datasets. We propose an attention-based prototype calibration framework for few-shot multi-rater segmentation that models rater-specific deviations from a consensus representation in prototype space. A lightweight yet principled attention operator directly refines rater prototypes without modifying the backbone feature extractor, making the approach fully compatible with existing prototype-based few-shot segmentation methods. This design preserves semantic consistency while enabling personalized segmentation outputs with minimal computational overhead. Experiments on multi-rater medical imaging datasets demonstrate consistent improvements over baseline prototype approaches, highlighting the effectiveness of structured prototype calibration for modeling annotation variability.",
+    "html_url": "https://arxiv.org/abs/2606.16325v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.16325v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.28405v1",
+    "title": "Enhancing Layer Interaction Using Key-Correlated Layer Attention",
+    "authors": [
+      "Jianlong Xiong",
+      "ChuanBo Xie",
+      "Le Yu",
+      "Quansong He",
+      "Tao He"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-24T13:54:52+00:00",
+    "updated": "2026-06-24T13:54:52+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Recent advances in network architecture design have introduced layer attention to enhance inter-layer interactions. In such frameworks, each layer queries all preceding layers to establish cross-layer connections. However, layer attention results in quadratic computational complexity with respect to network depth. To mitigate this issue, prior works have proposed Recurrent Layer Attention (RLA) and linear attention mechanisms, which suffer from static information updates and limited long-range cross-layer dependency modeling. To overcome these limitations, we propose Key-Correlated Layer Attention (KCLA), inspired by our observation that Key representations in layer attention exhibit high cosine similarity. KCLA achieves linear computational complexity while preserving dynamic information updates, directly derived from the foundational definition of layer attention. Furthermore, KCLA maintains long-range cross-layer connections and features a fixed spatial complexity, independent of network depth. Empirical evaluations demonstrate that KCLA delivers good performance across diverse tasks, including image recognition, object detection, and medical image segmentation. The code is publicly available at https://github.com/bgx666/KCLA.",
+    "html_url": "https://arxiv.org/abs/2606.28405v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.28405v1",
+    "code_urls": [
+      "https://github.com/bgx666/KCLA",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.28402v1",
+    "title": "DCSNet: Multiscale Feature Aggregation for Small Medical Object Segmentation with Detection-guided Hierarchical Cropping",
+    "authors": [
+      "Shanfeng Zhang",
+      "Bo Gou",
+      "Yue Cao",
+      "Lei Zhang",
+      "Zhang Yi",
+      "Tao He"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-24T12:46:58+00:00",
+    "updated": "2026-06-24T12:46:58+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Small object segmentation in medical imaging is primarily hindered by class imbalance and inherent boundary complexity. Consequently, conventional global networks frequently fail to detect sparse targets or suffer from severe edge degradation. To overcome these limitations, we propose the Detection-guided Cropping Segmentation Network (DCSNet), an end-to-end framework that transforms global dense prediction into a localized refinement process. This framework integrates two core components, namely Detection-guided Hierarchical Cropping (DGHC) and Multiscale Feature Aggregation (MSFA). The DGHC module leverages region proposals to dynamically extract object-centric features, effdataectively filtering out massive background interference to mitigate class imbalance. Subsequently, the MSFA module operates strictly within these purified regions, synergizing a Transformer encoder with a pixel-adaptive fusion strategy. This mechanism dynamically aggregates multiscale features to capture both semantic context and fine-grained details for sharp boundary delineation. Extensive experiments across three diverse medical datasets demonstrate that DCSNet significantly outperforms existing state-of-the-art methods, yielding substantial improvements in boundary precision and offering a highly robust solution for clinical micro-lesion segmentation.",
+    "html_url": "https://arxiv.org/abs/2606.28402v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.28402v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
