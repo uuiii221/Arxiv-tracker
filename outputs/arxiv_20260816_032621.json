@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2606.28392v1",
+    "title": "RADIANT-PET: Reasoning-Augmented PET/CT Lesion Segmentation with Large Language Models and Reinforcement Learning",
+    "authors": [
+      "Jiasheng Wang",
+      "Tanun Jitwatcharakomol",
+      "Piyawadee Jongpradubgiat",
+      "Simeng Zhu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-06-23T18:05:55+00:00",
+    "updated": "2026-06-23T18:05:55+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate lesion segmentation in PET/CT is critical for oncology, yet remains challenging because physiologic tracer uptake and artifacts can mimic malignant signal. We present RADIANT-PET, a reasoning-augmented framework that couples a high-sensitivity voxel-level segmentation model with lesion-level large language model (LLM) adjudication. Candidate uptake regions are generated with a deliberately permissive segmentation stage, then converted into structured textual descriptions that summarize uptake intensity, morphology, and regional and global anatomical context. An LLM classifies each candidate as true lesion vs. false positive, optionally leveraging the radiology report as additional clinical context. To strengthen lesion-level reasoning, we further optimize a local LLM via reinforcement learning using Group Relative Policy Optimization, rewarding correct lesion classification and anatomically concordant site assignment. Across AutoPET and an OSU test cohort, RADIANT-PET consistently outperforms strong image-only baselines, with the largest improvements observed when radiology reports are provided. Overall, these results demonstrate that LLM-based lesion-level reasoning adds a novel reasoning layer beyond conventional segmentation, suppressing physiologic false positives and aligning voxel-level predictions with clinical interpretation. The project repository is available at: https://github.com/jwang-580/RADIANT-PET.",
+    "html_url": "https://arxiv.org/abs/2606.28392v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.28392v1",
+    "code_urls": [
+      "https://github.com/jwang-580/RADIANT-PET",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.22249v2",
+    "title": "D3Seg: Dependency-Aware Diffusion for Brain Tumor Segmentation with Missing Modalities",
+    "authors": [
+      "Danish Ali",
+      "Ajmal Mian",
+      "Naveed Akhtar",
+      "Ghulam Mubashar Hassan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-21T09:55:42+00:00",
+    "updated": "2026-06-23T12:40:38+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate brain tumor segmentation using multi-parametric MRI is critical for effective treatment planning. However, in clinical settings, complete acquisition of all MRI sequences is not always possible. The absence of certain MRI modalities results in substantial performance degradation in existing segmentation methods, which typically rely on naive feature concatenation or direct fusion strategies. To address this limitation, we propose a novel segmentation model D3Seg which is designed to maintain stable performance under missing-modality settings. D3Seg introduces Multi-hop Modality Graph Fusion (MMGF) to model higher-order inter-modality dependencies, a lightweight diffusion-based imputation mechanism to compensate for missing T1ce and FLAIR feature representations in latent space, and probability-space decision refinement to mitigate dominant-class overconfidence and improve delineation of underrepresented tumor subregions. We evaluate the proposed D3Seg model on BraTS 2023 Glioma as the primary benchmark and further test it on a subset of the external BraTS 2023 Meningioma cohort to assess generalization across tumor pathologies. The results are compared with the state-of-the-art models under different missing-modality conditions. The proposed model achieves approximately 1.5-2.0% Dice improvement on enhancing tumor (ET) and around 1.0% on tumor core (TC) across multiple missing-modality configurations compared to the current state-of-the-art model on BraTS Glioma dataset. Cross-cohort evaluation on BraTS Meningioma dataset demonstrates the generalizability of the proposed model, showing consistent improvements in the challenging TC and ET regions, with approximately 1.5-3.0% and 1.5-6.5% gains respectively across several missing-modality configurations.",
+    "html_url": "https://arxiv.org/abs/2605.22249v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.22249v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.24313v1",
+    "title": "Prob-BBDM: a Probabilistic Brownian Bridge Diffusion Model for MRI sequence image-to-image translation",
+    "authors": [
+      "Martin Valls",
+      "Pascal Bourdon",
+      "Christine Fernandez-Maloigne",
+      "Guillaume Herpe",
+      "David Helbert"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-06-23T08:47:17+00:00",
+    "updated": "2026-06-23T08:47:17+00:00",
+    "comments": "",
+    "journal_ref": "Computerized Medical Imaging and Graphics, 2026, 130, pp.102745",
+    "venue_inferred": null,
+    "summary": "AI-driven image-to-image synthesis is rapidly advancing, with growing applications in medical imaging. Multi-modal image analysis plays a crucial role in optimizing examination quality, yet acquiring multiple imaging modalities in clinical settings remains resource-intensive and time-consuming, especially for 3D imaging. To address this challenge, we propose a novel image-to-image translation model based on Brownian Bridge Diffusion Models (BBDM), which synthesizes magnetic resonance imaging (MRI) sequences from 2D axial slices. Our approach integrates a variational encoder-guided diffusion mechanism, leveraging probabilistic image distributions to enhance synthesis quality. Evaluated on the BraTS 2021 dataset, our Probabilistic-BBDM (Prob-BBDM) achieves superior performance across multiple translation tasks, reaching up to 88.46% SSIM and 26.09 dB PSNR, with consistent improvements over baselines. Notably, our diffusion process requires only 4 steps, making it computationally efficient while maintaining high-quality synthesis. To further validate generalizability, we test Prob-BBDM on an external third-party dataset, demonstrating consistent performance across domains. Additionally, we assess the clinical utility of the synthesized slices by using them as input to a pre-trained segmentation model. Tumor segmentation yields a Dice score of 88.71% and an HD95 of 3.49 mm, confirming that the synthesized slices preserve critical diagnostic information. These results highlight the potential of Prob-BBDM for high-quality, efficient, and generalizable MRI synthesis, offering a promising step toward improved medical image translation.",
+    "html_url": "https://arxiv.org/abs/2606.24313v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.24313v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2509.22307v2",
+    "title": "Johnson-Lindenstrauss Lemma Guided Network for Efficient 3D Medical Segmentation",
+    "authors": [
+      "Jinpeng Lu",
+      "Linghan Cai",
+      "Yinda Chen",
+      "Guo Tang",
+      "Songhan Jiang",
+      "Haoyuan Shi",
+      "Zhiwei Xiong"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-09-26T13:12:43+00:00",
+    "updated": "2026-06-22T15:13:12+00:00",
+    "comments": "30 pages, 12 figures. Accepted at ICLR 2026",
+    "journal_ref": null,
+    "venue_inferred": "ICLR 2026",
+    "summary": "Lightweight 3D medical image segmentation remains constrained by a fundamental \\textit{``efficiency / robustness conflict''}, particularly when processing complex anatomical structures and heterogeneous modalities. In this paper, we study how to redesign the framework based on the characteristics of high-dimensional 3D images, and explore data synergy to overcome the fragile representation of lightweight methods. Our approach, VeloxSeg, begins with a deployable and extensible dual-stream CNN-Transformer architecture composed of Paired Window Attention (PWA) and Johnson-Lindenstrauss lemma-guided convolution (JLC). For each 3D image, we invoke a ``glance-and-focus'' principle, where PWA rapidly retrieves multi-scale information, and JLC ensures robust local feature extraction with minimal parameters, significantly enhancing the model's ability to operate with low computational budget. Followed by an extension of the dual-stream architecture that incorporates modal interaction into the multi-scale image-retrieval process, VeloxSeg efficiently models heterogeneous modalities. Finally, Spatially Decoupled Knowledge Transfer (SDKT) via Gram matrices injects the texture prior extracted by a self-supervised network into the segmentation network, yielding stronger representations than baselines at no extra inference cost. Experimental results on multimodal benchmarks show that VeloxSeg achieves a 26\\% Dice improvement, alongside increasing GPU throughput by 11$\\times$, CPU by 48$\\times$, and reducing training peak GPU memory usage by $1/20$, inference by $1/24$. Code is available at https://github.com/JinPLu/VeloxSeg.",
+    "html_url": "https://arxiv.org/abs/2509.22307v2",
+    "pdf_url": "https://arxiv.org/pdf/2509.22307v2",
+    "code_urls": [
+      "https://github.com/JinPLu/VeloxSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.23373v1",
+    "title": "Polynomial Dice Loss for Medical Image Segmentation",
+    "authors": [
+      "Hiroaki Aizawa"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-22T14:07:33+00:00",
+    "updated": "2026-06-22T14:07:33+00:00",
+    "comments": "Accepted to ICANN2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a fundamental task for medical image processing and computer-assisted intervention, yet data imbalance and small lesion detection pose significant challenges. Dice Loss, which measures the overlap between predicted and ground truth regions, is widely used to mitigate these issues. To further emphasize its properties, we propose Polynomial Dice Loss, a polynomial extension of Dice Loss. Specifically, by leveraging the geometric characteristics of Dice Loss and formulating the loss function as a polynomial representation via Taylor expansion, we enable the adjustment of the contribution of higher-order components to the loss function. In our experiments, we evaluate the proposed method against loss functions derived from conventional Dice and Tversky coefficients. Experimental results and further analysis show that the polynomial formulation provides a simple way to control the loss shape and achieves competitive performance across multiple segmentation settings.",
+    "html_url": "https://arxiv.org/abs/2606.23373v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.23373v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
