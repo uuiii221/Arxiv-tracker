@@ -1,0 +1,154 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2606.23177v1",
+    "title": "Interpretable Probabilistic Medical Image Segmentation via Gaussian Process with Explicit Modelling of Annotation Bias and Variability",
+    "authors": [
+      "Qi Li",
+      "Yuliang Huang",
+      "Shaheer U. Saeed",
+      "Qianye Yang",
+      "Vasilis Stavrinides",
+      "Zachary M. C. Baum",
+      "Dean C. Barratt",
+      "J. Alison Noble",
+      "Tom Vercauteren",
+      "Yipeng Hu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-06-22T11:14:26+00:00",
+    "updated": "2026-06-22T11:14:26+00:00",
+    "comments": "Accepted at MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Deep learning-based medical image segmentation models are trained using annotations that exhibit systematic bias and variability across raters. While probabilistic multi-rater approaches can emulate annotator-specific delineations, annotator characteristics are typically encoded implicitly in deep latent feature space, making direct analysis of their influence on predictive distributions less straightforward. We propose a logit-space probabilistic segmentation framework based on stochastic variational Gaussian Process that explicitly decomposes predictions into an image-dependent reference logit distribution and annotator specific perturbations parameterised by bias and variance. This formulation enables more explicit analysis on how intra- and inter-rater variability propagate to predictive distributions. We evaluate the method on a multi-annotator medical image dataset, which shows that explicitly modelling annotator specific perturbations improves uncertainty calibration while maintaining comparable segmentation accuracy, compared with state-of-the-art multi-rater probabilistic segmentation method. The learned bias and variance parameters quantitatively reflect annotator-specific behaviour. Furthermore, controlled perturbation experiments over bias and variance demonstrate how changes in annotator parameters systematically influence predictive performance. The code used in this paper is made publicly available at https://github.com/QiLi111/GPS-Var.",
+    "html_url": "https://arxiv.org/abs/2606.23177v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.23177v1",
+    "code_urls": [
+      "https://github.com/QiLi111/GPS-Var",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2510.10779v5",
+    "title": "Structured Spectral Graph Representation Learning for Multi-label Abnormality Analysis from 3D CT Scans",
+    "authors": [
+      "Theo Di Piazza",
+      "Carole Lazarus",
+      "Olivier Nempont",
+      "Loic Boussel"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-10-12T19:49:51+00:00",
+    "updated": "2026-06-21T10:31:34+00:00",
+    "comments": "Accepted at MELBA Journal 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "With the growing volume of CT examinations, there is an increasing demand for automated tools such as organ segmentation, abnormality detection, and report generation to support radiologists in managing their clinical workload. Multi-label classification of 3D Chest CT scans remains a critical yet challenging problem due to the complex spatial relationships inherent in volumetric data and the wide variability of abnormalities. Existing methods based on 3D convolutional neural networks struggle to capture long-range dependencies, while Vision Transformers often require extensive pre-training on large-scale, domain-specific datasets to perform competitively. In this work, we propose a 2.5D alternative by introducing a new graph-based framework that represents 3D CT volumes as structured graphs, where axial slice triplets serve as nodes processed through spectral graph convolution, enabling the model to reason over inter-slice dependencies while maintaining complexity compatible with clinical deployment. Our method, trained and evaluated on 3 datasets from independent institutions, achieves strong cross-dataset generalization, and shows competitive performance compared to state-of-the-art visual encoders. We further conduct comprehensive ablation studies to evaluate the impact of various aggregation strategies, edge-weighting schemes, and graph connectivity patterns. Additionally, we demonstrate the broader applicability of our approach through transfer experiments on automated radiology report generation and abdominal CT data.",
+    "html_url": "https://arxiv.org/abs/2510.10779v5",
+    "pdf_url": "https://arxiv.org/pdf/2510.10779v5",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.22308v1",
+    "title": "Specificity- and Calibration-Aware Breast Ultrasound Segmentation via Entropy-Guided Boundary Supervision",
+    "authors": [
+      "Manar Alsaid",
+      "Mandip Shrestha",
+      "Mohammad Abbas"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-06-21T02:21:11+00:00",
+    "updated": "2026-06-21T02:21:11+00:00",
+    "comments": "5 figures, 15 pages, International Conference on Bioinformatics and Biomedicine (BIBM) 2026 at Dallas",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Lesion segmentation in breast ultrasound involves two related challenges. In images with lesions, speckle noise, low tissue contrast, and posterior acoustic shadowing cause boundary leakage and incomplete contour delineation. In images without lesions, those same artifacts generate false-positive activations in regions resembling solid lesion tissue. This study addresses both failure modes through a single modification to the training objective. Rather than weighting every boundary pixel equally, the proposed loss scales contour penalties by per-pixel predictive entropy and the ground-truth boundary map, concentrating gradient emphasis on lesion margin locations where the network remains uncertain. The loss was evaluated on the BUSI dataset through a controlled ablation against two baselines: a model without boundary supervision and a model with uniformly weighted boundary binary cross-entropy. Across 97 lesion-containing test images, mean Dice scores were statistically indistinguishable between the proposed method and the no-boundary baseline (0.7624 versus 0.7616, paired Wilcoxon p = 0.27), confirming that lesion segmentation quality is preserved. The primary effect appears in specificity. False-positive activations on 20 no-lesion test images fell from 14 of 20 and 19 of 20 for the two baselines to 5 of 20 with the proposed approach (McNemar p = 0.012 and 0.0005). Non-overlapping Wilson 95% confidence intervals confirm the difference is both statistically significant and practically substantial. A post-hoc spatial temperature scaling step further reduced expected calibration error from 0.0201 to 0.0095 without altering segmentation masks. Entropy-guided boundary supervision and spatial calibration thus function as complementary training-level and inference-level refinements that improve specificity and probability reliability within a U-Net framework.",
+    "html_url": "https://arxiv.org/abs/2606.22308v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.22308v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.22168v1",
+    "title": "From Convolution to Transformer: A Comparative Study of U-Net Variants for Brain Tumor and Retinal Vessel Segmentation",
+    "authors": [
+      "Khoa Pham",
+      "Sindhuja Penchala",
+      "Jiacheng Li",
+      "Andy Perkins",
+      "Noorbakhsh Amiri Golilarz"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-20T17:57:12+00:00",
+    "updated": "2026-06-20T17:57:12+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation plays an important role in computer aided diagnosis, treatment planning, and disease monitoring. U-Net has been widely used for biomedical image segmentation because of its encoder decoder structure and skip connections. However, conventional convolution based U-Net models may have limited ability to capture long range dependencies and global contextual information, which can affect performance in complex segmentation tasks. This paper presents a comparative study of five U-Net based architectures: U-Net 3D, Residual U-Net, Attention U-Net, UNETR, and Swin UNETR. The models are evaluated on two benchmark datasets: BraTS 2023 for brain tumor segmentation and DRIVE for retinal vessel segmentation. Experimental results show that Swin UNETR achieves the best overall performance, with Dice scores of 0.8965 on BraTS 2023 and 0.8078 on DRIVE. The results suggest that transformer based U-Net variants are effective for segmentation tasks requiring global contextual modeling, while residual learning remains useful for fine structure segmentation. This study provides practical insights into model selection for medical image segmentation across volumetric MRI and retinal imaging tasks.",
+    "html_url": "https://arxiv.org/abs/2606.22168v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.22168v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.09316v2",
+    "title": "CLoE: Expert Consistency Learning for Robust Missing Modality Segmentation",
+    "authors": [
+      "Xinyu Tong",
+      "Meihua Zhou",
+      "Bowu Fan",
+      "Haitao Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-03-10T07:49:58+00:00",
+    "updated": "2026-06-20T15:28:45+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multimodal medical image segmentation often faces missing modalities at inference, which induces disagreement among modality experts and makes fusion unstable, particularly on small foreground structures. We propose Consistency Learning of Experts (CLoE), a consistency-driven framework for missing-modality segmentation that preserves strong performance when all modalities are available. CLoE formulates robustness as decision-level expert consistency control and introduces a dual-branch Expert Consistency Learning objective. Modality Expert Consistency enforces global agreement among expert predictions to reduce case-wise drift under partial inputs, while Region Expert Consistency emphasizes agreement on clinically critical foreground regions to avoid background-dominated regularization. We further map consistency scores to modality reliability weights using a lightweight gating network, enabling reliability-aware feature recalibration before fusion. Extensive experiments on BraTS 2020 and MSD Prostate demonstrate that CLoE outperforms state-of-the-art methods in incomplete multimodal segmentation, while exhibiting strong cross-dataset generalization and improving robustness on clinically critical structures.",
+    "html_url": "https://arxiv.org/abs/2603.09316v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.09316v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
