@@ -1,0 +1,155 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.16832v1",
+    "title": "What Matters is the Prompt: Prompt Sensitivity and Prompt Generation in Foundation Models for Lung Nodule Segmentation",
+    "authors": [
+      "Jorge F. Lazo",
+      "Xixi Liu",
+      "Andreas Hallqvist",
+      "Mikael Johansson",
+      "Åse Johnsson",
+      "Jonas S. Andersson",
+      "Jennifer Alvén",
+      "Ida Häggström"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-08-17T17:16:43+00:00",
+    "updated": "2026-08-17T17:16:43+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Lung nodule segmentation in computed tomography is essential for extracting clinically relevant information for lung cancer assessment and treatment planning. Foundation models have shown notable segmentation capabilities, but state-of-the-art approaches often depend on input prompts, such as points or boxes, making their performance sensitive to prompt quality and placement. Understanding the limitations and constraints of prompt-based foundation models is therefore essential for designing reliable medical image segmentation solutions. In this work, we investigate how prompt quality affects foundation models performance for lung nodule segmentation. We further propose a synthetic prompt-generation model to test if the dependence on manually provided prompts can be mitigated by generating synthetic prompts that can also improve segmentation performance. Perturbation experiments show that bounding box prompts generally outperform point prompts, while latest specialized medical imaging models achieve better performance than general purpose ones. The proposed approach obtains a Dice coefficient of 0.85, suggesting that synthetic prompt generation as a promising strategy for lung nodule segmentation with foundation models.",
+    "html_url": "https://arxiv.org/abs/2608.16832v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.16832v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.16377v1",
+    "title": "Adaptive Post-Processing Drives Instance-Level Detection in Stroke Lesion Segmentation",
+    "authors": [
+      "Qinghui Liu",
+      "Jon André Ottesen",
+      "Atle Bjørnerud",
+      "Kyrre Eeg Emblem"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-17T10:30:51+00:00",
+    "updated": "2026-08-17T10:30:51+00:00",
+    "comments": "8 papges, 4 figs, 2 tables, MICCAI ISLES'26",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI",
+    "summary": "Instance-level lesion detection has been an increasingly larger focal point in medical image segmentation besides the more standard voxel-level overlap. Still, most pipelines are trained and post-processed for voxel overlap alone. In particular, the mismatch is most pronounced for small lesions, where a near-miss prediction---substantial overlap that falls just short of the instance-matching threshold---scores the same as a complete miss. In our ISLES'26 submission, we found that closing this gap mattered far more in post-processing than in architecture design. Our Volume-Conditioned Adaptive Post-Processing (VCAP) scheme adjusts component-size thresholds to each case's predicted lesion burden, improving Lesion-F1 by 0.032 (unbiased cross-fold estimate)---approximately 6 times larger than any architectural change we tested. A resolution-aware attention architecture (Viola2Plus), designed for small-lesion segmentation, shows why the distinction matters: it left small-lesion Dice unchanged but raised small-lesion detection rate by 3.7\\%, a real effect voxel-overlap metrics alone would have missed. Under 5-fold cross-validation on the 1,453-case training set, our post-processed two-architecture ensemble achieves Dice 0.651 and Lesion-F1 0.614, versus 0.644 and 0.573 for the unprocessed single-model baseline.",
+    "html_url": "https://arxiv.org/abs/2608.16377v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.16377v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.27856v2",
+    "title": "Benchmarking Foundation and Large Language Models for Few-Shot Medical Image Segmentation",
+    "authors": [
+      "Jinghong Liu",
+      "Yuchuan Deng",
+      "Fanping Liu",
+      "Meng Huang",
+      "Xirong Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-30T08:34:36+00:00",
+    "updated": "2026-08-17T07:55:25+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Few-shot medical image segmentation (FS-MIS) aims to segment novel regions of interest (ROIs) from a few annotated support examples. Despite rapid progress, existing FS-MIS solutions span diverse paradigms but are evaluated under inconsistent settings, leaving their relative effectiveness unclear. We introduce FAME, a unified benchmark for evaluating FS-MIS solutions, covering specialists, SAM-based methods, CLIP-based methods, and MLLM-based methods. FAME contains 14,958 test samples across 7 anatomical sites, 9 imaging modalities, and 14 ROI categories, and evaluates models under zero-shot and ten-shot settings with additional assessment of target-absence recognition and generalization under covariate and semantic shifts. Our evaluation reveals several findings. First, effective few-shot segmentation depends on how models exploit support examples: direct visual adaptation generally outperforms prompt-based strategies. Second, increasing support examples improves performance only when models can effectively utilize them. Third, semantic transfer remains substantially more challenging than imaging-domain adaptation, and strong localization ability does not necessarily imply reliable target-absence recognition. We hope FAME provides a comprehensive understanding of current FS-MIS solutions and facilitates the development of more effective and reliable few-shot medical segmentation methods.",
+    "html_url": "https://arxiv.org/abs/2607.27856v2",
+    "pdf_url": "https://arxiv.org/pdf/2607.27856v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.16110v1",
+    "title": "SUGFW+: An Uncertainty-guided Feature Weighting Framework for Cold Start Active Adaptation of SAM in Medical Image Segmentation",
+    "authors": [
+      "Xiaochuan Ma",
+      "Ning Zhu",
+      "Jia Fu",
+      "Lanfeng Zhong",
+      "Hanyu Jiang",
+      "Bin Song",
+      "Kang Li",
+      "Guotai Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-17T05:03:00+00:00",
+    "updated": "2026-08-17T05:03:00+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Cold Start Active Learning (CSAL) is important in improving the performance of a medical image segmentation model with low annotation budget by querying a small subset for annotation from an unlabeled training set. Existing CSAL methods typically rely on inefficient dataset-specific Self-Supervised Learning (SSL) to map the unlabeled images into a feature space for sample selection. Recently, the advent of foundation models such as the Segment Anything Model (SAM) offer a promising alternative as the pre-trained model can provide strong generalizable feature embeddings, and allow high performance in downstream tasks after fine-tuning (adaptation). However, how to systematically exploit SAM's inherent embeddings for cold-start sample selection during adaptation with low annotation budget remains underexplored. To address this, we propose an extended SAM-based Uncertainty-guided Feature Weighting (SUGFW+) framework for CSAL and adaptation of SAM. Specifically, it leverages the SAM for Patch-level Feature and Uncertainty Calculation (PFUC), and introduces a Patch-based Global Distinct Representation (PGDR) module that aggregates patch-level embeddings into highly discriminative, uncertainty-aware image-level features. These features are then utilized by a Greedy Selection with Cluster and Uncertainty (GSCU) strategy to combine diversity and uncertainty during sample selection. Unlike prior CSAL methods that decouple sample selection from model training, SUGFW+ tightly integrates these two stages via an Uncertainty-Prompted Fine-Tuning (UPFT) process of SAM in model training. Extensive experiments on four public datasets demonstrate that SUGFW+ achieves state-of-the-art performance against existing CSAL methods. Code is available at https://github.com/HiLab-git/SUGFW-plus.",
+    "html_url": "https://arxiv.org/abs/2608.16110v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.16110v1",
+    "code_urls": [
+      "https://github.com/HiLab-git/SUGFW-plus",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.15537v1",
+    "title": "EA-LiteUNet: An Edge-Adaptive and Resource-Efficient U-Net for Boundary-Sensitive Dermoscopic Image Segmentation",
+    "authors": [
+      "Wang Jiangtao",
+      "Nur Intan Raihana Ruhaiyem",
+      "Fu Panpan",
+      "Yang Yu",
+      "Huang Yan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-16T05:20:39+00:00",
+    "updated": "2026-08-16T05:20:39+00:00",
+    "comments": "29 Pages,13 figures, 8 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate boundary delineation remains a persistent challenge in dermoscopic image segmentation because of blurred lesion margins, heterogeneous textures, and complex background artifacts. From a signal-processing perspective, lesion boundaries represent high-frequency components that are highly susceptible to aliasing, noise amplification, and information loss. Consequently, repeated downsampling and feature transformations in conventional convolutional architectures often lead to severely degraded boundary representations. To address these limitations, we propose EA-LiteUNet, an edge-adaptive and computationally efficient U-Net variant specifically designed for boundary-sensitive medical image segmentation. The architecture integrates three core mechanisms: (1) boundary-aware representation learning to suppress aliasing and preserve high-frequency structural details; (2) attention-guided feature modulation to selectively enhance boundary-relevant responses across multi-scale features; and (3) a resource-adaptive inference strategy to dynamically balance segmentation accuracy and computational efficiency. Extensive evaluations across three public dermoscopic datasets demonstrate that EA-LiteUNet consistently achieves superior boundary precision. Specifically, on the ISIC 2018 dataset, the method significantly reduces the 95% Hausdorff Distance (HD95) to 12.89 pixels while maintaining a robust Dice score of 92.08%. Notably, this strong performance is achieved with an ultralightweight configuration of merely 0.29M parameters and 1.17 GFLOPs. Ablation studies further validate the complementary effects of these components, confirming their contribution to enhanced boundary fidelity and stable optimization.",
+    "html_url": "https://arxiv.org/abs/2608.15537v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.15537v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
