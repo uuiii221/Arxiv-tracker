@@ -1,0 +1,151 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.17803v1",
+    "title": "Scale Matters: Adaptive Granularity Selection for Cross-Species 3D Plant Organ Segmentation",
+    "authors": [
+      "Carla Salazar",
+      "Lazaros Nalpantidis"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-18T14:03:57+00:00",
+    "updated": "2026-08-18T14:03:57+00:00",
+    "comments": "Project page: https://dtu-pas.github.io/ags-plantseg/",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Recent 3D foundation models provide powerful feature representations for point cloud learning by controlling spatial granularity. However, relying on a fixed spatial granularity severely limits generalization in applications like plant phenotyping, where organ morphology and size vary substantially across species and growth stages. To address this, we propose AGS-PlantSeg, a few-shot 3D plant organ segmentation method that leverages the frozen Utonia (arXiv:2603.03283) foundation model combined with Adaptive Granularity Selection. By dynamically selecting the best granularity levels for each specific plant model, our method extracts optimized geometric features for a lightweight MLP segmentation head. Extensive experiments across PLANesT-3D (arXiv:2407.21150), Pheno4D , and Crops3D demonstrate that AGS-PlantSeg significantly improves cross-species generalization, achieving 88.9% average mIoU performance and outperforming fixed-granularity baselines by 2.5 mIoU points. Despite requiring minimal annotated data, our approach is highly competitive with fully supervised, plant-specific architectures.",
+    "html_url": "https://arxiv.org/abs/2608.17803v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.17803v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [
+      "https://dtu-pas.github.io/ags-plantseg/"
+    ],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.17635v1",
+    "title": "MaLViL: Multi-axis Low-rank Vision-LSTM for Medical Image Segmentation",
+    "authors": [
+      "Afshin Bozorgpour",
+      "Sina Ghorbani Kolahi",
+      "Moein Heidari",
+      "Ilker Hacihaliloglu",
+      "Dorit Merhof"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-18T10:54:28+00:00",
+    "updated": "2026-08-18T10:54:28+00:00",
+    "comments": "Accepted at the MICCAI Workshop on Machine Learning in Medical Imaging (MLMI), 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI",
+    "summary": "Vision-LSTM (ViL) enables efficient global modeling, but its cost still scales with the number of spatial tokens, so existing segmenters confine ViL to a coarse bottleneck and lose fine anatomical detail. Rasterizing 2D features into a 1D sequence further breaks adjacency across the orthogonal scan axis. We propose MaLViL, a Multi-axis Low-rank Vision-LSTM network that extends ViL across decoder resolutions. Bidirectional low-rank ViL (Bi-LRViL) reasons on a compact orthonormal subspace and preserves detail through an orthogonal residual; scale-aware SaLViL restores cross-axis neighbors before serialization; and a Cross-Directional Mixer (CDM) fuses orthogonal horizontal and vertical traversal paths. Statistics-Guided Skip Modulation (SGSM) further retains boundary cues in encoder skips. On skin-lesion, ultrasound, and multi-organ CT benchmarks, MaLViL achieves competitive or state-of-the-art segmentation accuracy, while reducing ViL operator memory by up to $83\\times$ at fine decoder resolutions. Code is available at: https://github.com/xmindflow/malvil.",
+    "html_url": "https://arxiv.org/abs/2608.17635v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.17635v1",
+    "code_urls": [
+      "https://github.com/xmindflow/malvil",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.17425v1",
+    "title": "GSToken: Geometry-Structured Gaussian Tokens for Compact 3D Medical Image Representation",
+    "authors": [
+      "Xiaoduo Li",
+      "Quan Gu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-18T06:44:53+00:00",
+    "updated": "2026-08-18T06:44:53+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Effective segmentation of multi-modal MRI is central to improving neural network accuracy in brain tumor recognition. Existing methods typically compress 3D volumes into token sequences via fixed patch encoding or learned attention pooling (e.g., TokenLearner). However, these compression schemes discard explicit spatial shape information; the resulting tokens convey no notion of lesion morphology or spatial extent. Meanwhile, end-to-end evaluation entangles a tokenizer's information retention with the reconstruction capacity of the downstream decoder, and the lack of a unified capacity contract across methods makes performance differences difficult to attribute. In this paper, we introduce Gaussian tokens to multi-modal brain tumor segmentation for the first time: each token carries not only a semantic feature but also a learned 3D center, anisotropic scale, and orientation, endowing the representation with explicit geometric support at negligible parameter cost. We further propose a frozen-token utility evaluation protocol: the trained tokenizer is frozen, its output is cast into a fixed-capacity serialized contract, and a shared lightweight Transformer probe independently measures each tokenizer's retained information under strictly matched conditions. Multi-seed paired statistical testing shows that GSToken consistently and substantially outperforms capacity-matched adaptive baselines under frozen probing, with uniform advantages across all tumor sub-regions, surface, and distance metrics. These results demonstrate that explicitly encoding spatial geometry within tokens significantly improves the information density of volumetric representations, offering a new design principle for compact 3D medical image representation and downstream reading.",
+    "html_url": "https://arxiv.org/abs/2608.17425v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.17425v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.17421v1",
+    "title": "TEAMS: Text-prompted spatiotEmporal dual-heAd Mamba Snake",
+    "authors": [
+      "Ruicheng Zhang",
+      "Jianhui Lei",
+      "Kaiwen Shen",
+      "Haowei Guo",
+      "Jun Zhou",
+      "Bin Chen",
+      "Mengtang Li",
+      "Shen Zhao",
+      "Shuo Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-18T06:43:22+00:00",
+    "updated": "2026-08-18T06:43:22+00:00",
+    "comments": "Medical Image Analysis (MedIA), 2026, In Press, Online Early Access Available",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Deep snake is a promising family of instance segmentation methods that accurately predicts object-level contours, thereby overcoming common pixel-level misclassification issues such as mask cavities and jagged edges in semantic segmentation approaches. However, existing deep snake methods face challenges in handling complex morphological variations, accurately capturing fine-grained organ details, and correcting base detection errors. To mitigate these limitations, we propose a cohesive Text-prompted spatiotEmporal dual-heAd Mamba Snake (TEAMS), a novel vision-language Mamba snake framework with three key innovations: (1) A Spatiotemporal Snake Evolution Strategy (SSES) is introduced to tackle complex morphological variations by capturing bidirectional spatial dependencies along the snake contour and temporal dynamics across evolution steps in a state space model. (2) A Contour Morphology-Aware Mamba (CMAM) is proposed to quantify local contour morphologies to modulate the structured attention mask in the Mamba2 SSD dual form, which extends Mamba's capability to perceive the relative importance of its input sequence elements for better delineation of fine-grained organ details. (3) A Text-prompted Collaborative Dual-Head Snake (TCDHS) is designed to incorporate cues from textual prompts and transfer the evolved contour information to the base detection head, which enhances the deep snake workflow and mitigates wrong detections. Comprehensive evaluations on five datasets covering different organs and imaging modalities demonstrate that TEAMS outperforms existing semantic and deep snake segmentation methods (e.g., relative mDice/mBF improvements of 6.9%/9.1% in a spinal dataset), underscoring its potential as a reliable tool across diverse medical image segmentation scenarios.",
+    "html_url": "https://arxiv.org/abs/2608.17421v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.17421v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.15271v4",
+    "title": "SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation",
+    "authors": [
+      "Tianhao Fu",
+      "Austin Wang",
+      "Charles Chen",
+      "Roby Aldave-Garza",
+      "Yucheng Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-04-16T17:42:42+00:00",
+    "updated": "2026-08-18T03:11:17+00:00",
+    "comments": "Accepted to UNSURE@MICCAI2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Reliable uncertainty estimation is critical for medical image segmentation, where automated contours feed downstream quantification and clinical decision support. Many strong uncertainty methods require repeated inference, while efficient single-forward-pass alternatives often provide weaker failure ranking or rely on restrictive feature-space assumptions. We present $\\textbf{SegWithU}$, a post-hoc framework that augments a frozen pretrained segmentation backbone with a lightweight uncertainty head. SegWithU taps intermediate backbone features and models uncertainty as perturbation energy in a compact probe space using rank-1 posterior probes. It produces two voxel-wise uncertainty maps: a calibration-oriented map for probability tempering and a ranking-oriented map for error detection and selective prediction. Across ACDC, BraTS2024, and LiTS, SegWithU is the strongest and most consistent single-forward-pass baseline, achieving AUROC/AURC of $0.9838/2.4885$, $0.9946/0.2660$, and $0.9925/0.8193$, respectively, while preserving segmentation quality. These results suggest that perturbation-based uncertainty modeling is an effective and practical route to reliability-aware medical segmentation.\n  Source code is available at https://github.com/ProjectNeura/SegWithU.",
+    "html_url": "https://arxiv.org/abs/2604.15271v4",
+    "pdf_url": "https://arxiv.org/pdf/2604.15271v4",
+    "code_urls": [
+      "https://github.com/ProjectNeura/SegWithU",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
