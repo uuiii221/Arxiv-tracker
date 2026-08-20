@@ -1,0 +1,155 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.19063v1",
+    "title": "When Two Tracers Disagree: An Investigation of Multimodal Fusion for Clinical PET/CT Segmentation",
+    "authors": [
+      "Jack A. Johnson",
+      "Bartłomiej W. Papież"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-19T16:04:46+00:00",
+    "updated": "2026-08-19T16:04:46+00:00",
+    "comments": "10 pages (8 pages main content and 2 pages of references), 2 figures, 2 tables, accepted to MICCAI 2026 Cancer Prevention, Detection, and IntervenTion (CaPTion) Workshop",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "PSMA and FDG PET/CT visualise complementary biological information in prostate cancer. Combining both tracers could capture heterogeneous tumour phenotypes that may be missed by either alone, yet there is no consensus on effective deep learning architectures for fusing these modalities. We evaluated multimodal image-fusion strategies for automatic whole-body PET/CT lesion segmentation to estimate total tumour burden. Using the public DEEP-PSMA Challenge dataset, we trained tracer-specific 3D nnU-Net baselines and compared (i) early fusion with a single encoder and one decoder (OEOD) or two decoders (OETD), and (ii) intermediate fusion via a dual-encoder cross-attention U-Net (DECA-UNet). Tracer-specific baselines performed strongly (PSMA Dice = 0.93; FDG = 0.81). Fusion yielded mixed results: OEOD produced a combined Dice of 0.90 (on an easier, non-tracer-specific task), whilst the tracer-specific fusion models reached PSMA/FDG = 0.69/0.64 (OETD) and 0.76/0.57 (DECA-UNet). Whilst fusion often provided reasonable PSMA segmentation, FDG performance degraded and no strategy consistently exceeded the single-tracer baselines. Under the evaluated setting, tracer-specific models remain the stronger baseline; clinically useful gains from multimodal fusion will likely require architectures that better preserve tracer specific representations. Our code is available at: https://github.com/JackJ3636/DEEP_PSMA_code",
+    "html_url": "https://arxiv.org/abs/2608.19063v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.19063v1",
+    "code_urls": [
+      "https://github.com/JackJ3636/DEEP_PSMA_code",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.05202v2",
+    "title": "Semantic Class Distribution Learning for Debiasing Semi-Supervised Medical Image Segmentation",
+    "authors": [
+      "Yingxue Su",
+      "Yiheng Zhong",
+      "Keying Zhu",
+      "Zimu Zhang",
+      "Zhuoru Zhang",
+      "Yifang Wang",
+      "Yuxin Zhang",
+      "Xinyuan Zheng",
+      "Jingxin Liu",
+      "Xiaofeng Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-05T14:13:53+00:00",
+    "updated": "2026-08-19T14:26:00+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is critical for computer-aided diagnosis. However, dense pixel-level annotation is time-consuming and costly, and medical datasets often exhibit severe class imbalance. Such an imbalance causes minority structures to be overwhelmed by dominant classes in feature representations, hindering the learning of discriminative features and making reliable segmentation particularly challenging. To address this, we propose the Semantic Class Distribution Learning (SCDL) framework, a plug-and-play module that mitigates supervision and representation biases by learning structured class-conditional feature distributions. SCDL integrates Class Distribution Bidirectional Alignment (CDBA) to align embeddings with learnable class proxies and leverages Semantic Anchor Constraints (SAC) to guide proxies using labeled data. Experiments on the Synapse and AMOS datasets demonstrate that SCDL largely improves segmentation performance across both overall and class-level metrics, with particularly notable gains for several low-frequency organs. Our anonymous code is released at https://anonymous.4open.science/r/SCDL.",
+    "html_url": "https://arxiv.org/abs/2603.05202v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.05202v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://anonymous.4open.science/r/SCDL"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.18731v1",
+    "title": "A Few Cases Are All You Need: An Empirical Study of Annotation-Efficient LoRA Fine-Tuning of MedSAM3",
+    "authors": [
+      "Sachin Dudda Nagaraju",
+      "Bendik Skarre Abrahamsen",
+      "Ashkan Moradi",
+      "Mattijs Elschot"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-19T09:34:34+00:00",
+    "updated": "2026-08-19T09:34:34+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is essential for clinical workflows such as treatment planning and disease assessment. While specialist tools like TotalSegmentator and MRSegmentator achieve strong performance, they require large annotated datasets for training. Medical foundation models offer a promising alternative through large-scale pretraining that reduces the annotation burden for new tasks, but zero-shot performance remains limited. Parameter-efficient adaptation via Low-Rank Adaptation (LoRA) enables efficient specialization with few trainable parameters, but a key question remains: how many expert-annotated cases are needed to achieve clinically useful segmentation performance? We address this by adapting MedSAM3 with LoRA for five abdominal organs (liver, kidneys, spleen, gallbladder, and pancreas) in CT and MRI using only 1, 2, 5, and 10 annotated cases, evaluating on AMOS22 dataset. With just 10 cases, models achieve performance competitive with specialist systems trained on orders of magnitude more data. Notably, this includes reliable gallbladder segmentation (Dice 0.68 CT, 0.59 MRI) where existing tools fail almost completely (Dice 0.0004), while remaining within 5--10% of MRSegmentator for liver, kidneys, and spleen using over 100 times fewer annotations. Furthermore, external validation on the Whole Heart Segmentation dataset shows that the approach extends to cardiac segmentation, a use case beyond the scope of TotalSegmentator (MRI) and MRSegmentator, achieving competitive left ventricle (LV) performance with only 10 annotated cases. Training requires only3--5,hours per organ on a single GPU, approximately 2--3 times faster than nnU-Net. These findings suggest that ten annotated cases are sufficient for clinically useful segmentation, effectively reducing bottlenecks for both image annotation and training time.",
+    "html_url": "https://arxiv.org/abs/2608.18731v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.18731v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.17803v2",
+    "title": "Scale Matters: Adaptive Granularity Selection for Cross-Species 3D Plant Organ Segmentation",
+    "authors": [
+      "Carla Salazar",
+      "Lazaros Nalpantidis"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-18T14:03:57+00:00",
+    "updated": "2026-08-19T09:08:46+00:00",
+    "comments": "Accepted at the Computer Vision in Plant Phenotyping and Agriculture (CVPPA) Workshop at the European Conference on Computer Vision (ECCV) 2026. Project page: https://dtu-pas.github.io/ags-plantseg/",
+    "journal_ref": null,
+    "venue_inferred": "ECCV",
+    "summary": "Recent 3D foundation models provide powerful feature representations for point cloud learning by controlling spatial granularity. However, relying on a fixed spatial granularity severely limits generalization in applications like plant phenotyping, where organ morphology and size vary substantially across species and growth stages. To address this, we propose AGS-PlantSeg, a few-shot 3D plant organ segmentation method that leverages the frozen Utonia (arXiv:2603.03283) foundation model combined with Adaptive Granularity Selection. By dynamically selecting the best granularity levels for each specific plant model, our method extracts optimized geometric features for a lightweight MLP segmentation head. Extensive experiments across PLANesT-3D (arXiv:2407.21150), Pheno4D , and Crops3D demonstrate that AGS-PlantSeg significantly improves cross-species generalization, achieving 88.9% average mIoU performance and outperforming fixed-granularity baselines by 2.5 mIoU points. Despite requiring minimal annotated data, our approach is highly competitive with fully supervised, plant-specific architectures.",
+    "html_url": "https://arxiv.org/abs/2608.17803v2",
+    "pdf_url": "https://arxiv.org/pdf/2608.17803v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [
+      "https://dtu-pas.github.io/ags-plantseg/"
+    ],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.19759v3",
+    "title": "Vision-Language Enhanced Foundation Model for Semi-Supervised Medical Image Segmentation",
+    "authors": [
+      "Jiaqi Guo",
+      "Mingzhen Li",
+      "Hanyu Su",
+      "Keigo Healy",
+      "Lexiaozi Fan",
+      "Neda Tavakoli",
+      "Santiago López-Tapia",
+      "Daniel Kim",
+      "Aggelos K. Katsaggelos"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-11-24T22:33:19+00:00",
+    "updated": "2026-08-17T22:19:37+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Semi-supervised learning (SSL) has emerged as an efficient paradigm for medical image segmentation, reducing the reliance on extensive expert annotations. Vision-language models (VLMs) have demonstrated strong generalization and few-shot capabilities across diverse visual domains. In this work, we integrate a VLM into a semi-supervised medical image segmentation model by adding a Vision-Language Enhanced Semi-supervised Segmentation Assistant (VESSA) that incorporates foundation-level visual-semantic understanding into SSL frameworks. Our approach consists of two stages. In Stage 1, the VLM-enhanced segmentation foundation model VESSA is trained as a reference-guided segmentation assistant using a template bank containing gold-standard exemplars, simulating learning from limited labeled data. Given an input-template pair, VESSA performs visual feature matching to extract representative semantic and spatial cues from exemplar segmentations, generating structured prompts for a Segment Anything Model (SAM)-inspired mask decoder to produce segmentation masks. In Stage 2, VESSA is integrated into an SSL framework as a plug-and-play teacher, providing template-guided pseudo-labels that complement the task-specific student model and strengthen supervision under scarce annotations. Extensive experiments across multiple segmentation datasets and domains show that VESSA-augmented SSL significantly enhances segmentation accuracy, outperforming state-of-the-art baselines under extremely limited annotation conditions.",
+    "html_url": "https://arxiv.org/abs/2511.19759v3",
+    "pdf_url": "https://arxiv.org/pdf/2511.19759v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
