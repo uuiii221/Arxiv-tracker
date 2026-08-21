@@ -1,0 +1,162 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.20229v1",
+    "title": "Prompt-Conditioned Channel Attention for Hierarchical Feature Modulation toward Anatomy-Agnostic Segmentation",
+    "authors": [
+      "Mosharof Hossain",
+      "Md Rabiul Islam",
+      "Limon Halder",
+      "Erchin Serpedin",
+      "Md Kamrul Hasan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-20T16:24:09+00:00",
+    "updated": "2026-08-20T16:24:09+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Anatomically plausible segmentation remains challenging because of low contrast, ambiguous boundaries, and modality-specific artifacts. Interactive segmentation has emerged as a promising strategy to guide feature extraction and improve localization, particularly in structurally ambiguous regions. However, existing methods integrate prompts through late-stage fusion and lack explicit mechanisms for prompt-driven channel-wise modulation across hierarchical feature representations, limiting their ability to capture deeper contextual and modality-specific variations. To address these limitations, we introduce Prompt-Conditioned Channel Attention (PCCA), a novel modulation mechanism that enables deep, hierarchical integration of semantic prompts within encoder-decoder networks. PCCA extracts compact channel descriptors via pooling, projects them into a shared space, and fuses them through a gated excitation mechanism to compute prompt-aware channel attention weights. These weights adaptively recalibrate feature responses across multiple network stages, enabling prompt-conditioned, semantically enriched hierarchical representations. Building on this, we propose PROMISE-Net, instantiated in two network variants: a convolutional model (PROMISE-CNN) and a transformer-based model (PROMISE-Txformer). Across the ISIC-Lesion, Kvasir-Polyp, CAMUS-Cardiac, and Kvasir-Instrument benchmarks, integrating PCCA into PROMISE-CNN yielded relative IoU gains of 10.4%, 8.7%, 0.8%, and 3.4%, respectively, over the baseline U-Net, while PROMISE-Txformer achieved corresponding gains of 7.6%, 23.0%, 2.1%, and 1.1%, respectively, over the baseline UNETR. These results show consistent improvements across architectures, imaging modalities, and anatomical targets, establishing PCCA and PROMISE-Net as a scalable, generalizable framework for prompt-aware hierarchical feature modulation in medical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2608.20229v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.20229v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.19788v1",
+    "title": "MOSAIC: Modality-agnostic Spectral Alignment for Federated Image-level Weakly Supervised Tumor Segmentation under Client-specific Missing Modalities",
+    "authors": [
+      "Tarun Kumar Garg",
+      "Vaanathi Sundaresan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-08-20T08:33:00+00:00",
+    "updated": "2026-08-20T08:33:00+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Trustworthy multimodal fusion in clinical settings requires handling incomplete and heterogeneous modality subsets across institutions, where privacy constraints prohibit centralized data sharing. Federated learning (FL) mitigates data-sharing constraints but suffers from client-specific missing modalities, where institutions possess incomplete multimodal subsets, degrading fusion quality and segmentation performance. While FL and weak supervision have been studied separately, their joint use with image-level labels under heterogeneous missing modalities remains unaddressed. We propose \\textbf{MOSAIC}, the first modality-agnostic federated framework for weakly supervised binary tumor segmentation under client-specific missing modalities. We introduce a client-specific modality-alignment module that fuses available channels into a shared latent space without prior knowledge of modality identity, a spectral prototype alignment loss that reconciles cross-client distribution shift using compact non-invertible frequency-domain statistics, and a dedicated federated refinement network that denoises the resulting CAM pseudo-labels into accurate masks, breaking the accuracy ceiling of weak supervision. Experiments on three multi-institutional brain tumor benchmarks (FeTS2022, BraTS-MEN, and BraTS-SSA) demonstrate significant improvements over all image, box, and point-supervised baselines, approaching fully supervised accuracy using only image-level labels and reaching 0.84 Dice on FeTS2022. Dynamic new client addition enables previously unseen institutions to join an already-trained federation within 0.01-0.04 Dice without retraining. Code is available at https://github.com/Tarun2201/MOSAIC.",
+    "html_url": "https://arxiv.org/abs/2608.19788v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.19788v1",
+    "code_urls": [
+      "https://github.com/Tarun2201/MOSAIC",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.19666v1",
+    "title": "MUST-PET: MUltimodal Self-supervised learning across Tracers for whole-body PET/CT-based lesion segmentation",
+    "authors": [
+      "Bashirul Azam Biswas",
+      "Amartya Bhattacharya",
+      "Biratal Raj Wagle",
+      "Matthew E. Maeder",
+      "James B. Yu",
+      "Indrani Bhattacharya"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-20T06:02:54+00:00",
+    "updated": "2026-08-20T06:02:54+00:00",
+    "comments": "Submitted to SPIE CAD 2027",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Deep learning-based whole-body PET-CT lesion segmentation can support cancer staging, treatment planning, and response assessment, but generalization is limited by scarce annotations and domain shifts. Self-supervised learning (SSL) can address these challenges but remains underexplored in pan-cancer, multi-tracer PET-CT. In this work, we propose MUST-PET (MUltimodal Self-Supervised learning across Tracers), a multimodal, multi-tracer SSL framework for generalizable whole-body PET-CT lesion segmentation. MUST-PET is trained and validated on a diverse, multi-institutional collection of pan-cancer PET-CT scans acquired with FDG and prostate-specific membrane antigen (PSMA)-targeted radiotracers. MUST-PET uses context-aware masked reconstruction, where one modality is partially masked and reconstructed using complementary information from both PET and CT. The pretrained model is subsequently fine-tuned with labeled samples and evaluated for reconstruction quality, lesion segmentation, label efficiency, and generalizability across independent held-out datasets. MUST-PET reduces reconstruction error, improves lesion segmentation over training from scratch, and performs well with limited labeled data and on unseen external datasets, demonstrating the potential of multi-tracer SSL for label-efficient, generalizable whole-body PET-CT. segmentation.",
+    "html_url": "https://arxiv.org/abs/2608.19666v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.19666v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2311.09614v5",
+    "title": "Comprehensive framework for evaluation of deep neural networks in detection and quantification of lymphoma from PET/CT images: clinical insights, pitfalls, and observer agreement analyses",
+    "authors": [
+      "Shadab Ahamed",
+      "Yixi Xu",
+      "Sara Kurkowska",
+      "Claire Gowdy",
+      "Joo H. O",
+      "Ingrid Bloise",
+      "Don Wilson",
+      "Patrick Martineau",
+      "François Bénard",
+      "Fereshteh Yousefirizi",
+      "Rahul Dodhia",
+      "Juan M. Lavista",
+      "William B. Weeks",
+      "Carlos F. Uribe",
+      "Arman Rahmim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2023-11-16T06:58:46+00:00",
+    "updated": "2026-08-17T19:53:36+00:00",
+    "comments": "35 pages, 15 figures, 6 tables",
+    "journal_ref": "Physica Medica, 148, 105832 (2026)",
+    "venue_inferred": null,
+    "summary": "This study addresses critical gaps in automated lymphoma segmentation from PET/CT images, focusing on issues often overlooked in existing literature. While deep learning has been applied for lymphoma lesion segmentation, few studies incorporate out-of-distribution testing, raising concerns about model generalizability across diverse imaging conditions and patient populations. We highlight the need to compare model performance with expert human annotators, including intra- and inter-observer variability, to understand task difficulty better. Most approaches focus on overall segmentation accuracy but overlook lesion-specific measures important for precise lesion detection and disease quantification. To address these gaps, we propose a clinically relevant framework for evaluating deep segmentation networks. Using this lesion measure-specific evaluation, we assess the performance of four deep networks (ResUNet, SegResNet, DynUNet, and SwinUNETR) across 611 cases from multi-institutional datasets, covering various lymphoma subtypes and lesion characteristics. Beyond standard metrics like the Dice similarity coefficient, we evaluate clinical lesion measures and their prediction errors. We also introduce detection criteria for lesion localization and propose a new detection Criterion 3 based on metabolic characteristics. We show that networks perform better on large, intense lesions with higher metabolic activity. Finally, we compare network performance to physicians via intra- and inter-observer variability analyses, demonstrating that network errors closely resemble those made by experts, i.e., the small and faint lesions remain challenging for both humans and networks. This study aims to improve automated lesion segmentation's clinical relevance, supporting better treatment decisions for lymphoma patients. The code is available at: https://github.com/microsoft/lymphoma-segmentation-dnn.",
+    "html_url": "https://arxiv.org/abs/2311.09614v5",
+    "pdf_url": "https://arxiv.org/pdf/2311.09614v5",
+    "code_urls": [
+      "https://github.com/microsoft/lymphoma-segmentation-dnn",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.14766v1",
+    "title": "Beyond Boundary Noise: Aggregated Aleatoric Uncertainty Fails to Capture Presence Ambiguity in 3D Lung Nodule Segmentation",
+    "authors": [
+      "Simon Baur",
+      "Arne Schernich",
+      "Ekin Böke",
+      "Wojciech Samek",
+      "Jackie Ma"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-08-14T12:12:34+00:00",
+    "updated": "2026-08-14T12:12:34+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Uncertainty estimation is critical for the safe clinical deployment of deep learning in medical image segmentation, with aleatoric uncertainty theoretically designed to capture irreducible data ambiguity. However, whether entropy-based measures reflect clinically meaningful ambiguity, i.e. case-level disagreement about whether a pathology is present at all, remains poorly understood. Contrary to most prior work, which focused on pixel-wise boundary disagreement, we systematically evaluate how well aleatoric uncertainty captures presence ambiguity. Our evaluation spans 3D lung nodule segmentation across four architectures with Monte Carlo dropout and deep ensembles, on LIDC-IDRI and an external validation cohort (LNDb). We find that entropy-based uncertainty maps align with boundary noise and minor drawing variation but carry insufficient discriminative signal for presence ambiguity. In contrast, a lightweight supervised ambiguity head trained on frozen segmentation features substantially outperforms all entropy-aggregation-based baselines across architectures, metrics, and both cohorts, and matches or exceeds methods that explicitly model ambiguity under disagreement supervision (Probabilistic U-Net, Annotator-Confusion 3D-UNet). A qualitative feature-space analysis shows that presence ambiguity is already encoded in the frozen encoder features of pixel-wise-trained networks, only to be discarded by the segmentation output and its entropy aggregation. Our findings expose a fundamental mismatch between the theoretical promise of aleatoric uncertainty and its practical behavior, and suggest that practitioners should not rely on entropy-based uncertainty as a proxy for clinical ambiguity in safety-critical applications.",
+    "html_url": "https://arxiv.org/abs/2608.14766v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.14766v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
