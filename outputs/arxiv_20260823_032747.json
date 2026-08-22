@@ -1,0 +1,190 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2606.21763v1",
+    "title": "From Gradient Clipping to Structural Refinement: Improving DPSGD for Medical Image Segmentation",
+    "authors": [
+      "Shiva Parsarad",
+      "Parth Shandilya",
+      "Isabel Wagner"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.CR"
+    ],
+    "published": "2026-06-19T21:26:37+00:00",
+    "updated": "2026-06-19T21:26:37+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is widely used for disease detection but relies on sensitive data, raising privacy concerns as trained models can leak information. Differential privacy, typically implemented via Differential Private Stochastic Gradient Descent (DPSGD), provides a solution, though at the cost of reduced utility. Recent DPSGD variants, including Automatic clipping (Auto-S), Normalised SGD with perturbation (NSGD), and Per-sample adaptive clipping (PSAC), have shown promise in image classification, but their behavior in medical segmentation remains underexplored. We evaluate these methods across binary and multi-class tasks and analyze gradient alignment, showing that prior assumptions, particularly for PSAC, do not consistently hold. We further demonstrate that combining clipping strategies with morphological refinement improves segmentation quality under privacy constraints. Finally, we propose an adaptive DP-Morph variant that captures class-specific structures and enhances performance in multi-class settings.",
+    "html_url": "https://arxiv.org/abs/2606.21763v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.21763v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.21605v1",
+    "title": "$μ$Match: Foundation Models for Semi-supervised Learning and Domain Adaptation in EM",
+    "authors": [
+      "Marei Freitag",
+      "Olesia Korchevaia",
+      "Luca Freckmann",
+      "Anwai Archit",
+      "Constantin Pape"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-19T17:07:16+00:00",
+    "updated": "2026-06-19T17:07:16+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Vision foundation models have substantially advanced computer vision, enabling state-of-the-art performance in zero- and few-shot settings. They have been successfully applied to biomedical imaging tasks ranging from organ segmentation in computed tomography to cell segmentation in light microscopy. Electron microscopy (EM) is a central modality for analyzing cellular ultrastructure due to its nanometer-scale resolution. However, the application of foundation models in EM has so far been limited to specific organelles, such as mitochondria, largely due to the diversity of segmentation tasks and the scarcity of comprehensively annotated data. As a result, EM segmentation still predominantly relies on supervised learning, requiring extensive manual annotation and limiting ultrastructural analysis. To address this gap, we propose $μ$Match, a framework for semi-supervised learning and domain adaptation that leverages foundation models. We implement state-of-the-art student-teacher-based methods and evaluate multiple foundation models (SAM, SAM2, $μ$SAM, DINOv2/v3) on challenging EM tasks, including mitochondrion, nucleus, and neurite segmentation. Our results demonstrate consistent improvements over strong baselines and highlight a path toward substantially reducing the annotation effort in EM.",
+    "html_url": "https://arxiv.org/abs/2606.21605v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.21605v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.01250v3",
+    "title": "The MAMA-MIA Challenge: Advancing Generalizability and Fairness in Breast MRI Tumor Segmentation and Treatment Response Prediction",
+    "authors": [
+      "Lidia Garrucho",
+      "Smriti Joshi",
+      "Kaisar Kushibar",
+      "Richard Osuala",
+      "Maciej Bobowicz",
+      "Xavier Bargalló",
+      "Paulius Jaruševičius",
+      "Kai Geissler",
+      "Raphael Schäfer",
+      "Muhammad Alberb",
+      "Tony Xu",
+      "Anne Martel",
+      "Daniel Sleiman",
+      "Navchetan Awasthi",
+      "Hadeel Awwad",
+      "Joan C. Vilanova",
+      "Robert Martí",
+      "Daan Schouten",
+      "Jeong Hoon Lee",
+      "Mirabela Rusu",
+      "Eleonora Poeta",
+      "Luisa Vargas",
+      "Eliana Pastor",
+      "Maria A. Zuluaga",
+      "Jessica Kächele",
+      "Dimitrios Bounias",
+      "Alexandra Ertl",
+      "Katarzyna Gwoździewicz",
+      "Maria-Laura Cosaka",
+      "Pasant M. Abo-Elhoda",
+      "Sara W. Tantawy",
+      "Shorouq S. Sakrana",
+      "Norhan O. Shawky-Abdelfatah",
+      "Amr Muhammad Abdo-Salem",
+      "Androniki Kozana",
+      "Eugen Divjak",
+      "Gordana Ivanac",
+      "Katerina Nikiforaki",
+      "Michail E. Klontzas",
+      "Rosa García-Dosdá",
+      "Meltem Gulsun-Akpinar",
+      "Oğuz Lafcı",
+      "Carlos Martín-Isla",
+      "Oliver Díaz",
+      "Laura Igual",
+      "Karim Lekadir"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-01T20:06:30+00:00",
+    "updated": "2026-06-19T14:59:06+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Breast cancer is the most frequently diagnosed malignancy among women worldwide and a leading cause of cancer-related mortality. Dynamic contrast-enhanced magnetic resonance imaging plays a central role in tumor characterization and treatment monitoring, particularly in patients receiving neoadjuvant chemotherapy. However, existing artificial intelligence models for breast magnetic resonance imaging are typically developed and evaluated using heterogeneous datasets, study populations, and assessment protocols, making direct comparison difficult and limiting understanding of model robustness across institutions and clinically relevant patient subgroups. The MAMA-MIA Challenge was designed to address these challenges by providing a standardized benchmark for the joint evaluation of primary tumor segmentation and prediction of pathologic complete response using pre-treatment magnetic resonance imaging only. The training cohort comprised 1,506 patients from multiple institutions in the United States, while evaluation was conducted on an external test set of 574 patients from three independent European centers to assess cross-continental and cross-institutional generalization. A unified scoring framework combined predictive performance with subgroup consistency across age, menopausal status, and breast density. Twenty-six international teams participated in the final evaluation phase. Results demonstrate substantial performance variability under a common external evaluation framework and reveal trade-offs between overall accuracy and subgroup fairness. The challenge provides standardized datasets, evaluation protocols, and public resources to promote the development of robust and equitable artificial intelligence systems for breast cancer imaging.",
+    "html_url": "https://arxiv.org/abs/2603.01250v3",
+    "pdf_url": "https://arxiv.org/pdf/2603.01250v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.21415v1",
+    "title": "One Size does not Fit All: Heterogeneous Latent Space Alignment for Unsupervised Domain Adaptation",
+    "authors": [
+      "Evangelia Koskinioti",
+      "Yi Shen",
+      "Georgios Stamou",
+      "Michael M. Zavlanos"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-06-19T13:33:38+00:00",
+    "updated": "2026-06-19T13:33:38+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Domain shift remains a major obstacle to the reliable deployment of machine learning models in high-stakes environments such as healthcare. While Domain adaptation aims to mitigate these effects, existing approaches suffer from limited expressiveness of latent representations and a reliance on handcrafted, static augmentations. In this work, we address these limitations by proposing a novel deep learning architecture for Unsupervised Domain Adaptation (UDA), specifically optimized for medical image segmentation. Our framework, ADualVUOT, integrates a dual-encoder Variational Autoencoder (VAE) with Continuous Normalizing Flows (CNFs) to increase modeling flexibility and posterior expressiveness. To achieve domain alignment, we leverage Unbalanced Optimal Transport (UOT) through the Gaussian-Gromov-Wasserstein (GGW) distance, which handles structural and topological discrepancies between domains. Furthermore, we incorporate an adversarial augmentation scheme to synthesize worst-case compositions, thus enhancing model robustness. Extensive experiments on medical imaging benchmarks show significant gains over prior OT-based approaches.",
+    "html_url": "https://arxiv.org/abs/2606.21415v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.21415v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.20765v1",
+    "title": "Dataset-Aware Cold-Start Active Learning for Annotation-Efficient 3D Medical Image Segmentation",
+    "authors": [
+      "Rémi Hattat",
+      "Marine Beaumont",
+      "Charline Bertholdt",
+      "Gabriela Hossu",
+      "Olivier Morel",
+      "Bailiang Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.LG",
+      "q-bio.QM"
+    ],
+    "published": "2026-06-18T12:10:04+00:00",
+    "updated": "2026-06-18T12:10:04+00:00",
+    "comments": "20 pages, 3 figures, 4 tables. Supplementary material available as ancillary file",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Deep learning for 3D medical image segmentation requires extensive manual annotations, a major bottleneck in volumetric medical imaging. Active learning aims to reduce this burden by selecting informative samples for annotation, but most methods assume that an initial labeled set is already available. This leaves the cold-start problem largely unresolved: how to select the first volumes from a fully unlabeled pool before any task-specific model is trained. We propose CSCS, a Curriculum-Stratified Cold-Start framework that adapts initial sample selection to the structure of the unlabeled dataset. CSCS combines two self-supervised, label-free signals: local typicality, measuring representativeness in the embedding space, and reconstruction-based uncertainty, used as a proxy for sample difficulty. These signals are combined through a weighted geometric score, where the weighting is determined by a closed-form pacing rule based on the effective annotation budget and the Difficulty-Coverage Ratio, a pool-level statistic measuring the alignment between difficulty and representativeness. We evaluate CSCS on four 3D medical image segmentation benchmarks: BraTS, FeTA, Spleen, and an in-house fetal MRI dataset. Using nnU-Net as downstream segmentation model, CSCS shows consistently competitive performance across datasets and annotation budgets, with the strongest gains in low-to-mid annotation regimes. These results suggest that dataset-aware cold-start initialization can improve the robustness of active learning for 3D medical image segmentation by adapting sample selection to the geometry of the unlabeled pool.",
+    "html_url": "https://arxiv.org/abs/2606.20765v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.20765v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
