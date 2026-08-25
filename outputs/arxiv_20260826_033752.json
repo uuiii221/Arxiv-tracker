@@ -1,0 +1,157 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.23142v1",
+    "title": "How Merge-Tolerant Are Vision Transformers for Wheat Phenotyping?",
+    "authors": [
+      "Simon Ravé",
+      "Pejman Rasti",
+      "David Rousseau"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-24T11:49:22+00:00",
+    "updated": "2026-08-24T11:49:22+00:00",
+    "comments": "Accepted to the CVPPA workshop at ECCV 2026",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Vision-based wheat phenotyping requires repeated measurements under deployment constraints, from growth-stage recognition to wheat-head counting and organ segmentation. Plain Vision Transformers (ViTs) provide a common architecture for these tasks, but quadratic attention limits high-throughput and edge inference. Training-free token merging is attractive because it can be inserted into trained models without retraining. We provide a systematic benchmark of ToMe and Mutual Pair Merging across growth-stage classification, wheat-head detection, and wheat-organ segmentation, measuring task quality, throughput, token count, and peak GPU memory, with additional Raspberry Pi 5 measurements. The benchmark reveals a clear hierarchy: classification is highly merge-tolerant, while detection and segmentation are constrained by repeated instances, thin organs, dense boundaries, reconstruction, and runtime overhead. Optimized attention backends can erase apparent speedups, so deployment value must be profiled on the target runtime rather than inferred from token count.",
+    "html_url": "https://arxiv.org/abs/2608.23142v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.23142v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.05522v3",
+    "title": "Tumor-aware augmentation with task-guided attention analysis improves rectal cancer segmentation from magnetic resonance images",
+    "authors": [
+      "Aneesh Rangnekar",
+      "Joao Miranda",
+      "Natally Horvat",
+      "Stephanie Chahwan",
+      "Samir Alrayess",
+      "Aditya Apte",
+      "Aditi Iyer",
+      "Eve LoCastro",
+      "Revathi Ravella",
+      "Marc J Gollub",
+      "Iva Petkovska",
+      "Jesse Joshua Smith",
+      "Paul Romesser",
+      "Julio Garcia-Aguilar",
+      "Harini Veeraraghavan",
+      "Joseph O Deasy"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-06T23:46:46+00:00",
+    "updated": "2026-08-24T03:53:29+00:00",
+    "comments": "Accepted to Biomedical Signal Processing & Control 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Although self-supervised pretraining is expected to learn broadly transferable representations, its effectiveness across imaging modalities substantially different from the pretraining domain, and on complex tumor-segmentation tasks, remains understudied. Evaluating CT-pretrained transformers on MRI rectal cancer segmentation, we identified two interacting failure modes in CT-to-MRI transfer: (a) inefficient token usage caused by zero-padding to match pretrained input dimensions, and (b) ineffective feature adaptation. We investigated these vulnerabilities using two primary CT-pretrained hierarchical shifted-window transformer backbones, SMIT and Swin UNETR, together with VoCo as a large-scale-pretrained supporting benchmark; these models differ in pretraining objectives and datasets. Mechanistic analysis leveraged an attention dilution index (ADI), an entropy-based metric quantifying attention diverted toward uninformative padding tokens, and centered kernel alignment (CKA) to measure feature reuse during MRI adaptation. ADI increased with zero-padding, while high feature reuse did not necessarily translate to improved downstream accuracy. To mitigate these issues, we introduced two interventions: a tumor-aware augmentation strategy to expand tumor appearance heterogeneity coverage, and an anisotropic cropping strategy to restore token efficiency. Fine-tuning with these strategies on identical rectal MRI datasets yielded detection rates of 91.1% (225/247) and 88.7% (219/247) for the primary SMIT and Swin UNETR backbones, with the supporting VoCo benchmark reaching 90.3% (223/247), demonstrating significantly improved robustness under CT-to-MRI transfer. This study is among the first to examine when pretrained transformers fail to transfer across imaging modalities and demonstrates how targeted mitigation strategies can systematically overcome cross-modality transfer limitations.",
+    "html_url": "https://arxiv.org/abs/2605.05522v3",
+    "pdf_url": "https://arxiv.org/pdf/2605.05522v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.22619v1",
+    "title": "GET: Generative Embedding Translation for Medical Image Segmentation",
+    "authors": [
+      "Md Maklachur Rahman",
+      "Md Hasan Al Banna",
+      "Saraf Anjum",
+      "Mahmudul Hasan",
+      "Tracy Hammond"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-08-23T21:49:18+00:00",
+    "updated": "2026-08-23T21:49:18+00:00",
+    "comments": "Accepted at ECCV 2026 - BioImage Computing Workshop",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Generative segmentation provides an alternative to direct pixel-wise prediction by operating on learned latent representations, but effective image-to-mask translation must preserve target structure while remaining computationally efficient. We propose Generative Embedding Translation (GET), a structured embedding-translation framework that progressively transforms image embeddings into mask embeddings within the frozen latent space of a Stable Diffusion VAE. GET uses a U-Net-style Embedding Translation Network with 1.07M trainable parameters, combining Mobile Bottleneck Convolutions, Subsampled Self-Attention, and Multi-scale Feature Enrichment for local modeling, global context, and multi-scale refinement. Across five medical segmentation datasets, GET outperforms generative, CNN, and Transformer baselines. Compared with the strongest generative baseline, GMS, GET improves average Dice and IoU by 0.93% and 1.26%, reduces HD95 by 0.81 pixels, and uses 31.41% fewer trainable parameters. Under bidirectional BUS-BUSI domain shift, GET further improves Dice and IoU by 3.51% and 3.39%, while reducing HD95 by 27.37 pixels. Our code is available at: https://github.com/maklachur/GET.",
+    "html_url": "https://arxiv.org/abs/2608.22619v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.22619v1",
+    "code_urls": [
+      "https://github.com/maklachur/GET",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2503.20652v7",
+    "title": "Imitating Radiological Scrolling: A Global-Local Attention Model for 3D Chest CT Volumes Multi-Label Anomaly Classification",
+    "authors": [
+      "Theo Di Piazza",
+      "Carole Lazarus",
+      "Olivier Nempont",
+      "Loic Boussel"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-03-26T15:47:50+00:00",
+    "updated": "2026-08-23T19:22:05+00:00",
+    "comments": "13 pages, 4 figures. Accepted for publication at MIDL 2025",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The rapid increase in the number of Computed Tomography (CT) scan examinations has created an urgent need for automated tools, such as organ segmentation, anomaly classification, and report generation, to assist radiologists with their growing workload. Multi-label classification of Three-Dimensional (3D) CT scans is a challenging task due to the volumetric nature of the data and the variety of anomalies to be detected. Existing deep learning methods based on Convolutional Neural Networks (CNNs) struggle to capture long-range dependencies effectively, while Vision Transformers require extensive pre-training, posing challenges for practical use. Additionally, these existing methods do not explicitly model the radiologist's navigational behavior while scrolling through CT scan slices, which requires both global context understanding and local detail awareness. In this study, we present CT-Scroll, a novel global-local attention model specifically designed to emulate the scrolling behavior of radiologists during the analysis of 3D CT scans. Our approach is evaluated on two public datasets, demonstrating its efficacy through comprehensive experiments and an ablation study that highlights the contribution of each model component.",
+    "html_url": "https://arxiv.org/abs/2503.20652v7",
+    "pdf_url": "https://arxiv.org/pdf/2503.20652v7",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.22532v1",
+    "title": "SymmAdapt: Symmetrical Flow Matching for Source-Free Domain Adaptation in Medical Image Segmentation",
+    "authors": [
+      "Tal Grossman",
+      "Noa Cahan",
+      "Hayit Greenspan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-23T18:09:39+00:00",
+    "updated": "2026-08-23T18:09:39+00:00",
+    "comments": "Accepted at SASHIMI 2026, held in conjunction with MICCAI 2026. To appear in the Springer LNCS proceedings of the MICCAI 2026 Satellite Events",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Domain shift across imaging modalities and acquisition sites remains a significant barrier to the clinical deployment of segmentation models. Source-free unsupervised domain adaptation (SFUDA) addresses this by adapting a pretrained model to an unlabeled target domain without requiring access to sensitive source data. We introduce a novel SFUDA framework built on Symmetrical Flow Matching, a unified generative model that segments an input image and synthesizes a source-like image from a mask within the same learned flow. By initializing inference from a domain-agnostic Gaussian origin, the model preserves structural consistency across domains and grounds predictions in learned anatomy rather than shifted texture statistics. Our pipeline leverages this symmetry to generate reliable pseudo-labels and corresponding source-like synthetic images from unlabeled target data, creating a generative replay buffer that anchors source knowledge during a generative self-training stage that fine-tunes on a joint set of real target and synthetic source-like images. We evaluate on abdominal multi-organ and cardiac segmentation, covering cross-modality MRI<->CT shifts, and multi-site prostate segmentation. Our approach outperforms SFUDA baselines and is competitive with conventional UDA methods.",
+    "html_url": "https://arxiv.org/abs/2608.22532v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.22532v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
