@@ -1,0 +1,151 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.24518v1",
+    "title": "It depends: Incorporating correlations for joint aleatoric and epistemic uncertainties of high-dimensional output spaces",
+    "authors": [
+      "Leonhard F. Feiner",
+      "Manuel Nickel",
+      "Martin Menten",
+      "Laurin Lux",
+      "Rickmer Braren",
+      "Daniel Rueckert",
+      "Georgios Kaissis",
+      "Raphael Rehms",
+      "Johannes Paetzold"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "published": "2026-08-25T13:08:17+00:00",
+    "updated": "2026-08-25T13:08:17+00:00",
+    "comments": "Published in Transactions on Machine Learning Research (TMLR), 2026. 42 pages, 14 figures, 10 tables. https://openreview.net/forum?id=zw5EuUnBny",
+    "journal_ref": "Transactions on Machine Learning Research, 05/2026",
+    "venue_inferred": null,
+    "summary": "Uncertainty Quantification (UQ) plays a vital role in enhancing the reliability of deep learning model predictions, especially in scenarios with high-dimensional output spaces. This paper addresses the dual nature of uncertainty -- aleatoric and epistemic -- focusing on their joint integration in high-dimensional regression tasks. For example, in applications like medical image segmentation or restoration, aleatoric uncertainty captures inherent data noise, while epistemic uncertainty quantifies the model's confidence in unfamiliar conditions. Modeling both jointly enables more reliable predictions by reflecting both unavoidable variability and knowledge gaps, whereas modeling only one limits transparency and robustness. We propose a novel approach that approximates the resulting joint uncertainty using a low-rank plus diagonal covariance structure, capturing essential output correlations while avoiding the computational burdens of full covariance matrices. Unlike prior work, our method explicitly combines aleatoric and epistemic uncertainties into a unified second-order distribution that supports robust downstream analyses like sampling and log-likelihood evaluation. We further introduce stabilization strategies for efficient training and inference, achieving superior UQ in the tasks of image inpainting, colorization, optical flow, and depth estimation.",
+    "html_url": "https://arxiv.org/abs/2608.24518v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.24518v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://openreview.net/forum?id=zw5EuUnBny"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.24364v1",
+    "title": "B-MIM: Biased Masked Image Modeling for Generalizable Segmentation of Fine-Grained Anatomical Structures",
+    "authors": [
+      "Sebastián González",
+      "Karen Sanchez",
+      "José M. Saavedra",
+      "Marcelo Pizarro",
+      "Bernard Ghanem"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-25T10:20:05+00:00",
+    "updated": "2026-08-25T10:20:05+00:00",
+    "comments": "Published at MedAGI in MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Self-supervised pretraining enables transferable representations for medical imaging, yet most CT encoders remain biased toward coarse semantic understanding, limiting their sensitivity to fine-grained anatomical structures such as vessels or small tumors. In this paper, we introduce Biased Masked Image Modeling (B-MIM), a modification of the iBOT objective that stochastically reduces global semantic alignment to prioritize local patch reconstruction. This bias encourages the encoder to capture high-frequency morphological details and structural continuity. We curate a multi-institutional CT abdominal dataset of 9,955 filtered studies from 17 public sources and pretrain a 3D Swin Transformer backbone using B-MIM. Across inter-dataset experiments on liver vessel segmentation, the proposed encoder improves topological fidelity (clDice) and achieves competitive Dice scores in tumor segmentation, compared to fully fine-tuned baselines, despite updating only a fraction of the parameters. Our results suggest that reducing global semantic pressure during pretraining enhances generalization to intricate anatomical structures.",
+    "html_url": "https://arxiv.org/abs/2608.24364v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.24364v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.30972v2",
+    "title": "BiSegMamba: Efficient Bidirectional Tri-Oriented Mamba for 3D Medical Image Segmentation",
+    "authors": [
+      "Bakht Zada",
+      "Chao Tong",
+      "Qile Su",
+      "Shuai Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-29T08:13:22+00:00",
+    "updated": "2026-08-25T05:24:08+00:00",
+    "comments": "Code is available at: https://github.com/bakhtzadaabshare/BiSegMamba",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate 3D medical image segmentation requires both fine spatial detail and long-range volumetric context. Although Mamba provides efficient long-sequence modeling, volumetric formulations remain sensitive to spatial serialization order, repeated multi-orientation processing, and fixed aggregation of orientation-specific representations. We propose BiSegMamba, an efficient bidirectional tri-oriented Mamba framework that follows a compact-to-detail and local-to-global processing strategy. A progressive compacting stem shifts semantic reasoning to compact representations while retaining shallow high-resolution features for reconstruction, and a multi-scale spatial mixer captures local anatomical patterns. For global context modeling, volumetric features are serialized along three anatomical orientations and their reversed directions, the resulting six sequences are processed jointly by a shared Mamba operator, and reconciled using learned channel-wise forward-backward weighting. The restored orientation-specific features are subsequently integrated through input-dependent directional fusion. Experiments on an in-house carotid dataset and ACDC, BraTS2023, and AMOS-CT achieve Dice scores of 96.3%, 91.63%, 92.57%, and 89.03%, respectively. Compared with SegMamba-V2 under standardized $128^3$ profiling, BiSegMamba reduces the parameter count by 65.9% (138.77M$\\rightarrow$47.38M) and inference latency by 53.6% (129.08$\\rightarrow$59.86 ms), while increasing throughput by 115.7% (7.75$\\rightarrow$16.71 samples/s). These results demonstrate a favorable accuracy--efficiency trade-off among volumetric Mamba-based segmentation models.",
+    "html_url": "https://arxiv.org/abs/2605.30972v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.30972v2",
+    "code_urls": [
+      "https://github.com/bakhtzadaabshare/BiSegMamba",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.23745v1",
+    "title": "Multi-Stage Prompt-Guided Feature Modulation for Generalizable Brain Tumor Segmentation",
+    "authors": [
+      "Mohammad Mahdi Danesh Pajouh",
+      "Sara Saeedi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-08-24T18:31:13+00:00",
+    "updated": "2026-08-24T18:31:13+00:00",
+    "comments": "Accepted to BraTS MICCAI 2026 Task 3 (Generalizability Across Tumors)",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Accurate brain tumor segmentation from magnetic resonance imaging (MRI) is essential for diagnosis, treatment planning, surgical guidance, and disease monitoring. However, developing automated segmentation models that generalize across diverse tumor characteristics, imaging protocols, acquisition sites, and patient populations remains challenging. Variations in tumor morphology and imaging distributions can substantially degrade performance outside the training domain. Consequently, improving the robustness and generalization of deep learning-based segmentation models has become a key objective in medical image analysis. To improve segmentation robustness, we propose Multi-Stage Dynamic Prompt nnU-Net, a prompt-conditioned extension of nnU-Net. Three independent dynamic prompt modules are inserted into the deepest encoder stages. Each module contains a learnable bank of ten 256-dimensional prompt vectors and uses globally pooled encoder features to generate image-specific prompt representations. These representations are projected into feature-wise scaling $(γ)$ and shifting $(β)$ parameters that modulate encoder feature maps through Feature-wise Linear Modulation (FiLM), enabling adaptive feature conditioning at multiple semantic levels. Evaluation on the BraTS GOAT validation dataset demonstrated that the proposed Multi-Stage Dynamic Prompt nnU-Net outperformed the baseline nnU Net across the majority of evaluated metrics and tumor subregions. The proposed model achieved average lesion-wise Dice scores of 76.16% (ET), 80.04% (TC), and 86.42% (WT), compared with 74.38%, 78.14% and 84.01% for the baseline model. The results demonstrate that multi-stage dynamic prompt conditioning improves segmentation accuracy and boundary delineation for brain tumor segmentation.",
+    "html_url": "https://arxiv.org/abs/2608.23745v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.23745v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2510.14383v4",
+    "title": "DRBD-Mamba for Robust and Efficient Brain Tumor Segmentation with Analytical Insights",
+    "authors": [
+      "Danish Ali",
+      "Ajmal Mian",
+      "Naveed Akhtar",
+      "Ghulam Mubashar Hassan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-10-16T07:31:21+00:00",
+    "updated": "2026-08-23T12:38:33+00:00",
+    "comments": "",
+    "journal_ref": "Brain Informatics (2026)",
+    "venue_inferred": null,
+    "summary": "Accurate brain tumor segmentation is significant for clinical diagnosis and treatment but remains challenging due to tumor heterogeneity. Mamba-based State Space Models have demonstrated promising performance. However, despite their computational efficiency over other neural architectures, they incur considerable overhead for this task due to their sequential feature computation across multiple spatial axes. Moreover, their robustness across diverse BraTS data partitions remains largely unexplored, leaving a critical gap in reliable evaluation. To address this, we first propose a dual-resolution bi-directional Mamba (DRBD-Mamba), an efficient 3D segmentation model that captures multi-scale long-range dependencies with minimal computational overhead. We leverage a space-filling curve to preserve spatial locality during 3D-to-1D feature mapping, thereby reducing reliance on computationally expensive multi-axial feature scans. To enrich feature representation, we propose a gated fusion module that adaptively integrates forward and reverse contexts, along with a quantization block that improves robustness. We further propose five systematic folds on BraTS2023 for rigorous evaluation of segmentation techniques under diverse conditions and present analysis of common failure scenarios. On the 20% test set used by recent methods, our model achieves Dice improvements of 0.10% for whole tumor, 1.75% for tumor core, and 0.93% for enhancing tumor. Evaluations on the proposed systematic folds demonstrate that our model maintains competitive whole tumor accuracy while achieving clear average Dice gains of 1.16% for tumor core and 1.68% for enhancing tumor over existing state-of-the-art. Furthermore, our model achieves a 15x efficiency improvement while maintaining high segmentation accuracy, highlighting its robustness and computational advantage over existing methods.",
+    "html_url": "https://arxiv.org/abs/2510.14383v4",
+    "pdf_url": "https://arxiv.org/pdf/2510.14383v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
