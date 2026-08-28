@@ -1,0 +1,148 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.27095v1",
+    "title": "Automated 2D and 3D Segmentation of AMD and DME Lesions in OCT",
+    "authors": [
+      "Lucia Sundberg",
+      "Zhihao Zhao",
+      "M. Ali Nasseri"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-27T13:13:18+00:00",
+    "updated": "2026-08-27T13:13:18+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Age-related macular degeneration (AMD) and diabetic macular edema (DME) are leading causes of vision loss, and optical coherence tomography (OCT) is the standard modality for detecting and monitoring the subtle lesions that drive treatment decisions. Most deep-learning segmentation work for OCT is validated only in-domain, leaving generalization to clinical data collected under different acquisition protocols largely untested. This work develops and systematically ablates four lesion-segmentation pipelines -- 2D and 3D variants for AMD and DME -- reaching Dice scores of 0.76 to 0.82 with strong volumetric and surface calibration (r vol, r surf greater than or equal to 0.97 across all four pipelines) on an in-domain validation set. The ablation process establishes a full-volume, calibration-aware adoption standard that catches mechanisms an ordinary slice-level evaluation would keep, and identifies ensemble composition as the most consistent driver of improvement. To test generalization, the models are evaluated on OLIVES, an external clinical cohort with no lesion-level ground truth, using a proxy-metric framework built around biomarker AUROC, central subfield thickness (CST) correlation, and longitudinal concordance. Predictions track clinical biomarkers outside the training distribution, though less strongly than in-domain -- evidence for, not validation of, automated lesion-burden tracking as a clinical tool.",
+    "html_url": "https://arxiv.org/abs/2608.27095v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.27095v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.20459v2",
+    "title": "Pixel Wised Lesion Prediction on COVID-19 CT Imagery: A Comparative Analysis of Automated Image Segmentation Architectures",
+    "authors": [
+      "Sarmad Khan",
+      "Basim Azam",
+      "Arslan Shaukat"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-19T20:13:02+00:00",
+    "updated": "2026-08-27T12:20:27+00:00",
+    "comments": "7 pages, 6 figures, 4 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In recent years, there has been a notable increase in the level of attention that is given to algorithms based on deep learning in the context of medical image segmentation. Nevertheless, the reliability of the field has been hindered due to the absence of a standardized methodology for performance analysis and the utilization of different datasets in previous research. The primary objective of the research is to comprehensively evaluate contemporary segmentation frameworks combined with state-of-the-art pre-trained backbones in order to accurately predict COVID-19 lesions in CT images. Moreover, this evaluation can serve as a point of reference for the segmentation of images in various other imaging scenarios. In order to accomplish this, we integrate four distinct deep learning architectures, namely Unet, PSPNet, Linknet, and FPN, with six pre-trained encoders, including VGG 19, DenseNet 121, Inception ResNet V2, MobileNet V2, SeresNet 101, and EfficientNet B0. This approach enables the development of diverse testing architectures. In the context of image segmentation, our research encompassed both binary and multi-class experimentation. The findings derived from our analysis of three distinct COVID-19 CT segmentation datasets indicate that deep learning architectures yield precise and efficient segmentation outcomes. Significantly, a maximum F1-Score of 98% was attained for binary class segmentation, while multi-class segmentation yielded F1-Scores of 75% and 77% across two separate datasets. The utilization of artificial intelligence and deep learning enhances the diagnostic process for pandemic diseases across multiple dimensions.",
+    "html_url": "https://arxiv.org/abs/2605.20459v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.20459v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.12196v2",
+    "title": "M-Net: Integrating Spectral Features and Physical Field Operators into Deep Learning for Medical Image Segmentation",
+    "authors": [
+      "Jing Zhu",
+      "Ye Wang",
+      "Fumin Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-12T15:51:07+00:00",
+    "updated": "2026-08-27T03:37:21+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Purpose: Deep learning-based medical image segmentation has achieved remarkable success, yet purely data-driven approaches often fail to exploit the rich mathematical structure inherent in medical images. We investigate whether explicit mathematical inductive biases, specifically matrix spectral analysis and vector calculus operators, can enhance segmentation beyond data-driven learning alone. Methods: We propose M-Net (Math-Augmented Network), which integrates three complementary mathematical priors into U-Net: (1) continuous spectral features derived from the condition number of centered local pixel matrices, providing a differentiable measure of texture ill-conditioning; (2) physical field operators (divergence and a discrete curl-like boundary irregularity operator) computed from image gradient fields, capturing focal intensity extrema and edge non-smoothness; and (3) a Math-Attention Gate (MAG) that adaptively fuses mathematical features with CNN-extracted deep features at skip connections. Results: Experiments on three benchmarks (LiTS, KiTS, and BraTS) show that M-Net achieves Dice scores of 78.42%, 76.15%, and 83.67%, outperforming baseline U-Net by 12.37%, 3.52%, and 5.55% on liver, kidney, and brain tumor segmentation, respectively. Ablations reveal that the condition-number feature contributes a 2.14% gain over binary invertibility features, while MAG adds 1.45% over simple concatenation. Conclusion: M-Net establishes that mathematical inductive biases provide effective complementary information for medical image segmentation. The continuous condition-number feature offers superior gradient information over discrete alternatives, and MAG preserves these priors throughout the network. This work opens avenues for integrating linear algebra and vector calculus into deep architectures for medical imaging.",
+    "html_url": "https://arxiv.org/abs/2608.12196v2",
+    "pdf_url": "https://arxiv.org/pdf/2608.12196v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.25965v1",
+    "title": "Less Contouring, More Accuracy: Lesion-Guided ROI Deep Learning for Ovarian Ultrasound Classification",
+    "authors": [
+      "Mehran Ahmad",
+      "Ali Abbasian Ardakani",
+      "Afshin Mohammadi",
+      "Alisa Mohebbi",
+      "Gernot Kronreif",
+      "Sepideh Hatamikia"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-26T16:22:25+00:00",
+    "updated": "2026-08-26T16:22:25+00:00",
+    "comments": "Submitted as a research article. The manuscript contains figures, tables, and supplementary material",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Ovarian lesion classification using transvaginal ultrasound remains challenging due to overlapping imaging characteristics and the dependence on expert interpretation. This study investigates whether lesion-guided region-of-interest (ROI) deep learning can achieve competitive diagnostic performance while reducing the annotation burden associated with pixel-level lesion segmentation. Two publicly available ovarian ultrasound datasets were evaluated: the Multi-Modality Ovarian Tumor Ultrasound (MMOTU) dataset for eight-class classification and the Ovarian Ultrasound Dataset (OUD) for binary classification. Four strategies were compared under a unified framework: global image-based deep learning, lesion-guided ROI-based deep learning, lesion contour-based deep learning, and contour-based radiomics with machine learning classifiers. Four deep learning architectures, MaxViT-Tiny, Swin Transformer, EfficientNet-B7, and ResNet18, were evaluated. Radiomics models were developed using support vector machine, k-nearest neighbors, and artificial neural network classifiers, with ANOVA-based feature selection applied for the lower-sample OUD dataset. The lesion-guided ROI strategy achieved the strongest overall performance, with MaxViT-Tiny obtaining 93.10% accuracy and an AUC of 0.99 on MMOTU and 97.56% accuracy and an AUC of 0.99 on OUD. The contour-based approach achieved comparable accuracy but required substantially higher annotation effort. These findings demonstrate that lesion-guided ROI deep learning provides an effective balance between diagnostic performance and annotation efficiency, offering a practical approach for scalable AI-assisted ovarian ultrasound analysis",
+    "html_url": "https://arxiv.org/abs/2608.25965v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.25965v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2510.10679v2",
+    "title": "Synergistic Modality-and-Slice Memory Framework for Cross-Modal 3D Brain Tumor Segmentation",
+    "authors": [
+      "Yuxiang Luo",
+      "Qing Xu",
+      "Hai Huang",
+      "Yuqi Ouyang",
+      "Xiangjian He",
+      "Zhen Chen",
+      "Wenting Duan",
+      "Jiebo Luo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-10-12T16:08:16+00:00",
+    "updated": "2026-08-26T13:31:15+00:00",
+    "comments": "Accepted by TMM",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The 3D multi-modal brain tumor segmentation is critical to multi-modal healthcare, and it requires accurate identification of distinct internal anatomical subregions. While the recent prompt-based segmentation paradigms enable interactive experiences for clinicians, existing methods ignore cross-modal correlations and rely on labor-intensive category-specific prompts, limiting their applicability in real-world scenarios. To address these issues, we propose the MSM-Seg, a synergistic framework for multi-modal brain tumor segmentation. The MSM-Seg introduces a dual-memory segmentation paradigm that synergistically integrates multi-modal and inter-slice information with an efficient category-agnostic prompt for brain tumor understanding. To this end, we first devise a modality-and-slice memory attention (MSMA) to exploit the complex cross-modal correlations and spatial-slice dependencies among the input scans. \\cz{Then, we propose a multi-scale category-agnostic prompt encoder (MCP-Encoder) to provide whole tumor region guidance for decoding.} Moreover, we devise a modality-adaptive fusion decoder (MF-Decoder) that leverages the complementary decoding information across different modalities to improve segmentation accuracy. Extensive experiments on different MRI datasets demonstrate that our MSM-Seg framework outperforms state-of-the-art methods in multi-modal metastases and glioma tumor segmentation. The code is available at https://github.com/xq141839/MSM-Seg.",
+    "html_url": "https://arxiv.org/abs/2510.10679v2",
+    "pdf_url": "https://arxiv.org/pdf/2510.10679v2",
+    "code_urls": [
+      "https://github.com/xq141839/MSM-Seg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
