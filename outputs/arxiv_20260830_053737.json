@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.16327v2",
+    "title": "Localization-Infused Vision-Language Semantic Fusion for Text-Guided Medical Image Segmentation",
+    "authors": [
+      "Songyue Han",
+      "Mingye Zou",
+      "Shuchang Ye",
+      "Lei Bi",
+      "Mingyuan Meng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-15T14:06:17+00:00",
+    "updated": "2026-08-22T14:17:42+00:00",
+    "comments": "12 pages, 6 figures, 7 tables. v2: revised presentation with updated author affiliations; abstract condensed; Figure 1 redrawn; an average performance column added to Table I; one reference added and three removed; author biographies removed. All datasets, methods and experimental results are unchanged from v1",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is essential for modern computer-aided medicine. Recently, text-guided segmentation has shown promise by incorporating clinician-formulated textual reports as semantic guidance for image segmentation. These textual reports contain language descriptions about the appearance, location, and neighboring anatomy of segmentation targets, providing explicit guidance for target localization and delineation. Existing text-guided segmentation methods typically extract textual semantics implicitly through a pretrained text encoder and then integrate vision-language semantics via straightforward image-text feature fusion. However, these methods do not explicitly capture target-oriented information embedded in textual reports, particularly target location, and do not explore multi-level information fusion strategies beyond basic feature-level fusion, limiting the extraction and integration of critical textual semantics. In this study, we propose LoG, a localization-infused vision-language fusion framework for text-guided medical image segmentation. By jointly performing multi-scale target localization tasks, LoG explicitly captures target-oriented vision-language semantics and enables three-level localization-infused semantic fusion: (i) localization-guided feature fusion that directly infuses location-relevant semantics into visual features, (ii) localization-gated attention fusion that redirects multi-scale localization predictions to reinforce critical regions, and (iii) localization-constrained loss fusion that supervises segmentation based on spatial consistency with target localization. Extensive experiments on three well-established benchmark datasets, involving three medical imaging modalities with paired textual reports, demonstrate that LoG consistently outperforms state-of-the-art medical image segmentation methods.",
+    "html_url": "https://arxiv.org/abs/2607.16327v2",
+    "pdf_url": "https://arxiv.org/pdf/2607.16327v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.05782v3",
+    "title": "TCSA-UDA: Text-Driven Cross-Semantic Alignment for Unsupervised Domain Adaptation in Medical Image Segmentation",
+    "authors": [
+      "Lalit Maurya",
+      "Honghai Liu",
+      "Reyer Zwiggelaar"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-11-08T00:56:52+00:00",
+    "updated": "2026-08-22T11:02:45+00:00",
+    "comments": "Published in Neurocomputing",
+    "journal_ref": "Neurocomputing 704 (2026) 134808",
+    "venue_inferred": null,
+    "summary": "Unsupervised domain adaptation (UDA) for medical image segmentation remains challenging due to substantial domain shifts across imaging modalities, such as CT and MRI. Although recent vision-language representation learning methods have shown promise in medical image analysis, their role in cross-modality UDA segmentation remains underexplored. To address this problem, we propose TCSA-UDA, a Text-driven Cross-Semantic Alignment framework that uses modality-aware textual prompting to guide domain-invariant visual representation learning. Specifically, we introduce a vision-language covariance cosine loss (VLCoL) that aligns inter-class visual feature relationships with text-derived semantic relationships, encouraging the image encoder to learn semantically structured and modality-robust representations. In addition, we incorporate a prototype alignment module to reduce residual class-level discrepancies between source and target domains by aligning high-level class prototypes. Extensive experiments on cross-modality cardiac, abdominal, and brain tumor segmentation benchmarks demonstrate that TCSA-UDA consistently improves adaptation performance and outperforms state-of-the-art UDA methods. These results highlight the potential of language-driven semantic guidance for domain-adaptive medical image segmentation. The code is available at https://github.com/lalitmaurya47/TCSA_UDA",
+    "html_url": "https://arxiv.org/abs/2511.05782v3",
+    "pdf_url": "https://arxiv.org/pdf/2511.05782v3",
+    "code_urls": [
+      "https://github.com/lalitmaurya47/TCSA_UDA",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.21864v1",
+    "title": "BioMed-Agent-RL: A Meta Learning, All You Need for Biomedical Applications",
+    "authors": [
+      "Md Asaduzzaman Jabin",
+      "Zihao Wu",
+      "Tianming Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-08-22T09:16:54+00:00",
+    "updated": "2026-08-22T09:16:54+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The current progress of Clinical Vision Large Language Models (C-VLLMs) has substantially improved digital diagnostics, still these frameworks often endure lesion noises, modality misalignment, hallucination, and missed contextual grounding in complex clinical cases. Moreover, prevailing agent systems usually depend on static and non-adaptable pipelines and lack the versatility necessary for complex medical reasoning. To resolve these difficulties, we present BioMed-Agent-RL, a unified medical agent that incorporates adaptive orchestration, policy, and reward-based reinforcement learning (RL) models for biomedical applications. To ensure reliability, it invokes clinical context-aware preference optimization (CPO), direct preference optimization (DPO), and group relative policy optimization (GRPO) with dynamic entropy regulation. This pipeline utilizes a multimodal meta-learning approach that operates as a field-specific expert and human judgment synthesizer. The agent adaptively utilizes a set of model-level expertise, such as clinical grounding and reasoner, lesion segmenter, and field-specific synthesizer, across various clinical modalities (e.g., X-ray) by utilizing an iterative and adaptive RL approach. The agent learns to seriously synthesize misleading, conflicting vision cues and trust in inherent reasoning, while specialist advice is faulty. An intensive ablation study is conducted across multiple benchmarks, and the agent significantly outperforms existing state of the art models, such as GPT-5, attaining up to ~73% accuracy (gain of ~5%) over contemporary baselines. As a result, the framework suggests a new standard for building factual, reliable, robust, and expert-like intelligent agent systems for independent clinical reasoning.",
+    "html_url": "https://arxiv.org/abs/2608.21864v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.21864v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.16180v1",
+    "title": "To forget is to preserve: Machine Unlearning for 3D medical image segmentation",
+    "authors": [
+      "Nitesh Kumar Singh",
+      "Akhilesh Singh",
+      "Arjun Arora"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-06-15T03:52:05+00:00",
+    "updated": "2026-06-15T03:52:05+00:00",
+    "comments": "9 pages, 5 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "With new data privacy laws such as the General Data Protection Regulation (GDPR) [1] that allow individuals to ask that any of their personal information be erased from trained machine learning models, there has been a push to investigate the unlearning of data from models as a way to comply with these laws. In this regard, based on four mechanics, we consider several approximate unlearning strategies applied to the MRBrainS18 dataset [2]. We use a 3D ResNet-50 [3] as a backbone architecture for segmentation that has been pre-trained with the Med3D framework [4]. Considering the pre-trained model as a baseline, we evaluate respective retention accuracy on 2 types of subjects, i.e., retain and forget. We assess these approaches through their Dice similarity coefficient and mean absolute error (MAE) values using two separate training horizons 20 and 50 epochs. The results show that the Noisy Label strategy had the best overall trade-off with a decrease of 93% in the forget set while maintaining 84% accuracy for the retained set after 50 epochs. All other strategies showed extreme levels of forgetting at higher epoch numbers while also demonstrating catastrophic degradation of their retain set performance. The results of this study provide a strict baseline of performance metrics for unlearning on a subject-specific level and provide practitioners with clear criteria for selecting the proper strategies.",
+    "html_url": "https://arxiv.org/abs/2606.16180v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.16180v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.16153v1",
+    "title": "A Comprehensive Survey of Medical Image Segmentation: Challenges, Benchmarks, and Beyond",
+    "authors": [
+      "Pengyu Zhu",
+      "Xiaojing Zhang",
+      "Kunbo Zhang",
+      "Chunyan Zhang",
+      "Zhenyu Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-06-15T03:15:19+00:00",
+    "updated": "2026-06-15T03:15:19+00:00",
+    "comments": "12 pages,3 figures,1 table. All related resources are available at https://github.com/andrew-pengyu/Awsome_MedSeg/tree/main",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation plays a critical role in clinical diagnostics, treatment planning, disease monitoring, and neurological disorder identification. This article presents a comprehensive review of its systematic development, covering widely used public datasets, representative methods built on the U-Net, Transformer, and SAM architectures, and key evaluation metrics with their differences, followed by an analysis of major challenges from multiple perspectives. Unlike surveys that focus on a single model family or a specific clinical application, this review organizes U-Net-, Transformer-, and SAM-based methods within a unified analytical framework, with a particular focus on their effectiveness in improving segmentation accuracy and efficiency. This work aims to guide future research and support clinical translation of medical image segmentation, with all related resources publicly available in our GitHub repository: https://github.com/andrew-pengyu/Awsome_MedSeg/tree/main.",
+    "html_url": "https://arxiv.org/abs/2606.16153v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.16153v1",
+    "code_urls": [
+      "https://github.com/andrew-pengyu/Awsome_MedSeg/tree/main",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
