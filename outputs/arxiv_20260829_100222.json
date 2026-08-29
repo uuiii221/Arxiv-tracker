@@ -1,0 +1,148 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.25693v1",
+    "title": "Unsupervised Anatomical Feature Learning via Diffusion Models: Enhanced Medical Image Segmentation with Denoising Diffusion Probabilistic Models",
+    "authors": [
+      "Akshat G",
+      "Divyansh Gupta",
+      "Shaleen Bhatnagar",
+      "Shilpa Ankalaki",
+      "Tusar Kanti Mishra"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-26T12:10:56+00:00",
+    "updated": "2026-08-26T12:10:56+00:00",
+    "comments": "15 pages, 5 figures. Submitted for peer review",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Acquiring pixel-level annotations for medical image segmentation is a severe bottleneck. Traditional U-Net architectures, while effective, learn local texture patterns and lack awareness of global anatomical structures, leading to boundary delineation failures in low-data regimes. This research paper proposes utilizing unsupervised Denoising Diffusion Probabilistic Models (DDPMs) to extract anatomical features. We train a DDPM on 21 unlabeled abdominal CT scans to learn structural representations, transferring the encoder weights to a downstream segmentation task evaluated on the BTCV multi-organ dataset. Diffusion pretraining significantly improved liver segmentation: Dice increased from $0.75\\pm0.36$ to $0.93\\pm0.16$ ($p < 5.33\\times10^{-26}$, 0.529 Cohen's d), Average Surface Distance (ASD) decreased by 66%, and 95th-percentile Hausdorff Distance (HD95) reduced by 45%. For kidney segmentation, Dice improved from $0.90\\pm0.19$ to $0.95\\pm0.10$ ($p < 4.01\\times10^{-11}$). Multi-organ pooled performance showed a 68% variance reduction and a 74% improvement in boundary precision (Dice $0.95\\pm0.07$). Crucially, frozen encoder models retained > 80% of fine-tuned performance without exposure to segmentation labels, proving the existence of learned anatomical priors. In low-data scenarios, diffusion-pretrained models maintained robust performance with only 50% (Dice: 0.92 liver, 0.94 kidney), 25%, and even 10% (Dice: 0.89 liver, 0.71 kidney) of labeled data. Using unlabeled images for diffusion-based pretraining successfully embeds robust anatomical features prior to human supervision, transforming U-Nets into anatomy-aware systems.",
+    "html_url": "https://arxiv.org/abs/2608.25693v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.25693v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.25675v1",
+    "title": "Deep Learning Segmentation of Diffusion-Weighted MRI Acute Ischaemic Stroke: A Pragmatic Evaluation Across Three Datasets",
+    "authors": [
+      "Atle Bjørnerud",
+      "Till Schellhorn",
+      "Thor H. Skattør",
+      "Terje Nome",
+      "Jon André Ottesen",
+      "Anne Hege Aamodt",
+      "Bradley J MacIntosh"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-26T11:53:40+00:00",
+    "updated": "2026-08-26T11:53:40+00:00",
+    "comments": "19 pages, 8 figure and 4 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Objective: Diffusion-weighted MRI (DWI-MRI) is the gold standard for visualizing and quantifying acute ischaemic stroke (AIS). Although deep learning methods can accurately segment AIS lesions, the optimal image inputs and model architecture remain uncertain. We evaluated whether accurate AIS lesion segmentation can be achieved using a pragmatic deep learning approach with minimal preprocessing and clinically feasible inference times.\n  Materials and Methods: Self-configured nnU-Net models were trained on 1,744 DWI cases from local, national, and open-access datasets and tested on 436 cases. Four experimental conditions were evaluated using five-fold cross-validation: with or without brain extraction and using either DWI alone or DWI plus apparent diffusion coefficient (ADC) images as inputs. Two architectures were compared: the baseline nnU-Net (base) and a residual encoder nnU-Net (ResEnc). Performance was benchmarked against the DeepISLES ensemble model from the 2022 ISLES challenge.\n  Results: In the test set (n=436), the base model achieved a median (IQR) Dice similarity coefficient (DSC) of 0.84 (0.19). For the base model, only two of six pairwise comparisons between input configurations showed significant differences. ResEnc produced small but significant improvements in DSC compared with the base model for DWI, DWI+brain extraction, and DWI+ADC inputs (all p<0.02), but not for DWI+ADC+brain extraction (p>0.50). The base model significantly outperformed DeepISLES, particularly in patients with smaller infarct volumes (signed-rank test, p<0.01).\n  Conclusions: A baseline nnU-Net trained on DWI alone, without preprocessing, enabled fast and accurate AIS lesion segmentation. This streamlined approach may facilitate clinical research and support acute stroke imaging workflows",
+    "html_url": "https://arxiv.org/abs/2608.25675v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.25675v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2412.12660v2",
+    "title": "SEG-SAM: Semantic-Guided SAM for Unified Medical Image Segmentation",
+    "authors": [
+      "Shuangping Huang",
+      "Hao Liang",
+      "Qingfeng Wang",
+      "Chulong Zhong",
+      "Zijian Zhou",
+      "Miaojing Shi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2024-12-17T08:29:13+00:00",
+    "updated": "2026-08-26T08:04:18+00:00",
+    "comments": "17 pages, 11 figures. Under review",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Recently, developing unified medical image segmentation models gains increasing attention, especially with the advent of the Segment Anything Model (SAM). SAM has shown promising binary segmentation performance in natural domains, however, transferring it to the medical domain remains challenging, as medical images often possess substantial inter-category overlaps. To address this, we propose the SEmantic-Guided SAM (SEG-SAM), a unified medical segmentation model that incorporates semantic medical knowledge to enhance medical segmentation performance. First, to avoid the potential conflict between binary and semantic predictions, we introduce a semantic-aware decoder independent of SAM's original decoder, specialized for both semantic segmentation on the prompted object and classification on unprompted objects in images. To further enhance the model's semantic understanding, we solicit key characteristics of medical categories from large language models and incorporate them into SEG-SAM through a text-to-vision semantic module, adaptively transferring the language information into the visual segmentation task. In the end, we introduce the cross-mask spatial alignment strategy to encourage greater overlap between the predicted masks from SEG-SAM's two decoders, thereby benefiting both predictions. Extensive experiments demonstrate that SEG-SAM outperforms state-of-the-art SAM-based methods in unified binary medical segmentation and task-specific methods in semantic medical segmentation, showcasing promising results and potential for broader medical applications.",
+    "html_url": "https://arxiv.org/abs/2412.12660v2",
+    "pdf_url": "https://arxiv.org/pdf/2412.12660v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.22281v1",
+    "title": "CiUNet: A Hybrid Swin-CNN UNet for Medical Image Segmentation",
+    "authors": [
+      "Bin Dong",
+      "Jinghong Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-08-23T08:19:55+00:00",
+    "updated": "2026-08-23T08:19:55+00:00",
+    "comments": "14 pages, 3 figures. The demo predictor and trained weights are available at:https://github.com/ciphoBD/CiUNet",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation requires high accuracy and robustness, yet practical commercial deployment also demands privacy preservation and computational efficiency. In this context, the U-Net architecture, which can be inherently decoupled into independent encoder and decoder components, serves as a natural commercial choice. However, pure Transformer-based variants like Swin-UNet often suffer from insufficient local detail capture and limited interpretability. In this paper, we propose a lightweight hybrid architecture built upon the Swin-UNet framework. Our model integrates a parallel CNN encoder to complement the shallow layer reasoning of Swin Transformers with local texture features. To bridge the semantic gap and enhance fine-grained spatial detail recovery, we design an asymmetric feature fusion strategy and introduce cross-layer skip (XSkip) connections that explicitly propagate shallow CNN features into the decoder. We further incorporate novel loss functions and an auxiliary supervision head (Aux-Head) to strengthen training stability, boundary delineation, and intermediate feature interpretability. Extensive experiments on the Synapse multi-organ segmentation dataset demonstrate that our approach achieves state-of-the-art competitive Dice scores and Hausdorff distances, offering an accurate, efficient, and interpretable solution for clinical deployment.",
+    "html_url": "https://arxiv.org/abs/2608.22281v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.22281v1",
+    "code_urls": [
+      "https://github.com/ciphoBD/CiUNet",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.22096v1",
+    "title": "Three-Phase Scribble-Adaptive Curriculum Learning for autoPETV Grand Challenge",
+    "authors": [
+      "Libo Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-22T20:21:16+00:00",
+    "updated": "2026-08-22T20:21:16+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "This report describes Libo Zhang's algorithmic solution to autoPETV Grand Challenge on interactive lesion segmentation in whole-body PET/CT. Interaction is encoded as two additional input channels that rasterize the accumulated foreground and background scribbles, and a residual-encoder U-Net of about 140 million parameters is trained with a three-phase curriculum over 4000 epochs: the network first learns fully automatic segmentation with silent interaction channels, then observes ground-truth-derived scribbles under randomly sampled visibility modes, and finally adapts to its own mistakes through online simulation of up to five error-driven correction steps. Training draws on 1811 autoPET and DeepPSMA studies, and the submission ensembles the best and final checkpoints of five folds by logit averaging. In interactive five-fold cross-validation with six interaction steps, the final checkpoints reach a mean AUC-Dice of 3.836 and a mean AUC-DMM of 3.869, improving monotonically in every fold, with roughly half of the total gain delivered by the first corrective scribble. Our code and trained model checkpoints are available on https://github.com/Libo1023/autoPETV-Curriculum.",
+    "html_url": "https://arxiv.org/abs/2608.22096v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.22096v1",
+    "code_urls": [
+      "https://github.com/Libo1023/autoPETV-Curriculum",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
