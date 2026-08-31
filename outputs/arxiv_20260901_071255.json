@@ -1,0 +1,150 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.28461v1",
+    "title": "Anatomy-Aware Promptable Segmentation with Online Interactive Training for AUTOPET V",
+    "authors": [
+      "Pablo Lozano-Jimenez",
+      "Sergio Romero-Tapiador",
+      "Ruben Tolosana"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-28T15:49:58+00:00",
+    "updated": "2026-08-28T15:49:58+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We present an anatomy-aware, promptable model for whole-body lesion segmentation in FDG and PSMA PET/CT, developed for the AUTOPET V challenge. The proposed method is built as family of nnU-Net-based models and trained in two stages: i) a pre-training stage that produces a strong initial segmentation, and ii) an online interactive stage that learns to exploit scribble prompts, refining the prediction over successive interactions. Anatomical context is incorporated through organ supervision using a single shared head that predicts lesions and organs from the same features, which reduces false positives arising from physiological uptake. Also as the tracer (i.e., FDG/PSMA) is not provided at inference, we add a tracer classifier based on image processing and a random forest over coronal MIP features, routing each study to a combined FDG+PSMA model or to a PSMA-specific model. Across four-fold cross-validation the organ-supervised model achieves the best and most stable performance, the interactive stage improves the Dice score monotonically with each prompt, and PSMA-specific training yields the strongest tracer-wise results.",
+    "html_url": "https://arxiv.org/abs/2608.28461v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.28461v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.12411v2",
+    "title": "DeferredSeg:A Multi-Expert Deferral Framework for Medical Image Segmentation",
+    "authors": [
+      "Qiuyu Tian",
+      "Haoliang Sun",
+      "Yunshan Wang",
+      "Yinghuan Shi",
+      "Yilong Yin"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-14T07:50:31+00:00",
+    "updated": "2026-08-28T01:57:40+00:00",
+    "comments": "Accepted by Pattern Recognition",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Segmentation models based on deep neural networks demonstrate strong generalization for medical image segmentation. However, they often exhibit overconfidence or underconfidence, leading to unreliable confidence scores for segmentation masks, especially in ambiguous regions. This undermines the trustworthiness required for clinical deployment. Motivated by the learning-to-defer (L2D) paradigm, we introduce DeferredSeg, a deferral-aware segmentation framework, i.e., a Human--AI collaboration system that determines whether to defer predictions to human experts in specific regions.\n  DeferredSeg extends the base segmentor with an aggregated deferral predictor and additional routing channels that dynamically route each pixel to either the base segmentor or a human expert. To train this routing efficiently, we introduce a pixel-wise surrogate collaboration loss that supervises deferral decisions. In addition, to preserve spatial coherence within deferral regions, we propose a spatial-coherence loss that enforces smooth deferral masks, thereby enhancing reliability.\n  Beyond single-expert deferral, we further extend the framework to a multi-expert setting by introducing multiple discrepancy experts for collaborative decision-making. To prevent overloading or underutilizing individual experts, we further design a load-balancing penalty that evenly distributes workload across expert branches. We evaluate DeferredSeg on three challenging medical datasets using MedSAM and CENet as the base segmentor for fair comparison. Experimental results show that DeferredSeg consistently outperforms the baseline, demonstrating its effectiveness for trustworthy dense medical segmentation. Moreover, the proposed framework is model-agnostic and can be readily applied to other segmentation architectures.",
+    "html_url": "https://arxiv.org/abs/2604.12411v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.12411v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.27668v1",
+    "title": "Report Supervision",
+    "authors": [
+      "Pedro R. A. S. Bassia",
+      "Wenxuan Li",
+      "Jakob Wasserthal",
+      "Jieneng Chen",
+      "Xinze Zhou",
+      "Zheren Zhu",
+      "Chuntung Zhuanga",
+      "Sergio Decherchi",
+      "Andrea Cavalli",
+      "Kang Wang",
+      "Yang Yang",
+      "Alan Yuille",
+      "Zongwei Zhou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-27T19:56:39+00:00",
+    "updated": "2026-08-27T19:56:39+00:00",
+    "comments": "Published in Medical Image Analysis, 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Segmentation models can surpass radiologists, classification models, and vision-language models in tumor detection. Importantly, segmentation models outline tumors, allowing radiologists to better verify and trust the AI output. Their main limitation is the scarcity of tumor masks: creating one 3D tumor mask takes up to 30 minutes, so most public CT datasets contain only a few hundred masks, and even the largest private datasets contain only a couple of thousand. Tumor masks are not produced in clinical routine, but radiology reports are. Public datasets contain tens of thousands of CT-Report pairs, and hospitals contain hundreds of thousands. These reports describe tumors in detail, providing large-scale, informative training data. Here, we introduce Report Supervision (R-Super), a training framework that uses reports to directly supervise and improve tumor segmentation. R-Super introduces new loss functions that teach segmentation models to segment tumors that match report descriptions of tumor count, sizes, and locations. Reports are only used for training. We evaluated R-Super on kidney and pancreatic tumor segmentation, exploring diverse training data sizes, up to 41,418 CT-Report plus 3,488 pancreatic tumor CT-Mask pairs. On external validation, R-Super increased tumor detection F1-Score and segmentation DSC by up to +15% with respect to mask-only training. It also surpassed alternative methods such as CLIP and multi-task learning. Leveraging numerous readily available reports to supplement scarce masks, R-Super strongly improves AI performance when very few training masks are available (e.g., 50), and when many masks are available (e.g., 3,488), unlocking scale in tumor segmentation.",
+    "html_url": "https://arxiv.org/abs/2608.27668v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.27668v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.12193v2",
+    "title": "MMRINet: Efficient Mamba-Based Segmentation with Dual-Path Refinement for Low-Resource MRI Analysis",
+    "authors": [
+      "Abdelrahman Elsayed",
+      "Ahmed Jaheen",
+      "Mohammad Yaqub"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-11-15T12:57:25+00:00",
+    "updated": "2026-06-12T04:26:17+00:00",
+    "comments": "Accepted at The Medical Image Understanding and Analysis Conference (MIUA 2026)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Automated brain tumor segmentation in multi-parametric MRI remains a critical yet underserved challenge in resource-constrained clinical settings, where deep 3D networks requiring high-end GPUs are not viable. This is particularly acute across sub-Saharan Africa (SSA), where low-field scanners, heterogeneous patient demographics, and severe data scarcity compound the difficulty of applying standard deep learning pipelines. We present MMRINet, a lightweight segmentation architecture purpose-built for these constraints. At its core, MMRINet replaces quadratic-complexity self-attention with linear-complexity Mamba state-space models, enabling efficient long-range volumetric context modeling without the computational overhead of Transformer-based approaches. We combine two lightweight refinement components:Dual-Path Feature Refinement (DPFR), which extracts complementary detail and contextual representations to improve feature diversity under limited data, and Progressive Feature Aggregation (PFA), which hierarchically fuses multi-scale decoder outputs for sharper segmentation boundaries. Evaluated on the BraTS-Lighthouse SSA 2025 challenge dataset, comprising 3D MRI scans from Nigerian clinical sites, MMRINet achieves an average Dice score of 0.752 and an average HD95 of 12.23 mm with only ~2.5M parameters, outperforming all evaluated baselines, including UNETR, Swin-UNETR, SegMamba, and SegResNet3D. These results indicate that strong validation-set segmentation performance can be achieved with substantially reduced computation, offering a practical step toward AI-assisted neuro-oncology in low-resource clinical environments. Our GitHub repository can be accessed here: BioMedIA-MBZUAI/MMRINet.",
+    "html_url": "https://arxiv.org/abs/2511.12193v2",
+    "pdf_url": "https://arxiv.org/pdf/2511.12193v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.14072v1",
+    "title": "Diffusion-Refined Segmentation and Vision-Language Interpretation for Pediatric Brain Tumor MRI",
+    "authors": [
+      "Wentao Ke",
+      "Jianche Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.CL"
+    ],
+    "published": "2026-06-12T03:38:40+00:00",
+    "updated": "2026-06-12T03:38:40+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate pediatric brain tumor segmentation remains challenging due to limited annotated data, heterogeneous imaging phenotypes, diffuse tumor boundaries, and class imbalance across tumor subregions. Here, we present a two-stage deep learning framework for improving multi-modal pediatric brain MRI segmentation and clinical interpretation. First, we evaluate 3D Res U-Net and Swin-UNETR baselines on BraTS-PEDs MRI scans, using four co-registered modalities to predict tumor core, whole tumor, and enhancing tumor regions. Second, we introduce diffusion-based refinement models conditioned on coarse Swin-UNETR predictions, including a 3D DDPM refiner and MedSegDiff. Conditioning substantially improves diffusion stability and performance, particularly for enhancing tumor boundary segmentation. Conditioned MedSegDiff achieves the strongest boundary agreement with the lowest HD95. Finally, predicted tumor volumes and representative segmentation overlays are integrated with a multimodal language model to generate structured radiology-style reports. Together, our results suggest that coarse-to-refined diffusion segmentation can improve pediatric tumor boundary delineation and support end-to-end interpretable AI-assisted neuro-oncology workflows.",
+    "html_url": "https://arxiv.org/abs/2606.14072v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.14072v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
