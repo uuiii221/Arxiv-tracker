@@ -1,0 +1,156 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2608.30844v1",
+    "title": "Pretrained, Curriculum-Tuned, and Ensembled: A Tracer-Aware Interactive Segmentation Pipeline for AutoPET V",
+    "authors": [
+      "Xinglong Liang",
+      "Chunyao Lu",
+      "Tianyu Zhang",
+      "Jiaju Huang",
+      "Tao Tan",
+      "Yunchao Yin",
+      "Lishan Cai"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-31T14:13:09+00:00",
+    "updated": "2026-08-31T14:13:09+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Interactive lesion segmentation in whole-body PET/CT requires a model to provide a strong initial prediction while also responding efficiently to sparse corrective scribbles during inference. This setting is particularly challenging because tracer distributions, physiological uptake patterns, lesion appearance, and acquisition characteristics differ substantially between FDG and PSMA studies. We present TRIAGE, Tracer-aware Refinement via Interactive Anatomy-Guided sEgmentation. The core backbone is a 3D STU-Net initialized through masked autoencoding pre-training with an asynchronous masking strategy, aiming to learn transferable anatomical and cross-modal representations before task-specific fine-tuning. In parallel, we train an auxiliary organ segmentation model whose predictions provide explicit anatomical context and help distinguish physiological uptake from malignant lesions. A dedicated tracer classifier first routes each study to an FDG- or PSMA-specific branch. Within each branch, a first-stage segmentation model consumes CT, PET, and organ context to generate an initial lesion mask. The initial prediction is then combined with cumulative foreground/background scribbles and refined by a second interactive segmentation network. The FDG and PSMA branches share the same overall processing pipeline but are trained independently to account for tracer-specific appearance and error modes. We additionally employ curriculum-style training and model ensembling to improve robustness across interaction steps and heterogeneous cohorts. Experiments are conducted using the official AutoPET V data and ten-fold split; quantitative results, ablations, and final test-set performance are left as placeholders to be completed after the challenge evaluation. Code: https://github.com/Liiiii2101/AUTOPET2026-MEDAI.",
+    "html_url": "https://arxiv.org/abs/2608.30844v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.30844v1",
+    "code_urls": [
+      "https://github.com/Liiiii2101/AUTOPET2026-MEDAI",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.30458v1",
+    "title": "Federated Multi-Task Learning for Bladder Tumor Segmentation and MIBC Classification Using a Hybrid CNN-Transformer Architecture",
+    "authors": [
+      "Malhar Udmale",
+      "Divyanshu Dwivedi",
+      "Aarohi Dhand",
+      "Sachin Dudda Nagaraju",
+      "Mayank Rai",
+      "Bagesh Kumar"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-31T08:45:05+00:00",
+    "updated": "2026-08-31T08:45:05+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate bladder tumor segmentation and assessment of mus- cle invasion from T2-weighted MRI are important for treatment plan- ning, but developing robust models across institutions is challenging be- cause patient data cannot be centrally pooled and imaging characteristics vary across scanners and acquisition protocols. We propose a federated multi-task learning framework for joint bladder tumor segmentation and MIBC/NMIBC classification across four clinical centers. The proposed Swin Hybrid model combines a ResNet-34 branch for local texture and boundary information with a Swin-Tiny Transformer for global anatomi- cal context. A segmentation-guided classification mechanism further uses tumor localization information to support MIBC prediction. We also investigate several augmentation strategies under both centralized and federated training to improve robustness to multi-center variability. Ex- periments on the FedBCa dataset show that the Swin Hybrid provides the best overall balance between segmentation and classification among the evaluated architectures. Under federated training, Geo+Elastic aug- mentation achieved a DSC of 0.8100 and a patient-level AUC of 0.8931, yielding the highest combined score of 0.8474. These results demonstrate that joint segmentation and classification can be effectively performed across multiple institutions using federated training without centralizing patient data.",
+    "html_url": "https://arxiv.org/abs/2608.30458v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.30458v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.29944v1",
+    "title": "On the Role of MRI Sequences in Cross-Dataset Generalization for Brain Tumor Segmentation",
+    "authors": [
+      "Henrique Zan Grande",
+      "João G. Pitol",
+      "Lucas B. Schuck",
+      "Rafael V. Serenato",
+      "Rayson Laroca",
+      "Andre Gustavo Hochuli"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-30T18:17:18+00:00",
+    "updated": "2026-08-30T18:17:18+00:00",
+    "comments": "Accepted for presentation at the 2026 Conference on Graphics, Patterns and Images (SIBGRAPI)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain tumor segmentation in magnetic resonance imaging (MRI) is a critical task for diagnosis and treatment planning. Despite the success of deep learning architectures such as U-Net and its variants, performance degradation across datasets remains a major challenge, particularly under domain shift and limited annotated data. To address this issue, this study systematically evaluates how individual MRI sequences influence model robustness across two well-known datasets. A ResUNet-based framework is employed, where each modality is trained independently to isolate its effect under a controlled cross-dataset evaluation protocol with tumor size stratification, without target-domain training, or with limited domain adaptation. Results show that the T2f/FLAIR sequence achieves the best cross-dataset performance, with Dice scores exceeding 75%. It consistently outperforms other modalities across most tumor size ranges, while multi-sequence training further improves performance. Additionally, even limited target-domain adaptation yields rapid initial gains, reducing the need for extensive annotations and costly retraining. Our source code is publicly available at https://github.com/henrique-zan/brain_tumor_segmentation/.",
+    "html_url": "https://arxiv.org/abs/2608.29944v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.29944v1",
+    "code_urls": [
+      "https://github.com/henrique-zan/brain_tumor_segmentation/",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.29677v1",
+    "title": "MedSegBenchmarker: A Raw-Count-First Framework for Controlled 2D Medical Image Segmentation Benchmarks",
+    "authors": [
+      "Vanessa Borst",
+      "Lukas Horn",
+      "Daniel Grillmeyer",
+      "Thomas Prantl",
+      "Samuel Kounev"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-08-30T09:20:38+00:00",
+    "updated": "2026-08-30T09:20:38+00:00",
+    "comments": "10 pages, 4 figures;",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Despite rapid advances in MIS, fair and reproducible comparisons of segmentation models remain challenging due to heterogeneous datasets, inconsistent evaluation protocols, and rapidly evolving architectures. In particular, comparisons often implicitly assume that model rankings are invariant to data partitioning, preprocessing, metric aggregation, uncertainty estimation, and computational constraints. The lack of extensible and unified evaluation frameworks further limits systematic investigation of new models, datasets, and training paradigms. We present MEDSEGBENCHMARKER (MSB), a configuration-driven framework for controlled benchmarking of 2D MIS. It integrates duplicate and near-duplicate image detection, group-aware data splitting, YAML study specifications, resumable training, hyperparameter optimization, cross-validation, and checkpoint-based evaluation. Rather than retaining only aggregate performance measures, MSB exports sample- and class-level pixel counts and predictions together with the evaluation context. These elementary artifacts enable post-hoc analyses without repeated inference. We demonstrate MSB in a case study involving three heterogeneous 2D datasets and multiple MIS and general-purpose vision models evaluated at 256- and 512-pixel input resolutions. Reaggregation of identical predictions changes the top-ranked architecture in three of six dataset-resolution settings, despite high rank correlations between aggregation strategies. Increasing input resolution produces model- and dataset-dependent performance gains and losses that must be considered alongside empirically measured inference complexity. These results show that seemingly minor choices in evaluation and experimental setup can affect benchmark conclusions. MSB, available at GitHub, provides a practical and extensible basis for making benchmark conditions and evaluation choices explicit and reproducible.",
+    "html_url": "https://arxiv.org/abs/2608.29677v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.29677v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.21300v2",
+    "title": "When Adaptation Hurts: Connecting Representational Drift to OOD Failures in MedSAM Fine-Tuning",
+    "authors": [
+      "Marko Haralović",
+      "Sounic Akkaraju",
+      "Carlo Baretta",
+      "Vasil Zapryanov",
+      "Alexia Briassouli"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-21T17:01:10+00:00",
+    "updated": "2026-08-29T10:40:46+00:00",
+    "comments": "Accepted at the SAFER Workshop, MICCAI 2026, non camera-ready version",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Foundation models for medical image segmentation, like prompt-based MedSAM, generalize well across domains and modalities, often in zero or few-shot setups. However, their performance depends on the quality of prompts and the adaptation of the models to custom datasets. This work systematically examines how MedSAM generalizes across diverse medical imaging benchmarks, with six adaptation strategies: full-model and encoder-only LoRA, shallow and deep visual prompt tuning (VPT), and decoder-only and full fine-tuning. Models are trained on the International Skin Imaging Collaboration Challenge (ISIC 2018) dataset and evaluated under clean and increasingly noisy prompts on IN and Out-of-Distribution (OOD) datasets: close-OOD PH2 (dermoscopy), far-OOD BUSI (Breast Ultrasound Images Dataset) and CBIS-DDSM (Curated Breast Imaging Subset of the Digital Database for Screening Mammography). We show that adaptation improves performance on IN and close-OOD data but often reduces performance on far-OOD data. Full fine-tuning provides the best tradeoff, while encoder-only LoRA is the strongest parameter-efficient alternative, outperforming standard LoRA and VPT under far-OOD shifts. Using Centered Kernel Alignment (CKA), we show that far-OOD degradation is strongly associated with drift in decoder representations, whereas encoder similarity alone does not explain robustness. This suggests encoder-only LoRA provides stronger robustness than standard LoRA by adapting the encoder to distribution shift in visual features, while preserving the decoder pathway. We further show that random 0-100 pixel jitter on prompts produces more robust and better performing models. We thus conclude that robust MedSAM adaptation requires the combined consideration of prompt noise exposure, domain shift, and representation preservation. We release our code: https://github.com/ImSounic/medsam-vpt",
+    "html_url": "https://arxiv.org/abs/2608.21300v2",
+    "pdf_url": "https://arxiv.org/pdf/2608.21300v2",
+    "code_urls": [
+      "https://github.com/ImSounic/medsam-vpt",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
