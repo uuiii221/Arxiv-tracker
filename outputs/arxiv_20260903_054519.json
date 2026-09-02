@@ -1,0 +1,160 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.01554v1",
+    "title": "BS: Take the Hint - Interactive Multitracer PET/CT Lesion Segmentation with a Scribble-Conditioned ResEnc U-Net",
+    "authors": [
+      "Marven Sherif",
+      "Amgad Elmasry",
+      "Youssef Ghazal",
+      "Ayman Elghotni"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-01T17:19:34+00:00",
+    "updated": "2026-09-01T17:19:34+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Automated lesion segmentation in whole-body PET/CT is complicated by the variety of physiological tracer uptake patterns and by the differing appearance of lesions across tracers. The autoPET/CT V challenge addresses this by making segmentation interactive: user scribbles marking foreground and background are supplied alongside the image, and the algorithm is expected to exploit them. We present our submission, a scribble-conditioned residual encoder U-Net operating on four input channels: CT, PET, and a sparse scribble map for each of foreground and background. The network is initialised from the autoPET-III winning weights and extended from two to four input channels, with the two scribble channels zero-initialised so that the pretrained representation is preserved exactly at initialisation. Every model is fine-tuned per fold from the corresponding autoPET-III fold checkpoint, so that no validation case is seen during pretraining. PET intensities are normalised against a per-scan aorta blood-pool reference derived from a CT segmentation, which removes tracer- and centre-specific scaling without requiring lesion labels. At inference the five fold models are ensembled by averaging their softmax outputs per sliding-window patch, before Gaussian-weighted stitching. On the challenge's five-fold split, with each fold evaluated on its own validation cases, mean Dice is 0.554 and mean lesion-level F1 is 0.528 without scribbles, rising to 0.751 and 0.733 after five correction rounds. About 85% of that gain follows the first scribble, and the spread between fold models narrows five-fold over the same rounds, so interaction largely compensates for how well or badly a given model segments unaided.",
+    "html_url": "https://arxiv.org/abs/2609.01554v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.01554v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.01310v1",
+    "title": "GazeRefine: Expert Gaze as a Test-Time Prompt for Training-Free Medical Image Segmentation",
+    "authors": [
+      "Mohammed Oussama Benyahia",
+      "Marouane Tliba",
+      "Mohamed Amine Kerkouri",
+      "Taifour Yousra",
+      "Bin Wang",
+      "Max Bengtsson",
+      "Gorkem Durak",
+      "Elif Keles",
+      "Zuheng Ming",
+      "Marek Penhaker",
+      "Azeddine Beghdadi",
+      "Ulas Bagci",
+      "Aladine Chetouani"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV",
+      "cs.HC",
+      "cs.LG"
+    ],
+    "published": "2026-09-01T14:34:59+00:00",
+    "updated": "2026-09-01T14:34:59+00:00",
+    "comments": "9 pages, 5 figures. Accepted at MICCAI Workshop 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI",
+    "summary": "Medical image segmentation remains difficult to scale because high-performing methods typically rely on dense expert annotations and task-specific training. We introduce GazeRefine, a training-free framework that uses gaze as an inference-time prompt for zero-shot medical image segmentation. Sparse, duration-weighted fixations are converted into foreground and background priors that initialize semantic prototypes in frozen DINOv3 feature space. These prototypes are iteratively refined through foreground-background discrimination, feature-space affinity propagation, and anchoring to the initial gaze guidance, allowing segmentation to extend beyond directly fixated regions while limiting semantic drift. GazeRefine requires no segmentation masks, fine-tuning, adapters, prompt encoders, or gradient updates. We evaluate the method on gaze-annotated polyp segmentation and prostate MRI segmentation. The results show strong performance on colonoscopy images and competitive performance on prostate MRI, supporting gaze-guided prototype refinement as a promising approach for segmentation-label-efficient, human-in-the-loop medical image segmentation. Our tools and code can be found in the following repository: https://github.com/MohammedOussamaBEN/GazeRefine.git",
+    "html_url": "https://arxiv.org/abs/2609.01310v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.01310v1",
+    "code_urls": [
+      "https://github.com/MohammedOussamaBEN/GazeRefine.git",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.29162v1",
+    "title": "Subtraction-Based Tumor Segmentation and Lesion-Centered pCR Prediction for the MAMA-MIA Challenge",
+    "authors": [
+      "Kai Geissler",
+      "Raphael Schäfer"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-08-29T09:23:45+00:00",
+    "updated": "2026-08-29T09:23:45+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We describe the submission of team FME to the MAMA-MIA Challenge, which evaluated primary tumor segmentation and prediction of pathological complete response (pCR) from pretreatment dynamic contrast-enhanced breast MRI on an external multi-country cohort. For segmentation, we trained a five-fold residual-encoder nnU-Net ensemble using only the first post-contrast minus pre-contrast image, combined with mirroring test-time augmentation and largest-connected-component filtering. For pCR prediction, we ensembled 25 pretrained 3D video classifiers trained on lesion-centred crops from the pre-contrast and first two post-contrast volumes. FME ranked second in both tasks. The segmentation method achieved a combined performance-fairness score of 0.882, with Dice 0.713 and normalized Hausdorff distance 0.099. The pCR method achieved a combined score of 0.664, balanced accuracy of 0.541, and equalized-odds disparity of 0.212. The results indicate that subtraction-based input and ensembling support robust tumor segmentation under cross-site domain shift, whereas pCR prediction from baseline DCE-MRI alone remains limited.\n  For the submission repository, see https://github.com/FraunhoferMEVIS/MAMA-MIA-Challenge-FME",
+    "html_url": "https://arxiv.org/abs/2608.29162v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.29162v1",
+    "code_urls": [
+      "https://github.com/FraunhoferMEVIS/MAMA-MIA-Challenge-FME",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.29153v1",
+    "title": "SGRNet: Spatially Guided Radiology Network for Structured Radiological Reporting of Head and Neck Cancer",
+    "authors": [
+      "Ayush Gupta",
+      "Vinkle Srivastav",
+      "Prateek Upadhya",
+      "Amit Gupta",
+      "Krithika Rangarajan",
+      "Nicolas Padoy"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-29T09:01:52+00:00",
+    "updated": "2026-08-29T09:01:52+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Automated radiological report generation can alleviate clinical workloads and eliminate observer variability. However, standard free-text generation models pose hallucination risks in dense regions and fail under data scarcity. We address these challenges in Head and Neck Cancer (HNC) from contrast-enhanced CT (CECT) imaging. To enforce factual safety, we reformulate report generation as an anatomically grounded, multi-label, structured reporting task, predicting localized tumor involvement across a hierarchical clinical schema. To bridge the visual gap from missing metabolic imaging (e.g., PET), we introduce SGRNet (Spatially Guided Radiology Network), incorporating two low-cost spatial priors: automated organ segmentations and weakly supervised tumor localization maps modeled via 3D Gaussian heatmaps. These priors are dynamically integrated via spatial feature modulation to guide the network toward subtle tumor-induced structural alterations. Evaluated on a multi-centric dataset of 184 paired HNC CECT volumes and reports, on five clinically salient, densely packed anatomical subsites, SGRNet achieves a mean Average Precision (mAP) of 0.60, an 8.8 percentage-point absolute improvement over strong volume-only 3D baselines.",
+    "html_url": "https://arxiv.org/abs/2608.29153v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.29153v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.28787v1",
+    "title": "Beyond Representation Learning: A Systematic Study of Joint-Embedding Predictive Generation for 3D Brain MRI",
+    "authors": [
+      "Meng Zhou",
+      "Wenhao You",
+      "Yuxing Chen",
+      "Yueying Tian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-28T18:49:02+00:00",
+    "updated": "2026-08-28T18:49:02+00:00",
+    "comments": "Preprint, code will be released after review",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Joint-embedding predictive architectures (JEPAs) have primarily been developed for self-supervised representation learning. Denoising JEPA (D-JEPA) recently demonstrated strong generative capabilities on natural images, yet the applicability to 3D medical imaging remains unexplored. Building on the D-JEPA framework, we present Med-D-JEPA, a systematic adaptation and evaluation of joint-embedding predictive generation for 3D brain MRI. Med-D-JEPA operates on continuous latent tokens produced by a 3D KL-regularized adversarial variational autoencoder, and combines masked context prediction, representation-level alignment, per-token diffusion, and iterative next-set-of-token sampling. We evaluate unconditional and class-conditional generation quality on BraTS2019 and OASIS-1 datasets; downstream classification utility; and preliminary whole-tumor segmentation on BraTS2020. Across different generation settings, Med-D-JEPA achieves superior or competitive performance compared to several strong baselines on fidelity and diversity metrics. Compared to training with real samples, Med-D-JEPA-based synthetic pretraining improves classification AUC from 0.63 to 0.85 on BraTS2019 and from 0.78 to 0.87 on OASIS-1. In the segmentation study, pretraining on Med-D-JEPA samples improves Dice from 0.74 to 0.80 and reduces HD95 from 13.40 to 9.56 mm. These findings establish joint-embedding predictive generation as a promising direction for 3D medical image synthesis and encourage further research in this direction.",
+    "html_url": "https://arxiv.org/abs/2608.28787v1",
+    "pdf_url": "https://arxiv.org/pdf/2608.28787v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
