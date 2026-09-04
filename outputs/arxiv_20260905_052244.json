@@ -1,0 +1,173 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.03535v1",
+    "title": "Feature Reconfiguration With Visual Prior for Medical Lesion Segmentation",
+    "authors": [
+      "Yinan Liu",
+      "Jiankang Hong",
+      "Zhen Gao",
+      "Ye Lu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.AI",
+      "eess.IV"
+    ],
+    "published": "2026-09-03T08:34:40+00:00",
+    "updated": "2026-09-03T08:34:40+00:00",
+    "comments": "9 pages 10figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Lesion segmentation in medical images plays a critical role in clinical diagnosis and treatment planning. Despite significant advances, lesion segmentation remains challenging due to two major factors: (1) complex background interference; (2) diverse lesion morphology. Existing encoder-decoder based methods mainly focus on enhancing feature extraction or redesigning decoding strategies. However, they lack early prior guidance and feature reconfiguration during the encoding stage, limiting their effectiveness in handling these challenges. To address these limitations, we propose FreNet, a feature reconfiguration framework with visual priors, which performs pixel-level reconfiguration before encoding and feature-level reconfiguration during encoding for precise medical lesion segmentation. To suppress background responses, we propose an Implicit Prior Neural Network (IPNN), which models a continuous spatial field and leverages visual prior from SAM to reconfigure input image before encoding stage. To better handle diverse lesion morphology, we design a Dual-domain Feature Reconfiguration (DFR) module to progressively reconfigure backbone features during encoding stage. Within DFR, the Frequency Decoupling Module (FDM) decouples backbone features in frequency domain to enhance foreground-background discriminability, while the Spatial Localization Module (SLM) spatially relocates and improving spatial stability after frequency decoupling. Extensive experiments on 9 medical image segmentation benchmarks across three imaging modalities demonstrate that FreNet significantly outperforms state-of-the-art (SOTA) methods. On the challenging ETIS dataset, our method achieves Dice improvements of 5.0% over SOTA method and 7.2% over SAM.",
+    "html_url": "https://arxiv.org/abs/2609.03535v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.03535v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.03186v1",
+    "title": "Improving Clinical Target Volume Segmentation Accuracy using Anatomical Priors and Active Learning for the AGITG TOPGEAR Clinical Trial",
+    "authors": [
+      "Phillip Chlap",
+      "Mark Lee",
+      "Trevor Leong",
+      "Matthew Field",
+      "Jason Dowling",
+      "Hang Min",
+      "Julie Chu",
+      "Jennifer Tan",
+      "Phillip K. Tran",
+      "Tomas Kron",
+      "Annette Haworth",
+      "Martin A. Ebert",
+      "Shalini K. Vinod",
+      "Lois Holloway"
+    ],
+    "primary_category": null,
+    "categories": [
+      "physics.med-ph",
+      "cs.CV"
+    ],
+    "published": "2026-09-02T22:03:11+00:00",
+    "updated": "2026-09-02T22:03:11+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Training deep learning-based medical image segmentation models is challenging with limited curated datasets. For AGITG TOPGEAR, a gastric cancer trial, the Clinical Target Volume (CTV) is complex and defined by multiple anatomical landmarks, making upfront training data preparation difficult for an automated contour QA segmentation model. We investigate anatomical priors, derived from surrounding organ segmentations, to provide spatial context and improve TOPGEAR CTV segmentation accuracy. We also evaluate active learning, iteratively expanding the training dataset by selecting cases expected to improve performance.\n  One hundred TOPGEAR CT scans were retrospectively analyzed. An initial set of 10 expert-contoured cases was used to train an nnU-Net model. TotalSegmentator generated a voxel-wise anatomical prior map from surrounding structures as an additional input channel. Active learning was simulated over four iterations, selecting cases by model uncertainty and segmentation performance. All models used five-fold cross-validation for an ensemble uncertainty measure. Evaluation used a hold-out testing set of 50 cases.\n  The anatomical prior improved CTV segmentation accuracy, increasing mean Dice Similarity Coefficient (DSC) from 0.84 to 0.86. Active learning similarly improved performance to 0.86, with greatest benefit in the final round. Combining the anatomical prior with active learning achieved the highest accuracy, with a DSC of 0.87. Model uncertainty correlated with DSC, supporting its use in identifying suboptimal predictions and guiding active learning.\n  Anatomical priors and active learning each improved CTV segmentation accuracy and generalizability, with their combination achieving the best performance, supporting integration into segmentation model development for automated contour QA in radiotherapy clinical trials.",
+    "html_url": "https://arxiv.org/abs/2609.03186v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.03186v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.14937v2",
+    "title": "Improving Pre-trained Adult Glioma Segmentation Models Using only Post-processing Techniques",
+    "authors": [
+      "Abhijeet Parida",
+      "Daniel Capellán-Martín",
+      "Zhifan Jiang",
+      "Nishad Kulkarni",
+      "Krithika Iyer",
+      "Austin Tapp",
+      "Syed Muhammad Anwar",
+      "María J. Ledesma-Carbayo",
+      "Marius George Linguraru"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-12-16T22:01:05+00:00",
+    "updated": "2026-06-11T16:10:33+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Gliomas are the most common malignant brain tumors in adults and are among the most lethal. Despite aggressive treatment, the median survival rate is less than 15 months. Accurate multiparametric MRI (mpMRI) tumor segmentation is critical for surgical planning, radiotherapy, and disease monitoring. While deep learning models have improved the accuracy of automated segmentation, large-scale pre-trained models generalize poorly and often underperform, producing systematic errors such as false positives, label swaps, and slice discontinuities in slices. These limitations are further compounded by unequal access to GPU resources and the growing environmental cost of large-scale model training. In this work, we propose adaptive post-processing techniques to refine the quality of glioma segmentations produced by large-scale pretrained models developed for various types of tumors. We demonstrated the techniques in multiple BraTS 2025 segmentation challenge tasks, with the ranking metric improving by 14.9 % for the sub-Saharan Africa challenge and 0.9% for the adult glioma challenge. This approach promotes a shift in brain tumor segmentation research from increasingly complex model architectures to efficient, clinically aligned post-processing strategies that are precise, computationally fair, and sustainable.",
+    "html_url": "https://arxiv.org/abs/2512.14937v2",
+    "pdf_url": "https://arxiv.org/pdf/2512.14937v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.14648v2",
+    "title": "Adaptable Segmentation Pipeline for Diverse Brain Tumors with Radiomic-Guided Subtyping and Lesion-Wise Model Ensemble",
+    "authors": [
+      "Daniel Capellán-Martín",
+      "Abhijeet Parida",
+      "Zhifan Jiang",
+      "Nishad Kulkarni",
+      "Krithika Iyer",
+      "Austin Tapp",
+      "Syed Muhammad Anwar",
+      "María J. Ledesma-Carbayo",
+      "Marius George Linguraru"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "eess.IV"
+    ],
+    "published": "2025-12-16T18:09:48+00:00",
+    "updated": "2026-06-11T16:06:05+00:00",
+    "comments": "12 pages, 5 figures, 3 tables. Algorithm presented at MICCAI BraTS 2025",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI",
+    "summary": "Robust and generalizable segmentation of brain tumors on multi-parametric magnetic resonance imaging (MRI) remains difficult because tumor types differ widely. The BraTS 2025 Lighthouse Challenge benchmarks segmentation methods on diverse high-quality datasets of adult and pediatric tumors: multi-consortium international pediatric brain tumor segmentation (PED), preoperative meningioma tumor segmentation (MEN), meningioma radiotherapy segmentation (MEN-RT), and segmentation of pre- and post-treatment brain metastases (MET). We present a flexible, modular, and adaptable pipeline that improves segmentation performance by selecting and combining state-of-the-art models and applying tumor- and lesion-specific processing before and after training. Radiomic features extracted from MRI help detect tumor subtype, ensuring a more balanced training. Custom lesion-level performance metrics determine the influence of each model in the ensemble and optimize post-processing that further refines the predictions, enabling the workflow to tailor every step to each case. On the BraTS testing sets, our pipeline achieved performance comparable to top-ranked algorithms across multiple challenges. These findings confirm that custom lesion-aware processing and model selection yield robust segmentations yet without locking the method to a specific network architecture. Our method has the potential for quantitative tumor measurement in clinical practice, supporting diagnosis and prognosis.",
+    "html_url": "https://arxiv.org/abs/2512.14648v2",
+    "pdf_url": "https://arxiv.org/pdf/2512.14648v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.27277v3",
+    "title": "BrainDINO: A Brain MRI Foundation Model for Generalizable Clinical Representation Learning",
+    "authors": [
+      "Yizhou Wu",
+      "Shansong Wang",
+      "Yuheng Li",
+      "Mojtaba Safari",
+      "Mingzhe Hu",
+      "Chih-Wei Chang",
+      "Harini Veeraraghavan",
+      "Xiaofeng Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-04-30T00:21:36+00:00",
+    "updated": "2026-06-11T15:15:37+00:00",
+    "comments": "25 pages, 5 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain MRI underpins a wide range of neuroscientific and clinical applications, yet most learning-based methods remain task-specific and require substantial labeled data. Here we show that a single self-supervised representation can generalize across heterogeneous brain MRI endpoints. We trained BrainDINO, a self-distilled foundation model, on approximately 6.6 million unlabeled axial slices from 20 datasets encompassing broad variation in population, disease, and acquisition setting. Using a frozen encoder with lightweight task heads, BrainDINO supported transfer across tumor segmentation, neurodegenerative and neurodevelopmental conditions classification, brain age estimation, post-stroke temporal prediction, molecular status prediction, MRI sequence classification, and survival modeling. Across tasks and supervision regimes, BrainDINO consistently equaled or exceeded natural-image and MRI-specific self-supervised baselines, with particularly strong advantages under label scarcity. Representation analyses further showed anatomically organized and pathology-sensitive feature structure in the absence of task-specific supervision. Our findings indicate that large-scale slice-wise self-supervised learning can yield a unified brain MRI representation that supports diverse neuroimaging tasks without volumetric pretraining or full-network fine-tuning, establishing a scalable foundation for robust and data-efficient brain imaging analysis. Code is available at https://github.com/mclwu22/BrainDINO",
+    "html_url": "https://arxiv.org/abs/2604.27277v3",
+    "pdf_url": "https://arxiv.org/pdf/2604.27277v3",
+    "code_urls": [
+      "https://github.com/mclwu22/BrainDINO",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
