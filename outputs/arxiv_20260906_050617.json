@@ -1,0 +1,163 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2604.10242v4",
+    "title": "MedVeriSeg: Teaching LISA-Like Medical Segmentation Models to Verify Query Validity Without Extra Training",
+    "authors": [
+      "Qinyue Tong",
+      "Xiaozhen Wang",
+      "Ziqian Lu",
+      "Jun Liu",
+      "Yunlong Yu",
+      "Zheming Lu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-11T14:47:32+00:00",
+    "updated": "2026-06-10T05:55:45+00:00",
+    "comments": "13 pages, 9 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Despite recent progress in text-prompt-based medical image segmentation, existing LISA-like MLLM-based methods typically generate masks regardless of whether the target specified in the query is present, leading to hallucinated segmentation. In this work, we propose MedVeriSeg, a training-free query verification framework that enables LISA-like medical segmentation models to reject false segmentation queries. MedVeriSeg first quantifies the response quality between the [SEG] token and image features through a Similarity Response Quality Scoring Module. To further improve robustness, it employs a Lightweight Routed Multi-Agent Verification Module, which fuses quantitative score evidence with qualitative agent evidence to comprehensively verify the validity of the query. To support systematic evaluation, we construct MedVeriSeg-Bench, a benchmark designed for query verification in medical image segmentation. Experimental results demonstrate that MedVeriSeg effectively identifies false segmentation queries and reduces hallucinated segmentation, while maintaining a high acceptance rate for valid queries, thereby largely preserving the segmentation utility of LISA-like medical segmentation models.",
+    "html_url": "https://arxiv.org/abs/2604.10242v4",
+    "pdf_url": "https://arxiv.org/pdf/2604.10242v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.28095v2",
+    "title": "UHR-Net: An Uncertainty-Aware Hypergraph Refinement Network for Medical Image Segmentation",
+    "authors": [
+      "Shuokun Cheng",
+      "Jinghao Shi",
+      "Kun Sun"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-30T16:38:51+00:00",
+    "updated": "2026-06-09T08:09:01+00:00",
+    "comments": "12 pages, 4 figures, 4 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate lesion segmentation is crucial for clinical diagnosis and treatment planning. However, lesions often resemble surrounding tissues and exhibit ill-defined boundaries, leading to unstable predictions in boundary/transition regions. Moreover, small-lesion cues can be diluted by multi-scale feature extraction, causing under- or over-segmentation. To address these challenges, we propose an Uncertainty-Aware Hypergraph Refinement Network (UHR-Net). First, we introduce an Uncertainty-Oriented Instance Contrastive (UO-IC) pretraining strategy that couples geometry-aware copy-paste augmentation with hard-negative mining of lesion-like background regions to improve instance-level discrimination for small and visually ambiguous lesions. Second, we design an Uncertainty-Guided Hypergraph Refinement (UGHR) block, which derives an entropy-based uncertainty map from a coarse probability map to guide hypergraph refinement. By splitting hyperedge prototypes into foreground and background groups, UGHR decouples higher-order interactions and improves refinement in ambiguous regions. Experiments on five public benchmarks demonstrate consistent gains over strong baselines. Code is available at: https://github.com/CUGfreshman/UHR-Net.",
+    "html_url": "https://arxiv.org/abs/2604.28095v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.28095v2",
+    "code_urls": [
+      "https://github.com/CUGfreshman/UHR-Net",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.10115v1",
+    "title": "Improving PET/CT-Based Whole-Body Lesion Segmentation Using Prediction Uncertainty-Augmented Models",
+    "authors": [
+      "Bashirul Azam Biswas",
+      "Biratal Raj Wagle",
+      "Zhihan Yang",
+      "Marc A. Seltzer",
+      "Matthew E. Maeder",
+      "James B. Yu",
+      "Indrani Bhattacharya"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-08T19:49:23+00:00",
+    "updated": "2026-06-08T19:49:23+00:00",
+    "comments": "32 pages, 10 figures, 5 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate lesion segmentation from whole-body Positron Emission Tomography (PET)/Computed Tomography (CT) scans is essential for cancer staging and treatment planning. PET provides functional metabolic information with different radiotracers, while CT offers anatomical localization. Lesion delineation from PET/CT imaging is clinically challenging due to subtle imaging features, confounders, and inter-reader variability. Existing deep learning approaches suffer from training-related stochasticity, inconsistent predictions, missed lesions in high tumor-burden cases, and lack uncertainty quantification, limiting their clinical reliability. Using nnU-Net as a baseline, we propose an uncertainty-aware framework for whole-body PET/CT lesion segmentation that integrates (1) Bayesian ensembling to reduce training stochasticity, (2) voxel-wise uncertainty quantification with epistemic and aleatoric decomposition, and (3) epistemic uncertainty-augmented training to improve lesion detection. Two public datasets, AutoPET-III (1,611 scans) and Deep-PSMA (200 scans), comprising FDG and PSMA studies across multiple cancer types, are used for training and evaluation. Bayesian ensembling improves robustness and performance over deterministic nnU-Net models on the unseen AutoPET-III test set. Uncertainty maps highlight regions of model disagreement and correlate with misclassifications, particularly false positives. Uncertainty-augmented training improves lesion recovery at the cost of increased FPVol, reflecting a precision-recall trade-off. A case-adaptive routing strategy further improves Dice by selecting between the base and augmented models. To our knowledge, this is the first study to systematically investigate uncertainty quantification in multi-tracer, pan-cancer PET/CT segmentation and to combine Bayesian ensembling with uncertainty-aware modeling for this task.",
+    "html_url": "https://arxiv.org/abs/2606.10115v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.10115v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2501.11755v2",
+    "title": "A generalizable 3D framework and model for self-supervised learning in medical imaging",
+    "authors": [
+      "Tony Xu",
+      "Sepehr Hosseini",
+      "Chris Anderson",
+      "Anthony Rinaldi",
+      "Rahul G. Krishnan",
+      "Anne L. Martel",
+      "Maged Goubran"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2025-01-20T21:30:56+00:00",
+    "updated": "2026-06-08T15:17:44+00:00",
+    "comments": "Published in npj Digital Medicine",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Current self-supervised learning methods for 3D medical imaging rely on simple pretext formulations and organ- or modality-specific datasets, limiting their generalizability and scalability. We present 3DINO, a cutting-edge SSL method adapted to 3D datasets, and use it to pretrain 3DINO-ViT: a general-purpose medical imaging model, on an exceptionally large, multimodal, and multi-organ dataset of ~100,000 3D medical imaging scans from over 10 organs. We validate 3DINO-ViT using extensive experiments on numerous medical imaging segmentation and classification tasks. Our results demonstrate that 3DINO-ViT generalizes across modalities and organs, including out-of-distribution tasks and datasets, outperforming state-of-the-art methods on the majority of evaluation metrics and labeled dataset sizes. Our 3DINO framework and 3DINO-ViT will be made available to enable research on 3D foundation models or further finetuning for a wide range of medical imaging applications.",
+    "html_url": "https://arxiv.org/abs/2501.11755v2",
+    "pdf_url": "https://arxiv.org/pdf/2501.11755v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2505.07573v2",
+    "title": "Robust Renal Mass Segmentation on CT: A Validation Study of an AI-Based Framework",
+    "authors": [
+      "Sarah de Boer",
+      "Hartmut Häntze",
+      "Kiran Vaidhya Venkadesh",
+      "Myrthe A. D. Buser",
+      "Gabriel E. Humpire Mamani",
+      "Lina Xu",
+      "Lisa C. Adams",
+      "Jawed Nawabi",
+      "Keno K. Bressem",
+      "Bram van Ginneken",
+      "Mathias Prokop",
+      "Alessa Hering"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-05-12T13:53:19+00:00",
+    "updated": "2026-06-08T13:44:27+00:00",
+    "comments": "Accepted for publication at the Journal of Machine Learning for Biomedical Imaging (MELBA) https://melba-journal.org/2026:012. 23 pages, 12 figures",
+    "journal_ref": "Machine.Learning.for.Biomedical.Imaging. 2026 (2026)",
+    "venue_inferred": null,
+    "summary": "Renal mass segmentation has important potential to enhance the clinical workflow, especially in settings requiring quantitative assessments. Kidney volume could serve as an important biomarker for renal diseases, with changes in volume correlating directly with kidney function. Currently, clinical practice often relies on subjective visual assessment for evaluating kidney size and kidney lesions, including tumors and cysts, which are typically staged based on diameter, volume, and anatomical location. To support a more objective and reproducible approach, this research aims to develop a robust, thoroughly validated renal mass segmentation algorithm, named Renal-Net. We employ publicly available training datasets and leverage the state-of-the-art medical image segmentation framework nnU-Net. Validation is conducted using both proprietary and public test datasets, with segmentation performance quantified by Dice coefficient and the 95th percentile Hausdorff distance. Furthermore, we analyze robustness across subgroups based on patient sex, age, CT contrast phases, and tumor histologic subtypes. Our findings demonstrate that our segmentation algorithm, trained exclusively on publicly available data, generalizes effectively to external test sets and outperforms existing state-of-the-art models across all tested datasets. Subgroup analyses reveal consistent high performance, indicating strong robustness and reliability. The developed algorithm and associated code are publicly accessible at https://github.com/DIAGNijmegen/oncology-kidney-abnormality-segmentation.",
+    "html_url": "https://arxiv.org/abs/2505.07573v2",
+    "pdf_url": "https://arxiv.org/pdf/2505.07573v2",
+    "code_urls": [
+      "https://github.com/DIAGNijmegen/oncology-kidney-abnormality-segmentation",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://melba-journal.org/2026:012"
+    ]
+  }
+]
