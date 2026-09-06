@@ -1,0 +1,157 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2606.08749v1",
+    "title": "Active Source-free Domain Adaptation in Open-set Medical Image Segmentation via Decomposed Uncertainty and Prototype Discrepancy",
+    "authors": [
+      "Jin Yang",
+      "Yichi Zhang",
+      "Peijie Qiu",
+      "Xiaobing Yu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-06-07T17:46:41+00:00",
+    "updated": "2026-06-07T17:46:41+00:00",
+    "comments": "Early accepted by MICCAI 2026. This version is not the Version of Record and does not reflect post-acceptance improvements, or any corrections",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Deep learning (DL) methods are challenged to demonstrate robust performance across different segmentation datasets due to domain shifts, but active domain adaptation techniques enhance their generalization performance by querying a few samples from target domains for adaptation training. However in clinical practice, target domains often include private classes of new anatomical structures or pathologies that are not presented in the source data, and existing methods implement closed-set segmentation where source and target domains have the same segmentation classes. Additionally, source data are often inaccessible during adaptation due to strict data privacy regulations. To address these limitations, we propose an Active Source-free Open-set Domain Adaptation (ASFOSDA) method which is the first work to implement active learning for adapting DL models in open-set medical image segmentation without the access to source data. This method employs an active open-set query strategy to select the most informative target samples for training models based on Class-aware Decomposed Uncertainty (CDU) and Class-agnostic Prototype Discrepancy (CPD). CDU measures sample aleatoric uncertainty and model epistemic uncertainty by employing test time augmentation in stochastic processes. CPD measures cross-domain and self-domain discrepancy for selecting diverse samples. Subsequently, to boost the adaptation performance by enhancing training samples, a Target-refined Self-training strategy is proposed to generate high-quality pseudo labels for unselected samples, thus combining them with labeled samples for a semi-supervised training. We evaluated our method on cross-domain open-set volumetric medical image segmentation tasks, and it outperformed state-of-the-art adaptation methods.",
+    "html_url": "https://arxiv.org/abs/2606.08749v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.08749v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2509.15017v2",
+    "title": "No Modality Left Behind: Adapting to Missing Modalities via Knowledge Distillation for Brain Tumor Segmentation",
+    "authors": [
+      "Shenghao Zhu",
+      "Yifei Chen",
+      "Weihong Chen",
+      "Shuo Jiang",
+      "Guanyu Zhou",
+      "Yuanhan Wang",
+      "Feiwei Qin",
+      "Changmiao Wang",
+      "Qiyuan Tian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-09-18T14:47:20+00:00",
+    "updated": "2026-06-06T07:26:43+00:00",
+    "comments": "51 pages, 11 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate brain tumor segmentation is essential for preoperative evaluation and personalized treatment. Multi-modal MRI is widely used due to its ability to capture complementary tumor features across different sequences. However, in clinical practice, missing modalities are common, limiting the robustness and generalizability of existing deep learning methods that rely on complete inputs, especially under non-dominant modality combinations. To address this, we propose AdaMM, a multi-modal brain tumor segmentation framework tailored for missing-modality scenarios, centered on knowledge distillation and composed of three synergistic modules. The Graph-guided Adaptive Refinement Module explicitly models semantic associations between generalizable and modality-specific features, enhancing adaptability to modality absence. The Bi-Bottleneck Distillation Module transfers structural and textural knowledge from teacher to student models via global style matching and adversarial feature alignment. The Lesion-Presence-Guided Reliability Module predicts prior probabilities of lesion types through an auxiliary classification task, effectively suppressing false positives under incomplete inputs. Extensive experiments on the Pretreat-MetsToBrain-Masks and BraTS 2018, 2024 datasets demonstrate that AdaMM consistently outperforms existing methods, exhibiting superior segmentation accuracy and robustness, particularly in single-modality and weak-modality configurations. In addition, we conduct a systematic evaluation of six categories of missing-modality strategies, supporting the superiority of knowledge distillation and offering practical guidance for method selection and future research. Our source code is available at https://github.com/Quanato607/AdaMM.",
+    "html_url": "https://arxiv.org/abs/2509.15017v2",
+    "pdf_url": "https://arxiv.org/pdf/2509.15017v2",
+    "code_urls": [
+      "https://github.com/Quanato607/AdaMM",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2602.19213v2",
+    "title": "SegMoTE: Token-Level Mixture of Experts for Medical Image Segmentation",
+    "authors": [
+      "Yujie Lu",
+      "Jingwen Li",
+      "Sibo Ju",
+      "Yanzhou Su",
+      "he yao",
+      "Yisong Liu",
+      "Min Zhu",
+      "Junlong Cheng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-02-22T14:48:42+00:00",
+    "updated": "2026-06-05T08:10:24+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is vital for clinical diagnosis and quantitative analysis, yet remains challenging due to the heterogeneity of imaging modalities and the high cost of pixel-level annotations. Although general interactive segmentation models like SAM have achieved remarkable progress, their transfer to medical imaging still faces two key bottlenecks: (i) the lack of adaptive mechanisms for modality- and anatomy-specific tasks, which limits generalization in out-of-distribution medical scenarios; and (ii) current medical adaptation methods fine-tune on large, heterogeneous datasets without selection, leading to noisy supervision, higher cost, and negative transfer. To address these issues, we propose SegMoTE, an efficient and adaptive framework for medical image segmentation. SegMoTE preserves SAM's original prompt interface, efficient inference, and zero-shot generalization while introducing only a small number of learnable parameters to dynamically adapt across modalities and tasks. In addition, we design a progressive prompt tokenization mechanism that enables fully automatic segmentation, significantly reducing annotation dependence. Trained on MedSeg-HQ, a curated dataset less than 1% of existing large-scale datasets, SegMoTE achieves SOTA performance across diverse imaging modalities and anatomical tasks. It represents the first efficient, robust, and scalable adaptation of general segmentation models to the medical domain under extremely low annotation cost, advancing the practical deployment of foundation vision models in clinical applications.",
+    "html_url": "https://arxiv.org/abs/2602.19213v2",
+    "pdf_url": "https://arxiv.org/pdf/2602.19213v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.06760v1",
+    "title": "MedSIGHT: Towards Grounded Visual Comprehension in Medical Large Vision-Language Models",
+    "authors": [
+      "Aofei Chang",
+      "Le Huang",
+      "Alex James Boyd",
+      "Parminder Bhatia",
+      "Taha Kass-Hout",
+      "Fenglong Ma",
+      "Cao Xiao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-04T22:54:59+00:00",
+    "updated": "2026-06-04T22:54:59+00:00",
+    "comments": "Accepted at ICML 2026",
+    "journal_ref": null,
+    "venue_inferred": "ICML 2026",
+    "summary": "Medical large vision-language models (Med-LVLMs) have recently achieved remarkable progress in vision-language comprehension and medical image segmentation. However, existing models still struggle to unify these two capabilities, which is essential for achieving clinically reasoning that connects visual findings with semantic interpretation. We present MedSIGHT, a unified framework that equips Med-LVLMs with structured, pixel-level understanding for grounded visual comprehension. MedSIGHT introduces a novel Region Perceiver module that produces region-centric tokens, encoding spatial information directly into representation space of the language model. We further propose a medical region codebook into the LLM vocabulary, allowing the model to generate discrete region codes as symbolic representations of anatomical and pathological regions. These codes are decoded through the Region Perceiver to reconstruct segmentation mask, achieving end-to-end spatial grounding. Lastly, MedSIGHT combines Region Perceiver, Codebook and LLM using our proposed progressive training strategy to gradually aligns these modules stably. Trained on only 72K multimodal instruction pairs, MedSIGHT achieves state-of-the-art performance across diverse imaging modalities on both medical comprehension and segmentation tasks.",
+    "html_url": "https://arxiv.org/abs/2606.06760v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.06760v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.06199v1",
+    "title": "SC-MFJ: A Simple Haptic Quality Metric for Medical Image Segmentation",
+    "authors": [
+      "Souraj Adhikary",
+      "Negar Chabi",
+      "Andre Mastmeyer"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.GR"
+    ],
+    "published": "2026-06-04T14:04:42+00:00",
+    "updated": "2026-06-04T14:04:42+00:00",
+    "comments": "11 pages, 5 figures, 5 tables, http://www.wscg.eu/",
+    "journal_ref": null,
+    "venue_inferred": "www",
+    "summary": "Standard segmentation metrics such as Dice and Hausdorff distance measure geometric overlap but say nothing about whether a segmented surface is suitable for haptic rendering in surgical simulation. We propose SC-MFJ (Surface-Constrained Mean Force Jerk), a simple, inexpensive metric that samples a segmented organ surface with many short virtual stylus walks and measures how jerky the resulting contact forces are. The metric is computed from existing segmentation outputs and uses roughly one minute of CPU time per case. We evaluate three pancreas CT segmentation approaches-binary nnU-Net output, Gaussian-smoothed output, and learned signed distance function (SDF) regression-across 80 cases in five-fold cross-validation. SC-MFJ reveals a 147x gap in haptic quality between the raw binary baseline and simple Gaussian post-processing, a difference entirely invisible to Dice and HD95. It also shows that learned SDF regression, despite requiring full model retraining, produces more variable haptic quality than Gaussian smoothing, with a case-level standard deviation of 168 N/s2 compared with 22 N/s2 for Gaussian. A second evaluation on the LiTS liver dataset (131 cases) confirms the generality of these findings: the binary-to-Gaussian gap widens to 189x, and Gaussian smoothing again produces consistently low force jerk across all folds. Our results suggest that for haptic simulation applications, a one-line post-processing step may be sufficient, and that a cheap metric like SC-MFJ can flag problems that geometric metrics miss.",
+    "html_url": "https://arxiv.org/abs/2606.06199v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.06199v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "http://www.wscg.eu/"
+    ]
+  }
+]
