@@ -1,0 +1,149 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.12586v2",
+    "title": "Medical Image Segmentation based on Deep Active Contour and Mean Curvature Loss Function",
+    "authors": [
+      "Xiao-qiang Zhai",
+      "Zhi-feng Pang",
+      "Peng Zheng",
+      "Ze-wen Li",
+      "Yan-zhe Hou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-07-14T09:56:03+00:00",
+    "updated": "2026-09-04T09:13:45+00:00",
+    "comments": "V2: Corrected a notation error (alpha to lambda) in Eq.(10) and related discussion; revised the abstract and introduction for clarity; polished language throughout. 15 pages, 4 figures. Keywords: medical image segmentation, curvature regularization, loss function, active contour model, mean curvature, deep learning. Under review at Biomedical Signal Processing and Control",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a crucial task in the field of clinical analysis and applications. Though deep learning techniques recently play a crucial role in several scenarios, the training at the individual pixel level leads to a lack of geometric prior information. Scholars proposed to integrate the Chan-Vese model into the loss function for training which can take into account the region and length of the region inside and outside the segmentation process and then improve the performance in medical image segmentation. However, these methods still lack an effective characterization of the segmented region. To overcome this problem, we introduce the mean curvature as a geometric natural constraint and propose a Deep Active Contour and Mean Curvature (DACMC) loss function where the convolution kernel is used to approximate the mean curvature to save computational cost. We have validated the performance of our method on the liver and spleen dataset. Our proposed method demonstrates new state-of-the-art performance on several segmentation datasets.",
+    "html_url": "https://arxiv.org/abs/2607.12586v2",
+    "pdf_url": "https://arxiv.org/pdf/2607.12586v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.04781v1",
+    "title": "CoMLP: Cooperatively-Gated MLPs for Fine-Grained Cross-Modal Information Fusion in Medical Image Segmentation",
+    "authors": [
+      "Mingyuan Meng",
+      "Shuchang Ye",
+      "Mingjian Li",
+      "Zhenyu Zhao",
+      "Jinman Kim",
+      "Lei Bi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-04T06:18:44+00:00",
+    "updated": "2026-09-04T06:18:44+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-modal medical images and clinical reports provide complementary anatomical, functional, and semantic information for medical image segmentation. Effectively exploiting these heterogeneous sources requires fine-grained cross-modal information fusion that preserves subtle spatial details while capturing semantic dependencies across modalities. Existing fusion approaches frequently rely on cross-attention, whose computational burden increases rapidly with spatial resolution, making dense cross-modal interaction difficult on high-resolution feature maps, particularly for volumetric medical images. In this work, we propose CoMLP, a cooperatively-gated MLP module for fine-grained cross-modal information fusion in medical image segmentation. CoMLP models cross-modal dependencies through cooperative cross-gating, built upon complementary regional and dilated MLP interactions, to capture local and global cross-modal dependencies. We further develop a multi-source fusion architecture in which CoMLP performs both inter-image fusion across imaging modalities and vision-language fusion between visual features and textual reports, enabling heterogeneous information to be integrated without relying on dense cross-attention. Extensive experiments on five medical segmentation benchmarks, covering 2D/3D images, clinical reports, multiple imaging modalities, and diverse anatomical regions, demonstrate consistent improvements over state-of-the-art multi-modal and language-guided segmentation methods. Ablation studies further show that fine-grained interaction at high spatial resolutions and complementary local-global fusion are critical to the performance gains. These results demonstrate the potential of MLP-based interaction as an effective alternative for fine-grained cross-modal information fusion in medical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2609.04781v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.04781v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.06103v1",
+    "title": "MS-DKC: A Dataset Knowledge Card Framework for Designing and Adapting Medical Image Segmentation Models",
+    "authors": [
+      "Tariq M. Khan",
+      "Syed Saud Naqvi",
+      "Thantrira Porntaveetus",
+      "Hamid Alinejad-Rokny",
+      "Shahzaib Iqbal",
+      "Imran Razzak",
+      "Mohammad AU Khan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-04T12:45:42+00:00",
+    "updated": "2026-06-04T12:45:42+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is often framed as a search for stronger architectures, but this can obscure a more fundamental question: what does the dataset require from the model? In medical imaging, this requirement is shaped by foreground occupancy, morphology, boundary ambiguity, topology sensitivity, annotation quality, acquisition variation, and operating point.\n  This paper introduces the Medical Segmentation Dataset Knowledge Card (MS-DKC), a framework for making these factors explicit. MS-DKC records dataset evidence through image/acquisition, morphology, supervision, context-dependence, and deployment-risk descriptors. These descriptors are mapped to failure modes, design priors, and risk-aligned criteria, making segmentation design more traceable than architecture-first comparison.\n  We evaluate MS-DKC on DRIVE, ISIC2018, and ACDC, representing distinct regimes. DRIVE contains sparse, thin, branching vessels, favoring detail-preserving models, sensitivity-aware optimization, threshold analysis, and topology-aware metrics. DKC-TNet-v2 achieved Dice 0.8044 and IoU 0.6730 with 35103 parameters, while SA-UNetv2-DKC-AmbRef reached Dice 0.8141, IoU 0.6865, sensitivity 0.8265, specificity 0.9804, and AUC 0.9853. ISIC2018 involves compact but appearance-variable lesions; validation-constrained score-function selection on Att-Next-Topo/ATTNext produced MS-DKC-AttNextTopo-VCSF-NoAug with Dice 0.8872, IoU 0.8214, precision 0.9173, Boundary F1 0.4878, and ASSD 4.13, while plausible additions failed to improve the risk-aligned profile. ACDC provides a multi-class cardiac case, where MS-DKC recommends four-class softmax segmentation, class-balanced Dice/CE supervision, and class-wise surface evaluation. Overall, the results support dataset-conditioned design: different datasets require different priors, operating points, and evidence before a model can be judged appropriate.",
+    "html_url": "https://arxiv.org/abs/2606.06103v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.06103v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.06537v1",
+    "title": "DSU-Net: An Attention-Enhanced Dense Skip U-Net for Breast Lesion Segmentation in Mammographic Images",
+    "authors": [
+      "Reza Bozorgpour",
+      "Mohammadreza Soltany Sadrabadi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "q-bio.QM",
+      "cs.CV",
+      "eess.IV"
+    ],
+    "published": "2026-06-03T23:09:03+00:00",
+    "updated": "2026-06-03T23:09:03+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Breast cancer remains one of the leading causes of cancer-related mortality among women worldwide, making early detection essential for effective treatment. Mammography is the primary screening modality; however, accurate delineation of suspicious lesions remains challenging and subject to inter-observer variability. Automated segmentation methods can assist radiologists by providing consistent and efficient lesion localization.\n  This study presents DSU-Net, an attention-enhanced Dense Skip U-Net architecture for automated breast lesion segmentation in mammographic images. The proposed framework integrates dense skip connections and attention mechanisms to improve feature propagation, preserve spatial information, and enhance lesion boundary delineation. Experiments were conducted using the Curated Breast Imaging Subset of the Digital Database for Screening Mammography (CBIS-DDSM). To address severe foreground-background imbalance, a composite loss function combining Dice loss, focal loss, and binary cross-entropy loss was employed during training.\n  The proposed model achieved a Dice Similarity Coefficient of 0.9421, an Intersection over Union of 0.8905, an accuracy of 0.9711, and an AUC-ROC of 0.9878 on the validation dataset. Qualitative evaluation demonstrated accurate delineation of lesions with varying sizes and morphologies, while quantitative results confirmed robust discrimination between lesion and background regions.\n  These findings demonstrate that DSU-Net provides accurate and reliable breast lesion segmentation in mammographic images and highlights the potential of attention-guided deep learning for computer-aided breast cancer screening and diagnosis.",
+    "html_url": "https://arxiv.org/abs/2606.06537v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.06537v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.05460v1",
+    "title": "ORACLE-CT: Anatomy-Aware Support Pooling for CT Classification",
+    "authors": [
+      "Lavsen Dahal",
+      "Yubraj Bhandari",
+      "Geoffrey Rubin",
+      "Joseph Y. Lo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-03T21:37:05+00:00",
+    "updated": "2026-06-03T21:37:05+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Abdominal CT disease classification is challenging because each scan is a large 3D volume with many possible findings, while diagnostic evidence is often confined to specific organs or anatomical compartments. Most study-level classifiers aggregate encoder features using anatomy-agnostic pooling or attention, creating a mismatch between localized disease evidence and global evidence aggregation. We propose ORACLE--CT, an encoder-agnostic anatomy-aware aggregation framework that uses multi-organ segmentation to define label-specific anatomical supports and restrict attention pooling to relevant regions. The framework supports single-organ, multi-organ union, comparative, localized, and global support strategies.\n  We evaluate ORACLE--CT with three encoder families: DINOv3, I3D--ResNet-121, and the radiology-native Pillar--0 encoder. Models are trained end-to-end on MERLIN and evaluated internally and under frozen external transfer to Duke--Abdomen and AMOS. Compared with global average pooling, support-masked pooling improved MERLIN macro-AUROC/AUPRC from 0.838/0.638 to 0.858/0.676 for DINOv3 and from 0.829/0.617 to 0.848/0.659 for I3D--ResNet-121. On harmonized 10-label external evaluation, DINOv3 improved on Duke--Abdomen from 0.802/0.628 to 0.835/0.683 and on AMOS from 0.742/0.313 to 0.762/0.350, with similar gains for I3D--ResNet-121. For Pillar--0, most gains came from learned attention, with smaller additional benefit from anatomical masking. ORACLE--CT improves discrimination and external robustness while preserving an auditable link between predictions and anatomical evidence.",
+    "html_url": "https://arxiv.org/abs/2606.05460v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.05460v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
