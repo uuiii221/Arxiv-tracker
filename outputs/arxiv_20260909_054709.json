@@ -1,0 +1,159 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2606.04427v1",
+    "title": "Implicit Fuzzification via Bounded Noise Injection for Robust Medical Image Segmentation",
+    "authors": [
+      "Bisheng Tang",
+      "Zhangfeng Ma",
+      "Chuchu Zhai",
+      "Feng Dong",
+      "Yaoqun Wu",
+      "Ammar Oad",
+      "Yifei Peng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-03T04:17:15+00:00",
+    "updated": "2026-06-03T04:17:15+00:00",
+    "comments": "Under reviewing",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Image segmentation remains fundamentally limited by boundary ambiguity arising from sampling-induced information loss and inherent uncertainty in pixel-wise labeling. Although encoder-decoder architectures such as U-Net achieve strong performance, they often produce overconfident predictions that fail to capture transition-region ambiguity. To address this issue, we propose \\textbf{NoiseUNet}, a simple yet effective framework that injects bounded perturbations into skip connections to regularize cross-scale feature fusion. This mechanism enforces robustness to local feature variations and promotes boundary-aware representations. Theoretically, the perturbation induces an implicit fuzzification effect, yielding soft, data-driven memberships without requiring explicit fuzzy modeling. We further introduce \\textbf{ThyR}, a real-world thyroid ultrasound dataset with inherently ambiguous boundaries. Experiments demonstrate that NoiseUNet consistently improves both segmentation accuracy and boundary fidelity.",
+    "html_url": "https://arxiv.org/abs/2606.04427v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.04427v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.04301v1",
+    "title": "XSSR: Cross-Domain Self-Supervised Representative Selection for Efficient Annotation in Medical Image Segmentation",
+    "authors": [
+      "Byunghyun Ko",
+      "Aleksei Anisimov",
+      "Kobe Ke",
+      "Suhas Bharthepude",
+      "Jeongkyu Lee"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-03T00:09:35+00:00",
+    "updated": "2026-06-03T00:09:35+00:00",
+    "comments": "Accepted to the Third International Conference on AI in Healthcare (AIiH 2026). This is the preprint version of the paper",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Acquiring labeled medical image data is resource-intensive and a challenge further exacerbated in cross-domain scenarios where source and target datasets differ in imaging equipment, population, or clinical site. This study introduces XSSR (Cross-Domain Self-Supervised Representative Selection), a framework designed to minimize annotation effort in the target domain while maintaining robust segmentation performance. XSSR comprises three stages: first, a Masked Autoencoder (MAE) is trained on unlabeled source data to establish a shared embedding space without requiring target labels; second, a greedy selection algorithm scores unlabeled target samples based on a composite density, novelty, and diversity criterion; and third, a U-Net segmentation model is trained exclusively on the selected subset. The novelty-diversity trade-off parameter, alpha, is automatically calibrated by minimizing embedding-space coverage, eliminating manual tuning. We evaluate XSSR on three public benchmarks: Chest X-ray, RIGA+ retinal fundus imaging, and multi-site Prostate MRI, each under a fixed 5% annotation budget. XSSR achieves 99.3% of full-data performance on Chest X-ray using only 22 labeled samples, surpasses random selection by up to 2.5 Dice points on Prostate MRI, and consistently outperforms the CoreSet baseline by 0.4 to 1.2 Dice points across all datasets. Ablation studies indicate that diversity is the most influential scoring component, and per-site analysis shows that performance correlates with scanner similarity to the source domain.",
+    "html_url": "https://arxiv.org/abs/2606.04301v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.04301v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.26774v2",
+    "title": "Cesarean Scar Defect Segmentation in Transvaginal Ultrasound Images: a Dataset and Benchmark",
+    "authors": [
+      "Yuan Tian",
+      "Yue Li",
+      "Wei Xia",
+      "Tianyu Xu",
+      "Jian Zhang",
+      "Liye Shi",
+      "Jing Liu",
+      "Yang Wang",
+      "Ming Liu",
+      "Qing Xu",
+      "Yixuan Zhang",
+      "Maggie M. He",
+      "Xiangjian He"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-26T09:45:19+00:00",
+    "updated": "2026-06-02T13:06:25+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Cesarean Scar Defect (CSD) is one of the most prevalent complications following cesarean delivery. Transvaginal ultrasonography is widely used for primary CSD screening. Accurate determination of CSD outline and dimensions is crucial for treatment. However, CSDs are frequently overlooked by sonographers due to small size and irregular morphology, suboptimal image quality, and limited clinical awareness in resource-constrained settings. Despite artificial intelligence advances in medical imaging, no public dataset exists for transvaginal ultrasound CSD segmentation. To address this gap, we present a comprehensive CSD dataset comprising 1,111 images and 16 videos, yielding 501 positive samples with confirmed CSD and precise pixel-level manual annotations. Annotations are performed following standardized clinical guidelines through collaboration between experienced sonographers and trained PhD students. This work provides high-quality benchmark resources for advancing medical image segmentation algorithms and promoting clinical innovation. Ultimately, improved CSD diagnosis and subsequent treatment strategies can enhance the quality of life in women of reproductive age, representing significant value for both medical research and clinical practice.",
+    "html_url": "https://arxiv.org/abs/2605.26774v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.26774v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.00489v2",
+    "title": "3D Segment Anything Model with Visual Mamba for Diagnosing Placenta Accreta Spectrum",
+    "authors": [
+      "Yuliang Zhang",
+      "Fang He",
+      "Lulu Peng",
+      "Tianyu Yan",
+      "Pingping Zhang",
+      "Ting Song",
+      "Lili Du",
+      "Dunjin Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-30T02:39:56+00:00",
+    "updated": "2026-06-02T08:19:50+00:00",
+    "comments": "Accepted by IEEE Transactions on Image Processing (TIP2026). More modifications may be performed",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Placenta Accreta Spectrum (PAS) is a rare but highly dangerous obstetric disease. Early and accurate PAS diagnosis is critical for maternal health. Traditional PAS diagnosis relies on experienced doctors by analyzing the cesarean history and Magnetic Resonance Imaging (MRI) data. However, district-level hospitals often lack the expertise and resources for accurate PAS diagnosis. To address these challenges, we establish the first MRI-based PAS dataset, which includes both fine-grained segmentation and classification annotations. Meanwhile, diagnosing PAS can be significantly enhanced by segmenting lesion areas from MRI images of the uterus. To achieve automatic PAS diagnosis, we propose 3DSAMba, a novel feature learning framework for effective lesion segmentation. More specifically, we first design a 3D Segment Anything Model (SAM) and incorporate medical domain information into the model through an efficient adapter mechanism. In addition, we introduce a Multi-Level Aggregation Mamba (MLAM) to aggregate feature maps across different levels and a Fusion State Space Model (FSSM) to fuse multi-scale features from both the encoder and decoder. Finally, we apply segmentation masks to the original MRI images through element-wise multiplication, effectively isolating lesion areas for more accurate PAS diagnosis. Extensive experiments validate that our framework significantly improves the PAS diagnostic performance. To facilitate further research in PAS diagnosis, we have released the dataset and source code at https://github.com/Drchip61/PASD.",
+    "html_url": "https://arxiv.org/abs/2606.00489v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.00489v2",
+    "code_urls": [
+      "https://github.com/Drchip61/PASD",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.14731v1",
+    "title": "BBR-Net: Boundary-Balanced Replay for Continual Medical Image Segmentation",
+    "authors": [
+      "Zahid Ullah",
+      "Sieun Choi",
+      "Jihie Kim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-02T04:10:01+00:00",
+    "updated": "2026-06-02T04:10:01+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Continual learning for medical image segmentation remains challenging under domain shift because replay-based methods often preserve appearance information without explicitly modeling anatomical structure. This study investigates whether structural consistency governs knowledge retention in continual cardiac ultrasound segmentation. We propose the Boundary-Balanced Replay Network (BBR-Net), which selects replay samples using boundary-aware priority and class balance to preserve anatomically informative regions. The method is evaluated on CAMUS and CardiacNet under forward (CAMUS to CardiacNet) and reverse (CardiacNet to CAMUS) task orders. In the forward setting, BBR-Net retains source-task performance close to an offline joint-training reference, while markedly reducing catastrophic forgetting and preserving competitive target-task adaptation. Ablation results show that boundary-aware prioritization contributes to retention and improves the balance between source-task preservation and target-task adaptation when combined with class-aware sampling. In contrast, the reverse setting reveals that structure-aware replay fails when initial representations are learned from noisy and structurally inconsistent data. To isolate this effect, we conduct a controlled structural perturbation analysis by progressively corrupting source-task boundaries while keeping the dataset, architecture, and training protocol fixed. Forgetting increases consistently as structural reliability decreases, suggesting that replay effectiveness is strongly influenced by the quality of stored structural information, rather than by memory capacity alone. These findings indicate that preserving anatomical structure under domain shift is a central factor in continual medical image segmentation, and that replay mechanisms should account for structural reliability to support robust knowledge retention.",
+    "html_url": "https://arxiv.org/abs/2606.14731v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.14731v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
