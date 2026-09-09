@@ -24,6 +24,12 @@ def _summary_cache_key(item: Dict[str, Any], cfg: Dict[str, Any]) -> Tuple[str, 
         cfg.get("system_prompt_en"),
     ))
 
+
+def _cache_bilingual_summary(cache_key: Tuple[str, ...], data: Dict[str, str]) -> None:
+    if len(_BILINGUAL_SUMMARY_CACHE) >= _SUMMARY_CACHE_LIMIT:
+        _BILINGUAL_SUMMARY_CACHE.pop(next(iter(_BILINGUAL_SUMMARY_CACHE)))
+    _BILINGUAL_SUMMARY_CACHE[cache_key] = dict(data)
+
 KNOWN_DATASETS = [
     "COCO","LVIS","ADE20K","Cityscapes","ScanNet","ImageNet","OpenImages",
     "Pascal VOC","NYUv2","KITTI","GQA","VQAv2","RefCOCO","RefCOCO+","RefCOCOg",
@@ -128,8 +134,8 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
         cfg = llm_cfg or {}
         api_key = (cfg.get("api_key") or os.getenv(cfg.get("api_key_env") or "OPENAI_API_KEY", ""))
         if api_key:
+            cache_key = _summary_cache_key(item, cfg)
             try:
-                cache_key = _summary_cache_key(item, cfg)
                 data = _BILINGUAL_SUMMARY_CACHE.get(cache_key)
                 if data is None:
                     data = call_llm_bilingual_summary(
@@ -140,9 +146,7 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                         system_prompt_zh=cfg.get("system_prompt_zh", ""),
                         system_prompt_en=cfg.get("system_prompt_en", "")
                     )
-                    if len(_BILINGUAL_SUMMARY_CACHE) >= _SUMMARY_CACHE_LIMIT:
-                        _BILINGUAL_SUMMARY_CACHE.pop(next(iter(_BILINGUAL_SUMMARY_CACHE)))
-                    _BILINGUAL_SUMMARY_CACHE[cache_key] = dict(data)
+                    _cache_bilingual_summary(cache_key, data)
                 return {"digest_en": data.get("digest_en",""), "digest_zh": data.get("digest_zh",""), "tldr":"", "full_md":""}
             except Exception as exc:
                 logger.exception(
@@ -150,6 +154,9 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                     item.get("id") or "<unknown>",
                     exc,
                 )
+                h = heuristic_paragraphs(item)
+                _cache_bilingual_summary(cache_key, h)
+                return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":""}
         # LLM 不可用时兜底
         h = heuristic_paragraphs(item)
         return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":""}
