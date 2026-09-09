@@ -8,23 +8,30 @@ def _json_loose(s: str) -> Dict[str, Any]:
     """
     宽松 JSON 解析：尽力从文本中抽出首个 {...} 为 JSON。
     """
-    m = re.search(r"\{[\s\S]*\}", s)
-    if not m:
-        return {}
-    raw = m.group(0)
-    try:
-        return json.loads(raw)
-    except Exception:
-        # 去掉尾随逗号等常见小问题再试一次
-        t = re.sub(r",\s*([}\]])", r"\1", raw)
-        try:
-            return json.loads(t)
-        except Exception:
-            return {}
+    decoder = json.JSONDecoder()
+    candidates = (s, re.sub(r",\s*([}\]])", r"\1", s))
+    for candidate in candidates:
+        for match in re.finditer(r"\{", candidate):
+            try:
+                value, _ = decoder.raw_decode(candidate[match.start():])
+            except json.JSONDecodeError:
+                continue
+            if isinstance(value, dict):
+                return value
+    return {}
 
 def _loose_json_load(s: str) -> Dict[str, Any]:
     """兼容旧名，等价 _json_loose。"""
     return _json_loose(s)
+
+def _require_nonempty_strings(data: Dict[str, Any], fields: List[str]) -> Dict[str, str]:
+    missing = [
+        field for field in fields
+        if not isinstance(data.get(field), str) or not data[field].strip()
+    ]
+    if missing:
+        raise ValueError("LLM JSON response has empty required fields: {}".format(", ".join(missing)))
+    return {field: data[field].strip() for field in fields}
 
 def _normalize_chat_endpoint(base_url: str) -> str:
     """
@@ -52,6 +59,8 @@ def _chat_completions_request(
     temperature: float = 0.2,
     max_tokens: int = 1024,
     timeout: int = 30,
+    json_object: bool = False,
+    disable_thinking: bool = False,
 ) -> str:
     """
     统一的 OpenAI 兼容 Chat Completions 请求（requests 直连）。
@@ -69,8 +78,24 @@ def _chat_completions_request(
         "max_tokens": max_tokens,
         "stream": False,
     }
-    resp = requests.post(url, json=payload, headers=headers, timeout=timeout)
-    resp.raise_for_status()
+    if json_object:
+        payload["response_format"] = {"type": "json_object"}
+    if disable_thinking and model.lower().startswith("deepseek-v4"):
+        payload["thinking"] = {"type": "disabled"}
+    for attempt in range(3):
+        try:
+            resp = requests.post(url, json=payload, headers=headers, timeout=timeout)
+            resp.raise_for_status()
+            break
+        except requests.Timeout:
+            if attempt == 2:
+                raise
+        except requests.HTTPError as exc:
+            status = exc.response.status_code if exc.response is not None else None
+            if status != 429 and not (status is not None and 500 <= status < 600):
+                raise
+            if attempt == 2:
+                raise
     data = resp.json()
 
     # 标准 OAI 兼容返回
@@ -124,12 +149,14 @@ def call_llm_bilingual_summary(
 
     text = _chat_completions_request(
         base_url=base_url, api_key=api_key, model=model, messages=messages,
-        temperature=0.2, max_tokens=600
+        temperature=0.2, max_tokens=600,
+        json_object=True, disable_thinking=True
     )
     data = _json_loose(text)
+    required = _require_nonempty_strings(data, ["digest_en", "digest_zh"])
     return {
-        "digest_en": (data.get("digest_en") or "").strip(),
-        "digest_zh": (data.get("digest_zh") or "").strip(),
+        "digest_en": required["digest_en"],
+        "digest_zh": required["digest_zh"],
     }
 
 # ========== 两阶段摘要（保留你原有接口与行为） ==========
@@ -233,16 +260,15 @@ DATA:
                 {"role":"user","content":inst}]
     text = _chat_completions_request(
         base_url=base_url, api_key=api_key, model=model, messages=messages,
-        temperature=0.0, max_tokens=600
+        temperature=0.0, max_tokens=600,
+        json_object=True, disable_thinking=True
     ).strip()
 
     data = _loose_json_load(text)
+    required = _require_nonempty_strings(data, ["title_zh", "summary_zh"])
     out: Dict[str, str] = {}
     if isinstance(data, dict):
-        if "title_zh" in data and isinstance(data["title_zh"], str):
-            out["title_zh"] = data["title_zh"].strip()
-        if "summary_zh" in data and isinstance(data["summary_zh"], str):
-            out["summary_zh"] = data["summary_zh"].strip()
+        out.update(required)
         if "comments_zh" in data and isinstance(data["comments_zh"], str):
             out["comments_zh"] = data["comments_zh"].strip()
     return out
