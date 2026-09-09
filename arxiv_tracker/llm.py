@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import os, json, re, requests
-from typing import Dict, Any, List
+import os, json, re, time, requests
+from typing import Dict, Any, List, Optional
 
 # ========== 通用小工具 ==========
 
@@ -61,6 +61,7 @@ def _chat_completions_request(
     timeout: int = 30,
     json_object: bool = False,
     disable_thinking: bool = False,
+    required_json_fields: Optional[List[str]] = None,
 ) -> str:
     """
     统一的 OpenAI 兼容 Chat Completions 请求（requests 直连）。
@@ -86,8 +87,34 @@ def _chat_completions_request(
         try:
             resp = requests.post(url, json=payload, headers=headers, timeout=timeout)
             resp.raise_for_status()
-            break
-        except requests.Timeout:
+            data = resp.json()
+
+            # 标准 OAI 兼容返回
+            content = ""
+            if isinstance(data, dict):
+                choices = data.get("choices") or []
+                if choices and isinstance(choices[0], dict):
+                    message = choices[0].get("message") or {}
+                    if isinstance(message, dict):
+                        content = message.get("content") or ""
+                    if not content:
+                        # 兜底：部分实现把文本放在 text
+                        content = choices[0].get("text") or ""
+                else:
+                    # 兜底：部分实现把文本放在顶层 text
+                    content = data.get("text") or ""
+            content = content if isinstance(content, str) else ""
+
+            if required_json_fields is not None:
+                if not content.strip():
+                    raise ValueError("LLM response content is empty")
+                parsed = _json_loose(content)
+                if not parsed:
+                    raise ValueError("LLM response JSON parsing failed")
+                _require_nonempty_strings(parsed, required_json_fields)
+
+            return content
+        except (requests.Timeout, requests.ConnectionError):
             if attempt == 2:
                 raise
         except requests.HTTPError as exc:
@@ -96,14 +123,11 @@ def _chat_completions_request(
                 raise
             if attempt == 2:
                 raise
-    data = resp.json()
-
-    # 标准 OAI 兼容返回
-    try:
-        return data["choices"][0]["message"]["content"]
-    except Exception:
-        # 兜底：部分实现把文本放在 text
-        return data.get("choices", [{}])[0].get("text", "")
+        except ValueError:
+            if required_json_fields is None or attempt == 2:
+                raise
+        if attempt < 2:
+            time.sleep(2 ** attempt)
 
 # ========== 双语“一段话总结” ==========
 
@@ -149,8 +173,9 @@ def call_llm_bilingual_summary(
 
     text = _chat_completions_request(
         base_url=base_url, api_key=api_key, model=model, messages=messages,
-        temperature=0.2, max_tokens=600,
-        json_object=True, disable_thinking=True
+        temperature=0.2, max_tokens=1200,
+        json_object=True, disable_thinking=True,
+        required_json_fields=["digest_en", "digest_zh"]
     )
     data = _json_loose(text)
     required = _require_nonempty_strings(data, ["digest_en", "digest_zh"])
@@ -260,8 +285,9 @@ DATA:
                 {"role":"user","content":inst}]
     text = _chat_completions_request(
         base_url=base_url, api_key=api_key, model=model, messages=messages,
-        temperature=0.0, max_tokens=600,
-        json_object=True, disable_thinking=True
+        temperature=0.0, max_tokens=1600,
+        json_object=True, disable_thinking=True,
+        required_json_fields=["title_zh", "summary_zh"]
     ).strip()
 
     data = _loose_json_load(text)
