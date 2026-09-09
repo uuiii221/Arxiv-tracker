@@ -1,0 +1,159 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.07004v1",
+    "title": "CGSM: Concept-Guided Segmentation Model for Precise Pulmonary Lesion Delineation",
+    "authors": [
+      "Changheng Lin",
+      "Wenjie Zhang",
+      "Yushan Lu",
+      "Xinyue Yan",
+      "Xiao Jia",
+      "Wei Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-07T03:55:43+00:00",
+    "updated": "2026-09-07T03:55:43+00:00",
+    "comments": "Changheng Lin and Wenjie Zhang contributed equally to this work. Xiao Jia and Wei Zhang are corresponding authors",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate segmentation of pulmonary lesions is essential for effective clinical diagnosis and treatment strategies. Existing segmentation approaches often lack task-specific semantic guidance, as text-based annotations typically offer coarse localization of lesions, leading to inadequate delineation of lesion boundaries and poor performance on small-scale lesions. To address this, we propose CGSM, a Concept-Guided Segmentation Model that integrates LLM-generated and clinically reviewed concepts into the segmentation process. Specifically, we design a Concept-Visual Alignment Module (CVAM) to activate relevant tokens within the concepts that align with visual features, enhancing the interaction between textual and visual information. In addition, we introduce a Concept Modulated Decoder (CM-Decoder), which uses concepts from CVAM as modulation signals to facilitate the adaptive fusion of image and text features, improving the segmentation accuracy. Extensive experiments on two public datasets show that CGSM achieves state-of-the-art performance, with results of 91.59% Dice and 84.49% mIoU on the QaTa-COV19 dataset, demonstrating its effectiveness in pulmonary lesion segmentation.",
+    "html_url": "https://arxiv.org/abs/2609.07004v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.07004v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.06733v1",
+    "title": "LASSNet: Level-Aware Availability-Conditioned Spatial-Semantic Fusion for Brain Tumor Segmentation with Missing MRI Modalities",
+    "authors": [
+      "Haobin Chen",
+      "Ao Chang",
+      "Rundong Wang",
+      "Zhicheng Li",
+      "Zhihao Tang",
+      "Heqin Zhu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-06T17:12:43+00:00",
+    "updated": "2026-09-06T17:12:43+00:00",
+    "comments": "9 pages, 2 figures, 3 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain tumor segmentation from multimodal MRI relies on complementary evidence across four imaging sequences, yet one or more modalities may be unavailable because of acquisition cost, protocol variation, scan failure, or patient condition. Existing work has explored reconstruction, knowledge transfer, and direct feature fusion, but leaves open whether missing-modality fusion should change with representation level. High-resolution lateral features retain spatial detail, whereas compressed bottleneck features encode semantic and inter-modality context. We therefore hypothesize that fusion should be conditioned jointly on modality availability and feature hierarchy. We propose the Level-Aware Availability-Conditioned Spatial-Semantic Fusion Network (LASSNet), which contains two level-specialized modules. Hierarchical Availability-Conditioned Fusion (HACF) constructs four lateral representations using count-normalized aggregation of available modalities, mask-conditioned channel modulation, and local 3D refinement. Tri-Scale Relational-Spatial Fusion (TriRSF) models relations among available modality descriptors and spatial context across multiple bottleneck resolutions, followed by cross-scale aggregation and availability-conditioned global spatial attention. A shared coarse-to-fine decoder starts from TriRSF semantics and progressively injects HACF features, without reconstructing missing inputs. Across all 15 non-empty modality configurations, LASSNet obtains mean Dice scores of 76.7% and 83.2% over WT, TC, and ET on BraTS2019 and BraTS2023, respectively.",
+    "html_url": "https://arxiv.org/abs/2609.06733v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.06733v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.06165v1",
+    "title": "Multiple Myeloma Lesion Segmentation on Whole-Body Diffusion-Weighted Imaging via Efficient Anatomical Anticipation and Multimodal Confirmation",
+    "authors": [
+      "Mengmeng Zhang",
+      "Shengqian Huang",
+      "Junde Zhou",
+      "Xiaoping Wu",
+      "Hao Luog",
+      "Jing Wanga",
+      "Yicheng Sun",
+      "Jiao Li",
+      "Haibo Zhang",
+      "Sheng Xie",
+      "Fan Wangg",
+      "Qin Wangc",
+      "Huadan Xue",
+      "Yisheng Lv",
+      "Fei-yue Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-05T16:08:29+00:00",
+    "updated": "2026-09-05T16:08:29+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Whole-body diffusion-weighted imaging (WB-DWI) is widely used for multiple myeloma (MM) assessment, yet automated lesion segmentation remains challenging due to limited anatomical delineation and the low specificity of marrow hyperintensity. Existing studies have introduced bone region-of-interest (ROI) information and apparent diffusion coefficient (ADC) maps to mitigate these ambiguities, but practical limitations remain. Bone ROI construction often relies on costly manual annotation, image registration, or dedicated bone models, while ADC is usually incorporated only through simple channel fusion, limiting its ability to provide complementary structural and lesion-discriminative cues. To address these limitations, we propose a two-stage framework for MM lesion segmentation on WB-DWI. In the first stage, we train a bone ROI generation model from ADC images without dedicated bone labels, providing an efficient and practical anatomical prior for lesion analysis. In the second stage, we propose Anatomy-guided Multimodal U-Net (AMU-Net), which leverages ADC in a manner consistent with clinical lesion assessment rather than treating it as a generic auxiliary modality. Extensive experiments demonstrate the effectiveness and practicality of the proposed method. It achieves the best overall performance among the evaluated methods, with a mean Dice score of 76.2%.",
+    "html_url": "https://arxiv.org/abs/2609.06165v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.06165v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.03535v2",
+    "title": "Feature Reconfiguration With Visual Prior for Medical Lesion Segmentation",
+    "authors": [
+      "Yinan Liu",
+      "Jiankang Hong",
+      "Zhen Gao",
+      "Ye Luo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.AI",
+      "eess.IV"
+    ],
+    "published": "2026-09-03T08:34:40+00:00",
+    "updated": "2026-09-05T04:14:54+00:00",
+    "comments": "9 pages 10figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Lesion segmentation in medical images plays a critical role in clinical diagnosis and treatment planning. Despite significant advances, lesion segmentation remains challenging due to two major factors: (1) complex background interference; (2) diverse lesion morphology. Existing encoder-decoder based methods mainly focus on enhancing feature extraction or redesigning decoding strategies. However, they lack early prior guidance and feature reconfiguration during the encoding stage, limiting their effectiveness in handling these challenges. To address these limitations, we propose FreNet, a feature reconfiguration framework with visual priors, which performs pixel-level reconfiguration before encoding and feature-level reconfiguration during encoding for precise medical lesion segmentation. To suppress background responses, we propose an Implicit Prior Neural Network (IPNN), which models a continuous spatial field and leverages visual prior from SAM to reconfigure input image before encoding stage. To better handle diverse lesion morphology, we design a Dual-domain Feature Reconfiguration (DFR) module to progressively reconfigure backbone features during encoding stage. Within DFR, the Frequency Decoupling Module (FDM) decouples backbone features in frequency domain to enhance foreground-background discriminability, while the Spatial Localization Module (SLM) spatially relocates and improving spatial stability after frequency decoupling. Extensive experiments on 9 medical image segmentation benchmarks across three imaging modalities demonstrate that FreNet significantly outperforms state-of-the-art (SOTA) methods. On the challenging ETIS dataset, our method achieves Dice improvements of 5.0% over SOTA method and 7.2% over SAM.",
+    "html_url": "https://arxiv.org/abs/2609.03535v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.03535v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2505.09829v2",
+    "title": "BoundarySeg:Boundary-Aware Multi-Task Learning for Semi-Supervised 3D Medical Image Segmentation with Limited Unlabeled Data",
+    "authors": [
+      "Tushar Kataria",
+      "Shireen Y. Elhabian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-05-14T22:15:41+00:00",
+    "updated": "2026-09-04T20:02:19+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Data scarcity is a primary bottleneck in 3D medical image segmentation: expert voxel-level annotations are expensive, and privacy regulations often severely restrict access to unannotated clinical volumes. While semi-supervised learning (SSL) aims to alleviate annotation burdens, existing paradigms implicitly rely on large pools of unlabeled data ($U$) relative to labeled data ($L$), assuming $U \\gg L$ to filter noise and enforce consistency. When restricted to the data-constrained regime where unlabeled data are limited ($U \\le L$), standard SSL methods suffer from severe pseudo-label degeneracy, performance degradation, and high seed-to-seed variance. In this work, we propose BoundarySeg, a unified multi-task semi-supervised framework specifically designed for the limited unlabeled data regime ($U \\le L$). BoundarySeg formulates volumetric segmentation as a joint learning task that predicts whole-organ geometry alongside auxiliary organ boundaries. Rather than relying on large cohorts to average out pseudo-label noise, BoundarySeg employs the auxiliary boundary branch as an internal geometric anchor. Coupled with uncertainty-weighted mean-teacher consistency across both tasks alongside axis-flip equivariance and copy-paste regularization, this joint supervision stabilizes spatial representations and prevents segmentation collapse when $U \\le L$. Across multiple 3D segmentation datasets, BoundarySeg maintains high performance stability as unlabeled pool size shrinks, consistently outperforming state-of-the-art semi-supervised frameworks in low-data settings. \\href{https://github.com/tushaarkataria/BoundarySeg}{https://github.com/tushaarkataria/BoundarySeg}",
+    "html_url": "https://arxiv.org/abs/2505.09829v2",
+    "pdf_url": "https://arxiv.org/pdf/2505.09829v2",
+    "code_urls": [
+      "https://github.com/tushaarkataria/BoundarySeg}{https://github.com/tushaarkataria/BoundarySeg",
+      "https://github.com/tushaarkataria/BoundarySeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
