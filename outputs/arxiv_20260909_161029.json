@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.08303v1",
+    "title": "TRIUNE-Net: Harmonizing Scale, Shape, and Efficiency in Pancreatic Tumor Segmentation",
+    "authors": [
+      "Amir Hossein Saleknia",
+      "Alireza Kheyrkhah",
+      "Sanaz Karimijafarbigloo",
+      "Reza Azad",
+      "Sina Houshmand",
+      "Ulas Bagci",
+      "Dorit Merhof",
+      "Alaa Sulaiman"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-08T06:24:24+00:00",
+    "updated": "2026-09-08T06:24:24+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Pancreatic tumor segmentation in 3D CT volumes is challenged by extreme scale variability across both the pancreas and tumor, and highly irregular tumor morphology. While recent advances have pushed segmentation performance, existing methods do not explicitly address these challenges and come at the cost of excessive computational complexity, limiting their practicality in resource-constrained clinical environments. We propose TRIUNE-Net, a lightweight unified architecture that harmonizes scale, shape, and efficiency through three synergistic innovations. A multi-scale context aggregation module with stage-adaptive dilated convolutions enables the model to reason across the broad range of anatomical scales present in both organs. A serial linear-deformable attention mechanism combines large effective receptive fields with shapeadaptive deformable convolutions to capture irregular, non-convex tumor morphologies. Finally, an information-preserving downsampling module replaces conventional max pooling entirely, retaining all spatial information while adding negligible parameters, preventing small tumors from being discarded before they can be recognized. On both the MSD Pancreas and NVD Pancreas datasets, TRIUNE-Net achieves state-of-theart results with only 5.86 M parameters and no external pre-training, outperforming all baselines across all key tumor metrics. Specifically, it surpasses the next-best model by 0.45% in tumor Dice, 6.0 points in F1 score, 6.6 points in sensitivity, and 3.4 points in precision, simultaneously reflecting its ability to suppress both missed tumors and false alarms in clinically realistic conditions. Our code is available at: https://github.com/abdora-ai/TRIUNE-Net",
+    "html_url": "https://arxiv.org/abs/2609.08303v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.08303v1",
+    "code_urls": [
+      "https://github.com/abdora-ai/TRIUNE-Net",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.07724v1",
+    "title": "Zero-Shot 3D Plant Organ Segmentation with SAM3 and Semantic NeRFs",
+    "authors": [
+      "Andreas Gilson",
+      "Laura Hennig",
+      "Peter Pietrzyk"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-07T16:35:01+00:00",
+    "updated": "2026-09-07T16:35:01+00:00",
+    "comments": "Submitted to CVPPA Workshop at ECCV 2026",
+    "journal_ref": null,
+    "venue_inferred": "ECCV 2026",
+    "summary": "Accurate 3D plant organ segmentation is fundamental to automated phenotyping. Existing approaches rely on annotated training data or species-specific model configurations. We present an annotation-free pipeline for 3D plant organ segmentation, combining text-prompted SAM3 segmentation with semantic neural radiance fields (NeRFs). Given only multi-view RGB images and a list of class names, our zero-shot pipeline produces semantically labeled 3D point clouds without manual annotation, per-species fine-tuning, or domain-specific preprocessing. Multi-view NeRF fusion acts as effective implicit consensus mechanism that lifts imperfect per-frame masks into accurate 3D labels. On a controlled Begonia maculata testbed the SAM3 pipeline achieves 92.6% mIoU, reaching 95.9% of the oracle upper bound established with perfect ground-truth masks. The pipeline was further evaluated on a new dataset spanning ten diverse plant point clouds reaching an average 0.856 mIoU, with leaf and pot IoU above 0.91 and 0.90 for every species, respectively. These results demonstrate that annotation-free 3D plant organ segmentation is now feasible and approaching the range of supervised methods.",
+    "html_url": "https://arxiv.org/abs/2609.07724v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.07724v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.01292v4",
+    "title": "Diffusion Model in Latent Space for Medical Image Segmentation Task",
+    "authors": [
+      "Ngoc Huynh Trinh",
+      "Hai Toan Nguyen",
+      "Son Ba Luong",
+      "Quoc Long Tran"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-12-01T05:26:43+00:00",
+    "updated": "2026-09-07T15:39:43+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is crucial for clinical diagnosis and treatment planning. Traditional methods typically produce a single segmentation mask, failing to capture inherent uncertainty. Recent generative models enable the creation of multiple plausible masks per image, mimicking the collaborative interpretation of several clinicians. However, these approaches remain computationally heavy. We propose MedSegLatDiff, a diffusion based framework that combines a variational autoencoder (VAE) with a latent diffusion model for efficient medical image segmentation. The VAE compresses the input into a low dimensional latent space, reducing noise and accelerating training, while the diffusion process operates directly in this compact representation. We further replace the conventional MSE loss with weighted cross entropy in the VAE mask reconstruction path to better preserve tiny structures such as small nodules. MedSegLatDiff is evaluated on ISIC-2018 (skin lesions), CVC-Clinic (polyps), and LIDC-IDRI (lung nodules). It achieves state of the art or highly competitive Dice and IoU scores while simultaneously generating diverse segmentation hypotheses and confidence maps. This provides enhanced interpretability and reliability compared to deterministic baselines, making the model particularly suitable for clinical deployment.",
+    "html_url": "https://arxiv.org/abs/2512.01292v4",
+    "pdf_url": "https://arxiv.org/pdf/2512.01292v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.04821v4",
+    "title": "LatentFM: A Latent Flow Matching Approach for Generative Medical Image Segmentation",
+    "authors": [
+      "Ngoc Huynh Trinh",
+      "Hoang Anh Nguyen Kim",
+      "Hai Toan Nguyen",
+      "Quoc Long Tran"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-12-04T14:06:08+00:00",
+    "updated": "2026-09-07T14:08:47+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Generative models have achieved remarkable progress with the emergence of flow matching (FM). It has demonstrated strong generative capabilities and attracted significant attention as a simulation-free flow-based framework capable of learning exact data densities. Motivated by these advances, we propose LatentFM, a flow-based model operating in the latent space for medical image segmentation. To model the data distribution, we first design two variational autoencoders (VAEs) to encode both medical images and their corresponding masks into a lower-dimensional latent space. We then estimate a conditional velocity field that guides the flow based on the input image. By sampling multiple latent representations, our method synthesizes diverse segmentation outputs whose pixel-wise variance reliably captures the underlying data distribution, enabling both highly accurate and uncertainty-aware predictions. Furthermore, we generate confidence maps that quantify the model certainty, providing clinicians with richer information for deeper analysis. We conduct experiments on two datasets, ISIC-2018 and CVC-Clinic, and compare our method with several prior baselines, including both deterministic and generative approach models. Through comprehensive evaluations, both qualitative and quantitative results show that our approach achieves superior segmentation accuracy while remaining highly efficient in the latent space.",
+    "html_url": "https://arxiv.org/abs/2512.04821v4",
+    "pdf_url": "https://arxiv.org/pdf/2512.04821v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.07460v1",
+    "title": "Latent-to-Latent Flow for Volumetric Stochastic Segmentation",
+    "authors": [
+      "Omar Todd",
+      "Sooha Kim",
+      "Raghav Mehta",
+      "Katherine Mackay",
+      "David Bernstein",
+      "Alexandra Taylor",
+      "Fabio De Sousa Ribeiro",
+      "Ben Glocker"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-09-07T13:10:57+00:00",
+    "updated": "2026-09-07T13:10:57+00:00",
+    "comments": "Accepted at MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Uncertainty arising from inter-observer variability in medical image segmentation plays an important role in developing treatment plans. Research in this area is inhibited by the lack of multiple annotations for large-scale medical datasets, especially for volumetric data, which suffers from additional scaling and computational complexity challenges. Flow matching has emerged as a powerful framework for generative modelling and has also been demonstrated to maintain strong performance when working with latent representations of images. In this work, we introduce a latent-to-latent flow technique for stochastic segmentation of medical volumes via encoded representations of both the image and label space. We evaluate our method on two challenging applications covering delineation uncertainty for radiotherapy planning and multiple organ structure segmentation, improving efficiency up to 14x compared with full resolution models while maintaining clinically relevant performance.",
+    "html_url": "https://arxiv.org/abs/2609.07460v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.07460v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
