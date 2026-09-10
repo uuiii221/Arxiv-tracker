@@ -1,0 +1,148 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.10261v1",
+    "title": "When Fusion Fails: Corruption-Aware Rebalanced Fusion for Multi-Modal Medical Image Segmentation",
+    "authors": [
+      "Yuchen Pei",
+      "Xiaoyu Hu",
+      "Yixiong Zou",
+      "Dingwen Hu",
+      "Hui Chu",
+      "Yutao Ma",
+      "Shijun Qiu",
+      "Gang Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-09T14:46:37+00:00",
+    "updated": "2026-09-09T14:46:37+00:00",
+    "comments": "Accepted by ACM Multimedia (ACM MM 2026)",
+    "journal_ref": null,
+    "venue_inferred": "ACM MM 2026",
+    "summary": "Multi-modal medical image segmentation leverages complementary diagnostic information, yet fusion can underperform single-modality baselines when spatially aligned inputs differ in quality. Here, \"corruption\" primarily denotes resolution-induced degradation rather than misalignment or complete modality absence, while synthetic noise is evaluated only as an auxiliary setting. We identify a critical optimization-inference inconsistency: degraded modalities can receive weak training updates yet substantially affect predictions, indicating active interference with fusion. We attribute this failure to resampling-induced feature corruption and optimization bias, where noisy features propagate through skip connections and encourage unreliable modality selection. We therefore propose CoReFuse-Med, a Corruption-aware Rebalanced Fusion framework that suppresses corruption during feature transmission and rebalances modality contributions during high-level fusion. Experiments on EPVS, BraTS, and WMH, including multiple Z-axis slice-retention ratios and an auxiliary noise test, demonstrate improved accuracy and robustness under modality-quality discrepancies. Our code is available at https://github.com/lrever/CoReFuse.",
+    "html_url": "https://arxiv.org/abs/2609.10261v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.10261v1",
+    "code_urls": [
+      "https://github.com/lrever/CoReFuse",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.10001v1",
+    "title": "From Few-Shot Segmentation to Clinician-in-the-Loop Medical Image Analysis",
+    "authors": [
+      "Yazhou Zhu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-09T10:26:51+00:00",
+    "updated": "2026-09-09T10:26:51+00:00",
+    "comments": "19 pages, 2 figures, 4 tables. Perspective article",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Few-shot medical image segmentation (FSMIS) seeks to delineate unseen structures from a small support set, but its standard formulation fixes task-defining evidence before inference. This assumption is fragile when query cases exhibit acquisition shift, atypical pathology, ambiguous boundaries, or poor image quality. Prototype learning, cross-domain matching, interactive segmentation, uncertainty estimation, test-time adaptation, and promptable foundation models address parts of this problem, yet have not been jointly evaluated under a common model of expert attention and clinical risk. This Perspective reframes FSMIS as a sequential clinician-model decision problem with a static support budget $K$ and a distinct interaction budget $B$. At each step, a system accepts the current segmentation, requests feedback, or defers to full expert review. Queries vary in location and modality and are selected by response-conditioned net expected value of information; clinician-provided feedback informs bounded adaptation only after prespecified provenance, consistency, and safety gates. The framework separates distributional atypicality from predicted clinical failure and treats clinician responses as informative but fallible observations. We synthesize the transition from few-shot and cross-domain segmentation to interactive and selective adaptation, delineate the integration gap, and define four research directions with falsifiable hypotheses. Evaluation spans external-domain calibration, quality-effort trade-offs, reader studies, and prospective workflow assessment. The central claim is not that interaction alone resolves domain shift, but that scarce expert attention should be allocated only when it is expected to reduce clinically relevant risk.",
+    "html_url": "https://arxiv.org/abs/2609.10001v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.10001v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2602.20773v2",
+    "title": "Federated Learning for Cross-Modality Medical Image Segmentation via Augmentation-Driven Generalization",
+    "authors": [
+      "Sachin Dudda Nagaraju",
+      "Ashkan Moradi",
+      "Bendik Skarre Abrahamsen",
+      "Mattijs Elschot"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-02-24T11:13:01+00:00",
+    "updated": "2026-09-09T09:47:43+00:00",
+    "comments": "Submitted to bmc medical imaging",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Purpose: Developing generalizable medical image segmentation models is challenging because imaging data are distributed across institutions and differ in modality and acquisition protocol. Federated learning (FL) enables collaborative training without centralizing raw medical images, but cross-modality domain shifts between computed tomography (CT) and magnetic resonance imaging (MRI) can substantially reduce model performance. This study investigates augmentation-driven cross-modality FL for abdominal organ and whole-heart segmentation. Methods: We evaluate convolution-based spatial augmentation, frequency-domain argumentation, domain-specific normalization, and global intensity nonlinear (GIN) augmentation for multimodal segmentation. Abdominal organ segmentation and whole-heart segmentation are first evaluated using a 2D U-Net framework. For whole-heart segmentation, we additionally perform native 3D experiments using a self-configuring nnU-Net architecture on the CARE-WHS 2026 dataset, enabling evaluation of whether the observed cross-modality FL behavior persists when moving from slice-based 2D segmentation to volumetric 3D segmentation. Results: GIN provides the most consistent cross-modality performance among the evaluated approaches in the original 2D experiments. For pancreas segmentation, the Dice similarity coefficient (DSC) improved from 0.073 to 0.437 when CT data were incorporated through federated cross-modality training. In 3D whole-heart segmentation, FedGIN improved mean DSC over FedAvg from 0.8696 to 0.8901 on the unseen CT center and from 0.7160 to 0.7956 on the unseen MRI center. Relative to centralized GIN training, FedGIN retained 92.4\\% of performance on unseen CT data and achieved comparable performance on unseen MRI data (0.7956 versus 0.7937).",
+    "html_url": "https://arxiv.org/abs/2602.20773v2",
+    "pdf_url": "https://arxiv.org/pdf/2602.20773v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.07004v2",
+    "title": "CGSM: Concept-Guided Segmentation Model for Precise Pulmonary Lesion Delineation",
+    "authors": [
+      "Changheng Lin",
+      "Wenjie Zhang",
+      "Yushan Lu",
+      "Xinyue Yan",
+      "Xiao Jia",
+      "Wei Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-07T03:55:43+00:00",
+    "updated": "2026-09-09T03:19:50+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate segmentation of pulmonary lesions is essential for effective clinical diagnosis and treatment strategies. Existing segmentation approaches often lack task-specific semantic guidance, as text-based annotations typically offer coarse localization of lesions, leading to inadequate delineation of lesion boundaries and poor performance on small-scale lesions. To address this, we propose CGSM, a Concept-Guided Segmentation Model that integrates LLM-generated and clinically reviewed concepts into the segmentation process. Specifically, we design a Concept-Visual Alignment Module (CVAM) to activate relevant tokens within the concepts that align with visual features, enhancing the interaction between textual and visual information. In addition, we introduce a Concept Modulated Decoder (CM-Decoder), which uses concepts from CVAM as modulation signals to facilitate the adaptive fusion of image and text features, improving the segmentation accuracy. Extensive experiments on two public datasets show that CGSM achieves state-of-the-art performance, with results of 91.59% Dice and 84.49% mIoU on the QaTa-COV19 dataset, demonstrating its effectiveness in pulmonary lesion segmentation.",
+    "html_url": "https://arxiv.org/abs/2609.07004v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.07004v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.09634v1",
+    "title": "LightMedSeg-ISLES: Stroke Lesion Segmentation with 81x Fewer Parameters than nnU-Net",
+    "authors": [
+      "Giorgi Nikvashvili",
+      "Hanxue Gu",
+      "Jie Bao",
+      "Kang Wang",
+      "Yang Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-09-09T02:49:58+00:00",
+    "updated": "2026-09-09T02:49:58+00:00",
+    "comments": "8 pages, 3 figures. Submitted to ISLES 2026 challenge. To be published in Nature Lecture Notes in Computer Science (LNCS)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Large networks and ensembles often lead medical image segmentation challenges, but their storage and inference demands complicate deployment. We present LightMedSeg-ISLES, a 1.26-million-parameter pipeline for T1-weighted stroke lesion segmentation in ISLES'26. On a 146-case held-out cohort, flip test-time augmentation produces 0.618 mean Dice and 0.599 lesion-wise F1. A 102.35-million-parameter nnU-Net ResEnc-L produces 0.634 Dice and 0.544 lesion-wise F1 after size filtering. LightMedSeg therefore retains 97.5\\% of nnU-Net's Dice with 81.4$\\times$ fewer parameters while improving lesion-wise F1 by 0.055. Its four-pass TTA operating point requires 4.7$\\times$ fewer FLOPs per standardized patch than nnU-Net. It also slightly exceeds filtered UNETR++ and nnFormer. Longer training and stronger augmentation add 0.0358 Dice without increasing capacity, establishing a strong single-checkpoint alternative to much larger models.",
+    "html_url": "https://arxiv.org/abs/2609.09634v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.09634v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
