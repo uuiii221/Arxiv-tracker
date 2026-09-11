@@ -1,0 +1,159 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.07004v3",
+    "title": "CGSM: Concept-Guided Segmentation Model for Precise Pulmonary Lesion Delineation",
+    "authors": [
+      "Changheng Lin",
+      "Wenjie Zhang",
+      "Yushan Lu",
+      "Xinyue Yan",
+      "Xiao Jia",
+      "Wei Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-07T03:55:43+00:00",
+    "updated": "2026-09-10T09:15:21+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate segmentation of pulmonary lesions is essential for effective clinical diagnosis and treatment strategies. Existing segmentation approaches often lack task-specific semantic guidance, as text-based annotations typically offer coarse localization of lesions, leading to inadequate delineation of lesion boundaries and poor performance on small-scale lesions. To address this, we propose CGSM, a Concept-Guided Segmentation Model that integrates LLM-generated and clinically reviewed concepts into the segmentation process. Specifically, we design a Concept-Visual Alignment Module (CVAM) to activate relevant tokens within the concepts that align with visual features, enhancing the interaction between textual and visual information. In addition, we introduce a Concept Modulated Decoder (CM-Decoder), which uses concepts from CVAM as modulation signals to facilitate the adaptive fusion of image and text features, improving the segmentation accuracy. Extensive experiments on two public datasets show that CGSM achieves state-of-the-art performance, with results of 91.59% Dice and 84.49% mIoU on the QaTa-COV19 dataset, demonstrating its effectiveness in pulmonary lesion segmentation.",
+    "html_url": "https://arxiv.org/abs/2609.07004v3",
+    "pdf_url": "https://arxiv.org/pdf/2609.07004v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.10001v2",
+    "title": "From Few-Shot Segmentation to Clinician-in-the-Loop Medical Image Analysis",
+    "authors": [
+      "Yazhou Zhu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-09T10:26:51+00:00",
+    "updated": "2026-09-10T09:08:45+00:00",
+    "comments": "25 pages, 3 figures, 5 tables. Perspective article",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Few-shot medical image segmentation (FSMIS) seeks to delineate unseen structures from a small support set, but its standard formulation fixes task-defining evidence before inference. This assumption is fragile under acquisition shift, atypical pathology, ambiguous boundaries, and poor image quality. Adding clinician interaction and rapid adaptation is not sufficient: the binding constraint is deciding when asking or changing is warranted. We therefore reframe FSMIS as a three-layer sequential decision problem. First, decidable self-assessment separates errors that a bounded intervention can repair from those that no admissible intervention can reach. We formalize this distinction through a correctable set defined by the update operator and remaining interaction budget. Second, selective interaction allocates a distinct expert-attention budget by response-conditioned net expected value of information, yielding explicit accept, query, and defer actions. Third, bounded adaptation emphasizes reversibility and independent safety reassessment rather than speed. A complementary cross-case memory stores reproducible correction priors over failure modes instead of disease-specific mask priors. This structure links sparse support representation, cross-domain robustness, multi-level risk estimation, clinician feedback, and governed experience transfer. We state six hypotheses with an explicit dependency order and propose a minimal pilot that can falsify the foundational self-assessment claim before a clinician study. The central claim is not that interaction resolves domain shift, but that scarce expert attention should be used only when a bounded intervention is expected to reach a clinically better outcome.",
+    "html_url": "https://arxiv.org/abs/2609.10001v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.10001v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.10914v1",
+    "title": "Seamless Whole Slide Label-Free Virtual Staining",
+    "authors": [
+      "Dou Hoon Kwark",
+      "Kianoush Falahkheirkhah",
+      "Ji-hun Oh",
+      "Shirui Luo",
+      "Volodymyr Kindratenko",
+      "Rohit Bhargava"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV",
+      "q-bio.QM"
+    ],
+    "published": "2026-09-09T23:59:55+00:00",
+    "updated": "2026-09-09T23:59:55+00:00",
+    "comments": "Accepted to MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Label-free virtual staining offers a compelling, non-destructive alternative to standard histopathology; however, its clinical adoption is hindered by the computational bottlenecks inherent to processing gigapixel Whole Slide Images (WSIs). Current deep learning approaches require patch-based inference to avoid memory constraints, which disrupts global tissue continuity and introduces tiling artifacts--displaying visible seams and color shifts. To address this, we introduce the Consistency Memory Bank (COMB), a novel label-free virtual staining framework that enforces spatial and channel consistency across tiles without memory bottlenecks. COMB decouples context storage from computation, utilizing a dynamic retrieval mechanism to fetch feature representations from adjacent tiles. This enables a retrieval-based context integration strategy that adopts local padding to resolve spatial discontinuities and neighbor-aware channel attention to stabilize statistical drift. Further optimized with a sliding window schedule to ensure minimal memory overhead, our method demonstrates superior performance over state-of-the-art baselines, achieving significant improvements in both perceptual fidelity and tiling consistency, while suggesting its downstream utility in tumor segmentation. Code is available at https://github.com/dou0000/COMB.",
+    "html_url": "https://arxiv.org/abs/2609.10914v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.10914v1",
+    "code_urls": [
+      "https://github.com/dou0000/COMB",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2506.08949v2",
+    "title": "SSS: Semi-Supervised SAM-2 with Efficient Prompting for Medical Imaging Segmentation",
+    "authors": [
+      "Hongjie Zhu",
+      "Xiwei Liu",
+      "Rundong Xue",
+      "Zeyu Zhang",
+      "Yong Xu",
+      "Daji Ergu",
+      "Ying Cai",
+      "Yang Zhao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-06-10T16:09:40+00:00",
+    "updated": "2026-09-09T19:17:56+00:00",
+    "comments": "First author comment: Due to unresolved limitations in this study, we believe that the conclusions are not yet sufficiently supported. We therefore withdraw this preprint and advise readers not to cite it (confirmed by the corresponding author)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In the era of information explosion, efficiently leveraging large-scale unlabeled data while minimizing the reliance on high-quality pixel-level annotations remains a critical challenge in the field of medical imaging. Semi-supervised learning (SSL) enhances the utilization of unlabeled data by facilitating knowledge transfer, significantly improving the performance of fully supervised models and emerging as a highly promising research direction in medical image analysis. Inspired by the ability of Vision Foundation Models (e.g., SAM-2) to provide rich prior knowledge, we propose SSS (Semi-Supervised SAM-2), a novel approach that leverages SAM-2's robust feature extraction capabilities to uncover latent knowledge in unlabeled medical images, thus effectively enhancing feature support for fully supervised medical image segmentation. Specifically, building upon the single-stream \"weak-to-strong\" consistency regularization framework, this paper introduces a Discriminative Feature Enhancement (DFE) mechanism to further explore the feature discrepancies introduced by various data augmentation strategies across multiple views. By leveraging feature similarity and dissimilarity across multi-scale augmentation techniques, the method reconstructs and models the features, thereby effectively optimizing the salient regions. Furthermore, a prompt generator is developed that integrates Physical Constraints with a Sliding Window (PCSW) mechanism to generate input prompts for unlabeled data, fulfilling SAM-2's requirement for additional prompts. Extensive experiments demonstrate the superiority of the proposed method for semi-supervised medical image segmentation on two multi-label datasets, i.e., ACDC and BHSD. Notably, SSS achieves an average Dice score of 53.15 on BHSD, surpassing the previous state-of-the-art method by +3.65 Dice. Code will be available at https://github.com/AIGeeksGroup/SSS.",
+    "html_url": "https://arxiv.org/abs/2506.08949v2",
+    "pdf_url": "https://arxiv.org/pdf/2506.08949v2",
+    "code_urls": [
+      "https://github.com/AIGeeksGroup/SSS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2412.19990v3",
+    "title": "SegKAN: High-Resolution Medical Image Segmentation with Long-Distance Dependencies",
+    "authors": [
+      "Shengbo Tan",
+      "Rundong Xue",
+      "Shipeng Luo",
+      "Zeyu Zhang",
+      "Xinran Wang",
+      "Lei Zhang",
+      "Daji Ergu",
+      "Zhang Yi",
+      "Yang Zhao",
+      "Ying Cai"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2024-12-28T03:27:21+00:00",
+    "updated": "2026-09-09T19:17:15+00:00",
+    "comments": "First author comment: Due to unresolved limitations in this study, we believe that the conclusions are not yet sufficiently supported. We therefore withdraw this preprint and advise readers not to cite it (confirmed by the corresponding author)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Hepatic vessels in computed tomography scans often suffer from image fragmentation and noise interference, making it difficult to maintain vessel integrity and posing significant challenges for vessel segmentation. To address this issue, we propose an innovative model: SegKAN. First, we improve the conventional embedding module by adopting a novel convolutional network structure for image embedding, which smooths out image noise and prevents issues such as gradient explosion in subsequent stages. Next, we transform the spatial relationships between Patch blocks into temporal relationships to solve the problem of capturing positional relationships between Patch blocks in traditional Vision Transformer models. We conducted experiments on a Hepatic vessel dataset, and compared to the existing state-of-the-art model, the Dice score improved by 1.78%. These results demonstrate that the proposed new structure effectively enhances the segmentation performance of high-resolution extended objects. Code will be available at https://github.com/goblin327/SegKAN",
+    "html_url": "https://arxiv.org/abs/2412.19990v3",
+    "pdf_url": "https://arxiv.org/pdf/2412.19990v3",
+    "code_urls": [
+      "https://github.com/goblin327/SegKAN",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
