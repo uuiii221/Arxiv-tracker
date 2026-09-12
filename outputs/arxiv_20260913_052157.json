@@ -1,0 +1,142 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2606.01753v1",
+    "title": "Quality-Guided Semi-Supervised Learning for Medical Image Segmentation",
+    "authors": [
+      "Kumar Abhishek",
+      "Ghassan Hamarneh"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-06-01T06:15:07+00:00",
+    "updated": "2026-06-01T06:15:07+00:00",
+    "comments": "Early Accept at MICCAI 2026, 13 pages, 2 figures",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Training accurate medical image segmentation models requires large amounts of densely annotated data, which is costly and time-consuming to obtain. Semi-supervised learning (SSL) alleviates this by learning from both abundant unlabeled data and limited labeled data. However, most modern SSL methods rely on pseudolabels for unlabeled data, and typically assess their reliability through model confidence or uncertainty, measures that are self-referential and lack explicit grounding in segmentation quality. Instead, we propose a quality-guided SSL framework that trains a dedicated network to estimate segmentation quality from image-mask pairs. The predictor is trained on variable-quality masks generated through synthetic corruptions augmented with imperfect outputs from partially trained segmentation models, capturing realistic error patterns encountered during training. We integrate the quality predictor into SSL through two complementary mechanisms: a quality-aware regularization loss and a quality-based pseudolabel sample reweighting scheme. We show that our method serves as a drop-in enhancement to existing SSL frameworks. Extensive experiments across five datasets and multiple architectures demonstrate consistent improvements over competing SSL methods, advancing the state-of-the-art in semi-supervised medical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2606.01753v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.01753v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.21472v2",
+    "title": "IMA++: ISIC Archive Multi-Annotator Dermoscopic Skin Lesion Segmentation Dataset",
+    "authors": [
+      "Kumar Abhishek",
+      "Jeremy Kawahara",
+      "Ghassan Hamarneh"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-12-25T02:21:55+00:00",
+    "updated": "2026-06-01T06:00:52+00:00",
+    "comments": "Published in IEEE Data Descriptions, 12 pages, 7 figures",
+    "journal_ref": "IEEE Data Descr. 3 (2026) 367-378",
+    "venue_inferred": null,
+    "summary": "Multi-annotator medical image segmentation is an important research problem, but requires annotated datasets that are expensive to collect. Dermoscopic skin lesion imaging allows human experts and AI systems to observe morphological structures otherwise not discernable from regular clinical photographs. However, currently there are no large-scale publicly available multi-annotator skin lesion segmentation (SLS) datasets with annotator-labels for dermoscopic skin lesion imaging. We introduce ISIC MultiAnnot++, a large public multi-annotator skin lesion segmentation dataset for images from the ISIC Archive. The final dataset contains 17,684 segmentation masks spanning 14,967 dermoscopic images, where 2,394 dermoscopic images have 2-5 segmentations per image, making it the largest publicly available SLS dataset. Further, metadata about the segmentation, including the annotators' skill level and segmentation tool, is included, enabling research on topics such as annotator-specific preference modeling for segmentation and annotator metadata analysis. We provide an analysis on the characteristics of this dataset, curated data partitions, and consensus segmentation masks.",
+    "html_url": "https://arxiv.org/abs/2512.21472v2",
+    "pdf_url": "https://arxiv.org/pdf/2512.21472v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.00999v1",
+    "title": "SWARD: Stochastic Window-Attention-Based Relational Distillation for Cross-Architectural Semantic Segmentation",
+    "authors": [
+      "Aditya Makineni",
+      "Qing Tian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-31T04:29:31+00:00",
+    "updated": "2026-05-31T04:29:31+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Large-scale vision foundation models have driven substantial gains on dense prediction tasks such as semantic segmentation, but their size makes deployment impractical in resource-constrained settings, motivating knowledge distillation as a means of transferring their capabilities to lightweight student networks. However, modern foundation teachers are predominantly transformer-based that encode global context, whereas efficient students are typically convolutional networks with locally biased receptive fields. Existing distillation methods largely assume architectural homogeneity and rely on direct feature mimicry, which fails to bridge this representational gap and neglects the structured spatial dependencies and discriminative organization required for accurate semantic segmentation. In this paper, we propose SWARD, a knowledge distillation framework that addresses this gap through two complementary mechanisms. First, we introduce a Multi-Scale Windowed Attention Distillation (MWAD) module that aligns teacher-student attention-based relations within stochastically shifted window partitions whose offsets are randomly resampled at every training iteration. This removes window boundary bias, and, combined with the multi-scale design, captures both short- and long-range spatial dependencies. Second, we introduce Prototype Discriminative Regularization (PDR), a loss that helps shape the student's feature distribution by enforcing inter-class separation and intra-class compactness, further sharpening the discriminative structure beyond what feature mimicry alone can produce under the student's reduced capacity. Experiments across different vision applications (i.e., urban scene parsing and medical image segmentation) show that SWARD achieves state-of-the-art performance.",
+    "html_url": "https://arxiv.org/abs/2606.00999v1",
+    "pdf_url": "https://arxiv.org/pdf/2606.00999v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2506.10858v2",
+    "title": "Med-URWKV†: Toward Enhanced Pretrained Pure VRWKV Models for Medical Image Segmentation",
+    "authors": [
+      "Zhenhuan Zhou",
+      "Yining Li",
+      "Yanlin Wu",
+      "Haohan Zou",
+      "Yan Wang",
+      "Tao Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2025-06-12T16:19:18+00:00",
+    "updated": "2026-05-30T15:52:35+00:00",
+    "comments": "Under Review Since 2026-1-22, 12 pages. Copyright: College of Computer Science, Nankai University. All rights reserved",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a fundamental task in computer-aided diagnosis and treatment. Existing approaches based on CNNs, ViTs, Mamba, and hybrid models still suffer from limitations such as restricted receptive fields, high computational cost, or insufficient accuracy. Recently, Vision Receptive-field Weighted Key-Value (VRWKV) models have emerged as a promising alternative,delivering strong long-range dependency modeling for visual tasks. However, current studies on VRWKV-based medical image segmentation mainly focus on hybrid architectures trained from scratch, while the potential of large-scale pretrained pure VRWKV models remains unexplored. In this work, we systematically investigate the effectiveness of pure VRWKV architectures for medical image segmentation. We construct Med-URWKV-T and Med-URWKV-S by reusing pretrained VRWKV encoders at different scales and pairing them with pure VRWKV decoders, enabling a comprehensive evaluation of pretrained pure VRWKV models in this domain. To further enhance performance, we propose two VRWKV-compatible modules: a Frequency-Aware Wavelet Attention (FAWA) module, which exploits wavelet transforms to capture edge details and structural characteristics, and a Multi-Scale Channel Fusion (MSCF) module, which integrates multi-scale features to strengthen informative channel representations. By incorporating them into Med-URWKV-T, we obtain the enhanced model Med-URWKV†. Extensive experiments on five medical image segmentation datasets demonstrate that Med-URWKV achieves performance comparable to or superior to state-of-the-art methods and carefully designed hybrid VRWKV architectures. Moreover, Med-URWKV† further improves segmentation accuracy, surpassing Med-URWKV-S while using only half of its parameter count, and achieves the highest average Dice similarity coefficient of 88.00%. The codes will be released.",
+    "html_url": "https://arxiv.org/abs/2506.10858v2",
+    "pdf_url": "https://arxiv.org/pdf/2506.10858v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.19394v2",
+    "title": "BackSplit: The Importance of Sub-dividing the Background in Biomedical Lesion Segmentation",
+    "authors": [
+      "Rachit Saluja",
+      "Asli Cihangir",
+      "Ruining Deng",
+      "Johannes C. Paetzold",
+      "Fengbei Liu",
+      "Mert R. Sabuncu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-11-24T18:31:51+00:00",
+    "updated": "2026-05-29T15:08:17+00:00",
+    "comments": "Accepted to CVPR 2026",
+    "journal_ref": null,
+    "venue_inferred": "CVPR 2026",
+    "summary": "Segmenting small lesions in medical images remains notoriously difficult. Most prior work tackles this challenge by either designing better architectures, loss functions, or data augmentation schemes; and collecting more labeled data. We take a different view, arguing that part of the problem lies in how the background is modeled. Common lesion segmentation collapses all non-lesion pixels into a single \"background\" class, ignoring the rich anatomical context in which lesions appear. In reality, the background is highly heterogeneous-composed of tissues, organs, and other structures that can now be labeled manually or inferred automatically using existing segmentation models.\n  In this paper, we argue that training with fine-grained labels that sub-divide the background class, which we call BackSplit, is a simple yet powerful paradigm that can offer a significant performance boost without increasing inference costs. From an information theoretic standpoint, we prove that BackSplit increases the expected Fisher Information relative to conventional binary training, leading to tighter asymptotic bounds and more stable optimization. With extensive experiments across multiple datasets and architectures, we empirically show that BackSplit consistently boosts small-lesion segmentation performance, even when auxiliary labels are generated automatically using pretrained segmentation models. Additionally, we demonstrate that auxiliary labels derived from interactive segmentation frameworks exhibit the same beneficial effect, demonstrating its robustness, simplicity, and broad applicability.",
+    "html_url": "https://arxiv.org/abs/2511.19394v2",
+    "pdf_url": "https://arxiv.org/pdf/2511.19394v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
