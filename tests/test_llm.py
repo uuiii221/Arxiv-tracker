@@ -85,6 +85,26 @@ class LlmRequestTests(unittest.TestCase):
         self.assertEqual(payload["thinking"], {"type": "disabled"})
         self.assertEqual(payload["max_tokens"], 1600)
 
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_deepseek_flash_disables_thinking(self, post):
+        post.return_value = _Response(
+            '{"digest_en":"English digest","digest_zh":"中文摘要"}'
+        )
+
+        call_llm_bilingual_summary(
+            {"title": "Paper", "summary": "Abstract"},
+            base_url="https://api.deepseek.com",
+            model="deepseek-flash",
+            api_key="secret",
+        )
+
+        payload = post.call_args.kwargs["json"]
+
+        self.assertEqual(
+            payload["thinking"],
+            {"type": "disabled"}
+        )
+    
     @patch("time.sleep")
     @patch("arxiv_tracker.llm.requests.post")
     def test_retries_429_until_third_attempt_succeeds(self, post, sleep):
