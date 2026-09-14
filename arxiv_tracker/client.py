@@ -28,12 +28,16 @@ HEADERS = {
 _session = requests.Session()
 
 
-def _sleep_backoff(attempt: int) -> None:
-    """
-    指数退避 + 抖动。第 1 次失败等待 ~BASE_PAUSE，
-    之后 2^n 递增，并加 0~0.5 随机抖动，封顶 MAX_SLEEP。
-    """
-    delay = min(BASE_PAUSE * (2 ** (attempt - 1)) + random.uniform(0, 0.5), MAX_SLEEP)
+def _sleep_backoff(attempt: int, retry_after: Optional[float] = None) -> None:
+    if retry_after is not None:
+        delay = min(max(retry_after, 3.0), MAX_SLEEP)
+    else:
+        delay = min(
+            BASE_PAUSE * (2 ** (attempt - 1)) + random.uniform(0, 1.0),
+            MAX_SLEEP
+        )
+
+    print(f"[arXiv] waiting {delay:.1f}s before retry...", flush=True)
     time.sleep(delay)
 
 
