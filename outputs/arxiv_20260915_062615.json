@@ -1,0 +1,154 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.13043v1",
+    "title": "Unified CT and MRI Pancreas Segmentation for Label-Efficient Cross-Modality Subregion Transfer",
+    "authors": [
+      "Ziliang Hong",
+      "Hongyi Pan",
+      "Halil Ertugrul Aktas",
+      "Andrea Bejar",
+      "Elif Keles",
+      "Frank H. Miller",
+      "Michael B. Wallace",
+      "Rajesh N. Keswani",
+      "Gorkem Durak",
+      "Ulas Bagci"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-11T16:40:25+00:00",
+    "updated": "2026-09-11T16:40:25+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Robust medical image segmentation across imaging modalities is challenging because of large differences in appearance and intensity distributions. Models trained on a single modality often show substantial performance drops when applied to unseen domains. In this work, we develop a unified 3D pancreas segmentation framework that applies domain-adversarial learning to 4,604 heterogeneous CT and MRI scans to learn anatomical representations. A shared nnU-Net encoder-decoder is trained for whole-pancreas segmentation, with a latent domain discriminator encouraging CT-MRI feature alignment. The learned encoder is subsequently transferred to pancreatic head-body-tail segmentation using limited MRI-only subregion annotations. An average Dice score of 87.31% on the in-distribution test set and Dice scores ranging from 84.20% to 88.09% across external OOD datasets were achieved in whole pancreas segmentation. Dice scores of 80.53% on MRI and 83.05% on CT were achieved for downstream subregion segmentation, without using CT subregion annotations. These results demonstrate that a unified anatomical representation can support both cross-modality pancreas segmentation and label-efficient downstream transfer.",
+    "html_url": "https://arxiv.org/abs/2609.13043v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.13043v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.12454v1",
+    "title": "Bridging Vision Foundation Model Priors with CLIP for Spatial-aware Few-shot Anomaly Detection in Medical Images",
+    "authors": [
+      "Juzheng Miao",
+      "Yuchen Yuan",
+      "Cheng Chen",
+      "Pheng-Ann Heng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-09-11T05:21:01+00:00",
+    "updated": "2026-09-11T05:21:01+00:00",
+    "comments": "Accepted by MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Vision-Language Models such as CLIP enable effective few-shot medical anomaly detection (AD) via strong image-text semantic alignment. However, their globally contrastive pretraining lacks explicit spatial supervision, limiting precise lesion localization. In contrast, Vision Foundation Models (VFMs) such as DINO learn spatially coherent patch representations via self-distillation and local-to-global consistency, better capturing fine-grained anatomical structures. Leveraging this complementarity, we propose Spatial-FAD, a spatial-aware few-shot medical AD framework that improves lesion localization by combining VFM spatial priors with CLIP semantics. Specifically, we introduce a VFM-enhanced adapter that injects a structural affinity prior derived from DINO into CLIP features. This structure-guided refinement encourages visual embeddings to better adhere to lesion boundaries while maintaining semantic alignment. To address the loss of spatial detail from patchification and the limited input resolution of CLIP, we adopt a sliding-window aggregation strategy. This generates high-resolution, spatially dense embeddings to further enhance localization granularity. Moreover, we introduce a prototype-enhanced support memory scheme to efficiently exploit the few-shot support set. This module stores compact prototypes for normal and abnormal patterns, reducing memory costs while boosting performance by fusing patch-to-prototype and image-text similarities. Extensive experiments on three benchmark datasets, including Liver CT, Retinal OCT, and Brain MRI, demonstrate that Spatial-FAD significantly outperforms state-of-the-art methods, especially in lesion segmentation. Notably, in the 4-shot scenario, our method achieves an average improvement of over 11.4% in Dice score and 1.8% in AUC. Code is available at: https://github.com/JuzhengMiao/Spatial-FAD.",
+    "html_url": "https://arxiv.org/abs/2609.12454v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.12454v1",
+    "code_urls": [
+      "https://github.com/JuzhengMiao/Spatial-FAD",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2507.15777v4",
+    "title": "Label tree semantic losses for rich multi-class medical image segmentation",
+    "authors": [
+      "Junwen Wang",
+      "Oscar MacCormac",
+      "William Rochford",
+      "Aaron Kujawa",
+      "Jonathan Shapey",
+      "Tom Vercauteren"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-07-21T16:32:48+00:00",
+    "updated": "2026-05-28T21:17:41+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Rich and accurate medical image segmentation is poised to underpin the next generation of AI-defined clinical practice by delineating critical anatomy for pre-operative planning, guiding real-time intra-operative navigation, and supporting precise post-operative assessment. However, commonly used learning methods for medical and surgical imaging segmentation tasks penalise all errors equivalently and thus fail to exploit any inter-class semantics in the label space. This becomes particularly problematic as the cardinality and richness of labels increases to include subtly different classes. In this work, we propose two tree-based semantic loss functions which take advantage of a hierarchical organisation of the labels. We further incorporate our losses in a recently proposed approach for training with sparse, background-free annotations to extend the applicability of our proposed losses. Extensive experiments are reported on two medical and surgical imaging segmentation tasks, namely head MRI for whole brain parcellation with full supervision and neurosurgical hyperspectral imaging for scene understanding with sparse annotations. Results demonstrate consistent improvements over the evaluated task-specific baselines, with the strongest support for the Wasserstein-based compound loss in whole-brain parcellation and for hierarchy-weighted top-level supervision in the sparse HSI setting.",
+    "html_url": "https://arxiv.org/abs/2507.15777v4",
+    "pdf_url": "https://arxiv.org/pdf/2507.15777v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.30510v1",
+    "title": "A Novel Global Context-aware Deep Neural Network for Enhanced Brain Tumor Segmentation using Magnetic Resonance Images",
+    "authors": [
+      "Sourjya Mukherjee",
+      "Ananya Bhattacharjee",
+      "R. Murugan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-28T19:46:46+00:00",
+    "updated": "2026-05-28T19:46:46+00:00",
+    "comments": "11 pages, 9 figures, 6 tables. Submitted to arXiv cs.CV",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain cancer's severity necessitates precise brain tumor segmentation, which is crucial for effective brain tumor diagnosis. Manual identification, burdened by high costs, labor, and error risks, highlights the need for automated methods. In this study, we introduce the Global Context-aware Squeeze and Excite Residual UNet (GCSER-UNet), which facilitates a fusion of spatial and channel-wise attention and thus enhances the model's capacity to capture intricate spatial dependencies and contextual information. GCSER-UNet efficiently extracts tumor segments from multimodal MRI slices, delivering exceptional performance. Evaluations on benchmark databases exhibit its superiority, achieving a notable 94 percent dice score on the TCGA LGG dataset, surpassing the state-of-the-art dice score of 91.8 percent. In the BraTS 2020 dataset, the proposed GCSER-UNet ensemble approach yielded dice scores of 95 percent, 92 percent, and 90 percent for the tumor regions - Whole Tumor (W), Tumor Core (T), and Enhancing Tumor (E), respectively. The current state-of-the-art dice scores were 94 percent, 93 percent, and 88 percent. These compelling outcomes highlight the efficacy of GCSER-UNet in precise brain tumor segmentation and thus can aid neurologists in effective brain cancer management and treatment planning.",
+    "html_url": "https://arxiv.org/abs/2605.30510v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.30510v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2510.15541v2",
+    "title": "An Empirical Study on Variance-based MC Dropout Uncertainty-Error Correlation in 2D Brain Tumor Segmentation",
+    "authors": [
+      "Saumya B"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "eess.IV"
+    ],
+    "published": "2025-10-17T11:19:44+00:00",
+    "updated": "2026-05-27T06:10:51+00:00",
+    "comments": "v2: Updated title and framing to clarify that findings are specific to variance-based uncertainty estimation via MC Dropout, not MC Dropout broadly. Minor textual improvements throughout. Code and results available at https://github.com/Saumya4321/mcd-error-correlation",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate brain tumor segmentation from MRI is vital for diagnosis and treatment planning. Although Monte Carlo (MC) Dropout is widely used to estimate model uncertainty, the effectiveness of variance-based uncertainty - computed as pixel-wise variance across stochastic forward passes - in identifying segmentation errors, particularly near tumor boundaries, remains insufficiently studied. This study empirically examines the relationship between variance-based MC Dropout uncertainty and segmentation error in 2D brain tumor MRI segmentation using a U-Net trained under four augmentation settings: none, horizontal flip, rotation, and scaling. Uncertainty was estimated as the pixel-wise variance across 50 stochastic forward passes and correlated with pixel-wise errors using Pearson and Spearman coefficients. Results show weak global correlations (r ~ 0.30-0.38) and negligible boundary correlations (|r| < 0.05). Although differences across augmentations were statistically significant (p < 0.001), they lacked practical relevance. These findings suggest that variance-based MC Dropout uncertainty provides limited cues for global and boundary error localization, and that the choice of uncertainty representation critically affects the utility of MC Dropout in medical image segmentation. Alternative representations such as predictive entropy or mutual information may better capture segmentation errors, particularly at boundaries.",
+    "html_url": "https://arxiv.org/abs/2510.15541v2",
+    "pdf_url": "https://arxiv.org/pdf/2510.15541v2",
+    "code_urls": [
+      "https://github.com/Saumya4321/mcd-error-correlation",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
