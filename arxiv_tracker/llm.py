@@ -84,8 +84,8 @@ def _chat_completions_request(
     
     is_deepseek = "api.deepseek.com" in base_url.lower()
 
-    if disable_thinking and is_deepseek: 
-       payload["thinking"] = {"type": "disabled"}
+    if disable_thinking and is_deepseek:
+        payload["thinking"] = {"type": "disabled"}
     for attempt in range(3):
         try:
             resp = requests.post(url, json=payload, headers=headers, timeout=timeout)
