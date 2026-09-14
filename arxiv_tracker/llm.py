@@ -81,6 +81,7 @@ def _chat_completions_request(
     }
     if json_object:
         payload["response_format"] = {"type": "json_object"}
+    
     is_deepseek = "api.deepseek.com" in base_url.lower()
 
     if disable_thinking and is_deepseek: 
