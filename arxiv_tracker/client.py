@@ -20,8 +20,10 @@ MAX_SLEEP       = float(os.getenv("ARXIV_MAX_SLEEP", "20"))    # 退避上限（
 RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 
 HEADERS = {
-    # 写一个正常 UA，arXiv 官方建议标注用途；邮箱可去掉
-    "User-Agent": os.getenv("ARXIV_UA", "arxiv-tracker/0.1 (+https://github.com/colorfulandcjy0806/Arxiv-tracker)"),
+    "User-Agent": os.getenv(
+        "ARXIV_UA",
+        "Arxiv-tracker/1.0 (+https://github.com/uuiii221/Arxiv-tracker)"
+    ),
     "Accept": "application/atom+xml,application/xml;q=0.9,*/*;q=0.8",
 }
 
@@ -41,38 +43,84 @@ def _sleep_backoff(attempt: int, retry_after: Optional[float] = None) -> None:
     time.sleep(delay)
 
 
-def _do_get(base_url: str, params: Dict[str, str], timeout: Optional[float] = None) -> requests.Response:
-    """
-    带重试的 GET：对超时/连接错误/部分 5xx&429 做重试。
-    """
+def _do_get(
+    base_url: str,
+    params: Dict[str, str],
+    timeout: Optional[float] = None
+) -> requests.Response:
+
     timeout = timeout or DEFAULT_TIMEOUT
     last_err: Optional[Exception] = None
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
+        retry_after = None
+
         try:
-            resp = _session.get(base_url, params=params, headers=HEADERS, timeout=timeout)
-            # 主动对可重试状态码抛出异常，以走重试逻辑
+            resp = _session.get(
+                base_url,
+                params=params,
+                headers=HEADERS,
+                timeout=timeout
+            )
+
             if resp.status_code in RETRYABLE_STATUS:
-                raise requests.exceptions.HTTPError(f"HTTP {resp.status_code}", response=resp)
-            return resp  # 成功
-        except (requests.exceptions.Timeout,
-                requests.exceptions.ReadTimeout,
-                requests.exceptions.ConnectionError) as e:
+                raise requests.exceptions.HTTPError(
+                    f"HTTP {resp.status_code}",
+                    response=resp
+                )
+
+            return resp
+
+        except (
+            requests.exceptions.Timeout,
+            requests.exceptions.ReadTimeout,
+            requests.exceptions.ConnectionError
+        ) as e:
+
             last_err = e
+
+            print(
+                f"[arXiv] request failed "
+                f"attempt={attempt}/{MAX_ATTEMPTS} "
+                f"url={base_url} "
+                f"error={type(e).__name__}: {e}",
+                flush=True,
+            )
+
         except requests.exceptions.HTTPError as e:
+
             last_err = e
-            # 仅对可重试状态码重试；其他直接退出循环
             st = getattr(e.response, "status_code", None)
+
+            print(
+                f"[arXiv] HTTP error "
+                f"attempt={attempt}/{MAX_ATTEMPTS} "
+                f"url={base_url} "
+                f"status={st}",
+                flush=True,
+            )
+
             if st not in RETRYABLE_STATUS:
                 break
 
-        # 还有机会就退避后继续
-        if attempt < MAX_ATTEMPTS:
-            _sleep_backoff(attempt)
+            if st == 429 and e.response is not None:
+                value = e.response.headers.get("Retry-After")
 
-    # 全部失败
+                if value:
+                    try:
+                        retry_after = float(value)
+                    except ValueError:
+                        retry_after = None
+
+        if attempt < MAX_ATTEMPTS:
+            _sleep_backoff(
+                attempt,
+                retry_after=retry_after
+            )
+
     if last_err:
         raise last_err
+
     raise RuntimeError("Unknown arXiv request error.")
 
 
