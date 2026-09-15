@@ -1,0 +1,159 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2511.19046v2",
+    "title": "MedSAM3: Delving into Segment Anything with Medical Concepts",
+    "authors": [
+      "Anglin Liu",
+      "Xu R. Cao",
+      "Yifan Shen",
+      "Yi Lu",
+      "Xiang Li",
+      "Qianqian Chen",
+      "Jintai Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-11-24T12:34:38+00:00",
+    "updated": "2026-09-14T14:51:39+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is fundamental for biomedical discovery. Existing methods lack generalizability and demand extensive, time-consuming manual annotation for new clinical application. Here, we propose MedSAM-3, a text promptable medical segmentation model for medical image and video segmentation. By fine-tuning the Segment Anything Model (SAM) 3 architecture on medical images paired with semantic conceptual labels, our MedSAM-3 enables medical Promptable Concept Segmentation (PCS), allowing precise targeting of anatomical structures via open-vocabulary text descriptions rather than solely geometric prompts. We further introduce the MedSAM-3 Agent, a framework that integrates Multimodal Large Language Models (MLLMs) to perform complex reasoning and iterative refinement in an agent-in-the-loop workflow. Comprehensive experiments across diverse medical imaging modalities, including X-ray, MRI, Ultrasound, CT, and video, demonstrate that our approach significantly outperforms existing specialist and foundation models. We will release our code and model at https://github.com/Joey-S-Liu/MedSAM3.",
+    "html_url": "https://arxiv.org/abs/2511.19046v2",
+    "pdf_url": "https://arxiv.org/pdf/2511.19046v2",
+    "code_urls": [
+      "https://github.com/Joey-S-Liu/MedSAM3",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.15603v1",
+    "title": "A Unified Vision-Language Model for PSMA PET/CT Report Generation, Visual Question Answering, and Lesion Segmentation",
+    "authors": [
+      "Yang Xing",
+      "Jiong Wu",
+      "Savas Ozdemir",
+      "Yang Zhou",
+      "Boxiao Yu",
+      "Ying Zhang",
+      "Zheren Zhu",
+      "Chenyu You",
+      "Wei Shao",
+      "Yang Lu",
+      "Kang Wang",
+      "Tinsu Pan",
+      "Yang Yang",
+      "Kuang Gong"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-14T14:02:43+00:00",
+    "updated": "2026-09-14T14:02:43+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate PSMA PET/CT interpretation is central to prostate cancer management, yet existing PET/CT AI models typically address isolated tasks. We propose a unified PSMA PET/CT vision-language model for report generation, visual question answering, and lesion segmentation. The framework adopts an LLaVA-style architecture, comprising a PET/CT vision encoder, an MLP-Mixer projection module, a LoRA-tuned large language model, and a 3D segmentation branch. Training followed a four-stage strategy: vision encoder pretraining, projection-layer alignment, VLM fine-tuning, and final multitask tuning. Language tasks used 5,747 PSMA PET/CT datasets with paired reports, while segmentation used the PSMA subset of AutoPET. The model outperformed PET2REP and a CT-based baseline across standard report-generation metrics, improved performance across VQA question types, and achieved higher Dice and lesion-level overlap F1 than SegAnyPET and nnUNet. These results support the feasibility of a unified framework for structured, interactive, interpretable PSMA PET/CT analysis with voxel-level grounding within a single multitask model architecture.",
+    "html_url": "https://arxiv.org/abs/2609.15603v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.15603v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.15524v1",
+    "title": "Assessing nnU-Net Generalization across Brain Tumor Populations in BraTS-GoAT 2026",
+    "authors": [
+      "Tristan Kirscher",
+      "Vivian Metzger",
+      "Philippe Meyer",
+      "Xavier Coubez"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "eess.IV"
+    ],
+    "published": "2026-09-14T13:14:44+00:00",
+    "updated": "2026-09-14T13:14:44+00:00",
+    "comments": "",
+    "journal_ref": "BrainWorks 2026 -- The Brain Abnormality Workshop @MICCAI 2026, Sep 2026, Strasbourg, France",
+    "venue_inferred": "MICCAI 2026",
+    "summary": "BraTS-GoAT evaluates tumor segmentation across heterogeneous populations. We trained a conventional 3D nnU-Net on 1,351 labeled cases using five-fold cross-validation and 1,000 epochs per fold. The final predictor averaged all folds and applied test-time mirroring. On pooled official validation, global DSC values were 0.7805, 0.8288, and 0.8854 for enhancing tumor (ET), tumor core (TC), and whole tumor (WT). Under matched fold-0 inference, mean regional Dice decreased from 0.9058 on source out-of-fold (OOF) cases to 0.8310 on pooled validation (difference--0.0747). Mirroring gave small single-fold gains but no clear ensemble benefit; a residual-encoder alternative reached 0.8282 mean Dice. In labeled OOF predictions, failure cases had substantially smaller reference ET volumes; after adjustment for ET and WT volume, lower Dice remained associated with more disconnected ET components and a smaller fraction of ET contained in the largest component.",
+    "html_url": "https://arxiv.org/abs/2609.15524v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.15524v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.13044v2",
+    "title": "GP-VM$\\times$SMA: Benchmarking General-Purpose Vision Models and Specialized Architectures for 2D Medical Image Segmentation",
+    "authors": [
+      "Vanessa Borst",
+      "Anna Riedmann",
+      "Samuel Kounev"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-13T14:52:51+00:00",
+    "updated": "2026-09-14T12:54:52+00:00",
+    "comments": "Accepted at BMVC 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation (MIS) is a fundamental component of computer-assisted diagnosis and clinical decision support. Over the past decade, numerous architectures specifically tailored to medical imaging have emerged to address domain-specific challenges such as low contrast, small anatomical structures, and limited annotated data. In parallel, rapid progress in computer vision has produced highly capable general-purpose vision models (GP-VMs) originally designed for natural images. Despite their strong performance on standard vision benchmarks, their effectiveness for MIS remains insufficiently understood. In this controlled empirical study, we examine whether specialized medical segmentation architectures (SMAs) provide systematic advantages over modern GP-VMs for 2D MIS. We compare eleven SMAs and GP-VMs using a unified training and evaluation protocol across three heterogeneous datasets, each covering different 2D imaging modalities, class structures, and data characteristics. Beyond segmentation performance, we employ linear mixed-effects models (LMMs) for statistical assessment and qualitative Grad-CAM visualizations to investigate explainability (XAI)-related model behavior. Our results imply that, for the analyzed settings, GP-VMs achieve performance comparable to that of specialized MIS models. Moreover, XAI analyses indicate that GP-VMs are capable of identifying clinically relevant structures despite the absence of explicit domain-specific architectural priors. These findings suggest that GP-VMs can represent a viable alternative to domain-specific methods for 2D MIS, highlighting the importance of informed model selection. All code and resources are available at GitHub.",
+    "html_url": "https://arxiv.org/abs/2603.13044v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.13044v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.14943v1",
+    "title": "ThreshGuide: Class-Aware Labeled-Guided Thresholding for Semi-Supervised 3D Abdominal Multi-Organ Segmentation",
+    "authors": [
+      "Hongyu Liu",
+      "Yinlong Wang",
+      "Lusha Li",
+      "Hui Meng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-14T02:38:51+00:00",
+    "updated": "2026-09-14T02:38:51+00:00",
+    "comments": "16 pages, 10 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Pseudo-labeling is a strong paradigm for semi-supervised medical image segmentation, yet its effectiveness is highly sensitive to confidence thresholding. In abdominal multi-organ segmentation, a fixed global threshold is particularly suboptimal because organ classes differ substantially in size, appearance, and learning difficulty. In this work, we propose ThreshGuide, a class-aware threshold adaptation framework that uses labeled data to guide pseudo-label selection on unlabeled data. Built upon a standard teacher-student architecture, the teacher model evaluates labeled samples during training to estimate class-aware threshold targets by maximizing an error-aware F\\b{eta} criterion that balances precision and coverage. These targets are then smoothed with an exponential moving average (EMA) and used to filter unlabeled voxels in a class-dependent manner. Experiments on FLARE2022 and AMOS2022 show that ThreshGuide performs competitively overall, yielding clear improvements specifically on hard-to-learn organs.",
+    "html_url": "https://arxiv.org/abs/2609.14943v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.14943v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
