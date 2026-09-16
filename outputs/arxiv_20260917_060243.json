@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2603.00156v2",
+    "title": "BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation",
+    "authors": [
+      "Saivan Talaei",
+      "Fatemeh Daneshfar",
+      "Abdulhady Abas Abdullah",
+      "Mourad Oussalah"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-02-25T18:11:47+00:00",
+    "updated": "2026-09-15T10:13:04+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a cornerstone of computer-assisted diagnosis and treatment planning. While recent multimodal vision-language models have shown promise in enhancing semantic understanding through textual descriptions, their resilience in \"in-the-wild\" clinical settings-characterized by scarce annotations and hardware-induced image degradations-remains under-explored.\n  We introduce BiCLIP (Bidirectional and Consistent Language-Image Processing), a framework engineered to bolster robustness in medical segmentation. BiCLIP features a bidirectional multimodal fusion mechanism that enables visual features to iteratively refine textual representations, ensuring superior semantic alignment. To further stabilize learning, we implement an augmentation consistency objective that regularizes intermediate representations against perturbed input views.\n  Evaluation on the QaTa-COV19 and MosMedData+ benchmarks demonstrates that BiCLIP consistently surpasses state-of-the-art image-only and multimodal baselines. Notably, BiCLIP maintains high performance when trained on as little as 1% of labeled data and exhibits significant resistance to clinical artifacts, including motion blur and low-dose CT noise.",
+    "html_url": "https://arxiv.org/abs/2603.00156v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.00156v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.16873v1",
+    "title": "NeuroTS-Net: Multi-Class Semantic Segmentation of Pediatric Brain Tumors in Multi-Modal MRI",
+    "authors": [
+      "Darius Peteleaza",
+      "Razvan-Gabriel Dumitru",
+      "Bogdan Neamtu",
+      "Arpad Gellert",
+      "Mariana Sandu",
+      "Claudiu Matei"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-09-15T09:05:03+00:00",
+    "updated": "2026-09-15T09:05:03+00:00",
+    "comments": "Accepted at the 2026 International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI) - BraTS Cluster of Challenges: Pediatric Brain Tumor Segmentation (BraTS-PEDs)",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI",
+    "summary": "Pediatric brain tumors are a leading cause of cancer-related mortality in children, and their small, rare, and often low-contrast subregions make accurate manual delineation challenging. Reliable automated segmentation is therefore needed to support diagnosis, treatment planning, and response assessment. Accordingly, we introduce NeuroTS-Net, a three-dimensional encoder-decoder convolutional neural network architecture for multi-class semantic segmentation that incorporates a dual-scale raw-detail stream, adaptive low-resolution context selection, and detail-preserving multipath downsampling. These components preserve fine intensity and boundary information while efficiently modeling broader tumor context. NeuroTS-Net was trained on the BraTS 2026 pediatric dataset without external data or pretrained weights and evaluated against nnU-Net and MedNeXt under the same experimental protocol. NeuroTS-Net outperformed the baseline methods, achieving whole-tumor and tumor-core Dice scores of 0.938 and 0.937 on the internal validation set and 0.927 and 0.926 on the official challenge validation set. The code is open-sourced at: https://github.com/maenstru56/NeuroTS.",
+    "html_url": "https://arxiv.org/abs/2609.16873v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.16873v1",
+    "code_urls": [
+      "https://github.com/maenstru56/NeuroTS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.16755v1",
+    "title": "De-GAN - Dynamic Parameter Tuned GAN for 3D Medical Image Segmentation: A Step Towards Generalisation",
+    "authors": [
+      "Zoha Usama",
+      "Azadeh Alavi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-15T07:32:48+00:00",
+    "updated": "2026-09-15T07:32:48+00:00",
+    "comments": "5 pages, 2 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain tumor segmentation remains difficult because enhancing tumor (ET) has low contrast and overlaps surrounding tissue, while scanner and site variation causes domain shift. We propose DE-GAN, a contrast-enhancing conditional GAN that combines input-adaptive dynamic convolutions, style-aware feature mixing, and coordinate encoding to synthesize slice-adaptive FLAIR images. A label-guided, class-conditional target separates tumor-core (TC) and ET intensities while preserving anatomy. The generated FLAIR is concatenated with the original MR modalities and used to train a 3D U-Net. Across BraTS 2015, 2018, and 2019, DE-GAN improves segmentation over the baseline and static EnhGAN replacement on most reported TC/ET metrics, with the largest gains from retaining both original and enhanced FLAIR. Code and pretrained models are available at https://github.com/zkhansuri-ui/DE-GAN.",
+    "html_url": "https://arxiv.org/abs/2609.16755v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.16755v1",
+    "code_urls": [
+      "https://github.com/zkhansuri-ui/DE-GAN",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.14106v1",
+    "title": "Parameter-Efficient Fine-Tuning of Foundation Models for Liver Tumor Segmentation in CT",
+    "authors": [
+      "Ramtin Mojtahedi",
+      "Mohammad Hamghalam",
+      "Jacob J. Peoples",
+      "Richard K. G. Do",
+      "Amber L. Simpson"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-12T19:07:51+00:00",
+    "updated": "2026-09-12T19:07:51+00:00",
+    "comments": "9 pages, 2 figures, 1 table. Author manuscript of the published SPIE 2026 proceedings paper; LaTeX reconstructed from the author PDF",
+    "journal_ref": "Proc. SPIE 13926, Medical Imaging 2026: Computer-Aided Diagnosis, 1392612 (2026)",
+    "venue_inferred": null,
+    "summary": "We evaluated parameter-efficient fine-tuning (PEFT) of the Segment Anything Model (SAM) for liver tumor segmentation in abdominal CT of colorectal liver metastases. We compared Low-Rank Adaptation (LoRA), 4-bit Quantized LoRA (QLoRA), a convolutional adapter (Conv-Adapter), and our Directional Spectral Top-K adapter (DiSCo), training only adapters while freezing the SAM backbone. DiSCo derives spectral bases from singular value decomposition of row-normalized weights and learns rank-gated spectral coefficients, per-output magnitude offsets, and a spectral gain, with optional Top-K rank selection at inference and 0.14 M trainable parameters. We benchmarked five prompting regimes: no prompt, single-point, multi-point, and bounding boxes at intersection over union 0.50 and 0.75. Conv-Adapter and LoRA achieved the highest accuracy (overall Dice 0.793 and 0.792; single-point Dice 0.795 and 0.792; 95th-percentile Hausdorff distance (HD95) 32 mm). QLoRA was close (overall Dice 0.766; single-point Dice 0.768; HD95 36.41 mm), with 0.91 M trainable parameters, 120 ms latency, and 4.9 GB peak memory. DiSCo achieved the highest Dice per million trainable parameters (4.66), with overall Dice 0.653, single-point Dice 0.698, and HD95 49.53 mm. These results show an accuracy-efficiency trade-off and support PEFT for liver tumor segmentation with reduced adaptation costs when compute and labeled data are limited. Code: https://github.com/Ramtin-Mojtahedi/PEFT-SAM-Liver-CT",
+    "html_url": "https://arxiv.org/abs/2609.14106v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.14106v1",
+    "code_urls": [
+      "https://github.com/Ramtin-Mojtahedi/PEFT-SAM-Liver-CT",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.30972v3",
+    "title": "BiSegMamba: Efficient Bidirectional Tri-Oriented Mamba for 3D Medical Image Segmentation",
+    "authors": [
+      "Bakht Zada",
+      "Chao Tong",
+      "Qile Su",
+      "Shuai Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-29T08:13:22+00:00",
+    "updated": "2026-09-12T13:03:13+00:00",
+    "comments": "This version has some technical issues",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate 3D medical image segmentation requires both fine spatial detail and long-range volumetric context. Although Mamba provides efficient long-sequence modeling, volumetric formulations remain sensitive to spatial serialization order, repeated multi-orientation processing, and fixed aggregation of orientation-specific representations. We propose BiSegMamba, an efficient bidirectional tri-oriented Mamba framework that follows a compact-to-detail and local-to-global processing strategy. A progressive compacting stem shifts semantic reasoning to compact representations while retaining shallow high-resolution features for reconstruction, and a multi-scale spatial mixer captures local anatomical patterns. For global context modeling, volumetric features are serialized along three anatomical orientations and their reversed directions, the resulting six sequences are processed jointly by a shared Mamba operator, and reconciled using learned channel-wise forward-backward weighting. The restored orientation-specific features are subsequently integrated through input-dependent directional fusion. Experiments on an in-house carotid dataset and ACDC, BraTS2023, and AMOS-CT achieve Dice scores of 96.3%, 91.63%, 92.57%, and 89.03%, respectively. Compared with SegMamba-V2 under standardized $128^3$ profiling, BiSegMamba reduces the parameter count by 65.9% (138.77M$\\rightarrow$47.38M) and inference latency by 53.6% (129.08$\\rightarrow$59.86 ms), while increasing throughput by 115.7% (7.75$\\rightarrow$16.71 samples/s). These results demonstrate a favorable accuracy--efficiency trade-off among volumetric Mamba-based segmentation models.",
+    "html_url": "https://arxiv.org/abs/2605.30972v3",
+    "pdf_url": "https://arxiv.org/pdf/2605.30972v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
