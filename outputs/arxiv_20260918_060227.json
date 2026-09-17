@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.18256v1",
+    "title": "Evolving Error States: Failure-Aware Progressive Repair for Ultrasound Lesion Segmentation",
+    "authors": [
+      "Ziliang Wang",
+      "XuJiang Tang",
+      "Lu Yuting",
+      "Weixin Xu",
+      "Yongqiang Zhao",
+      "Ying Fu",
+      "Kehua Guo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-16T07:35:19+00:00",
+    "updated": "2026-09-16T07:35:19+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Reliability under sparse and heterogeneous failures remains a fundamental challenge for medical image segmentation. High average accuracy can conceal a small set of structurally distinct and clinically consequential errors. Existing post-hoc correction methods alleviate this problem, but typically estimate false-positive and false-negative corrections from the same fixed prediction. This ignores the dynamic evolution of error states and limits the correction of complex cases. Inspired by iterative error feedback in structured prediction, we propose Failure-Aware Progressive Repair (FAPR). FAPR represents the current segmentation mask as a dynamic failure state and models each repair operation as a state-transition operator. Each accepted correction forms a new prediction state for subsequent error diagnosis and repair, enabling later operations to adapt to preceding changes. Conditional routing selectively activates necessary state transitions, while failure replay exposes the model to rare error states. By keeping the base segmentor frozen, FAPR preserves its established segmentation capability while improving difficult cases. Across three public ultrasound lesion segmentation benchmarks, FAPR improves mean DSC by 1.52%. On the very-hard subsets of BUSI and TN3K, the average gain reaches 13.77%.",
+    "html_url": "https://arxiv.org/abs/2609.18256v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.18256v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.13271v1",
+    "title": "CANAL: Channel-Aware Noise Allocation for Differentially Private Feature Distillation in Medical Image Segmentation",
+    "authors": [
+      "Armaghan Butt",
+      "Shuya Feng",
+      "Qing Tian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "published": "2026-09-07T17:51:01+00:00",
+    "updated": "2026-09-07T17:51:01+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation needs diverse training data, but hospitals hold complementary scans they cannot share for privacy and regulatory reasons. Knowledge distillation can bridge this gap by exporting learned feature representations instead of images, but those representations still encode patient-specific anatomy and remain vulnerable to membership-inference and feature-inversion attacks. Adding calibrated Gaussian noise restores a differential-privacy guarantee, yet three issues have been overlooked. First, prior DP feature-distillation pipelines re-sample noise at every student iteration, so each patient image is released many times and the privacy cost composes over those releases, growing by orders of magnitude. We present a sample-once-per-image release, realized by a single precomputation pass, under which each patient contributes one release. Second, uniform noise is wasteful because channels differ in task importance. Using task-gradient energy as the importance measure, we derive CANAL, a closed-form water-filling allocation that gives important channels proportionally less noise, and prove it strictly minimizes importance-weighted distortion at a fixed budget. Third, the clipping caps and importance scores that drive the allocation are themselves data-dependent, so releasing them in the clear silently breaks the guarantee. We give a DP-honest budget split that charges each to the privacy budget, so the reported epsilon is the true epsilon. Across three medical segmentation benchmarks spanning dermoscopy, colonoscopy, and ultrasound, CANAL retains more task-relevant signal than uniform noise at the same privacy budget.",
+    "html_url": "https://arxiv.org/abs/2609.13271v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.13271v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.19042v1",
+    "title": "FedASAP: Activation Statistics-driven Structured Adaptive Pruning for Efficient Personalized Federated Learning for Lesion Segmentation on brain MRI",
+    "authors": [
+      "Karan R. Bagri",
+      "Tarun K. Garg",
+      "Vaanathi Sundaresan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-07-20T17:09:39+00:00",
+    "updated": "2026-07-20T17:09:39+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In medical imaging, developing robust deep learning models requires data from various domains. However, regulatory policies protecting patient privacy restrict data sharing. Federated learning (FL) addresses this by enabling collaborative model training without centralizing data. Yet, data heterogeneity across client centers requires personalized models to enhance performance. Clients with limited resources may struggle to efficiently train or deploy large deep neural networks. Adaptive model pruning tackles both challenges by reducing model size while enabling personalized FL adaptation. Although research has investigated adaptive pruning methods in FL, their effectiveness on dense prediction tasks like segmentation remains unexplored. To address this gap, we propose Activation Statistics-driven structured Adaptive Pruning (FedASAP), which uses activation-based features to guide filter removal for each client. By learning a lightweight classifier on per-filter activation statistics, FedASAP refines importance-score rankings and produces compact, personalized segmentation models in heterogeneous federated settings. Our results show the approach's effectiveness by achieving better Dice scores of 0.796 and 0.743, than state-of-the-art, while reducing parameter count by 45% and 73% on two multi-centric brain pathology segmentation datasets: Federated Tumour Segmentation (FeTS) and White Matter Hyperintensities (WMH), respectively.",
+    "html_url": "https://arxiv.org/abs/2609.19042v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.19042v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.27616v1",
+    "title": "Not All NVFP4 QAT Recipes Are Equal: How Architecture and Scale Shape Model Quality for Anomaly Segmentation",
+    "authors": [
+      "Zijian Du",
+      "Oleg Rybakov"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-26T19:29:37+00:00",
+    "updated": "2026-05-26T19:29:37+00:00",
+    "comments": "",
+    "journal_ref": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, June 2026, pp. 7713-7721",
+    "venue_inferred": "CVPR",
+    "summary": "Real-time anomaly segmentation demands both high recall and efficient low-precision inference. We study the three-way interaction of model architecture, model scale, and FP4 quantization-aware training (QAT) recipe on a recall-critical brain tumor segmentation task, evaluating multiple architectures, scales, and QAT recipes under a unified protocol. We find that architecture choice has the largest impact on quantization robustness, with attention-based architectures showing remarkable resilience to recipe choice while CNN degrades under gradient-quantizing recipes at larger scales. At low capacity, FP4 can discretize softmax attention, but advanced QAT recipes prevent this collapse. At larger scales, advanced recipes mitigate gradient quantization noise that degrades CNN quality. Five-fold patient-level cross-validation confirms these findings are robust to data partition. Our results show that the Swin Transformer is robust to QAT recipe choice across all scales, making it the recommended architecture for FP4-quantized anomaly segmentation.",
+    "html_url": "https://arxiv.org/abs/2605.27616v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.27616v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.26726v1",
+    "title": "Measuring Prediction Uncertainty in Neural Cellular Automata",
+    "authors": [
+      "Ario Sadafi",
+      "Michael Deutges",
+      "Nassir Navab",
+      "Carsten Marr"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-05-26T09:05:03+00:00",
+    "updated": "2026-05-26T09:05:03+00:00",
+    "comments": "Accepted for publication at the 29th International Conference on Medical Image Computing and Computer Assisted Intervention - MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Neural cellular automata (NCA) provide a lightweight alternative to encoder-decoder segmentation networks. However, it can be difficult to decide when a prediction should be trusted. Here, we study uncertainty estimation for NCA-based medical image segmentation without modifying the underlying architecture or retraining the model. Our approach is motivated by viewing the NCA as a dynamical system where convergent attractors correspond to confident predictions. Concretely, we propose resilience, a simple measure that leverages the intrinsic iterative structure of NCAs by probing the stability of the final prediction under small perturbations of the automaton state. Predictions that return to the same solution are deemed confident, while those that change substantially are flagged as uncertain. We evaluate uncertainty by its ability to predict segmentation quality using selective prediction metrics ($Δ$Dice@90 and AURC) and ranking metrics (AUROC and AUPRC). Across multiple medical segmentation benchmarks, resilience identifies failure cases more reliably than baselines, improving trust and safety in NCA-based models.",
+    "html_url": "https://arxiv.org/abs/2605.26726v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.26726v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
