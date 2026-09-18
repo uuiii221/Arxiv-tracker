@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.20340v1",
+    "title": "FreqDINO++: A Frequency-Guided Multi-Task Routing Vision Foundation Model for Universal Ultrasound Analysis",
+    "authors": [
+      "Qing Xu",
+      "Yixuan Zhang",
+      "Yue Li",
+      "Xiangjian He",
+      "Qian Zhang",
+      "Mainul Haque",
+      "Rong Qu",
+      "Wenting Duan",
+      "Jieyun Bai",
+      "Zhen Chen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-17T13:09:56+00:00",
+    "updated": "2026-09-17T13:09:56+00:00",
+    "comments": "Accepted by TBME",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Ultrasound image analysis plays a crucial role in cancer screening and prenatal diagnosis, yet comprehensive assessment requires jointly addressing tasks such as lesion segmentation and benign-malignant classification. While recent vision foundation models have shown remarkable universal representations, unlocking their potential for ultrasound is bottlenecked by the considerable domain gap from natural images. Existing methods typically fine-tune heavy vision encoders for isolated tasks, incurring substantial computational overhead while overlooking the underlying commonalities across heterogeneous tasks. In this work, we propose FreqDINO++, a frequency-guided multi-task routing vision foundation model for universal ultrasound analysis. We first introduce a Multi-task Routing Adapter (MR-Adapter) to support parameter-efficient integration of task-common and task-specific knowledge, a Frequency-aware Feature Enhancer (F$^2$-Enhancer) is then designed to capture the rich multi-scale frequency characteristics of ultrasound images, and a Task-aligned Collaborative Decoder (TC-Decoder) is devised to promote collaboration between dense and global prediction tasks through global-local token interaction. Extensive experiments on large-scale multi-task and external single-task ultrasound benchmarks demonstrate that FreqDINO++ consistently outperforms strong baselines and recent foundation models across 27 diverse clinical task scenarios, while also showing promising generalization to unseen data. The code is at https://github.com/MingLang-FD/FreqDINO-Plus.",
+    "html_url": "https://arxiv.org/abs/2609.20340v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.20340v1",
+    "code_urls": [
+      "https://github.com/MingLang-FD/FreqDINO-Plus",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.20151v1",
+    "title": "Ischemic Stroke Segmentation and Net Water Uptake Quantification on Multicenter Non-Contrast CT Using Supervised Target-Domain Adaptation",
+    "authors": [
+      "Linus Britt",
+      "Maximilian Nielsen",
+      "Susan Klapproth",
+      "Andre Kemmling",
+      "Michael H. Lev",
+      "Gabriel Broocks",
+      "Rene Werner",
+      "Thilo Sentker"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-17T12:44:00+00:00",
+    "updated": "2026-09-17T12:44:00+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Objectives: Quantitative assessment of infarct hypodensity on non-contrast computed tomography (NCCT), including net water uptake (NWU), requires manual or semi-manual lesion delineation, often guided by CT perfusion or diffusion-weighted MRI, limiting clinical applicability. Automated segmentation on NCCT could enable efficient biomarker extraction such as NWU but remains challenging across heterogeneous multicenter data. This study aimed to develop and externally test a domain-aware deep learning framework for ischemic stroke segmentation on NCCT and assess its suitability for NWU quantification.\n  Materials & Methods: In this retrospective multicenter study of 801 patients from four datasets, an nnU-Net-based model was trained on NCCT scans from the University Medical Center Hamburg-Eppendorf and the Acute Ischemic Stroke Dataset. To adapt to new domains, the model was fine-tuned on target-domain subsets from Boston (n=11) and ISLES (n=75), with evaluation on held-out cases not used for fine-tuning. Automated segmentations and NWU values were compared with expert references.\n  Results: For lesions $\\geq$ 30 mL, median Dice was 0.68 (Boston) and 0.56 (ISLES). Including smaller lesions, which predominated in ISLES, median Dice was 0.54 (interquartile range [IQR] 0.30-0.70) for acute lesion segmentation (Boston dataset) and 0.20 (IQR 0.03-0.41) for NCCT lesion segmentations when compared to post-treatment infarct (primary target of the ISLES challenge). Automated NWU mean absolute error was 1.37 percentage points (SD 1.61, Boston).\n  Conclusion: Target-domain adaptation supported NCCT-only infarct segmentation across heterogeneous external cohorts, although performance varied across domains. The approach enabled low-error NWU quantification from baseline NCCT without advanced imaging, supporting further prospective clinical evaluation.",
+    "html_url": "https://arxiv.org/abs/2609.20151v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.20151v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.20088v1",
+    "title": "G^2RA-NET: Graph-based Cross-Slice Relation Modeling with Attention Gating for Medical Image Segmentation",
+    "authors": [
+      "Shengye Wang",
+      "Zonglin Wu",
+      "Liang Fan",
+      "Yule Xue",
+      "Haozhe Zhao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-17T11:48:52+00:00",
+    "updated": "2026-09-17T11:48:52+00:00",
+    "comments": "5 pages, 6 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation supports quantitative clinical analysis and computer-aided diagnosis. Recent methods for medical image segmentation have improved both local feature representation and volumetric context modeling. However, existing methods still strug- gle to efficiently model cross-slice relations in anisotropic volumet- ric images, limiting segmentation consistency and accuracy. This pa- per proposes G^2RA-Net, a medical image segmentation framework that combines graph-based cross-slice relation modeling with atten- tion gating. Graph-Based Slice Relationship Modeling (GSRM) cap- tures anatomical dependencies across consecutive slices by repre- senting each slice as a graph node and propagating semantic con- text through graph message passing. The Cross-Slice Attention Gate (CSAG) then selects relevant neighboring context and emphasizes target anatomical regions through attention-guided feature modula- tion. Experiments on brain MRI and abdominal CT datasets demon- strate that G^2RA-Net outperforms representative methods in seg- mentation accuracy and boundary quality. Ablation studies further validate the proposed design.",
+    "html_url": "https://arxiv.org/abs/2609.20088v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.20088v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.19176v1",
+    "title": "Optimal Transport Metric Learning for Feature Alignment in Partially Supervised Segmentation",
+    "authors": [
+      "Dakini Mallam Garba",
+      "Salim Abdou Daoura"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI"
+    ],
+    "published": "2026-09-15T06:37:29+00:00",
+    "updated": "2026-09-15T06:37:29+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-organ segmentation is often challenged by partially annotated datasets and domain shifts across different imaging sources. To address these limitations, we propose a two-stage learning framework that efficiently leverages partial supervision. In the first stage, the model learns from available annotations to produce accurate segmentations of annotated organs, establishing robust feature representations. In the second stage, we introduce learnable organ prototypes and a Sinkhorn-triplet loss to enforce organ-wise feature consistency across datasets. This encourages latent embeddings of the same organ to remain close, while increasing separation between different organs, even when annotations are missing. Our approach achieves performance comparable to state-of-the-art methods on the BTCV dataset, while remaining computationally efficient. By explicitly aligning feature distributions rather than relying solely on pseudo-labels, the framework effectively mitigates domain shift, making it particularly suitable for medical image segmentation tasks with limited annotation resources.",
+    "html_url": "https://arxiv.org/abs/2609.19176v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.19176v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.20181v1",
+    "title": "MoSSGate: Memory-Modulated State-Space Gating for Skin Lesion Segmentation",
+    "authors": [
+      "Anum Awan",
+      "Mahnoor Buriro",
+      "Muhammad Younas Khan",
+      "Md Imam Ahasan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-24T09:34:31+00:00",
+    "updated": "2026-07-24T09:34:31+00:00",
+    "comments": "15 pages, 5 figures, accepted on International Conference on Cloud and Network Computing",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate skin lesion segmentation is crucial for reliable computer-aided dermatological diagnosis, yet existing convolutional and transformer-based models often struggle to jointly capture long-range spatial dependencies and fine boundary details under limited computational budgets. This trade-off between global context modeling and boundary-aware localization frequently leads to over-segmentation, fragmented predictions, or missing thin peripheral structures. To address this challenge, we propose MoSSGate, a plug-and-play module for U-Net that integrates (i) boundary-aware spatial gating to restrict long-range propagation to informative regions, (ii) an external memory modulator that provides sample-adaptive dynamic control, and (iii) parallel 2D state-space modeling for efficient global context aggregation with linear complexity. The proposed design enables adaptive, context-aware information propagation while preserving sharp and accurate lesion boundaries. Extensive experiments on the ISIC 2017 and ISIC 2018 benchmarks demonstrate state-of-the-art accuracy with strong efficiency, achieving 86.3% and 85.9% mIoU and 92.6% and 90.6% Dice, respectively, while requiring substantially fewer FLOPs than most competing CNN-based methods. These results highlight a favorable accuracy efficiency trade-off for high-resolution medical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2609.20181v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.20181v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
