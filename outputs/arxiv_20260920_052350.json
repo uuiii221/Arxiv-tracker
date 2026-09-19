@@ -1,0 +1,152 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.26382v1",
+    "title": "Detail Consistent Stage-Wise Distillation for Efficient 3D MRI Segmentation",
+    "authors": [
+      "Mengchen Fan",
+      "Baocheng Geng",
+      "Xi Xiao",
+      "Tianyang Wang",
+      "Siyuan Mei",
+      "Pulin Che",
+      "Xiaoqian Jiang",
+      "Qizhen Lan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-25T23:01:37+00:00",
+    "updated": "2026-05-25T23:01:37+00:00",
+    "comments": "Accepted by MICCAI 2026. 11 pages, 3 figures",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Deploying high-performing 3D medical image segmenters (e.g., nnU-Net) is often limited by memory footprint and inference latency. Compression is therefore necessary, but compact 3D encoders tend to lose fine structural cues (small lesions and sharp boundaries) as downsampling repeats across multi-resolution stages. We propose Detail Consistent Distillation (DCD), a stage-wise distillation framework that preserves structural detail across scales by aligning teacher-student features in a wavelet-decomposed representation. At each encoder stage, DCD distills directional detail components in the wavelet domain while leaving the coarse approximation comparatively unconstrained, avoiding over-regularization of global semantics. DCD is used only during training and introduces no inference-time overhead. Experiments on the BraTS 2024 and ISLES 2022 benchmarks demonstrate that our approach achieves superior performance in MRI segmentation using 3D multi-modal data. Code and implementation details for DCD are publicly available at https://github.com/ClinicaAlpha/DCD-3D-MedSeg.",
+    "html_url": "https://arxiv.org/abs/2605.26382v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.26382v1",
+    "code_urls": [
+      "https://github.com/ClinicaAlpha/DCD-3D-MedSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2506.23700v2",
+    "title": "MedSAM-CA: A CNN-Augmented ViT with Attention-Enhanced Multi-Scale Fusion for Medical Image Segmentation",
+    "authors": [
+      "Peiting Tian",
+      "Xi Chen",
+      "Haixia Bi",
+      "Fan Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2025-06-30T10:24:29+00:00",
+    "updated": "2026-05-25T09:53:56+00:00",
+    "comments": "Withdrawn by the authors because the current version requires substantial revision in the description of the experimental settings and data preprocessing procedures. The manuscript should not be cited in its current form",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation plays a crucial role in clinical diagnosis and treatment planning, where accurate boundary delineation is essential for precise lesion localization, organ identification, and quantitative assessment. In recent years, deep learning-based methods have significantly advanced segmentation accuracy. However, two major challenges remain. First, the performance of these methods heavily relies on large-scale annotated datasets, which are often difficult to obtain in medical scenarios due to privacy concerns and high annotation costs. Second, clinically challenging scenarios, such as low contrast in certain imaging modalities and blurry lesion boundaries caused by malignancy, still pose obstacles to precise segmentation. To address these challenges, we propose MedSAM-CA, an architecture-level fine-tuning approach that mitigates reliance on extensive manual annotations by adapting the pretrained foundation model, Medical Segment Anything (MedSAM). MedSAM-CA introduces two key components: the Convolutional Attention-Enhanced Boundary Refinement Network (CBR-Net) and the Attention-Enhanced Feature Fusion Block (Atte-FFB). CBR-Net operates in parallel with the MedSAM encoder to recover boundary information potentially overlooked by long-range attention mechanisms, leveraging hierarchical convolutional processing. Atte-FFB, embedded in the MedSAM decoder, fuses multi-level fine-grained features from skip connections in CBR-Net with global representations upsampled within the decoder to enhance boundary delineation accuracy. Experiments on publicly available datasets covering dermoscopy, CT, and MRI imaging modalities validate the effectiveness of MedSAM-CA. On dermoscopy dataset, MedSAM-CA achieves 94.43% Dice with only 2% of full training data, reaching 97.25% of full-data training performance, demonstrating strong effectiveness in low-resource clinical settings.",
+    "html_url": "https://arxiv.org/abs/2506.23700v2",
+    "pdf_url": "https://arxiv.org/pdf/2506.23700v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.25561v1",
+    "title": "Are We Overconfident in Models and Results for Semi-Supervised 3D Medical Image Segmentation?",
+    "authors": [
+      "Jun Li",
+      "Ziwei Qin"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-25T08:16:40+00:00",
+    "updated": "2026-05-25T08:16:40+00:00",
+    "comments": "Accepted by ICML 2026",
+    "journal_ref": null,
+    "venue_inferred": "ICML 2026",
+    "summary": "Semi-supervised learning has become a dominant paradigm for reducing annotation costs. However, we argue that the current progress is clouded by a twofold overconfidence problem. Algorithmically, mainstream pseudo-labeling frameworks often conflate prediction confidence with uncertainty, leading to severe confirmation bias. Strategically, since multiple benchmark datasets lack dedicated validation sets, some studies use the test set for validation as well, leading to inflated performance estimates. Subsequent methods, compelled to employ the same strategy to surpass reported SOTA, trigger an arms race of overfitting. This raises concerns that the impressive numerical gains in the community may reflect overfitting rather than genuine progress. Thus, we propose a tri-space calibrated segmentation framework founded on a principled dual-axis reliability assessment engine. It explicitly decouples confidence from uncertainty and uses this signal to detect and correct confirmation bias across feature, probability, and image spaces in a collaborative manner. Across three benchmark datasets, TCSeg consistently delivers strong performance under existing evaluation protocols. More importantly, we advocate that the community report final-checkpoint results under multiple-run protocols, thereby establishing more rigorous benchmarks with a more realistic perspective. Code will be available: github.com/DirkLiii/TCSeg.",
+    "html_url": "https://arxiv.org/abs/2605.25561v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.25561v1",
+    "code_urls": [
+      "http://github.com/DirkLiii/TCSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2409.00346v5",
+    "title": "SMAFormer: Synergistic Multi-Attention Transformer for Medical Image Segmentation",
+    "authors": [
+      "Fuchen Zheng",
+      "Xuhang Chen",
+      "Weihuang Liu",
+      "Haolun Li",
+      "Yingtie Lei",
+      "Jiahui He",
+      "Chi-Man Pun",
+      "Shounjun Zhou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2024-08-31T04:23:33+00:00",
+    "updated": "2026-05-24T13:10:46+00:00",
+    "comments": "Accepted by IEEE BIBM 2024",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In medical image segmentation, specialized computer vision techniques, notably transformers grounded in attention mechanisms and residual networks employing skip connections, have been instrumental in advancing performance. Nonetheless, previous models often falter when segmenting small, irregularly shaped tumors. To this end, we introduce SMAFormer, an efficient, Transformer-based architecture that fuses multiple attention mechanisms for enhanced segmentation of small tumors and organs. SMAFormer can capture both local and global features for medical image segmentation. The architecture comprises two pivotal components. First, a Synergistic Multi-Attention (SMA) Transformer block is proposed, which has the benefits of Pixel Attention, Channel Attention, and Spatial Attention for feature enrichment. Second, addressing the challenge of information loss incurred during attention mechanism transitions and feature fusion, we design a Feature Fusion Modulator. This module bolsters the integration between the channel and spatial attention by mitigating reshaping-induced information attrition. To evaluate our method, we conduct extensive experiments on various medical image segmentation tasks, including multi-organ, liver tumor, and bladder tumor segmentation, achieving state-of-the-art results. Code and models are available at: https://github.com/lzeeorno/SMAFormer.",
+    "html_url": "https://arxiv.org/abs/2409.00346v5",
+    "pdf_url": "https://arxiv.org/pdf/2409.00346v5",
+    "code_urls": [
+      "https://github.com/lzeeorno/SMAFormer",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.24621v1",
+    "title": "Phase-Aware Wavelet-Based-Scattering Encoder-Decoder for Dense Predictions",
+    "authors": [
+      "Ghassen Marrakchi",
+      "Basarab Matei"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-23T15:12:43+00:00",
+    "updated": "2026-05-23T15:12:43+00:00",
+    "comments": "21 pages, 16 figures, 10 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Scattering transforms achieve Lipschitz stability and translation invariance, but dense prediction tasks require preserving spatial structure lost in global averaging. We propose Phase-Aware Scattering Encoder-Decoder, which restores this information by explicitly preserving phase in skip connections. On image denoising (BSD68), breaking translation invariance improves PSNR by $+2.17$~dB; phase preservation adds $+1.03$~dB. A novel spatial shuffling ablation ($-1.26$~dB penalty) demonstrates phase encodes location-dependent structure. We conduct a preliminary extensibility study on a second dense prediction task (ISIC skin lesion segmentation), with full cross-validation as ongoing work. This work advances principled wavelet-deep learning integration, showing how phase information complements scattering's stability-expressiveness trade-off in pixel-level prediction.",
+    "html_url": "https://arxiv.org/abs/2605.24621v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.24621v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
