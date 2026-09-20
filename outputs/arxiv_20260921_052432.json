@@ -1,0 +1,161 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.18329v2",
+    "title": "Lost in the Folds: When Cross-Validation Is Not a Deep Ensemble for Uncertainty Estimation",
+    "authors": [
+      "Tristan Kirscher",
+      "Markus Bujotzek",
+      "Yannick Kirchhoff",
+      "Maximilian Rokuss",
+      "Fabian Isensee",
+      "Kim-Celine Kahl",
+      "Balint Kovacs",
+      "Klaus Maier-Hein"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-05-18T12:46:57+00:00",
+    "updated": "2026-05-21T19:29:51+00:00",
+    "comments": "Accepted for publication at MICCAI 2026",
+    "journal_ref": "29th International Conference On Medical Image Computing And Computer Assisted Intervention, Sep 2026, Strasbourg, France",
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Ensemble disagreement is widely used as a proxy for epistemic uncertainty in medical image segmentation. In practice, many studies form ensembles via K-fold cross-validation (CV), yet refer to them as ``deep ensembles'' (DE). Because CV members are trained on different data subsets, their disagreement mixes seed-driven variability with data-exposure effects, which can change how uncertainty should be interpreted. We audit recent segmentation uncertainty studies and find that terminology--implementation mismatches are common. We then compare a standard 5-fold CV ensemble to a 5-member DE (fixed training set, different random seeds) under otherwise identical configurations on three multi-rater segmentation datasets spanning three modalities. We evaluate uncertainty for calibration, failure detection, ambiguity modeling, and robustness under distribution shift. DE match segmentation accuracy while improving calibration and failure detection, whereas CV ensembles sometimes correlate more strongly with inter-rater variability on the studied datasets. Thus, ensemble construction should be chosen to match the research question: DE for reliability-oriented use (e.g., selective referral/failure detection) and CV ensembles as a proxy for ambiguity. We provide a lightweight nnU-Net modification enabling DE training within the default pipeline.",
+    "html_url": "https://arxiv.org/abs/2605.18329v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.18329v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.22572v1",
+    "title": "SegGuidedNet: Sub-Region-Aware Attention Supervision for Interpretable Brain Tumor Segmentation",
+    "authors": [
+      "Hasaan Maqsood",
+      "Saif Ur Rehman Khan",
+      "Sebastian Vollmer",
+      "Andreas Dengel",
+      "Muhammad Nabeel Asim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-21T14:50:04+00:00",
+    "updated": "2026-05-21T14:50:04+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate segmentation of brain tumour sub-regions from multi-parametric MRI is critical for treatment planning yet remains challenging due to morphological variability, class imbalance, and overlapping appearances of tumour regions across imaging sequences. We propose SegGuidedNet, a three-dimensional residual encoder--decoder network introducing a novel SegAttentionGate module that explicitly supervises the decoder to produce spatially discriminative attention maps for each tumour sub-region necrotic core, peritumoral oedema, and enhancing tumour via a lightweight auxiliary loss, adding less than 0.2% parameter overhead. This sub-region supervision maintains decoder discriminability between visually ambiguous classes while providing free-of-cost spatial interpretability at inference without any post-hoc explanation method. Evaluated independently on BraTS2021 and BraTS2023 GLI across 251 held-out subjects each, SegGuidedNet achieves mean Dice of 0.905 (ET= 0.873, TC=0.906, WT=0.935) and 0.897 (ET=0.859, TC=0.902, WT=0.931) respectively, surpassing ensemble-based nnU-Net and HNF-Netv2 as a single model and approaching Swin UNETR a 10-model ensemble within 2--4 Dice points at a fraction of the inference cost. The consistency of results across two benchmark editions further confirms the generalisability of the proposed approach, offering competitive accuracy with built-in interpretability in a lightweight, clinically practical framework.",
+    "html_url": "https://arxiv.org/abs/2605.22572v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.22572v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.22327v1",
+    "title": "Robustness of breast lesion segmentation under MRI undersampling improves with k-space-aware deep learning",
+    "authors": [
+      "Lukas T. Rotkopf",
+      "Marco Schlimbach",
+      "Julius C. Holzschuh",
+      "Heinz-Peter Schlemmer",
+      "Jens Kleesiek",
+      "Moritz Rempe"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-05-21T11:18:26+00:00",
+    "updated": "2026-05-21T11:18:26+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Purpose: To assess whether breast lesion segmentation can be learned directly from acquired MRI k-space, and whether doing so improves robustness when data are accelerated or noisy.\n  Materials and Methods: This retrospective study used public breast dynamic contrast-enhanced MRI (DCE-MRI) datasets with acquired and synthetic k-space, together with a within-dataset synthetic control. We compared four 3D U-Net variants: a hybrid k-space-to-image model, a native k-space model, and magnitude and complex image-space baselines. Models were evaluated under increasing undersampling and added complex Gaussian k-space noise. The primary outcome was patient-level Dice similarity coefficient under cross-validation, with the hybrid model prespecified as the main comparison against the magnitude image-space baseline.\n  Results: At full sampling, the hybrid and image-space models performed similarly. As acceleration increased, the hybrid model retained substantially more segmentation accuracy and significantly outperformed the magnitude image-space baseline across moderate to high undersampling levels. The same pattern was observed when noise was added directly to k-space: the hybrid model degraded more slowly, whereas the image-space baseline failed under heavier noise. This advantage was reproduced in the within-dataset synthetic control. Feature analysis suggested that the k-space stage and image-space stage played complementary roles, with frequency-domain filtering concentrated before image-domain lesion localization.\n  Conclusion: K-space-aware deep learning improves the robustness of breast lesion segmentation under MRI undersampling and k-space noise, while matching image-space methods at full sampling.",
+    "html_url": "https://arxiv.org/abs/2605.22327v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.22327v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.21835v1",
+    "title": "An Open Multi-Center Whole-Body FDG PET/CT Foundation Model for Tumor Segmentation",
+    "authors": [
+      "Xiaofeng Liu",
+      "Qianru Zhang",
+      "Thibault Marin",
+      "Menghua Xia",
+      "Chi Liu",
+      "Georges El Fakhri",
+      "Jinsong Ouyang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-05-20T23:59:50+00:00",
+    "updated": "2026-05-20T23:59:50+00:00",
+    "comments": "Code available at: https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The synergistic interpretation of anatomical information from computed tomography (CT) and metabolic information from positron emission tomography (PET) is important to oncologic imaging. However, existing deep learning methods for PET/CT remain largely task-specific, are often trained on single-center cohorts, or adopt dual-branch fusion schemes that delay cross-modal interaction and underutilize early spatial correspondence between PET and CT. To address these limitations, we present an open-source, multi-center, whole-body FDG PET/CT foundation model utilizing 4,997 harmonized scans from four public datasets. Our framework employs hierarchical UNet-shaped backbones with early channel-wise concatenation, enabling anatomical and metabolic features to interact from the first embedding layer onward. We further introduce a masked autoencoding objective based on zero-mean imputation, combined with a weighted global reconstruction loss. This design avoids non-physical intensity discontinuities at masked-region boundaries that arise from learnable mask tokens. On downstream AutoPET lesion segmentation, the proposed models demonstrate strong label efficiency: with only 10\\% of the labeled training data, they achieve performance comparable to models trained from scratch on the full dataset. Under extreme 5-shot linear probing, joint PET/CT pretraining also achieves higher Dice scores than separated-modality pretraining. This multi-center foundation model demonstrates label efficiency and cross-modality representation learning for PET/CT tumor segmentation. It provides a robust, open-source basis for advancing automated oncologic imaging, significantly reducing the need for large-scale manual annotations in clinical practice.",
+    "html_url": "https://arxiv.org/abs/2605.21835v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.21835v1",
+    "code_urls": [
+      "https://github.com/liu-xiaofeng/Foundation-Model-for-PET-CT",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.20405v1",
+    "title": "Disentangling Sampling from Training Budget in Class-Imbalanced CT Body Composition Segmentation",
+    "authors": [
+      "Iason Skylitsis",
+      "Dimitrios Karkalousos",
+      "Ivana Išgum"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV",
+      "physics.med-ph"
+    ],
+    "published": "2026-05-19T19:01:05+00:00",
+    "updated": "2026-05-19T19:01:05+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Class imbalance is a fundamental challenge in medical image segmentation, where frequent classes typically dominate training at the expense of rare classes. Loss-based approaches mitigate imbalance by reweighting the per-pixel loss within the batch, while sampling strategies control which images enter the batch. Yet neither explicitly controls which classes appear within the batch, leaving rare-class exposure only partially rebalanced. In this work, we adopt episodic sampling from few-shot learning to promote class-balanced batch construction in a fully supervised setting. We decouple episodic sampling from its conventional metric-learning context and evaluate it in body composition segmentation in CT. We compare episodic sampling against random and weighted sampling on nine muscle and adipose tissues, derived from 210 scans of the public SAROS dataset. Training is performed under full- and low-data regimes, with additional comparisons under matched training iteration budgets. Under full-data training, all three strategies performed comparably (mean Dice 0.882 for episodic, 0.878 for random and weighted). Under low-data training, episodic sampling outperformed random and weighted (0.787 vs. 0.758 and 0.762), driven by a 12-fold difference in training iterations. Under matched training budgets, random and weighted overfit earlier, while episodic improved for approximately three times more iterations before plateauing. Our findings identify the training iteration budget as under-recognized confound in sampling strategies, motivating iteration-aware evaluation protocols for small datasets. Furthermore, the residual advantage of episodic sampling is consistent with an implicit regularization effect of class-balanced batches, offering a low-cost, model-agnostic strategy for class-imbalanced medical image segmentation. Code is available at https://github.com/iasonsky/episodic-sampling.",
+    "html_url": "https://arxiv.org/abs/2605.20405v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.20405v1",
+    "code_urls": [
+      "https://github.com/iasonsky/episodic-sampling",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
