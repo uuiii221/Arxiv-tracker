@@ -1,0 +1,190 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2607.12586v3",
+    "title": "Medical Image Segmentation based on Deep Active Contour and Mean Curvature Loss Function",
+    "authors": [
+      "Xiao-qiang Zhai",
+      "Zhi-feng Pang",
+      "Peng Zheng",
+      "Ze-wen Li",
+      "Yan-zhe Hou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-07-14T09:56:03+00:00",
+    "updated": "2026-09-18T15:07:48+00:00",
+    "comments": "Revised version: updated the abstract, unified method naming and reference formatting, and clarified the presentation. This work has been submitted to Engineering Applications of Artificial Intelligence",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is an important task in clinical analysis. Although deep learning techniques are widely used, training at the individual pixel level ignores geometric prior information about the region being segmented. Integrating the Chan-Vese model into the loss function is a well-established remedy that accounts for the regions inside and outside the segmentation and, through its length term, for boundary regularity. However, such losses still lack an effective characterisation of local boundary geometry. We introduce the mean curvature as a natural geometric constraint and propose a Deep Active Contour and Mean Curvature (DACMC) loss function, in which a fixed convolution kernel approximates the mean curvature at negligible computational cost. The loss has a single hyper-parameter, the curvature weight $λ$, fixed at $10^{-3}$ for all experiments. We evaluate DACMC on three public datasets - liver computed tomography (CT), spleen magnetic resonance imaging (MRI) and dermoscopy images from the International Skin Imaging Collaboration (ISIC) - using two encoder-decoder networks as backbones and the Dice similarity coefficient (DSC), the 95th-percentile Hausdorff distance (HD95), the Jaccard similarity (JS) and the average surface distance (ASD) as metrics, against the cross-entropy, Dice, active contour and elastica losses. DACMC attains the best or second-best DSC in five of the six dataset-backbone settings; on spleen MRI it reduces HD95 to 16.28 millimetres and ASD to 1.90 millimetres, and on ISIC it reduces HD95 to 7.08 millimetres. A sensitivity study shows a broad plateau for $λ\\leq 10^{-3}$ and degeneration only when the curvature term dominates.",
+    "html_url": "https://arxiv.org/abs/2607.12586v3",
+    "pdf_url": "https://arxiv.org/pdf/2607.12586v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.20151v2",
+    "title": "Ischemic Stroke Segmentation and Net Water Uptake Quantification on Multicenter Non-Contrast CT Using Supervised Target-Domain Adaptation",
+    "authors": [
+      "Linus Britt",
+      "Maximilian Nielsen",
+      "Susan Klapproth",
+      "Andre Kemmling",
+      "Michael H. Lev",
+      "Gabriel Broocks",
+      "Rene Werner",
+      "Thilo Sentker"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-17T12:44:00+00:00",
+    "updated": "2026-09-18T12:42:12+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Objectives: Quantitative assessment of infarct hypodensity on non-contrast computed tomography (NCCT), including net water uptake (NWU), requires manual or semi-manual lesion delineation, often guided by CT perfusion or diffusion-weighted MRI, limiting clinical applicability. Automated segmentation on NCCT could enable efficient biomarker extraction such as NWU but remains challenging across heterogeneous multicenter data. This study aimed to develop and externally test a domain-aware deep learning framework for ischemic stroke segmentation on NCCT and assess its suitability for NWU quantification.\n  Materials & Methods: In this retrospective multicenter study of 801 patients from four datasets, an nnU-Net-based model was trained on NCCT scans from the University Medical Center Hamburg-Eppendorf and the Acute Ischemic Stroke Dataset. To adapt to new domains, the model was fine-tuned on target-domain subsets from Boston (n=11) and ISLES (n=75), with evaluation on held-out cases not used for fine-tuning. Automated segmentations and NWU values were compared with expert references.\n  Results: For lesions $\\geq$ 30 mL, median Dice was 0.68 (Boston) and 0.56 (ISLES). Including smaller lesions, which predominated in ISLES, median Dice was 0.54 (interquartile range [IQR] 0.30-0.70) for acute lesion segmentation (Boston dataset) and 0.20 (IQR 0.03-0.41) for NCCT lesion segmentations when compared to post-treatment infarct (primary target of the ISLES challenge). Automated NWU mean absolute error was 1.37 percentage points (SD 1.61, Boston).\n  Conclusion: Target-domain adaptation supported NCCT-only infarct segmentation across heterogeneous external cohorts, although performance varied across domains. The approach enabled low-error NWU quantification from baseline NCCT without advanced imaging, supporting further prospective clinical evaluation.",
+    "html_url": "https://arxiv.org/abs/2609.20151v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.20151v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.01250v4",
+    "title": "The MAMA-MIA Challenge: Advancing Generalizability and Fairness in Breast MRI Tumor Segmentation and Treatment Response Prediction",
+    "authors": [
+      "Lidia Garrucho",
+      "Smriti Joshi",
+      "Kaisar Kushibar",
+      "Richard Osuala",
+      "Maciej Bobowicz",
+      "Xavier Bargalló",
+      "Paulius Jaruševičius",
+      "Kai Geissler",
+      "Raphael Schäfer",
+      "Muhammad Alberb",
+      "Tony Xu",
+      "Anne Martel",
+      "Daniel Sleiman",
+      "Navchetan Awasthi",
+      "Hadeel Awwad",
+      "Joan C. Vilanova",
+      "Robert Martí",
+      "Daan Schouten",
+      "Jeong Hoon Lee",
+      "Mirabela Rusu",
+      "Eleonora Poeta",
+      "Luisa Vargas",
+      "Eliana Pastor",
+      "Maria A. Zuluaga",
+      "Jessica Kächele",
+      "Dimitrios Bounias",
+      "Alexandra Ertl",
+      "Katarzyna Gwoździewicz",
+      "Maria-Laura Cosaka",
+      "Pasant M. Abo-Elhoda",
+      "Sara W. Tantawy",
+      "Shorouq S. Sakrana",
+      "Norhan O. Shawky-Abdelfatah",
+      "Amr Muhammad Abdo-Salem",
+      "Androniki Kozana",
+      "Eugen Divjak",
+      "Gordana Ivanac",
+      "Katerina Nikiforaki",
+      "Michail E. Klontzas",
+      "Rosa García-Dosdá",
+      "Meltem Gulsun-Akpinar",
+      "Oğuz Lafcı",
+      "Carlos Martín-Isla",
+      "Oliver Díaz",
+      "Laura Igual",
+      "Karim Lekadir"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-01T20:06:30+00:00",
+    "updated": "2026-09-18T12:33:06+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Breast cancer is the most frequently diagnosed malignancy among women worldwide and a leading cause of cancer-related mortality. Dynamic contrast-enhanced magnetic resonance imaging plays a central role in tumor characterization and treatment monitoring, particularly in patients receiving neoadjuvant chemotherapy. However, existing artificial intelligence models for breast magnetic resonance imaging are typically developed and evaluated using heterogeneous datasets, study populations, and assessment protocols, making direct comparison difficult and limiting understanding of model robustness across institutions and clinically relevant patient subgroups. The MAMA-MIA Challenge was designed to address these challenges by providing a standardized benchmark for the joint evaluation of primary tumor segmentation and prediction of pathologic complete response using pre-treatment magnetic resonance imaging only. The training cohort comprised 1,506 patients from multiple institutions in the United States, while evaluation was conducted on an external test set of 574 patients from three independent European centers to assess cross-continental and cross-institutional generalization. A unified scoring framework combined predictive performance with subgroup consistency across age, menopausal status, and breast density. Twenty-six international teams participated in the final evaluation phase. Results demonstrate substantial performance variability under a common external evaluation framework and reveal trade-offs between overall accuracy and subgroup fairness. The challenge provides standardized datasets, evaluation protocols, and public resources to promote the development of robust and equitable artificial intelligence systems for breast cancer imaging.",
+    "html_url": "https://arxiv.org/abs/2603.01250v4",
+    "pdf_url": "https://arxiv.org/pdf/2603.01250v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.21412v1",
+    "title": "When Online Adaptation Hurts: Parameter-Frozen Test-Time Ensembling for Continual Medical Image Segmentation",
+    "authors": [
+      "Ruijie Huang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-18T07:21:32+00:00",
+    "updated": "2026-09-18T07:21:32+00:00",
+    "comments": "7 pages, 2 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmenters often get worse when sites, scanner vendors, or protocols change. Continual test-time adaptation (CTTA) addresses this problem without target labels, but it can be impossible to update a model on a non-stationary stream and can lead to a lot of errors. We examine a more reasonable and meaningful alternative: parameter-frozen inference enhancement(PIE). We use a source-trained segmenter that learns about anatomy-preserving scale and flip views, maps their predictions back to the native location, and averages the probabilities. We do not modify the weights of the model or the normalization statistics. On a cardiac MRI stream from M\\&Ms, which is trained on vendor A and evaluated sequentially on vendors B, C, and D, PIE has 0.7786 mean Dice, compared to 0.7680 for source-only inference and 0.7388--0.7416 for five other online-adaptation baselines. The controlled ablations show that performance saturates at 28 views, and confidence weighting, class-prior correction, connected-component filtering, morphological refinement, and inter-slice smoothing have no effect or cause negative transfer. Qualitative results on cardiac MRI and fundus images are also consistent with the frozen ensemble keeping thinner and nested anatomical structures. These results provide a strong, stable baseline for medical CTTA and expose an important failure mode: adaptation and handcrafted refinement can be less reliable than carefully designed inference.",
+    "html_url": "https://arxiv.org/abs/2609.21412v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.21412v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.20267v1",
+    "title": "Generation of Heterogeneous PET Images from Uniform Organ Activity Maps Using a Pretrained Domain-Adapted Diffusion Model",
+    "authors": [
+      "Suya Li",
+      "Kaushik Dutta",
+      "Debojyoti Pal",
+      "Jingqin Luo",
+      "Kooresh I. Shoghi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-18T21:05:28+00:00",
+    "updated": "2026-05-18T21:05:28+00:00",
+    "comments": "18 pages, 7 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Synthetic PET images are valuable for quantitative imaging workflow development, scalable virtual imaging trials, and deep learning model training, but conventional physics-based simulation approaches are computationally intensive, limited in anatomical variability, and often fail to capture heterogeneous PET uptake. This study developed a pretrained domain-adapted diffusion (PAD) model for anatomy-conditioned PET synthesis from uniform organ activity maps. PAD adopts a natural-image pretrained text-to-image decoder with an upstream conditioning encoder and a downstream PET-domain adapter. A two-phase training strategy was used, with the first phase learning coarse uptake distributions and the second refining local image details. Uniform organ activity maps were generated from CT-based segmentations by assigning each organ its mean uptake from the paired PET image. Evaluation included quantitative accuracy, noise assessment, radiomic analysis, tumor segmentation performance, and a human observer study. PAD-generated images achieved high quantitative accuracy, with concordance correlation coefficients above 0.92 between organ mean SUVs and assigned activity values. The synthesized images showed noise levels and texture characteristics similar to target PET images and produced comparable tumor segmentation performance. In a two-alternative forced-choice observer study, four readers achieved approximately 50% accuracy, indicating visual indistinguishability between synthesized and target images. PAD also generated realistic PET images from XCAT-derived activity maps, demonstrating compatibility with phantom-based anatomical priors. Overall, PAD provides a diffusion-based framework for generating clinically relevant heterogeneous PET images from uniform organ activity maps derived from clinical segmentations or digital phantoms, supporting data augmentation and downstream imaging studies.",
+    "html_url": "https://arxiv.org/abs/2605.20267v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.20267v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
