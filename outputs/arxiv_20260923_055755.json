@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.24627v1",
+    "title": "FedMust: Semi-supervised Multi-task Student-Teacher Federated Learning for Multi-organ CT Segmentation",
+    "authors": [
+      "Ashkan Moradi",
+      "Bendik Skarre Abrahamsen",
+      "Mattijs Elschot"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-21T14:11:09+00:00",
+    "updated": "2026-09-21T14:11:09+00:00",
+    "comments": "This manuscript has been accepted for publication at the 7th International Conference on Medical Imaging and Computer-Aided Diagnosis (MICAD 2026)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-organ segmentation using deep learning requires large amounts of annotated patient data; however, institutions often lack sufficiently large and diverse annotated datasets. Privacy constraints further prevent institutions from sharing patient data to overcome this limitation. Moreover, due to the labor-intensive nature of annotation and the scarcity of diverse expertise, institutions typically have labels for only a small portion of their local data, leaving the larger unlabeled portion unused. In this work, we propose a flexible semi-supervised federated multi-task student-teacher framework that leverages federated learning (FL) to improve multi-organ segmentation using both labeled and unlabeled data across participating sites. At each communication round, the proposed framework initiates local training, where clients with labels for the same task form a federation to produce an aggregated teacher model. The resulting teachers generate task-specific features for all data at each client. Subsequently, all clients form a second federation to train a multi-task student model with a shared encoder and task-specific decoders that replicate the teacher-generated features across all segmentation tasks. The aggregated student model is then used to update the local teachers and initiate the next training round. Extensive experiments demonstrated the effectiveness of the proposed method compared with local and federated single-organ models, yielding an average performance gain of 13 percent across clients. The experiments also demonstrated the impact of multi-task learning and unlabeled data and the applicability of the framework in relaxing labeled-data requirements for client participation. The code is available at https://github.com/AshknMrd/FedMust.",
+    "html_url": "https://arxiv.org/abs/2609.24627v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.24627v1",
+    "code_urls": [
+      "https://github.com/AshknMrd/FedMust",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.01292v5",
+    "title": "Diffusion Model in Latent Space for Medical Image Segmentation Task",
+    "authors": [
+      "Ngoc Huynh Trinh",
+      "Hai Toan Nguyen",
+      "Son Ba Luong",
+      "Quoc Long Tran"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-12-01T05:26:43+00:00",
+    "updated": "2026-09-21T12:23:50+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is crucial for clinical diagnosis and treatment planning. Traditional methods typically produce a single segmentation mask, failing to capture inherent uncertainty. Recent generative models enable the creation of multiple plausible masks per image, mimicking the collaborative interpretation of several clinicians. However, these approaches remain computationally heavy. We propose MedSegLatDiff, a diffusion based framework that combines a variational autoencoder (VAE) with a latent diffusion model for efficient medical image segmentation. The VAE compresses the input into a low dimensional latent space, reducing noise and accelerating training, while the diffusion process operates directly in this compact representation. We further replace the conventional MSE loss with weighted cross entropy in the VAE mask reconstruction path to better preserve tiny structures such as small nodules. MedSegLatDiff is evaluated on ISIC-2018 (skin lesions), CVC-Clinic (polyps), and LIDC-IDRI (lung nodules). It achieves state of the art or highly competitive Dice and IoU scores while simultaneously generating diverse segmentation hypotheses and confidence maps. This provides enhanced interpretability and reliability compared to deterministic baselines, making the model particularly suitable for clinical deployment.",
+    "html_url": "https://arxiv.org/abs/2512.01292v5",
+    "pdf_url": "https://arxiv.org/pdf/2512.01292v5",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.23919v1",
+    "title": "VGG16-MCA UNet: Whole-Tumor Segmentation in 2D FLAIR MRI with Decoder-Side Channel Attention",
+    "authors": [
+      "Shubham Gajjar",
+      "Deep Joshi",
+      "Avi Poptani",
+      "Vishal Barot"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-09-20T22:50:14+00:00",
+    "updated": "2026-09-20T22:50:14+00:00",
+    "comments": "22 pages, 7 figures, 4 tables. Code and data splits: https://github.com/ShubhamGajjar/vgg16-mca-unet",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Automated brain tumor segmentation supports diagnosis, treatment planning, and monitoring of disease progression, but building models that generalize across heterogeneous tumors and limited annotated data remains difficult. We present VGG16-MCA UNet, a hybrid architecture pairing an ImageNet-pretrained VGG16 encoder with a decoder in which a Multi-Channel Attention (MCA) module recalibrates features after each skip-connection fusion, trained with the Focal Tversky loss to counter severe foreground-background imbalance. We evaluate the model as a 2D, FLAIR-only, whole-tumor segmenter on tumor-positive slices from two public datasets: the BraTS 2020 benchmark and the LGG MRI Segmentation dataset. Using 5-fold cross-validation and a single network formed by averaging the weights of the five fold models, the method attains an aggregate pixel-level Dice (F1) of 95.10% on our held-out BraTS 2020 split and 88.32% on LGG. These scores are computed over all test pixels pooled into a single confusion matrix rather than averaged per case, and are therefore not directly comparable to the per-case mean Dice used in the BraTS challenge protocol. All partitions were drawn over individual slices rather than over patients, so every patient contributes slices to both training and test; the figures above therefore measure interpolation within known patients and should be read as an upper bound rather than as generalization to new ones. The model segments a 256x256 slice in 66.32 ms on a single 6 GB NVIDIA RTX 2060, approximately 8 ms more than an equivalent VGG16-UNet without MCA. We release the split records and report the protocol in full, with the aim of providing a precisely specified and reproducible 2D FLAIR baseline.",
+    "html_url": "https://arxiv.org/abs/2609.23919v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.23919v1",
+    "code_urls": [
+      "https://github.com/ShubhamGajjar/vgg16-mca-unet",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.23815v1",
+    "title": "Confidence-Aware Teacher-Student Distillation for 3D Medical Segmentation",
+    "authors": [
+      "Georgios Triantafyllou",
+      "Dimitris K. Iakovidis"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-20T19:10:00+00:00",
+    "updated": "2026-09-20T19:10:00+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation models typically rely on large amounts of densely annotated volumetric data, limiting their scalability across tasks and imaging modalities. This work addresses the challenge of predicting entire 3D anatomical structures from extreme annotation sparsity. An annotation-efficient student-teacher framework is proposed for automatic 3D medical segmentation that requires only a set of point prompts on a single 2D slice per volume, as input. A foundation model serves as an offline teacher, utilizing the provided point prompts from the selected slice to full-volume pseudo-annotations alongside their corresponding spatial confidence scores prior to student training. To mitigate the error propagation of noisy pseudo-annotations, a task-specific 3D student network is trained using a confidence-aware optimization strategy. By leveraging the teacher's pre-computed confidence scores, this strategy explicitly excludes statically uncertain regions of the pseudo-annotations from the loss calculation, while simultaneously emphasizing regions with higher confidence. Evaluated on 3D cardiac MRI datasets, our framework outperforms state-of-the-art semi-supervised methods, improving segmentation performance by up to 43.6%. Furthermore, it drastically reduces the manual annotation burden to just a few positive point prompts per volume, while improving surface boundary precision by up to 14.7% over the teacher and successfully recovering up to 34.1% of the performance gap toward the fully supervised upper bound.",
+    "html_url": "https://arxiv.org/abs/2609.23815v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.23815v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.23026v1",
+    "title": "BrainIAC: Interactive 3D Brain Lesion Segmentation across Heterogeneous MRI Modalities with Online Adaptation",
+    "authors": [
+      "Wentian Xu",
+      "Anthony P Addison",
+      "Ziyun Liang",
+      "Harry Anthony",
+      "Guang Yang",
+      "Konstantinos Kamnitsas"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-19T13:51:52+00:00",
+    "updated": "2026-09-19T13:51:52+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain lesion segmentation is a fundamental task in medical image analysis, playing a critical role in diagnosis, treatment planning, and longitudinal disease monitoring. Yet existing models still struggle to meet the demands of real clinical use, where deployments contain data distribution shifts, arising from differences in scanner hardware, imaging protocol (varying MRI modality sets), and new pathologies. We present BrainIAC (Brain lesion Interactive Adaptive Continuously learning segmentation), a unified framework that integrates (i) a multi-modal backbone network trained to segment multiple types of brain lesions and handle heterogeneous sets of modalities via zero-filling and random modality dropping; (ii) 3D interactive segmentation with bounding-box and click prompts that preserves fully automatic prediction when no prompt is given; and (iii) an online adaptation mechanism combining Mid-Interaction adaptation and Post-Interaction adaptation, supervised by the network's own predictions as pseudo labels and guided by an extra Click-Centered Gaussian loss. To our knowledge, this is one of the first 3D online adaptation methods for interactive segmentation, and the first to combine handling of heterogeneous modality sets with online adaptation. Experiments across seven brain MRI datasets demonstrate that the proposed components provide complementary and synergistic benefits. The method consistently outperforms existing approaches and generalizes well across heterogeneous imaging modalities, including those unseen during training, as well as previously unseen brain pathology types. The code and a 3D Slicer plug-in will be released at https://github.com/WenTXuL/BrainIAC upon publication.",
+    "html_url": "https://arxiv.org/abs/2609.23026v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.23026v1",
+    "code_urls": [
+      "https://github.com/WenTXuL/BrainIAC",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
