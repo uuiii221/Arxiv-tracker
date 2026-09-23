@@ -1,0 +1,155 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.26729v1",
+    "title": "GAD-MambaUNet: Direction-Group Mamba with Gradient-Adaptive DINOv3 Distillation for Lightweight Medical Image Segmentation",
+    "authors": [
+      "Fang Wang",
+      "Huitao Li",
+      "Wenhan Chao",
+      "Zheng Zhuo",
+      "Xinxin Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-22T17:20:33+00:00",
+    "updated": "2026-09-22T17:20:33+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In this paper, we proposed GAD-MambaUNet, a lightweight medical image segmentation network that combines efficient local modeling, direction--group state-space interaction, and training-time foundation-model supervision. To improve contextual modeling in compact segmentation networks, we introduced Direction-Group Graph Selective Scan (DG-GSS), which treated scan-direction and channel-group responses as graph nodes and enabled structured information exchange before multi-directional fusion. We further incorporated DINOv3-GAD supervision, where a frozen DINOv3 teacher provided semantic guidance during training, and Gradient-Adaptive Distillation dynamically regulated the distillation strength. GAD-MambaUNet achieves a favorable accuracy--efficiency balance compared with representative lightweight and general segmentation methods. Ablation studies further verify the effectiveness of DG-GSS and training-time DINOv3-GAD supervision. In future work, we will explore more flexible teacher--student alignment strategies and extend the proposed framework to more diverse medical segmentation scenarios, such as multi-class and multi-modal segmentation tasks.",
+    "html_url": "https://arxiv.org/abs/2609.26729v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.26729v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.15950v2",
+    "title": "TwinTrack: Post-hoc Multi-Rater Calibration for Medical Image Segmentation",
+    "authors": [
+      "Tristan Kirscher",
+      "Alexandra Ertl",
+      "Klaus Maier-Hein",
+      "Xavier Coubez",
+      "Philippe Meyer",
+      "Sylvain Faisan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-04-17T11:11:43+00:00",
+    "updated": "2026-05-18T13:15:03+00:00",
+    "comments": "Accepted for publication at MIDL 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Pancreatic ductal adenocarcinoma (PDAC) segmentation on contrast-enhanced CT is inherently ambiguous: inter-rater disagreement among experts reflects genuine uncertainty rather than annotation noise. Standard deep learning approaches assume a single ground truth, producing probabilistic outputs that can be poorly calibrated and difficult to interpret under such ambiguity. We present TwinTrack, a framework that addresses this gap through post-hoc calibration of ensemble segmentation probabilities to the empirical mean human response (MHR) -the fraction of expert annotators labeling a voxel as tumor. Calibrated probabilities are thus directly interpretable as the expected proportion of annotators assigning the tumor label, explicitly modeling inter-rater disagreement. The proposed post-hoc calibration procedure is simple and requires only a small multi-rater calibration set. It consistently improves calibration metrics over standard approaches when evaluated on the MICCAI 2025 CURVAS-PDACVI multi-rater benchmark.",
+    "html_url": "https://arxiv.org/abs/2604.15950v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.15950v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.18130v1",
+    "title": "Rad-VLSM: A Cross-Modal Framework with Semantics-Assisted Prompting for Medical Segmentation and Diagnosis",
+    "authors": [
+      "Fengyi Zhang",
+      "Xujie Zeng",
+      "Mohan Liu",
+      "Zengyi Wang",
+      "Yalong Jiang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-18T09:35:26+00:00",
+    "updated": "2026-05-18T09:35:26+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is more clinically valuable when it supports diagnosis rather than merely producing lesion masks. However, diagnostically relevant lesion cues are often subtle and localized, while existing models may be distracted by background tissues, acoustic artifacts, and irrelevant visual correlations. To address this problem, we propose Rad-VLSM, a two-stage cross-modal framework for semantics-assisted lesion focusing, robust segmentation, and visually grounded diagnosis. In the first stage, a BLIP-2-based vision-language alignment module identifies lesion-related candidate regions under semantic guidance and converts them into box prompts. In the second stage, these prompts are fed into a SAM-based multitask network, where a multi-candidate region aggregation strategy improves prompt stability and guides lesion segmentation. The predicted masks are then used as spatial priors for diagnosis, and a visual-radiomics fusion head integrates lesion-aware visual features with selected radiomics descriptors. By using semantic information for localization rather than direct prediction, Rad-VLSM reduces text-to-diagnosis dependence and grounds diagnosis in lesion-level evidence. Experiments on a private clinical breast ultrasound dataset and public benchmarks show that Rad-VLSM achieves strong segmentation and diagnostic performance with favorable generalization.",
+    "html_url": "https://arxiv.org/abs/2605.18130v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.18130v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.17904v1",
+    "title": "Beyond Euclidean Prototypes: Spectral Disentanglement and Geodesic Matching for Few-Shot Medical Image Segmentation",
+    "authors": [
+      "Penghao Jia",
+      "Zhiyong Huang",
+      "Mingyang Hou",
+      "Zhi Yu",
+      "Shuai Miao",
+      "Jiahong Wang",
+      "Yan Yan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-18T06:10:41+00:00",
+    "updated": "2026-05-18T06:10:41+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Few-Shot Medical Image Segmentation (FSMIS) aims to delineate novel anatomical targets from one or a few annotated support images, addressing the annotation scarcity in medical imaging. Notwithstanding recent advancements, current prototype-based methods are bottlenecked by two coupled limitations: 1) cue entanglement, where a single spatial-domain prototype is forced to summarise organ silhouette, parenchymal texture and boundary appearance simultaneously, so any support-query mismatch on one cue propagates indiscriminately to the others; and 2) topology-blind matching, where cosine similarity measures distance in the ambient Euclidean space and ignores the connectivity of the underlying feature manifold, causing fragmented activations inside low-contrast organs and leakage into neighbouring tissues. To this end, we propose Spectral-Geodesic Prototype Network (SGP-Net), built around a Spectral-Geodesic Prototype Module with two coupled components. A Spectral Prototype Bank (SPB) decomposes support and query features into low-, mid- and high-frequency bands via learnable radial Fourier filters, yielding three disentangled prototypes per class that separately encode shape, texture and boundary cues. A Geodesic Matcher (GM) then replaces cosine similarity with a differentiable heat-diffusion approximation of geodesic distance, propagating matching signals along a feature affinity graph so that on-manifold pixels accumulate consistent responses while off-manifold look-alikes are suppressed. Experiments on three public FSMIS benchmarks demonstrate that SGP-Net achieves competitive performance against recent state-of-the-art methods.",
+    "html_url": "https://arxiv.org/abs/2605.17904v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.17904v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.17719v1",
+    "title": "Patch-MoE Mamba: A Patch-Ordered Mixture-of-Experts State Space Architecture for Medical Image Segmentation",
+    "authors": [
+      "Diego Adame",
+      "Fabian Vazquez",
+      "Jose A. Nunez",
+      "Huimin Li",
+      "Jinghao Yang",
+      "Erik Enriquez",
+      "DongChul Kim",
+      "Haoteng Tang",
+      "Bin Fu",
+      "Pengfei Gu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-18T00:42:04+00:00",
+    "updated": "2026-05-18T00:42:04+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "CNN- and Transformer-based architectures have achieved strong performance in medical image segmentation, but CNNs are limited in modeling long-range dependencies, while Transformers often suffer from quadratic computational and memory complexity. State space models, especially Mamba-based networks, offer an efficient alternative with linear sequence complexity. However, existing Mamba segmentation models still face two limitations: pixel-wise directional scanning can disrupt local 2D spatial structure, and simple summation-based fusion of scan directions cannot adapt well to diverse object sizes, shapes, and boundaries. To address these issues, we propose \\textit{Patch-MoE Mamba}, a patch-ordered mixture-of-experts state space architecture for medical image segmentation. It introduces a hierarchical patch-ordered scanning mechanism that preserves local spatial neighborhoods while capturing multi-scale context, and an MoE-based directional fusion module that adaptively combines multiple Mamba scanner outputs using four directional experts, a learnable concatenation expert, and residual directional aggregation. Experiments on five public polyp segmentation benchmarks and the ISIC 2017/2018 skin lesion segmentation datasets demonstrate the effectiveness and generality of Patch-MoE Mamba.",
+    "html_url": "https://arxiv.org/abs/2605.17719v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.17719v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
