@@ -1,0 +1,146 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.28327v1",
+    "title": "LightMIS: Ultra-Lightweight Medical Image Segmentation Without a Stage-Wise Decoder",
+    "authors": [
+      "Andrei Arhire",
+      "Mihaela-Elena Breabăn",
+      "Radu Timofte"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-23T16:05:21+00:00",
+    "updated": "2026-09-23T16:05:21+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We present LightMIS, a scalable family of ultra-lightweight convolutional networks for 2D binary medical image segmentation without a learned stage-wise decoder. LightMIS aligns the outputs of a five-level encoder to a common resolution using Scale-Aligned Projection blocks, aggregates them once, and refines the fused representation with an Adaptive Fusion Cascade. The cascade combines Adaptive Kernel Fusion with the proposed Progressive Receptive Fusion module, which uses temporary channel expansion, complementary depthwise receptive fields, and progressive cross-branch information transfer. We evaluate LightMIS-T, LightMIS-S, and LightMIS using five-fold cross-validation under a common nnU-Net v2.3.1 protocol on DRIVE, Kvasir-SEG, DSB18, BUSI, ISIC-2017, and ISIC-2018. Full LightMIS contains 0.131 M parameters and requires 0.575 GFLOPs for a $3\\times256\\times256$ input, achieving modality-macro Dice and IoU scores of 86.71% and 78.99%, respectively. Mobile U-ViT obtains 86.75% Dice and 79.07% IoU, so the observed differences are 0.04 and 0.08 percentage points. Relative to Mobile U-ViT, nnWNet, and nnU-Net, LightMIS reduces parameter count by 90.58$-$99.61% and GFLOPs by 82.54$-$96.14%. On an Arm Mali-G52 MC2 GPU, all LightMIS variants achieve full GPU delegation, with median delegated latency ranging from 53.31 ms for LightMIS-T to 138.31 ms for LightMIS. These results demonstrate a favorable accuracy$-$complexity trade-off and on-device execution feasibility for the evaluated tasks. The code is publicly available at https://github.com/AndreiiArhire/LightMIS.",
+    "html_url": "https://arxiv.org/abs/2609.28327v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.28327v1",
+    "code_urls": [
+      "https://github.com/AndreiiArhire/LightMIS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.27217v1",
+    "title": "Learning Spectral Allocation: A Fractional Diffusion Framework for Adaptive Volumetric Segmentation",
+    "authors": [
+      "Yi-Hui Shen",
+      "Tie-Qiang Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-23T01:29:46+00:00",
+    "updated": "2026-09-23T01:29:46+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We address adaptive computation in 3D medical image segmentation: instead of designing another backbone, we ask how much spectral mixing each network stage needs and let optimization answer. We derive FHEAT, a two-parameter operator family, from the discrete cosine transform (DCT) solution of a fractional heat equation. A fractional order alpha and a diffusion strength D govern the operator, and at D=0 it is exactly the identity. Reparametrized by the semigroup time tau = D*alpha, same-resolution instances compose exactly, so any distribution of diffusion across same-resolution stages amounts to a single Sobolev-type regularizer of learned strength. This identity limit lets the optimizer of each layer, not the designer, decide whether global mixing is needed and how sharp it should be. We instantiate FHEAT in a lightweight U-shaped architecture (Light-UNETR) paired with a Kolmogorov-Arnold mixer (KAN3D) with adaptive rational activations, yielding FHEAT-Seg. At 5% to 20% label rates on three public benchmarks, training produces gradient-driven spectral sparsification: seven of the eight stage-level operators drive D to zero, and the survivor saturates at the sharpest low-pass (alpha ~ 0.9) in the decoder layer feeding the semi-supervised attention map. The retired layers become exact identity shortcuts at inference, cutting FLOPs from 4.29G to 0.90G (a 79% drop) at 0.975M parameters. Under a standard semi-supervised protocol, FHEAT-Seg reaches Dice scores of 90.47% (left atrium), 78.79% (Pancreas-CT), and 81.90% (BraTS 2019), ahead of five semi-supervised methods and the Light-UNETR baseline. The large variant also surpasses Light-UNETR-L under full supervision (Dice 93.09%, 85.11%, and 87.19%) with 2.851M parameters and 55.75G FLOPs. These results suggest that the allocation of spectral computation is a learnable property of optimization dynamics, not a manual design commitment.",
+    "html_url": "https://arxiv.org/abs/2609.27217v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.27217v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.17368v1",
+    "title": "RadGenome-Anatomy: A Large-Scale Anatomy-Labeled Chest Radiograph Dataset via Physically Grounded Volumetric Projection",
+    "authors": [
+      "Shuchang Ye",
+      "Mingyuan Meng",
+      "Hao Wang",
+      "Usman Naseem",
+      "Jinman Kim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-17T10:22:56+00:00",
+    "updated": "2026-05-17T10:22:56+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Anatomical structure labels for chest radiographs are essential for medical image segmentation and a broad range of downstream diagnostic tasks. However, annotating anatomy directly on 2D chest radiographs is labor-intensive and intrinsically ambiguous, as 3D anatomical structures are projected onto a single 2D plane where boundaries may overlap, be occluded, or appear only partially visible. Consequently, existing anatomy-labeled chest radiograph datasets remain limited in scale, anatomy coverage, and label reliability. To address these limitations, we introduce RadGenome-Anatomy, the largest anatomy-labeled chest radiograph dataset, containing over 10 million segmentation masks across 210 anatomical structures in 25,692 studies. It is constructed by projecting large-scale 3D anatomical masks from CT volumes into 2D radiographic space through canonical radiographic geometry. This shifts annotation from directly tracing uncertain 2D boundaries to defining anatomy in volumetric space, where structures that overlap or become partially invisible in radiographs remain spatially separable. As a result, each 2D mask represents the physically grounded projected footprint of a volumetrically defined structure. The scale and broad anatomical coverage of RadGenome-Anatomy, including structures that are overlapping, partially visible, or difficult to delineate directly, enable research on geometric measurements as explicit evidence for chest radiograph interpretation. We demonstrate this by training XAnatomy to predict structure-specific masks and derive clinically relevant measurements, achieving diagnostic accuracies of 96.4%, 95.6%, and 89.2% for cardiomegaly, kyphosis, and scoliosis, respectively.",
+    "html_url": "https://arxiv.org/abs/2605.17368v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.17368v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.17345v1",
+    "title": "VoxShield: Protecting 3D Medical Datasets from Unauthorized Training via Frequency-Aware Inter-Slice Disruption",
+    "authors": [
+      "Xinyao Liu",
+      "Zhipeng Deng",
+      "Wenhan Jiang",
+      "Haolin Wang",
+      "Xun Lin",
+      "Yafei Ou",
+      "Yefeng Zheng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-17T09:35:19+00:00",
+    "updated": "2026-05-17T09:35:19+00:00",
+    "comments": "Submitted version to MICCAI 2026 (Provisional Accept)",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "The release of public 3D medical image segmentation (MIS) datasets accelerates clinical research but simultaneously heightens risks of unauthorized AI model training. While Unlearnable Examples (UE) offer protection by injecting imperceptible perturbations to prevent effective model learning, existing methods primarily target 2D scenarios. They neglect the volumetric spatial correlations and inter-slice anatomical consistency inherent in 3D medical volumes, which serve as critical learning priors for 3D segmentation networks. To bridge this gap, we propose VoxShield, a UE framework that explicitly targets the volumetric inductive biases of 3D networks. Our core insight is that by systematically dismantling the cross-slice continuity that 3D architectures rely on, we can fundamentally impair their spatial aggregation process. Specifically, we introduce an Inter-Slice Frequency Consistency Disruption mechanism that maximizes the spectral divergence between adjacent slices, injecting structural incoherence along the $z$-axis. Complementing this structural attack, a Semantic Prediction Disruption module is incorporated. By maximizing the $\\ell_1$ divergence between clean and perturbed logits, it forces the injected noise to penetrate the entire network and corrupt the final semantic mapping. Experiments on BraTS19 and FLARE21 demonstrate that VoxShield successfully degrades 3D segmentation performance, reducing the DSC from 80.0% to near 0.0% and from 88.6% to 6.8%, respectively. All protections are achieved with minimal perturbation ($ε=4/255$) to preserve high visual fidelity. The code is available at https://github.com/KK266299/VoxShield.",
+    "html_url": "https://arxiv.org/abs/2605.17345v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.17345v1",
+    "code_urls": [
+      "https://github.com/KK266299/VoxShield",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.16880v1",
+    "title": "Virtual Nodes Guided Dynamic Graph Neural Network for Brain Tumor Segmentation with Missing Modalities",
+    "authors": [
+      "Sha Tao",
+      "Jiao Pan",
+      "Yu Guo",
+      "Chao Yao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.AI"
+    ],
+    "published": "2026-05-16T08:40:01+00:00",
+    "updated": "2026-05-16T08:40:01+00:00",
+    "comments": "The IEEE/CVF Conference on Computer Vision and Pattern Recognition 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multimodal magnetic resonance imaging (MRI) is crucial for brain tumor segmentation, with many methods leveraging its four key modalities to capture complementary information for effective sub-region analysis. However, the absence of several modalities is very common in practice, leading to severe performance degradation in existing full-modality segmentation methods. Limited by the structured data model, recent works often adopt a multi-stage training strategy for full-modality and missing-modality scenarios, which increases training costs and inadequately addresses the interference of miss. In this work, we propose a graph-based one-stage framework for robust brain tumor segmentation with missing modalities. Specifically, we introduce modality-specific virtual nodes that serve as supplementary information sources to compensate for missing modalities. To enhance model robustness against arbitrary modality combinations, we leverage the inherent flexibility of graph networks to devise a dynamic connection strategy. This mechanism dynamically adjusts the adjacency matrix based on modality availability, preserving beneficial information flow while mitigating interference effects caused by missing modalities. Furthermore, we enhance the graph network through heterogeneous weight matrices, enhancing its adaptability to multimodal scenarios. Extensive experiments on the BRATS-2018 and BRATS-2020 datasets demonstrate that our method outperforms the state-of-the-art methods on almost all subsets of incomplete modalities.",
+    "html_url": "https://arxiv.org/abs/2605.16880v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.16880v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
