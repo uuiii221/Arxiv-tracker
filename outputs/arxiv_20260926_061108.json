@@ -1,0 +1,213 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.29785v1",
+    "title": "Lightweight Vision Transformer-Based U-Net for Brain Tumor Segmentation from MRI",
+    "authors": [
+      "Sheekar Banerjee",
+      "Md. Srabon Chowdhury",
+      "Md. Mahbub Hasan Akash",
+      "Ishtiak Al Mamoon"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-24T13:26:08+00:00",
+    "updated": "2026-09-24T13:26:08+00:00",
+    "comments": "Accepted at The 2026 IEEE International Conference on Biomedical Engineering, Computer and Information Technology for Health (BECITHCON)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate brain tumor segmentation from Magnetic Resonance Imaging is essential for diagnosis, treatment planning, and surgical guidance. Although Convolutional Neural Networks, particularly UNet, have achieved significant success in medical image segmentation, they often struggle to capture the long-range spatial dependencies required to model tumors with irregular shapes and complex boundaries. This paper proposes a lightweight Vision Transformer UNet that combines the hierarchical feature extraction capability of UNet with the global context modeling of Vision Transformers. The proposed architecture incorporates a compact ViT bottleneck within a U-Net encoder-decoder framework, enabling effective learning of both local and global features while maintaining computational efficiency with only 2.6 million trainable parameters. The model was evaluated on the TCGA LGG MRI Segmentation dataset, achieving a mean Intersection over Union of 0.8100 and a Dice score of 0.8446, outperforming the baseline UNet by 3.75% and 3.15%, respectively. Extensive quantitative and qualitative analyses, including confusion matrix evaluation, precision recall curves, per-image performance distribution, and tumor size dependency analysis, demonstrate the effectiveness and robustness of the proposed method for brain tumor segmentation.",
+    "html_url": "https://arxiv.org/abs/2609.29785v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.29785v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2505.11909v2",
+    "title": "Bridging the Inter-Domain Gap through Low-Level Features for Cross-Modal Medical Image Segmentation",
+    "authors": [
+      "Pengfei Lyu",
+      "Pak-Hei Yeung",
+      "Jing Xia",
+      "De Hu",
+      "Xiaosheng Yu",
+      "Jianning Chi",
+      "Chengdong Wu",
+      "Jagath C. Rajapakse"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2025-05-17T08:49:19+00:00",
+    "updated": "2026-09-24T08:12:47+00:00",
+    "comments": "4 pages, 3 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "This paper addresses cross-modal medical image segmentation, focusing on MRI-CT transfer in a source-only domain generalization setting. During training, only source-modality samples are available, while unlabeled target-modality images are used for testing. We propose LowBridge, which builds on the observation that cross-modal images share similar low-level features (e.g. edges) as they depict the same types of anatomical structures. Specifically, we first train a generative model to recover the source images from their edge features, followed by training a segmentation model on the generated source images, separately. At test time, edge features from the target images are input to the pretrained generative model to generate source-style target domain images, which are then segmented using the pretrained segmentation network. Experiments on various public datasets demonstrate that LowBridge achieves state-of-the-art performance, outperforming ten existing approaches. Ablation studies further show that LowBridge is compatible with different types of generative and segmentation models, suggesting its generalizability and potential to benefit from future advances in these models. The code will be available at https://github.com/JoshuaLPF/LowBridge.",
+    "html_url": "https://arxiv.org/abs/2505.11909v2",
+    "pdf_url": "https://arxiv.org/pdf/2505.11909v2",
+    "code_urls": [
+      "https://github.com/JoshuaLPF/LowBridge",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.28860v1",
+    "title": "Multimodal Routing and Region Refinement for Language-Guided Medical Image Segmentation",
+    "authors": [
+      "Md Maklachur Rahman",
+      "Md Hasan Al Banna",
+      "Saraf Anjum",
+      "Assame Arnob",
+      "Tracy Hammond"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-09-24T00:03:02+00:00",
+    "updated": "2026-09-24T00:03:02+00:00",
+    "comments": "Accepted at MICCAI 2026 (TIA). Final version to appear in the proceedings",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Textual descriptions can reduce ambiguity in medical image segmentation by specifying the finding and location to be delineated. Existing text-guided methods mainly improve where image and language features interact but generally retain a single learned update pathway across all image-text pairs. We propose MRSeg, a parameter-efficient framework that uses each image-text pair to route the adaptation of visual and textual features before dense prediction. Frozen ConvNeXt-Tiny and PubMedBERT encoders provide multiscale visual features and clinical text tokens. A joint router uses the deepest visual feature and pooled text to predict a sparse mixture over low-rank adapter bases. The resulting route is shared across separate adapter banks for two visual scales and text, coordinating their adaptation while keeping the feature-specific parameters separate. Region Bridge uses text-derived queries to aggregate dense visual tokens into latent regions, refines these regions through self-attention and text cross-attention, and redistributes the refined information back to the feature maps. Finally, a multiscale decoder combines refined semantic features with shallow image evidence. On QaTa-COV19 and MosMedData+, MRSeg achieves 90.90/83.32 and 81.53/68.82 Dice/mIoU, respectively, with 7.11M trainable parameters and 7.60 GFLOPs. Code: https://github.com/maklachur/MRSeg.",
+    "html_url": "https://arxiv.org/abs/2609.28860v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.28860v1",
+    "code_urls": [
+      "https://github.com/maklachur/MRSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.16572v1",
+    "title": "TriALS: Triphasic-Aided Liver Lesion Segmentation Benchmark in Non-Contrast CT",
+    "authors": [
+      "Marawan Elbatel",
+      "Mohamed Ghonim",
+      "Jiaji Mao",
+      "Zhuosheng Lin",
+      "Katharina Eckstein",
+      "Andrés Martínez Mora",
+      "Jonathan Deissler",
+      "Maximilian Rokuss",
+      "Constantin Ulrich",
+      "Zdravko Marinov",
+      "Wenhui Deng",
+      "Baoxun Li",
+      "Huijun Hu",
+      "Jun Shen",
+      "Mohanad Ghonim",
+      "Khadiga Omar Nassar",
+      "Mariam Elbakry",
+      "Menna Dyab",
+      "Amr Muhammad Abdo Salem",
+      "Nouran Elghitany",
+      "Noha Elghitany",
+      "Yi Qin",
+      "Xuanqi Huang",
+      "Haonan Wang",
+      "Shao-Woo Yen",
+      "Ahmed Elghamry Saba",
+      "Salma Ahmad",
+      "Xinyan Fang",
+      "Jiahao Zhang",
+      "Xiaodi Wang",
+      "Xinghua Ma",
+      "Gongning Luo",
+      "Jessica C. Delmoral",
+      "João Manuel R. S. Tavares",
+      "Ankan Deria",
+      "Adinath Dukre",
+      "Yutong Xie",
+      "Imran Razzak",
+      "Dongwook Kim",
+      "Matthew Choi",
+      "Hanxiao Zhang",
+      "Minghui Zhang",
+      "Xin You",
+      "Abdul Qayyum",
+      "Steven A. Niederer",
+      "Moona Mazher",
+      "Rachika E. Hamadache",
+      "Ricardo Montoya-del-Angel",
+      "Robert Martí",
+      "Xavier Lladó",
+      "Toufiq Musah",
+      "Livingstone Eli Ayivor",
+      "Enrique Almar-Munoz",
+      "Agnes Mayr",
+      "Kaouther Mouheb",
+      "Esther E. Bron",
+      "Stefan Klein",
+      "Ahmed Abouelhoda",
+      "Amira Adel",
+      "Susan Adil Ali",
+      "Rainer Stiefelhagen",
+      "Klaus H. Maier-Hein",
+      "Fabian Isensee",
+      "Aya Yassin",
+      "Xiaomeng Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-15T19:23:35+00:00",
+    "updated": "2026-05-15T19:23:35+00:00",
+    "comments": "TriALS challenge paper across MICCAI 2024 and 2025; data and code at https://github.com/xmed-lab/TriALS",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2024",
+    "summary": "Automated segmentation of liver lesions on non-contrast computed tomography (NCCT) is clinically important but fundamentally challenging, particularly in low-resource settings across Africa and Asia where contrast agents are frequently unavailable. Progress has been limited by the absence of annotated NCCT benchmarks. Here we describe the TriALS challenge for automated liver lesion segmentation under contrast-limited conditions, supported by a multi-centre dataset of 150 cases with four-phase CT acquisitions (600 volumes) from Egyptian and Chinese institutions. Algorithms were evaluated on 70 cases from three institutions, including an independent external cohort. The top-performing method achieved a mean venous-phase Dice of 0.754, consistent with human-level performance, yet dropped to 0.57 on NCCT. On external validation, the leading method outperformed off-the-shelf models by up to 28% in Dice on NCCT. Algorithm performance was most strongly predicted by training data scale and pre-training strategy. A cross-year comparison exposed a persistent perceptual barrier on NCCT that scaling pre-training alone cannot overcome. Data, annotations, and code are available at https://github.com/xmed-lab/TriALS.",
+    "html_url": "https://arxiv.org/abs/2605.16572v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.16572v1",
+    "code_urls": [
+      "https://github.com/xmed-lab/TriALS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.16464v1",
+    "title": "MHMamba: Multi-Head Mamba for 3D Brain Tumor Segmentation",
+    "authors": [
+      "Hanjun Tao",
+      "Hua Wang",
+      "Fan Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-15T10:05:30+00:00",
+    "updated": "2026-05-15T10:05:30+00:00",
+    "comments": "10 pages, 3 figures, 4 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain tumors exhibit high heterogeneity in morphology and multimodal contrast, making manual slice-by-slice de lineation time-consuming and experience-dependent, thus necessitating efficient and stable automated segmentation methods. To address the limitations of CNNs in modeling long-range dependencies, and the heavy computational and memory overhead and inter-block contextual in coherence of Transformers in 3D MRI, this paper proposes Multi-Head Mamba (MHMamba). This method combines a U-shaped architecture with a multi-head state-space model (Mamba), splitting the channel dimension into parallel SSM heads and aggregating them with residuals. This enhances long-range representation and improves the stability of multimodal training while maintaining linear complexity. To further align statistics and enhance lesion response, we designed a channel-space calibration module for multi-head outputs and introduced an adaptive fusion mechanism at skip connections to dynamically connect global semantics with local details, thereby improving boundary consistency and the detection of small-volume lesions. We conducted experiments and ablations on BraTS2021 and BraTS2023. The results showed that MHMamba achieved stable and significant improvements in overall accuracy, boundary smoothness, and sensitivity to tumor core and small-volume enhancement areas, while preserving the linear-complexity advantage of Mamba-based modeling, thus verifying the effectiveness and versatility of the method.",
+    "html_url": "https://arxiv.org/abs/2605.16464v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.16464v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
