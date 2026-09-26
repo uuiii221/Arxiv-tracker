@@ -1,0 +1,149 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.15671v1",
+    "title": "Degradation-Aware Blur-Segmentation of Brain Tumor",
+    "authors": [
+      "Yuchun Wang",
+      "Xiaosong Li",
+      "Gefei Liang",
+      "Yang Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-15T06:47:37+00:00",
+    "updated": "2026-05-15T06:47:37+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multimodal 3D MRI brain tumor segmentation is a pivotal step in radiotherapy target delineation, surgical planning and post-treatment assessment. Existing methods often assume artifact-free MRI images. However, inevitable patient motion during scanning introduces artifacts and blur that degrade boundary and texture features, leading to poor segmentation performance. To bridge this gap, we introduce Degradation-Aware Blur-Segmentation Net (DABSeg), a synchronous deblurring 3D multimodal MRI segmentation network that unifies blur removal and accurate segmentation. Specifically, we propose a feature-domain motion-deblurring stem to compensate for blur and rebalance intensity. Concurrently, the backbone network embeds a blur-aware cross-modal cross-attention module and multi-scale residual aggregation to yield effective modality complementarity. Notably, we optimize a joint loss that combines weighted Dice with a clear-reference reconstruction term, where imbalanced weights are applied to small targets to boost learning intensity and predictive stability for small lesions and border regions. Systematic comparisons and ablation experiments on the BraTS2020 dataset under both clear and degenerative conditions consistently demonstrate that DABSeg surpasses state-of-the-art methods in tumor Dice score and boundary precision. These results validate the effectiveness of degenerative-aware cross-task collaborative learning in improving the robustness and clinical utility of multi-modal 3D brain tumor segmentation under realistic degenerative conditions. The source code is available at https://github.com/YuchunWang24/DABSeg_ICPR",
+    "html_url": "https://arxiv.org/abs/2605.15671v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.15671v1",
+    "code_urls": [
+      "https://github.com/YuchunWang24/DABSeg_ICPR",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.03260v2",
+    "title": "Enhancing Medical Image Segmentation via Heat Conduction Equation",
+    "authors": [
+      "Rong Wu",
+      "Yim-Sang Yu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-11-05T07:44:27+00:00",
+    "updated": "2026-05-15T00:23:25+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation models struggle to achieve efficient global context modeling and long-range dependency reasoning under practical computational budgets. In this work, we propose a hybrid architecture utilizing U-Mamba with Heat Conduction Equation, which combines state-space modules for efficient long-range reasoning with Heat Conduction Operators (HCOs) in the bottleneck layers, simulating frequency-domain thermal diffusion for enhanced semantic abstraction. Experimental results show that our model attains the highest DSC (0.8719) on the Abdomen CT dataset. It suggests that blending state-space dynamics with heat-based global diffusion offers a scalable solution for medical segmentation tasks.",
+    "html_url": "https://arxiv.org/abs/2511.03260v2",
+    "pdf_url": "https://arxiv.org/pdf/2511.03260v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.14579v1",
+    "title": "Med-DisSeg: Dispersion-Driven Representation Learning for Fine-Grained Medical Image Segmentation",
+    "authors": [
+      "Zhiquan Chen",
+      "Haitao Wang",
+      "Guowei Zou",
+      "Hejun Wu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-14T08:49:36+00:00",
+    "updated": "2026-05-14T08:49:36+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate medical image segmentation is fundamental to precision medicine, yet robust delineation remains challenging under heterogeneous appearances, ambiguous boundaries, and large anatomical variability. Similar intensity and texture patterns between targets and surrounding tissues often lead to blurred activations and unreliable separation. We attribute these failures to representation collapse during encoding and insufficient fine grained multi scale decoding. To address these issues, we propose Med DisSeg, a dispersion driven medical image segmentation framework that jointly improves representation learning and anatomical delineation. Med DisSeg combines a lightweight Dispersive Loss with adaptive attention for fine grained structure segmentation. The Dispersive Loss enlarges inter sample margins by treating in batch hidden representations as negative pairs, producing well dispersed and boundary aware embeddings with negligible overhead. Based on these enhanced representations, the encoder strengthens structure sensitive responses, while the decoder performs adaptive multi scale calibration to preserve complementary local texture and global shape information. Extensive experiments on five datasets spanning three imaging modalities demonstrate consistent state of the art performance. Moreover, Med DisSeg achieves competitive results on multi organ CT segmentation, supporting its robustness and cross task applicability.",
+    "html_url": "https://arxiv.org/abs/2605.14579v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.14579v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.14566v1",
+    "title": "SpectraFlow: Unifying Structural Pretraining and Frequency Adaptation for Medical Image Segmentation",
+    "authors": [
+      "Zhiquan Chen",
+      "Haitao Wang",
+      "Guowei Zou",
+      "Hejun Wu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-14T08:37:10+00:00",
+    "updated": "2026-05-14T08:37:10+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation remains challenging in low-data regimes, where scarce annotations often yield poor generalization and ambiguous boundaries with missing fine structures. Recent self-supervised pretraining has improved transferability, but it often exhibits a texture bias. In contrast, accurate segmentation is inherently geometry-aware and depends on both topological consistency and precise boundary preservation. To address this problem, we propose a two-stage framework that couples structure-aware encoder pretraining with boundary-oriented decoding. In Stage-1, we aim to learn structure-aware representations for downstream segmentation in low-data regimes. To this end, we propose Mixed-Domain MeanFlow Pretraining, which aligns images and binary masks in a shared latent space through latent transport regression, where masks act as conditional structural guidance rather than prediction targets, making the pretraining task-agnostic. To further improve training stability under scarce supervision, we incorporate a lightweight Dispersive Loss to prevent representation collapse. In Stage-2, we fine-tune the pretrained encoder with a lightweight decoder that combines Direct Attentional Fusion for adaptive cross-scale gating and Frequency-Directional Dynamic Convolution for high-frequency boundary refinement under appearance variation. Experiments on ISIC-2016, Kvasir-SEG, and GlaS demonstrate consistent gains over state-of-the-art methods, with improved robustness in low-data settings and sharper boundary delineation.",
+    "html_url": "https://arxiv.org/abs/2605.14566v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.14566v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2508.05008v2",
+    "title": "Multimodal Causal-Driven Representation Learning for Generalizable Medical Image Segmentation",
+    "authors": [
+      "Xusheng Liang",
+      "Lihua Zhou",
+      "Nianxin Li",
+      "Miao Xu",
+      "Ziyang Song",
+      "Dong Yi",
+      "Jinlin Wu",
+      "Jiawei Ma",
+      "Hongbin Liu",
+      "Zhen Lei",
+      "Jiebo Luo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-08-07T03:41:41+00:00",
+    "updated": "2026-05-14T01:54:47+00:00",
+    "comments": "Accepted by CVPR 2026",
+    "journal_ref": null,
+    "venue_inferred": "CVPR 2026",
+    "summary": "Vision-Language Models (VLMs), such as CLIP, have demonstrated remarkable zero-shot capabilities in various computer vision tasks. However, their application to medical imaging remains challenging due to the high variability and complexity of medical data. Specifically, medical images often exhibit significant domain shifts caused by various confounders, including equipment differences, procedure artifacts, and imaging modes, which can lead to poor generalization when models are applied to unseen domains. To address this limitation, we propose Multimodal Causal-Driven Representation Learning (MCDRL), a novel framework that integrates causal inference with the VLM to tackle domain generalization in medical image segmentation. MCDRL is implemented in two steps: first, it leverages CLIP's cross-modal capabilities to identify candidate lesion regions and construct a confounder dictionary through text prompts, specifically designed to represent domain-specific variations; second, it trains a causal intervention network that utilizes this dictionary to identify and eliminate the influence of these domain-specific variations while preserving the anatomical structural information critical for segmentation tasks. Extensive experiments demonstrate that MCDRL consistently outperforms competing methods, yielding superior segmentation accuracy and exhibiting robust generalizability.",
+    "html_url": "https://arxiv.org/abs/2508.05008v2",
+    "pdf_url": "https://arxiv.org/pdf/2508.05008v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
