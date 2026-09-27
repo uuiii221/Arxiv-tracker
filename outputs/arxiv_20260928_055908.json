@@ -1,0 +1,149 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.09639v2",
+    "title": "XTinyU-Net: Training-Free U-Net Scaling via Initialization-Time Sensitivity",
+    "authors": [
+      "Alvin Kimbowa",
+      "Moein Heidari",
+      "David Liu",
+      "Ilker Hacihaliloglu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-10T16:34:39+00:00",
+    "updated": "2026-05-13T22:20:37+00:00",
+    "comments": "Early accepted to MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "While U-Net architectures remain the gold standard for medical image segmentation, their deployment in resource-constrained environments demands aggressive model compression. However, finding an optimally efficient configuration is computationally prohibitive, typically requiring exhaustive train-and-evaluate cycles to find the smallest model that maintains peak performance. In this paper, we introduce a training-free selection framework to automatically identify ultralightweight, dataset-specific U-Net configurations directly at initialization. We observe that systematically scaling down U-Net channel width induces a sharp transition from a stable performance plateau to representational capacity collapse. To pinpoint this boundary without training, we propose a Jacobian-based sensitivity metric that scores discrete, width-capped U-Net variants using a small set of unlabeled images. By analyzing the total variation of this sensitivity curve, we isolate the smallest stable configuration, which we denote as XTinyU-Net. Evaluated across six diverse medical datasets within the nnU-Net framework, XTinyU-Net achieves segmentation accuracy comparable to the heavy nnU-Net baseline with 400x-1600x fewer parameters, and outperforms contemporary lightweight architectures while utilizing 5x-72x fewer parameters. Code is publicly accessible on https://github.com/alvinkimbowa/nntinyunet.git.",
+    "html_url": "https://arxiv.org/abs/2605.09639v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.09639v2",
+    "code_urls": [
+      "https://github.com/alvinkimbowa/nntinyunet.git",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.14123v1",
+    "title": "Keyed Nonlinear Transform: Lightweight Privacy-Enhancing Feature Sharing for Medical Image Analysis",
+    "authors": [
+      "Haebom Lee",
+      "Gyeongjung Kim"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-13T21:17:41+00:00",
+    "updated": "2026-05-13T21:17:41+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Feature sharing via split inference offers a lightweight alternative to federated learning for resource-constrained hospitals, but transmitted features still leak patient identity information and lack practical mechanisms for controlled feature sharing. We propose Keyed Nonlinear Transform (KNT), a drop-in feature transformation that applies key-conditioned obfuscation to intermediate representations. KNT reduces re-identification AUC from 0.635 to 0.586, corresponding to a 36% reduction in above-chance identity signal, while introducing only 0.15 ms CPU overhead, without backbone retraining, and preserving classification performance within 1.0 pp. Our analysis shows that KNT's nonlinear transform prevents closed-form inversion and shifts recovery to iterative gradient-based optimization under full key compromise, substantially increasing inversion difficulty. The same transform generalizes to dense prediction tasks, incurring only a 4.4 pp Dice reduction on skin-lesion segmentation without retraining. These results position KNT as a practical and efficient privacy layer for split inference deployments.",
+    "html_url": "https://arxiv.org/abs/2605.14123v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.14123v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2510.14244v2",
+    "title": "Reinforcement Learning for Unsupervised Domain Adaptation in Spatio-Temporal Echocardiography Segmentation",
+    "authors": [
+      "Arnaud Judge",
+      "Nicolas Duchateau",
+      "Thierry Judge",
+      "Roman A. Sandler",
+      "Joseph Z. Sokol",
+      "Christian Desrosiers",
+      "Olivier Bernard",
+      "Pierre-Marc Jodoin"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2025-10-16T02:55:04+00:00",
+    "updated": "2026-05-12T20:27:30+00:00",
+    "comments": "13 pages, accepted for publication in IEEE TMI",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Domain adaptation methods aim to bridge the gap between datasets by enabling knowledge transfer across domains, reducing the need for additional expert annotations. However, many approaches struggle with reliability in the target domain, an issue particularly critical in medical image segmentation, where accuracy and anatomical validity are essential. This challenge is further exacerbated in spatio-temporal data, where the lack of temporal consistency can significantly degrade segmentation quality, and particularly in echocardiography, where the presence of artifacts and noise can further hinder segmentation performance. To address these issues, we present RL4Seg3D, an unsupervised domain adaptation framework for 2D + time echocardiography segmentation. RL4Seg3D integrates novel reward functions and a fusion scheme to enhance key landmark precision in its segmentations while processing full-sized input videos. By leveraging reinforcement learning for image segmentation, our approach improves accuracy, anatomical validity, and temporal consistency while also providing, as a beneficial side effect, a robust uncertainty estimator, which can be used at test time to further enhance segmentation performance. We demonstrate the effectiveness of our framework on over 30,000 echocardiographic videos, showing that it outperforms standard domain adaptation techniques without the need for any labels on the target domain. Code is available at https://github.com/arnaudjudge/RL4Seg3D.",
+    "html_url": "https://arxiv.org/abs/2510.14244v2",
+    "pdf_url": "https://arxiv.org/pdf/2510.14244v2",
+    "code_urls": [
+      "https://github.com/arnaudjudge/RL4Seg3D",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.12389v1",
+    "title": "SEMIR: Semantic Minor-Induced Representation Learning on Graphs for Visual Segmentation",
+    "authors": [
+      "Luke James Miller",
+      "Yugyung Lee"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-12T16:52:02+00:00",
+    "updated": "2026-05-12T16:52:02+00:00",
+    "comments": "20 pages, 3 figures. Accepted at ICML 2026. Includes appendices",
+    "journal_ref": null,
+    "venue_inferred": "ICML 2026",
+    "summary": "Segmenting small and sparse structures in large-scale images is fundamentally constrained by voxel-level, lattice-bound computation and extreme class imbalance -- dense, full-resolution inference scales poorly and forces most pipelines to rely on fixed regionization or downsampling, coupling computational cost to image resolution and attenuating boundary evidence precisely where minority structures are most informative. We introduce SEMIR (Semantic Minor-Induced Representation Learning), a representation framework that decouples inference from the native grid by learning a task-adapted, topology-preserving latent graph representation with exact decoding. SEMIR transforms the underlying grid graph into a compact, boundary-aligned graph minor through parameterized edge contraction, node deletion, and edge deletion, while preserving an exact lifting map from minor predictions to lattice labels. Minor construction is formalized as a few-shot structure learning problem that replaces hand-tuned preprocessing with a boundary-alignment objective: minor parameters are learned by maximizing agreement between predicted boundary elements and target-specific semantic edges under a boundary Dice criterion, and the induced minor is annotated with scale- and rotation-robust geometric and intensity descriptors and supports efficient region-level inference via message passing on a graph neural network (GNN) with relational edge features. We benchmark SEMIR on three tumor segmentation datasets -- BraTS 2021, KiTS23, and LiTS -- where targets exhibit high structural variability and distributional uncertainty. SEMIR yields consistent improvements in minority-structure Dice at practical runtime. More broadly, SEMIR establishes a framework for learning task-adapted, topology-preserving latent representations with exact decoding for high-resolution structured visual data.",
+    "html_url": "https://arxiv.org/abs/2605.12389v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.12389v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.11434v1",
+    "title": "FEFormer: Frequency-enhanced Vision Transformer for Generic Knowledge Extraction and Adaptive Feature Fusion in Volumetric Medical Image Segmentation",
+    "authors": [
+      "Jin Yang",
+      "Xiaobing Yu",
+      "Peijie Qiu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-05-12T02:32:58+00:00",
+    "updated": "2026-05-12T02:32:58+00:00",
+    "comments": "20 pages, 8 figures, 9 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate segmentation of organs and lesions in medical images is essential for clinical applications including diagnosis, prognosis, and treatment planning. While Vision Transformers (ViTs) have shown impressive segmentation performance, they face key challenges in module and architecture design. Specifically, self-attention struggles to capture fine-grained local features critical for understanding detailed anatomical structures, standard MLP modules lack explicit mechanisms to preserve spatial information, conventional encoder-decoder architectures rely on naive feature fusion strategies that cannot handle large semantic discrepancies, and existing designs lack explicit mechanisms to propagate low-level information from encoder to decoder. To address these limitations, we propose a Frequency-enhanced Vision Transformer (FEFormer) for robust and efficient volumetric medical image segmentation that explicitly models frequency information to jointly capture global context and fine structural details. FEFormer comprises four novel components: a Frequency-enhanced Dynamic Self-Attention (FDSA) module that jointly captures fine-grained local details and global long-range dependencies through locality-preserving convolution with frequency-domain attention; a Frequency-decomposed Gating MLP (FGMLP) that adaptively models low- and high-frequency components for enhanced semantic and structural representation; a Wavelet-guided Adaptive Feature Fusion (WAFF) module that enables semantically consistent encoder-decoder feature integration in the frequency domain; and a Frequency-enabled Cross-scale Stem Bridge (FCSB) that enhances low-level feature propagation across scales. Evaluated on four diverse volumetric medical image segmentation tasks, FEFormer achieved superior segmentation performance with high computational efficiency compared to state-of-the-art methods.",
+    "html_url": "https://arxiv.org/abs/2605.11434v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.11434v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
