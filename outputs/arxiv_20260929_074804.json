@@ -1,0 +1,149 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.30855v1",
+    "title": "MDSkin-Net: Multi-Task Skin Lesion Analysis Driven by Pattern Analysis Priors and Spatial Alignment Regularization",
+    "authors": [
+      "Yijian Li",
+      "Saad Bedros",
+      "Paul Bigliardi",
+      "Mei Bigliardi Qi",
+      "Vassilios Morellas",
+      "Nikolaos Papanikolopoulos"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-25T06:02:34+00:00",
+    "updated": "2026-09-25T06:02:34+00:00",
+    "comments": "13 pages 4 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Reliable skin lesion segmentation and classification are central to dermoscopic computer-aided diagnosis. Existing multi-task frameworks couple the two tasks architecturally without clinical knowledge, while knowledge-injecting approaches rely on the macroscopic ABCD rule, which was not designed for dermoscopy. Dermoscopic diagnosis is grounded in Pattern Analysis, a microscopic framework structured around dermoscopic features. We propose MDSkin-Net, which incorporates cue-level Pattern Analysis priors into a hybrid CNN-Transformer architecture. At its core is a Pattern Analysis-Guided Attention Module (PAGAM) comprising three priors motivated by distinct dermoscopic cues: an improved Efficient Channel Attention (iECA), a Multi-Scale Spatial Attention (MSSA), and a Biased Asymmetry Attention (BAA). We further introduce a multi-scale spatial alignment regularization (MSAR) that uses the segmentation ground-truth mask as hierarchical soft supervision, confining the classification head to lesion-localized evidence and coupling both task pathways through a shared spatial prior. Trained exclusively on the ISIC 2017 training split without external dermoscopy data, the MDSkin-Net ensemble transfers robustly under zero-shot evaluation, reaching a Dice Similarity Coefficient (DSC) of 92.38% and a melanoma AUC of 97.84%on PH2, and a DSC of 88.92% on the ISIC 2018 Task 1 test set. On the in-domain ISIC 2017 benchmark, the ensemble attains a mean Area Under the Curve (AUC) of 91.60% across the two classification tasks (melanoma and seborrheic keratosis vs. rest), and a DSC of 84.72% for segmentation. Classification remains competitive with baselines; in-domain segmentation trails single-task specialists, yet the proposed priors and alignment regularization yield representations that generalize consistently across cohorts of different scales.",
+    "html_url": "https://arxiv.org/abs/2609.30855v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.30855v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.30708v1",
+    "title": "Combining General and Domain-Specific Pretext Tasks for Brain MR Image Segmentation",
+    "authors": [
+      "Tasneem Nasser",
+      "Susanne Schmid",
+      "Roberto Souza",
+      "Naser El-Sheimy"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-25T02:36:20+00:00",
+    "updated": "2026-09-25T02:36:20+00:00",
+    "comments": "7 figures, 5 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "A key challenge in medical image analysis is the scarcity of large annotated datasets for specific populations and diseases. As deep learning models rely heavily on labeled data, effective transfer learning strategies are needed to reduce the dependence on manual annotations. Self-supervised learning has emerged as a promising approach for developing foundation models by enabling the learning of transferable feature representations from large-scale unlabeled medical imaging datasets. In this study, we investigate voxel-level brain age prediction as a domain-specific self-supervised pretext task and compare it with image inpainting, a widely used non-domain-specific alternative. We further propose a multitask self-supervised pretraining framework that jointly optimizes both objectives to learn complementary neuroimaging representations. The pretrained models are evaluated on three downstream magnetic resonance image segmentation tasks: multiple sclerosis lesion segmentation, ischemic stroke lesion segmentation, and cortical brain structure segmentation. Overall, the proposed multitask pretraining framework consistently outperformed the single-task pretrained models and training from scratch across most experimental settings, demonstrating the benefit of combining domain-specific and general self-supervised learning pretext tasks for the development of generalizable neuroimaging foundation models.\\ Code Availability: The source code used in this study is publicly available at https://github.com/TasneemN/Combining-General-and-Domain-Specific-Pretext-Tasks-for-Brain-MR-Image-Segmentation/",
+    "html_url": "https://arxiv.org/abs/2609.30708v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.30708v1",
+    "code_urls": [
+      "https://github.com/TasneemN/Combining-General-and-Domain-Specific-Pretext-Tasks-for-Brain-MR-Image-Segmentation/",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.08215v3",
+    "title": "Skill-Evolving Grounded Reasoning for Free-Text Promptable 3D Medical Image Segmentation",
+    "authors": [
+      "Tongrui Zhang",
+      "Chenhui Wang",
+      "Yongming Li",
+      "Zhihao Chen",
+      "Xufeng Zhan",
+      "Hongming Shan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-03-09T10:45:35+00:00",
+    "updated": "2026-09-24T22:54:33+00:00",
+    "comments": "MICCAI'26 Early Accept, Best Paper & Young Scientist Nominee",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI Best Paper",
+    "summary": "Free-text promptable 3D medical image segmentation offers an intuitive and clinically flexible interaction paradigm. However, current methods are highly sensitive to linguistic variability: minor changes in phrasing can cause substantial performance degradation despite identical clinical intent. Existing approaches attempt to improve robustness through stronger vision-language fusion or larger vocabularies, yet they lack mechanisms to consistently align ambiguous free-form expressions with anatomically grounded representations. We propose Skill-Evolving grounded Reasoning (SEER), a novel framework for free-text promptable 3D medical image segmentation that explicitly bridges linguistic variability and anatomical precision through a reasoning-driven design. First, we curate the SEER-Trace dataset, which pairs raw clinical requests with image-grounded, skill-tagged reasoning traces, establishing a reproducible benchmark. Second, SEER constructs an evidence-aligned target representation via a vision-language reasoning chain that verifies clinical intent against image-derived anatomical evidence, thereby enforcing semantic consistency before voxel-level decoding. Third, we introduce SEER-Loop, a dynamic skill-evolving strategy that distills high-reward reasoning trajectories into reusable skill artifacts and progressively integrates them into subsequent inference, enabling structured self-refinement and improved robustness to diverse linguistic expressions. Extensive experiments demonstrate superior performance of SEER over state-of-the-art baselines. Under linguistic perturbations, SEER reduces performance variance by 81.94% and improves worst-case Dice by 18.60%. Project page: https://seer-medseg.github.io.",
+    "html_url": "https://arxiv.org/abs/2603.08215v3",
+    "pdf_url": "https://arxiv.org/pdf/2603.08215v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [
+      "https://seer-medseg.github.io"
+    ],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.28327v2",
+    "title": "LightMIS: Ultra-Lightweight Medical Image Segmentation Without a Stage-Wise Decoder",
+    "authors": [
+      "Andrei Arhire",
+      "Mihaela-Elena Breabăn",
+      "Radu Timofte"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-23T16:05:21+00:00",
+    "updated": "2026-09-24T21:26:09+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We present LightMIS, a scalable family of ultra-lightweight convolutional networks for 2D binary medical image segmentation without a learned stage-wise decoder. LightMIS aligns the outputs of a five-level encoder to a common resolution using Scale-Aligned Projection blocks, aggregates them once, and refines the fused representation with an Adaptive Fusion Cascade. The cascade combines Adaptive Kernel Fusion with the proposed Progressive Receptive Fusion module, which uses temporary channel expansion, complementary depthwise receptive fields, and progressive cross-branch information transfer. We evaluate LightMIS-T, LightMIS-S, and LightMIS using five-fold cross-validation under a common nnU-Net v2.3.1 protocol on DRIVE, Kvasir-SEG, DSB18, BUSI, ISIC-2017, and ISIC-2018. Full LightMIS contains 0.131 M parameters and requires 0.575 GFLOPs for a $3\\times256\\times256$ input, achieving modality-macro Dice and IoU scores of 86.71% and 78.99%, respectively. Mobile U-ViT obtains 86.75% Dice and 79.07% IoU, so the observed differences are 0.04 and 0.08 percentage points. Relative to Mobile U-ViT, nnWNet, and nnU-Net, LightMIS reduces parameter count by 90.58$-$99.61% and GFLOPs by 82.54$-$96.14%. On an Arm Mali-G52 MC2 GPU, all LightMIS variants achieve full GPU delegation, with median delegated latency ranging from 53.31 ms for LightMIS-T to 138.31 ms for LightMIS. These results demonstrate a favorable accuracy-complexity trade-off and on-device execution feasibility for the evaluated tasks. The code is publicly available at https://github.com/AndreiiArhire/LightMIS.",
+    "html_url": "https://arxiv.org/abs/2609.28327v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.28327v2",
+    "code_urls": [
+      "https://github.com/AndreiiArhire/LightMIS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.11131v1",
+    "title": "USEMA: a Scalable Efficient Mamba Like Attention for Medical Image Segmentation",
+    "authors": [
+      "Elisha Dayag",
+      "Nhat Thanh Tran",
+      "Jack Xin"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-11T18:40:13+00:00",
+    "updated": "2026-05-11T18:40:13+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate medical image segmentation is an integral part of the medical image analysis pipeline that requires the ability to merge local and global information. While vision transformers are able to capture global interactions using vanilla self-attention, their quadratic computational complexity in the input size remains a struggle for medical image segmentation tasks. Motivated by the dispersion property of vanilla self-attention and recent development of Mamba form of attention, Scalable and Efficient Mamba like Attention (SEMA) utilizes token localization via local window attention to avoid dispersion and maintain focusing, complemented by theoretically consistent arithmetic averaging to capture global aspect of attention. In this work, we present USEMA, a hybrid UNet architecture that merges the local feature extraction ability of convolutional neural networks (CNNs) with SEMA attention. We conduct experiments with USEMA across a variety of modalities and image sizes, demonstrating improved computational efficiency compared to transformer based models using full self-attention, and superior segmentation performance relative to purely convolution and Mamba-based models.",
+    "html_url": "https://arxiv.org/abs/2605.11131v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.11131v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
