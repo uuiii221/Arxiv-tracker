@@ -1,0 +1,162 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.35637v1",
+    "title": "RT-Super: Learning Tumor Segmentation from Longitudinal Images and Reports",
+    "authors": [
+      "Pedro R. A. S. Bassi",
+      "Wenxuan Li",
+      "Hanxue Gu",
+      "Jieneng Chen",
+      "Xinze Zhou",
+      "Zheren Zhu",
+      "Sezgin Er",
+      "Ibrahim E. Hamamci",
+      "Bjoern H. Menze",
+      "Gulhan E. Akan",
+      "Kang Wang",
+      "Yang Yang",
+      "Alan L. Yuille",
+      "Zongwei Zhou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-28T17:06:07+00:00",
+    "updated": "2026-09-28T17:06:07+00:00",
+    "comments": "MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Multi-tumor segmentation is important for early cancer detection and allows radiologists to visualize, verify, and understand AI predictions. However, tumor segmentation masks are expensive, time-consuming, and unavailable for many tumor types in public data. Instead, hospitals have vast, readily available data that can guide segmentation: radiology reports, longitudinal images, and multi-phase images. We use this readily available data to substitute for tumor masks in training AI for tumor segmentation. To this end, we propose a new architecture, RT-Super. It has a teacher network, which analyzes the patient's longitudinal images and reports to create high-quality tumor masks. These masks train a student network, which sees a single image and no report. At inference, when longitudinal images and reports are unavailable, we use the student. RT-Super uses a new CNN-Transformer architecture and novel Consistency Losses that exploit tumor location consistency across longitudinal images. We train RT-Super to segment esophagus, uterus and spleen tumors, which have few or no public masks. Even without training masks, RT-Super can segment these tumors and surpass public AI models. Overall, we demonstrate that learning from longitudinal images, multi-phase images, and reports can overcome mask scarcity and advance multi-cancer detection and segmentation. Code: https://github.com/MrGiovanni/RT-Super",
+    "html_url": "https://arxiv.org/abs/2609.35637v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.35637v1",
+    "code_urls": [
+      "https://github.com/MrGiovanni/RT-Super",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.12896v2",
+    "title": "UniMedSeg: Unified In-Context Learning for Multi-Paradigm 2D/3D Medical Image Segmentation",
+    "authors": [
+      "Yunzhou Li",
+      "Jiesi Hu",
+      "Yanwu Yang",
+      "Hanyang Peng",
+      "Chenfei Ye",
+      "Jianfeng Cao",
+      "Yixuan Yuan",
+      "Ting Ma"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-14T15:34:46+00:00",
+    "updated": "2026-09-28T14:06:08+00:00",
+    "comments": "Withdrawn because the manuscript inadvertently used a publisher-specific journal template before acceptance, which may raise copyright and publishing-policy concerns. We will replace it with a neutral preprint format in accordance with standard academic publishing practice",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation foundation models are expected to generalize across diverse clinical scenarios, yet existing universal methods remain fragmented by prompt paradigms and spatial dimensions. Visual in-context learning, interactive segmentation, and language-guided segmentation are typically handled by paradigm-specific models, while 2D and 3D images are also modeled separately. Such isolation prevents heterogeneous annotations and data from being jointly absorbed by a single scalable model and limits cross-paradigm knowledge transfer. To address this bottleneck, we propose UniMedSeg, a Transformer-centric universal segmentation framework that maps visual examples, geometric interactions, language instructions, and 2D/3D images into a shared sequence space, enabling heterogeneous medical supervision to be jointly learned through a unified in-context interface without prompt- or dimension-specific branches. To overcome the long-sequence memory bottleneck caused by visual contexts, we introduce Decoupled Split Attention, which reduces attention complexity to linear while preserving hardware-friendly computation and focused context-target interaction. Extensively trained and evaluated on a large corpus curated from 27 public datasets, UniMedSeg achieves state-of-the-art performance across visual in-context, interactive, and language-guided segmentation without task-specific fine-tuning, demonstrating strong generalization on diverse held-out tasks. The code and model weights are publicly available at https://github.com/Lii1228/UniMedSeg",
+    "html_url": "https://arxiv.org/abs/2607.12896v2",
+    "pdf_url": "https://arxiv.org/pdf/2607.12896v2",
+    "code_urls": [
+      "https://github.com/Lii1228/UniMedSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.34513v1",
+    "title": "XFlow: A Workflow Model for Instruction-Guided Lesion Segmentation in Chest X-rays",
+    "authors": [
+      "Geon Choi",
+      "Hangyul Yoon",
+      "Hyunki Park",
+      "Sang Hoon Seo",
+      "Edward Choi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-28T07:53:17+00:00",
+    "updated": "2026-09-28T07:53:17+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Existing text-guided segmentation models in the medical domain cover only a narrow set of anatomical structures and lesions in chest X-rays (CXRs), and most of them assume that the queried target is always present in the image. Instruction-guided lesion segmentation (ILS) was introduced to overcome these limitations by segmenting diverse lesion types from simple user instructions while also recognizing when the queried lesion is absent, and ROSALIA was proposed as the first model for this task. However, the masks produced by ROSALIA remain of limited quality, often carrying scattered noise. Moreover, ROSALIA predicts the mask in a single shot, which differs fundamentally from how radiologists perceive and delineate lesions in practice. A radiologist first surveys the entire thorax, then localizes the approximate region of abnormality, and only then refines the lesion contour. Motivated by this coarse-to-fine, multi-level perception process, we present XFlow, a workflow model for ILS that combines box-based localization with multi-turn point refinement. XFlow detects the lungs, decides whether the queried finding is present in each of them, and prompts a fine-tuned SAM with the lesion box for an initial mask. It then corrects that mask through point prompts until its boundary follows the lesion, leaving every intermediate decision visible. Our experiments show that XFlow achieves the best segmentation quality on both internal and external evaluation. Notably, it surpasses ROSALIA in segmentation quality even when the two are trained on the same lesion annotations. Code and model weights will be made publicly available.",
+    "html_url": "https://arxiv.org/abs/2609.34513v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.34513v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.34472v1",
+    "title": "VL-AcneSeg: A Vision-Language Framework for Region-Aware Acne Lesion Segmentation",
+    "authors": [
+      "Sukju Oh",
+      "Soo Ick Cho",
+      "Dae Hun Suh",
+      "Sukkyu Sun"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-28T07:27:13+00:00",
+    "updated": "2026-09-28T07:27:13+00:00",
+    "comments": "Accepted for publication in the IEEE Journal of Biomedical and Health Informatics",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Acne assessment is crucial for clinical decision-making, yet traditional grading and counting are subjective and fail to account for lesion size. While area-based assessment has emerged as a promising alternative, acne segmentation has continued to rely on general-purpose architectures. To address this gap, we propose VL-AcneSeg, a multimodal framework for acne lesion segmentation that leverages CLIP and region-level text prompts to incorporate spatial priors, enabling lesions to be localized across the whole face. Because region-level prompts indicate which facial areas contain lesions, we report a single global prompt, which requires no such information, as our primary setting. On our internal clinical dataset, VL-AcneSeg achieves a Dice score of 0.5082 and an IoU of 0.3407 under this protocol, the highest among all compared methods, including recent vision-language segmentation methods that are themselves given region-level prompts; region-level prompting raises these to 0.5296 and 0.3602. Moreover, lesion area measurements derived from our segmentation correlate with IGA scores at a level comparable to expert annotations (Pearson r = 0.719 versus 0.658). Notably, our framework maintains consistent performance across external validation datasets, performing reliably even on uncontrolled smartphone images without requiring additional training or fine-tuning. By pairing a protocol that requires no lesion-location information with area-based severity estimation, this work provides a foundation for objective acne assessment outside the clinic. Our implementation is publicly available at: https://github.com/sukjuoh/VL-AcneSeg",
+    "html_url": "https://arxiv.org/abs/2609.34472v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.34472v1",
+    "code_urls": [
+      "https://github.com/sukjuoh/VL-AcneSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.22825v2",
+    "title": "SGP-SAM: Self-Gated Prompting for Transferring 3D Segment Anything Models to Lesion Segmentation",
+    "authors": [
+      "Zequan Yao",
+      "Zixuan Tang",
+      "Jielin Ma",
+      "Shen Zhao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-04-19T10:22:04+00:00",
+    "updated": "2026-09-28T07:21:27+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Large segmentation foundation models such as the Segment Anything Model (SAM) have reshaped promptable segmentation in natural images, and recent efforts have extended these models to medical images and volumetric settings. However, directly transferring a 3D SAM-style model to lesion segmentation remains challenging due to (i) weak spatial representational capacity for small, irregular targets in intermediate features, and (ii) extreme foreground-background imbalance in 3D volumes.We propose SGP-SAM, a self-gated prompting framework for efficient and effective transfer to 3D lesion segmentation. Our key component, the Self-Gated Prompting Module (SGPM), performs conditional multi-scale spatial enhancement: a lightweight multi-channel gating unit predicts whether the current features require additional multi-scale fusion, and only then activates a Multi-Scale Feature Fusion Block to enrich spatial context. To further address small-lesion learning, we design a Zoom Loss that up-weights lesion-focused supervision by combining Dice and a voxel-balanced focal term.Experiments on MSD Liver Tumor and MSD Brain Tumor (enhancing tumor) show consistent gains over strong transfer baselines based on SAM-Med3D. On MSD Liver Tumor, SGP-SAM improves mDice by 7.3% over fine-tuning.",
+    "html_url": "https://arxiv.org/abs/2604.22825v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.22825v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
