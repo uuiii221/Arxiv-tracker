@@ -1,0 +1,156 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2603.18792v3",
+    "title": "Rethinking Uncertainty Quantification and Entanglement in Image Segmentation",
+    "authors": [
+      "Jakob Lønborg Christensen",
+      "Vedrana Andersen Dahl",
+      "Morten Rieger Hannemose",
+      "Anders Bjorholm Dahl",
+      "Christian F. Baumgartner"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-19T11:43:26+00:00",
+    "updated": "2026-09-30T11:42:28+00:00",
+    "comments": "Accepted at ACCV 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Uncertainty quantification (UQ) is crucial in safety-critical applications such as medical image segmentation. Total uncertainty is typically decomposed into data-related aleatoric uncertainty (AU) and model-related epistemic uncertainty (EU). Many methods exist for modeling AU (such as Probabilistic UNet, Diffusion) and EU (such as ensembles, MC Dropout), but it is unclear how they interact when combined. Additionally, recent work has revealed substantial entanglement between AU and EU, undermining the interpretability and practical usefulness of the decomposition. We present a comprehensive empirical study covering a broad range of AU-EU model combinations, propose an entanglement proxy based on the relative performance of uncertainty measures, and evaluate model combinations across downstream uncertainty quantification tasks. Ensembles consistently show more favorable proxy values and superior performance. Softmax models usually beat other AU methods, except in calibration where the results are dataset-dependent. A softmax ensemble performs remarkably well on all tasks. Finally, we analyze potential sources of uncertainty entanglement and outline directions for mitigating this effect.",
+    "html_url": "https://arxiv.org/abs/2603.18792v3",
+    "pdf_url": "https://arxiv.org/pdf/2603.18792v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.39429v1",
+    "title": "Towards Trustworthy AI for Glioma Diagnosis: A Task-Aware Evaluation of Uncertainty Quantification",
+    "authors": [
+      "Gonzalo Esteban Mosquera Rojas",
+      "Sebastian R. van der Voort",
+      "Carolin M. Pirkl",
+      "Sandeep Kaushik",
+      "Marion Smits",
+      "Stefan Klein"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-30T10:06:22+00:00",
+    "updated": "2026-09-30T10:06:22+00:00",
+    "comments": "Accepted for publication at the Journal of Machine Learning for Biomedical Imaging (MELBA) https://melba-journal.org/2026:033",
+    "journal_ref": "Machine.Learning.for.Biomedical.Imaging. 2026 (2026)",
+    "venue_inferred": null,
+    "summary": "Uncertainty Quantification (UQ) is a key requirement for trustworthy AI in high-stakes medical image analysis. In this work, we evaluate UQ in a multi-task Deep Learning framework for MRI-based glioma diagnosis that performs tumor segmentation and predicts IDH mutation status, 1p/19q co-deletion status, and tumor grade. Monte Carlo Dropout (MCD) is used for a detailed task-aware analysis of predictive, aleatoric, and epistemic uncertainty. We assess MC sample convergence, calibration, error detection, selective prediction, associations with segmentation performance, and the effect of voxel-wise uncertainty aggregation on case-level reliability. We also compare MCD with Deep Ensembles (DE) and Monte Carlo Deep Ensembles (MCDE), examine interactions between segmentation quality and classification, and evaluate a composite trust score integrating segmentation and classification uncertainty. Across tasks, uncertainty estimates supported meaningful error detection, while calibration depended on the dropout rate, with moderate rates yielding the most reliable probabilities. Uncertainty decomposition provided task-dependent interpretability but did not consistently improve error detection over predictive uncertainty alone. DE and MCDE showed comparable operational utility, with no method consistently dominating across tasks and metrics. The composite trust score did not consistently outperform classification uncertainty for selective prediction. Overall, our results provide a task-aware evaluation strategy and practical guidance for the development of trustworthy AI for glioma diagnosis.",
+    "html_url": "https://arxiv.org/abs/2609.39429v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.39429v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://melba-journal.org/2026:033"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.27519v4",
+    "title": "SPROUT: A Scalable Diffusion Foundation Model for Multi-Crop Plant Phenotyping",
+    "authors": [
+      "Shuai Xiang",
+      "James Burridge",
+      "Shouyang Liu",
+      "Hao Lu",
+      "Tokihiro Fukatsu",
+      "Yinqiang Zheng",
+      "Wei Guo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-29T04:55:52+00:00",
+    "updated": "2026-09-30T05:07:58+00:00",
+    "comments": "Code: https://github.com/UTokyo-FieldPhenomics-Lab/SPROUT Dataset: https://huggingface.co/datasets/XIANG-Shuai/MCD-2.6m",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Image-based plant phenotyping depends on dense structural understanding of crops, yet pixel-level annotation remains expensive across species, organs, growth stages, and field conditions. General-purpose vision foundation models offer a natural route to label efficiency, but their web-scale pretraining objectives transfer weakly to agricultural imagery, where semantics are often determined by fine organ geometry inside repetitive, texture-dominated scenes. We introduce SPROUT, a diffusion foundation model for multi-crop plant phenotyping. SPROUT learns from 2.6 million unlabeled open-field images (MCD-2.6M) using a pixel-space Diffusion Transformer, and selects transferable features with a label-free effective-rank criterion over denoising timesteps. This design shifts pretraining from crop-based invariance to structure-preserving denoising, making the representation better aligned with dense phenotyping tasks. We evaluate SPROUT across dense phenotyping tasks, including organ segmentation, crop-weed parsing, depth estimation, and counting. SPROUT consistently improves over strong web-pretrained baselines, with the largest gains on dense structural prediction, and shows favorable label and compute efficiency compared with general-purpose and crop-specific foundation models. The source code and MCD-2.6M dataset are publicly available.",
+    "html_url": "https://arxiv.org/abs/2603.27519v4",
+    "pdf_url": "https://arxiv.org/pdf/2603.27519v4",
+    "code_urls": [
+      "https://github.com/UTokyo-FieldPhenomics-Lab/SPROUT",
+      "https://huggingface.co/datasets/XIANG-Shuai/MCD-2.6m",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.34235v1",
+    "title": "SegBanana: Steering Unified Multimodal Models into Medical Segmenters",
+    "authors": [
+      "Xiaoye Liang",
+      "Ye Yan",
+      "Mingze Yin",
+      "Shikun Feng",
+      "Mai Xu",
+      "Haiguang Liu",
+      "Lai Jiang",
+      "Yiheng Zhu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-28T03:39:36+00:00",
+    "updated": "2026-09-28T03:39:36+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation remains challenging in practical deployment, as models often struggle to generalize beyond the distributions covered by their training data and high-quality pixel-level annotations are typically unavailable for adaptation. Inspired by the cross-task transferability of large language models, we investigate whether unified multimodal models (UMMs) can transfer their pretrained visual understanding, reasoning, and generation capabilities to medical image segmentation without task-specific post-training. By recasting segmentation as structured visual generation, we find that frontier UMMs (e.g., Nano Banana) already exhibit basic segmentation capabilities across diverse clinical scenarios, but still struggle with challenging tasks requiring specialized anatomical or domain-specific knowledge. We further show that these limitations can be effectively mitigated by incorporating visual anatomical knowledge from in-context exemplars, expanding candidate solutions through repeated sampling, and refining suboptimal predictions via targeted editing.Motivated by these observations, we propose SegBanana, to our knowledge, the first agentic visual generation framework for training-free medical image segmentation. SegBanana builds on a frozen UMM as the core generative model, augmented with Anatomy-Aware Knowledge Retrieval and Comparative Quality Critique to unlock its potential segmentation capability. A State-Aware Multimodal Controller maintains structured state and iteratively orchestrates these tools, repeatedly refining intermediate predictions toward higher-quality masks. Across eight medical segmentation datasets, SegBanana achieves an average mDice of 77.45%, outperforming representative generalist (SAM3 and SegGPT) and medical-specific (BiomedParse and MedSAM3) baselines by at least 14.93 points, while remaining robust to out-of-domain visual supports.",
+    "html_url": "https://arxiv.org/abs/2609.34235v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.34235v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.22096v2",
+    "title": "Three-Phase Scribble-Adaptive Curriculum Learning for autoPETV Grand Challenge",
+    "authors": [
+      "Libo Zhang",
+      "Yue Ning"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-08-22T20:21:16+00:00",
+    "updated": "2026-09-27T20:18:11+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "This report describes Libo Zhang's algorithmic solution to autoPETV Grand Challenge on interactive lesion segmentation in whole-body PET/CT. Interaction is encoded as two additional input channels that rasterize the accumulated foreground and background scribbles, and a residual-encoder U-Net of about 140 million parameters is trained with a three-phase curriculum over 4000 epochs: the network first learns fully automatic segmentation with silent interaction channels, then observes ground-truth-derived scribbles under randomly sampled visibility modes, and finally adapts to its own mistakes through online simulation of up to five error-driven correction steps. Training draws on 1811 autoPET and DeepPSMA studies, and the submission ensembles the best and final checkpoints of five folds by logit averaging. In interactive five-fold cross-validation with six interaction steps, the final checkpoints reach a mean AUC-Dice of 3.836 and a mean AUC-DMM of 3.869, improving monotonically in every fold, with roughly half of the total gain delivered by the first corrective scribble. Our code and trained model checkpoints are available on https://github.com/Libo1023/autoPETV-Curriculum.",
+    "html_url": "https://arxiv.org/abs/2608.22096v2",
+    "pdf_url": "https://arxiv.org/pdf/2608.22096v2",
+    "code_urls": [
+      "https://github.com/Libo1023/autoPETV-Curriculum",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
