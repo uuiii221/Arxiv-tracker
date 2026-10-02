@@ -1,0 +1,144 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.01542v1",
+    "title": "Synthetic training for long-tail haemorrhagic lesion segmentation in data-scarce settings",
+    "authors": [
+      "Yuan Cao",
+      "Sumeet Dash",
+      "Antonia Zachariadis",
+      "Stefanie Schreiber",
+      "Katja Neumann",
+      "Jose Bernal"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-01T12:12:21+00:00",
+    "updated": "2026-10-01T12:12:21+00:00",
+    "comments": "Accepted: MICCAI 2026 SASHIMI workshop",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Cerebral microbleeds (CMBs) and cortical superficial siderosis (cSS) are imaging markers of cerebral small vessel disease, but their automated segmentation is limited by the scarcity of positive cases and voxel-level annotations. We propose a synthetic training framework for long-tail haemorrhagic lesion segmentation that requires no real lesion annotations for training and leverages radiological description of the lesions. Starting from anatomical brain parcellations, the framework applies spatial augmentation and voxel resampling, procedurally inserts cSS and CMB labels using clinical priors on lesion location and morphology, and synthesises images through randomised intensity assignment, blurring, and Rician noise simulation. Models were trained on dynamically generated image-label pairs and evaluated against manual delineations in 10 cSS cases and 13 CMB cases. The proposed configurations outperformed classical filter baselines. For cSS, the hypointensity constrained model achieved higher AUPRC and AUROC than the Frangi filter (AUPRC: 0.284 vs 0.083; AUROC: 0.907 vs 0.731). For CMBs, explicit synthesis of blood vessels as lesion mimics improved performance over the classical baseline (AUPRC: 0.538 vs 0.004; AUROC: 0.999 vs 0.968). These results support our proposal as a feasible strategy for data-scarce haemorrhagic lesion segmentation.",
+    "html_url": "https://arxiv.org/abs/2610.01542v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.01542v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.01452v1",
+    "title": "Uncertainty-Guided Handshake: Efficient Human-in-the-Loop Refinement for Surgical-Grade Glioma Segmentation",
+    "authors": [
+      "Samuel Hart",
+      "Ahmad Yahya",
+      "Ahmed Karam Eldaly"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-01T10:48:41+00:00",
+    "updated": "2026-10-01T10:48:41+00:00",
+    "comments": "12 pages",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "While state-of-the-art automated models for medical image segmentation achieve high mean performance, they frequently suffer from localized, catastrophic failures that preclude safe clinical deployment, particularly in neuro-oncology. Interactive segmentation frameworks mitigate this by incorporating human oversight, but traditionally impose prohibitive cognitive and temporal workloads by requiring clinicians to manually search for errors. In this project, we present an efficient, Hybrid Structural-Aleatoric Human-in-the-Loop framework for glioma segmentation that bridges the gap between automated baseline performance and surgical-grade precision, achieving sub-2.0 mm HD95 on curated benchmarks while providing safety-net routing for structural failures across real-world clinical data. By extracting voxel-wise Test-Time Augmentation (TTA) uncertainty and applying hierarchical topological filtering, our method proactively isolates high-risk structural anomalies. We comprehensively evaluated our approach on a challenging out-of-distribution clinical stress-test cohort (N = 362). Operating under a simulated Human Oracle, the framework improved the Whole Tumor (WT) Dice score from 0.891 to 0.914 and reduced the 95th percentile Hausdorff Distance (HD95) from 5.82 mm to 4.76 mm. Critically for surgical safety, the system rescued severe boundary failures in the Tumor Core, reducing mean HD95 from 17.96 mm to 14.83 mm (improving absolute TC Dice to 0.356). These spatial rescues were achieved while demanding a median interactive workload of just 11.3% of the target volume. Acknowledging this as a simulated upper bound lacking real-world cognitive friction, the framework nevertheless demonstrates a highly Pareto-efficient pathway for safely deploying clinical AI.",
+    "html_url": "https://arxiv.org/abs/2610.01452v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.01452v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.16755v2",
+    "title": "De-GAN - Dynamic Parameter Tuned GAN for 3D Medical Image Segmentation: A Step Towards Generalisation",
+    "authors": [
+      "Zoha Usama",
+      "Azadeh Alavi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-15T07:32:48+00:00",
+    "updated": "2026-10-01T07:07:32+00:00",
+    "comments": "error found",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain tumor segmentation remains difficult because enhancing tumor (ET) has low contrast and overlaps surrounding tissue, while scanner and site variation causes domain shift. We propose DE-GAN, a contrast-enhancing conditional GAN that combines input-adaptive dynamic convolutions, style-aware feature mixing, and coordinate encoding to synthesize slice-adaptive FLAIR images. A label-guided, class-conditional target separates tumor-core (TC) and ET intensities while preserving anatomy. The generated FLAIR is concatenated with the original MR modalities and used to train a 3D U-Net. Across BraTS 2015, 2018, and 2019, DE-GAN improves segmentation over the baseline and static EnhGAN replacement on most reported TC/ET metrics, with the largest gains from retaining both original and enhanced FLAIR. Code and pretrained models are available at https://github.com/zkhansuri-ui/DE-GAN.",
+    "html_url": "https://arxiv.org/abs/2609.16755v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.16755v2",
+    "code_urls": [
+      "https://github.com/zkhansuri-ui/DE-GAN",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.00999v2",
+    "title": "SWARD: Stochastic Window-Attention-Based Relational Distillation for Cross-Architectural Semantic Segmentation",
+    "authors": [
+      "Aditya Makineni",
+      "Qing Tian"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-31T04:29:31+00:00",
+    "updated": "2026-09-27T18:13:47+00:00",
+    "comments": "Accepted to BMVC2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Large-scale vision foundation models have driven substantial gains on dense prediction tasks such as semantic segmentation, but their size makes deployment impractical in resource-constrained settings, motivating knowledge distillation as a means of transferring their capabilities to lightweight student networks. However, modern foundation teachers are predominantly transformer-based that encode global context, whereas efficient students are typically convolutional networks with locally biased receptive fields. Existing distillation methods largely assume architectural homogeneity and rely on direct feature mimicry, which fails to bridge this representational gap and neglects the structured spatial dependencies and discriminative organization required for accurate semantic segmentation. In this paper, we propose SWARD, a knowledge distillation framework that addresses this gap through two complementary mechanisms. First, we introduce a Multi-Scale Windowed Attention Distillation (MWAD) module that aligns teacher-student attention-based relations within stochastically shifted window partitions whose offsets are randomly resampled at every training iteration. This removes window boundary bias, and, combined with the multi-scale design, captures both short- and long-range spatial dependencies. Second, we introduce Prototype Discriminative Regularization (PDR), a loss that helps shape the student's feature distribution by enforcing inter-class separation and intra-class compactness, further sharpening the discriminative structure beyond what feature mimicry alone can produce under the student's reduced capacity. Experiments across different vision applications (i.e., urban scene parsing and medical image segmentation) show that SWARD achieves state-of-the-art performance.",
+    "html_url": "https://arxiv.org/abs/2606.00999v2",
+    "pdf_url": "https://arxiv.org/pdf/2606.00999v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2404.14019v3",
+    "title": "A Multimodal Feature Distillation with Mamba-Transformer Network for Brain Tumor Segmentation with Incomplete Modalities",
+    "authors": [
+      "Ming Kang",
+      "Fung Fung Ting",
+      "Shier Nee Saw",
+      "Raphaël C. -W. Phan",
+      "Zongyuan Ge",
+      "Chee-Ming Ting"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "eess.SP",
+      "stat.AP"
+    ],
+    "published": "2024-04-22T09:33:44+00:00",
+    "updated": "2026-09-27T12:43:11+00:00",
+    "comments": "15 pages, 5 figures, 8 tables, 73 references",
+    "journal_ref": "IEEE Trans. Artif. Intell. 7(9) (2026) 5076--5090",
+    "venue_inferred": null,
+    "summary": "Existing brain tumor segmentation methods usually utilize multiple Magnetic Resonance Imaging (MRI) modalities in brain tumor images for segmentation, which can achieve better segmentation performance. However, in clinical applications, some modalities are often missing due to resource constraints, resulting in significant performance degradation for methods that rely on complete modality segmentation. In this paper, we propose a Multimodal feature distillation with Mamba-Transformer hybrid network (MMTSeg) for accurate brain tumor segmentation with missing modalities. We first employ a Multimodal Feature Distillation (MFD) module to distill feature-level multimodal knowledge into different unimodalities to extract complete modality information. We further develop an Unimodal Feature Enhancement (UFE) module to model the semantic relationship between global and local information. Finally, we built a Cross-Modal Fusion (CMF) module to explicitly align the global correlations across modalities, even when some modalities are missing. Complementary features within and across modalities are refined by the Mamba-Transformer hybrid architectures in both the UFE and CMF modules, dynamically capturing long-range dependencies and global semantic information for complex spatial contexts. A boundary-wise loss function is employed as the segmentation loss of the proposed MMTSeg to minimize boundary discrepancies for a distance-based metric. Our ablation study demonstrates the importance of the proposed feature enhancement and fusion modules in the proposed network and the Transformer with Mamba block for improving the performance of brain tumor segmentation with missing modalities. Extensive experiments on the BraTS 2018 and BraTS 2020 datasets demonstrate that the proposed MMTSeg framework outperforms state-of-the-art methods when modalities are missing.",
+    "html_url": "https://arxiv.org/abs/2404.14019v3",
+    "pdf_url": "https://arxiv.org/pdf/2404.14019v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
