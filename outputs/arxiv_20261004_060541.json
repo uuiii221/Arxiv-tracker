@@ -1,0 +1,147 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.33077v1",
+    "title": "Parameter-Efficient 3D Segmentation of Liver and Liver tumors: Depthwise factorization Scales Better Than Dense Convolution with Spatial Dimensionality",
+    "authors": [
+      "Adham M. Alkhadrawi",
+      "Mohammed A. B. Mahmoud"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-09-27T01:29:31+00:00",
+    "updated": "2026-09-27T01:29:31+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Three-dimensional dense convolutional networks are the strongest performers on volumetric medical image segmentation, but their parameter counts scale poorly: moving a dense k x k convolution to k x k x k multiplies its weights by k. We observe that depthwise separable factorization does not share this penalty. Because the cubic kernel term applies only to the depthwise stage while the pointwise projection, which dominates the parameter count, is unchanged, the same architecture grows by 5 % from 2D to 3D where a dense convolutional U-Net grows by 200 %. We exploit this asymmetry to build a 3D U-Net with 536,990 parameters, 24x fewer than an identical dense 3D U-Net. On MSD Task03 Liver (the Medical Segmentation Decathlon liver task, derived from LiTS), evaluated per case under five-fold cross-validation over all 131 public volumes, the model reaches a tumor Dice of 0.577 (95% CI [0.518, 0.633]) and a liver Dice of 0.947 (95% CI [0.941, 0.952]). Its liver Dice exceeds previously reported performance. Its tumor Dice exceeds their low-resolution configuration (0.4701) by 0.107 and their 2D configuration (0.5394), at approximately one twenty-fourth of the parameters and roughly half the in-plane resolution. Trained under identical conditions on a common held-out split, it exceeds a dense 3D U-Net on liver by +0.031 Dice (paired p = 0.006) and on tumor by +0.041 (95 % CI [+0.005, +0.081], paired p = 0.056), suggesting the factorization also acts as a regularizer in the small-data regime characteristic of medical imaging. We further show, on both LiTS and a 2D endoscopy benchmark, that a large fraction of the network's learnable spatial filters can be replaced by fixed shifts at no cost in accuracy, but that replacing all of them is measurably worse, the placement of spatial capacity matters more than its total amount.",
+    "html_url": "https://arxiv.org/abs/2609.33077v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.33077v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2505.09274v2",
+    "title": "Recent Advances in Medical Imaging Segmentation: A Survey",
+    "authors": [
+      "Fares Bougourzi",
+      "Abdenour Hadid"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-05-14T10:48:37+00:00",
+    "updated": "2026-09-26T14:31:43+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical imaging is a cornerstone of modern healthcare, driving advancements in diagnosis, treatment planning, and patient care. Among its various tasks, segmentation remains one of the most challenging problem due to factors such as data accessibility, annotation complexity, structural variability, variation in medical imaging modalities, and privacy constraints. Despite recent progress, achieving robust generalization and domain adaptation remains a significant hurdle, particularly given the resource-intensive nature of some proposed models and their reliance on domain expertise. This survey explores cutting-edge advancements in medical image segmentation, focusing on methodologies such as Generative AI, Few-Shot Learning, Foundation Models, and Universal Models. These approaches offer promising solutions to longstanding challenges. We provide a comprehensive overview of the theoretical foundations, state-of-the-art techniques, and recent applications of these methods. Finally, we discuss inherent limitations, unresolved issues, and future research directions aimed at enhancing the practicality and accessibility of segmentation models in medical imaging. We are maintaining a \\href{https://github.com/faresbougourzi/Awesome-DL-for-Medical-Imaging-Segmentation} to continue tracking and updating innovations in this field.",
+    "html_url": "https://arxiv.org/abs/2505.09274v2",
+    "pdf_url": "https://arxiv.org/pdf/2505.09274v2",
+    "code_urls": [
+      "https://github.com/faresbougourzi/Awesome-DL-for-Medical-Imaging-Segmentation",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.32555v1",
+    "title": "Feature Space Guidance for Breast Cancer Classification in DCE-MRI",
+    "authors": [
+      "Benjamin Hamm",
+      "Yannick Kirchhoff",
+      "Maximilian Rokuss",
+      "Moritz Langenberg",
+      "Constantin Ulrich",
+      "Tassilo Wald",
+      "Jeremias Traub",
+      "Karol Gotkowski",
+      "Klaus Maier-Hein"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-09-26T12:31:56+00:00",
+    "updated": "2026-09-26T12:31:56+00:00",
+    "comments": "11 pages, 2 figures, 2 tables. Code: https://github.com/MIC-DKFZ/CURIAtor",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Dynamic contrast enhanced breast MRI (DCE-MRI) is a powerful clinical tool for breast cancer detection, providing high resolution anatomical detail together with rich temporal contrast information. However, high dimensional 4D inputs, small lesions, and heterogeneous acquisition protocols across clinical sites hinder robust automated classification of healthy, benign, and malignant cases. To address these challenges, we propose a framework that dynamically analyzes latent representations to adapt to protocol-specific characteristics. Spatial variability is mitigated by reducing confounding background uptake and compensating for misalignment caused by deformable soft tissue. Additionally, relationships in the latent space across phases are leveraged to select the most informative temporal features, improving robustness to protocol-specific temporal variability. Finally, task specific discriminative features are promoted through large scale supervised lesion segmentation pretraining, which substantially enhances downstream finetuning. Evaluated under leave-one-center-out validation on the ODELIA dataset and the held-out AMBL cohort, the proposed framework substantially outperforms finetuned radiology foundation models and prior methods, improving mean AUROC by nearly 8 points and balanced accuracy by 4 points over the strongest baseline. Additionally, our method achieved first place in the MICCAI ODELIA Breast MRI Challenge 2025, further demonstrating its effectiveness for robust breast cancer classification. We publicly release our codebase under https://github.com/MIC-DKFZ/CURIAtor.",
+    "html_url": "https://arxiv.org/abs/2609.32555v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.32555v1",
+    "code_urls": [
+      "https://github.com/MIC-DKFZ/CURIAtor",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2503.20652v8",
+    "title": "Imitating Radiological Scrolling: A Global-Local Attention Model for 3D Chest CT Volumes Multi-Label Anomaly Classification",
+    "authors": [
+      "Theo Di Piazza",
+      "Carole Lazarus",
+      "Olivier Nempont",
+      "Loic Boussel"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-03-26T15:47:50+00:00",
+    "updated": "2026-09-26T07:11:04+00:00",
+    "comments": "13 pages, 4 figures. Accepted for publication at MIDL 2025",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The rapid increase in the number of Computed Tomography (CT) scan examinations has created an urgent need for automated tools, such as organ segmentation, anomaly classification, and report generation, to assist radiologists with their growing workload. Multi-label classification of Three-Dimensional (3D) CT scans is a challenging task due to the volumetric nature of the data and the variety of anomalies to be detected. Existing deep learning methods based on Convolutional Neural Networks (CNNs) struggle to capture long-range dependencies effectively, while Vision Transformers require extensive pre-training, posing challenges for practical use. Additionally, these existing methods do not explicitly model the radiologist's navigational behavior while scrolling through CT scan slices, which requires both global context understanding and local detail awareness. In this study, we present CT-Scroll, a novel global-local attention model specifically designed to emulate the scrolling behavior of radiologists during the analysis of 3D CT scans. Our approach is evaluated on two public datasets, demonstrating its efficacy through comprehensive experiments and an ablation study that highlights the contribution of each model component.",
+    "html_url": "https://arxiv.org/abs/2503.20652v8",
+    "pdf_url": "https://arxiv.org/pdf/2503.20652v8",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.00279v1",
+    "title": "Multi-Resolution Feature Fusion U-Net for Magnetic Resonance Imaging Segmentation",
+    "authors": [
+      "Eirini Cholopoulou",
+      "Dimitrios E. Diamantis",
+      "Dimitris K. Iakovidis"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-09-24T17:46:10+00:00",
+    "updated": "2026-09-24T17:46:10+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The segmentation of anatomical structures in medical images and particularly in MRI scans, is essential for clinical diagnosis and monitoring disease progression. While Deep Learning (DL) architectures, such as U-Net and its extensions are very effective in medical image segmentation tasks, they often struggle with preserving fine-grained details and global contextual information. This is especially challenging for MRI data segmentation, where anatomical structures are characterized by irregular boundaries and variations in shape, contrast, and scale. To address this challenge, we propose a novel DL architecture for MRI segmentation across different anatomical structures. Specifically, the architecture introduces a module, named Multi-Resolution Feature Fusion (MRFF), that can be easily integrated into any U-Net-like architecture. The MRFF is integrated in all levels of an encode-decoder structure, along with attention mechanisms and skip connections to extract features at multiple resolutions, enabling the model to capture both fine-grained details and global contextual information. We evaluate the MRFFU-Net on two publicly available benchmark MRI datasets of different anatomical targets; one for Cerebrospinal Fluid (CSF) segmentation in spinal MR scans, and one for left atrium cardiac segmentation, from the Medical Segmentation Decathlon (MSD) challenge. Experimental results indicate that MRFFU-Net outperforms state-of-the-art models across multiple evaluation metrics, demonstrating its effectiveness in MRI segmentation.",
+    "html_url": "https://arxiv.org/abs/2610.00279v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.00279v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
