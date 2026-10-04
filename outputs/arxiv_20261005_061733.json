@@ -1,0 +1,148 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2609.31702v1",
+    "title": "CLC-YOLO: A Compact Channel-Gated Prototype Network for Real-Time Leakage-Aware Breast Ultrasound Lesion Segmentation",
+    "authors": [
+      "M. Fazri Nizar",
+      "Muhammad Naufal Rachmatullah",
+      "Julian Supardi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-19T12:22:31+00:00",
+    "updated": "2026-09-19T12:22:31+00:00",
+    "comments": "Accepted to IEEE ICAITech 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Reliable breast ultrasound lesion segmentation requires accurate boundaries and evaluation that prevents patients or duplicate images from crossing data splits. We propose Channel Local Contrast (CLC), a compact refinement of the YOLO26 segmentation prototype head. CLC adds a fixed local high-pass residual controlled by 64 zero-initialized, bounded channel gates. Baseline and CLC were compared in five matched folds on each of four breast ultrasound datasets. BUS-BRA used patient-disjoint outer tests with separate inner validation. BUS-UCLM and BrEaST used patient-grouped validation folds; BUSI used duplicate-component groups because patient identifiers are unavailable. Group-macro Dice increased by 1.68, 3.11, 1.12, and 2.45 percentage points on BUS-BRA, BUS-UCLM, BUSI, and BrEaST, respectively. Only the BUS-BRA paired 95% confidence interval excluded zero. CLC adds 64 parameters and 0.0049 giga floating-point operations (GFLOPs). At 640 pixels, single-T4, batch-one, 16-bit floating-point (FP16) TensorRT graph times were 2.1478 ms for CLC and 2.0512 ms for baseline, excluding preprocessing and postprocessing. CLC increased group-macro Dice across all four datasets with a measured T4 forward-pass overhead of 0.0966 ms. Code: https://github.com/mfazrinizar/CLC-YOLO",
+    "html_url": "https://arxiv.org/abs/2609.31702v1",
+    "pdf_url": "https://arxiv.org/pdf/2609.31702v1",
+    "code_urls": [
+      "https://github.com/mfazrinizar/CLC-YOLO",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.10885v1",
+    "title": "Geometry-aware Prototype Learning for Cross-domain Few-shot Medical Image Segmentation",
+    "authors": [
+      "Feifan Song",
+      "Yuntian Bo",
+      "Haofeng Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-11T17:32:26+00:00",
+    "updated": "2026-05-11T17:32:26+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Cross-domain few-shot medical image segmentation (CD-FSMIS) requires a model to generalise simultaneously to novel anatomical categories and unseen imaging domains from only a handful of annotated examples. Existing prototypical approaches inevitably entangle anatomical structure with domain-specific appearance variations, and thus lack a stable reference for reliable matching under domain shift. We observe that the geometric structure of human anatomy constitutes a reliable, domain-transferable prior that has been overlooked. Building on this insight, we propose GeoProto, a geometry-aware CD-FSMIS framework that enriches prototypical matching with explicit structural priors. The core component, Geometry-Aware Prototype Enrichment (GAPE), augments each local appearance prototype with a learned geometric offset encoding its ordinal position within the organ's interior topology. This offset is derived from an auxiliary Ordinal Shape Branch (OSB) trained under an ordinally consistent objective that enforces monotonic variation of geometric embeddings across interior strata, requiring no annotation beyond standard segmentation masks. Extensive experiments across seven datasets spanning three evaluation settings (cross-modality, cross-sequence, and cross-context) demonstrate that GeoProto achieves state-of-the-art performance.",
+    "html_url": "https://arxiv.org/abs/2605.10885v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.10885v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.11060v1",
+    "title": "SplitFed-CL: A Split Federated Co-Learning Framework for Medical Image Segmentation with Inaccurate Labels",
+    "authors": [
+      "Zahra Hafezi Kafshgari",
+      "Hadi Hadizadeh",
+      "Parvaneh Saeedi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-11T17:18:45+00:00",
+    "updated": "2026-05-11T17:18:45+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Split Federated Learning (SplitFed) combines federated and split learning to preserve privacy while reducing client-side computation. However, in medical image segmentation, heterogeneous label quality across clients can significantly degrade performance. We propose SplitFed-CL, a co-learning framework where a global teacher guides local students to detect and refine unreliable annotations. Reliable labels supervise training directly, while unreliable labels are corrected via weighted student--teacher refinement. SplitFed-CL further incorporates consistency regularization for robustness to input perturbations and a trainable weighting module to balance loss terms adaptively. We also introduce a novel difficulty guided strategy to simulate human like boundary centric annotation errors, where the degree of perturbation is governed by shape complexity and the associated annotation difficulty. Experiments on two multiclass segmentation datasets with controlled synthetic noise, together with a binary segmentation dataset containing real-world annotation errors, demonstrate that SplitFed-CL consistently outperforms seven state-of-the-art baselines, yielding improved segmentation quality and robustness.",
+    "html_url": "https://arxiv.org/abs/2605.11060v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.11060v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.10645v1",
+    "title": "GenMed: A Pairwise Generative Reformulation of Medical Diagnostic Tasks",
+    "authors": [
+      "Hantao Zhang",
+      "Weidong Guo",
+      "Yuhe Liu",
+      "Jiancheng Yang",
+      "Sathvik Bhagavan",
+      "Danli Shi",
+      "Mingda Xu",
+      "Pascal Fua"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-11T14:32:09+00:00",
+    "updated": "2026-05-11T14:32:09+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Data-driven medical AI is traditionally formulated as a discriminative mapping from input $X$ to output $Y$ via a learned function $f$, which does not generalize well across heterogeneous data and modalities encountered in real-world clinical settings. In this work, we propose a fundamentally different, generative paradigm. We model the joint distribution $P(X,Y)$ using diffusion models and reframe inference as a test-time output optimization problem. By guiding the generative process to match observed inputs, our framework enables flexible, gradient-based conditioning at inference time without architectural changes or retraining, effectively supporting arbitrary and previously unseen combinations of observations. Extensive experiments demonstrate strong performance across standard and cross-modality medical image segmentation, few-shot segmentation with only 2 or 4 training samples, degraded-input segmentation, shape completion from sparse and partial observations, and zero-shot application to demonstrate generality. To support these evaluations, we curated and released a large-scale text-shape dataset derived from MedShapeNet. Our results highlight the versatility of generative joint modeling as a foundation for reusable, task-agnostic medical AI systems.",
+    "html_url": "https://arxiv.org/abs/2605.10645v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.10645v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.10521v1",
+    "title": "DuetFair: Coupling Inter- and Intra-Subgroup Robustness for Fair Medical Image Segmentation",
+    "authors": [
+      "Yiqi Tian",
+      "Sangjoon Park",
+      "Bo Zeng",
+      "Pengfei Jin",
+      "Yujin Oh",
+      "Quanzheng Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-11T13:08:35+00:00",
+    "updated": "2026-05-11T13:08:35+00:00",
+    "comments": "16 pages, 2 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation models can perform unevenly across subgroups. Most existing fairness methods focus on improving average subgroup performance, implicitly treating each subgroup as internally homogeneous. However, this can hide difficult cases within a subgroup, where high-loss samples are obscured by the subgroup mean. We call this problem \\textbf{intra-group hidden failure}. To solve this, we propose \\textbf{DuetFair} mechanism, a dual-axis fairness framework that jointly considers inter-subgroup adaptation and intra-subgroup robustness. Based on DuetFair, we introduce \\textbf{FairDRO}, which combines distribution-aware mixture-of-experts (dMoE) with subgroup-conditioned distributionally robust optimization (DRO) loss aggregation. This design allows the model to adapt across subgroups while also reducing hidden failures within each subgroup. We evaluate FairDRO on three medical image segmentation benchmarks with varying degrees of within-group heterogeneity. FairDRO achieves the best equity-scaled performance on Harvard-FairSeg and improves worst-case subgroup performance on HAM10000 under both age- and race-based grouping schemes. On the 3D radiotherapy target cohort, FairDRO further improves worst-group Dice by 3.5 points ($\\uparrow 6.0\\%$) under the tumor-stage grouping and by 4.1 points ($\\uparrow 7.4\\%$) under the institution grouping over the strongest baseline.",
+    "html_url": "https://arxiv.org/abs/2605.10521v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.10521v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
