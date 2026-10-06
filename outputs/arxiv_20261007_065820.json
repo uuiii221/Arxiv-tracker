@@ -1,0 +1,173 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.06837v1",
+    "title": "Anatomy-aware Fine-grained Multimodal Fusion for Laryngopharyngeal Cancer T-Staging Prediction Using CT and Radiology Report",
+    "authors": [
+      "Xingyue Zhao",
+      "Yanzhou Su",
+      "Fang Zhang",
+      "Zhanghexuan Ji",
+      "Yirui Wang",
+      "Dazhou Guo",
+      "Sibo Ju",
+      "Yuehua Cheng",
+      "Yuzhen Chen",
+      "Ming Feng",
+      "Le Lu",
+      "Tsung-Ying Ho",
+      "Jian Wang",
+      "Dakai Jin",
+      "Na Shen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-05T17:58:28+00:00",
+    "updated": "2026-10-05T17:58:28+00:00",
+    "comments": "Accepted by IEEE Transactions on Medical Imaging (IEEE TMI)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate T-staging is crucial for guiding personalized treatment strategies for laryngopharyngeal cancer. However, current clinical practice relies on invasive biopsy procedures, whereas CT-based staging remains challenging due to the complex patterns of tumor invasion. Recent computer-aided approaches face two key challenges: 1) Structural relationship modeling: existing methods underrepresent anatomically structured patterns of tumor invasion, as they either process whole CT volumes without tumor-specific anatomical constraints or rely on labor-intensive tumor segmentation. 2) Fine-grained cross-modal alignment: while radiology reports contain organ-specific invasion details, current methods that apply global feature fusion struggle to accurately align individual anatomical structures with their corresponding textual descriptions. To address these issues, we propose an anatomy-aware multimodal framework that integrates organ-level CT context and radiology reports into a unified representation for laryngopharyngeal T-staging. The framework first constructs an Anatomy-Structured Organ Graph (AOG) that captures invasion patterns between primary sites and surrounding organs, then performs Organ-Anchored Cross-Modal Alignment (OCA) so that each organ node aggregates textual evidence from the radiology report, and finally refines this graph representation by injecting organ-specific invasion cues extracted from the report via Report-Enhanced Graph-Refinement (REG), yielding a multimodal organ graph that combines spatial and textual evidence. Extensive experiments demonstrate that the proposed framework achieves superior performance in T-staging of laryngopharyngeal cancer.",
+    "html_url": "https://arxiv.org/abs/2610.06837v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.06837v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.05053v1",
+    "title": "CoDG-Net: Structure-Guided Style Diffusion and Collaborative Learning to Mitigate Catastrophic Forgetting in Medical Image Domain Generalization",
+    "authors": [
+      "Yucheng Song",
+      "Jincan Wang",
+      "Haokang Ding",
+      "Zhiqiang Tian",
+      "Kangxu Fan",
+      "Zhifang Liao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-04T08:43:24+00:00",
+    "updated": "2026-10-04T08:43:24+00:00",
+    "comments": "Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence Main Track. Pages 1622-1630. https://doi.org/10.24963/ijcai.2026/181",
+    "journal_ref": "Main Track, 2026, Pages 1622-1630",
+    "venue_inferred": "ijcai",
+    "summary": "Domain Generalization (DG) for medical image segmentation is both highly challenging and critically important. However, existing medical DG methods largely overlook the issue of Catastrophic Forgetting (CF): \\textbf{Models often sacrifice their ability to retain source-domain knowledge while pursuing cross-domain robustness.} This can directly threaten diagnostic safety in already-deployed clinical scenarios. To address this, we investigate data augmentation strategies and catastrophic forgetting for medical image DG segmentation. First, we propose a structure-guided style diffusion augmentation method. Constrained by anatomical structure consistency in the frequency domain, this method performs cross-domain diffusion on the amplitude spectrum, generating samples with more diverse and broader style coverage to better support domain generalization. Then, we design a collaborative learning network with a dual-branch interactive architecture (CoDG-Net), together with a novel learning bias-guided strategy that adaptively regulates knowledge transfer at both the layer level and the task level, thereby effectively mitigating catastrophic forgetting on the source domain. Experiments and ablation studies on single-source and multi-source medical DG benchmark datasets demonstrate that CoDG-Net not only outperforms existing state-of-the-art methods in target-domain segmentation performance, but also achieves a lower forgetting rate on the source-domain data. The code is available at: https://github.com/wangprocess/CoDG-Net.",
+    "html_url": "https://arxiv.org/abs/2610.05053v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.05053v1",
+    "code_urls": [
+      "https://github.com/wangprocess/CoDG-Net",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://doi.org/10.24963/ijcai.2026/181"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.04787v1",
+    "title": "Active-DiNTS: Active Differentiable Network Topology Search",
+    "authors": [
+      "Gean Trindade Pereira",
+      "Thierry Urruty",
+      "Muriel Visani",
+      "André C. P. L. F. de Carvalho"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG",
+      "cs.NE"
+    ],
+    "published": "2026-10-03T22:18:58+00:00",
+    "updated": "2026-10-03T22:18:58+00:00",
+    "comments": "19 pages, 7 figures, 3 tables. Extends material from the first author's PhD thesis (University of Sao Paulo / La Rochelle Universite, 2024)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Neural Architecture Search (NAS) has proved to be a strong alternative to manual network design, but applying it to 3D medical image segmentation is limited by two well-known costs, large annotation budgets and multi-GPU clusters. Thus, this paper introduces Active-DiNTS (Active Differentiable Network Topology Search), an approach that embeds pool-based Active Learning (AL) into a bi-level differentiable topology search to perform architecture discovery and label curation jointly. At each query round, unlabeled MRI volumes are ranked by one of three uncertainty signals (Entropy, Variance, or Standard Deviation), and only the top-ranked volumes are sent to an oracle for annotation. The new labels feed two interlocked stages. Network weights are updated in an outer loop, while the macro/micro topology of a U-Net-style backbone is refined in an inner loop. Three AL regimes (weights-only, topology-only, joint) expose the speed-accuracy trade-off. Evaluations on the Medical Segmentation Decathlon (MSD) Task01 BrainTumour benchmark showed that Active-DiNTS surpasses DiNTS, C2FNAS, and nnU-Net in Dice, with gains of about 10 percentage points on Edema and 5 points on Non-Enhancing core, on a single GPU and using a fraction of the labeled volumes. The discovered architectures are denser and more FLOP-heavy than prior baselines, but remain competitive in trainable parameters and peak memory; the fastest search variant finishes in under 0.25 GPU-days, over 27x faster than the eight-GPU DiNTS search. Together, these results indicate that pairing differentiable NAS with active data acquisition is a practical recipe for accurate 3D segmentation under realistic constraints.",
+    "html_url": "https://arxiv.org/abs/2610.04787v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.04787v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.16373v1",
+    "title": "Cross-Source Supervision for Bone Infection Segmentation in Dual-Modality PET-CT",
+    "authors": [
+      "Zonglin Yang",
+      "Xiaolei Diao",
+      "Jishizhan Chen",
+      "Xiaozhuang Man",
+      "Wei Kong",
+      "Gen Wen",
+      "Pengfei Cheng",
+      "Daqian Shi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-10T17:22:42+00:00",
+    "updated": "2026-05-10T17:22:42+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Early and accurate diagnosis and lesion localization of bone infections are crucial for clinical treatment. PET-CT integrates anatomical information from CT with metabolic information from PET, making it an important imaging modality for diagnosing bone infections. However, accurate lesion segmentation remains challenging due to indistinct lesion boundaries and inconsistencies in annotations generated by different experts or automated systems. In this work, we investigate multimodal segmentation of bone infections under annotation discrepancy. We develop a bimodal end-to-end segmentation framework that integrates PET metabolic signals and CT bone-window anatomy through an early-fusion multimodal representation.To mitigate performance inflation caused by inter-slice correlation in small datasets, this study discards traditional two-dimensional evaluation methods and implements a rigorous patient-level 3D volumetric evaluation and cross-validation. Furthermore, instead of forcing a singular consensus, we propose a decoupled dual-source learning framework where parallel models are trained on independent expert annotations driven by high-sensitivity and high-specificity clinical intents. Experimental results objectively report performance variations at the patient level (Mean + SD and Mean - SD), demonstrating the effectiveness of multimodal PET-CT fusion. The cross-evaluation matrix quantitatively reveals how models successfully internalize distinct expert diagnostic philosophies, providing a robust, diversity-preserving paradigm for clinical AI deployment in bone infection segmentation.",
+    "html_url": "https://arxiv.org/abs/2605.16373v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.16373v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.09600v1",
+    "title": "Uncertainty-Guided Dual-Domain Learning for Reliable Skin Lesion Segmentation",
+    "authors": [
+      "Duwei Dai",
+      "Caixia Dong",
+      "Guowei Dai",
+      "Qingsen Yan",
+      "Qin Zhang",
+      "Fan Liu",
+      "Pengyu Ren",
+      "Guangyao Kong",
+      "Wei Zeng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-05-10T15:20:58+00:00",
+    "updated": "2026-05-10T15:20:58+00:00",
+    "comments": "34 pages, 11figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate skin lesion segmentation is vital for dermoscopic Computer-Aided Diagnosis. However, visual ambiguity and morphological irregularity often defeat spatial modeling, necessitating multi-domain architectures. Existing paradigms frequently overlook the active use of prediction uncertainty, leading to deterministic frameworks that suffer from blind cross-domain fusion and overfit to label noise. To address these issues, we propose the Uncertainty-Guided Dual-Domain Network (UGDD-Net).\n  UGDD-Net introduces a novel \"Glance-and-Gaze\" mechanism to transform uncertainty into an active guiding signal. Specifically, the Uncertainty-Guided Bi-directional Feature Fusion (UGBFF) module uses pixel-level uncertainty to modulate spatial-spectral interactions. The Uncertainty-Guided Graph Refinement (UGGR) module constructs a topology-aware graph to propagate reliable semantic consensus and refine uncertain nodes. Finally, the Uncertainty-Guided Margin-Adaptive Loss (UGML) enforces strict constraints on confident pixels while relaxing penalties on uncertain ones to improve statistical calibration.\n  Extensive experiments on ISIC2017, ISIC2018, PH2, and HAM10000 datasets demonstrate that UGDD-Net achieves state-of-the-art performance, especially on \"Hard Samples\". Our uncertainty maps align with expert inter-observer variability, providing robust interpretability for human-machine collaborative diagnosis.",
+    "html_url": "https://arxiv.org/abs/2605.09600v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.09600v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
