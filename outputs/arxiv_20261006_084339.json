@@ -1,0 +1,176 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.03474v1",
+    "title": "Fed-ADApt: Federated Anytime Depth Adaptation for Resource-Aware Medical Image Segmentation",
+    "authors": [
+      "Abhijeet Parida",
+      "Zhifan Jiang",
+      "Pooneh Roshanitabrizi",
+      "Austin Tapp",
+      "Maria J. Ledesma-Carbayo",
+      "Syed Muhammad Anwar",
+      "Ziyue Xu",
+      "Marius George Linguraru",
+      "Holger R. Roth"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-02T15:47:49+00:00",
+    "updated": "2026-10-02T15:47:49+00:00",
+    "comments": "Accepted to The 4th International Conference on Federated Learning Technologies and Applications (FLTA 2026)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Federated learning (FL) enables collaborative training of medical image segmentation models without sharing raw patient data, yet existing approaches assume a homogeneous compute budget across institutions, limiting participation of low-resource sites. We propose Fed-ADApt, a depth-adaptive federated framework for UNet-based segmentation that jointly addresses low-compute training and inference. Fed-ADApt integrates multi-depth supervision with hierarchical depth-wise aggregation, allowing each site to train according to its local compute budget while contributing to a global model that supports dynamic depth selection at deployment. We evaluated Fed-ADApt on multi-site 2D retinal fundus disc segmentation and 3D brain tumor segmentation. Across both tasks, federated collaboration substantially improves robustness under domain shift. Fed-ADApt matched the full-resource FedAvg performance in 3D and achieved competitive 2D performance with a 4.7% average Dice reduction, while reducing average inference cost by 19.5% in 3D and 34.5% in 2D and substantially reducing training cost by 98% at the most constrained sites. Importantly, Fed-ADApt enables low-resource institutions that cannot train full-capacity models to participate in federations while maintaining competitive global performance under a favorable accuracy to efficiency trade-off. By considering training and inference compute budgets, Fed-ADApt provides a practical and equitable solution for federated medical image segmentation across heterogeneous clinical and edge-enabled imaging environments.",
+    "html_url": "https://arxiv.org/abs/2610.03474v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.03474v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2509.25080v3",
+    "title": "Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI",
+    "authors": [
+      "Bogdan Raonić",
+      "Siddhartha Mishra",
+      "Samuel Lanthaler"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2025-09-29T17:21:25+00:00",
+    "updated": "2026-05-11T12:20:58+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Data-driven models are increasingly adopted in critical scientific fields like weather forecasting and fluid dynamics. These methods can fail on out-of-distribution (OOD) data, but detecting such failures in regression tasks is an open challenge. We propose a new OOD detection method based on estimating joint likelihoods using a score-based diffusion model. This approach considers not just the input but also the regression model's prediction, providing a task-aware reliability score. Across numerous scientific datasets, including PDE datasets, satellite imagery and brain tumor segmentation, we show that this likelihood strongly correlates with prediction error. Our work provides a foundational step towards building a verifiable 'certificate of trust', thereby offering a practical tool for assessing the trustworthiness of AI-based scientific predictions. Our code is publicly available at https://github.com/bogdanraonic3/OOD_Detection_ScientificML",
+    "html_url": "https://arxiv.org/abs/2509.25080v3",
+    "pdf_url": "https://arxiv.org/pdf/2509.25080v3",
+    "code_urls": [
+      "https://github.com/bogdanraonic3/OOD_Detection_ScientificML",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.05775v2",
+    "title": "The autoPET3 Challenge: Automated Lesion Segmentation in Whole-Body PET/CT $\\unicode{x2013}$ Multitracer Multicenter Generalization",
+    "authors": [
+      "Jakob Dexl",
+      "Katharina Jeblick",
+      "Andreas Mittermeier",
+      "Balthasar Schachtner",
+      "Anna Theresa Stüber",
+      "Johanna Topalis",
+      "Maximilian Rokuss",
+      "Fabian Isensee",
+      "Klaus H. Maier-Hein",
+      "Hamza Kalisch",
+      "Jens Kleesiek",
+      "Constantin M. Seibold",
+      "Hussain Alasmawi",
+      "Lap Yan Lennon Chan",
+      "Yixuan Yuan",
+      "Alexander Jaus",
+      "Rainer Stiefelhagen",
+      "Pauline Ornela Megne Choudja",
+      "Konstantin Nikolaou",
+      "Christian La Fougère",
+      "Sergios Gatidis",
+      "Matthias P. Fabritius",
+      "Maurice Heimer",
+      "Gizem Abaci",
+      "Lalith Kumar Shiyam Sundar",
+      "Rudolf A. Werner",
+      "Jens Ricke",
+      "Clemens C. Cyran",
+      "Thomas Küstner",
+      "Michael Ingrisch"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-07T07:07:09+00:00",
+    "updated": "2026-05-11T07:29:31+00:00",
+    "comments": "Preprint submitted to Medical Image Analysis",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We report the design and results of the third autoPET challenge (MICCAI 2024), which benchmarked automated lesion segmentation in whole-body PET/CT under a compositional generalization setting. Training data comprised 1,014 [18F]-FDG PET/CT studies from the University Hospital Tübingen and 597 [18F]/[68Ga]-PSMA PET/CT studies from the LMU University Hospital Munich, constituting the largest publicly available annotated PSMA PET/CT dataset to date. The held-out test set of 200 studies covered four tracer-center combinations, two of which represented unseen compositional pairings. A complementary data-centric award category isolated the contribution of data handling strategies by restricting participants to a fixed baseline model. Seventeen teams submitted 27 algorithms, predominantly nnU-Net-based 3D networks with PET/CT channel concatenation. The top-ranked algorithm achieved a mean DSC of 0.66, FNV of 3.18 mL, and FPV of 2.78 mL across all four test conditions, improving DSC by 8% and reducing the false-negative volume by 5 mL relative to the provided baseline. Ranking was stable across bootstrap resampling and alternative ranking schemes for the top tier. Beyond the benchmark, we provide an in-depth analysis of segmentation performance at the patient and lesion level. Three main conclusions can be drawn: (1) in-domain multitracer PET/CT segmentation is sufficient and probably approaching reader agreement; (2) compositional generalization to unseen tracer-center combinations remains an open problem mainly driven by systematic volume overestimation; (3) heterogeneity and case difficulty drive performance variation substantially more than the choice of algorithm among top-ranked teams.",
+    "html_url": "https://arxiv.org/abs/2605.05775v2",
+    "pdf_url": "https://arxiv.org/pdf/2605.05775v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.09925v1",
+    "title": "Frequency Adapter with SAM for Generalized Medical Image Segmentation",
+    "authors": [
+      "Phuoc-Nguyen Bui",
+      "Van-Nguyen Pham",
+      "Duc-Tai Le",
+      "Junghyun Bum",
+      "Hyunseung Choo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-11T03:21:41+00:00",
+    "updated": "2026-05-11T03:21:41+00:00",
+    "comments": "Under review, 10 pages, 1 figure, 2 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is a critical task in computer-aided diagnosis and treatment planning. However, deep learning models often struggle to generalize across datasets due to domain shifts arising from variations in imaging protocols, scanner types, and patient populations. Traditional domain generalization (DG) methods utilize causal feature learning, adversarial consistency, and style augmentation to improve segmentation robustness. While effective, these approaches rely on explicit feature alignment, adversarial objectives, or handcrafted augmentations, which may not fully exploit the capabilities of foundation models. Recently, the Segment Anything Model (SAM) has demonstrated strong generalization capabilities in segmentation tasks. SAM-based DG methods attempt to improve medical image segmentation. However, these approaches primarily operate in the spatial domain and overlook frequency-based discrepancies that significantly affect model robustness. In this work, we propose Frequency-based Domain Generalization with SAM (FSAM), a novel framework that integrates Low-Rank Adaptation (LoRA) for efficient fine-tuning and a frequency adapter to incorporate frequency-domain representations for single-source domain generalization. FSAM enhances SAM's segmentation robustness by extracting domain-invariant high-frequency features, mitigating frequency-related domain shifts. Experimental results on fundus and prostate datasets demonstrate that FSAM outperforms existing traditional DG and SAM-based DG approaches in domain generalization. Codes and pre-trained models will be made available on GitHub.",
+    "html_url": "https://arxiv.org/abs/2605.09925v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.09925v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.09666v1",
+    "title": "Rethinking Evaluation of Multiple Sclerosis (MS) Lesion Segmentation Models",
+    "authors": [
+      "Abdul Basit",
+      "Ashir Rashid",
+      "Muhammad Abdullah Hanif",
+      "Muhammad Shafique"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-10T17:31:21+00:00",
+    "updated": "2026-05-10T17:31:21+00:00",
+    "comments": "8 pages, 5 figures, Accepted to IJCNN 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multiple Sclerosis (MS) is a chronic autoimmune disease that can significantly reduce the quality of life of a patient. Existing treatment options can only help slow down the progression of the disease. Therefore, early detection and precise monitoring of disease progression are important. Deep learning offers state-of-the-art models for detecting and segmenting MS lesions in brain MRI scans. However, most of these models are evaluated using the Dice score, without accounting for lesion-wise detection and segmentation performance or other metrics that quantify model performance in cases that are complex or confusing for human annotators, or in cases that are essential for disease detection and progression monitoring. In this paper, we highlight the need to rethink the evaluation of MS lesion segmentation models. In this context, we first present problem fingerprinting in detail to highlight what neurologists look for in brain MRI scans for MS detection and progression monitoring, and which metrics are required to properly quantify model performance in these contexts. Additionally, we present an analysis of state-of-the-art models on two open-source datasets using these metrics to highlight their usability for real-world deployment in hospitals.",
+    "html_url": "https://arxiv.org/abs/2605.09666v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.09666v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
