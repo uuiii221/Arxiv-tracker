@@ -1,0 +1,149 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.08574v1",
+    "title": "FedDermaSeg: Federated Learning for Dermatological Image Segmentation",
+    "authors": [
+      "Anabik Pal",
+      "Ganesh Patidar",
+      "Bikash Santra"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-06T15:49:04+00:00",
+    "updated": "2026-10-06T15:49:04+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Skin cancer is a major global health concern, and early detection and accurate lesion delineation are important for effective diagnosis and treatment planning. Automated skin lesion analysis can assist dermatologists, with lesion segmentation serving as a fundamental step in computer-aided diagnostic systems. Conventional deep learning-based segmentation models typically rely on centralized training, where images and their corresponding segmentation masks are collected on a central server. Such data aggregation raises privacy concerns in medical applications and requires substantial centralized computational resources. To address these limitations, we investigate the feasibility of federated learning for privacy-preserving skin lesion segmentation. The training and validation sets of the ISIC 2018 Skin Lesion Segmentation Challenge dataset are used to simulate a distributed learning environment and develop a federated segmentation model. The resulting model is evaluated on the ISIC 2018 test set and the PH2 dataset to assess its performance and generalizability. Experimental results demonstrate that the federated model achieves performance comparable to centralized training while consistently improving upon the locally trained models. These findings demonstrate the potential of federated learning for collaborative skin lesion segmentation without requiring centralized aggregation of medical images.",
+    "html_url": "https://arxiv.org/abs/2610.08574v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.08574v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.01295v2",
+    "title": "Adaptive Bidirectional Task Interaction for Joint Segmentation and Classification of Breast Ultrasound",
+    "authors": [
+      "Abdullah Al Shafi",
+      "Md Kawsar Mahmud Khan Zunayed",
+      "Safin Ahmmed",
+      "Sk Imran Hossain",
+      "Engelbert Mephu Nguifo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-03-01T22:02:06+00:00",
+    "updated": "2026-10-06T13:32:02+00:00",
+    "comments": "10 pages, 2 figures, 2 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Joint lesion segmentation and tissue classification in breast ultrasound are usually trained with a shared encoder, so the two branches stop exchanging information once their decoders separate. That is exactly where boundary detail and semantic evidence are most complementary. The proposed method restores this exchange during decoding and, because its value differs between images, lets the network decide per image how much to keep. A Task Interaction Module (TIM) at each of four decoder levels passes pooled boundary context into the classification representation and modulates decoder channels with class-conditioned priors. An Adaptive Interaction Weighting (AIW) unit then blends interacted and original features with a coefficient computed for each image and level. On BUSI the model reaches 74.19% IoU and 90.60% accuracy, and on BUSI-WHU 86.40% IoU and 95.00% accuracy, ahead of encoder-sharing multi-task, transformer segmentation and decoder-interaction baselines evaluated under the same protocol. The ablation shows that multi-scale context and cross-task exchange are not independent: applied separately they contribute 4.00 points of IoU in total, applied together 6.76. Adding the adaptive blend to task interaction alone raises AUC from 94.41% to 97.31%, indicating that the blend acts primarily on the classification branch. Code: https://github.com/C-loud-Nine/Adaptive-Task-Interaction-BUS.",
+    "html_url": "https://arxiv.org/abs/2603.01295v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.01295v2",
+    "code_urls": [
+      "https://github.com/C-loud-Nine/Adaptive-Task-Interaction-BUS",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.06938v1",
+    "title": "UniPro: Unified Multi-Mode Medical Image Segmentation from 2D Images to 3D Volumes via Propagation",
+    "authors": [
+      "Bangwei Guo",
+      "Yunhe Gao",
+      "Meng Ye",
+      "Yang Zhou",
+      "Difei Gu",
+      "Guoning Zhang",
+      "Leon Axel",
+      "Dimitris Metaxas"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-03T06:41:17+00:00",
+    "updated": "2026-10-03T06:41:17+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation remains fragmented along two axes: segmentation paradigms and data dimensionality. Existing methods are typically developed separately for semantic, in-context, and interactive segmentation, and are further specialized to either native 2D images or 3D volumetric data. In clinical practice, however, segmentation workflows take many forms: a case may be initialized by semantic prediction, reference-guided segmentation, or user interaction. Regardless of how it begins, fine-grained refinement is naturally performed on 2D views; for volumetric scans, such 2D edits must propagate coherently to the rest of the volume. We present UniPro, a unified model that bridges segmentation paradigms and data dimensionality, using propagation to extend 2D segmentation to 3D volumes. Our key insight is that volumetric propagation and in-context segmentation share the same reference-conditioned prediction mechanism, differing only in whether the reference image-mask pairs come from other cases or from previously segmented neighboring slices. Building on this view, UniPro supports semantic, in-context, interactive, and propagation-based segmentation within a single slice-based framework, using class priors, reference exemplars, user clicks, and neighboring-slice predictions as mode-specific conditioning inputs. To improve propagation reliability, UniPro further incorporates bidirectional and 3D supervision to regularize slice-wise propagation beyond per-slice losses. Extensive experiments across diverse modalities and anatomies show that UniPro achieves strong performance across all segmentation settings, enabling annotation-efficient 3D segmentation from sparse 2D initialization and reducing slice-by-slice correction effort.",
+    "html_url": "https://arxiv.org/abs/2610.06938v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.06938v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.06518v3",
+    "title": "ADP-FL-MedSeg: Adaptive Differential Privacy for Federated Medical Segmentation Across Diverse Modalities",
+    "authors": [
+      "Puja Saha",
+      "Eranga Ukwatta"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "published": "2026-04-07T23:18:20+00:00",
+    "updated": "2026-05-09T21:03:39+00:00",
+    "comments": "10 pages, 8 figures. Accepted in SPIE Medical Imaging 2026. Recipient of CAD Best Paper Award: 1st Place, and Robert F. Wagner All-Conference Best Paper Award: Finalist",
+    "journal_ref": "Proceedings Volume 13926, SPIE Medical Imaging 2026: Computer-Aided Diagnosis",
+    "venue_inferred": null,
+    "summary": "Large volumes of medical data remain underutilized because centralizing distributed data is often infeasible due to strict privacy regulations and institutional constraints. In addition, models trained in centralized settings frequently fail to generalize across clinical sites because of heterogeneity in imaging protocols and continuously evolving data distributions arising from differences in scanners, acquisition parameters, and patient populations. Federated learning offers a promising solution by enabling collaborative model training without sharing raw data. However, incorporating differential privacy into federated learning, while essential for privacy guarantees, often leads to degraded accuracy, unstable convergence, and reduced generalization. In this work, we propose an adaptive differentially private federated learning (ADP-FL) framework for medical image segmentation that dynamically adjusts privacy mechanisms to better balance the privacy-utility trade-off. The proposed approach stabilizes training, significantly improves Dice scores and segmentation boundary quality, and maintains rigorous privacy guarantees. We evaluated ADP-FL across diverse imaging modalities and segmentation tasks, including skin lesion segmentation in dermoscopic images, kidney tumor segmentation in 3D CT scans, and brain tumor segmentation in multi-parametric MRI. Compared with conventional federated learning and standard differentially private federated learning, ADP-FL consistently achieves higher accuracy, improved boundary delineation, faster convergence, and greater training stability, with performance approaching that of non-private federated learning under the same privacy budgets. These results demonstrate the practical viability of ADP-FL for high-performance, privacy-preserving medical image segmentation in real-world federated settings.",
+    "html_url": "https://arxiv.org/abs/2604.06518v3",
+    "pdf_url": "https://arxiv.org/pdf/2604.06518v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.09025v1",
+    "title": "MedFL-Stress: A Systematic Robustness Evaluation of Federated Brain Tumor Segmentation under Cross-Hospital MRI Appearance Shift",
+    "authors": [
+      "Kiran Naseer",
+      "Naveed Anwer Butt"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-05-09T16:04:54+00:00",
+    "updated": "2026-05-09T16:04:54+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Federated learning enables hospitals to collaboratively train segmentation models without sharing patient data. However, current evaluation protocols report only average performance across clients, masking failures at individual sites. In clinical deployment, a model that fails consistently at one hospital is a real safety risk that a good mean score can hide entirely. We introduce MedFL-Stress, a controlled stress-testing framework that exposes exactly this failure mode. Using 2D axial slices from BraTS 2020 distributed across four simulated hospital clients, we apply graded MRI appearance shifts (gamma contrast, scale-shift, and noise-plus-blur) reflecting scanner and acquisition variability in real multi-site deployments. Three federated baselines are evaluated: FedAvg, FedProx, and FedBN. Worst-hospital Dice and inter-hospital disparity are treated as primary metrics, not supplementary observations. FedAvg achieves the highest global mean Dice (0.8159) but conceals a 0.0850 gap between its best and worst-performing hospital. FedBN closes that gap by 41% (0.0850 to 0.0503) while sacrificing less than half a Dice point in mean accuracy (0.8159 to 0.8109), and the weakest hospital gains 3.5 Dice points outright (0.7309 to 0.7656). These findings demonstrate that robustness-oriented evaluation protocols are essential for reliable federated medical imaging deployment.",
+    "html_url": "https://arxiv.org/abs/2605.09025v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.09025v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
