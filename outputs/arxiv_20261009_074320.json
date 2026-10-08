@@ -1,0 +1,141 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.10335v1",
+    "title": "When to Unpair: Regulating Pairing Dependence in Medical Visual In-Context Learning",
+    "authors": [
+      "Cheng Wan",
+      "Chenjun Li",
+      "Qingyu Zhao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-07T16:17:17+00:00",
+    "updated": "2026-10-07T16:17:17+00:00",
+    "comments": "24 pages, 12 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Visual in-context learning (ICL), well suited to label-scarce medical imaging, uses support image-label pairs to demonstrate input-output mappings, while the labels collectively indicate the requested task. We diagnose dependence on individual pairings with a test-time derangement that reassigns every support label to another support image while preserving the query, support images, and label multiset. The resulting pairing gap, defined as shuffled-minus-matched performance, shows that all four released models depend on the pairing, to widely varying degrees. Further analysis of a paired-trained model reveals support-associated spurious regions and lesion-size biases even with real, unaltered supports, alongside sensitivity to mis-registered support labels. To regulate this dependence, we introduce a late unpairing curriculum (LUC), which starts with matched training and then applies random unpairing, replacing each support label with that of another support in the same episode. LUC nearly closes the pairing gap on two backbones while maintaining or improving matched-support performance across all evaluated task types, with gains extending to held-out tasks and cross-dataset episodes. It also mitigates these failure modes. On BraTS whole-tumor segmentation, matched-support DSC rises from 0.733 to 0.857 while the gap shrinks from -0.184 to -0.008. In a released model, brief fine-tuning with random unpairing reduces the gap. A reversed curriculum that places the same number of unpairing epochs at the start of training leaves a large gap. This shows that pairing dependence is shaped by the order of training and not only by the amount of unpaired training.",
+    "html_url": "https://arxiv.org/abs/2610.10335v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.10335v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.08015v3",
+    "title": "Component-Adaptive and Lesion-Level Supervision for Improved Small Structure Segmentation in Brain MRI",
+    "authors": [
+      "Minh Sao Khue Luu",
+      "Evgeniy N. Pavlovskiy",
+      "Bair N. Tuchinov"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-04-09T09:15:10+00:00",
+    "updated": "2026-10-07T14:27:39+00:00",
+    "comments": "This version added evaluation on a second dataset (3D-MR-MS) and a held-out test set; added statistical significance tests and error analysis; added new references; corrected the optimizer description; update figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Small lesions in brain MRI are hard to segment because they occupy a tiny fraction of the volume and are dominated by background and larger lesions during voxel-wise optimization, so a model can reach a high Dice similarity coefficient (DSC) while missing many of them. We propose CATMIL, a training objective that adds two auxiliary terms to the standard nnU-Net Dice and cross-entropy loss without changing the architecture. The Component-Adaptive Tversky (CAT) term weights lesion voxels by the inverse size of their connected component, so each lesion contributes nearly equally regardless of volume. The lesion-level Multiple Instance Learning (MIL) term treats each lesion as a bag of voxels and penalizes lesions with no detected voxel. For multiple sclerosis lesion segmentation on MSLesSeg, CATMIL achieves the highest small-lesion recall (0.873 vs. 0.796 for Dice+CE; 95% CI of the difference +0.030 to +0.157, higher in all six test patients) and about 48% fewer missed lesions, with comparable DSC and HD95. The gain holds for lesions of at least 3 mm in diameter, the clinical reading size (recall 0.944 vs. 0.870). Standard losses produce no probability response to most small lesions they miss, so no threshold can recover them. The cost is more small false-positive components; a simple component-size filter removes most of them while keeping the sensitivity gain, and at matched lesion-wise precision CATMIL detects more small lesions with higher lesion-wise F1. An ablation attributes the detection gain to the MIL term. On a second dataset, 3D-MR-MS, CATMIL with the same loss weights again improves small-lesion recall, at a larger false-positive cost and slightly lower DSC. Code: https://github.com/luumsk/SmallLesionMRI",
+    "html_url": "https://arxiv.org/abs/2604.08015v3",
+    "pdf_url": "https://arxiv.org/pdf/2604.08015v3",
+    "code_urls": [
+      "https://github.com/luumsk/SmallLesionMRI",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.09392v1",
+    "title": "Quantifying Volumetric Risk: Class-Aware Asymmetric Weighted Conformal Prediction for 3D Medical Image Segmentation",
+    "authors": [
+      "Shadi Alijani",
+      "Fereshteh Aghaee Meibodi",
+      "Homayoun Najjaran"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-07T03:51:16+00:00",
+    "updated": "2026-10-07T03:51:16+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Reliable volumetric segmentation is critical for clinical diagnostics, yet foundation models such as MedSAM remain deterministic and lack calibrated uncertainty under distribution shift. Existing conformal prediction methods offer statistical guarantees but are frequently applied in 2D and assume symmetric error distributions, so they do not capture the class-specific biases that arise in 3D multi-class segmentation. We propose Class-Aware Asymmetric Weighted Conformal Prediction (CA-WCP), which combines latent-space density-ratio weighting for covariate shift with directional quantiles for the lower and upper volume bounds, and scales each bound by a class-specific asymmetry factor derived from validation-set false-positive and false-negative rates. We prove that CA-WCP retains the weighted-exchangeability marginal coverage guarantee for every class, and we evaluate it on 3D brain tumor segmentation (BraTS 2020) and on a synthetic multi-organ CT benchmark constructed under covariate shift. On both benchmarks the 95\\% Clopper--Pearson interval for the observed coverage of CA-WCP contains the nominal 90\\% level for every semantic class, while interval width is reduced by 8--14\\% relative to symmetric weighted conformal prediction. We further encode the calibrated intervals into structured prompts for a multimodal large language model to produce uncertainty-conditioned radiology reports, linking distribution-shift-aware uncertainty quantification to interpretable clinical communication.",
+    "html_url": "https://arxiv.org/abs/2610.09392v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.09392v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.09002v1",
+    "title": "CT-IDP: Segmentation-Derived Quantitative Phenotypes for Interpretable Abdominal CT Disease Classification",
+    "authors": [
+      "Lavsen Dahal",
+      "Joseph Y. Lo"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-09T15:39:02+00:00",
+    "updated": "2026-05-09T15:39:02+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "In this retrospective multi-institutional study, a quantitative phenotyping framework, CT-IDP (CT Image-Derived Phenotypes) was developed on the MERLIN abdominal CT benchmark (training, validation, and test sets- 15,175, 5,018, and 5,082 studies, respectively) and externally evaluated on two independent dataset: Duke-Abdomen (2,000) and AMOS (1,107). Multi-organ segmentations were generated with TotalSegmentator and used to derive over 900 organ and compartment-level descriptors spanning morphometry, attenuation, and contextual/burden findings. Sparse disease-specific logistic regression with elastic-net regularization was trained on MERLIN and externally validated under a frozen specification. Performance was compared against a DINOv3-based vision-transformer baseline using AUC and average precision (AP), supported by phenotype-stratified audits and coefficient-level inspection. Macro-AUC for CT-IDP versus the baseline was 0.897 versus 0.880 on MERLIN, 0.877 versus 0.857 on the Duke-Abdomen dataset, and 0.780 versus 0.756 on AMOS.",
+    "html_url": "https://arxiv.org/abs/2605.09002v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.09002v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.10984v1",
+    "title": "Principle-Guided Supervision for Interpretable Uncertainty in Medical Image Segmentation",
+    "authors": [
+      "An Sui",
+      "Yuzhu Li",
+      "Gunter Schumann",
+      "Fuping Wu",
+      "Xiahai Zhuang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-09T05:17:20+00:00",
+    "updated": "2026-05-09T05:17:20+00:00",
+    "comments": "14 pages, 8 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Uncertainty quantification complements model predictions by characterizing their reliability, which is essential for high-stakes decision making such as medical image segmentation. However, most existing methods reduce uncertainty to a scalar confidence estimate, leaving its spatial distribution semantically underconstrained. In this work, we focus on uncertainty interpretability, namely, whether estimated uncertainty behaves in a human-understandable manner with respect to sources of ambiguity. We identify three perception-aligned principles requiring the spatial distribution of uncertainty to reflect: (1) image contrast between structures, (2) severity of image corruption, and (3) geometric complexity in anatomical structures. Accordingly, we develop a principle-guided uncertainty supervision framework (PriUS) based on evidential learning, in which the corresponding supervision objectives are explicitly enforced during training. We further introduce quantitative metrics to measure the consistency between predicted uncertainty and image attributes that induce ambiguity. Experiments on ACDC, ISIC, and WHS datasets showed that, compared with state-of-the-art methods, PriUS produced more consistent uncertainty estimates while maintaining competitive segmentation performance.",
+    "html_url": "https://arxiv.org/abs/2605.10984v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.10984v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
