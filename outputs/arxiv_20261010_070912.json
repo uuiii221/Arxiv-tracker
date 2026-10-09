@@ -1,0 +1,164 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.11748v1",
+    "title": "DEX: Digit-Level Early Exit for Energy-Efficient MSDF Neural Network Inference",
+    "authors": [
+      "Yousef Sadegheih",
+      "Dorit Merhof",
+      "Muhammad Usman"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.AR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-10-08T11:39:01+00:00",
+    "updated": "2026-10-08T11:39:01+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "U-Net inference for brain-tumor segmentation requires billions of multiply-accumulate operations, motivating hardware that can reduce computation dynamically rather than relying only on fixed precision or static model compression. Most-significant-digit-first (MSDF) arithmetic exposes the leading digits of a result during computation, enabling output-dependent decisions before the full value is generated. This paper presents an MSDF accelerator for quantized U-Net segmentation with a two-stage grouped processing element supporting signed INT8 operands and in-stream bias accumulation. Four runtime mechanisms operate directly on the output digit stream: exact early negative detection (END) in ReLU layers, exact sign-only decision making in the segmentation head, calibrated low-order-digit skipping, and calibrated pruning. The two approximate mechanisms are selected offline under an accuracy constraint, while execution requires only lightweight control and does not modify the stored weights. On a residual U-Net trained with nnU-Net for BraTS, the proposed mechanisms reduce digit cycles by 38.38\\% while achieving a mean Dice score of 80.58\\% on 73 held-out cases, compared with 81.20\\% for the floating-point model; the exact mechanisms alone reduce cycles by 18.79\\% without altering the quantized output. Synthesized in 45~nm, the processing element operates at 500~MHz, occupies 0.858~mm$^2$, and consumes 0.726~mJ per $192\\times192$ patch under switching-activity-annotated power analysis. A projected eight-output accelerator with shared activation delivery achieves 16.6~ms latency and 1.67~mJ per patch.",
+    "html_url": "https://arxiv.org/abs/2610.11748v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.11748v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.11419v1",
+    "title": "Missing Modality-Aware Calibration for Trustworthy Brain Tumor Segmentation",
+    "authors": [
+      "Sol Lee",
+      "Hyunji Kim",
+      "Sungrae Hong",
+      "Donghee Han",
+      "Mun Yi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-08T07:46:21+00:00",
+    "updated": "2026-10-08T07:46:21+00:00",
+    "comments": "MICCAI2026 poster",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multimodal brain tumor segmentation typically leverages multiple MRI modalities, yet incomplete modality acquisition is common in clinical practice due to protocol heterogeneity and scan failures. Although recent methods maintain segmentation accuracy under missing modality conditions, they frequently overlook prediction reliability, leading to miscalibrated confidence estimates that hinder clinical adoption. Existing calibration techniques are largely modality-agnostic or assume that prediction difficulty decreases monotonically as additional modalities become available. However, in brain tumor segmentation, prediction difficulty depends primarily on which modalities are absent rather than how many, leading to combination-specific and spatially heterogeneous calibration errors. To address this, we propose Missing Modality-Aware Local Temperature Scaling (MMA-LTS), a post-hoc voxel-wise confidence calibration method. It estimates a spatially adaptive temperature field conditioned on a modality-availability learnable token and a voxel-wise difficulty score. Experiments on BraTS 2020 and FeTS 2024 show that MMA-LTS improves calibration while preserving the segmentation accuracy of state-of-the-art models across diverse missing-modality scenarios, thereby enhancing trustworthiness toward clinical deployment.",
+    "html_url": "https://arxiv.org/abs/2610.11419v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.11419v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.07955v1",
+    "title": "TimeLesSeg: Unified Contrast-Agnostic Cross-Sectional and Longitudinal MS Lesion Segmentation via a Stochastic Generative Model",
+    "authors": [
+      "Vicent Caselles-Ballester",
+      "Eloy Martínez-Heras",
+      "Giuseppe Pontillo",
+      "Zoe Mendelsohn",
+      "Elena M. Marrón",
+      "Juan Luis García Fernández",
+      "Laia Subirats",
+      "Jon Stutters",
+      "Jeremy Chataway",
+      "Frederik Barkhof",
+      "Sara Llufriu",
+      "Ferran Prados"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-05-08T16:19:34+00:00",
+    "updated": "2026-05-08T16:19:34+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multiple sclerosis (MS) expresses substantial clinical and radiological heterogeneity, which poses significant challenges for automatic lesion segmentation. The current deep learning-based SOTA is highly susceptible to changes in both distribution, e.g., changes in scanner; as well as the structure of inputs, evident in the current divide between cross-sectional and longitudinal approaches. We introduce TimeLesSeg, a unified contrast-agnostic framework designed to segment MS lesions regardless of the presence of a temporal dimension in its inputs, with a single convolutional neural network. Our approach models pathological priors through lesion masks, which are processed together with the current scan. Cross-sectional processing is enabled by exposing the model to training cases where no prior information is available, which are modeled with an empty mask, allowing it to operate seamlessly in both scenarios. To overcome the scarcity and inconsistency of longitudinal datasets, we propose a novel generative pipeline in which patterns of lesion evolution are simulated by stochastically deforming each individual lesion with morphological operations, producing realistic prior timepoints. In parallel, we achieve contrast agnosticism through Gaussian mixture model-based domain randomization, enabling the network to experience a wide spectrum of intensity profiles. Results on three publicly available and two in-house datasets show that TimeLesSeg outperforms the contrast-agnostic state of the art on single-modality inputs across overlap- and distance-based metrics. In longitudinal processing, our method outperforms SAMSEG, and captures lesion load dynamics more accurately than both the former and LST-AI. All source code related to the development of TimeLesSeg is available at https://github.com/NeuroADaS-Lab/TimeLesSeg.",
+    "html_url": "https://arxiv.org/abs/2605.07955v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.07955v1",
+    "code_urls": [
+      "https://github.com/NeuroADaS-Lab/TimeLesSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2402.02286v4",
+    "title": "Attention-Mamba: A Mamba-Enhanced Multi-Scale Parallel Inference Network for Medical Image Segmentation",
+    "authors": [
+      "Yanhua Zhang",
+      "Ke Zhang",
+      "Jingyu Wang",
+      "Gabriella Balestra",
+      "Samanta Rosati",
+      "Yulin Wu",
+      "Wuwei Wang",
+      "Valentina Giannini"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2024-02-03T22:51:17+00:00",
+    "updated": "2026-05-08T09:52:25+00:00",
+    "comments": "14 pages, 9 figures and 8 Tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "U-shaped architectures have long dominated the field of medical image segmentation, while Transformers are widely employed for modeling long-range dependencies. The former typically handles scale variations implicitly by aggregating multi-level features, whereas the efficiency of the latter is constrained by its quadratic computational and memory complexity. In this work, we propose an effective alternative to traditional U-shaped architectures by constructing parallel branches at different levels to obtain multi-scale features and corresponding predictions. Furthermore, we enhance our network by integrating Mamba, a state space model that captures long-range dependencies with linear complexity. First, a dual-path architecture with lateral connections aggregates high-level semantic information and low-level spatial details at each branch. Then, we introduce a Recursive Alignment Module (RAM) that restores spatial details in low-resolution features through stepwise alignment, optimizing them for subsequent global feature learning and multi-scale fusion. We further build parallel Mamba branches upon aligned features to establish hierarchical global representations. Finally, we propose a Mamba-based attention mechanism for adaptive multi-scale prediction fusion; this mechanism utilizes Mamba to enhance information exchange across scales along both the channel and spatial dimensions. Experiments across three imaging modalities (MRI, CT, and dermoscopy) underscore the superior generalization of the proposed network. Compared to state-of-the-art 2D CNN, Transformer, and Mamba-based networks, our model achieves the highest segmentation performance on the Synapse, ACDC, ISIC-2018, and PH2 datasets while maintaining high efficiency, featuring the second-smallest parameters (14.05 M) and moderate computational complexity (8.94 GFLOPs).",
+    "html_url": "https://arxiv.org/abs/2402.02286v4",
+    "pdf_url": "https://arxiv.org/pdf/2402.02286v4",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2508.20909v2",
+    "title": "Dino U-Net: Exploiting High-Fidelity Dense Features from Foundation Models for Medical Image Segmentation",
+    "authors": [
+      "Haoyue Li",
+      "Yifan Gao",
+      "Feng Yuan",
+      "Xiaosong Wang",
+      "Xin Gao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "eess.IV"
+    ],
+    "published": "2025-08-28T15:38:50+00:00",
+    "updated": "2026-05-08T06:39:51+00:00",
+    "comments": "MICCAI 2026",
+    "journal_ref": null,
+    "venue_inferred": "MICCAI 2026",
+    "summary": "Foundation models pre-trained on large-scale natural image datasets offer a powerful paradigm for medical image segmentation. However, effectively transferring their learned representations for precise clinical applications remains a challenge. In this work, we propose Dino U-Net, a novel encoder-decoder architecture designed to exploit the high-fidelity dense features of the DINOv3 vision foundation model. Our architecture introduces an encoder built upon a frozen DINOv3 backbone, which employs a specialized adapter to fuse the model's rich semantic features with low-level spatial details. To preserve the quality of these representations during dimensionality reduction, we design a new fidelity-aware projection module (FAPM) that effectively refines and projects the features for the decoder. We conducted extensive experiments on seven diverse public medical image segmentation datasets. Our results show that Dino U-Net achieves state-of-the-art performance, consistently outperforming previous methods across various imaging modalities. Our framework proves to be highly scalable, with segmentation accuracy consistently improving as the backbone model size increases up to the 7-billion-parameter variant. The findings demonstrate that leveraging the superior, dense-pretrained features from a general-purpose foundation model provides a highly effective and parameter-efficient approach to advance the accuracy of medical image segmentation. The code is available at https://github.com/yifangao112/DinoUNet.",
+    "html_url": "https://arxiv.org/abs/2508.20909v2",
+    "pdf_url": "https://arxiv.org/pdf/2508.20909v2",
+    "code_urls": [
+      "https://github.com/yifangao112/DinoUNet",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
