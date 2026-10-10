@@ -1,0 +1,148 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2601.01285v2",
+    "title": "S2M-Net: Spectral-Spatial Mixing for Medical Image Segmentation with Morphology-Aware Adaptive Loss",
+    "authors": [
+      "Md. Sanaullah Chowdhury Lameya Sabrin"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-01-03T21:03:54+00:00",
+    "updated": "2026-05-08T06:18:05+00:00",
+    "comments": "I would like to withdraw the paper from arXiv because the current version contains issues that need to be carefully revised before public dissemination",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation requires balancing local precision for boundary-critical clinical applications, global context for anatomical coherence, and computational efficiency for deployment on limited data and hardware a trilemma that existing architectures fail to resolve. Although convolutional networks provide local precision at $\\mathcal{O}(n)$ cost but limited receptive fields, vision transformers achieve global context through $\\mathcal{O}(n^2)$ self-attention at prohibitive computational expense, causing overfitting on small clinical datasets. We propose S2M-Net, a 4.7M-parameter architecture that achieves $\\mathcal{O}(HW \\log HW)$ global context through two synergistic innovations: (i) Spectral-Selective Token Mixer (SSTM), which exploits the spectral concentration of medical images via truncated 2D FFT with learnable frequency filtering and content-gated spatial projection, avoiding quadratic attention cost while maintaining global receptive fields; and (ii) Morphology-Aware Adaptive Segmentation Loss (MASL), which automatically analyzes structure characteristics (compactness, tubularity, irregularity, scale) to modulate five complementary loss components through constrained learnable weights, eliminating manual per-dataset tuning. Comprehensive evaluation in 16 medical imaging datasets that span 8 modalities demonstrates state-of-the-art performance: 96.12\\% Dice on polyp segmentation, 83.77\\% on surgical instruments (+17.85\\% over the prior art) and 80.90\\% on brain tumors, with consistent 3-18\\% improvements over specialized baselines while using 3.5--6$\\times$ fewer parameters than transformer-based methods.",
+    "html_url": "https://arxiv.org/abs/2601.01285v2",
+    "pdf_url": "https://arxiv.org/pdf/2601.01285v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.07221v1",
+    "title": "DINO-MVR: Multi-View Readout of Frozen DINOv3 for Annotation-Efficient Medical Segmentation",
+    "authors": [
+      "Wei Jiang",
+      "Feng Liu",
+      "Nan Ye",
+      "Hongfu Sun"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-08T04:13:01+00:00",
+    "updated": "2026-05-08T04:13:01+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Adapting foundation models to medical segmentation typically requires either backbone fine-tuning or high-capacity task-specific decoders, both of which are difficult to fit reliably when annotations are scarce. We show that frozen DINOv3 features already contain useful structural and boundary cues for medical segmentation, and that the main bottleneck lies in how these features are read out. We propose DINO-MVR, a Multi-View Readout framework for annotation-efficient medical segmentation. DINO-MVR trains only lightweight MLP probes on features from the final three transformer blocks of a frozen DINOv3 backbone, without updating the backbone itself. At inference, each input is interpreted through complementary resolutions and test-time augmentations, whose probability maps are combined by entropy-weighted fusion and refined with simple spatial regularization. For volumetric inputs, Gaussian z-axis smoothing further improves inter-slice consistency. Under fixed evaluation protocols on endoscopy, dermoscopy, and MRI benchmarks, DINO-MVR achieves strong readout-only performance, including 0.895 Dice on Kvasir-SEG, 0.897 Dice on ISIC 2018, and 0.908 Dice on BraTS FLAIR whole-tumor segmentation. With only five annotated BraTS patients, it recovers 98.4% of the performance obtained by the 40-patient BraTS reference run. These results suggest that frozen self-supervised vision backbones can support accurate medical segmentation when paired with an effective multi-view readout.",
+    "html_url": "https://arxiv.org/abs/2605.07221v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.07221v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2508.06805v2",
+    "title": "Edge Detection for Organ Boundaries via Top Down Refinement and SubPixel Upsampling",
+    "authors": [
+      "Aarav Mehta",
+      "Priya Deshmukh",
+      "Vikram Singh",
+      "Siddharth Malhotra",
+      "Krishnan Menon Iyer",
+      "Tanvi Iyer"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-08-09T03:28:12+00:00",
+    "updated": "2026-05-07T19:07:24+00:00",
+    "comments": "arXiv admin note: This submission has been withdrawn due to violation of arXiv policies for acceptable submissions",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate localization of organ boundaries is critical in medical imaging for segmentation, registration, surgical planning, and radiotherapy. While deep convolutional networks (ConvNets) have advanced general-purpose edge detection to near-human performance on natural images, their outputs often lack precise localization, a limitation that is particularly harmful in medical applications where millimeter-level accuracy is required. Building on a systematic analysis of ConvNet edge outputs, we propose a medically focused crisp edge detector that adapts a novel top-down backward refinement architecture to medical images (2D and volumetric). Our method progressively upsamples and fuses high-level semantic features with fine-grained low-level cues through a backward refinement pathway, producing high-resolution, well-localized organ boundaries. We further extend the design to handle anisotropic volumes by combining 2D slice-wise refinement with light 3D context aggregation to retain computational efficiency. Evaluations on several CT and MRI organ datasets demonstrate substantially improved boundary localization under strict criteria (boundary F-measure, Hausdorff distance) compared to baseline ConvNet detectors and contemporary medical edge/contour methods. Importantly, integrating our crisp edge maps into downstream pipelines yields consistent gains in organ segmentation (higher Dice scores, lower boundary errors), more accurate image registration, and improved delineation of lesions near organ interfaces. The proposed approach produces clinically valuable, crisp organ edges that materially enhance common medical-imaging tasks.",
+    "html_url": "https://arxiv.org/abs/2508.06805v2",
+    "pdf_url": "https://arxiv.org/pdf/2508.06805v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2508.06816v3",
+    "title": "DualResolution Residual Architecture with Artifact Suppression for Melanocytic Lesion Segmentation",
+    "authors": [
+      "Vikram Singh",
+      "Kabir Malhotra",
+      "Rohan Desai",
+      "Ananya Shankaracharya",
+      "Priyadarshini Chatterjee",
+      "Krishnan Menon Iyer"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-08-09T04:30:34+00:00",
+    "updated": "2026-05-07T19:07:10+00:00",
+    "comments": "arXiv admin note: This submission has been withdrawn due to violation of arXiv policies for acceptable submissions",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Lesion segmentation, in contrast to natural scene segmentation, requires handling subtle variations in texture and color, frequent imaging artifacts (such as hairs, rulers, and bubbles), and a critical need for precise boundary localization to aid in accurate diagnosis. The accurate delineation of melanocytic tumors in dermoscopic images is a crucial component of automated skin cancer screening systems and clinical decision support. In this paper, we present a novel dual-resolution architecture inspired by ResNet, specifically tailored for the segmentation of melanocytic tumors. Our approach incorporates a high-resolution stream that preserves fine boundary details, alongside a complementary pooled stream that captures multi-scale contextual information for robust lesion recognition. These two streams are closely integrated through boundary-aware residual connections, which inject edge information into deep feature maps, and a channel attention mechanism that adapts the model's sensitivity to color and texture variations in dermoscopic images. To tackle common imaging artifacts and the challenges posed by small clinical datasets, we introduce a lightweight artifact suppression block and a multi-task training strategy. This strategy combines the Dice-Tversky loss with an explicit boundary loss and a contrastive regularizer to enhance feature stability. This unified design enables the model to generate pixel-accurate segmentation masks without the need for extensive post-processing or complex pre-training. Extensive evaluation on public dermoscopic benchmarks reveals that our method significantly enhances boundary precision and clinically relevant segmentation metrics, outperforming traditional encoder-decoder baselines. This makes our approach a valuable component for building automated melanoma assessment systems.",
+    "html_url": "https://arxiv.org/abs/2508.06816v3",
+    "pdf_url": "https://arxiv.org/pdf/2508.06816v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.06859v1",
+    "title": "Knowledge Transfer Scaling Laws for 3D Medical Imaging",
+    "authors": [
+      "Ho Hin Lee",
+      "Dongna Du",
+      "Chu Wang",
+      "Yuankai Huo",
+      "Shi Gu",
+      "James C. Gee",
+      "Yifan Wu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "published": "2026-05-07T19:00:12+00:00",
+    "updated": "2026-05-07T19:00:12+00:00",
+    "comments": "20 Pages",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Vision foundation models are increasingly moving beyond 2D to volumetric domains such as 3D medical imaging, where unified pretraining across different imaging modalities (i.e. CT, MRI, and PET) could provide foundational models for diverse clinical tasks. However, training such models requires mixing heterogeneous imaging domains, and current mixture strategies remain largely heuristic. In this work, we observe that different medical imaging domains scale at variable rates during pretraining, and knowledge transfer between domains is strongly asymmetric: training on one domain can substantially improve another, but the reverse may be much weaker. Interestingly, both MAE reconstruction loss and cross-domain transfer follow predictable power-law trends with domain-specific behaviors. Motivated by these findings, we formulate data allocation as a scaling-law optimization problem. The derived allocations reveal an interpretable hub-and-island structure: highly transferable domains emerge as hubs that benefit many others and deserve strategic allocation, while isolated domains act as islands requiring direct investment. Empirically, transfer-aware allocation outperforms data-proportional sampling by up to 58% and generalizes well to unseen budgets with r=0.989. Downstream validation on disease classification and organ/lesion segmentation further confirms that the derived transfer-aware mixtures provide stronger pretrained representations for clinical 3D medical imaging tasks.",
+    "html_url": "https://arxiv.org/abs/2605.06859v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.06859v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
