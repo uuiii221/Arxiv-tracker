@@ -1,0 +1,624 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-10-12 06:46</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261012_0646</div>
+    <div class="row"><div class="card">
+<div class="title">ZScribbleSeg: A comprehensive segmentation framework with modeling of efficient annotation and maximization of scribble supervision</div>
+<div class="meta-line">Authors: Ke Zhang, Bomin Wang, Hangqi Zhou, Xiahai Zhuang</div>
+<div class="meta-line">First: 2026-05-07T13:41:15+00:00 · Latest: 2026-05-07T13:41:15+00:00</div>
+<div class="meta-line">Comments: Accepted by Medical Image Analysis</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.06266v1">Abs</a> · <a href="https://arxiv.org/pdf/2605.06266v1">PDF</a> · <a href="https://github.com/DLwbm123/ZScribbleSeg">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Curating fully annotated datasets for medical image segmentation is labour-intensive and expertise-demanding. To alleviate this problem, prior studies have explored scribble annotations for weakly supervised segmentation. Existing solutions mainly compute losses on annotated areas and generate pseudo labels by propagating annotations to adjacent regions. However, these methods often suffer from inaccurate and unrealistic segmentations due to insufficient supervision and incomplete shape information. In contrast, we first investigate the principle of good scribble annotations, which leads to efficient scribble forms via supervision maximization and randomness simulation. We further introduce regularization terms to encode the spatial relationship and the shape constraints, where the EM algorithm is utilized to estimate the mixture ratios of label classes. These ratios are critical in identifying the unlabeled pixels for each class and correcting erroneous predictions, thus the accurate estimation lays the foundation for the incorporation of spatial prior. Finally, we integrate the efficient scribble supervision with the prior into a framework, referred to as ZScribbleSeg, and apply it to multiple scenarios. Leveraging only scribble annotations, ZScribbleSeg achieves competitive performance on six segmentation tasks including ACDC, MSCMRseg, BTCV, MyoPS, Decathlon-BrainTumor and Decathlon-Prostate. Our code will be released via https://github.com/DLwbm123/ZScribbleSeg.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>ZScribbleSeg：一个综合分割框架，通过建模高效标注和最大化涂鸦监督</div>
+<div class="mono" style="margin-top:8px">为医学图像分割整理完全标注的数据集是劳动密集且需要专业知识的。为缓解这一问题，先前研究探索了涂鸦标注用于弱监督分割。现有解决方案主要在标注区域计算损失，并通过将标注传播到相邻区域来生成伪标签。然而，这些方法常因监督不足和形状信息不完整而导致分割不准确和不真实。相比之下，我们首先研究了良好涂鸦标注的原则，通过监督最大化和随机性模拟得出高效的涂鸦形式。我们进一步引入正则化项来编码空间关系和形状约束，其中利用EM算法估计标签类别的混合比例。这些比例对于识别每个类别的未标注像素和纠正错误预测至关重要，因此准确估计为纳入空间先验奠定了基础。最后，我们将高效涂鸦监督与先验整合到一个框架中，称为ZScribbleSeg，并将其应用于多个场景。仅利用涂鸦标注，ZScribbleSeg在六个分割任务上取得了有竞争力的性能，包括ACDC、MSCMRseg、BTCV、MyoPS、Decathlon-BrainTumor和Decathlon-Prostate。我们的代码将通过https://github.com/DLwbm123/ZScribbleSeg发布。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">This work addresses the labor-intensive and expertise-demanding nature of fully annotated medical image segmentation by improving weakly supervised segmentation from scribble annotations, since existing methods often produce inaccurate segmentations due to insufficient supervision and incomplete shape information. The authors first investigate the principle of good scribble annotations, deriving efficient scribble forms through supervision maximization and randomness simulation, and then introduce regularization terms to encode spatial relationships and shape constraints, using an EM algorithm to estimate label class mixture ratios that identify unlabeled pixels per class and correct erroneous predictions. Integrating these components into a framework called ZScribbleSeg, they evaluate it on six segmentation tasks (ACDC, MSCMRseg, BTCV, MyoPS, Decathlon-BrainTumor, and Decathlon-Prostate) and show that using only scribble annotations it achieves competitive performance.</div>
+<div class="mono" style="margin-top:8px">针对医学图像分割中全标注数据制作耗时且依赖专家的问题，本文改进基于涂鸦标注的弱监督分割，因为现有方法常因监督不足和形状信息不完整而产生不准确的分割。作者首先研究良好涂鸦标注的原则，通过监督最大化和随机性模拟得到高效涂鸦形式，进而引入正则化项编码空间关系和形状约束，并利用EM算法估计标签类别的混合比例，该比例对于识别每个类别的未标注像素和纠正错误预测至关重要。将这些组件整合为ZScribbleSeg框架后，在六个分割任务（ACDC、MSCMRseg、BTCV、MyoPS、Decathlon-BrainTumor和Decathlon-Prostate）上进行评估，结果表明仅使用涂鸦标注即可取得有竞争力的性能。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Beyond Forgetting in Continual Medical Image Segmentation: A Comprehensive Benchmark Study</div>
+<div class="meta-line">Authors: Bomin Wang, Hangqi Zhou, Yibo Gao, Xiahai Zhuang</div>
+<div class="meta-line">First: 2026-05-07T12:48:56+00:00 · Latest: 2026-05-07T12:48:56+00:00</div>
+<div class="meta-line">Comments: Submitted to a journal</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.06160v1">Abs</a> · <a href="https://arxiv.org/pdf/2605.06160v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Continual learning (CL) is essential for deploying medical image segmentation models in clinical environments where imaging domains, anatomical targets, and diagnostic tasks evolve over time. However, continual segmentation still faces three main challenges. First, the scenarios for this task remain insufficiently standardized for real-world clinical settings. Second, existing research has been primarily focused on mitigating forgetting, overlooking the other essential properties such as plasticity. Third, a benchmark work with comprehensive evaluation on existing methods is stll desirable. To address these gaps, we present such benchmark study of continual medical image segmentation. We first define three clinically motivated scenarios, namely Domain-CL, Class-CL, and Organ-CL, to respectively capture the cross-center domain shift, the incremental anatomical structure segmentation, and the cross-organ segmentation. We then introduce an evaluation framework that measures not only general performance and forgetting, but also plasticity, forward generalizability, parameter efficiency, and replay burden. The results, from extensive experiments with representative CL methods, showed that it was still challenging to develop a model that could satisfy all the requirements simultaneously. Nevertheless, these studies also suggested that the replay-based methods achieve the best overall balance between stability and plasticity, the parameter-isolation methods should be effective at reducing forgetting, though at the cost of increased model size, and the forward generalizability remain a significantly understudied aspect of this research field. Finally, we discuss related learning paradigms and outline future directions for continual medical image segmentation.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>超越遗忘的持续医学图像分割：一项综合基准研究</div>
+<div class="mono" style="margin-top:8px">持续学习（CL）对于在成像域、解剖目标和诊断任务随时间演变的临床环境中部署医学图像分割模型至关重要。然而，持续分割仍面临三大主要挑战。首先，该任务场景对于真实临床环境仍缺乏充分标准化。其次，现有研究主要集中于缓解遗忘，而忽视了诸如可塑性等其他基本特性。第三，仍需要一项对现有方法进行全面评估的基准工作。为弥补这些空白，我们提出了这样一项持续医学图像分割基准研究。我们首先定义了三个具有临床动机的场景，即Domain-CL、Class-CL和Organ-CL，分别用于捕捉跨中心域偏移、增量解剖结构分割和跨器官分割。随后，我们引入了一个评估框架，不仅衡量总体性能和遗忘，还衡量可塑性、前向泛化性、参数效率和回放负担。来自代表性CL方法的大量实验结果表明，开发一个能够同时满足所有要求的模型仍然具有挑战性。尽管如此，这些研究也表明，基于回放的方法在稳定性和可塑性之间实现了最佳总体平衡，参数隔离方法应能有效减少遗忘，但代价是模型规模增加，而前向泛化性仍是该研究领域中显著研究不足的方面。最后，我们讨论了相关学习范式，并概述了持续医学图像分割的未来方向。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Continual learning for medical image segmentation is important for clinical deployment where imaging domains, anatomical targets, and diagnostic tasks evolve, but the field lacks standardized scenarios, focuses mainly on mitigating forgetting while neglecting plasticity, and lacks a comprehensive benchmark. This paper addresses these gaps by defining three clinically motivated scenarios—Domain-CL, Class-CL, and Organ-CL—and introducing an evaluation framework that measures general performance, forgetting, plasticity, forward generalizability, parameter efficiency, and replay burden. Extensive experiments with representative continual learning methods show that no single model satisfies all requirements simultaneously; replay-based methods achieve the best overall balance between stability and plasticity, parameter-isolation methods effectively reduce forgetting but increase model size, and forward generalizability remains significantly understudied.</div>
+<div class="mono" style="margin-top:8px">持续学习在医学图像分割中对于临床部署至关重要，因为成像域、解剖目标和诊断任务会随时间演变，但该领域缺乏标准化的场景，现有研究主要关注减轻遗忘而忽视可塑性，且缺乏全面的基准测试。本文通过定义三个临床驱动的场景——Domain-CL、Class-CL和Organ-CL——并引入一个评估框架来填补这些空白，该框架衡量一般性能、遗忘、可塑性、前向泛化性、参数效率和回放负担。对代表性持续学习方法的广泛实验表明，没有单一模型能同时满足所有要求；基于回放的方法在稳定性和可塑性之间实现了最佳整体平衡，参数隔离方法能有效减少遗忘但增加模型大小，而前向泛化性仍然是一个显著未被充分研究的方面。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">MedFlowSeg: Flow Matching for Medical Image Segmentation with Frequency-Aware Attention</div>
+<div class="meta-line">Authors: Zhi Chen, Runze Hu, Le Zhang</div>
+<div class="meta-line">First: 2026-04-21T16:54:43+00:00 · Latest: 2026-05-06T21:54:51+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2604.19675v2">Abs</a> · <a href="https://arxiv.org/pdf/2604.19675v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Flow matching has recently emerged as a principled framework for learning continuous-time transport maps, enabling efficient ODE-based sampling without relying on stochastic diffusion processes. While generative modeling has shown promise for medical image segmentation, particularly in capturing uncertainty and complex anatomical variability, existing approaches are predominantly based on diffusion models, which require iterative sampling and incur substantial computational overhead. In this work, we propose MedFlowSeg, a conditional flow matching framework that formulates medical image segmentation as learning a time-dependent vector field that transports a simple prior distribution to the target segmentation distribution. Compared to diffusion-based methods, our formulation enables more efficient inference through solving an ordinary differential equation, while preserving the flexibility of generative modeling. To effectively incorporate conditional information, we introduce a dual-conditioning mechanism. Specifically, we propose a Dual-Branch Spatial Attention (DB-SA) module to inject multi-frequency structural priors, and a Frequency-Aware Attention (FA-Attention) module to model interactions between spatial and spectral representations via discrepancy-aware fusion and time-dependent modulation. These components improve the alignment between noisy intermediate states and clean semantic features, leading to better structural consistency and boundary delineation. We conduct extensive experiments across multiple medical imaging modalities, where MedFlowSeg consistently outperforms prior state-of-the-art (SOTA) baselines, including diffusion-based and flow-based methods.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>MedFlowSeg：面向医学图像分割的频率感知注意力流匹配</div>
+<div class="mono" style="margin-top:8px">流匹配近来作为一种有原则的框架出现，用于学习连续时间传输映射，从而无需依赖随机扩散过程即可实现高效的基于ODE的采样。尽管生成式建模在医学图像分割中展现出前景，尤其是在捕捉不确定性和复杂解剖变异性方面，但现有方法主要基于扩散模型，这类模型需要迭代采样并带来大量计算开销。在本工作中，我们提出MedFlowSeg，一种条件流匹配框架，将医学图像分割表述为学习一个时间相关的向量场，将简单先验分布传输到目标分割分布。与基于扩散的方法相比，我们的表述通过求解常微分方程实现更高效的推理，同时保留生成式建模的灵活性。为有效引入条件信息，我们提出一种双条件机制。具体而言，我们提出双分支空间注意力（DB-SA）模块以注入多频结构先验，并提出频率感知注意力（FA-Attention）模块，通过差异感知融合和时间相关调制来建模空间与频谱表示之间的交互。这些组件改善了噪声中间状态与干净语义特征之间的对齐，从而带来更好的结构一致性和边界描绘。我们在多种医学成像模态上进行了大量实验，MedFlowSeg始终优于先前的最先进（SOTA）基线，包括基于扩散和基于流的方法。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Medical image segmentation methods based on diffusion models can capture uncertainty and anatomical variability but suffer from slow iterative sampling and high computational cost. This paper proposes MedFlowSeg, a conditional flow matching framework that learns a time-dependent vector field to transport a simple prior to the segmentation distribution, enabling efficient ODE-based inference. To incorporate conditional information, it introduces a Dual-Branch Spatial Attention module for multi-frequency structural priors and a Frequency-Aware Attention module for spatial-spectral interaction via discrepancy-aware fusion and time-dependent modulation. Experiments across multiple medical imaging modalities show that MedFlowSeg consistently outperforms prior state-of-the-art diffusion-based and flow-based baselines.</div>
+<div class="mono" style="margin-top:8px">基于扩散模型的医学图像分割方法虽能捕捉不确定性和复杂解剖变异，但迭代采样导致推理缓慢且计算开销大。本文提出MedFlowSeg，一种条件流匹配框架，通过学习时间相关的向量场将简单先验分布传输至分割分布，从而通过求解常微分方程实现高效推理。为有效融入条件信息，该方法引入双分支空间注意力模块注入多频结构先验，并设计频率感知注意力模块，通过差异感知融合和时间相关调制建模空间与频谱表示的交互。在多种医学影像模态上的实验表明，MedFlowSeg持续优于先前基于扩散和基于流的最先进基线方法。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Mammographic Lesion Segmentation with Lightweight Models: A Comparative Study</div>
+<div class="meta-line">Authors: Helder Oliveira</div>
+<div class="meta-line">First: 2026-04-26T22:01:35+00:00 · Latest: 2026-05-06T17:45:02+00:00</div>
+<div class="meta-line">Comments: Submitted to a journal</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2604.23899v2">Abs</a> · <a href="https://arxiv.org/pdf/2604.23899v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Breast cancer is a leading cause of cancer-related mortality among women worldwide, with mammography as the primary screening tool. While deep learning models have shown strong performance in lesion segmentation, most rely on computationally intensive architectures that limit their use in resource-constrained environments. This study evaluates the performance and efficiency of lightweight models for mammographic lesion segmentation. Architectures including MobileNetV2, EfficientNet Lite, FPN, and Fast-SCNN were compared against a U-Net baseline using the INbreast dataset with 5-fold cross-validation. Performance was assessed using Dice score, Intersection over Union (IoU), and Recall, alongside model complexity. MobileNetV2 with Squeeze-and-Excitation (SCSE) achieved the best performance, with a Dice score of 0.5766 while using approximately 75% fewer parameters than U-Net. Cross-dataset evaluation on the DMID dataset showed reduced accuracy due to domain shift but preserved recall. These results demonstrate that lightweight architectures offer a practical balance between performance and efficiency for deployable CAD systems.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>轻量级模型在乳腺X线摄影病灶分割中的比较研究</div>
+<div class="mono" style="margin-top:8px">乳腺癌是全球女性癌症相关死亡的主要原因之一，乳腺X线摄影是主要的筛查工具。尽管深度学习模型在病灶分割中表现出色，但大多依赖计算密集型架构，限制了其在资源受限环境中的应用。本研究评估了轻量级模型在乳腺X线摄影病灶分割中的性能与效率。使用INbreast数据集进行5折交叉验证，将MobileNetV2、EfficientNet Lite、FPN和Fast-SCNN等架构与U-Net基线进行比较。采用Dice分数、交并比（IoU）和召回率评估性能，并考虑模型复杂度。带有压缩-激励（SCSE）的MobileNetV2表现最佳，Dice分数为0.5766，参数量比U-Net减少约75%。在DMID数据集上的跨数据集评估显示，由于域偏移导致准确率下降，但召回率得以保持。这些结果表明，轻量级架构在性能和效率之间提供了实用平衡，适用于可部署的CAD系统。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">This study addresses the need for computationally efficient deep learning models for mammographic lesion segmentation, as most existing architectures are too resource-intensive for deployment in low-resource settings. The authors compared lightweight models—MobileNetV2, EfficientNet Lite, FPN, and Fast-SCNN—against a U-Net baseline on the INbreast dataset using 5-fold cross-validation, evaluating Dice score, IoU, Recall, and model complexity. MobileNetV2 with Squeeze-and-Excitation achieved the best performance with a Dice score of 0.5766 while using about 75% fewer parameters than U-Net. Cross-dataset evaluation on DMID showed reduced accuracy due to domain shift but preserved recall, indicating that lightweight architectures offer a practical trade-off for deployable computer-aided diagnosis systems.</div>
+<div class="mono" style="margin-top:8px">本研究旨在解决乳腺X线摄影病灶分割中深度学习模型计算资源消耗大、难以在资源受限环境部署的问题。作者在INbreast数据集上采用5折交叉验证，比较了MobileNetV2、EfficientNet Lite、FPN和Fast-SCNN等轻量级模型与U-Net基线的性能，评估指标包括Dice分数、IoU、召回率和模型复杂度。结果表明，结合Squeeze-and-Excitation的MobileNetV2表现最佳，Dice分数为0.5766，且参数量比U-Net减少约75%。在DMID数据集上的跨数据集评估显示，由于域偏移导致准确率下降，但召回率保持稳定，表明轻量级架构在可部署的计算机辅助诊断系统中提供了性能与效率之间的实用平衡。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">DSVM-UNet : Enhancing VM-UNet with Dual Self-distillation for Medical Image Segmentation</div>
+<div class="meta-line">Authors: Renrong Shao, Dongyang Li, Dong Xia, Lin Shao, Jiangdong Lu, Fen Zheng, Lulu Zhang</div>
+<div class="meta-line">Venue: ICASSP 2026</div>
+<div class="meta-line">First: 2026-01-27T15:06:38+00:00 · Latest: 2026-05-06T15:15:16+00:00</div>
+<div class="meta-line">Comments: 5 pages, 1 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2601.19690v2">Abs</a> · <a href="https://arxiv.org/pdf/2601.19690v2">PDF</a> · <a href="https://github.com/RoryShao/DSVM-UNet.git">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Vision Mamba models have been extensively researched in various fields, which address the limitations of previous models by effectively managing long-range dependencies with a linear-time overhead. Several prospective studies have further designed Vision Mamba based on UNet(VM-UNet) for medical image segmentation. These approaches primarily focus on optimizing architectural designs by creating more complex structures to enhance the model&#x27;s ability to perceive semantic features. In this paper, we propose a simple yet effective approach to improve the model by Dual Self-distillation for VM-UNet (DSVM-UNet) without any complex architectural designs. To achieve this goal, we develop double self-distillation methods to align the features at both the global and local levels. Extensive experiments conducted on the ISIC2017, ISIC2018, and Synapse benchmarks demonstrate that our approach achieves state-of-the-art performance while maintaining computational efficiency. Code is available at https://github.com/RoryShao/DSVM-UNet.git.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>DSVM-UNet：通过双自蒸馏增强VM-UNet用于医学图像分割</div>
+<div class="mono" style="margin-top:8px">视觉Mamba模型已在多个领域得到广泛研究，其通过以线性时间开销有效管理长程依赖，解决了先前模型的局限性。若干前瞻性研究进一步设计了基于UNet的视觉Mamba（VM-UNet）用于医学图像分割。这些方法主要侧重于通过构建更复杂的结构来优化架构设计，以增强模型感知语义特征的能力。在本文中，我们提出了一种简单而有效的方法，通过双自蒸馏改进VM-UNet（DSVM-UNet），无需任何复杂的架构设计。为实现这一目标，我们开发了双重自蒸馏方法，以在全局和局部层面进行特征对齐。在ISIC2017、ISIC2018和Synapse基准上进行的大量实验表明，我们的方法在保持计算效率的同时达到了最先进的性能。代码可在https://github.com/RoryShao/DSVM-UNet.git获取。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">This work addresses the tendency of existing VM-UNet-based medical image segmentation methods to rely on increasingly complex architectural designs for better semantic feature perception, proposing instead a simple dual self-distillation strategy (DSVM-UNet) that requires no structural modifications. The method applies double self-distillation to align features at both global and local levels within the VM-UNet framework. Experiments on the ISIC2017, ISIC2018, and Synapse benchmarks show that DSVM-UNet attains state-of-the-art segmentation performance while preserving computational efficiency.</div>
+<div class="mono" style="margin-top:8px">针对现有基于VM-UNet的医学图像分割方法多依赖日益复杂的架构设计来提升语义特征感知能力这一问题，本文提出了一种无需复杂结构改动的简单有效方法DSVM-UNet，采用双重自蒸馏策略。该方法在VM-UNet框架内通过双重自蒸馏在全局和局部两个层面进行特征对齐。在ISIC2017、ISIC2018和Synapse基准上的实验表明，DSVM-UNet在保持计算效率的同时取得了最先进的分割性能。</div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261011_0623.html">20261011_0623</a>
+<a href="archive/20261010_0709.html">20261010_0709</a>
+<a href="archive/20261009_0743.html">20261009_0743</a>
+<a href="archive/20261008_0732.html">20261008_0732</a>
+<a href="archive/20261007_0658.html">20261007_0658</a>
+<a href="archive/20261006_0843.html">20261006_0843</a>
+<a href="archive/20261005_0617.html">20261005_0617</a>
+<a href="archive/20261004_0605.html">20261004_0605</a>
+<a href="archive/20261003_0656.html">20261003_0656</a>
+<a href="archive/20261002_0705.html">20261002_0705</a>
+<a href="archive/20261001_0654.html">20261001_0654</a>
+<a href="archive/20260930_0655.html">20260930_0655</a>
+<a href="archive/20260929_0748.html">20260929_0748</a>
+<a href="archive/20260928_0559.html">20260928_0559</a>
+<a href="archive/20260927_0555.html">20260927_0555</a>
+<a href="archive/20260926_0611.html">20260926_0611</a>
+<a href="archive/20260925_0611.html">20260925_0611</a>
+<a href="archive/20260924_0611.html">20260924_0611</a>
+<a href="archive/20260923_0557.html">20260923_0557</a>
+<a href="archive/20260922_0633.html">20260922_0633</a>
+<a href="archive/20260921_0524.html">20260921_0524</a>
+<a href="archive/20260920_0523.html">20260920_0523</a>
+<a href="archive/20260919_0534.html">20260919_0534</a>
+<a href="archive/20260918_0602.html">20260918_0602</a>
+<a href="archive/20260917_0602.html">20260917_0602</a>
+<a href="archive/20260916_0604.html">20260916_0604</a>
+<a href="archive/20260915_0626.html">20260915_0626</a>
+<a href="archive/20260913_0521.html">20260913_0521</a>
+<a href="archive/20260912_0539.html">20260912_0539</a>
+<a href="archive/20260911_0532.html">20260911_0532</a>
+<a href="archive/20260910_0537.html">20260910_0537</a>
+<a href="archive/20260909_1610.html">20260909_1610</a>
+<a href="archive/20260909_0547.html">20260909_0547</a>
+<a href="archive/20260908_0558.html">20260908_0558</a>
+<a href="archive/20260907_0512.html">20260907_0512</a>
+<a href="archive/20260906_0506.html">20260906_0506</a>
+<a href="archive/20260905_0522.html">20260905_0522</a>
+<a href="archive/20260904_0539.html">20260904_0539</a>
+<a href="archive/20260903_0545.html">20260903_0545</a>
+<a href="archive/20260902_0544.html">20260902_0544</a>
+<a href="archive/20260901_0712.html">20260901_0712</a>
+<a href="archive/20260831_0555.html">20260831_0555</a>
+<a href="archive/20260830_0537.html">20260830_0537</a>
+<a href="archive/20260829_1002.html">20260829_1002</a>
+<a href="archive/20260828_1132.html">20260828_1132</a>
+<a href="archive/20260827_0545.html">20260827_0545</a>
+<a href="archive/20260826_0337.html">20260826_0337</a>
+<a href="archive/20260825_0335.html">20260825_0335</a>
+<a href="archive/20260824_0327.html">20260824_0327</a>
+<a href="archive/20260823_0327.html">20260823_0327</a>
+<a href="archive/20260822_0330.html">20260822_0330</a>
+<a href="archive/20260821_0336.html">20260821_0336</a>
+<a href="archive/20260820_0331.html">20260820_0331</a>
+<a href="archive/20260819_0332.html">20260819_0332</a>
+<a href="archive/20260818_0333.html">20260818_0333</a>
+<a href="archive/20260817_0326.html">20260817_0326</a>
+<a href="archive/20260816_0326.html">20260816_0326</a>
+<a href="archive/20260815_0351.html">20260815_0351</a>
+<a href="archive/20260814_0358.html">20260814_0358</a>
+<a href="archive/20260813_0405.html">20260813_0405</a>
+<a href="archive/20260812_0405.html">20260812_0405</a>
+<a href="archive/20260811_0359.html">20260811_0359</a>
+<a href="archive/20260810_0341.html">20260810_0341</a>
+<a href="archive/20260809_0338.html">20260809_0338</a>
+<a href="archive/20260808_0357.html">20260808_0357</a>
+<a href="archive/20260807_0846.html">20260807_0846</a>
+<a href="archive/20260806_0438.html">20260806_0438</a>
+<a href="archive/20260805_0440.html">20260805_0440</a>
+<a href="archive/20260804_0438.html">20260804_0438</a>
+<a href="archive/20260803_0416.html">20260803_0416</a>
+<a href="archive/20260802_0414.html">20260802_0414</a>
+<a href="archive/20260801_0429.html">20260801_0429</a>
+<a href="archive/20260731_0422.html">20260731_0422</a>
+<a href="archive/20260730_0417.html">20260730_0417</a>
+<a href="archive/20260729_0423.html">20260729_0423</a>
+<a href="archive/20260728_0429.html">20260728_0429</a>
+<a href="archive/20260727_0417.html">20260727_0417</a>
+<a href="archive/20260726_0415.html">20260726_0415</a>
+<a href="archive/20260725_0427.html">20260725_0427</a>
+<a href="archive/20260724_0419.html">20260724_0419</a>
+<a href="archive/20260723_0418.html">20260723_0418</a>
+<a href="archive/20260722_0424.html">20260722_0424</a>
+<a href="archive/20260721_1650.html">20260721_1650</a>
+<a href="archive/20260721_0428.html">20260721_0428</a>
+<a href="archive/20260720_0411.html">20260720_0411</a>
+<a href="archive/20260719_0408.html">20260719_0408</a>
+<a href="archive/20260718_0413.html">20260718_0413</a>
+<a href="archive/20260717_0409.html">20260717_0409</a>
+<a href="archive/20260716_0418.html">20260716_0418</a>
+<a href="archive/20260715_0421.html">20260715_0421</a>
+<a href="archive/20260714_0422.html">20260714_0422</a>
+<a href="archive/20260713_0410.html">20260713_0410</a>
+<a href="archive/20260712_0410.html">20260712_0410</a>
+<a href="archive/20260711_0448.html">20260711_0448</a>
+<a href="archive/20260710_0454.html">20260710_0454</a>
+<a href="archive/20260709_0427.html">20260709_0427</a>
+<a href="archive/20260708_0455.html">20260708_0455</a>
+<a href="archive/20260707_0457.html">20260707_0457</a>
+<a href="archive/20260706_0421.html">20260706_0421</a>
+<a href="archive/20260705_0415.html">20260705_0415</a>
+<a href="archive/20260704_0421.html">20260704_0421</a>
+<a href="archive/20260703_0425.html">20260703_0425</a>
+<a href="archive/20260702_0453.html">20260702_0453</a>
+<a href="archive/20260701_1434.html">20260701_1434</a>
+<a href="archive/20260701_0502.html">20260701_0502</a>
+<a href="archive/20260630_0454.html">20260630_0454</a>
+<a href="archive/20260629_0420.html">20260629_0420</a>
+<a href="archive/20260628_0423.html">20260628_0423</a>
+<a href="archive/20260627_0450.html">20260627_0450</a>
+<a href="archive/20260626_0502.html">20260626_0502</a>
+<a href="archive/20260625_0453.html">20260625_0453</a>
+<a href="archive/20260624_0505.html">20260624_0505</a>
+<a href="archive/20260623_0535.html">20260623_0535</a>
+<a href="archive/20260622_0444.html">20260622_0444</a>
+<a href="archive/20260621_0422.html">20260621_0422</a>
+<a href="archive/20260620_0442.html">20260620_0442</a>
+<a href="archive/20260619_0529.html">20260619_0529</a>
+<a href="archive/20260618_0517.html">20260618_0517</a>
+<a href="archive/20260617_0546.html">20260617_0546</a>
+<a href="archive/20260616_0549.html">20260616_0549</a>
+<a href="archive/20260615_0426.html">20260615_0426</a>
+<a href="archive/20260614_0424.html">20260614_0424</a>
+<a href="archive/20260613_0507.html">20260613_0507</a>
+<a href="archive/20260612_0530.html">20260612_0530</a>
+<a href="archive/20260611_0531.html">20260611_0531</a>
+<a href="archive/20260610_0508.html">20260610_0508</a>
+<a href="archive/20260609_0517.html">20260609_0517</a>
+<a href="archive/20260608_0423.html">20260608_0423</a>
+<a href="archive/20260607_0421.html">20260607_0421</a>
+<a href="archive/20260606_0500.html">20260606_0500</a>
+<a href="archive/20260604_0602.html">20260604_0602</a>
+<a href="archive/20260603_0600.html">20260603_0600</a>
+<a href="archive/20260602_0619.html">20260602_0619</a>
+<a href="archive/20260601_0423.html">20260601_0423</a>
+<a href="archive/20260531_0419.html">20260531_0419</a>
+<a href="archive/20260530_0517.html">20260530_0517</a>
+<a href="archive/20260527_0458.html">20260527_0458</a>
+<a href="archive/20260526_0425.html">20260526_0425</a>
+<a href="archive/20260525_0415.html">20260525_0415</a>
+<a href="archive/20260524_0409.html">20260524_0409</a>
+<a href="archive/20260523_0445.html">20260523_0445</a>
+<a href="archive/20260522_0454.html">20260522_0454</a>
+<a href="archive/20260521_0515.html">20260521_0515</a>
+<a href="archive/20260520_0457.html">20260520_0457</a>
+<a href="archive/20260519_0452.html">20260519_0452</a>
+<a href="archive/20260518_0416.html">20260518_0416</a>
+<a href="archive/20260517_0420.html">20260517_0420</a>
+<a href="archive/20260515_0449.html">20260515_0449</a>
+<a href="archive/20260514_0517.html">20260514_0517</a>
+<a href="archive/20260513_0445.html">20260513_0445</a>
+<a href="archive/20260512_0450.html">20260512_0450</a>
+<a href="archive/20260511_1750.html">20260511_1750</a>
+<a href="archive/20260511_0418.html">20260511_0418</a>
+<a href="archive/20260510_0414.html">20260510_0414</a>
+<a href="archive/20260509_0426.html">20260509_0426</a>
+<a href="archive/20260508_0435.html">20260508_0435</a>
+<a href="archive/20260507_0454.html">20260507_0454</a>
+<a href="archive/20260506_0427.html">20260506_0427</a>
+<a href="archive/20260505_0436.html">20260505_0436</a>
+<a href="archive/20260504_0410.html">20260504_0410</a>
+<a href="archive/20260503_0414.html">20260503_0414</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0429.html">20260501_0429</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>

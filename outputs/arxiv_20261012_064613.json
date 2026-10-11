@@ -1,0 +1,144 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.06266v1",
+    "title": "ZScribbleSeg: A comprehensive segmentation framework with modeling of efficient annotation and maximization of scribble supervision",
+    "authors": [
+      "Ke Zhang",
+      "Bomin Wang",
+      "Hangqi Zhou",
+      "Xiahai Zhuang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-07T13:41:15+00:00",
+    "updated": "2026-05-07T13:41:15+00:00",
+    "comments": "Accepted by Medical Image Analysis",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Curating fully annotated datasets for medical image segmentation is labour-intensive and expertise-demanding. To alleviate this problem, prior studies have explored scribble annotations for weakly supervised segmentation. Existing solutions mainly compute losses on annotated areas and generate pseudo labels by propagating annotations to adjacent regions. However, these methods often suffer from inaccurate and unrealistic segmentations due to insufficient supervision and incomplete shape information. In contrast, we first investigate the principle of good scribble annotations, which leads to efficient scribble forms via supervision maximization and randomness simulation. We further introduce regularization terms to encode the spatial relationship and the shape constraints, where the EM algorithm is utilized to estimate the mixture ratios of label classes. These ratios are critical in identifying the unlabeled pixels for each class and correcting erroneous predictions, thus the accurate estimation lays the foundation for the incorporation of spatial prior. Finally, we integrate the efficient scribble supervision with the prior into a framework, referred to as ZScribbleSeg, and apply it to multiple scenarios. Leveraging only scribble annotations, ZScribbleSeg achieves competitive performance on six segmentation tasks including ACDC, MSCMRseg, BTCV, MyoPS, Decathlon-BrainTumor and Decathlon-Prostate. Our code will be released via https://github.com/DLwbm123/ZScribbleSeg.",
+    "html_url": "https://arxiv.org/abs/2605.06266v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.06266v1",
+    "code_urls": [
+      "https://github.com/DLwbm123/ZScribbleSeg",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.06160v1",
+    "title": "Beyond Forgetting in Continual Medical Image Segmentation: A Comprehensive Benchmark Study",
+    "authors": [
+      "Bomin Wang",
+      "Hangqi Zhou",
+      "Yibo Gao",
+      "Xiahai Zhuang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-07T12:48:56+00:00",
+    "updated": "2026-05-07T12:48:56+00:00",
+    "comments": "Submitted to a journal",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Continual learning (CL) is essential for deploying medical image segmentation models in clinical environments where imaging domains, anatomical targets, and diagnostic tasks evolve over time. However, continual segmentation still faces three main challenges. First, the scenarios for this task remain insufficiently standardized for real-world clinical settings. Second, existing research has been primarily focused on mitigating forgetting, overlooking the other essential properties such as plasticity. Third, a benchmark work with comprehensive evaluation on existing methods is stll desirable. To address these gaps, we present such benchmark study of continual medical image segmentation. We first define three clinically motivated scenarios, namely Domain-CL, Class-CL, and Organ-CL, to respectively capture the cross-center domain shift, the incremental anatomical structure segmentation, and the cross-organ segmentation. We then introduce an evaluation framework that measures not only general performance and forgetting, but also plasticity, forward generalizability, parameter efficiency, and replay burden. The results, from extensive experiments with representative CL methods, showed that it was still challenging to develop a model that could satisfy all the requirements simultaneously. Nevertheless, these studies also suggested that the replay-based methods achieve the best overall balance between stability and plasticity, the parameter-isolation methods should be effective at reducing forgetting, though at the cost of increased model size, and the forward generalizability remain a significantly understudied aspect of this research field. Finally, we discuss related learning paradigms and outline future directions for continual medical image segmentation.",
+    "html_url": "https://arxiv.org/abs/2605.06160v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.06160v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.19675v2",
+    "title": "MedFlowSeg: Flow Matching for Medical Image Segmentation with Frequency-Aware Attention",
+    "authors": [
+      "Zhi Chen",
+      "Runze Hu",
+      "Le Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-21T16:54:43+00:00",
+    "updated": "2026-05-06T21:54:51+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Flow matching has recently emerged as a principled framework for learning continuous-time transport maps, enabling efficient ODE-based sampling without relying on stochastic diffusion processes. While generative modeling has shown promise for medical image segmentation, particularly in capturing uncertainty and complex anatomical variability, existing approaches are predominantly based on diffusion models, which require iterative sampling and incur substantial computational overhead. In this work, we propose MedFlowSeg, a conditional flow matching framework that formulates medical image segmentation as learning a time-dependent vector field that transports a simple prior distribution to the target segmentation distribution. Compared to diffusion-based methods, our formulation enables more efficient inference through solving an ordinary differential equation, while preserving the flexibility of generative modeling. To effectively incorporate conditional information, we introduce a dual-conditioning mechanism. Specifically, we propose a Dual-Branch Spatial Attention (DB-SA) module to inject multi-frequency structural priors, and a Frequency-Aware Attention (FA-Attention) module to model interactions between spatial and spectral representations via discrepancy-aware fusion and time-dependent modulation. These components improve the alignment between noisy intermediate states and clean semantic features, leading to better structural consistency and boundary delineation. We conduct extensive experiments across multiple medical imaging modalities, where MedFlowSeg consistently outperforms prior state-of-the-art (SOTA) baselines, including diffusion-based and flow-based methods.",
+    "html_url": "https://arxiv.org/abs/2604.19675v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.19675v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.23899v2",
+    "title": "Mammographic Lesion Segmentation with Lightweight Models: A Comparative Study",
+    "authors": [
+      "Helder Oliveira"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-04-26T22:01:35+00:00",
+    "updated": "2026-05-06T17:45:02+00:00",
+    "comments": "Submitted to a journal",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Breast cancer is a leading cause of cancer-related mortality among women worldwide, with mammography as the primary screening tool. While deep learning models have shown strong performance in lesion segmentation, most rely on computationally intensive architectures that limit their use in resource-constrained environments. This study evaluates the performance and efficiency of lightweight models for mammographic lesion segmentation. Architectures including MobileNetV2, EfficientNet Lite, FPN, and Fast-SCNN were compared against a U-Net baseline using the INbreast dataset with 5-fold cross-validation. Performance was assessed using Dice score, Intersection over Union (IoU), and Recall, alongside model complexity. MobileNetV2 with Squeeze-and-Excitation (SCSE) achieved the best performance, with a Dice score of 0.5766 while using approximately 75% fewer parameters than U-Net. Cross-dataset evaluation on the DMID dataset showed reduced accuracy due to domain shift but preserved recall. These results demonstrate that lightweight architectures offer a practical balance between performance and efficiency for deployable CAD systems.",
+    "html_url": "https://arxiv.org/abs/2604.23899v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.23899v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2601.19690v2",
+    "title": "DSVM-UNet : Enhancing VM-UNet with Dual Self-distillation for Medical Image Segmentation",
+    "authors": [
+      "Renrong Shao",
+      "Dongyang Li",
+      "Dong Xia",
+      "Lin Shao",
+      "Jiangdong Lu",
+      "Fen Zheng",
+      "Lulu Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-01-27T15:06:38+00:00",
+    "updated": "2026-05-06T15:15:16+00:00",
+    "comments": "5 pages, 1 figures",
+    "journal_ref": "IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2026)",
+    "venue_inferred": "ICASSP 2026",
+    "summary": "Vision Mamba models have been extensively researched in various fields, which address the limitations of previous models by effectively managing long-range dependencies with a linear-time overhead. Several prospective studies have further designed Vision Mamba based on UNet(VM-UNet) for medical image segmentation. These approaches primarily focus on optimizing architectural designs by creating more complex structures to enhance the model's ability to perceive semantic features. In this paper, we propose a simple yet effective approach to improve the model by Dual Self-distillation for VM-UNet (DSVM-UNet) without any complex architectural designs. To achieve this goal, we develop double self-distillation methods to align the features at both the global and local levels. Extensive experiments conducted on the ISIC2017, ISIC2018, and Synapse benchmarks demonstrate that our approach achieves state-of-the-art performance while maintaining computational efficiency. Code is available at https://github.com/RoryShao/DSVM-UNet.git.",
+    "html_url": "https://arxiv.org/abs/2601.19690v2",
+    "pdf_url": "https://arxiv.org/pdf/2601.19690v2",
+    "code_urls": [
+      "https://github.com/RoryShao/DSVM-UNet.git",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
