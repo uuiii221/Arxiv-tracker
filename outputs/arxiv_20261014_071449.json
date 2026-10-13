@@ -1,0 +1,148 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.08210v1",
+    "title": "Harmonized Feature Conditioning and Frequency-Prompt Personalization for Multi-Rater Medical Segmentation",
+    "authors": [
+      "Sanaz Karimijafarbigloo",
+      "Armin Khosravi",
+      "Alireza Kheyrkhah",
+      "Reza Azad",
+      "Mauricio Reyes",
+      "Dorit Merhof"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-06T09:13:38+00:00",
+    "updated": "2026-05-06T09:13:38+00:00",
+    "comments": "Accepted in main CVPR 2026",
+    "journal_ref": null,
+    "venue_inferred": "CVPR 2026",
+    "summary": "Multi-rater medical image segmentation captures the inherent ambiguity of clinical interpretation, where diagnostic boundaries vary across experts and imaging devices. Existing approaches often reduce this diversity to consensus labels or treat rater differences as noise, resulting in overconfident and poorly calibrated models. We propose a harmonized probabilistic framework that disentangles acquisition artifacts from genuine annotator variability through adaptive feature conditioning and frequency-domain personalization. A lightweight Harmonizer Network implicitly models scanner-specific artifacts and performs dynamic feature modulation to standardize latent representations, ensuring that uncertainty reflects anatomy rather than noise. To represent rater-specific styles, we introduce a novel High-Frequency Prompt Modules that operate in the spectral domain to encode annotator-dependent boundary precision and textural sensitivity. These prompts adaptively modulate harmonized features to produce personalized yet anatomically consistent segmentations. Furthermore, a Generalized Energy Distance based regularization aligns the generative distribution with empirical annotation variability, promoting diversity where experts disagree and consensus where they converge. Experiments on LIDC-IDRI and NPC-170 show SOTA aggregated and individualized segmentation, with notable GED reductions and improved Dice scores, especially on noisy cases. Beyond accuracy, the model exhibits clinically meaningful uncertainty. Confidence rises in agreement regions and declines in ambiguous areas, supporting its use as a reliable and interpretable tool for multi-expert clinical workflows.",
+    "html_url": "https://arxiv.org/abs/2605.08210v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.08210v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.04518v1",
+    "title": "DALight-3D: A Lightweight 3D U-Net for Brain Tumor Segmentation from Multi-Modal MRI",
+    "authors": [
+      "Nand Kumar Mishra",
+      "Dhruv Mishra",
+      "Dr Manu Pratap Singh"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG",
+      "cs.NE"
+    ],
+    "published": "2026-05-06T05:54:44+00:00",
+    "updated": "2026-05-06T05:54:44+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Automatic brain tumor segmentation from multi-modal MRI remains challenging because volumetric models often incur substantial computational cost. This paper presents DALight-3D, a compact 3D U-Net variant that combines depthwise separable 3D convolutions, identifier-conditioned normalization, cross-slice attention, and adaptive skip fusion. The method is evaluated on the Medical Segmentation Decathlon Task01 BrainTumour benchmark under matched optimization settings against standard 3D U-Net, Attention U-Net, Residual 3D U-Net, and V-Net baselines. In the reported 50-epoch comparison, DALight-3D achieves a mean Dice of 0.727 with 2.22M parameters, compared with 0.710 Dice and 3.20M parameters for Residual 3D U-Net. Component-wise ablations show consistent performance degradation when SepConv, identifier-conditioned normalization, CSA, or SSFB is removed. These results indicate that DALight-3D offers a favorable accuracy-efficiency trade-off within the present benchmark setting.",
+    "html_url": "https://arxiv.org/abs/2605.04518v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.04518v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2509.10784v3",
+    "title": "Adapting Medical Vision Foundation Models for Volumetric Medical Image Segmentation via Active Learning and Selective Semi-supervised Fine-tuning",
+    "authors": [
+      "Jin Yang",
+      "Daniel S. Marcus",
+      "Aristeidis Sotiras"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2025-09-13T02:05:11+00:00",
+    "updated": "2026-05-06T03:44:56+00:00",
+    "comments": "19 pages, 6 figures, 8 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical vision foundation models remain limited in downstream tasks, particularly volumetric medical image segmentation. While fine-tuning on labeled target-domain data improves performance, existing approaches typically rely on randomly selected samples, which may fail to identify the most informative data and thus hinder adaptation. To address the limitations, we propose an Active Selective Semi-supervised Fine-tuning framework for efficient adaptation of Med-VFMs to generalize across volumetric medical image segmentation. ASSFT integrates a novel active learning strategy with selective semi-supervised learning to maximize adaptation performance under a limited annotation budget, without requiring access to source data. Specifically, we introduce an Active Test-Time Sample Query strategy that identifies informative samples from the target domain using two complementary query metrics: Diversified Knowledge Divergence and Anatomical Segmentation Difficulty. DKD quantifies both the knowledge gap between pre-training and target domains and the semantic diversity within the target dataset, enabling the selection of samples that contain previously unlearned knowledge while maintaining intra-domain diversity. ASD estimates the segmentation difficulty of target anatomical structures by measuring predictive uncertainty within foreground regions of interest, allowing the model to prioritize samples with complex anatomical patterns rather than those dominated by background uncertainty. Second, we propose a Selective Semi-supervised Fine-tuning strategy to further improve adaptation performance by leveraging unlabeled target samples. Instead of utilizing all pseudo-labeled data, the proposed method selectively incorporates reliable unlabeled samples based on predictive confidence and semantic distance to labeled samples, enabling stable semi-supervised training while avoiding noisy pseudo-labels.",
+    "html_url": "https://arxiv.org/abs/2509.10784v3",
+    "pdf_url": "https://arxiv.org/pdf/2509.10784v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.04008v1",
+    "title": "Enhanced 3D Brain Tumor Segmentation Using Assorted Precision Training",
+    "authors": [
+      "Adwaitt Pandya",
+      "Ozioma C. Oguine",
+      "Harita Bhargava",
+      "Shrikant Zade"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-05-05T17:30:17+00:00",
+    "updated": "2026-05-05T17:30:17+00:00",
+    "comments": "5 pages, 5 figures, 1 table",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "A brain tumor is a medical disorder faced by individuals of all demographics. Medically, it is described as the spread of non-essential cells close to or throughout the brain. Symptoms of this ailment include headaches, seizures, and sensory changes. This research explores two main categories of brain tumors: benign and malignant. Benign spreads steadily, and malignant expresses growth, making it dangerous. Early identification of brain tumors is a crucial factor for the survival of patients. This research provides a state-of-the-art approach to the early identification of tumors within the brain. We implemented the SegResNet architecture, a widely adopted architecture for three-dimensional segmentation, and trained it using the automatic multi-precision method. We incorporated the dice loss function and dice metric for evaluating the model. We got a dice score of 0.84. For the tumor core, we got a dice score of 0.84; for the whole tumor, 0.90; and for the enhanced tumor, we got a score of 0.79.",
+    "html_url": "https://arxiv.org/abs/2605.04008v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.04008v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.03602v1",
+    "title": "Dante: An Open Source Model Pre-Training and Fine-Tuning Tool for the Dafne Federated Framework for Medical Image Segmentation",
+    "authors": [
+      "Giuseppe Timpano",
+      "Dibya Kumari",
+      "Maria Eugenia Caligiuri",
+      "Francesco Santini"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV"
+    ],
+    "published": "2026-05-05T10:27:33+00:00",
+    "updated": "2026-05-05T10:27:33+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Adapting pre-trained deep learning segmentation models to new clinical domains is a persistent challenge in medical image analysis, particularly when annotated data at the target site are scarce. Parameter-efficient fine-tuning strategies offer a principled solution by selectively updating a controlled subset of model parameters, preserving previously acquired representations while reducing the risk of overfitting on small datasets. This paper introduces DAfNe TrainEr (Dante), an open-source module integrating with the Dafne federated segmentation ecosystem as a dedicated training and fine-tuning backend. Dante supports training from scratch with automatic architecture configuration, configurable layer freezing schedules, and Low-Rank Adaptation (LoRA) extended to N-dimensional convolutional layers through channel-wise factorization. To validate the module, Gradual Unfreezing (GU) and LoRA are assessed across realistic cross-domain MRI transfer scenarios covering abdominal organ segmentation and brain white matter lesion segmentation, under full-data and few-shot conditions. GU reduced the epochs required to reach 85% of peak performance by up to 63.6% compared to training from scratch, while LoRA achieved Dice Similarity Coefficients up to 0.957 in data-rich scenarios. Both strategies outperformed the baseline across all tested domains, with gains amplified by richer pre-training datasets. These results validate Dante as a domain-agnostic fine-tuning module for medical image segmentation in real clinical deployment conditions. Dante code is available at https://github.com/dafne-imaging/dafne-torch-trainer while Dafne ecosystem project is available at https://github.com/dafne-imaging.",
+    "html_url": "https://arxiv.org/abs/2605.03602v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.03602v1",
+    "code_urls": [
+      "https://github.com/dafne-imaging/dafne-torch-trainer",
+      "https://github.com/dafne-imaging",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
