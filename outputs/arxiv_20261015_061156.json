@@ -1,0 +1,146 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.18771v1",
+    "title": "The Federated Tumor Segmentation and Classification (FeTS++) Challenge",
+    "authors": [
+      "Wenyi Tang",
+      "Carla Pitarch-Abaigar",
+      "Siddhesh Thakur",
+      "Verena Chung",
+      "Konstantinos Koukoutegos",
+      "Alexandros Karargyris",
+      "Holger R. Roth",
+      "Spyridon Bakas"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-13T17:30:39+00:00",
+    "updated": "2026-10-13T17:30:39+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "International challenges have become the standard for developing and benchmarking biomedical image analysis methods using centralized multi-institutional data. Federated learning (FL) describes a paradigm-shift on multi-institutional collaborations, where models are trained across institutions while their data are always retained locally. The Federated Tumor Segmentation (FeTS) challenge, first held in 2021, was the first challenge dedicated to FL in medical imaging and editions in 2022 and 2024 pushed the frontiers of real-world method validation. FeTS++ 2027 returns after a two-year gap with a substantially larger and more diverse cohort, and with the two \"pluses\" that name the challenge: an official classification task alongside segmentation, and a move of the infrastructure to NVIDIA FLARE (NVFlare). Built on the clinically acquired, multi-institutional multi-parametric MRI data of the BraTS 2025 Lighthouse challenge, FeTS++ spans gliomas and meningiomas across patient cohorts from institutions in North America, Europe, Asia, and Africa, and focuses on ranking submitted methodological approaches according to their model utility and an efficiency-aware score. Task 1 asks participants to find the best strategy for aggregating knowledge from per-institution segmentation models, while Task 2 asks them to distinguish glioma from meningioma under the same federated protocol, in which the entity label is heavily confounded with the site of origin.",
+    "html_url": "https://arxiv.org/abs/2610.18771v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.18771v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.18571v1",
+    "title": "Parameter-Efficient Multimodal Brain Tumor Segmentation With Stage-Wise Shared Adapters",
+    "authors": [
+      "Milad Rostamian",
+      "Mohammadreza Mohammadi",
+      "Ender Konukoglu",
+      "Mohsen Soryani"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-13T15:39:20+00:00",
+    "updated": "2026-10-13T15:39:20+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Different MRI modalities reveal different parts of a brain tumor. Segmentation models combine information from these modalities to outline tumor regions. Many models use a separate encoder for each modality. However, exchanging features among these encoders at several stages can increase model complexity. We introduce the Block-Wise Shared Adapter (BWSA), which combines compressed features from the modality encoders in a shared path and returns adapted features to each stream. In its fixed-blending form, BWSA adds the adapted features to the original features. Its trainable-gated variant (TG-BWSA) instead learns separate weights for the original and adapted features at each modality and encoder stage. We evaluate both variants on BraTS 2020 and BraTS 2023 with four segmentation backbones. On the official BraTS 2023 online validation set, BWSA increases average region-wise Dice by 1.3--7.6 percentage points relative to the corresponding unmodified backbones. TG-BWSA increases it by 2.8--7.7 points. Both variants add approximately 0.85--3.73% parameters and reduce average HD95 relative to the unmodified backbones.",
+    "html_url": "https://arxiv.org/abs/2610.18571v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.18571v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.19844v3",
+    "title": "Probing and Inducing Clinical Modality Grounding in Brain Tumor Segmentation",
+    "authors": [
+      "Lokendra Kumar",
+      "Shubham Aggarwal"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-20T10:44:58+00:00",
+    "updated": "2026-10-13T11:18:42+00:00",
+    "comments": "18 pages,4 tables,9 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multimodal MRI provides complementary information for brain tumor segmentation, but high accuracy alone does not reveal whether a model relies on clinically appropriate imaging evidence. Radiologists use different sequences for different findings, such as T1ce for enhancing tumor and FLAIR for peritumoral edema. Yet most 3D segmentation networks fuse MRI sequences through fixed connections, regardless of patient, region, or depth.\n  We frame multimodal segmentation as grounded multimodal reasoning and introduce (i) a model agnostic probing framework combining per region modality ablation, Dominant Sensitivity Enhancement (DSE), and gate trajectory analysis to reveal sequence reliance, and (ii) evidence that adaptive Hyper-Connections (HC) induce clinically aligned modality reliance without modality supervision.\n  Across nnU Net, SwinUNETR, and VT-UNet on BraTS 2021, most HC configurations increase reliance on clinically appropriate sequences. This interpretable pattern recurs across all three backbones, suggesting it arises from adaptive connections rather than a single architecture. HC also improves segmentation accuracy at negligible parameter cost. On validation, the best HC configuration increases mean Dice by 0.43 to 0.81 percentage points across the three backbones. On the held-out test set, it reduces mean HD95 by 1.17 to 1.78 mm (approximately 20 to 27 percent) for nnU-Net and VT UNet, adding at most 0.53 percent parameters. Our framework offers an inspectable measure of clinical grounding and extends naturally to multimodal medical foundation models.",
+    "html_url": "https://arxiv.org/abs/2603.19844v3",
+    "pdf_url": "https://arxiv.org/pdf/2603.19844v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.18133v1",
+    "title": "Human-Inspired Asymmetric Collaboration for Dual-Student Semi-Supervised Medical Image Segmentation",
+    "authors": [
+      "Huiyi Ren",
+      "Ziming Fang",
+      "Jiaming Cai",
+      "Rui Xu",
+      "Haojie Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-13T10:43:19+00:00",
+    "updated": "2026-10-13T10:43:19+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Dual-student learning enriches predictive diversity in SSMIS by introducing a strongly augmented view alongside a weakly augmented view. Insufficient strong augmentation may homogenize the students, whereas excessive augmentation can corrupt anatomical evidence and destabilize collaboration. This challenge echoes feedback-regulated human instruction, where learners receive differentiated tasks and the task difficulty is continually adjusted according to their evolving responses. Inspired by these, we propose Human-Inspired Asymmetric Collaboration (HAC), a closed-loop dual-student framework that maintains weak--strong learning through adaptive difficulty calibration and geometry preservation. Specifically, Reinforcement-guided Difficulty Calibration (RDC) formulates strong-augmentation control as a window-level reinforcement learning process, using augmentation history, realized perturbations, and training responses to dynamically adjust the augmentation magnitude, operation number, and magnitude range. Meanwhile, the Gramian Geometry Preservation Constraint (G2PC) preserves the early-stage three-branch geometry through global volume and pairwise area constraints, preventing shared supervision from homogenizing the two students. Comprehensive evaluations across LA, Pancreas, and BraTS-2019 validate both the segmentation effectiveness and capability-aware difficulty calibration of HAC.",
+    "html_url": "https://arxiv.org/abs/2610.18133v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.18133v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.17933v1",
+    "title": "HierarchiRetina: A Diabetic Retinopathy Screening and Grading Cascade with Heterogeneous Mixture-of-Experts Lesion Segmentation",
+    "authors": [
+      "Md Asif Uddin",
+      "Niloy Farhan",
+      "Rafeed Rahman",
+      "Md. Golam Rabiul Alam"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-13T08:19:28+00:00",
+    "updated": "2026-10-13T08:19:28+00:00",
+    "comments": "8 pages, 8 figures, 8 tables. Submitted to the IEEE Journal of Biomedical and Health Informatics. Code, trained weights and per-image predictions: https://github.com/asifuddin01/HierarchiRetina",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Clinical screening for diabetic retinopathy proceeds in stages, yet most automated systems grade fundus images with a single black-box network. Three gaps remain: (i) lesions differ widely in size and contrast, but segmenters typically apply the same blocks to all; (ii) ungradable images are usually excluded or treated as an extra class, and lesion-aware graders seldom test whether lesions drive the grade; (iii) staged systems often report each stage only on the images reaching it, leaving propagated errors unmeasured. HierarchiRetina, a screening, segmentation and grading cascade with inspectable stage outputs, addresses each gap. First, HSMoE-AUNet is a U-Net whose skip, bottleneck and decoder blocks are sparse mixtures of heterogeneous experts, with lesion-matched types, counts and losses; SwinHRUNetPP, a dual-encoder vessel segmenter, uses a field-of-view-restricted loss. Second, LG-DRG separates gradability from ordinal severity and lets lesion masks query the image through gated cross-attention. Third, an end-to-end evaluation counts screening misses as errors and traces each error to its stage. Pooled Dice ranged from 0.184 (microaneurysms) to 0.579 (exudates); vessel Dice was 0.731. On 58,689 held-out images from six datasets, end-to-end quadratic weighted kappa was 0.804, with referral sensitivity 0.832 at specificity 0.947, and the screening gate caused 66% of errors. In ablations, the grade ignored the masks, even with the cross-attention gate started open. On all 4,105 official DDR test images, six-class accuracy was 85.6%, above the best published six-class result we found (83.8%). Staged screening systems should be evaluated end-to-end, with stage attribution and mask ablation, before clinical deployment.",
+    "html_url": "https://arxiv.org/abs/2610.17933v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.17933v1",
+    "code_urls": [
+      "https://github.com/asifuddin01/HierarchiRetina",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
