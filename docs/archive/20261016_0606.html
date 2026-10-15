@@ -1,0 +1,626 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-10-16 06:06</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261016_0606</div>
+    <div class="row"><div class="card">
+<div class="title">Adaptive Computation with Conformal Certification</div>
+<div class="meta-line">Authors: Shehtab Zaman, Aneesh Rangnekar, Nancy Lee, Harini Veeraraghavan</div>
+<div class="meta-line">First: 2026-10-13T20:53:42+00:00 · Latest: 2026-10-13T20:53:42+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.19189v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.19189v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Scientific imaging data involving medical (e.g., 3D radiographic, microscopic images) and astronomical sensors pose different challenges from natural images. One key challenge is that these datasets are often orders of magnitude larger than natural images. Efficient training and inference on such data is challenging due to the increased hardware requirements, often needing bespoke solutions. Moreover, the relevant objects such as tumors and astronomical phenomena are sparsely distributed with respect to the background information. Standard efficiency techniques like quantization and pruning apply uniform scaling of all regions, potentially compromising the precision/fidelity of predictions. Thus, efficient methods that reduce computational requirements without losing resolution for relevant parts of the data and with uncertainty estimates on predictions are essential. We present \textit{Conformal Adaptation} with risk guarantees for uncertainty-aware sparse computations. Our formalism is general, spanning dense pixel-level classification and regression tasks where hierarchical models predict at low resolution, certify the signal using conformal risk control, and refine the certified predictions. We benchmark our method on multiple tasks such as 3D medical image segmentation, 2D galaxy flux prediction, and 1D calcium spike rate prediction, achieving $2.5$--$72\times$ wall-clock speedup across the various tasks, including on commodity CPUs.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>自适应计算与共形认证</div>
+<div class="mono" style="margin-top:8px">涉及医学（如三维放射影像、显微图像）和天文传感器的科学成像数据与自然图像面临不同的挑战。一个关键挑战是这些数据集通常比自然图像大几个数量级。由于硬件需求增加，对此类数据进行高效训练和推理颇具挑战，往往需要定制化解决方案。此外，肿瘤和天文现象等相关对象相对于背景信息呈稀疏分布。量化和剪枝等标准效率技术对所有区域施加均匀缩放，可能损害预测的精度/保真度。因此，需要高效方法在降低计算需求的同时不损失数据相关部分的分辨率，并对预测提供不确定性估计。我们提出具有风险保证的\textit{共形自适应}用于不确定性感知的稀疏计算。我们的形式化方法具有通用性，涵盖密集像素级分类和回归任务，其中分层模型在低分辨率下预测，使用共形风险控制认证信号，并细化认证后的预测。我们在多个任务上对方法进行基准测试，如三维医学图像分割、二维星系通量预测和一维钙尖峰率预测，在各种任务上实现了$2.5$--$72\times$的挂钟时间加速，包括在普通CPU上。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Scientific imaging datasets from medical and astronomical sensors are often orders of magnitude larger than natural images, and the relevant objects such as tumors or astronomical phenomena are sparsely distributed, making efficient training and inference difficult; standard uniform efficiency techniques like quantization and pruning can degrade fidelity in these sparse regions. The paper introduces Conformal Adaptation with risk guarantees, a general formalism for uncertainty-aware sparse computation in which hierarchical models predict at low resolution, certify the signal using conformal risk control, and then refine only the certified predictions, applicable to dense pixel-level classification and regression. Benchmarks on 3D medical image segmentation, 2D galaxy flux prediction, and 1D calcium spike rate prediction achieve 2.5 to 72 times wall-clock speedup across tasks, including on commodity CPUs.</div>
+<div class="mono" style="margin-top:8px">来自医学和天文传感器的科学成像数据集通常比自然图像大几个数量级，且肿瘤、天文现象等相关目标相对背景呈稀疏分布，导致高效训练和推理困难；量化、剪枝等标准均匀效率技术可能损害这些稀疏区域的保真度。本文提出具有风险保证的共形自适应（Conformal Adaptation），一种面向不确定性感知稀疏计算的通用形式化方法：分层模型先在低分辨率下预测，利用共形风险控制对信号进行认证，再仅对通过认证的预测进行细化，适用于稠密像素级分类与回归任务。在3D医学图像分割、2D星系通量预测和1D钙离子脉冲率预测等基准任务上，该方法在不同任务中实现了2.5至72倍的墙钟时间加速，且可在普通CPU上运行。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">SPARCL: Spatially Adaptive Regional Coverage for Active Learning in Chest X-ray Analysis</div>
+<div class="meta-line">Authors: Juho Jung, Seongjae Kang, Mijoo Kim, Sungduk Cho, Yunkyoung Jun, Sunghoon Joo, Yoona Hwang</div>
+<div class="meta-line">First: 2026-10-13T06:34:50+00:00 · Latest: 2026-10-13T06:34:50+00:00</div>
+<div class="meta-line">Comments: 10 pages, 7 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.17808v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.17808v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Pixel-level annotation for chest X-ray (CXR) lesion segmentation is expensive, making active learning (AL) essential. However, existing AL strategies fail to account for the spatial distribution of selected samples, resulting in inconsistent performance across focal (e.g., aortic calcification) and diffuse (e.g., nodules) pathologies. In this paper, we propose SPARCL (Spatially Adaptive Regional Coverage for Active Learning) to dynamically balance predictive uncertainty with cumulative spatial coverage. By employing a concave coverage function, SPARCL imposes diminishing returns on previously annotated regions, naturally directing the annotation budget toward under-labeled areas. Furthermore, an entropy gate reverts the algorithm to standard uncertainty sampling when spatial variation is absent. This coverage objective is monotone submodular, guaranteeing near-optimal greedy batch selection. To address how aggregate metrics like Dice obscure regional failures, we further introduce two metrics---Spatial Inconsistency (SI) and Performance Coverage (PC)---to quantify anatomical fairness across AL rounds. Evaluated on an in-house calcification cohort and public CXR benchmarks, SPARCL reaches 95% of fully supervised performance using only 24% of the data, compared to 29% for the best baseline. Ultimately, SPARCL ensures robust spatial reliability, surfacing regional gains that aggregate metrics miss.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>SPARCL：用于胸部X射线分析中主动学习的空间自适应区域覆盖</div>
+<div class="mono" style="margin-top:8px">胸部X射线（CXR）病变分割的像素级标注成本高昂，因此主动学习（AL）至关重要。然而，现有AL策略未能考虑所选样本的空间分布，导致在局灶性（如主动脉钙化）和弥漫性（如结节）病理上性能不一致。本文提出SPARCL（用于主动学习的空间自适应区域覆盖），以动态平衡预测不确定性与累积空间覆盖。通过采用凹覆盖函数，SPARCL对已标注区域施加递减回报，自然地将标注预算导向标注不足的区域。此外，熵门控在空间变化缺失时将算法恢复为标准不确定性采样。该覆盖目标为单调子模，保证近最优的贪心批量选择。为解决Dice等聚合指标掩盖区域失败的问题，我们进一步引入两个指标——空间不一致性（SI）和性能覆盖率（PC）——以量化AL轮次间的解剖公平性。在内部钙化队列和公开CXR基准上评估，SPARCL仅使用24%的数据即达到全监督性能的95%，而最佳基线为29%。最终，SPARCL确保了稳健的空间可靠性，揭示出聚合指标所遗漏的区域增益。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Active learning for chest X-ray lesion segmentation is limited by existing strategies that ignore the spatial distribution of selected samples, causing inconsistent performance across focal and diffuse pathologies. The proposed SPARCL method dynamically balances predictive uncertainty with cumulative spatial coverage using a concave coverage function that imposes diminishing returns on previously annotated regions, and an entropy gate that reverts to standard uncertainty sampling when spatial variation is absent; the coverage objective is monotone submodular, ensuring near-optimal greedy batch selection. Evaluated on an in-house calcification cohort and public CXR benchmarks, SPARCL achieves 95% of fully supervised performance with only 24% of the data, compared to 29% for the best baseline, and the introduced Spatial Inconsistency and Performance Coverage metrics reveal regional gains that aggregate metrics like Dice miss.</div>
+<div class="mono" style="margin-top:8px">胸部X光病灶分割的像素级标注成本高昂，因此主动学习至关重要，但现有主动学习策略未能考虑所选样本的空间分布，导致在局灶性（如主动脉钙化）和弥漫性（如结节）病变上性能不一致。本文提出的SPARCL方法通过凹覆盖函数动态平衡预测不确定性与累积空间覆盖，对已标注区域施加递减回报，从而将标注预算导向标注不足的区域，并利用熵门在空间变化缺失时回退到标准不确定性采样；该覆盖目标具有单调子模性，保证了近最优的贪心批次选择。在内部钙化队列和公开CXR基准上评估，SPARCL仅用24%的数据即达到全监督性能的95%，而最佳基线需29%的数据，同时引入的空间不一致性和性能覆盖度指标揭示了聚合指标（如Dice）所忽略的区域性增益。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">MID: Mask-Image Distributional Divergence for Evaluating Medical Image Segmentation</div>
+<div class="meta-line">Authors: Vincenzo Marcianò, Xiaoming Zhang, Gianluca Guglielmo, Sebastien Ourselin, Michela Antonelli, Maria A. Zuluaga</div>
+<div class="meta-line">First: 2026-10-12T20:12:33+00:00 · Latest: 2026-10-12T20:12:33+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.17354v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.17354v1">PDF</a> · <a href="http://github.com/erc-caravel/pytorch-mid">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Current evaluation protocols for medical image segmentation remain largely anchored in sample-wise comparisons, e.g., Dice and Hausdorff distance, which require each prediction to be paired with a ground-truth mask. Yet two limitations arise in practice: they are inapplicable when predictions are made on unlabeled data; and even when annotations are available, they cannot assess whether a collection of predictions matches the distributional structure of the ground-truth population. We introduce MID (Mask-Image Distributional Divergence), a distribution-level evaluation metric for medical image segmentation. MID builds upon the observation that segmentation quality is a property of the joint image-mask distribution: a mask may be anatomically plausible in isolation yet incorrect for the image it accompanies. MID compares the joint distribution of images and masks between a reference set and a set of predictions, without requiring sample-wise correspondence. This captures both mask realism and image-mask consistency. We evaluate MID across 13 publicly available datasets spanning CT, MRI, and MRA. Under anatomically realistic corruptions across 56 organ groups, MID tracks mean Dice and Hausdorff distance without per-sample ground-truth pairing. MID also detects distributional shifts across modalities and anatomies, identifies image-mask misalignment through controlled shuffling experiments, and produces reliable model rankings across real segmentation models. Official implementation available at github.com/erc-caravel/pytorch-mid</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>MID：用于评估医学图像分割的掩码-图像分布差异</div>
+<div class="mono" style="margin-top:8px">当前医学图像分割的评估方案仍主要基于逐样本比较，例如Dice和Hausdorff距离，这要求每个预测都与真实掩码配对。然而实践中存在两个局限：当预测是在无标注数据上进行时，这些方法不适用；即使有标注可用，它们也无法评估一组预测是否与真实总体的分布结构相匹配。我们提出MID（掩码-图像分布差异），一种用于医学图像分割的分布级评估指标。MID基于以下观察：分割质量是图像-掩码联合分布的一种属性：一个掩码单独看可能在解剖学上合理，但对其所伴随的图像而言却是错误的。MID比较参考集与预测集之间图像和掩码的联合分布，无需逐样本对应。这同时捕捉了掩码的真实性和图像-掩码一致性。我们在涵盖CT、MRI和MRA的13个公开数据集上评估MID。在跨越56个器官组的解剖学真实损坏下，MID无需逐样本真实掩码配对即可跟踪平均Dice和Hausdorff距离。MID还能检测跨模态和解剖结构的分布偏移，通过受控混洗实验识别图像-掩码错位，并在真实分割模型上产生可靠的模型排名。官方实现见github.com/erc-caravel/pytorch-mid</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Current evaluation protocols for medical image segmentation rely on sample-wise comparisons such as Dice and Hausdorff distance, which require paired ground-truth masks and cannot assess whether a collection of predictions matches the distributional structure of the ground-truth population. The authors introduce MID (Mask-Image Distributional Divergence), a distribution-level metric that compares the joint distribution of images and masks between a reference set and a set of predictions without requiring sample-wise correspondence, thereby capturing both mask realism and image-mask consistency. Evaluated on 13 public datasets spanning CT, MRI, and MRA, MID tracks mean Dice and Hausdorff distance under anatomically realistic corruptions across 56 organ groups without per-sample ground-truth pairing, detects distributional shifts across modalities and anatomies, identifies image-mask misalignment via controlled shuffling, and produces reliable model rankings across real segmentation models.</div>
+<div class="mono" style="margin-top:8px">当前医学图像分割评估主要依赖Dice和Hausdorff距离等逐样本比较方法，这类方法要求每个预测与真实掩膜配对，因而无法用于无标注数据，也无法判断一组预测是否匹配真实总体的分布结构。作者提出MID（掩膜-图像分布散度），一种分布级评估指标，通过比较参考集与预测集之间图像和掩膜的联合分布，无需逐样本对应，从而同时捕捉掩膜真实性与图像-掩膜一致性。在涵盖CT、MRI和MRA的13个公开数据集上，MID在56个器官组的解剖学真实损坏下无需逐样本真实掩膜即可跟踪平均Dice和Hausdorff距离，还能检测跨模态和解剖结构的分布偏移、通过受控打乱实验识别图像-掩膜错位，并在真实分割模型上给出可靠的模型排序。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Unsupervised Domain Adaptation for Cardiac Segmentation: Towards Structure Mutual Information Maximization</div>
+<div class="meta-line">Authors: Changjie Lu, Shen Zheng, Gaurav Gupta</div>
+<div class="meta-line">Venue: CVPR</div>
+<div class="meta-line">First: 2022-04-20T09:10:18+00:00 · Latest: 2026-10-12T06:10:09+00:00</div>
+<div class="meta-line">Comments: CVPR Workshop Paper. v4: Revised the theoretical analysis and its proof (Theorem 1, supplementary material); unified notation; fixed description errors</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2204.09334v4">Abs</a> · <a href="https://arxiv.org/pdf/2204.09334v4">PDF</a> · <a href="https://github.com/LOUEY233/Toward-Mutual-Information">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Unsupervised domain adaptation approaches have recently succeeded in various medical image segmentation tasks. The reported works often tackle the domain shift problem by aligning the domain-invariant features and minimizing the domain-specific discrepancies. That strategy works well when the difference between a specific domain and between different domains is slight. However, the generalization ability of these models on diverse imaging modalities remains a significant challenge. This paper introduces UDA-VAE++, an unsupervised domain adaptation framework for cardiac segmentation. We show that the evidence lower bound of VAE-based domain adaptation penalizes the mutual information between the image and the latent space, including the structure information that segmentation relies on. Maximizing the structure mutual information removes this penalty on the structure information, while the remaining information is still compressed. To estimate this term, we develop a novel Structure Mutual Information Estimation (SMIE) block with a global estimator, a local estimator, and a prior information matching estimator to maximize the mutual information between the reconstruction and segmentation tasks. Specifically, we design a novel sequential reparameterization scheme that enables information flow and variance correction from the low-resolution latent space to the high-resolution latent space. Comprehensive experiments on benchmark cardiac segmentation datasets demonstrate that our model outperforms previous state-of-the-art qualitatively and quantitatively. The code is available at https://github.com/LOUEY233/Toward-Mutual-Information</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>心脏分割的无监督域适应：迈向结构互信息最大化</div>
+<div class="mono" style="margin-top:8px">无监督域适应方法近期在多种医学图像分割任务中取得了成功。已报道的工作通常通过对齐域不变特征并最小化域特定差异来解决域偏移问题。当特定域之间及不同域之间的差异较小时，该策略效果良好。然而，这些模型在多种成像模态上的泛化能力仍是一个重大挑战。本文提出UDA-VAE++，一种用于心脏分割的无监督域适应框架。我们表明，基于VAE的域适应的证据下界会惩罚图像与潜在空间之间的互信息，其中包括分割所依赖的结构信息。最大化结构互信息可消除对结构信息的这一惩罚，而其余信息仍被压缩。为估计该项，我们提出一种新颖的结构互信息估计（SMIE）模块，包含全局估计器、局部估计器和先验信息匹配估计器，以最大化重建与分割任务之间的互信息。具体而言，我们设计了一种新颖的顺序重参数化方案，使信息流和方差校正能够从低分辨率潜在空间传递到高分辨率潜在空间。在基准心脏分割数据集上的综合实验表明，我们的模型在定性和定量上均优于先前的最先进方法。代码见 https://github.com/LOUEY233/Toward-Mutual-Information</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Unsupervised domain adaptation for cardiac segmentation often aligns domain-invariant features but struggles with generalization across diverse imaging modalities. This paper introduces UDA-VAE++, a framework that identifies the evidence lower bound of VAE-based domain adaptation as penalizing mutual information between image and latent space, including segmentation-relevant structure. To address this, it maximizes structure mutual information via a novel Structure Mutual Information Estimation block with global, local, and prior information matching estimators, and employs a sequential reparameterization scheme for information flow and variance correction from low- to high-resolution latent spaces. Experiments on benchmark cardiac segmentation datasets show that UDA-VAE++ outperforms previous state-of-the-art methods both qualitatively and quantitatively.</div>
+<div class="mono" style="margin-top:8px">无监督域适应在心脏分割中常通过对齐域不变特征来应对域偏移，但在不同成像模态间的泛化能力仍具挑战。本文提出UDA-VAE++框架，指出基于VAE的域适应的证据下界会惩罚图像与潜在空间之间的互信息，包括分割所依赖的结构信息。为此，该方法通过一种新颖的结构互信息估计模块（包含全局、局部和先验信息匹配估计器）来最大化结构互信息，并设计顺序重参数化方案，实现从低分辨率到高分辨率潜在空间的信息流和方差校正。在基准心脏分割数据集上的实验表明，UDA-VAE++在定性和定量上均优于先前的最先进方法。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Lesion-Aware Attention for Mammography Segmentation with Heterogeneous Supervision</div>
+<div class="meta-line">Authors: Di Dai, Bo Liu, Liwei Wang</div>
+<div class="meta-line">First: 2026-10-11T13:36:41+00:00 · Latest: 2026-10-11T13:36:41+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.15612v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.15612v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Accurate lesion segmentation in mammography is important for computer-aided breast cancer diagnosis, but dense pixel-level annotations remain costly and limited. Existing public segmentation datasets usually cover only a small set of lesion types with manually delineated masks, whereas larger mammography datasets often provide only image-level diagnostic labels. This annotation mismatch makes it difficult to train segmentation models that can generalize to rare or weakly annotated lesion categories. To address this problem, we study open-vocabulary mammographic lesion segmentation under a mixed-supervision setting, where pixel-level masks are available for base lesion categories and image-level labels are available for a broader set of categories. We propose a two-branch framework that jointly learns from segmentation data and classification data. The segmentation branch learns lesion boundaries from annotated masks, while the classification branch introduces additional image-level semantic supervision. To better transfer image-level supervision to lesion-relevant regions, we further introduce a Lesion-wise Attentive Classifier that maintains category-specific feature prototypes and generates lesion-aware attention maps for foreground feature pooling. This design reduces the influence of background tissue and encourages more compact lesion representations. Experiments on multiple mammography datasets show that the proposed method consistently improves open-vocabulary segmentation baselines on both base and novel lesion categories, while reducing the gap to fully supervised models that require dense target-domain masks. Qualitative results further indicate that our method produces more complete lesion localization for small, low-contrast, and visually subtle mammographic findings.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>面向乳腺X线摄影分割的病灶感知注意力与异构监督</div>
+<div class="mono" style="margin-top:8px">乳腺X线摄影中准确的病灶分割对计算机辅助乳腺癌诊断至关重要，但密集的像素级标注仍然昂贵且有限。现有公开分割数据集通常仅覆盖少量病灶类型并带有手动勾画的掩码，而更大的乳腺X线摄影数据集往往只提供图像级诊断标签。这种标注不匹配使得难以训练能够泛化到罕见或弱标注病灶类别的分割模型。为解决这一问题，我们研究混合监督设置下的开放词汇乳腺X线摄影病灶分割，其中基础病灶类别具有像素级掩码，而更广泛的类别仅具有图像级标签。我们提出一个双分支框架，从分割数据和分类数据中联合学习。分割分支从标注掩码中学习病灶边界，而分类分支引入额外的图像级语义监督。为了更好地将图像级监督迁移到病灶相关区域，我们进一步引入病灶级注意力分类器，该分类器维护类别特定的特征原型，并生成病灶感知注意力图用于前景特征池化。该设计减少了背景组织的影响，并促使病灶表示更加紧凑。在多个乳腺X线摄影数据集上的实验表明，所提方法在基础和新颖病灶类别上均持续改进开放词汇分割基线，同时缩小了与需要密集目标域掩码的全监督模型之间的差距。定性结果进一步表明，我们的方法对小尺寸、低对比度和视觉上细微的乳腺X线摄影发现产生了更完整的病灶定位。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Accurate lesion segmentation in mammography is important for computer-aided breast cancer diagnosis, but dense pixel-level annotations are costly and limited, and existing public datasets cover only a small set of lesion types with masks while larger datasets provide only image-level labels, creating an annotation mismatch that hinders generalization to rare or weakly annotated categories. To address this, the authors study open-vocabulary mammographic lesion segmentation under mixed supervision, where pixel-level masks are available for base categories and image-level labels for a broader set, and propose a two-branch framework that jointly learns from segmentation and classification data: the segmentation branch learns boundaries from masks, while the classification branch introduces image-level semantic supervision via a Lesion-wise Attentive Classifier that maintains category-specific feature prototypes and generates lesion-aware attention maps for foreground feature pooling, reducing background influence and encouraging compact lesion representations. Experiments on multiple mammography datasets show that the method consistently improves open-vocabulary segmentation baselines on both base and novel lesion categories, reduces the gap to fully supervised models requiring dense target-domain masks, and qualitatively produces more complete lesion localization for small, low-contrast, and visually subtle findings.</div>
+<div class="mono" style="margin-top:8px">乳腺X线摄影中的准确病灶分割对计算机辅助乳腺癌诊断很重要，但密集的像素级标注成本高且有限，现有公开分割数据集通常仅覆盖少量有掩膜的病灶类型，而更大的乳腺X线数据集往往只提供图像级诊断标签，这种标注不匹配使得训练能泛化到罕见或弱标注病灶类别的分割模型变得困难。为解决此问题，作者研究混合监督下的开放词汇乳腺病灶分割，其中基础类别有像素级掩膜，更广泛的类别有图像级标签，并提出一个双分支框架，联合从分割数据和分类数据中学习：分割分支从标注掩膜学习病灶边界，分类分支通过病灶级注意力分类器引入额外的图像级语义监督，该分类器维护类别特定的特征原型并生成病灶感知注意力图用于前景特征池化，从而减少背景组织影响并促使更紧凑的病灶表示。在多个乳腺X线数据集上的实验表明，该方法在基础和新颖病灶类别上均持续改进开放词汇分割基线，缩小了与需要密集目标域掩膜的全监督模型的差距，定性结果进一步显示，对于小、低对比度和视觉上微妙的乳腺X线发现，该方法能产生更完整的病灶定位。</div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261015_0611.html">20261015_0611</a>
+<a href="archive/20261014_0714.html">20261014_0714</a>
+<a href="archive/20261013_0915.html">20261013_0915</a>
+<a href="archive/20261012_0646.html">20261012_0646</a>
+<a href="archive/20261011_0623.html">20261011_0623</a>
+<a href="archive/20261010_0709.html">20261010_0709</a>
+<a href="archive/20261009_0743.html">20261009_0743</a>
+<a href="archive/20261008_0732.html">20261008_0732</a>
+<a href="archive/20261007_0658.html">20261007_0658</a>
+<a href="archive/20261006_0843.html">20261006_0843</a>
+<a href="archive/20261005_0617.html">20261005_0617</a>
+<a href="archive/20261004_0605.html">20261004_0605</a>
+<a href="archive/20261003_0656.html">20261003_0656</a>
+<a href="archive/20261002_0705.html">20261002_0705</a>
+<a href="archive/20261001_0654.html">20261001_0654</a>
+<a href="archive/20260930_0655.html">20260930_0655</a>
+<a href="archive/20260929_0748.html">20260929_0748</a>
+<a href="archive/20260928_0559.html">20260928_0559</a>
+<a href="archive/20260927_0555.html">20260927_0555</a>
+<a href="archive/20260926_0611.html">20260926_0611</a>
+<a href="archive/20260925_0611.html">20260925_0611</a>
+<a href="archive/20260924_0611.html">20260924_0611</a>
+<a href="archive/20260923_0557.html">20260923_0557</a>
+<a href="archive/20260922_0633.html">20260922_0633</a>
+<a href="archive/20260921_0524.html">20260921_0524</a>
+<a href="archive/20260920_0523.html">20260920_0523</a>
+<a href="archive/20260919_0534.html">20260919_0534</a>
+<a href="archive/20260918_0602.html">20260918_0602</a>
+<a href="archive/20260917_0602.html">20260917_0602</a>
+<a href="archive/20260916_0604.html">20260916_0604</a>
+<a href="archive/20260915_0626.html">20260915_0626</a>
+<a href="archive/20260913_0521.html">20260913_0521</a>
+<a href="archive/20260912_0539.html">20260912_0539</a>
+<a href="archive/20260911_0532.html">20260911_0532</a>
+<a href="archive/20260910_0537.html">20260910_0537</a>
+<a href="archive/20260909_1610.html">20260909_1610</a>
+<a href="archive/20260909_0547.html">20260909_0547</a>
+<a href="archive/20260908_0558.html">20260908_0558</a>
+<a href="archive/20260907_0512.html">20260907_0512</a>
+<a href="archive/20260906_0506.html">20260906_0506</a>
+<a href="archive/20260905_0522.html">20260905_0522</a>
+<a href="archive/20260904_0539.html">20260904_0539</a>
+<a href="archive/20260903_0545.html">20260903_0545</a>
+<a href="archive/20260902_0544.html">20260902_0544</a>
+<a href="archive/20260901_0712.html">20260901_0712</a>
+<a href="archive/20260831_0555.html">20260831_0555</a>
+<a href="archive/20260830_0537.html">20260830_0537</a>
+<a href="archive/20260829_1002.html">20260829_1002</a>
+<a href="archive/20260828_1132.html">20260828_1132</a>
+<a href="archive/20260827_0545.html">20260827_0545</a>
+<a href="archive/20260826_0337.html">20260826_0337</a>
+<a href="archive/20260825_0335.html">20260825_0335</a>
+<a href="archive/20260824_0327.html">20260824_0327</a>
+<a href="archive/20260823_0327.html">20260823_0327</a>
+<a href="archive/20260822_0330.html">20260822_0330</a>
+<a href="archive/20260821_0336.html">20260821_0336</a>
+<a href="archive/20260820_0331.html">20260820_0331</a>
+<a href="archive/20260819_0332.html">20260819_0332</a>
+<a href="archive/20260818_0333.html">20260818_0333</a>
+<a href="archive/20260817_0326.html">20260817_0326</a>
+<a href="archive/20260816_0326.html">20260816_0326</a>
+<a href="archive/20260815_0351.html">20260815_0351</a>
+<a href="archive/20260814_0358.html">20260814_0358</a>
+<a href="archive/20260813_0405.html">20260813_0405</a>
+<a href="archive/20260812_0405.html">20260812_0405</a>
+<a href="archive/20260811_0359.html">20260811_0359</a>
+<a href="archive/20260810_0341.html">20260810_0341</a>
+<a href="archive/20260809_0338.html">20260809_0338</a>
+<a href="archive/20260808_0357.html">20260808_0357</a>
+<a href="archive/20260807_0846.html">20260807_0846</a>
+<a href="archive/20260806_0438.html">20260806_0438</a>
+<a href="archive/20260805_0440.html">20260805_0440</a>
+<a href="archive/20260804_0438.html">20260804_0438</a>
+<a href="archive/20260803_0416.html">20260803_0416</a>
+<a href="archive/20260802_0414.html">20260802_0414</a>
+<a href="archive/20260801_0429.html">20260801_0429</a>
+<a href="archive/20260731_0422.html">20260731_0422</a>
+<a href="archive/20260730_0417.html">20260730_0417</a>
+<a href="archive/20260729_0423.html">20260729_0423</a>
+<a href="archive/20260728_0429.html">20260728_0429</a>
+<a href="archive/20260727_0417.html">20260727_0417</a>
+<a href="archive/20260726_0415.html">20260726_0415</a>
+<a href="archive/20260725_0427.html">20260725_0427</a>
+<a href="archive/20260724_0419.html">20260724_0419</a>
+<a href="archive/20260723_0418.html">20260723_0418</a>
+<a href="archive/20260722_0424.html">20260722_0424</a>
+<a href="archive/20260721_1650.html">20260721_1650</a>
+<a href="archive/20260721_0428.html">20260721_0428</a>
+<a href="archive/20260720_0411.html">20260720_0411</a>
+<a href="archive/20260719_0408.html">20260719_0408</a>
+<a href="archive/20260718_0413.html">20260718_0413</a>
+<a href="archive/20260717_0409.html">20260717_0409</a>
+<a href="archive/20260716_0418.html">20260716_0418</a>
+<a href="archive/20260715_0421.html">20260715_0421</a>
+<a href="archive/20260714_0422.html">20260714_0422</a>
+<a href="archive/20260713_0410.html">20260713_0410</a>
+<a href="archive/20260712_0410.html">20260712_0410</a>
+<a href="archive/20260711_0448.html">20260711_0448</a>
+<a href="archive/20260710_0454.html">20260710_0454</a>
+<a href="archive/20260709_0427.html">20260709_0427</a>
+<a href="archive/20260708_0455.html">20260708_0455</a>
+<a href="archive/20260707_0457.html">20260707_0457</a>
+<a href="archive/20260706_0421.html">20260706_0421</a>
+<a href="archive/20260705_0415.html">20260705_0415</a>
+<a href="archive/20260704_0421.html">20260704_0421</a>
+<a href="archive/20260703_0425.html">20260703_0425</a>
+<a href="archive/20260702_0453.html">20260702_0453</a>
+<a href="archive/20260701_1434.html">20260701_1434</a>
+<a href="archive/20260701_0502.html">20260701_0502</a>
+<a href="archive/20260630_0454.html">20260630_0454</a>
+<a href="archive/20260629_0420.html">20260629_0420</a>
+<a href="archive/20260628_0423.html">20260628_0423</a>
+<a href="archive/20260627_0450.html">20260627_0450</a>
+<a href="archive/20260626_0502.html">20260626_0502</a>
+<a href="archive/20260625_0453.html">20260625_0453</a>
+<a href="archive/20260624_0505.html">20260624_0505</a>
+<a href="archive/20260623_0535.html">20260623_0535</a>
+<a href="archive/20260622_0444.html">20260622_0444</a>
+<a href="archive/20260621_0422.html">20260621_0422</a>
+<a href="archive/20260620_0442.html">20260620_0442</a>
+<a href="archive/20260619_0529.html">20260619_0529</a>
+<a href="archive/20260618_0517.html">20260618_0517</a>
+<a href="archive/20260617_0546.html">20260617_0546</a>
+<a href="archive/20260616_0549.html">20260616_0549</a>
+<a href="archive/20260615_0426.html">20260615_0426</a>
+<a href="archive/20260614_0424.html">20260614_0424</a>
+<a href="archive/20260613_0507.html">20260613_0507</a>
+<a href="archive/20260612_0530.html">20260612_0530</a>
+<a href="archive/20260611_0531.html">20260611_0531</a>
+<a href="archive/20260610_0508.html">20260610_0508</a>
+<a href="archive/20260609_0517.html">20260609_0517</a>
+<a href="archive/20260608_0423.html">20260608_0423</a>
+<a href="archive/20260607_0421.html">20260607_0421</a>
+<a href="archive/20260606_0500.html">20260606_0500</a>
+<a href="archive/20260604_0602.html">20260604_0602</a>
+<a href="archive/20260603_0600.html">20260603_0600</a>
+<a href="archive/20260602_0619.html">20260602_0619</a>
+<a href="archive/20260601_0423.html">20260601_0423</a>
+<a href="archive/20260531_0419.html">20260531_0419</a>
+<a href="archive/20260530_0517.html">20260530_0517</a>
+<a href="archive/20260527_0458.html">20260527_0458</a>
+<a href="archive/20260526_0425.html">20260526_0425</a>
+<a href="archive/20260525_0415.html">20260525_0415</a>
+<a href="archive/20260524_0409.html">20260524_0409</a>
+<a href="archive/20260523_0445.html">20260523_0445</a>
+<a href="archive/20260522_0454.html">20260522_0454</a>
+<a href="archive/20260521_0515.html">20260521_0515</a>
+<a href="archive/20260520_0457.html">20260520_0457</a>
+<a href="archive/20260519_0452.html">20260519_0452</a>
+<a href="archive/20260518_0416.html">20260518_0416</a>
+<a href="archive/20260517_0420.html">20260517_0420</a>
+<a href="archive/20260515_0449.html">20260515_0449</a>
+<a href="archive/20260514_0517.html">20260514_0517</a>
+<a href="archive/20260513_0445.html">20260513_0445</a>
+<a href="archive/20260512_0450.html">20260512_0450</a>
+<a href="archive/20260511_1750.html">20260511_1750</a>
+<a href="archive/20260511_0418.html">20260511_0418</a>
+<a href="archive/20260510_0414.html">20260510_0414</a>
+<a href="archive/20260509_0426.html">20260509_0426</a>
+<a href="archive/20260508_0435.html">20260508_0435</a>
+<a href="archive/20260507_0454.html">20260507_0454</a>
+<a href="archive/20260506_0427.html">20260506_0427</a>
+<a href="archive/20260505_0436.html">20260505_0436</a>
+<a href="archive/20260504_0410.html">20260504_0410</a>
+<a href="archive/20260503_0414.html">20260503_0414</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0429.html">20260501_0429</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>

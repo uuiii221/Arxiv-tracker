@@ -1,0 +1,150 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.19189v1",
+    "title": "Adaptive Computation with Conformal Certification",
+    "authors": [
+      "Shehtab Zaman",
+      "Aneesh Rangnekar",
+      "Nancy Lee",
+      "Harini Veeraraghavan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.LG"
+    ],
+    "published": "2026-10-13T20:53:42+00:00",
+    "updated": "2026-10-13T20:53:42+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Scientific imaging data involving medical (e.g., 3D radiographic, microscopic images) and astronomical sensors pose different challenges from natural images. One key challenge is that these datasets are often orders of magnitude larger than natural images. Efficient training and inference on such data is challenging due to the increased hardware requirements, often needing bespoke solutions. Moreover, the relevant objects such as tumors and astronomical phenomena are sparsely distributed with respect to the background information. Standard efficiency techniques like quantization and pruning apply uniform scaling of all regions, potentially compromising the precision/fidelity of predictions. Thus, efficient methods that reduce computational requirements without losing resolution for relevant parts of the data and with uncertainty estimates on predictions are essential. We present \\textit{Conformal Adaptation} with risk guarantees for uncertainty-aware sparse computations. Our formalism is general, spanning dense pixel-level classification and regression tasks where hierarchical models predict at low resolution, certify the signal using conformal risk control, and refine the certified predictions. We benchmark our method on multiple tasks such as 3D medical image segmentation, 2D galaxy flux prediction, and 1D calcium spike rate prediction, achieving $2.5$--$72\\times$ wall-clock speedup across the various tasks, including on commodity CPUs.",
+    "html_url": "https://arxiv.org/abs/2610.19189v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.19189v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.17808v1",
+    "title": "SPARCL: Spatially Adaptive Regional Coverage for Active Learning in Chest X-ray Analysis",
+    "authors": [
+      "Juho Jung",
+      "Seongjae Kang",
+      "Mijoo Kim",
+      "Sungduk Cho",
+      "Yunkyoung Jun",
+      "Sunghoon Joo",
+      "Yoona Hwang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-10-13T06:34:50+00:00",
+    "updated": "2026-10-13T06:34:50+00:00",
+    "comments": "10 pages, 7 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Pixel-level annotation for chest X-ray (CXR) lesion segmentation is expensive, making active learning (AL) essential. However, existing AL strategies fail to account for the spatial distribution of selected samples, resulting in inconsistent performance across focal (e.g., aortic calcification) and diffuse (e.g., nodules) pathologies. In this paper, we propose SPARCL (Spatially Adaptive Regional Coverage for Active Learning) to dynamically balance predictive uncertainty with cumulative spatial coverage. By employing a concave coverage function, SPARCL imposes diminishing returns on previously annotated regions, naturally directing the annotation budget toward under-labeled areas. Furthermore, an entropy gate reverts the algorithm to standard uncertainty sampling when spatial variation is absent. This coverage objective is monotone submodular, guaranteeing near-optimal greedy batch selection. To address how aggregate metrics like Dice obscure regional failures, we further introduce two metrics---Spatial Inconsistency (SI) and Performance Coverage (PC)---to quantify anatomical fairness across AL rounds. Evaluated on an in-house calcification cohort and public CXR benchmarks, SPARCL reaches 95% of fully supervised performance using only 24% of the data, compared to 29% for the best baseline. Ultimately, SPARCL ensures robust spatial reliability, surfacing regional gains that aggregate metrics miss.",
+    "html_url": "https://arxiv.org/abs/2610.17808v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.17808v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.17354v1",
+    "title": "MID: Mask-Image Distributional Divergence for Evaluating Medical Image Segmentation",
+    "authors": [
+      "Vincenzo Marcianò",
+      "Xiaoming Zhang",
+      "Gianluca Guglielmo",
+      "Sebastien Ourselin",
+      "Michela Antonelli",
+      "Maria A. Zuluaga"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-12T20:12:33+00:00",
+    "updated": "2026-10-12T20:12:33+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Current evaluation protocols for medical image segmentation remain largely anchored in sample-wise comparisons, e.g., Dice and Hausdorff distance, which require each prediction to be paired with a ground-truth mask. Yet two limitations arise in practice: they are inapplicable when predictions are made on unlabeled data; and even when annotations are available, they cannot assess whether a collection of predictions matches the distributional structure of the ground-truth population. We introduce MID (Mask-Image Distributional Divergence), a distribution-level evaluation metric for medical image segmentation. MID builds upon the observation that segmentation quality is a property of the joint image-mask distribution: a mask may be anatomically plausible in isolation yet incorrect for the image it accompanies. MID compares the joint distribution of images and masks between a reference set and a set of predictions, without requiring sample-wise correspondence. This captures both mask realism and image-mask consistency. We evaluate MID across 13 publicly available datasets spanning CT, MRI, and MRA. Under anatomically realistic corruptions across 56 organ groups, MID tracks mean Dice and Hausdorff distance without per-sample ground-truth pairing. MID also detects distributional shifts across modalities and anatomies, identifies image-mask misalignment through controlled shuffling experiments, and produces reliable model rankings across real segmentation models. Official implementation available at github.com/erc-caravel/pytorch-mid",
+    "html_url": "https://arxiv.org/abs/2610.17354v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.17354v1",
+    "code_urls": [
+      "http://github.com/erc-caravel/pytorch-mid",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2204.09334v4",
+    "title": "Unsupervised Domain Adaptation for Cardiac Segmentation: Towards Structure Mutual Information Maximization",
+    "authors": [
+      "Changjie Lu",
+      "Shen Zheng",
+      "Gaurav Gupta"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2022-04-20T09:10:18+00:00",
+    "updated": "2026-10-12T06:10:09+00:00",
+    "comments": "CVPR Workshop Paper. v4: Revised the theoretical analysis and its proof (Theorem 1, supplementary material); unified notation; fixed description errors",
+    "journal_ref": null,
+    "venue_inferred": "CVPR",
+    "summary": "Unsupervised domain adaptation approaches have recently succeeded in various medical image segmentation tasks. The reported works often tackle the domain shift problem by aligning the domain-invariant features and minimizing the domain-specific discrepancies. That strategy works well when the difference between a specific domain and between different domains is slight. However, the generalization ability of these models on diverse imaging modalities remains a significant challenge. This paper introduces UDA-VAE++, an unsupervised domain adaptation framework for cardiac segmentation. We show that the evidence lower bound of VAE-based domain adaptation penalizes the mutual information between the image and the latent space, including the structure information that segmentation relies on. Maximizing the structure mutual information removes this penalty on the structure information, while the remaining information is still compressed. To estimate this term, we develop a novel Structure Mutual Information Estimation (SMIE) block with a global estimator, a local estimator, and a prior information matching estimator to maximize the mutual information between the reconstruction and segmentation tasks. Specifically, we design a novel sequential reparameterization scheme that enables information flow and variance correction from the low-resolution latent space to the high-resolution latent space. Comprehensive experiments on benchmark cardiac segmentation datasets demonstrate that our model outperforms previous state-of-the-art qualitatively and quantitatively. The code is available at https://github.com/LOUEY233/Toward-Mutual-Information",
+    "html_url": "https://arxiv.org/abs/2204.09334v4",
+    "pdf_url": "https://arxiv.org/pdf/2204.09334v4",
+    "code_urls": [
+      "https://github.com/LOUEY233/Toward-Mutual-Information",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.15612v1",
+    "title": "Lesion-Aware Attention for Mammography Segmentation with Heterogeneous Supervision",
+    "authors": [
+      "Di Dai",
+      "Bo Liu",
+      "Liwei Wang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-11T13:36:41+00:00",
+    "updated": "2026-10-11T13:36:41+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate lesion segmentation in mammography is important for computer-aided breast cancer diagnosis, but dense pixel-level annotations remain costly and limited. Existing public segmentation datasets usually cover only a small set of lesion types with manually delineated masks, whereas larger mammography datasets often provide only image-level diagnostic labels. This annotation mismatch makes it difficult to train segmentation models that can generalize to rare or weakly annotated lesion categories. To address this problem, we study open-vocabulary mammographic lesion segmentation under a mixed-supervision setting, where pixel-level masks are available for base lesion categories and image-level labels are available for a broader set of categories. We propose a two-branch framework that jointly learns from segmentation data and classification data. The segmentation branch learns lesion boundaries from annotated masks, while the classification branch introduces additional image-level semantic supervision. To better transfer image-level supervision to lesion-relevant regions, we further introduce a Lesion-wise Attentive Classifier that maintains category-specific feature prototypes and generates lesion-aware attention maps for foreground feature pooling. This design reduces the influence of background tissue and encourages more compact lesion representations. Experiments on multiple mammography datasets show that the proposed method consistently improves open-vocabulary segmentation baselines on both base and novel lesion categories, while reducing the gap to fully supervised models that require dense target-domain masks. Qualitative results further indicate that our method produces more complete lesion localization for small, low-contrast, and visually subtle mammographic findings.",
+    "html_url": "https://arxiv.org/abs/2610.15612v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.15612v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
