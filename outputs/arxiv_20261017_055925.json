@@ -1,0 +1,152 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.21616v1",
+    "title": "A Decision-Aware Evaluation Protocol for Uncertainty in Medical Image Segmentation",
+    "authors": [
+      "Saket Maganti",
+      "Shreyank N Gowda"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-15T09:59:55+00:00",
+    "updated": "2026-10-15T09:59:55+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical segmentation uncertainty is often evaluated with calibration error or pixel-level error-detection scores, but these metrics do not show whether uncertainty improves downstream review decisions. We propose a decision-aware evaluation protocol that separates uncertainty estimation from deferral policy and evaluates their combination under fixed review budgets: which pixels, regions, or images should be accepted, and which should be reviewed. The protocol reports fixed-budget error reduction, risk-coverage behaviour, region-level review proxies, structural failure modes, probability-derived baselines, and sensitivity to review assumptions. We instantiate it across retinal vessel, skin lesion, and polyp segmentation with multiple backbones and uncertainty estimators. Under matched inference budgets and canonical multi-layer MC Dropout, test-time augmentation (TTA) gives a stronger error-detection signal across matched MC--TTA comparisons, including architecture and dropout-placement checks. However, estimator rankings are not universal. For example, probability-derived scores remain competitive, deep ensembles can outperform TTA, learned deferral helps mainly when the base estimator is weak, and rankings can change with review unit, uncertainty target, correction assumptions, and cost model. Structural and second-observer analyses further show that boundary and thin-structure failures are partly tied to annotation ambiguity. These findings support evaluating uncertainty as an estimator-policy-review configuration, not as a standalone score map. Code: https://anonymous.4open.science/r/Uncertainity-in-Medical-Image-Segmentation/README.md",
+    "html_url": "https://arxiv.org/abs/2610.21616v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.21616v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": [
+      "https://anonymous.4open.science/r/Uncertainity-in-Medical-Image-Segmentation/README.md"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.17354v2",
+    "title": "MID: Mask-Image Distributional Divergence for Evaluating Medical Image Segmentation",
+    "authors": [
+      "Vincenzo Marcianò",
+      "Xiaoming Zhang",
+      "Gianluca Guglielmo",
+      "Michela Antonelli",
+      "Sebastien Ourselin",
+      "Maria A. Zuluaga"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-12T20:12:33+00:00",
+    "updated": "2026-10-15T08:56:33+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Current evaluation protocols for medical image segmentation remain largely anchored in sample-wise comparisons, e.g., Dice and Hausdorff distance, which require each prediction to be paired with a ground-truth mask. Yet two limitations arise in practice: they are inapplicable when predictions are made on unlabeled data; and even when annotations are available, they cannot assess whether a collection of predictions matches the distributional structure of the ground-truth population. We introduce MID (Mask-Image Distributional Divergence), a distribution-level evaluation metric for medical image segmentation. MID builds upon the observation that segmentation quality is a property of the joint image-mask distribution: a mask may be anatomically plausible in isolation yet incorrect for the image it accompanies. MID compares the joint distribution of images and masks between a reference set and a set of predictions, without requiring sample-wise correspondence. This captures both mask realism and image-mask consistency. We evaluate MID across 13 publicly available datasets spanning CT, MRI, and MRA. Under anatomically realistic corruptions across 56 organ groups, MID tracks mean Dice and Hausdorff distance without per-sample ground-truth pairing. MID also detects distributional shifts across modalities and anatomies, identifies image-mask misalignment through controlled shuffling experiments, and produces reliable model rankings across real segmentation models. Official implementation available at github.com/erc-caravel/pytorch-mid",
+    "html_url": "https://arxiv.org/abs/2610.17354v2",
+    "pdf_url": "https://arxiv.org/pdf/2610.17354v2",
+    "code_urls": [
+      "http://github.com/erc-caravel/pytorch-mid",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.17808v2",
+    "title": "SPARCL: Spatially Adaptive Regional Coverage for Active Learning in Chest X-ray Analysis",
+    "authors": [
+      "Juho Jung",
+      "Seongjae Kang",
+      "Mijoo Kim",
+      "Sungduk Cho",
+      "Yunkyoung Jun",
+      "Sunghoon Joo",
+      "Yoona Hwang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-10-13T06:34:50+00:00",
+    "updated": "2026-10-14T23:24:07+00:00",
+    "comments": "10 pages, 7 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Pixel-level annotation for chest X-ray (CXR) lesion segmentation is expensive, making active learning (AL) essential. However, existing AL strategies fail to account for the spatial distribution of selected samples, resulting in inconsistent performance across focal (e.g., aortic calcification) and diffuse (e.g., nodules) pathologies. In this paper, we propose SPARCL (Spatially Adaptive Regional Coverage for Active Learning) to dynamically balance predictive uncertainty with cumulative spatial coverage. By employing a concave coverage function, SPARCL imposes diminishing returns on previously annotated regions, naturally directing the annotation budget toward under-labeled areas. Furthermore, an entropy gate reverts the algorithm to standard uncertainty sampling when spatial variation is absent. This coverage objective is monotone submodular, guaranteeing near-optimal greedy batch selection. To address how aggregate metrics like Dice obscure regional failures, we further introduce two metrics---Spatial Inconsistency (SI) and Performance Coverage (PC)---to quantify anatomical fairness across AL rounds. Evaluated on an in-house calcification cohort and public CXR benchmarks, SPARCL reaches 95% of fully supervised performance using only 24% of the data, compared to 29% for the best baseline. Ultimately, SPARCL ensures robust spatial reliability, surfacing regional gains that aggregate metrics miss.",
+    "html_url": "https://arxiv.org/abs/2610.17808v2",
+    "pdf_url": "https://arxiv.org/pdf/2610.17808v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.09634v2",
+    "title": "LightMedSeg-ISLES: Stroke Lesion Segmentation with 81x Fewer Parameters than nnU-Net",
+    "authors": [
+      "Giorgi Nikvashvili",
+      "Hanxue Gu",
+      "Jie Bao",
+      "Kang Wang",
+      "Yang Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-09-09T02:49:58+00:00",
+    "updated": "2026-10-14T19:26:35+00:00",
+    "comments": "8 pages, 3 figures. Submitted to ISLES 2026 challenge. To be published in Springer Lecture Notes in Computer Science (LNCS) as part of the SWITCH+ 2026 workshop proceedings",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Large networks and ensembles often lead medical image segmentation challenges, but their storage and inference demands complicate deployment. We present LightMedSeg-ISLES, a 1.26-million-parameter pipeline for T1-weighted stroke lesion segmentation in ISLES'26. On a 146-case held-out cohort, flip test-time augmentation produces 0.618 mean Dice and 0.599 lesion-wise F1. A 102.35-million-parameter nnU-Net ResEnc-L produces 0.634 Dice and 0.544 lesion-wise F1 after size filtering. LightMedSeg therefore retains 97.5\\% of nnU-Net's Dice with 81.4$\\times$ fewer parameters while improving lesion-wise F1 by 0.055. Its four-pass TTA operating point requires 4.7$\\times$ fewer FLOPs per standardized patch than nnU-Net. It also slightly exceeds filtered UNETR++ and nnFormer. Longer training and stronger augmentation add 0.0358 Dice without increasing capacity, establishing a strong single-checkpoint alternative to much larger models.",
+    "html_url": "https://arxiv.org/abs/2609.09634v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.09634v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.15330v1",
+    "title": "BaT-SAM: Introducing Inductive Bias into SAM via a Mixture of Convolutional Experts for Brain Tumor Segmentation",
+    "authors": [
+      "Sumiaya Jannat",
+      "Md Mahedi Hasan",
+      "Md Shamimul Islam",
+      "Md Nur Hossain"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-11T04:09:35+00:00",
+    "updated": "2026-10-11T04:09:35+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate brain tumor segmentation from magnetic resonance imaging (MRI) is essential for diagnosis and treatment planning; however, manual delineation is labor-intensive and time-consuming. Existing approaches are either task-specific with limited generalization or rely on user-provided prompts during inference. We present BaT-SAM, a parameter-efficient adaptation framework that enables fully automatic brain tumor segmentation with the Segment Anything Model (SAM). BaT-SAM injects local inductive bias into SAM's frozen Vision Transformer (ViT) encoder via Conv-LoRA, where image features are processed by a sparsely gated mixture of multi-scale convolutional experts. This design compensates for the limited translation-equivariant inductive bias of vanilla ViTs while fine-tuning fewer than 5M parameters (less than 1% of the full model). To remove the need for user prompts, we further introduce a lightweight self-prompting box regressor that is jointly optimized with the adapter using scheduled sampling and predicts tumor locations directly from image embeddings. On the BRISC2025 benchmark, BaT-SAM achieves a weighted mean IoU of 0.832 while outperforming state-of-the-art benchmarks. It further demonstrates strong cross-dataset generalization, achieving Dice scores of 0.702 on Figshare and 0.784 on the LGG MRI Segmentation dataset.",
+    "html_url": "https://arxiv.org/abs/2610.15330v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.15330v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
