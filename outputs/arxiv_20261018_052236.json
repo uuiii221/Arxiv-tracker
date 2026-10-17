@@ -1,0 +1,150 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.14944v1",
+    "title": "Text-Guided Medical Image Segmentation via Residual Aggregation and Dense Alignment Representations",
+    "authors": [
+      "Jie Gui",
+      "Hang Tu",
+      "Yunfeng Dou",
+      "Wen Sha",
+      "Xiuquan Du",
+      "Shuo Li"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-10T14:20:37+00:00",
+    "updated": "2026-10-10T14:20:37+00:00",
+    "comments": "Accepted at NeurIPS 2026 (poster)",
+    "journal_ref": null,
+    "venue_inferred": "NeurIPS 2026 poster",
+    "summary": "Specifying segmentation targets with natural language provides flexible semantic conditioning for medical image segmentation. However, existing methods still struggle to reliably ground high-level textual semantics into accurate pixel-level spatial prompts, especially under low-contrast lesions, ambiguous boundaries, and visually similar anatomical contexts. In this paper, we propose RADAR (Residual Aggregation and Dense Alignment Representations), a parameter-efficient framework for text-guided medical image segmentation. RADAR explicitly decouples and synergizes the medical semantic anchoring capability of BiomedCLIP with the prompt-driven mask decoding ability of MedSAM2, while enabling low-cost task adaptation via LoRA. Specifically, Guided Residual Depth Aggregation adaptively aggregates cross-layer features under semantic guidance to alleviate delayed textual injection and deep semantic dilution. Structured Dense Representation Alignment leverages a frozen BiomedCLIP to construct crop-level target, boundary, and context anchors, improving the local discriminability of dense features and the reliability of automatic prompts. Multi-modal Prompt Generation further converts cross-modal semantic responses into composite text, point, and mask prompts for MedSAM2 decoding. Experiments on three public medical image segmentation datasets show that RADAR achieves competitive performance with only 0.74M trainable parameters, demonstrating its effectiveness in parameter-efficient adaptation, semantic grounding, and dense representation enhancement. The source code is available at https://github.com/JGuiidev/RADAR.",
+    "html_url": "https://arxiv.org/abs/2610.14944v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.14944v1",
+    "code_urls": [
+      "https://github.com/JGuiidev/RADAR",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.03098v1",
+    "title": "One Sequence to Segment Them All: Efficient Data Augmentation for CT and MRI Cross-Domain 3D Spine Segmentation",
+    "authors": [
+      "Nathan Molinier",
+      "Hendrik Möller",
+      "Thomas Dagonneau",
+      "Anna Curto-Vilalta",
+      "Robert Graf",
+      "Matan Atad",
+      "Daniel Rueckert",
+      "Jan S. Kirschke",
+      "Julien Cohen-Adad"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-04T19:26:29+00:00",
+    "updated": "2026-05-04T19:26:29+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Deep learning-based medical image segmentation is increasingly used to support clinical diagnosis and develop new treatment strategies. However, model performance remains limited by the scarcity of high-quality annotated data and insufficient generalization across imaging protocols. This limitation is particularly evident in MRI and CT, where models are typically trained on a single acquisition sequence and exhibit reduced robustness when applied to unseen sequences or contrasts. Although data augmentation is widely used to improve general robustness on medical images, its impact on cross-modality generalization has not been quantitatively explored. In this work, we study a targeted set of data augmentation techniques designed to improve cross-modality transfer. We train three spine segmentation models, each on a single-modality/sequence dataset, and evaluate them across seven out-of-distribution datasets (spanning CT and MRI), reflecting a realistic single-sequence training and multi-sequence/contrast/modality deployment scenario. Our results demonstrate substantial performance gains on unseen domains (average Dice gain of 155 %) while preserving in-domain accuracy (average Dice decrease of 0.008 %), including effective transfer between CT and MRI. To mitigate the computational cost typically associated with strong data augmentation, we implement GPU-optimized augmentations that maintain, and even improve, training efficiency by approximately 10 %. We release our approach as an open-source toolbox, enabling seamless integration into commonly used frameworks such as nnUNet and MONAI. These augmentations significantly enhance robustness to heterogeneous clinical imaging scenarios without compromising training speed.",
+    "html_url": "https://arxiv.org/abs/2605.03098v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.03098v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.04108v1",
+    "title": "MuCALD-SplitFed: Causal-Latent Diffusion for Privacy-Preserving Multi-Task Split-Federated Medical Image Segmentation",
+    "authors": [
+      "Chamani Shiranthika",
+      "Hadi Hadizadeh",
+      "Parvaneh Saeedi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-04T16:43:22+00:00",
+    "updated": "2026-05-04T16:43:22+00:00",
+    "comments": "Accepted to oral presentation and conference proceedings at IEEE International Conference on Image Processing (ICIP 2026), Finland",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Federated Learning enables decentralized training by aggregating model updates across clients without sharing raw data, while Split Federated Learning further partitions the model between clients and a server to reduce computation and communication at the client side. However, decentralized medical institutions rarely operate on a single shared task, making standard Federated and SplitFed collaborations poorly aligned with real clinical workflows. Multi-task FL extends these frameworks by allowing clients to handle different tasks, but often introduces instability and privacy vulnerabilities. This study proposes \\textbf{MuCALD-SplitFed}, a multi-task SplitFed framework that integrates causal representation learning and latent diffusion. Experiments show MuCALD-SplitFed consistently improves segmentation, while baseline SplitFed fails to converge. The proposed approach further reduces information leakage at split points, mitigating reconstruction-based and membership inference attacks. Additionally, MuCALD SplitFed outperforms state-of-the-art personalized FL and multi-task FL approaches. The code repository is: https://github.com/ChamaniS/MuCALD_SplitFed.",
+    "html_url": "https://arxiv.org/abs/2605.04108v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.04108v1",
+    "code_urls": [
+      "https://github.com/ChamaniS/MuCALD_SplitFed",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.00748v2",
+    "title": "Probabilistic Modeling of Multi-rater Medical Image Segmentation for Diversity and Personalization",
+    "authors": [
+      "Ke Liu",
+      "Shangde Gao",
+      "Yichao Fu",
+      "Shuaike Shen",
+      "Shangqi Gao",
+      "Chunhua Shen"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-11-30T05:53:39+00:00",
+    "updated": "2026-05-04T16:41:20+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Lesion segmentation is inherently influenced by imaging uncertainty, arising from ill-defined lesion boundaries and inter-observer variability in diagnosis. To address this challenge, previous works formulated the multi-rater medical image segmentation task, where multiple experts provide separate annotations for each image. However, existing models are typically constrained to either generate diverse segmentation that lacks expert specificity or to produce personalized outputs that merely replicate individual annotators. We propose \\textbf{Pro}babilistic modeling of multi-rater lesion \\textbf{Seg}mentation (\\textbf{ProSeg}) that simultaneously enables both diversification and personalization. Specifically, we introduce two latent variables to model expert annotation preferences and lesion boundary ambiguity. Their conditional probabilistic distributions are then obtained through variational inference, allowing segmentation outputs to be generated by sampling from these distributions. Extensive experiments on both the nasopharyngeal carcinoma dataset (NPC) and the lung nodule dataset (LIDC-IDRI) demonstrate that our ProSeg achieves a new state-of-the-art performance, providing segmentation results that are both diverse and expert-personalized.",
+    "html_url": "https://arxiv.org/abs/2512.00748v2",
+    "pdf_url": "https://arxiv.org/pdf/2512.00748v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.08161v1",
+    "title": "Advanced Tumor Segmentation in PET/CT Imaging: A Training Strategy Study with nnU-Net for AutoPET III",
+    "authors": [
+      "Hussain Alasmawi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-04T12:55:12+00:00",
+    "updated": "2026-05-04T12:55:12+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Tumor segmentation in whole-body PET/CT imaging is crucial for precise disease evaluation and treatment planning. However, it remains challenging due to variability in lesion size, contrast, and anatomical distribution. Relying on manual segmentation makes the process time-consuming and prone to intra- and inter-observer variability. This work presents a whole-body tumor segmentation method developed for the AutoPET III challenge, where the goal is to build models that generalize across tracers and multi-center data. We employ the nnU-Net framework with a ResNet-based encoder as our baseline and systematically investigate the impact of training strategies, including intensity normalization, batch dice optimization, and data augmentation using CraveMix. Our experiments show that these strategies significantly influence model performance, particularly in reducing false positives and improving robustness to lesion variability. The best-performing configuration achieves a Dice score of up to 0.80 on the preliminary test phase, and our method ranked third in the AutoPET III challenge. The code is publicly available here.",
+    "html_url": "https://arxiv.org/abs/2605.08161v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.08161v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
