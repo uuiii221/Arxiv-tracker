@@ -1,0 +1,145 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2605.02444v1",
+    "title": "M\\textsuperscript{4}Fuse: Lightweight State-Space MoE with a Cross-Scale Gating Bridge for Brain Tumor Segmentation",
+    "authors": [
+      "Meihua Zhou",
+      "Xinyu Tong",
+      "Li Yang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "published": "2026-05-04T10:45:03+00:00",
+    "updated": "2026-05-04T10:45:03+00:00",
+    "comments": "10 pages,3 figures,CVPR 2026 findings",
+    "journal_ref": "CVPR 2026 findings",
+    "venue_inferred": "CVPR 2026",
+    "summary": "Encoder-decoder imbalance and the reliance on large input volumes make many 3D brain tumor segmentation models both compute-heavy and brittle. We present M\\textsuperscript{4}Fuse, a lightweight network that prioritizes discriminative brain tumor cues over exhaustive appearance reconstruction. Our method balances encoder and decoder capacity and replaces depth expansion with a synergistic design: it propagates long-range context with linear complexity via a grouped state space mixer, denoises and aligns skip features using a cross-scale dual-stage gating bridge, and absorbs cross-site acquisition shifts with a sample-level mixture-of-experts. On the BraTS2019 and BraTS2021 benchmarks, M\\textsuperscript{4}Fuse outperforms other lightweight excellent methods in both parameter count and performance. Even at a challenging input resolution of \\(64\\times128\\times128\\) (half that of existing excellent models), M\\textsuperscript{4}Fuse reduces parameters by 62.63\\% and improves average performance by 0.09\\%. Ablations of key components validate the method's exceptional parameter-to-accuracy efficiency and robustness across diverse data centers.",
+    "html_url": "https://arxiv.org/abs/2605.02444v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.02444v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.02437v1",
+    "title": "Multi-Rater Calibrated Segmentation Models",
+    "authors": [
+      "Meritxell Riera-Marín",
+      "Javier García López",
+      "Júlia Rodríguez-Comas",
+      "Miguel A. González Ballester",
+      "Adrian Galdran"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-04T10:35:34+00:00",
+    "updated": "2026-05-04T10:35:34+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Objective: Accurate probability estimates are essential for the safe deployment of medical image segmentation models in clinical decision-making. However, modern deep segmentation networks are often poorly calibrated, a problem exacerbated when multiple expert annotations exhibit substantial disagreement. While inter-rater variability is typically treated as noise, it provides valuable information about intrinsic annotation ambiguity that must be reflected in model confidence. Methods: We improve the probabilistic calibration of medical image segmentation models by reformulating multi-rater supervision as an ordinal learning problem. Voxel-wise annotator agreement is treated as an ordered target, linking predictive confidence to the empirical variability in training data. This formulation allows the use of ordinal-aware scoring rules, such as the Ranked Probability Score ordinal loss, combined with a standard binary objective to preserve discriminative performance. Results: We evaluated the proposed approach across four public segmentation benchmarks spanning ophthalmology, histopathology, and thoracic imaging. Calibration was assessed using a multi-rater extension of expected calibration error. Results consistently show that ordinal-aware training yields substantially improved calibration with respect to inter-rater agreement without degrading segmentation accuracy. Conclusions: Treating multi-rater annotations as ordered information provides a principled and architecture-agnostic route to more reliable probabilistic segmentation models.",
+    "html_url": "https://arxiv.org/abs/2605.02437v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.02437v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.01706v1",
+    "title": "Exploring Entropy-based Active Learning for Fair Brain Segmentation",
+    "authors": [
+      "Ghazal Danaee",
+      "Mélanie Gaillochet",
+      "Christian Desrosiers",
+      "Herve Lombaert",
+      "Sylvain Bouix"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-03T04:21:48+00:00",
+    "updated": "2026-05-03T04:21:48+00:00",
+    "comments": "12 pages, 4 figures. Accepted as a poster at Medical Imaging with Deep Learning (MIDL) 2026. OpenReview submission: 221",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Active learning (AL) has emerged as a crucial strategy for reducing the prohibitive costs associated with medical image segmentation. However, standard uncertainty-based AL methods typically focus on maximizing performance metrics, ignoring performance disparities or fairness across groups with sensitive attributes. While fair active learning has been explored in classification tasks, its intersection with medical image segmentation remains unaddressed. In this work, we introduced a fairness-aware active learning framework with a Weighted Entropy selection strategy that modulates uncertainty based on current group-specific performance estimates on the labeled set. To decouple true epistemic uncertainty from anatomical volume variances, we further utilized a masked, scaled entropy restricted to the region of interest. The framework was evaluated on synthetic T1-weighted brain MRIs with controlled left caudate bias in both strong and weak bias settings. A 3D U-Net was trained to segment the left caudate under several AL strategies, starting from both demographically balanced and strongly imbalanced initial labeled sets. Experiments demonstrated that our method markedly reduces performance disparities between groups compared to random sampling and standard uncertainty sampling. By prioritizing poorly segmented subgroups during the AL cycles, our method consistently achieved the highest equity-scaled performance and reduced the disparity metric by 75% (strong bias) and 86% (weak bias) relative to standard entropy at the final budget. Overall, this work is among the first studies on fair AL for medical image segmentation, offering an efficient strategy to train more equitable models in resource-constrained environments.",
+    "html_url": "https://arxiv.org/abs/2605.01706v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.01706v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.01563v1",
+    "title": "Multi-Dataset Cross-Domain Knowledge Distillation for Unified Medical Image Segmentation, Classification, and Detection",
+    "authors": [
+      "Ceausescu Ciprian-Mihai",
+      "Anghelina Ion-Marian",
+      "Alexe Dumitru-Bogdan"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-02T18:23:27+00:00",
+    "updated": "2026-05-02T18:23:27+00:00",
+    "comments": "Journal extension from the KES paper",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "We propose a unified cross-domain transfer learning framework that leverages knowledge from multiple heterogeneous medical imaging datasets to improve performance across segmentation, classification, and object detection tasks. Our approach employs a teacher-student paradigm in which a joint teacher model aggregates domain-invariant representations learned from diverse source datasets, while a task-specific student model is trained via multi-level knowledge distillation. Originally developed for medical image segmentation, the framework is extended to support image-level classification and object-level detection, enabling a general multi-task formulation for medical image analysis. We evaluate our method on a broad suite of datasets, including six segmentation benchmarks, BrainMetShare, ISLES, BraTS (MRI) and Lung MSD, LiTS, KiTS (CT), as well as multiple classification datasets for pulmonary disease and dementia, and detection datasets with native bounding-box annotations. Across all tasks and modalities, the proposed approach yields consistent improvements over strong dataset-specific and multi-head baselines, demonstrating enhanced robustness to distributional shifts and superior generalization. These findings highlight the potential of multi-dataset knowledge distillation as a scalable and task-agnostic approach for enhancing segmentation, classification, and object detection performance across heterogeneous medical imaging domains.",
+    "html_url": "https://arxiv.org/abs/2605.01563v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.01563v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.01266v1",
+    "title": "Exploring Prompt Alignment with Clinical Factors in Zero-Shot Segmentation VLMs for NSCLC Tumor Segmentation",
+    "authors": [
+      "Suraj Pai",
+      "Thibault Heintz",
+      "Cosmin Ciausu",
+      "Marion Tonneau",
+      "Hugo Aerts",
+      "Raymond Mak"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-05-02T05:49:32+00:00",
+    "updated": "2026-05-02T05:49:32+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Zero-shot vision-language models (VLMs) offer a promptable alternative to task-specific training for gross tumor volume (GTV) delineation in non-small-cell lung cancer (NSCLC), but the prompt dimensions that govern their spatial behavior remain poorly understood. We study this question by probing alignment directions in VoxTell on a held-out internal NSCLC tumor dataset through sub-prompt decomposition into diagnosis, demographic, staging, anatomical, generic, and irrelevant controls; attribute-wise perturbation robustness; specificity ladders; and cross-case prompt swaps, while benchmarking against fine-tuned and zero-shot baselines using the Dice Similarity Coefficient (DSC) with Wilcoxon signed-rank tests and Benjamini-Hochberg correction. Alignment analyses revealed that anatomical location is the dominant driver of VoxTell's spatial attention: 63.4 percent of location perturbations caused catastrophic drops, prompt specificity improved from generic to full descriptions except for diagnosis-only prompts, irrelevant prompts correctly yielded zero segmentation, and cross-case prompt swaps confirmed patient-specific conditioning (matched DSC 0.906 vs. mismatched 0.406). Histology and stage substitutions had minimal effect, indicating that the model prioritizes \"where to look\" over \"what to look for.\" In this context, VoxTell, operating fully zero-shot, achieved a mean DSC of 0.613, statistically indistinguishable from nnUNet (0.690, adjusted p = 0.156) and Ahmed et al. (0.675, adjusted p = 0.679), while significantly outperforming all other zero-shot models. Together, these findings argue that segmentation VLMs should be evaluated not only by Dice, but also by the prompt dimensions to which they align.",
+    "html_url": "https://arxiv.org/abs/2605.01266v1",
+    "pdf_url": "https://arxiv.org/pdf/2605.01266v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
