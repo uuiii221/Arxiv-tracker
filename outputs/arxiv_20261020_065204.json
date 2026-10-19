@@ -1,0 +1,171 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.23568v1",
+    "title": "From Adult Renal Masses to Pediatric Wilms Tumors: Evaluating Cross-Domain Generalization of Kidney Lesion Segmentation on MRI",
+    "authors": [
+      "Sarah de Boer",
+      "Myrthe A. D. Buser",
+      "Hartmut Häntze",
+      "Jawed Nawabi",
+      "Lisa C. Adams",
+      "Alida F. W. van der Steeg",
+      "Marry M. van den Heuvel-Eibrink",
+      "Annemieke S. Littooij",
+      "Keno K. Bressem",
+      "Mathias Prokop",
+      "Alessa Hering"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-16T14:52:37+00:00",
+    "updated": "2026-10-16T14:52:37+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Deep learning segmentation models for pediatric oncology are often trained on small, single-center cohorts, whereas much larger datasets exist for adult diseases, such as kidney cancer. Whether models trained on adult renal lesions generalize to pediatric Wilms tumors remains unclear. We trained a segmentation model on single-sequence T1- or T2-weighted adult kidney MRI and evaluated it on a held-out adult test set and a pediatric Wilms tumor cohort, where it was compared with a pediatric-specific nnU-Net. Segmentation performance was quantified using the Dice similarity coefficient (DSC) and 95th-percentile Hausdorff distance. On the adult test set, the model achieved a median DSC of 0.86 for renal lesions. On the pediatric cohort, the adult-trained model achieved a median DSC of 0.85 compared with 0.90 for the pediatric-specific model. Despite differences in age, anatomy, and tumor type, the adult-trained model showed promising performance on pediatric Wilms tumors, with only a modest difference in median DSC compared with the pediatric-specific model. However, non-inferiority could not be shown, highlighting the value of pediatric training data. In future work, a fine-tuning strategy could be explored.",
+    "html_url": "https://arxiv.org/abs/2610.23568v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.23568v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.02727v4",
+    "title": "Gated Differential Linear Attention: A Linear-Time Decoder for High-Fidelity Medical Segmentation",
+    "authors": [
+      "Hongbo Zheng",
+      "Afshin Bozorgpour",
+      "Dorit Merhof",
+      "Minjia Zhang"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-03T08:26:08+00:00",
+    "updated": "2026-05-01T01:28:02+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation requires models that preserve fine anatomical boundaries while remaining practical for clinical deployment. Transformers capture long-range dependencies but incur quadratic attention cost, whereas CNNs are efficient but less effective at global reasoning. Linear attention offers \\(\\mathcal{O}(N)\\) scaling, but often produces diffuse feature aggregation that weakens boundary-sensitive prediction. We introduce a gated differential linear-attention mixer for medical image segmentation. Its global path, Gated Differential Linear Attention (GDLA), performs differential subtraction between two kernelized attention branches over complementary query/key subspaces to suppress redundant responses, and employs a data-dependent gate for token refinement. A parallel local token-mixing branch with depthwise convolution strengthens neighborhood interactions for better refinement, and the two branches are fused while preserving \\(\\mathcal{O}(N)\\) complexity. When instantiated in a pretrained Pyramid Vision Transformer (PVT)-based encoder--decoder model, \\name achieves state-of-the-art results on the evaluated 2D medical segmentation benchmarks spanning CT, MRI, ultrasound, and dermoscopy, with a favorable accuracy--efficiency trade-off over closely related baselines. The code is publicly available at \\href{https://github.com/xmindflow/gdla}{https://github.com/xmindflow/gdla}.",
+    "html_url": "https://arxiv.org/abs/2603.02727v4",
+    "pdf_url": "https://arxiv.org/pdf/2603.02727v4",
+    "code_urls": [
+      "https://github.com/xmindflow/gdla}{https://github.com/xmindflow/gdla",
+      "https://github.com/xmindflow/gdla",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2503.01835v2",
+    "title": "Primus: Enforcing Attention Usage for 3D Medical Image Segmentation",
+    "authors": [
+      "Tassilo Wald",
+      "Saikat Roy",
+      "Fabian Isensee",
+      "Constantin Ulrich",
+      "Sebastian Ziegler",
+      "Dasha Trofimova",
+      "Raphael Stock",
+      "Michael Baumgartner",
+      "Gregor Köhler",
+      "Klaus Maier-Hein"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-03-03T18:56:29+00:00",
+    "updated": "2026-04-30T12:56:35+00:00",
+    "comments": "Accepted in Transactions on Machine Learning Research (TMLR)",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Transformers have achieved remarkable success across multiple fields, yet their impact on 3D medical image segmentation remains limited with convolutional networks still dominating major benchmarks. In this work, (A) we analyze current Transformer-based segmentation models and identify critical shortcomings, particularly their over-reliance on convolutional blocks. Further, we demonstrate that in some architectures, performance is unaffected by the absence of the Transformer, thereby demonstrating their limited effectiveness. To address these challenges, we move away from hybrid architectures and (B) introduce Transformer-centric segmentation architectures, termed Primus and PrimusV2. Primus leverages high-resolution tokens, combined with advances in positional embeddings and block design, to maximally leverage its Transformer blocks, while PrimusV2 expands on this through an iterative patch embedding. Through these adaptations, Primus surpasses current Transformer-based methods and competes with a default nnU-Net while PrimusV2 exceeds it and is on par with the state-of-the-art CNNs such as ResEnc-L and MedNeXt architectures across nine public datasets. In doing so, we introduce the first competitive Transformer-centric model, making Transformers state-of-the-art in 3D medical image segmentation. The code is available here: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/primus.md.",
+    "html_url": "https://arxiv.org/abs/2503.01835v2",
+    "pdf_url": "https://arxiv.org/pdf/2503.01835v2",
+    "code_urls": [
+      "https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/primus.md",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2510.20933v2",
+    "title": "Focal Modulation and Bidirectional Feature Fusion Network for Medical Image Segmentation",
+    "authors": [
+      "Moin Safdar",
+      "Shahzaib Iqbal",
+      "Mubeen Ghafoor",
+      "Tariq M. Khan",
+      "Imran Razzak",
+      "Thantrira Porntaveetus",
+      "Hamid Alinejad-Rokny"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2025-10-23T18:52:24+00:00",
+    "updated": "2026-04-30T07:58:47+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is essential for clinical applications such as disease diagnosis, treatment planning, and disease development monitoring because it provides precise morphological and spatial information on anatomical structures that directly influence treatment decisions. Convolutional neural networks significantly impact image segmentation; however, since convolution operations are local, capturing global contextual information and long-range dependencies is still challenging. Their capacity to precisely segment structures with complicated borders and a variety of sizes is impacted by this restriction. Since transformers use self-attention methods to capture global context and long-range dependencies efficiently, integrating transformer-based architecture with CNNs is a feasible approach to overcoming these challenges. To address these challenges, we propose the Focal Modulation and Bidirectional Feature Fusion Network for Medical Image Segmentation, referred to as FM-BFF-Net in the remainder of this paper. The network combines convolutional and transformer components, employs a focal modulation attention mechanism to refine context awareness, and introduces a bidirectional feature fusion module that enables efficient interaction between encoder and decoder representations across scales. Through this design, FM-BFF-Net enhances boundary precision and robustness to variations in lesion size, shape, and contrast. Extensive experiments on eight publicly available datasets, including polyp detection, skin lesion segmentation, and ultrasound imaging, show that FM-BFF-Net consistently surpasses recent state-of-the-art methods in Jaccard index and Dice coefficient, confirming its effectiveness and adaptability for diverse medical imaging scenarios.",
+    "html_url": "https://arxiv.org/abs/2510.20933v2",
+    "pdf_url": "https://arxiv.org/pdf/2510.20933v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2604.25545v2",
+    "title": "TopoMamba: Topology-Aware Scanning and Fusion for Segmenting Heterogeneous Medical Visual Media",
+    "authors": [
+      "Fuchen Zheng",
+      "Chengpei Xu",
+      "Long Ma",
+      "Weixuan Li",
+      "Junhua Zhou",
+      "Xuhang Chen",
+      "Weihuang Liu",
+      "Haolun Li",
+      "Quanjun Li",
+      "Zhenxi Zhang",
+      "Lei Zhao",
+      "Chi-Man Pun",
+      "Shoujun Zhou"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-04-28T12:11:58+00:00",
+    "updated": "2026-04-29T02:30:05+00:00",
+    "comments": "15 pages, 9 figures",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Visual state-space models (SSMs) have shown strong potential for medical image segmentation, yet their effectiveness is often limited by two practical issues: axis-biased scan ordering weakens the modeling of oblique and curved structures, and naive multi-branch fusion tends to amplify redundant responses. We present TopoMamba, a topology-aware scan-and-fuse framework for segmenting heterogeneous medical visual media. The method combines a diagonal/anti-diagonal TopoA-Scan branch with the standard Cross-Scan branch to provide complementary structural priors, and introduces ScanCache, a device-aware caching mechanism that amortizes explicit scan-index construction across recurring resolutions. To fuse heterogeneous scan features efficiently, we further propose a lightweight HSIC Gate that regulates branch interaction using a dependence-aware scalar gating rule. We also instantiate a volumetric TopoMamba-3D for practical 3D clinical segmentation. Experiments on Synapse CT, ISIC 2017 dermoscopy, and CVC-ClinicDB endoscopy show that TopoMamba consistently improves segmentation quality over strong CNN, Transformer, and SSM baselines, with particularly clear gains on thin or curved targets such as the pancreas and gallbladder, while maintaining favorable deployment efficiency under dynamic input resolutions. These results suggest that topology-aware scan ordering and lightweight dependence-aware fusion form an effective and practical design for medical multimedia segmentation. The code will be made publicly available.",
+    "html_url": "https://arxiv.org/abs/2604.25545v2",
+    "pdf_url": "https://arxiv.org/pdf/2604.25545v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
