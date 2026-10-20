@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.26457v1",
+    "title": "Progressive multi-scale tumor-state memory for incomplete multimodal brain tumor segmentation",
+    "authors": [
+      "Milad Rostamian",
+      "Mohammadreza Mohammadi",
+      "Mohsen Soryani"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-10-19T14:11:09+00:00",
+    "updated": "2026-10-19T14:11:09+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Brain tumor segmentation uses complementary magnetic resonance imaging (MRI) sequences, but some sequences may be unavailable in practice. Their absence changes the information available for segmenting different tumor regions. Fusion methods can support different input subsets. However, fusion at several scales does not by itself specify how tumor evidence is retained and updated to guide fusion at later stages. We propose a progressive multi-scale tumor-state memory network (PMTM) for segmentation from any non-empty subset of T1ce, T1, FLAIR, and T2. PMTM maintains a compact state for the current subject across the encoder stages. At each stage, we use assignment maps to pool spatial features into ordered evidence vectors for each available modality. We average these vectors across the available modalities, and a learned gate combines this evidence with the previous state. The up- dated state guides residual fusion at that stage and is used in the state update at the next stage. A modality-token mixer also models interactions among the available modalities at each stage. We apply semantic supervision to the assignment maps at all four stages. We evaluate PMTM on BraTS2018, BraTS2020, and BraTS2023 GLI across all 15 non-empty modality subsets. Averaged over the three tumor regions and the 15 subsets, PMTM achieves Dice scores of 75.31%, 77.54%, and 80.47% on BraTS2018, BraTS2020, and BraTS2023 GLI, respectively. These scores are higher than those of RobustSeg, RFNet, and mmFormer in our experiments on each dataset. Component ablations and internal state analysis are performed on BraTS2020.",
+    "html_url": "https://arxiv.org/abs/2610.26457v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.26457v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.25488v1",
+    "title": "SlimFormer++: Token Mixing Where It Matters for Efficient 3D Medical Image Segmentation",
+    "authors": [
+      "Yang Hong",
+      "Lei Zhang",
+      "Zhihong Liu",
+      "Jianqing Mo",
+      "Xujiong Ye"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-18T19:19:08+00:00",
+    "updated": "2026-10-18T19:19:08+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "To determine where computation is needed in volumetric segmentation networks, we analyze block-level redundancy and stage-wise token-mixer contribution. Centered Kernel Alignment reveals high input-output representational similarity within blocks of representative convolutional, hybrid, and Transformer-style segmentation networks. Similarity-guided pruning reduces their parameter counts by 39-75% while decreasing mean Dice by less than 0.4 percentage points. To examine token mixers within blocks, we introduce Anatomical Relation Distortion, which quantifies how bypassing a mixer distorts feature relations between labeled anatomical positions. Applied to an unpruned candidate architecture, Centered Kernel Alignment indicates high representational redundancy in intermediate encoder mixers, whereas Anatomical Relation Distortion shows that they contribute little and the bottleneck mixer most. These findings motivate SlimFormer++, which uses Selective Mixing blocks with windowed Mamba mixing in the first encoder stage and only residual channel MLPs in deeper stages. At the bottleneck, Augmented Mixing injects similarity-weighted sparse long-range context into the axial taps of a depthwise convolution at cost linear in voxel count. Evaluated against 12 baselines across eight public CT, MRI, and ultrasound datasets (1,809 cases), SlimFormer++ achieves the highest mean Dice (87.84%) and lowest mean HD95 (6.50 mm) with the fewest parameters (5.98 million). These results support stage-aware token mixing as a design strategy for improving the accuracy-efficiency trade-off in volumetric segmentation. The source code is available at https://github.com/WHHHHHY822/SlimFormerPlusPlus",
+    "html_url": "https://arxiv.org/abs/2610.25488v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.25488v1",
+    "code_urls": [
+      "https://github.com/WHHHHHY822/SlimFormerPlusPlus",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.25460v1",
+    "title": "Reliability-Preserving Compression for Deployable Medical Image Segmentation",
+    "authors": [
+      "Sagar Kumar",
+      "Shailja Sharma",
+      "Tirthajit Baruah",
+      "Punit Rathore"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.AI",
+      "cs.CV",
+      "cs.LG",
+      "eess.SP"
+    ],
+    "published": "2026-10-18T18:44:14+00:00",
+    "updated": "2026-10-18T18:44:14+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Post-training compression of pretrained medical segmentation models commonly uses quantization, pruning, or distillation to reduce model size and computational cost. Existing medical segmentation quantization studies mainly evaluate Dice, model size, memory, and latency, but this is incomplete for safety-critical use because compressed models should also preserve uncertainty signals that indicate unreliable predictions. We study this problem in compressed MRI/CT segmentation and formalize why Dice can remain stable while uncertainty changes. Motivated by this failure mode, we propose score-guided aggregate-validated mixed precision (SGAV-MP), a post-training compression framework that selects layer precisions under reliability constraints. SGAV-MP ranks quantization actions with a compact benefit-risk score and accepts them only after full-model reliability validation on a calibration set. Across five 2D backbones and three 3D benchmarks, SGAV-MP preserves FP32-level Dice and high uncertainty-map agreement, achieving $3.59\\times$--$7.8\\times$ compression in 2D and $4.73\\times$--$7.82\\times$ in 3D. We also report backend-supported TensorRT deployment measurements separately to distinguish runtime execution from reliability-preserving storage compression.",
+    "html_url": "https://arxiv.org/abs/2610.25460v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.25460v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.05873v2",
+    "title": "Shifting Adaptation from Weight Space to Memory Space: A Memory-Augmented Agent for Medical Image Segmentation",
+    "authors": [
+      "Bowen Chen",
+      "Qiaohui Gao",
+      "Shaowen Wan",
+      "Ruiyu Yan",
+      "Shanhui Sun",
+      "Wei Liu",
+      "Xiang Li",
+      "Tianming Liu",
+      "Lin Zhao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-03-06T03:49:23+00:00",
+    "updated": "2026-10-18T15:28:36+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation is fundamental to clinical workflows, yet models trained on a single dataset often fail to generalize across institutions, scanners, or patient populations. While vision foundation models have shown great promise in addressing this challenge, their deployment typically requires task-specific fine-tuning, which introduces substantial communication overhead in federated learning and prevents continuous knowledge evolution during deployment. In this work, we propose a memory-augmented segmentation agent (MemSeg-Agent) that shifts adaptation from weight space to memory space, enabling few-shot learning, federated supervised learning, and test-time adaptation within a unified architecture. MemSeg-Agent conditions a fixed backbone with lightweight static, few-shot, and test-time working memories, which are dynamically composed by an agentic controller. In federated settings, we update compact memory units instead of model parameters, substantially reducing communication overhead. Experiments on four public datasets demonstrate strong performance and robustness to domain shift: Static memory alone matches or surpasses strong supervised baselines with high parameter efficiency, and test-time working memory further improves in-domain and cross-domain performance without fine-tuning. Overall, MemSeg-Agent introduces a new paradigm for scalable and adaptive medical image segmentation in the era of agentic AI.",
+    "html_url": "https://arxiv.org/abs/2603.05873v2",
+    "pdf_url": "https://arxiv.org/pdf/2603.05873v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.31702v2",
+    "title": "CLC-YOLO: A Compact Channel-Gated Prototype Network for Real-Time Leakage-Aware Breast Ultrasound Lesion Segmentation",
+    "authors": [
+      "M. Fazri Nizar",
+      "Muhammad Naufal Rachmatullah",
+      "Julian Supardi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-09-19T12:22:31+00:00",
+    "updated": "2026-10-18T12:50:13+00:00",
+    "comments": "Accepted to IEEE ICAITech 2026",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Reliable breast ultrasound lesion segmentation requires accurate boundaries and evaluation that prevents patients or duplicate images from crossing data splits. We propose Channel Local Contrast (CLC), a compact refinement of the YOLO26 segmentation prototype head. CLC adds a fixed local high-pass residual controlled by 64 zero-initialized, bounded channel gates. Baseline and CLC were compared in five matched folds on each of four breast ultrasound datasets. BUS-BRA used patient-disjoint outer tests with separate inner validation. BUS-UCLM and BrEaST used patient-grouped validation folds; BUSI used duplicate-component groups because patient identifiers are unavailable. Group-macro Dice increased by 1.68, 3.11, 1.12, and 2.45 percentage points on BUS-BRA, BUS-UCLM, BUSI, and BrEaST, respectively. Only the BUS-BRA paired 95% confidence interval excluded zero. CLC adds 64 parameters and 0.0049 giga floating-point operations (GFLOPs). At 640 pixels, single-T4, batch-one, 16-bit floating-point (FP16) TensorRT graph times were 2.1478 ms for CLC and 2.0512 ms for baseline, excluding preprocessing and postprocessing. CLC increased group-macro Dice across all four datasets with a measured T4 forward-pass overhead of 0.0966 ms. Code: https://github.com/mfazrinizar/CLC-YOLO",
+    "html_url": "https://arxiv.org/abs/2609.31702v2",
+    "pdf_url": "https://arxiv.org/pdf/2609.31702v2",
+    "code_urls": [
+      "https://github.com/mfazrinizar/CLC-YOLO",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
