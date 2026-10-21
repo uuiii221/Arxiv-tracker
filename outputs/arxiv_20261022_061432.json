@@ -1,0 +1,153 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.28179v1",
+    "title": "CAPS: Clinically-Verifiable Anatomy-Prioritized Synthesis for Missing MRI Imputation in Brain Tumor Segmentation",
+    "authors": [
+      "Cecilia Diana-Albelda",
+      "Arthur Longuefosse",
+      "Mario Rubén Paz Campos",
+      "Álvaro García-Martín",
+      "Jesus Bescos"
+    ],
+    "primary_category": null,
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "published": "2026-10-20T13:17:35+00:00",
+    "updated": "2026-10-20T13:17:35+00:00",
+    "comments": "20 pages, 6 figures, 8 tables. Cecilia Diana-Albelda and Arthur Longuefosse contributed equally",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Multi-parametric MRI is the gold standard for neuro-oncology, yet acquiring complete 4-modality protocols may be unfeasible in real-world clinical practice. When handling missing modalities, existing automated systems force a critical compromise: robust segmenters operate as uninterpretable \"black boxes\" that bypass image generation, while standard synthesis models often produce blurry reconstructions lacking diagnostic reliability. To address this issue, we propose CAPS, a Clinically-Verifiable Anatomy-Prioritized Synthesis framework that reconciles computational precision with clinical transparency. Our multi-modal generative architecture is driven by a hybrid objective function (L_1 + L_AFP + L_DualDice) that explicitly enforces the preservation of deep anatomical features and strict topological boundaries, rather than relying solely on pixel-wise optimization. Evaluated comprehensively on the BraTS Adult Glioma dataset, the framework achieves superior synthesis fidelity across intensity-based metrics, and demonstrates robust downstream segmentation performance (82.38% mean Dice), successfully restoring verifiable visual context. Furthermore, the framework exhibits exceptional zero-shot cross-domain generalization, maintaining high structural fidelity across completely unseen Meningioma, Pediatric, and Sub-Saharan African cohorts without domain-specific adaptation. Finally, a blinded radiological assessment confirms that our anatomy-aware approach significantly enhances both perceived image quality and clinical utility, providing clinicians with the reliable visual evidence required to trust downstream automated workflows.",
+    "html_url": "https://arxiv.org/abs/2610.28179v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28179v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.28118v1",
+    "title": "Reliability-Guided Vision-Language Decoding with Text-Aware Skip Refinement for Medical Image Segmentation",
+    "authors": [
+      "Sivan Talaei",
+      "Fatemeh Daneshfar",
+      "Mustaqeem Khan",
+      "Abdulhady Abas Abdullah",
+      "Mourad Oussalah"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-20T12:29:44+00:00",
+    "updated": "2026-10-20T12:29:44+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation remains challenging when targets exhibit limited visual distinction, irregular structure, or substantial variation across imaging modalities. Medical text can reduce this ambiguity, but indiscriminate fusion may introduce unreliable guidance. We present RELiF, a vision--language framework that integrates text through reliability-guided decoding. Its Reliability-guided Fusion Gate (RFG) adaptively controls cross-modal updates, while the Text-guided Skip Refinement Adapter (TSRA) refines high-resolution features using text guidance. RELiF is evaluated on radiographic, CT, and endoscopic segmentation tasks, where it shows competitive performance across diverse imaging characteristics and target appearances. Additional analyses examine efficiency and stability. The complementary uncertainty representation derived from the reliability response also shows an association with prediction difficulty, with higher uncertainty values occurring more frequently in pixels associated with segmentation errors. Code: https://github.com/SeivanTalaie/RELiF.",
+    "html_url": "https://arxiv.org/abs/2610.28118v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28118v1",
+    "code_urls": [
+      "https://github.com/SeivanTalaie/RELiF",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.28091v1",
+    "title": "LatticeRank: Spacing-Ranked Consistency for Native-Grid 3D Medical Image Segmentation",
+    "authors": [
+      "Jingjia Yan",
+      "Yue Zhuo",
+      "Zhonghua Xie"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-20T12:08:51+00:00",
+    "updated": "2026-10-20T12:08:51+00:00",
+    "comments": "14 pages, 6 figures. Accepted at MMM 2027",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Variable voxel spacing changes more than image resolution: it alters the discrete sampling lattice, tensor geometry, and anatomical evidence available to a 3D segmentation network. While conventional pipelines restore images to a canonical grid, direct-grid deployment requires the model itself to tolerate these changes. We observe that candidate grids are not exchangeable views -- a coarse grid removes more structural information than a mildly resampled one -- yet standard consistency objectives assign them equal influence. We therefore propose LatticeRank, a training-only framework that aligns candidate posteriors in physical space and allocates consistency supervision by voxel-spacing order: among endpoint-matched candidates, the auxiliary loss concentrates on the coarsest requested grid, while inference retains a single network forward with no candidate branch or ensemble. On MSD Task04, LatticeRank improves coarse-grid Extra Dice over mean consistency by 0.03436 across five seeds while meeting the prespecified reference-grid noninferiority criterion. A controlled ladder shows that grid exposure provides the largest recovery, posterior consistency adds a second gain, and spacing-ranked allocation yields the strongest direct-grid result; requested spacing thus provides a simple, model-independent ordering signal for direct-grid consistency learning.",
+    "html_url": "https://arxiv.org/abs/2610.28091v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.28091v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2607.26395v2",
+    "title": "Registration-Grounded Spectral Fusion for Unregistered WLI/NBI Endoscopic Lesion Segmentation",
+    "authors": [
+      "Pengyu Jie",
+      "Wanquan Liu",
+      "Rui He",
+      "Pengcheng Li",
+      "Weiping Wen",
+      "Deyu Meng",
+      "Junwei Han",
+      "Chenqiang Gao"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-07-29T02:09:28+00:00",
+    "updated": "2026-10-20T00:56:46+00:00",
+    "comments": "15 pages",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "White-light imaging (WLI) and narrow-band imaging (NBI) provide complementary cues for endoscopic lesion segmentation, yet their sequential acquisition often results in spatially inconsistent observations. The central challenge is not merely to establish cross-modal correspondence, but to determine how complementary information should be incorporated when such correspondence is uncertain. To address this issue, we propose a correspondence-conditioned, modality-asymmetric complex spectral fusion framework for paired-but-unregistered WLI/NBI segmentation. The framework first establishes bidirectional feature correspondence through topology-regularized registration and derives local reliability from post-warping feature discrepancies. Rather than simply reweighting fused features, the estimated reliability directly controls the construction of modality-asymmetric polar representations, where WLI-derived cues primarily parameterize appearance-related moduli and NBI-derived cues parameterize structure-sensitive angular components. The resulting complex representations are further refined through Fourier-domain recalibration with reliability-biased residual reconstruction. Experiments on FAHSYSU and PICCOLO demonstrate competitive improvements over existing segmentation methods. Module ablations, modality-role reversal, and reliability analyses further support the effectiveness of correspondence-conditioned polar representation learning.",
+    "html_url": "https://arxiv.org/abs/2607.26395v2",
+    "pdf_url": "https://arxiv.org/pdf/2607.26395v2",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.26954v1",
+    "title": "Deep Auxiliary Learning via Bilevel Feature Optimization for Label-Efficient Medical Image Segmentation",
+    "authors": [
+      "Fuping Wu",
+      "Xi Jia",
+      "Le Zhang",
+      "Jiahua Li",
+      "Rima Mustafa",
+      "Thomas E. Nichols",
+      "Bartlomiej W. Papiez"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-18T10:30:25+00:00",
+    "updated": "2026-10-18T10:30:25+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Auxiliary learning (AL), which can improve the performance of a primary task by leveraging related auxiliary tasks, is commonly regarded as a special case of multi-task learning. Existing AL approaches typically require manually annotated auxiliary labels, increasing annotation costs, particularly in medical imaging where expert labeling is expensive. In this work, we investigate whether segmentation performance can be improved using auxiliary tasks whose labels are automatically derived from existing segmentation annotations, requiring no additional manual labeling. To address this, we propose a novel auxiliary learning framework, formulated as a bilevel optimization problem. Our method enables effective knowledge transfer between tasks via a feature communication module, enhancing the primary segmentation task. We evaluate the method on three medical image segmentation benchmarks under limited-label settings. The results demonstrate consistent improvements over state-of-the-art methods, achieving superior label efficiency. The code is publicly available at https://github.com/FupingWu90/ALBO.",
+    "html_url": "https://arxiv.org/abs/2610.26954v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.26954v1",
+    "code_urls": [
+      "https://github.com/FupingWu90/ALBO",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]
