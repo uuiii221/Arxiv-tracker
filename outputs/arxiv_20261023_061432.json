@@ -1,0 +1,144 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2610.28118v2",
+    "title": "Reliability-Guided Vision-Language Decoding with Text-Aware Skip Refinement for Medical Image Segmentation",
+    "authors": [
+      "Sivan Talaei",
+      "Fatemeh Daneshfar",
+      "Abdulhady Abas Abdullah",
+      "Mourad Oussalah"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-20T12:29:44+00:00",
+    "updated": "2026-10-21T08:56:25+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Medical image segmentation remains challenging when targets exhibit limited visual distinction, irregular structure, or substantial variation across imaging modalities. Medical text can reduce this ambiguity, but indiscriminate fusion may introduce unreliable guidance. We present RELiF, a vision--language framework that integrates text through reliability-guided decoding. Its Reliability-guided Fusion Gate (RFG) adaptively controls cross-modal updates, while the Text-guided Skip Refinement Adapter (TSRA) refines high-resolution features using text guidance. RELiF is evaluated on radiographic, CT, and endoscopic segmentation tasks, where it shows competitive performance across diverse imaging characteristics and target appearances. Additional analyses examine efficiency and stability. The complementary uncertainty representation derived from the reliability response also shows an association with prediction difficulty, with higher uncertainty values occurring more frequently in pixels associated with segmentation errors. Code: https://github.com/SeivanTalaie/RELiF.",
+    "html_url": "https://arxiv.org/abs/2610.28118v2",
+    "pdf_url": "https://arxiv.org/pdf/2610.28118v2",
+    "code_urls": [
+      "https://github.com/SeivanTalaie/RELiF",
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.29322v1",
+    "title": "OpenMAP-HIE: Pathology Informed Score-based Diffusion Model for Unsupervised Neonatal Hypoxic-Ischemic Encephalopathy Lesion Segmentation",
+    "authors": [
+      "Pengyu Kan",
+      "Craig Jones",
+      "Kenichi Oishi"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-21T07:22:50+00:00",
+    "updated": "2026-10-21T07:22:50+00:00",
+    "comments": "22 pages, 4 figures, 9 tables",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Accurate localization of neonatal hypoxic--ischemic encephalopathy (HIE) lesions on apparent diffusion coefficient (ADC) images is clinically important but is limited by scarce expert annotations and substantial variation in lesion appearance. We propose OpenMAP-HIE, a pathology-informed score-based diffusion model for unsupervised HIE lesion localization without voxel-wise lesion supervision. A denoising diffusion model learns the healthy neonatal ADC distribution, while a ControlNet-based conditional branch preserves patient-specific anatomy. At inference, anomaly evidence is derived directly from differences between conditional and unconditioned noise predictions at independently evaluated diffusion noise levels, avoiding dependence on a final pseudo-healthy reconstruction or sequential reverse-diffusion chain. Based on the characteristic ADC reduction associated with acute HIE, only discrepancies consistent with the expected pathological direction are retained and aggregated across noise levels using a geometric mean. Spatial mean filtering further suppresses isolated responses. The framework was evaluated on the BONBID-HIE dataset. The ADC-only method achieved a Dice score of $0.283\\pm0.244$, average precision of $0.505$, Hausdorff distance of $25.45\\pm15.63$ mm, mean average surface distance of $9.40\\pm8.49$ mm, and normalized surface distance of $0.355\\pm0.236$, providing the best overlap and surface-distance performance among the evaluated unsupervised methods and Dice performance comparable to supervised ADC-only models. Optional population-derived ADC $Z$-map refinement further increased Dice to $0.602\\pm0.269$. These findings support pathology-informed score discrepancies as a useful signal for neonatal HIE lesion localization, while highlighting remaining challenges in detecting small and low-contrast lesions.",
+    "html_url": "https://arxiv.org/abs/2610.29322v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.29322v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2509.16886v3",
+    "title": "SAM-DCE: Decoupled Context Enhancement for Prompt-Free Medical Image Segmentation",
+    "authors": [
+      "Yingzhen Hu",
+      "Yiheng Zhong",
+      "Aijing Yang",
+      "Georges El Fakhri",
+      "Xiaofeng Liu"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2025-09-21T02:39:48+00:00",
+    "updated": "2026-10-21T04:16:00+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "The Segment Anything Model (SAM) is a promising foundation model for medical image segmentation, but its prompt-driven design is not directly suitable for fully automatic multi-class anatomical segmentation. Without manual point, box, or mask prompts, SAM faces a dual over-smoothing problem: deep image features may lose fine local structural evidence, while mask tokens may become semantically ambiguous. We propose SAM-DCE, a decoupled context enhancement framework for prompt-free medical image segmentation. SAM-DCE introduces Spatial Representation Compensation (SRC) to recover anatomical evidence from intermediate ViT features and Semantic Token Calibration (STC) to improve the category consistency of foreground mask tokens. Rather than replacing the pretrained decoder or fusing output masks, SAM-DCE refines the spatial and semantic representations before recombining them through SAM's original token-to-mask mechanism. On the Synapse multi-organ CT segmentation dataset, SAM-DCE achieved a mean Dice score of 83.86\\% and an HD95 of 16.04 mm, outperforming the representative CNN-, Transformer-, and SAM-based baselines evaluated here. Ablation experiments further showed that SRC and STC provide complementary improvements, supporting the proposed spatial--semantic factorization for prompt-free SAM adaptation.",
+    "html_url": "https://arxiv.org/abs/2509.16886v3",
+    "pdf_url": "https://arxiv.org/pdf/2509.16886v3",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.29090v1",
+    "title": "ReSeg: Retraining-free segmentation of abdominal organs via generalizable semantic representation learning",
+    "authors": [
+      "Derong Yu",
+      "Guoyan Zheng"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "published": "2026-10-21T02:31:19+00:00",
+    "updated": "2026-10-21T02:31:19+00:00",
+    "comments": "",
+    "journal_ref": null,
+    "venue_inferred": null,
+    "summary": "Abdominal organ segmentation is essential in modern medical applications. While existing deep learning approaches demonstrate promising performance, their heavy reliance on large-scale image data raises concerns over generalization capability and privacy risks. This motivates the development of generalizable segmentation training paradigms based on domain-randomized image synthesis, facilitating generalization across unseen real image domains. However, existing paradigms either suffer from limited segmentation performance when applied to abdominal organs, or require dataset-specific finetuning. To address these limitations, we propose ReSeg, a novel two-stage retraining-free framework for domain-agnostic zero-shot abdominal organ segmentation. At the first stage, our organ-agnostic synthetic data-driven pretraining approach exploits semantically and visually diverse synthetic images generated by a dedicated data engine to optimize a Generalizable Semantic Representation Network (GSRNet). The network is thereby capable of learning semantic features robust against variations in anatomical structure, imaging contrast, resolution and spatial context, which provide universal representation capabilities that serve as a foundation for segmentation learning. Subsequently, in the second stage, we continue to train an Organ-specific Encoder-decoder Segmentation Network (OESNet), whose encoder is initialized with the pretrained weights. This training process is facilitated by another dedicated data engine, which generates diversified visual images while strictly retaining the inherent spatial layout of abdominal organs. Comprehensive evaluation on seven abdominal organ segmentation datasets across three different modalities including CT, MRI, and PET demonstrates that ReSeg consistently outperforms existing state-of-the-art (SOTA) methods while eliminating the need for real training images.",
+    "html_url": "https://arxiv.org/abs/2610.29090v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.29090v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  },
+  {
+    "id": "http://arxiv.org/abs/2610.25074v1",
+    "title": "MoWE: Spatially Adaptive Mixture-of-Wavelet-Experts Pooling for Ultrasound Lesion Segmentation",
+    "authors": [
+      "Reaz Hassan Joarder",
+      "Sidratul Tanzila Tasmi",
+      "Alif Arshad Bakshi",
+      "Md. Bakhtiar Hasan",
+      "Md Hasanul Kabir"
+    ],
+    "primary_category": null,
+    "categories": [
+      "cs.CV"
+    ],
+    "published": "2026-10-18T07:29:52+00:00",
+    "updated": "2026-10-18T07:29:52+00:00",
+    "comments": "Accepted to WACV 2027",
+    "journal_ref": null,
+    "venue_inferred": "WACV 2027",
+    "summary": "We present Mixture-of-Wavelet-Experts (MoWE), a spatially adaptive routing mechanism that replaces max-pooling and strided convolutions in U-Net architectures for ultrasound lesion segmentation. Standard pooling operations suppress high-frequency spatial details, including potential boundary cues in speckled regions. Recent frequency-domain methods preserve some of these details, but a single wavelet family applies the same spectral bias across the image. MoWE instead uses a context-aware router to assign local regions to fixed wavelet families according to local texture and global feature context. The decoder reuses the encoder's spatial routing maps during the inverse transform. Learnable channel-wise gates rescale the high-frequency subbands before reconstruction. We evaluate MoWE with U-Net on four ultrasound lesion benchmarks (BUSI, TN3K, UDIAT, BUS-UCLM) and one cardiac dataset (CAMUS), and with nnU-Net on BUSI. On BUSI, MoWE improves U-Net Dice from 72.59\\% to 74.55\\% and reduces HD95 from 47.01 to 43.49\\,px. With nnU-Net, MoWE improves Dice from 80.18\\% to 81.97\\% and reduces ASSD from 20.07 to 17.25\\,px. On U-Net, MoWE reduces trainable parameters by 6.4\\%.",
+    "html_url": "https://arxiv.org/abs/2610.25074v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.25074v1",
+    "code_urls": [
+      "https://huggingface.co/huggingface",
+      "https://huggingface.co/docs/hub/spaces"
+    ],
+    "project_urls": [],
+    "other_urls": []
+  }
+]

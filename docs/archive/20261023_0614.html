@@ -1,0 +1,633 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-10-23 06:14</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261023_0614</div>
+    <div class="row"><div class="card">
+<div class="title">Reliability-Guided Vision-Language Decoding with Text-Aware Skip Refinement for Medical Image Segmentation</div>
+<div class="meta-line">Authors: Sivan Talaei, Fatemeh Daneshfar, Abdulhady Abas Abdullah, Mourad Oussalah</div>
+<div class="meta-line">First: 2026-10-20T12:29:44+00:00 · Latest: 2026-10-21T08:56:25+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.28118v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.28118v2">PDF</a> · <a href="https://github.com/SeivanTalaie/RELiF">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Medical image segmentation remains challenging when targets exhibit limited visual distinction, irregular structure, or substantial variation across imaging modalities. Medical text can reduce this ambiguity, but indiscriminate fusion may introduce unreliable guidance. We present RELiF, a vision--language framework that integrates text through reliability-guided decoding. Its Reliability-guided Fusion Gate (RFG) adaptively controls cross-modal updates, while the Text-guided Skip Refinement Adapter (TSRA) refines high-resolution features using text guidance. RELiF is evaluated on radiographic, CT, and endoscopic segmentation tasks, where it shows competitive performance across diverse imaging characteristics and target appearances. Additional analyses examine efficiency and stability. The complementary uncertainty representation derived from the reliability response also shows an association with prediction difficulty, with higher uncertainty values occurring more frequently in pixels associated with segmentation errors. Code: https://github.com/SeivanTalaie/RELiF.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>可靠性引导的视觉-语言解码与文本感知跳跃细化用于医学图像分割</div>
+<div class="mono" style="margin-top:8px">当目标视觉区分度有限、结构不规则或在不同成像模态间存在显著变化时，医学图像分割仍具挑战性。医学文本可减轻这种歧义，但无差别融合可能引入不可靠的引导。我们提出RELiF，一个通过可靠性引导解码整合文本的视觉-语言框架。其可靠性引导融合门（RFG）自适应控制跨模态更新，而文本引导跳跃细化适配器（TSRA）利用文本引导细化高分辨率特征。RELiF在放射影像、CT和内窥镜分割任务上评估，在多样成像特性和目标外观下表现出有竞争力的性能。额外分析考察了效率与稳定性。由可靠性响应导出的互补不确定性表示也与预测难度相关，较高不确定性值更频繁地出现在与分割错误相关的像素中。代码：https://github.com/SeivanTalaie/RELiF。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The paper addresses the difficulty of medical image segmentation when targets have limited visual distinction, irregular structure, or substantial variation across imaging modalities, and notes that while medical text can reduce ambiguity, indiscriminate fusion may introduce unreliable guidance. The authors propose RELiF, a vision-language framework that integrates text through reliability-guided decoding, using a Reliability-guided Fusion Gate (RFG) to adaptively control cross-modal updates and a Text-guided Skip Refinement Adapter (TSRA) to refine high-resolution features with text guidance. RELiF is evaluated on radiographic, CT, and endoscopic segmentation tasks, showing competitive performance across diverse imaging characteristics and target appearances, with additional analyses of efficiency and stability; the uncertainty representation derived from the reliability response is associated with prediction difficulty, with higher uncertainty values occurring more frequently at pixels linked to segmentation errors.</div>
+<div class="mono" style="margin-top:8px">该论文针对医学图像分割中目标视觉区分度有限、结构不规则或跨成像模态差异较大的难题，并指出医学文本虽可降低歧义，但无差别融合可能引入不可靠的引导。作者提出 RELiF 视觉—语言框架，通过可靠性引导解码整合文本，其中可靠性引导融合门（RFG）自适应控制跨模态更新，文本引导跳跃细化适配器（TSRA）利用文本引导细化高分辨率特征。RELiF 在放射影像、CT 和内窥镜分割任务上评估，在多种成像特征和目标外观下表现出有竞争力的性能，并进行了效率与稳定性分析；由可靠性响应得到的不确定性表示与预测难度相关，较高不确定性值更频繁地出现在与分割错误相关的像素上。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">OpenMAP-HIE: Pathology Informed Score-based Diffusion Model for Unsupervised Neonatal Hypoxic-Ischemic Encephalopathy Lesion Segmentation</div>
+<div class="meta-line">Authors: Pengyu Kan, Craig Jones, Kenichi Oishi</div>
+<div class="meta-line">First: 2026-10-21T07:22:50+00:00 · Latest: 2026-10-21T07:22:50+00:00</div>
+<div class="meta-line">Comments: 22 pages, 4 figures, 9 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.29322v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.29322v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Accurate localization of neonatal hypoxic--ischemic encephalopathy (HIE) lesions on apparent diffusion coefficient (ADC) images is clinically important but is limited by scarce expert annotations and substantial variation in lesion appearance. We propose OpenMAP-HIE, a pathology-informed score-based diffusion model for unsupervised HIE lesion localization without voxel-wise lesion supervision. A denoising diffusion model learns the healthy neonatal ADC distribution, while a ControlNet-based conditional branch preserves patient-specific anatomy. At inference, anomaly evidence is derived directly from differences between conditional and unconditioned noise predictions at independently evaluated diffusion noise levels, avoiding dependence on a final pseudo-healthy reconstruction or sequential reverse-diffusion chain. Based on the characteristic ADC reduction associated with acute HIE, only discrepancies consistent with the expected pathological direction are retained and aggregated across noise levels using a geometric mean. Spatial mean filtering further suppresses isolated responses. The framework was evaluated on the BONBID-HIE dataset. The ADC-only method achieved a Dice score of $0.283\pm0.244$, average precision of $0.505$, Hausdorff distance of $25.45\pm15.63$ mm, mean average surface distance of $9.40\pm8.49$ mm, and normalized surface distance of $0.355\pm0.236$, providing the best overlap and surface-distance performance among the evaluated unsupervised methods and Dice performance comparable to supervised ADC-only models. Optional population-derived ADC $Z$-map refinement further increased Dice to $0.602\pm0.269$. These findings support pathology-informed score discrepancies as a useful signal for neonatal HIE lesion localization, while highlighting remaining challenges in detecting small and low-contrast lesions.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>OpenMAP-HIE：病理信息引导的基于分数的扩散模型用于无监督新生儿缺氧缺血性脑病病灶分割</div>
+<div class="mono" style="margin-top:8px">在表观扩散系数（ADC）图像上准确定位新生儿缺氧缺血性脑病（HIE）病灶具有重要临床意义，但受限于专家标注稀缺以及病灶外观差异较大。我们提出 OpenMAP-HIE，一种病理信息引导的基于分数的扩散模型，用于在无体素级病灶监督下进行无监督 HIE 病灶定位。去噪扩散模型学习健康新生儿 ADC 分布，而基于 ControlNet 的条件分支保留患者特异性解剖结构。在推理时，异常证据直接来自独立评估的扩散噪声水平下条件与无条件噪声预测之间的差异，避免依赖最终的伪健康重建或顺序反向扩散链。基于急性 HIE 相关的特征性 ADC 降低，仅保留与预期病理方向一致的差异，并使用几何平均跨噪声水平进行聚合。空间均值滤波进一步抑制孤立响应。该框架在 BONBID-HIE 数据集上进行了评估。仅 ADC 方法取得了 Dice 分数 $0.283\pm0.244$、平均精度 $0.505$、Hausdorff 距离 $25.45\pm15.63$ mm、平均平均表面距离 $9.40\pm8.49$ mm 以及归一化表面距离 $0.355\pm0.236$，在评估的无监督方法中提供了最佳的重叠和表面距离性能，且 Dice 性能与仅 ADC 的监督模型相当。可选的人群衍生 ADC $Z$ 图细化进一步将 Dice 提升至 $0.602\pm0.269$。这些发现支持病理信息引导的分数差异作为新生儿 HIE 病灶定位的有用信号，同时强调了在检测小型和低对比度病灶方面仍存在的挑战。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">This work addresses the scarcity of expert annotations and the high variability of lesion appearance that hinder accurate localization of neonatal hypoxic-ischemic encephalopathy (HIE) lesions on ADC images. The authors propose OpenMAP-HIE, a pathology-informed score-based diffusion model for unsupervised lesion localization that requires no voxel-wise lesion supervision: a denoising diffusion model learns the healthy neonatal ADC distribution, a ControlNet-based conditional branch preserves patient-specific anatomy, and anomaly evidence is derived from differences between conditional and unconditioned noise predictions at independently evaluated noise levels, filtered to retain only discrepancies consistent with the expected pathological ADC reduction and aggregated across noise levels via a geometric mean with spatial mean filtering. On the BONBID-HIE dataset, the ADC-only method achieved a Dice score of 0.283±0.244, average precision of 0.505, Hausdorff distance of 25.45±15.63 mm, mean average surface distance of 9.40±8.49 mm, and normalized surface distance of 0.355±0.236, giving the best overlap and surface-distance performance among evaluated unsupervised methods and Dice comparable to supervised ADC-only models, while optional population-derived ADC Z-map refinement raised Dice to 0.602±0.269; the authors conclude that pathology-informed score discrepancies are a useful signal for HIE lesion localization but that detecting small and low-contrast lesions remains challenging.</div>
+<div class="mono" style="margin-top:8px">本研究针对新生儿缺氧缺血性脑病（HIE）病灶在ADC图像上定位困难的问题，其难点在于专家标注稀缺且病灶表现差异较大。作者提出OpenMAP-HIE，一种病理先验引导的基于分数的扩散模型，用于无需体素级病灶监督的无监督病灶定位：去噪扩散模型学习健康新生儿ADC分布，基于ControlNet的条件分支保留患者特异性解剖结构，并在独立评估的噪声水平上由条件与非条件噪声预测之差导出异常证据，仅保留符合急性HIE预期ADC降低方向的差异，并以几何平均跨噪声水平聚合，再经空间均值滤波抑制孤立响应。在BONBID-HIE数据集上，仅用ADC的方法取得Dice 0.283±0.244、平均精度0.505、Hausdorff距离25.45±15.63 mm、平均表面距离9.40±8.49 mm和归一化表面距离0.355±0.236，在评估的无监督方法中重叠度与表面距离表现最佳，Dice与仅用ADC的监督模型相当；可选的群体衍生ADC Z图细化将Dice提升至0.602±0.269。作者认为病理引导的分数差异是HIE病灶定位的有效信号，但小尺寸和低对比度病灶的检测仍具挑战。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">SAM-DCE: Decoupled Context Enhancement for Prompt-Free Medical Image Segmentation</div>
+<div class="meta-line">Authors: Yingzhen Hu, Yiheng Zhong, Aijing Yang, Georges El Fakhri, Xiaofeng Liu</div>
+<div class="meta-line">First: 2025-09-21T02:39:48+00:00 · Latest: 2026-10-21T04:16:00+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2509.16886v3">Abs</a> · <a href="https://arxiv.org/pdf/2509.16886v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">The Segment Anything Model (SAM) is a promising foundation model for medical image segmentation, but its prompt-driven design is not directly suitable for fully automatic multi-class anatomical segmentation. Without manual point, box, or mask prompts, SAM faces a dual over-smoothing problem: deep image features may lose fine local structural evidence, while mask tokens may become semantically ambiguous. We propose SAM-DCE, a decoupled context enhancement framework for prompt-free medical image segmentation. SAM-DCE introduces Spatial Representation Compensation (SRC) to recover anatomical evidence from intermediate ViT features and Semantic Token Calibration (STC) to improve the category consistency of foreground mask tokens. Rather than replacing the pretrained decoder or fusing output masks, SAM-DCE refines the spatial and semantic representations before recombining them through SAM&#x27;s original token-to-mask mechanism. On the Synapse multi-organ CT segmentation dataset, SAM-DCE achieved a mean Dice score of 83.86\% and an HD95 of 16.04 mm, outperforming the representative CNN-, Transformer-, and SAM-based baselines evaluated here. Ablation experiments further showed that SRC and STC provide complementary improvements, supporting the proposed spatial--semantic factorization for prompt-free SAM adaptation.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>SAM-DCE：面向无提示医学图像分割的解耦上下文增强</div>
+<div class="mono" style="margin-top:8px">Segment Anything Model（SAM）是一种有望用于医学图像分割的基础模型，但其提示驱动的设计并不直接适用于全自动多类解剖分割。在没有人工点、框或掩码提示的情况下，SAM面临双重过度平滑问题：深层图像特征可能丢失细粒度的局部结构证据，而掩码令牌可能变得语义模糊。我们提出SAM-DCE，一种用于无提示医学图像分割的解耦上下文增强框架。SAM-DCE引入空间表示补偿（SRC）以从中间ViT特征中恢复解剖证据，并引入语义令牌校准（STC）以提升前景掩码令牌的类别一致性。SAM-DCE并非替换预训练解码器或融合输出掩码，而是在通过SAM原有的令牌到掩码机制重新组合之前，对空间和语义表示进行细化。在Synapse多器官CT分割数据集上，SAM-DCE取得了83.86\%的平均Dice分数和16.04 mm的HD95，优于此处评估的具有代表性的CNN、Transformer和基于SAM的基线方法。消融实验进一步表明，SRC和STC提供了互补的改进，支持所提出的用于无提示SAM适配的空间--语义分解。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The prompt-driven design of SAM limits its use for fully automatic multi-class anatomical segmentation, where the absence of manual prompts causes a dual over-smoothing problem: deep features lose fine local structure and mask tokens become semantically ambiguous. SAM-DCE addresses this with a decoupled context enhancement framework that adds Spatial Representation Compensation to recover anatomical evidence from intermediate ViT features and Semantic Token Calibration to improve category consistency of foreground mask tokens, refining spatial and semantic representations before recombining them through SAM&#x27;s original token-to-mask mechanism rather than replacing the decoder or fusing output masks. On the Synapse multi-organ CT dataset, SAM-DCE reached a mean Dice of 83.86% and HD95 of 16.04 mm, outperforming the CNN-, Transformer-, and SAM-based baselines evaluated, and ablations showed SRC and STC provide complementary gains.</div>
+<div class="mono" style="margin-top:8px">SAM 的提示驱动设计限制了其在全自动多类解剖分割中的应用，在缺少人工提示时会出现双重过度平滑问题：深层特征丢失细粒度局部结构，掩码 token 语义变得模糊。SAM-DCE 提出解耦上下文增强框架，引入空间表示补偿从中层 ViT 特征中恢复解剖证据，并引入语义 token 校准以提升前景掩码 token 的类别一致性，在通过 SAM 原有 token 到掩码机制重组之前先精炼空间与语义表示，而非替换预训练解码器或融合输出掩码。在 Synapse 多器官 CT 数据集上，SAM-DCE 取得 83.86% 的平均 Dice 和 16.04 mm 的 HD95，优于所评估的 CNN、Transformer 和 SAM 基线，消融实验表明 SRC 与 STC 提供互补性提升。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">ReSeg: Retraining-free segmentation of abdominal organs via generalizable semantic representation learning</div>
+<div class="meta-line">Authors: Derong Yu, Guoyan Zheng</div>
+<div class="meta-line">First: 2026-10-21T02:31:19+00:00 · Latest: 2026-10-21T02:31:19+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.29090v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.29090v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Abdominal organ segmentation is essential in modern medical applications. While existing deep learning approaches demonstrate promising performance, their heavy reliance on large-scale image data raises concerns over generalization capability and privacy risks. This motivates the development of generalizable segmentation training paradigms based on domain-randomized image synthesis, facilitating generalization across unseen real image domains. However, existing paradigms either suffer from limited segmentation performance when applied to abdominal organs, or require dataset-specific finetuning. To address these limitations, we propose ReSeg, a novel two-stage retraining-free framework for domain-agnostic zero-shot abdominal organ segmentation. At the first stage, our organ-agnostic synthetic data-driven pretraining approach exploits semantically and visually diverse synthetic images generated by a dedicated data engine to optimize a Generalizable Semantic Representation Network (GSRNet). The network is thereby capable of learning semantic features robust against variations in anatomical structure, imaging contrast, resolution and spatial context, which provide universal representation capabilities that serve as a foundation for segmentation learning. Subsequently, in the second stage, we continue to train an Organ-specific Encoder-decoder Segmentation Network (OESNet), whose encoder is initialized with the pretrained weights. This training process is facilitated by another dedicated data engine, which generates diversified visual images while strictly retaining the inherent spatial layout of abdominal organs. Comprehensive evaluation on seven abdominal organ segmentation datasets across three different modalities including CT, MRI, and PET demonstrates that ReSeg consistently outperforms existing state-of-the-art (SOTA) methods while eliminating the need for real training images.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>ReSeg：通过可泛化语义表示学习实现腹部器官的免重训练分割</div>
+<div class="mono" style="margin-top:8px">腹部器官分割在现代医学应用中至关重要。现有深度学习方法虽表现出良好性能，但其对大规模图像数据的严重依赖引发了对泛化能力和隐私风险的担忧。这推动了基于域随机化图像合成的可泛化分割训练范式的发展，以促进对未见真实图像域的泛化。然而，现有范式要么在应用于腹部器官时分​​割性能有限，要么需要针对特定数据集进行微调。为解决这些局限，我们提出 ReSeg，一种新颖的两阶段免重训练框架，用于域无关的零样本腹部器官分割。在第一阶段，我们的器官无关合成数据驱动预训练方法利用由专用数据引擎生成的语义和视觉多样化的合成图像来优化可泛化语义表示网络（GSRNet）。该网络因而能够学习对解剖结构、成像对比度、分辨率和空间上下文变化具有鲁棒性的语义特征，从而提供通用表示能力，为分割学习奠定基础。随后，在第二阶段，我们继续训练器官特定编码器-解码器分割网络（OESNet），其编码器以预训练权重初始化。该训练过程由另一个专用数据引擎辅助，该引擎生成多样化的视觉图像，同时严格保留腹部器官的固有空间布局。在涵盖 CT、MRI 和 PET 三种不同模态的七个腹部器官分割数据集上的全面评估表明，ReSeg 始终优于现有最先进（SOTA）方法，同时无需真实训练图像。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Abdominal organ segmentation with deep learning typically depends on large real-image datasets, raising concerns about generalization and privacy, and existing domain-randomized synthesis paradigms either underperform on abdominal organs or require dataset-specific finetuning. The authors propose ReSeg, a two-stage retraining-free framework for domain-agnostic zero-shot segmentation: a first stage pretrains a Generalizable Semantic Representation Network (GSRNet) on semantically and visually diverse synthetic images from a dedicated data engine, and a second stage trains an Organ-specific Encoder-decoder Segmentation Network (OESNet) initialized with those weights, using another data engine that generates diversified visual images while preserving organ spatial layout. Evaluation on seven abdominal organ segmentation datasets across CT, MRI, and PET shows ReSeg consistently outperforming state-of-the-art methods without requiring any real training images.</div>
+<div class="mono" style="margin-top:8px">基于深度学习的腹部器官分割通常依赖大规模真实图像数据，存在泛化能力和隐私风险方面的隐忧，而现有的域随机化图像合成训练范式要么在腹部器官上分割性能有限，要么需要针对特定数据集进行微调。为此，作者提出 ReSeg，一种无需重训练的两阶段框架，用于域无关的零样本腹部器官分割：第一阶段利用专用数据引擎生成的语义和视觉多样的合成图像预训练通用语义表征网络（GSRNet），第二阶段以该预训练权重初始化器官特异性编解码分割网络（OESNet）并继续训练，其训练由另一个数据引擎支持，在严格保留腹部器官空间布局的同时生成多样化视觉图像。在涵盖 CT、MRI 和 PET 三种模态的七个腹部器官分割数据集上的评估表明，ReSeg 在无需任何真实训练图像的情况下始终优于现有最先进方法。</div>
+</details>
+</div>
+<div class="card">
+<div class="title">MoWE: Spatially Adaptive Mixture-of-Wavelet-Experts Pooling for Ultrasound Lesion Segmentation</div>
+<div class="meta-line">Authors: Reaz Hassan Joarder, Sidratul Tanzila Tasmi, Alif Arshad Bakshi, Md. Bakhtiar Hasan, Md Hasanul Kabir</div>
+<div class="meta-line">Venue: WACV 2027</div>
+<div class="meta-line">First: 2026-10-18T07:29:52+00:00 · Latest: 2026-10-18T07:29:52+00:00</div>
+<div class="meta-line">Comments: Accepted to WACV 2027</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.25074v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.25074v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We present Mixture-of-Wavelet-Experts (MoWE), a spatially adaptive routing mechanism that replaces max-pooling and strided convolutions in U-Net architectures for ultrasound lesion segmentation. Standard pooling operations suppress high-frequency spatial details, including potential boundary cues in speckled regions. Recent frequency-domain methods preserve some of these details, but a single wavelet family applies the same spectral bias across the image. MoWE instead uses a context-aware router to assign local regions to fixed wavelet families according to local texture and global feature context. The decoder reuses the encoder&#x27;s spatial routing maps during the inverse transform. Learnable channel-wise gates rescale the high-frequency subbands before reconstruction. We evaluate MoWE with U-Net on four ultrasound lesion benchmarks (BUSI, TN3K, UDIAT, BUS-UCLM) and one cardiac dataset (CAMUS), and with nnU-Net on BUSI. On BUSI, MoWE improves U-Net Dice from 72.59\% to 74.55\% and reduces HD95 from 47.01 to 43.49\,px. With nnU-Net, MoWE improves Dice from 80.18\% to 81.97\% and reduces ASSD from 20.07 to 17.25\,px. On U-Net, MoWE reduces trainable parameters by 6.4\%.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>MoWE：用于超声病变分割的空间自适应小波专家混合池化</div>
+<div class="mono" style="margin-top:8px">我们提出小波专家混合（MoWE），一种空间自适应路由机制，用于在超声病变分割的U-Net架构中替代最大池化和步长卷积。标准池化操作会抑制高频空间细节，包括散斑区域中潜在的边界线索。近期的频域方法保留了其中部分细节，但单一小波族会在整幅图像上施加相同的光谱偏置。MoWE则使用上下文感知路由器，根据局部纹理和全局特征上下文将局部区域分配给固定的小波族。解码器在逆变换过程中复用编码器的空间路由图。可学习的通道门控在重建前对高频子带进行重新缩放。我们在四个超声病变基准（BUSI、TN3K、UDIAT、BUS-UCLM）和一个心脏数据集（CAMUS）上以U-Net评估MoWE，并在BUSI上以nnU-Net评估。在BUSI上，MoWE将U-Net的Dice从72.59\%提升至74.55\%，并将HD95从47.01降至43.49\,px。使用nnU-Net时，MoWE将Dice从80.18\%提升至81.97\%，并将ASSD从20.07降至17.25\,px。在U-Net上，MoWE将可训练参数减少6.4\%。</div>
+</details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">The paper addresses the tendency of standard max-pooling and strided convolutions in U-Net architectures to suppress high-frequency spatial details, including boundary cues in speckled ultrasound regions, and notes that existing frequency-domain methods apply a single wavelet family with uniform spectral bias across the image. It proposes Mixture-of-Wavelet-Experts (MoWE), a context-aware router that assigns local regions to fixed wavelet families based on local texture and global feature context, with the decoder reusing the encoder&#x27;s spatial routing maps during the inverse transform and learnable channel-wise gates rescaling high-frequency subbands before reconstruction. Evaluated on four ultrasound lesion benchmarks (BUSI, TN3K, UDIAT, BUS-UCLM) and one cardiac dataset (CAMUS) with U-Net, and on BUSI with nnU-Net, MoWE improves U-Net Dice on BUSI from 72.59% to 74.55% and reduces HD95 from 47.01 to 43.49 px, improves nnU-Net Dice from 80.18% to 81.97% and reduces ASSD from 20.07 to 17.25 px, and reduces U-Net trainable parameters by 6.4%.</div>
+<div class="mono" style="margin-top:8px">该论文针对U-Net架构中标准最大池化和步长卷积会抑制高频空间细节（包括超声斑点区域中潜在的边界线索）的问题，并指出已有频域方法采用单一小波族、在全图施加相同频谱偏置的局限。作者提出小波专家混合（MoWE），一种上下文感知路由器，依据局部纹理和全局特征上下文将局部区域分配给固定小波族，解码器在逆变换中复用编码器的空间路由图，并通过可学习的通道门控在重建前对高频子带进行重缩放。在四个超声病灶基准（BUSI、TN3K、UDIAT、BUS-UCLM）和一个心脏数据集（CAMUS）上以U-Net评估，并在BUSI上以nnU-Net评估，结果显示：在BUSI上U-Net的Dice由72.59%提升至74.55%，HD95由47.01降至43.49像素；nnU-Net的Dice由80.18%提升至81.97%，ASSD由20.07降至17.25像素；U-Net可训练参数减少6.4%。</div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261022_0614.html">20261022_0614</a>
+<a href="archive/20261021_0612.html">20261021_0612</a>
+<a href="archive/20261020_0652.html">20261020_0652</a>
+<a href="archive/20261019_0522.html">20261019_0522</a>
+<a href="archive/20261018_0522.html">20261018_0522</a>
+<a href="archive/20261017_0559.html">20261017_0559</a>
+<a href="archive/20261016_0606.html">20261016_0606</a>
+<a href="archive/20261015_0611.html">20261015_0611</a>
+<a href="archive/20261014_0714.html">20261014_0714</a>
+<a href="archive/20261013_0915.html">20261013_0915</a>
+<a href="archive/20261012_0646.html">20261012_0646</a>
+<a href="archive/20261011_0623.html">20261011_0623</a>
+<a href="archive/20261010_0709.html">20261010_0709</a>
+<a href="archive/20261009_0743.html">20261009_0743</a>
+<a href="archive/20261008_0732.html">20261008_0732</a>
+<a href="archive/20261007_0658.html">20261007_0658</a>
+<a href="archive/20261006_0843.html">20261006_0843</a>
+<a href="archive/20261005_0617.html">20261005_0617</a>
+<a href="archive/20261004_0605.html">20261004_0605</a>
+<a href="archive/20261003_0656.html">20261003_0656</a>
+<a href="archive/20261002_0705.html">20261002_0705</a>
+<a href="archive/20261001_0654.html">20261001_0654</a>
+<a href="archive/20260930_0655.html">20260930_0655</a>
+<a href="archive/20260929_0748.html">20260929_0748</a>
+<a href="archive/20260928_0559.html">20260928_0559</a>
+<a href="archive/20260927_0555.html">20260927_0555</a>
+<a href="archive/20260926_0611.html">20260926_0611</a>
+<a href="archive/20260925_0611.html">20260925_0611</a>
+<a href="archive/20260924_0611.html">20260924_0611</a>
+<a href="archive/20260923_0557.html">20260923_0557</a>
+<a href="archive/20260922_0633.html">20260922_0633</a>
+<a href="archive/20260921_0524.html">20260921_0524</a>
+<a href="archive/20260920_0523.html">20260920_0523</a>
+<a href="archive/20260919_0534.html">20260919_0534</a>
+<a href="archive/20260918_0602.html">20260918_0602</a>
+<a href="archive/20260917_0602.html">20260917_0602</a>
+<a href="archive/20260916_0604.html">20260916_0604</a>
+<a href="archive/20260915_0626.html">20260915_0626</a>
+<a href="archive/20260913_0521.html">20260913_0521</a>
+<a href="archive/20260912_0539.html">20260912_0539</a>
+<a href="archive/20260911_0532.html">20260911_0532</a>
+<a href="archive/20260910_0537.html">20260910_0537</a>
+<a href="archive/20260909_1610.html">20260909_1610</a>
+<a href="archive/20260909_0547.html">20260909_0547</a>
+<a href="archive/20260908_0558.html">20260908_0558</a>
+<a href="archive/20260907_0512.html">20260907_0512</a>
+<a href="archive/20260906_0506.html">20260906_0506</a>
+<a href="archive/20260905_0522.html">20260905_0522</a>
+<a href="archive/20260904_0539.html">20260904_0539</a>
+<a href="archive/20260903_0545.html">20260903_0545</a>
+<a href="archive/20260902_0544.html">20260902_0544</a>
+<a href="archive/20260901_0712.html">20260901_0712</a>
+<a href="archive/20260831_0555.html">20260831_0555</a>
+<a href="archive/20260830_0537.html">20260830_0537</a>
+<a href="archive/20260829_1002.html">20260829_1002</a>
+<a href="archive/20260828_1132.html">20260828_1132</a>
+<a href="archive/20260827_0545.html">20260827_0545</a>
+<a href="archive/20260826_0337.html">20260826_0337</a>
+<a href="archive/20260825_0335.html">20260825_0335</a>
+<a href="archive/20260824_0327.html">20260824_0327</a>
+<a href="archive/20260823_0327.html">20260823_0327</a>
+<a href="archive/20260822_0330.html">20260822_0330</a>
+<a href="archive/20260821_0336.html">20260821_0336</a>
+<a href="archive/20260820_0331.html">20260820_0331</a>
+<a href="archive/20260819_0332.html">20260819_0332</a>
+<a href="archive/20260818_0333.html">20260818_0333</a>
+<a href="archive/20260817_0326.html">20260817_0326</a>
+<a href="archive/20260816_0326.html">20260816_0326</a>
+<a href="archive/20260815_0351.html">20260815_0351</a>
+<a href="archive/20260814_0358.html">20260814_0358</a>
+<a href="archive/20260813_0405.html">20260813_0405</a>
+<a href="archive/20260812_0405.html">20260812_0405</a>
+<a href="archive/20260811_0359.html">20260811_0359</a>
+<a href="archive/20260810_0341.html">20260810_0341</a>
+<a href="archive/20260809_0338.html">20260809_0338</a>
+<a href="archive/20260808_0357.html">20260808_0357</a>
+<a href="archive/20260807_0846.html">20260807_0846</a>
+<a href="archive/20260806_0438.html">20260806_0438</a>
+<a href="archive/20260805_0440.html">20260805_0440</a>
+<a href="archive/20260804_0438.html">20260804_0438</a>
+<a href="archive/20260803_0416.html">20260803_0416</a>
+<a href="archive/20260802_0414.html">20260802_0414</a>
+<a href="archive/20260801_0429.html">20260801_0429</a>
+<a href="archive/20260731_0422.html">20260731_0422</a>
+<a href="archive/20260730_0417.html">20260730_0417</a>
+<a href="archive/20260729_0423.html">20260729_0423</a>
+<a href="archive/20260728_0429.html">20260728_0429</a>
+<a href="archive/20260727_0417.html">20260727_0417</a>
+<a href="archive/20260726_0415.html">20260726_0415</a>
+<a href="archive/20260725_0427.html">20260725_0427</a>
+<a href="archive/20260724_0419.html">20260724_0419</a>
+<a href="archive/20260723_0418.html">20260723_0418</a>
+<a href="archive/20260722_0424.html">20260722_0424</a>
+<a href="archive/20260721_1650.html">20260721_1650</a>
+<a href="archive/20260721_0428.html">20260721_0428</a>
+<a href="archive/20260720_0411.html">20260720_0411</a>
+<a href="archive/20260719_0408.html">20260719_0408</a>
+<a href="archive/20260718_0413.html">20260718_0413</a>
+<a href="archive/20260717_0409.html">20260717_0409</a>
+<a href="archive/20260716_0418.html">20260716_0418</a>
+<a href="archive/20260715_0421.html">20260715_0421</a>
+<a href="archive/20260714_0422.html">20260714_0422</a>
+<a href="archive/20260713_0410.html">20260713_0410</a>
+<a href="archive/20260712_0410.html">20260712_0410</a>
+<a href="archive/20260711_0448.html">20260711_0448</a>
+<a href="archive/20260710_0454.html">20260710_0454</a>
+<a href="archive/20260709_0427.html">20260709_0427</a>
+<a href="archive/20260708_0455.html">20260708_0455</a>
+<a href="archive/20260707_0457.html">20260707_0457</a>
+<a href="archive/20260706_0421.html">20260706_0421</a>
+<a href="archive/20260705_0415.html">20260705_0415</a>
+<a href="archive/20260704_0421.html">20260704_0421</a>
+<a href="archive/20260703_0425.html">20260703_0425</a>
+<a href="archive/20260702_0453.html">20260702_0453</a>
+<a href="archive/20260701_1434.html">20260701_1434</a>
+<a href="archive/20260701_0502.html">20260701_0502</a>
+<a href="archive/20260630_0454.html">20260630_0454</a>
+<a href="archive/20260629_0420.html">20260629_0420</a>
+<a href="archive/20260628_0423.html">20260628_0423</a>
+<a href="archive/20260627_0450.html">20260627_0450</a>
+<a href="archive/20260626_0502.html">20260626_0502</a>
+<a href="archive/20260625_0453.html">20260625_0453</a>
+<a href="archive/20260624_0505.html">20260624_0505</a>
+<a href="archive/20260623_0535.html">20260623_0535</a>
+<a href="archive/20260622_0444.html">20260622_0444</a>
+<a href="archive/20260621_0422.html">20260621_0422</a>
+<a href="archive/20260620_0442.html">20260620_0442</a>
+<a href="archive/20260619_0529.html">20260619_0529</a>
+<a href="archive/20260618_0517.html">20260618_0517</a>
+<a href="archive/20260617_0546.html">20260617_0546</a>
+<a href="archive/20260616_0549.html">20260616_0549</a>
+<a href="archive/20260615_0426.html">20260615_0426</a>
+<a href="archive/20260614_0424.html">20260614_0424</a>
+<a href="archive/20260613_0507.html">20260613_0507</a>
+<a href="archive/20260612_0530.html">20260612_0530</a>
+<a href="archive/20260611_0531.html">20260611_0531</a>
+<a href="archive/20260610_0508.html">20260610_0508</a>
+<a href="archive/20260609_0517.html">20260609_0517</a>
+<a href="archive/20260608_0423.html">20260608_0423</a>
+<a href="archive/20260607_0421.html">20260607_0421</a>
+<a href="archive/20260606_0500.html">20260606_0500</a>
+<a href="archive/20260604_0602.html">20260604_0602</a>
+<a href="archive/20260603_0600.html">20260603_0600</a>
+<a href="archive/20260602_0619.html">20260602_0619</a>
+<a href="archive/20260601_0423.html">20260601_0423</a>
+<a href="archive/20260531_0419.html">20260531_0419</a>
+<a href="archive/20260530_0517.html">20260530_0517</a>
+<a href="archive/20260527_0458.html">20260527_0458</a>
+<a href="archive/20260526_0425.html">20260526_0425</a>
+<a href="archive/20260525_0415.html">20260525_0415</a>
+<a href="archive/20260524_0409.html">20260524_0409</a>
+<a href="archive/20260523_0445.html">20260523_0445</a>
+<a href="archive/20260522_0454.html">20260522_0454</a>
+<a href="archive/20260521_0515.html">20260521_0515</a>
+<a href="archive/20260520_0457.html">20260520_0457</a>
+<a href="archive/20260519_0452.html">20260519_0452</a>
+<a href="archive/20260518_0416.html">20260518_0416</a>
+<a href="archive/20260517_0420.html">20260517_0420</a>
+<a href="archive/20260515_0449.html">20260515_0449</a>
+<a href="archive/20260514_0517.html">20260514_0517</a>
+<a href="archive/20260513_0445.html">20260513_0445</a>
+<a href="archive/20260512_0450.html">20260512_0450</a>
+<a href="archive/20260511_1750.html">20260511_1750</a>
+<a href="archive/20260511_0418.html">20260511_0418</a>
+<a href="archive/20260510_0414.html">20260510_0414</a>
+<a href="archive/20260509_0426.html">20260509_0426</a>
+<a href="archive/20260508_0435.html">20260508_0435</a>
+<a href="archive/20260507_0454.html">20260507_0454</a>
+<a href="archive/20260506_0427.html">20260506_0427</a>
+<a href="archive/20260505_0436.html">20260505_0436</a>
+<a href="archive/20260504_0410.html">20260504_0410</a>
+<a href="archive/20260503_0414.html">20260503_0414</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0429.html">20260501_0429</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>
