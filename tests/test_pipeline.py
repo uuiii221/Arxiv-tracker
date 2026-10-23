@@ -1,10 +1,11 @@
 import os
+import json
 from pathlib import Path
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from click.testing import CliRunner
 import yaml
@@ -13,6 +14,9 @@ from arxiv_tracker.cli import cli
 from arxiv_tracker.delivery import send_digest_email
 from arxiv_tracker.scheduler import _job
 from arxiv_tracker.tracking import load_seen
+from arxiv_tracker.email_template import render_email_html
+from tests.test_fulltext import make_pdf
+from tests.test_reading_notes import report
 
 
 class PipelineTests(unittest.TestCase):
@@ -102,6 +106,62 @@ class PipelineTests(unittest.TestCase):
         result = self.invoke()
         self.assertEqual(result.exit_code, 0, result.output)
         send.assert_not_called()
+
+    @patch("arxiv_tracker.fulltext._wait_for_arxiv")
+    @patch("arxiv_tracker.fulltext.requests.get")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_five_papers_each_use_full_pdf_and_show_individual_notes_in_all_outputs(self, post, get, wait):
+        self.config["summary"].update({"mode": "llm", "source": "fulltext"})
+        self.config["scrape"]["pdf_if_missing"] = True  # 全文读取会复用正文，不再另取 PDF 首页
+        self.config["llm"] = {"api_key": "test-only", "fail_on_error": True,
+                              "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+                              "model": "deepseek-v4.1-flash-1017"}
+        items = [dict(self.item, id=f"https://arxiv.org/abs/2601.{index:05d}v1", title=f"Paper {index}")
+                 for index in range(1, 6)]
+        self.collect.return_value = items
+        pdf_response = MagicMock(headers={})
+        pdf_response.iter_content.return_value = [make_pdf()]
+        get.return_value.__enter__.return_value = pdf_response
+        llm_responses = []
+        for index in range(1, 6):
+            data = report()
+            data["full_zh"] += f"\n论文{index}的独立解读 [p. 3]"
+            response = MagicMock()
+            response.json.return_value = {"choices": [{"message": {"content": json.dumps(data)}}]}
+            llm_responses.append(response)
+        post.side_effect = llm_responses
+        result = self.invoke("--no-email")
+        self.assertEqual(result.exit_code, 0, result.output)
+        self.assertEqual(get.call_count, 5)
+        self.assertEqual(post.call_count, 5)  # 两种语言共用每篇一次请求
+        for call in post.call_args_list:
+            self.assertIn("LAST-PAGE-EXPERIMENT", call.kwargs["json"]["messages"][1]["content"])
+        path = next((self.root / "outputs").glob("*.json"))
+        serialized = path.read_text(encoding="utf-8")
+        records = json.loads(serialized)
+        self.assertEqual(len(records), 5)
+        self.assertNotIn("_fulltext", serialized)
+        self.assertNotIn("LAST-PAGE-EXPERIMENT", serialized)
+        md = next((self.root / "outputs").glob("*.md")).read_text(encoding="utf-8")
+        site = (self.root / "site" / "index.html").read_text(encoding="utf-8")
+        email = render_email_html(records, summaries_zh={it["id"]: it["notes_zh"] for it in records},
+                                  summaries_en={it["id"]: it["notes_en"] for it in records})
+        for index in range(1, 6):
+            note = f"论文{index}的独立解读"
+            self.assertIn(note, md)
+            self.assertIn(note, site)
+            self.assertIn(note, email)
+        self.assertEqual(len(load_seen(self.state)), 5)
+
+    @patch("arxiv_tracker.fulltext.load_paper_fulltext", side_effect=RuntimeError("Full text unavailable"))
+    def test_missing_full_text_fails_without_publishing_abstract_fallback(self, load):
+        self.config["summary"].update({"mode": "llm", "source": "fulltext"})
+        self.config["llm"] = {"api_key": "test-only", "fail_on_error": True}
+        result = self.invoke()
+        self.assertNotEqual(result.exit_code, 0)
+        self.assertIn("Full text unavailable", result.output)
+        self.assertFalse(self.state.exists())
+        self.assertFalse((self.root / "site" / "index.html").exists())
 
 
 class DeliveryTests(unittest.TestCase):

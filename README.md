@@ -1,28 +1,18 @@
-# Arxiv-tracker · 半监督医学图像分割论文追踪
+# Arxiv-tracker · arXiv 每日论文追踪器
 
-本 fork 面向 **半监督医学图像分割**，每天从 arXiv 检索论文，用阿里云百炼千问生成双语总结和中文翻译，再保存 Markdown/JSON、更新 GitHub Pages，并按配置发送邮件。
+检索 arXiv 论文，逐篇读取全文并生成解读，保存 JSON/Markdown、更新网页，并按配置发送邮件。
 
-基于 [原始项目](https://github.com/colorfulandcjy0806/Arxiv-tracker) 修改。[English](README_EN.md) · [流程检查记录](PROCESS_REVIEW.md)
+基于 [原始项目](https://github.com/colorfulandcjy0806/Arxiv-tracker) 修改。[English](README_EN.md) · [运行流程检查](PROCESS_REVIEW.md)
 
-## 检索方向
+## 检索配置
 
-检索逻辑为：
-
-```text
-(cs.CV OR cs.LG OR cs.AI OR eess.IV OR physics.med-ph)
-AND segmentation
-AND (semi-supervised OR semi supervised OR semisupervised)
-AND (medical OR biomedical OR organ OR lesion OR tumor OR ...)
-```
-
-`keywords` 内部按 OR 合并；新增的 `keyword_groups` 每组内部按 OR、组与组之间按 AND，并始终约束原查询。这样不会因为把所有词放进同一个 OR 列表而混入大量全监督医学分割或自然图像半监督论文。连字符和空格写法会自动展开，检索覆盖标题、摘要和 comments。
+当前只用两个主题条件：**半监督 AND 分割**。不再附加医学场景、边界、数据集或具体方法等关键词，项目名称、邮件标题、网页标题和阅读助手提示词均保持通用。
 
 ```yaml
-categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV", "physics.med-ph"]
+categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV"]
 keywords: ["segmentation"]
 keyword_groups:
   - ["semi-supervised", "semisupervised"]
-  - ["medical", "biomedical", "organ", "lesion", "tumor", "MRI", "CT"]
 exclude_keywords: []
 logic: "AND"
 max_results: 5
@@ -30,82 +20,102 @@ sort_by: "lastUpdatedDate"
 sort_order: "descending"
 ```
 
-仓库的 `config.yaml` 包含更完整的医学术语。默认在最近 7 天中寻找最多 5 篇未读论文；首次回溯可暂时增大 `freshness.since_days`。它是每次输出条数，不是检索总量：已读条目会跳过并继续分页。
+`keywords` 内部 OR；`keyword_groups` 每组内部 OR，组间及与原查询之间 AND。`semi-supervised` 自动包含 `semi supervised` 写法。默认从最近 7 天找到最多 5 篇未读论文，跳过已读条目后继续分页。首次回溯可增大 `freshness.since_days`。这是关键词检索，仍需阅读论文判断相关性。
 
-这是关键词检索，仍可能命中仅在摘要中提及目标方向的论文；请结合摘要判断相关性。`self-supervised`、`few-shot` 或 `weakly-supervised` 单独出现不会满足半监督条件，也不全局排除这些词，避免误删同时讨论它们的目标论文。
+## 全文解读
 
-## 千问 API
+默认对本次选出的论文**逐篇独立总结**，不把五篇合为一份综述：
 
-使用 [阿里云百炼 OpenAI 兼容 Chat Completions 接口](https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions)：
+1. 根据 arXiv 的版本 ID 下载完整 PDF。
+2. 使用 pypdf 逐页提取全部可读文字，包括方法、实验、消融和结论；给每页加上页码标记。
+3. 每篇一次 LLM 请求，生成中英文要点和详细解读。中英文共享这次调用。
+4. 解读包含研究问题、方法步骤与目标函数、贡献、实验设置/基线/结果、证据与局限、复现要点。重要陈述和数字需附 PDF 页码。
+5. 邮件、网页、Markdown 和 JSON 都保存每篇的详细解读，并注明 PDF 页数。
+
+```yaml
+summary:
+  mode: "llm"
+  source: "fulltext"
+  scope: "both"
+  max_tokens: 7000
+  timeout: 120
+fulltext:
+  timeout: 60
+  max_bytes: 31457280
+  max_pages: 150
+  max_chars: 200000
+```
+
+全文获取失败、PDF 解析失败或超出长度限制会明确失败并保留未读状态；不会只取首页、静默截断正文，或降级成摘要后标成全文解读。可根据模型上下文能力调整上限。只引用第一页或引用不存在页码的模型解读也会被拒绝。
+
+当前读取的是 PDF 中可提取的文字；扫描件和图片型表格/示意图没有 OCR 或视觉解析，不会声称已经理解这些图像。解析信息不足时会报错，表格或公式无法辨认时要求模型明确说明。原始 PDF 和全文文字只在本次运行内存中使用，不提交到公开站点或输出文件；保存来源信息和生成的阅读笔记。
+
+如确实只需要原来的摘要简述，可显式设置 `summary.source: abstract`。`scope: tldr/full/both` 控制要点和详细解读的输出。
+
+## 模型接入
+
+保留千问平台 / 百炼兼容入口，实际模型使用 **DeepSeek 1017**：
 
 ```yaml
 llm:
   provider: "dashscope"
   base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-  model: "qwen-plus"
+  model: "deepseek-v4.1-flash-1017"
   api_key_env: "DASHSCOPE_API_KEY"
   fail_on_error: true
 ```
 
-北京地域也可使用官方推荐的工作空间域名 `https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`，把 `<WorkspaceId>` 替换为真实工作空间 ID。其他地域请使用控制台对应的域名和 API Key；不要把千问聊天网页 URL 当成 API 地址。通用北京域名目前仍受支持。
+平台托管的 DeepSeek 使用 `enable_thinking: false`、`stream: false` 和 JSON 输出。DeepSeek 官方直连则使用其 `thinking` 参数，两种入口分别处理。不会因为平台叫千问就改用 Qwen 模型。
 
-请求通过 `requests` 直接发送 Bearer Key 和 JSON；千问摘要与翻译使用 `enable_thinking: false`、`stream: false` 和 JSON 输出格式。每篇论文一次请求同时生成中英文总结，启用翻译时再请求一次。摘要关注标注比例、伪标签、师生模型、一致性约束、数据集及 Dice/HD95，仅保留原摘要实际报告的信息。
+`base_url` 应与现有账号/地域对应；北京工作空间也可用 `https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`。如使用其他千问平台域名，保留控制台提供的兼容地址即可。
 
-默认 `fail_on_error: true`：缺少密钥、摘要或翻译失败会让任务失败，且不推进已读状态。旧的其他 OpenAI 兼容接口仍可通过修改 `base_url`、`model`、`api_key_env` 使用；DeepSeek 原有参数兼容测试保留。
+参考：[千问平台 Chat API](https://docs.qwencloud.com/api-reference/chat/openai-chat)、[百炼 DeepSeek 文档](https://docs.bailian.console.aliyun.com/en/model-studio/deepseek-api)。模型和上下文限制以控制台为准。
 
-## GitHub Actions 部署
+## GitHub Actions
 
-1. 在仓库 **Settings → Secrets and variables → Actions** 添加 Secret `DASHSCOPE_API_KEY`，填写百炼 API Key。旧的 `DS_API_KEY` 不再被默认配置读取。
-2. 要发送邮件，再设置 Secret `SMTP_PASS`（QQ SMTP 授权码），以及 Variables 或 Secrets `EMAIL_TO`、`EMAIL_SENDER`、`SMTP_USER`。多收件人用逗号或分号分隔。
-3. 在 **Settings → Pages** 选择 **Deploy from a branch**，分支 `main`、目录 `/docs`；允许 Actions 写入仓库。每日工作流只会从默认分支的已合并代码触发。
-4. 运行 **arxiv-digest**。手动 `send_email=false` 默认只生成网页/文件，不发邮件、不推进已读状态；正式试发选择 `true`。默认每日北京时间 **03:00** 运行，GitHub 可能延迟调度。
+1. 在 **Settings → Secrets and variables → Actions** 设置 Secret `DASHSCOPE_API_KEY`。
+2. 要发邮件，再设置 Secret `SMTP_PASS`（QQ SMTP 授权码）以及 Variables 或 Secrets `EMAIL_TO`、`EMAIL_SENDER`、`SMTP_USER`。
+3. 在 **Settings → Pages** 选择 **Deploy from a branch**，分支 `main`、目录 `/docs`；允许 Actions 写入仓库。
+4. 手动运行 **arxiv-digest**。默认 `send_email=false`：生成网页/文件，不发邮件、不推进未读状态。正式推送选 `true`。
 
-`.github/workflows/digest.yml` 是唯一每日任务，同组任务排队执行，成功后提交 `docs/**`、`outputs/**`、`.state/**`。原来的 `arxiv_daily.yml` 已改为无外部请求的测试工作流，界面名称为 **tests**。失败运行会保留输出 artifact，便于排查。
-
-定时任务失败后可重跑；定时重跑仍允许发信，已持久化的去重状态和邮件标记会避免重复。没有新增论文时不发空邮件。
+每日任务计划在北京时间 **03:00** 运行，平台可能延迟调度。只保留 `digest.yml` 一个每日任务；同组任务排队，成功后提交网页、输出和状态。原来的 `arxiv_daily.yml` 现在是无外部请求的 **tests** 工作流。没有新论文时不发空邮件。
 
 ## 本地运行
 
-Python 3.10+。在项目目录执行：
+Python 3.10+，在项目目录执行：
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-$Env:DASHSCOPE_API_KEY = "你的百炼 API Key"
+$Env:DASHSCOPE_API_KEY = "你的平台 API Key"
 python test_sf.py
 python main.py --no-email --no-state-update --verbose
 ```
 
-`test_sf.py` 现在是手动千问连接检查，只有直接执行才会请求 API，不打印密钥。正式运行：
+`test_sf.py` 读取配置里的模型进行手动连接检查，导入时不联网，不打印密钥。
 
-```powershell
-$Env:EMAIL_TO = "your@qq.com"
-$Env:EMAIL_SENDER = "your@qq.com"
-$Env:SMTP_USER = "your@qq.com"
-$Env:SMTP_PASS = "QQ SMTP 授权码"
-python -m arxiv_tracker.cli run --config config.yaml --verbose
-```
+正式运行前按需设置邮箱变量，然后执行 `python main.py --verbose`。macOS/Linux 使用 `source .venv/bin/activate` 和 `export DASHSCOPE_API_KEY="..."`。
 
-macOS/Linux 使用 `source .venv/bin/activate` 和 `export DASHSCOPE_API_KEY="..."`，其余命令相同。`--no-email` 只禁用邮件；要预览并留给下一次正式推送，配合 `--no-state-update`。
+纯预览同时传 `--no-email --no-state-update`。`--no-email` 单独使用仍会将成功的文件/网页输出记为已读。
 
-可选 PDF 导出另装 `python -m pip install -r requirements-pdf.txt`，再传 `--pdf`；`email.attach_pdf: true` 也会生成附件。普通网页/邮件运行无需安装 Cairo/PDF 依赖。
+可选的 Markdown 转 PDF 导出另装 `python -m pip install -r requirements-pdf.txt`，再传 `--pdf`；这与用于读取论文的 pypdf 是不同用途。
 
-如果使用本地常驻定时器：
+本地常驻定时器：
 
 ```powershell
 python -m arxiv_tracker.scheduler --time 09:00 --config config.yaml
 ```
 
-它按机器本地时区触发，每次启动完整 CLI 子进程，前一次完成后再检查下次任务；窗口必须保持运行。通常选 GitHub Actions 或操作系统定时任务运行一次 CLI 即可。
+它按机器时区每天启动一次完整 CLI，窗口必须保持运行。通常用 GitHub Actions 或操作系统任务计划程序直接运行一次 CLI 就足够。
 
-## 去重与故障恢复
+## 状态与重试
 
-- 已读状态独立保存于 `.state/seen_semi_supervised_medical.json`。HTTP/HTTPS、PDF/Abs URL 和 v1/v2 统一为同一论文；同一论文更新版本不会再次推送。
-- 所有启用的输出成功后才原子写入状态。SMTP 或站点失败会返回非零退出码；`main.py` 会向调用者传递退出码。
-- 邮件使用论文 ID、收件人、发件人、主题的稳定指纹保存发送标记。正常跨日运行可继续发新论文；同批次重试会检查已保存标记。
-- SMTP 接受邮件与 Git 提交之间无法保证事务性“严格只发一次”；若发送后进程崩溃且标记未持久化，仍可能重复。详见流程检查记录。
-- 旧方向的 `docs/archive/` 和 `.state/seen.json` 保留；首次新方向运行后首页变为新主题，历史页面仍包含旧内容。
+已读记录使用 `.state/seen.json`。HTTP/HTTPS、Abs/PDF URL 和不同版本统一为同一论文，后续版本不重复推送。所有启用的输出成功后才原子保存状态；全文、LLM、邮件或网页失败都会返回非零退出码。
+
+发送标记用论文批次、收件人、发件人和主题的稳定指纹保护已保存的发送记录。SMTP 与 Git 提交之间仍不是事务，发送后、标记持久化前崩溃可能重复；本地和 Actions 也需要共享/同步状态才能跨机器去重。
+
+旧网页和历史归档保留，后续运行使用通用站点标题。
 
 ## 测试
 
@@ -113,4 +123,4 @@ python -m arxiv_tracker.scheduler --time 09:00 --config config.yaml
 python -m unittest discover -s tests -v
 ```
 
-测试覆盖千问/DeepSeek 请求格式、重试、双语请求复用、检索组合、分页与时间窗、旧状态迁移、异常 Feed、邮件去重、完整本地输出，以及失败时不推进状态。测试使用模拟响应，不需要 API Key，不发送邮件。
+测试使用模拟网络/SMTP 和本地生成的多页 PDF。覆盖每页读取、末页实验进入模型输入、五篇分别生成解读并显示于所有输出、平台 DeepSeek 参数、失败不降级/不记已读、长度限制、页面引用、分页去重和调度流程。

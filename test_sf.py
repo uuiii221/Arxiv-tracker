@@ -1,4 +1,4 @@
-"""Manual Qwen connection check; importing this module never makes a request."""
+"""Manual model connection check; importing this module never makes a request."""
 import os
 from pathlib import Path
 

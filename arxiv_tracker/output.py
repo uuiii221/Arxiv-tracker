@@ -5,12 +5,21 @@ from typing import List, Dict, Any, Optional
 def _ensure_dir(p: str):
     os.makedirs(p, exist_ok=True)
 
-def save_json(items: List[Dict[str, Any]], out_dir: str) -> str:
+def save_json(items: List[Dict[str, Any]], out_dir: str, summaries_zh=None, summaries_en=None) -> str:
     _ensure_dir(out_dir)
     ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     path = os.path.join(out_dir, f"arxiv_{ts}.json")
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(items, f, ensure_ascii=False, indent=2)
+        records = []
+        for item in items:
+            record = {key: value for key, value in item.items() if not key.startswith("_")}
+            sid = item.get("id") or ""
+            if summaries_zh and sid in summaries_zh:
+                record["notes_zh"] = summaries_zh[sid]
+            if summaries_en and sid in summaries_en:
+                record["notes_en"] = summaries_en[sid]
+            records.append(record)
+        json.dump(records, f, ensure_ascii=False, indent=2)
     return path
 
 def _render_lang_block(lang_label: str, it: Dict[str, Any],
@@ -70,6 +79,9 @@ def save_markdown(items: List[Dict[str, Any]], out_dir: str,
             lines.append(f"- Code：{', '.join(it['code_urls'])}")
         if it.get("project_urls"):
             lines.append(f"- Project：{', '.join(it['project_urls'])}")
+        source = it.get("fulltext_source")
+        if source:
+            lines.append(f"- 解读来源：PDF 全文，共 {source['pages']} 页，{source['text_pages']} 页可提取文字")
 
         sid = it.get("id") or ""
         trans = translations.get(sid) if translations else None

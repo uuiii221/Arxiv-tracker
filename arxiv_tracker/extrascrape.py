@@ -95,6 +95,7 @@ def augment_item_links(
     code_urls += _extract_from_text(item.get("summary") or "")
     code_urls += _extract_from_text(item.get("comments") or "")
     code_urls += _extract_from_text(item.get("title") or "")
+    code_urls += _extract_from_text(item.get("_fulltext") or "")
 
     # 2) 再尝试 HTML 页
     if html and item.get("html_url"):

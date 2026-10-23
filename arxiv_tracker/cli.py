@@ -100,6 +100,10 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
         llm_cfg = raw_cfg.get("llm", {}) or {}
         mode = summary_mode or summary_cfg.get("mode", "none")
         scope = summary_scope or summary_cfg.get("scope", "both")
+        summary_source = summary_cfg.get("source", "abstract")
+        if summary_source not in ("abstract", "fulltext"):
+            raise ValueError("summary.source must be abstract or fulltext")
+        use_fulltext = mode == "llm" and summary_source == "fulltext"
         _BILINGUAL_SUMMARY_CACHE.clear()  # 缓存仅在一次运行内共享，不跨日缓存失败
         strict_llm = bool(llm_cfg.get("fail_on_error", False))
 
@@ -183,6 +187,9 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
         scrape_html = bool(scrape_cfg.get("html", True))
         scrape_pdf_if_missing = bool(scrape_cfg.get("pdf_if_missing", True))
         scrape_pdf_always = bool(scrape_cfg.get("pdf_first_page", False))
+        if use_fulltext:
+            # Full PDF is read below; reuse its text instead of downloading the head again.
+            scrape_pdf_if_missing = scrape_pdf_always = False
         scrape_to = int(scrape_cfg.get("timeout", 10))
 
         from .extrascrape import augment_item_links
@@ -205,13 +212,24 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
             except Exception as e:
                 click.secho(f"[Scrape] 补链失败 {(it.get('id') or '')[:18]}...: {e}", fg="yellow")
 
-        # 3) 摘要
+        # 3) 逐篇读取完整 PDF，不以首页/摘要代替全文。
+        if use_fulltext:
+            from .fulltext import load_paper_fulltext
+            for it in items:
+                click.echo(f"[FullText] Reading {it.get('id')}")
+                it["_fulltext"], it["fulltext_source"] = load_paper_fulltext(it, raw_cfg.get("fulltext"))
+                augment_item_links(it, html=False, pdf_if_missing=False)
+                info = it["fulltext_source"]
+                click.echo(f"[FullText] Parsed {info['text_pages']}/{info['pages']} pages")
+
+        # 每篇独立生成解读；中英文共用一次模型调用。
         summaries_zh, summaries_en = {}, {}
         def _sum_for_lang(L):
             out = {}
             for it in items:
                 sid = it.get("id") or ""
-                out[sid] = build_two_stage_summary(item=it, mode=mode, lang=L, scope=scope, llm_cfg=llm_cfg)
+                out[sid] = build_two_stage_summary(item=it, mode=mode, lang=L, scope=scope, llm_cfg=llm_cfg,
+                                                  source=summary_source, summary_cfg=summary_cfg)
                 if strict_llm and mode == "llm" and out[sid].get("_llm_failed"):
                     raise RuntimeError("LLM summary failed for {}; dedup state was not advanced".format(sid))
             return out
@@ -267,7 +285,10 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
             click.echo("")
 
         # 6) 保存到文件 + 生成 PDF（可选）
-        json_path = save_json(items, out_dir)
+        # 原始全文只用于本次推理，不随公开的 outputs/JSON 上传。
+        for it in items:
+            it.pop("_fulltext", None)
+        json_path = save_json(items, out_dir, summaries_zh=summaries_zh, summaries_en=summaries_en)
         md_path   = save_markdown(items, out_dir, summaries_zh, summaries_en, lang=lang, translations=translations)
         click.echo(f"Saved: {json_path}")
         click.echo(f"Saved: {md_path}")

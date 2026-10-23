@@ -44,20 +44,21 @@ class QueryTests(unittest.TestCase):
                      "semi-supervised medical classification"):
             self.assertFalse(self.matches(query, text))
 
-    def test_default_config_rejects_medical_classification_and_natural_segmentation(self):
+    def test_default_config_requires_only_semi_supervision_and_segmentation(self):
         settings = Settings.from_file(str(Path(__file__).resolve().parents[1] / "config.yaml"))
         query = build_search_query(settings.categories, settings.keywords, settings.exclude_keywords,
                                    settings.logic, keyword_groups=settings.keyword_groups)
         self.assertTrue(self.matches(query, "Semi-supervised cardiac MRI segmentation"))
         self.assertFalse(self.matches(query, "Medical image segmentation with full supervision"))
-        self.assertFalse(self.matches(query, "Semi-supervised natural image segmentation"))
+        self.assertTrue(self.matches(query, "Semi-supervised natural image segmentation"))
+        self.assertTrue(self.matches(query, "Semi supervised segmentation"))
         self.assertFalse(self.matches(query, "Semi-supervised medical classification"))
 
-    def test_config_carries_all_three_topic_requirements(self):
+    def test_config_carries_two_topic_requirements(self):
         settings = Settings.from_file(str(Path(__file__).resolve().parents[1] / "config.yaml"))
         self.assertEqual(settings.keywords, ["segmentation"])
         self.assertIn("semi-supervised", settings.keyword_groups[0])
-        self.assertIn("medical", settings.keyword_groups[1])
+        self.assertEqual(len(settings.keyword_groups), 1)
         self.assertEqual(settings.logic, "AND")
 
 

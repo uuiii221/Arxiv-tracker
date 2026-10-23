@@ -1,69 +1,86 @@
-# Arxiv-tracker · Semi-supervised Medical Image Segmentation
+# Arxiv-tracker · Daily arXiv Paper Tracker
 
-This fork tracks **semi-supervised medical image segmentation** papers on arXiv, summarizes and translates them with Alibaba Cloud Model Studio Qwen, and produces JSON, Markdown, GitHub Pages and optional email digests.
+Find arXiv papers, read their full text, and produce individual reading notes in JSON, Markdown, website and email outputs.
 
-[中文说明](README.md) · [Process review (Chinese)](PROCESS_REVIEW.md) · [Upstream project](https://github.com/colorfulandcjy0806/Arxiv-tracker)
+[中文说明](README.md) · [Process review](PROCESS_REVIEW.md) · [Upstream](https://github.com/colorfulandcjy0806/Arxiv-tracker)
 
 ## Search
 
-The default query requires categories **AND segmentation AND semi-supervision AND a medical context**. `keywords` are ORed; every `keyword_groups` list is another required AND condition, with alternatives inside that list ORed. Hyphen/space variants are expanded automatically.
+The default topic is simply **semi-supervised AND segmentation**. There are no additional medical, boundary, dataset or method keywords. Project branding, email/site titles and assistant prompts remain generic.
 
 ```yaml
-categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV", "physics.med-ph"]
+categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV"]
 keywords: ["segmentation"]
 keyword_groups:
   - ["semi-supervised", "semisupervised"]
-  - ["medical", "biomedical", "organ", "lesion", "tumor", "MRI", "CT"]
+exclude_keywords: []
 logic: "AND"
 max_results: 5
 sort_by: "lastUpdatedDate"
 sort_order: "descending"
 ```
 
-The full configuration includes additional medical terms. It searches the last 7 days and returns up to 5 unseen papers per run, paginating past previously seen results. Temporarily increase `freshness.since_days` for an initial backfill. This remains lexical retrieval; a paper mentioning the topic only in passing may still match.
+Keyword alternatives are ORed. Required groups are ANDed with the original query. Hyphen/space variants are expanded. The default rolling window is 7 days, with up to 5 unseen papers per run and pagination past seen results.
 
-## Qwen API
+## Read full papers
 
-Configure Alibaba Cloud Model Studio, using its [official OpenAI-compatible API](https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions):
+Each selected paper gets its **own** detailed report; the five papers are not combined into a survey. The pipeline downloads the complete versioned arXiv PDF, extracts every page with pypdf, adds page markers, and passes the full extracted text to the model.
+
+One request per paper generates bilingual takeaways and detailed notes: problem, method and objective, contribution, experimental setup/baselines/results/ablations, evidence and limitations, and reproduction details. Claims and numbers cite PDF pages. Detailed notes appear in website, email, Markdown and JSON, together with source/page information.
+
+```yaml
+summary:
+  mode: "llm"
+  source: "fulltext"
+  scope: "both"
+  max_tokens: 7000
+  timeout: 120
+fulltext:
+  timeout: 60
+  max_bytes: 31457280
+  max_pages: 150
+  max_chars: 200000
+```
+
+Download/parsing failures, insufficient extractable text and exceeded limits fail visibly without consuming seen state. Text is never silently truncated or replaced by an abstract while claiming a full-paper report. Invalid page references and reports citing only page 1 are rejected. Increase limits according to the configured model's context capacity.
+
+This is PDF **text** extraction, not OCR or image/table understanding. Unreadable content must be identified rather than guessed. Original PDFs and extracted paper text remain in memory and are not published; generated notes and provenance are saved. Explicitly set `summary.source: abstract` to use the legacy abstract digest. `scope` accepts `tldr`, `full` or `both`.
+
+## Model
+
+The API entry point remains the Qwen platform / Model Studio compatible endpoint, while the actual model is **DeepSeek 1017**:
 
 ```yaml
 llm:
   provider: "dashscope"
   base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-  model: "qwen-plus"
+  model: "deepseek-v4.1-flash-1017"
   api_key_env: "DASHSCOPE_API_KEY"
   fail_on_error: true
 ```
 
-For Beijing you can also use the recommended workspace domain `https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`. Replace the placeholder with your workspace ID. Use an endpoint and API key from the same region. The shared Beijing endpoint remains supported.
+Hosted DeepSeek uses `enable_thinking: false`, `stream: false` and JSON output. Direct calls to the official DeepSeek API retain its different `thinking` parameter. Use the base URL matching your existing platform account and region.
 
-Direct HTTP requests use Bearer authentication, JSON output, `stream: false` and `enable_thinking: false`. One request produces both summary languages; optional title/abstract translation uses another. Prompts focus on labeled/unlabeled data, pseudo-labels, consistency, datasets, Dice and HD95 without inventing unreported results. Strict failure handling prevents failed summaries or translations from consuming unread papers.
+References: [Qwen platform Chat API](https://docs.qwencloud.com/api-reference/chat/openai-chat), [Model Studio DeepSeek](https://docs.bailian.console.aliyun.com/en/model-studio/deepseek-api).
 
-## GitHub deployment
+## Run
 
-1. Add `DASHSCOPE_API_KEY` as an Actions **Secret**. The default configuration no longer reads `DS_API_KEY`.
-2. For email, add Secret `SMTP_PASS` and Variables or Secrets `EMAIL_TO`, `EMAIL_SENDER`, `SMTP_USER`.
-3. Enable Pages from `main` / `/docs`, and allow Actions to write repository contents.
-4. Run **arxiv-digest** manually. `send_email=false` generates files/site without sending email or advancing seen state; choose `true` for delivery. The scheduled run is daily at **03:00 Asia/Shanghai**, subject to GitHub scheduling delays.
-
-`digest.yml` is the only scheduled workflow. Concurrent runs queue instead of cancelling a run after mail delivery. The former `arxiv_daily.yml` now runs tests on pushes/PRs and performs no retrieval or delivery. The digest commits site, output and state files only after success, and uploads diagnostic artifacts on failure. Scheduled retries may send mail; persistent fingerprints and seen state protect completed deliveries. Empty results send no email.
-
-## Local use
-
-Python 3.10+; from the repository directory:
+Python 3.10+, from the repository:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-$Env:DASHSCOPE_API_KEY = "your Model Studio key"
+$Env:DASHSCOPE_API_KEY = "your platform key"
 python test_sf.py
 python main.py --no-email --no-state-update --verbose
 ```
 
-On macOS/Linux use `source .venv/bin/activate` and `export DASHSCOPE_API_KEY="..."` instead. Set email variables if desired, then run `python main.py --verbose` for normal delivery. `--no-email` disables email only; add `--no-state-update` when previewing papers that should remain unread for the next scheduled delivery.
+On macOS/Linux use `source .venv/bin/activate` and `export DASHSCOPE_API_KEY="..."`. Configure email variables and run `python main.py --verbose` for normal delivery. `test_sf.py` checks the model configured in YAML; importing it performs no request.
 
-The retained `test_sf.py` is now a guarded Qwen smoke check; importing it never makes network requests or prints key prefixes. PDF export is optional: install `requirements-pdf.txt` and use `--pdf` or enable `email.attach_pdf`.
+For GitHub Actions add Secret `DASHSCOPE_API_KEY`, optionally Secret `SMTP_PASS` and Variables/Secrets `EMAIL_TO`, `EMAIL_SENDER`, `SMTP_USER`. Enable Pages from `main` / `/docs` and repository writes for Actions.
+
+The only scheduled workflow, **arxiv-digest**, runs at 03:00 Asia/Shanghai, subject to GitHub delays. Runs queue. Manual `send_email=false` generates files/site without email or seen-state updates. The former `arxiv_daily.yml` is now **tests** on push/PR. Empty results send no email.
 
 Optional foreground scheduler, using the machine timezone:
 
@@ -71,20 +88,14 @@ Optional foreground scheduler, using the machine timezone:
 python -m arxiv_tracker.scheduler --time 09:00 --config config.yaml
 ```
 
-Each job invokes the full CLI in a new process. Keep the scheduler running, or use GitHub Actions / your operating system's task scheduler to invoke the CLI once per run.
+Each job invokes the complete CLI. For PDF output export, separately install `requirements-pdf.txt` and use `--pdf`; pypdf text extraction is included in the normal dependencies.
 
-## State and recovery
+## Recovery and tests
 
-The topic has its own `.state/seen_semi_supervised_medical.json`. HTTP/HTTPS, abs/PDF URLs and revisions are normalized to one paper identity; later revisions are not resent. Legacy state formats are supported. Corrupt state causes a visible failure instead of silently resending everything.
-
-State advances atomically after all enabled destinations succeed. Email failures fail the run even when the site was generated. Content fingerprints suppress repeat delivery of the same paper batch to the same recipients. SMTP delivery and Git persistence are not one transaction: a crash after SMTP accepts mail but before durable state can still cause a duplicate. Local runs and Actions have separate state unless synchronized.
-
-Old-topic archives and old state are retained. The first new run updates the homepage; historical pages still contain old topics.
-
-## Tests
+Seen state remains `.state/seen.json`. URL schemes and revisions normalize to one paper identity. All enabled outputs must succeed before atomic state advancement. Persistent email fingerprints protect saved deliveries; SMTP acceptance and Git persistence are not one transaction, so crashes in between can still duplicate email. Local and Actions copies need synchronized state for cross-machine deduplication.
 
 ```powershell
 python -m unittest discover -s tests -v
 ```
 
-Tests mock network and email. They cover Qwen/DeepSeek request formats and retries, bilingual request reuse, required search groups, pagination, freshness, state migration, malformed/error feeds, email guards, complete local outputs, and failure recovery.
+Tests mock network/SMTP and generate multipage PDFs locally. They verify all-page extraction, last-page evidence in the prompt, five individual reports across every output, hosted DeepSeek parameters, visible failure instead of abstract fallback, page references, limits, pagination/deduplication and scheduling.

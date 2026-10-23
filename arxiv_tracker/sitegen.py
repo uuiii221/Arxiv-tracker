@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, datetime, html
 from typing import Dict, List, Any, Optional
+from .rendering import render_report
 
 import re
 try:
@@ -171,13 +172,27 @@ def _card(it: Dict[str, Any],
         if zh_abs:   parts.append(f'<div class="mono" style="margin-top:8px">{_esc(zh_abs)}</div>')
         parts.append('</details>')
 
-    # ✅ 只渲染双语总结（英文→中文），去掉 TL;DR & 方法卡
+    # 简短要点与详细全文解读分别展示。
     if digest_en or digest_zh:
         parts.append('<details class="detail"><summary>Summary / 总结</summary>')
         if digest_en:
             parts.append(f'<div class="mono">{_esc(digest_en)}</div>')
         if digest_zh:
             parts.append(f'<div class="mono" style="margin-top:8px">{_esc(digest_zh)}</div>')
+        parts.append('</details>')
+
+    full_zh = (sum_zh or {}).get("full_md") or ""
+    full_en = (sum_en or {}).get("full_md") or ""
+    if full_zh or full_en:
+        parts.append('<details class="detail" open><summary>Paper notes / 论文解读</summary>')
+        source = it.get("fulltext_source") or {}
+        if source:
+            parts.append(f'<div class="meta-line">来源：PDF 全文，共 {source["pages"]} 页；'
+                         f'{source["text_pages"]} 页可提取文字</div>')
+        if full_zh:
+            parts.append('<div class="reading-notes">' + render_report(full_zh) + '</div>')
+        if full_en:
+            parts.append('<div class="reading-notes">' + render_report(full_en) + '</div>')
         parts.append('</details>')
 
     parts.append('</div>')

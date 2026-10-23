@@ -3,18 +3,13 @@ categories:
   - "cs.LG"
   - "cs.AI"
   - "eess.IV"
-  - "physics.med-ph"
 
 keywords:
   - "segmentation"
 
-# 组内 OR、组间 AND：分割 AND 半监督 AND 医学场景。
-# 不以 self-supervised / few-shot / weakly-supervised 替代半监督条件。
+# 仅限定：半监督 AND 分割；不额外限定应用领域或方法。
 keyword_groups:
   - ["semi-supervised", "semisupervised"]  # 自动包含 semi supervised 写法
-  - ["medical", "biomedical", "organ", "lesion", "tumor", "tumour",
-     "cardiac", "brain", "liver", "prostate", "pancreas", "retinal",
-     "polyp", "MRI", "CT", "ultrasound", "histopathology"]
 
 exclude_keywords: []
   
@@ -30,13 +25,22 @@ lang: "both"
 # mode: none / heuristic / llm
 summary:
   mode: llm # mode: "heuristic"
+  source: "fulltext"  # 下载完整 PDF，逐页解析后分别总结每篇论文
   # scope: tldr / full / both
   scope: "both"
+  max_tokens: 7000
+  timeout: 120
+
+fulltext:
+  timeout: 60
+  max_bytes: 31457280   # 30 MiB；超限明确失败，不截取首页冒充全文
+  max_pages: 150
+  max_chars: 200000    # 超限明确失败，不静默截断正文
 
 # —— 邮件发送（QQ 邮箱） ——
 email:
   enabled: true
-  subject: "[arXiv] 半监督医学图像分割论文速递"
+  subject: "[arXiv] Daily Digest"
   smtp_server: "smtp.qq.com"
   smtp_port: 587
   smtp_pass_env: "SMTP_PASS"
@@ -47,28 +51,24 @@ email:
   attach_md: true  # 是否开启Markdown附件
   attach_pdf: false  # 是否开启PDF附件
 
-# —— 千问：阿里云百炼 / DashScope（OpenAI 兼容接口） ——
+# —— 千问平台 / 百炼入口，实际调用 DeepSeek ——
 llm:
   provider: "dashscope"
   base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
   # 也可改为 https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
   # 国际站使用与 API Key 地域一致的 endpoint；不要使用千问聊天网页地址。
-  model: "qwen-plus"
+  model: "deepseek-v4.1-flash-1017"
   api_key_env: "DASHSCOPE_API_KEY"
   fail_on_error: true      # 摘要/翻译失败时不将论文标记已读，可在修复后重跑
 
   system_prompt_en: |
-    You are a researcher in semi-supervised medical image segmentation. Based only on
-    the supplied metadata and abstract, summarize the motivation, method and results.
-    Include the use of labeled and unlabeled images, pseudo-labeling, teacher-student
-    learning or consistency regularization when stated. Preserve reported label budgets,
-    modalities, datasets, Dice and HD95 values. Never invent missing numbers, results,
-    clinical claims or experimental details. State when these are not reported.
+    You are a precise academic reading assistant. Ground your explanations in the
+    supplied paper text. Explain methods and experimental evidence clearly, preserve
+    reported conditions and numbers, distinguish authors' claims from interpretation,
+    and identify missing or unreadable information without guessing.
   system_prompt_zh: |
-    你是半监督医学图像分割方向的研究助手。仅依据给定元信息与摘要，总结动机、方法和结果。
-    关注标注与未标注样本的利用、伪标签、师生模型和一致性约束，但仅在原文涉及时描述。
-    保留原文报告的标注比例、成像模态、数据集及 Dice、HD95 等指标；未报告的内容明确说明，
-    不编造实验数字、临床效果或实验设置。
+    你是严谨的论文阅读助手。依据提供的论文正文解释方法与实验证据，保留结果对应的
+    实验条件和数字，区分作者主张与分析意见；未报告或无法辨认的信息明确说明，不猜测。
 
 # —— 中文翻译设置（用 LLM 翻译 title/summary） ——
 translate:
@@ -79,7 +79,7 @@ translate:
 site:
   enabled: true
   dir: "docs" 
-  title: "半监督医学图像分割 · arXiv 论文速递"
+  title: "arXiv 论文速递"
   keep_runs: 1024         # 历史保留期（按页面份数）
   theme: "light"        # "light" | "dark" | "auto"
   accent: "#2563eb"     # 主题色（可自定义）
@@ -87,7 +87,7 @@ site:
 freshness:
   since_days: 7             # 滚动一周，覆盖周末/短暂失败；首次回溯可临时增大
   unique_only: true       # 开启跨天去重（见过的 arXiv ID 不再重复发）
-  state_path: ".state/seen_semi_supervised_medical.json"  # 独立方向，避免旧方向状态干扰
+  state_path: ".state/seen.json"
   fallback_when_empty: false # 当今天无新增时，是否回退展示最近的Top若干（建议false）
 
 scrape:
