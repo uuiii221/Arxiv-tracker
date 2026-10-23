@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import requests
 
-from arxiv_tracker.llm import _json_loose, call_llm_bilingual_summary, call_llm_translate
+from arxiv_tracker.llm import _json_loose, _normalize_chat_endpoint, call_llm_bilingual_summary, call_llm_translate
 
 
 class _Response:
@@ -35,6 +35,53 @@ class _ResponseWithJson(_Response):
 
 
 class LlmRequestTests(unittest.TestCase):
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_deepseek_flash_disables_thinking(self, post):
+        post.return_value = _Response('{"digest_en":"English","digest_zh":"中文"}')
+        call_llm_bilingual_summary(
+            {"title": "Paper", "summary": "Abstract"}, base_url="https://api.deepseek.com",
+            model="deepseek-flash", api_key="secret",
+        )
+        self.assertEqual(post.call_args.kwargs["json"]["thinking"], {"type": "disabled"})
+
+    def test_dashscope_endpoint_normalization(self):
+        for base in (
+            "https://dashscope.aliyuncs.com/compatible-mode/v1",
+            "https://dashscope.aliyuncs.com/compatible-mode/v1/",
+            "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+        ):
+            with self.subTest(base=base):
+                self.assertEqual(_normalize_chat_endpoint(base),
+                                 "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions")
+
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_qwen_summary_uses_dashscope_json_and_non_thinking(self, post):
+        post.return_value = _Response('{"digest_en":"English","digest_zh":"中文"}')
+        result = call_llm_bilingual_summary(
+            {"title": "Paper", "summary": "Abstract"},
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+            model="qwen-plus", api_key="test-key", system_prompt_en="Medical research",
+            system_prompt_zh="半监督医学分割",
+        )
+        self.assertEqual(result["digest_zh"], "中文")
+        self.assertEqual(post.call_args.args[0],
+                         "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions")
+        payload = post.call_args.kwargs["json"]
+        self.assertIs(payload["enable_thinking"], False)
+        self.assertNotIn("thinking", payload)
+        self.assertEqual(payload["response_format"], {"type": "json_object"})
+        self.assertIn("半监督医学分割", payload["messages"][0]["content"])
+
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_qwen_translation_uses_non_thinking(self, post):
+        post.return_value = _Response('{"title_zh":"论文","summary_zh":"摘要"}')
+        call_llm_translate(
+            {"title": "Paper", "summary": "Abstract"}, target_lang="zh",
+            base_url="https://workspace.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+            model="qwen-plus", api_key="test-key",
+        )
+        self.assertIs(post.call_args.kwargs["json"]["enable_thinking"], False)
+
     def test_json_parser_stops_after_first_complete_object(self):
         parsed = _json_loose(
             'prefix {"digest_en":"English","digest_zh":"中文"} '
@@ -85,26 +132,6 @@ class LlmRequestTests(unittest.TestCase):
         self.assertEqual(payload["thinking"], {"type": "disabled"})
         self.assertEqual(payload["max_tokens"], 1600)
 
-    @patch("arxiv_tracker.llm.requests.post")
-    def test_deepseek_flash_disables_thinking(self, post):
-        post.return_value = _Response(
-            '{"digest_en":"English digest","digest_zh":"中文摘要"}'
-        )
-
-        call_llm_bilingual_summary(
-            {"title": "Paper", "summary": "Abstract"},
-            base_url="https://api.deepseek.com",
-            model="deepseek-flash",
-            api_key="secret",
-        )
-
-        payload = post.call_args.kwargs["json"]
-
-        self.assertEqual(
-            payload["thinking"],
-            {"type": "disabled"}
-        )
-    
     @patch("time.sleep")
     @patch("arxiv_tracker.llm.requests.post")
     def test_retries_429_until_third_attempt_succeeds(self, post, sleep):

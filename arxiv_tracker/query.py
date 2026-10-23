@@ -23,7 +23,7 @@ def _expand_variants(kw: str) -> List[str]:
         out.add(k.replace(" ", "-"))
     if "-" in k:
         out.add(k.replace("-", " "))
-    return sorted(out, key=len, reverse=True)  # 优先长短语
+    return sorted(out, key=lambda value: (-len(value), value))
 
 def _kw_group(kw: str) -> str:
     """
@@ -49,13 +49,14 @@ def _kw_group(kw: str) -> str:
 
     return "(" + " OR ".join(parts) + ")"
 
-def build_search_query(categories: List[str], keywords: List[str], exclude_keywords: List[str] = None, logic: str = "AND") -> str:    
+def build_search_query(categories: List[str], keywords: List[str], exclude_keywords: List[str] = None,
+                       logic: str = "AND", keyword_groups: List[List[str]] = None) -> str:
     """
     生成 arXiv API 的 search_query 字符串。
     - categories: ["cs.CV","cs.LG"] -> (cat:cs.CV OR cat:cs.LG)
     - keywords:   每个 kw 变成一个 _kw_group，关键词之间用 OR 连接
     - 组间逻辑：cat_group (AND/OR) kw_group
-    - 结构: (正面查询) AND NOT (负面查询)
+    - 结构: (正面查询) ANDNOT (负面查询)，使用 arXiv 支持的布尔操作符
     """
     cats = [c.strip() for c in (categories or []) if c and c.strip()]
     keys = [k.strip() for k in (keywords or []) if k and k.strip()]
@@ -73,7 +74,7 @@ def build_search_query(categories: List[str], keywords: List[str], exclude_keywo
     if excs:
         # 复用 _kw_group 逻辑，也可以只做简单匹配。这里复用逻辑以支持变体。
         # 意思为: NOT ( ("LLM"在标题/摘要) OR ("Large Language Model"在标题/摘要) )
-        exc_q = " AND NOT (" + " OR ".join(_kw_group(e) for e in excs) + ")"
+        exc_q = " ANDNOT (" + " OR ".join(_kw_group(e) for e in excs) + ")"
         
     # 构建正面查询部分
     positive_q = ""
@@ -88,4 +89,12 @@ def build_search_query(categories: List[str], keywords: List[str], exclude_keywo
         positive_q = "all:*"
 
     # 最终拼接
+    # 每组内的同义词用 OR；每个必需组与原查询用 AND，避免方向被 OR 放宽。
+    required_groups = []
+    for group in keyword_groups or []:
+        terms = [term.strip() for term in group if term and term.strip()]
+        if terms:
+            required_groups.append("(" + " OR ".join(_kw_group(term) for term in terms) + ")")
+    if required_groups:
+        positive_q = "(" + " AND ".join([positive_q] + required_groups) + ")"
     return positive_q + exc_q

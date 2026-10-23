@@ -2,7 +2,6 @@
 import os
 from typing import Optional
 from markdown import markdown
-from xhtml2pdf import pisa
 
 _BASE_CSS = """
 body{font-family:DejaVu Sans, Arial, Helvetica, sans-serif;font-size:12pt;line-height:1.5;color:#111;}
@@ -20,6 +19,8 @@ def md_to_pdf(md_path: str, pdf_path: Optional[str] = None) -> str:
     将 Markdown 文件转换为 PDF（基于 markdown -> HTML -> xhtml2pdf）
     返回生成的 pdf 路径
     """
+    from xhtml2pdf import pisa
+
     if not os.path.exists(md_path):
         raise FileNotFoundError(md_path)
     if not pdf_path:

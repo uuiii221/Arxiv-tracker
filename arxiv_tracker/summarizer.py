@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import logging
+from hashlib import sha256
 import os, re
 from typing import Dict, Any, Optional, Tuple
 from .llm import call_llm_two_stage
-from .llm import call_llm_bilingual_summary
+from .llm import call_llm_bilingual_summary, call_llm_full_paper_summary
 
 logger = logging.getLogger(__name__)
 
@@ -22,6 +23,7 @@ def _summary_cache_key(item: Dict[str, Any], cfg: Dict[str, Any]) -> Tuple[str, 
         cfg.get("model"),
         cfg.get("system_prompt_zh"),
         cfg.get("system_prompt_en"),
+        sha256((item.get("_fulltext") or "").encode("utf-8")).hexdigest(),
     ))
 
 
@@ -124,7 +126,8 @@ def llm_two_stage(item: Dict[str, Any], lang: str, scope: str, cfg: Dict[str, An
         system_prompt=cfg.get("system_prompt_zh" if lang == "zh" else "system_prompt_en", "")
     )
 
-def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: str, llm_cfg: Optional[Dict[str, Any]] = None):
+def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: str, llm_cfg: Optional[Dict[str, Any]] = None,
+                            source: str = "abstract", summary_cfg: Optional[Dict[str, Any]] = None):
     """
     兼容旧接口名，但现在输出：
       {"digest_en": "...", "digest_zh": "...", "tldr": "", "full_md": ""}
@@ -132,6 +135,27 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
     """
     if mode == "llm":
         cfg = llm_cfg or {}
+        if source == "fulltext":
+            # Full-text mode must never publish an abstract fallback as paper notes.
+            api_key = cfg.get("api_key") or os.getenv(cfg.get("api_key_env") or "OPENAI_API_KEY", "")
+            if not api_key:
+                raise RuntimeError("Missing LLM API key for full-paper summary")
+            if not item.get("_fulltext"):
+                raise RuntimeError("Full paper text is missing; cannot generate full-paper summary")
+            options = summary_cfg or {}
+            cache_key = _summary_cache_key(item, cfg) + ("fulltext", str(options.get("max_tokens", 7000)))
+            data = _BILINGUAL_SUMMARY_CACHE.get(cache_key)
+            if data is None:
+                data = call_llm_full_paper_summary(
+                    item, base_url=cfg.get("base_url", ""), model=cfg.get("model", ""), api_key=api_key,
+                    system_prompt_zh=cfg.get("system_prompt_zh", ""), system_prompt_en=cfg.get("system_prompt_en", ""),
+                    max_tokens=int(options.get("max_tokens", 7000)), timeout=int(options.get("timeout", 120)),
+                )
+                _cache_bilingual_summary(cache_key, data)
+            return {"digest_en": data["digest_en"] if scope != "full" else "",
+                    "digest_zh": data["digest_zh"] if scope != "full" else "", "tldr": "",
+                    "full_md": data["full_zh" if lang == "zh" else "full_en"] if scope != "tldr" else "",
+                    "source": "fulltext"}
         api_key = (cfg.get("api_key") or os.getenv(cfg.get("api_key_env") or "OPENAI_API_KEY", ""))
         if api_key:
             cache_key = _summary_cache_key(item, cfg)
@@ -147,7 +171,10 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                         system_prompt_en=cfg.get("system_prompt_en", "")
                     )
                     _cache_bilingual_summary(cache_key, data)
-                return {"digest_en": data.get("digest_en",""), "digest_zh": data.get("digest_zh",""), "tldr":"", "full_md":""}
+                result = {"digest_en": data.get("digest_en",""), "digest_zh": data.get("digest_zh",""), "tldr":"", "full_md":""}
+                if data.get("_llm_failed"):
+                    result["_llm_failed"] = True
+                return result
             except Exception as exc:
                 logger.exception(
                     "LLM summary failed for %s: %s",
@@ -155,11 +182,12 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                     exc,
                 )
                 h = heuristic_paragraphs(item)
+                h["_llm_failed"] = True
                 _cache_bilingual_summary(cache_key, h)
-                return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":""}
+                return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":"", "_llm_failed": True}
         # LLM 不可用时兜底
         h = heuristic_paragraphs(item)
-        return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":""}
+        return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":"", "_llm_failed": True}
 
     # 非 llm 模式也输出同样结构（兜底）
     h = heuristic_paragraphs(item)

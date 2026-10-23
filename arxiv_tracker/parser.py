@@ -6,8 +6,14 @@ from .extractors import extract_venue_info, extract_urls
 
 def parse_feed(xml_text: str) -> List[Dict[str, Any]]:
     feed = feedparser.parse(xml_text)
+    if feed.get("bozo"):
+        raise ValueError("Invalid arXiv Atom feed: {}".format(feed.get("bozo_exception")))
+    if feed.get("version") != "atom10":
+        raise ValueError("Expected an arXiv Atom feed")
     items: List[Dict[str, Any]] = []
     for e in feed.entries:
+        if "/api/errors" in e.get("id", ""):
+            raise ValueError("arXiv API error: {}".format(e.get("summary", "unknown error")))
         title = (e.title or "").replace("\n", " ").strip()
         authors = [a.get("name", "") for a in e.get("authors", [])] if "authors" in e else []
         published = e.get("published")

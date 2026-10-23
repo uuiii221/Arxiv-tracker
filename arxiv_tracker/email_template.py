@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import html
 from typing import Dict, List, Any, Optional
+from .rendering import render_report
 
 try:
     from markdown import markdown as _md
@@ -89,7 +90,7 @@ def _render_card(it: Dict[str, Any],
         if zh_sum:   zh_parts.append("<div style='white-space:pre-wrap'>"+_esc(zh_sum)+"</div>")
         out.append('<div class="section"><h4>中文标题/摘要</h4>'+"".join(zh_parts)+'</div>')
 
-    # ✅ 仅 Summary / 总结（英文→中文）
+    # 简短要点与详细全文解读分别展示。
     if digest_en or digest_zh:
         inner = ""
         if digest_en:
@@ -97,6 +98,20 @@ def _render_card(it: Dict[str, Any],
         if digest_zh:
             inner += "<div style='white-space:pre-wrap;margin-top:8px'>" + _esc(digest_zh) + "</div>"
         out.append('<div class="section"><h4>Summary / 总结</h4>'+ inner +'</div>')
+
+    full_zh = (sum_zh or {}).get("full_md") or ""
+    full_en = (sum_en or {}).get("full_md") or ""
+    if full_zh or full_en:
+        notes = '<div class="section"><h4>Paper notes / 论文解读</h4>'
+        source = it.get("fulltext_source") or {}
+        if source:
+            notes += (f'<p>来源：PDF 全文，共 {source["pages"]} 页；'
+                      f'{source["text_pages"]} 页可提取文字</p>')
+        if full_zh:
+            notes += render_report(full_zh)
+        if full_en:
+            notes += render_report(full_en)
+        out.append(notes + '</div>')
 
     out.append('</div>')
     return "\n".join(out)

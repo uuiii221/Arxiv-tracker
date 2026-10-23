@@ -1,320 +1,126 @@
 # Arxiv-tracker · arXiv 每日论文追踪器
 
-[![Stars](https://img.shields.io/github/stars/colorfulandcjy0806/Arxiv-tracker?style=flat-square)](https://github.com/colorfulandcjy0806/Arxiv-tracker/stargazers)
-[![CI](https://img.shields.io/github/actions/workflow/status/colorfulandcjy0806/Arxiv-tracker/digest.yml?label=Arxiv%20Digest&style=flat-square)](../../actions)
-[![Pages](https://img.shields.io/badge/GitHub%20Pages-online-2ea44f?style=flat-square)](https://colorfulandcjy0806.github.io/Arxiv-tracker/)
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?style=flat-square&logo=python)
-![Last Commit](https://img.shields.io/github/last-commit/colorfulandcjy0806/Arxiv-tracker?style=flat-square)
-![Open Issues](https://img.shields.io/github/issues/colorfulandcjy0806/Arxiv-tracker?style=flat-square)
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=flat-square)](./LICENSE)
+检索 arXiv 论文，逐篇读取全文并生成解读，保存 JSON/Markdown、更新网页，并按配置发送邮件。
 
-> **如果你喜欢本项目，欢迎点亮一个 ⭐ Star 获取最新进展！**  
+基于 [原始项目](https://github.com/colorfulandcjy0806/Arxiv-tracker) 修改。[English](README_EN.md) · [运行流程检查](PROCESS_REVIEW.md)
 
-**简体中文 | [English](./README_EN.md)**
+## 检索配置
 
----
-
-## 😮 项目亮点（Highlights）
-
-- 🔎 **多学科多主题检索**：支持 `cs.CV / cs.LG / cs.AI / cs.CL` 等分类，自由组合关键词；`logic: AND/OR` 控制“分类集合”与“关键词集合”的布尔关系
-- 🧠 **LLM 双语总结**：**英文一段 + 中文一段** 或两阶段摘要（TL;DR + Method Card + Discussion）
-- 🔗 **自动提取链接**：Abs / PDF / 代码仓库 / 项目页
-- 📨 **邮件推送**：QQ SMTP（465/SSL 或 587/STARTTLS），支持多收件人
-- 🌐 **网页发布（GitHub Pages）**：自动生成美观 HTML，历史归档与折叠/展开
-- ♻️ **去重 + 新鲜度**：仅推送“近 N 天 & 未发送过”的论文；支持**成功后再写入**的幂等防重
-- 📦 **OpenAI-Compatible LLM**：**DeepSeek / SiliconFlow 等统一配置**（一个 `base_url` + 一个 `api_key` 即可）
-- 🔁 **自动分页抓取**：避免每次只拿同一批前 N 条导致结果“用尽”
-
-**网页效果如下图：**  
-<img src="images/html.png" alt="Preview" width="720">
-
-**邮件效果如下图：**  
-<img src="images/email.png" alt="Preview" width="720">
-
----
-
-## 📰 News
-- **2025-12-12**：支持通过关键词排除不想要的文献。
-- **2025-09-15**：新增代码链接补全，先从 comments/summary/arXiv 页面 抓取 GitHub/Code 链接；若仍缺失，可选扫描 PDF 首页尝试识别链接，缓解 “github code 显示不全” 问题。
-- **2025-08-25**
-  - 新增 **Freshness + 去重持久化**（且仅在**成功输出**后写入 `seen.json`）。
-  - 新增 **OpenAI-Compatible LLM**：除 DeepSeek 外，已验证可直连 **SiliconFlow** 免费/付费模型（示例：`Qwen/Qwen3-8B`）。
-  - 修复“**可能重复发邮件**”的问题；补充 Actions **并发防重**与“**手动触发选择是否发信**”。
-  - 新增 **自动分页抓取**，避免总是命中同一批条目。
-- **2025-08-22**：完成初版（检索 → 摘要/翻译 → 邮件/网页）。
----
-
-## 🧭 仓库结构
-
-```
-arxiv_tracker/        # 核心逻辑（客户端、解析、摘要、站点、邮件等）
-docs/                 # GitHub Pages 站点输出（自动生成）
-outputs/              # 每次运行保存的 JSON/MD（自动生成）
-.state/               # 去重状态（seen.json，建议随仓库提交）
-.github/workflows/    # digest.yml 定时任务（每日 03:00 北京时间）
-config.yaml           # 检索/摘要/邮件/站点/去重 配置
-requirements.txt      # 运行依赖
-```
-
----
-
-## 🚀 快速开始（Fork & 部署）
-
-### 1) Fork 本仓库
-
-点击右上角 **Fork**，得到你自己的副本。
-
-### 2) 配置 Secrets & Variables
-
-> Settings → **Secrets and variables** → **Actions**
-
-**Secrets（机密）**
-
-- `OPENAI_COMPAT_API_KEY`：任意 OpenAI 兼容平台的 API Key（如 **DeepSeek**、**SiliconFlow**）  
-- `SMTP_PASS`：QQ 邮箱 **SMTP 授权码**（非登录密码）
-
-**Variables（非机密，可用 Secrets 替代）**
-
-- `EMAIL_TO`：收件人（多个用 `,` 或 `;` 分隔，比如 `a@qq.com,b@xx.com`）
-- `EMAIL_SENDER`：发件人邮箱（通常与 SMTP 用户一致，比如 `xxx@qq.com`）
-- `SMTP_USER`：SMTP 用户名（通常 = 发件人邮箱，比如 `xxx@qq.com`）
-
-### 3) 启用 GitHub Pages
-
-Settings → **Pages**：Source 选 **Deploy from a branch**；Branch 选 `main`，Folder 选 `/docs`。
-
-### 4) 配置并运行工作流（支持手动触发是否发信，仓库已经写好，这步可以省略，直接运行就行）
-
-`.github/workflows/digest.yml` 示例（节选）：
+当前只用两个主题条件：**半监督 AND 分割**。不再附加医学场景、边界、数据集或具体方法等关键词，项目名称、邮件标题、网页标题和阅读助手提示词均保持通用。
 
 ```yaml
-name: arxiv-digest
-
-on:
-  workflow_dispatch:
-    inputs:
-      send_email:
-        description: "Send email for manual run?"
-        required: false
-        default: "false"
-        type: choice
-        options: ["false", "true"]
-  schedule:
-    - cron: "0 19 * * *"  # 每天 19:00 UTC = 北京时间次日 03:00
-
-concurrency:
-  group: arxiv-digest
-  cancel-in-progress: true
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.10" }
-
-      - name: Install deps
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Compute Pages URL
-        id: site
-        run: |
-          REPO="${GITHUB_REPOSITORY}"
-          OWNER="${REPO%%/*}"
-          NAME="${REPO#*/}"
-          echo "url=https://${OWNER}.github.io/${NAME}/" >> $GITHUB_OUTPUT
-
-      - name: Run tracker (schedule-only email unless forced)
-        env:
-          OPENAI_COMPAT_API_KEY: ${{ secrets.OPENAI_COMPAT_API_KEY }}
-          EMAIL_TO:     ${{ secrets.EMAIL_TO   || vars.EMAIL_TO }}
-          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER || vars.EMAIL_SENDER }}
-          SMTP_USER:    ${{ secrets.SMTP_USER  || vars.SMTP_USER }}
-          SMTP_PASS:    ${{ secrets.SMTP_PASS }}
-        run: |
-          set -e
-          EXTRA="--no-email"
-          if { [ "${{ github.event_name }}" = "schedule" ] && [ "${{ github.run_attempt }}" = "1" ]; } || \
-             { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.send_email }}" = "true" ]; }; then
-            EXTRA=""
-          fi
-          python -m arxiv_tracker.cli run \
-            --config config.yaml \
-            --site-dir docs \
-            --site-url "${{ steps.site.outputs.url }}" \
-            $EXTRA \
-            --verbose
-
-      - name: Commit outputs
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update digest & site"
-          file_pattern: |
-            docs/**
-            outputs/**
-            .state/**
-```
-
-**配置流程如下：**  
-<img src="images/guide.png" alt="Preview" width="720">
-
-
-> **要点**：`file_pattern` 里包含 `.state/**`，这样去重状态会随运行持久化到仓库，防止重复推送。
-
----
-
-## ⚙️ 配置说明（`config.yaml`）
-
-> 下面示例演示最常用的字段。完整示例请参考仓库中的 `config.yaml`。
-
-```yaml
-# === 检索 ===
-categories: ["cs.CV", "cs.LG", "cs.AI"]
-keywords:
-  - "open vocabulary segmentation"
-  - "vision-language grounding"
-# [新增] 排除包含以下词汇的论文
-exclude_keywords:
-  - "Large Language Model"
-  - "Generative AI"
-logic: "AND"                 # 左：分类集合 (OR)；右：关键词集合 (OR)；二者再 AND/OR
-max_results: 100             # 每页抓取上限（内部支持自动分页累计）
-sort_by: "lastUpdatedDate"   # 或 submittedDate
+categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV"]
+keywords: ["segmentation"]
+keyword_groups:
+  - ["semi-supervised", "semisupervised"]
+exclude_keywords: []
+logic: "AND"
+max_results: 5
+sort_by: "lastUpdatedDate"
 sort_order: "descending"
+```
 
-# === 输出语言 ===
-lang: "both"                 # zh / en / both
+`keywords` 内部 OR；`keyword_groups` 每组内部 OR，组间及与原查询之间 AND。`semi-supervised` 自动包含 `semi supervised` 写法。默认从最近 7 天找到最多 5 篇未读论文，跳过已读条目后继续分页。首次回溯可增大 `freshness.since_days`。这是关键词检索，仍需阅读论文判断相关性。
 
-# === 摘要生成 ===
+## 全文解读
+
+默认对本次选出的论文**逐篇独立总结**，不把五篇合为一份综述：
+
+1. 根据 arXiv 的版本 ID 下载完整 PDF。
+2. 使用 pypdf 逐页提取全部可读文字，包括方法、实验、消融和结论；给每页加上页码标记。
+3. 每篇一次 LLM 请求，生成中英文要点和详细解读。中英文共享这次调用。
+4. 解读包含研究问题、方法步骤与目标函数、贡献、实验设置/基线/结果、证据与局限、复现要点。重要陈述和数字需附 PDF 页码。
+5. 邮件、网页、Markdown 和 JSON 都保存每篇的详细解读，并注明 PDF 页数。
+
+```yaml
 summary:
-  mode: "llm"                # none / heuristic / llm
-  scope: "both"              # tldr / full / both
+  mode: "llm"
+  source: "fulltext"
+  scope: "both"
+  max_tokens: 7000
+  timeout: 120
+fulltext:
+  timeout: 60
+  max_bytes: 31457280
+  max_pages: 150
+  max_chars: 200000
+```
 
-# === LLM（OpenAI-Compatible，DeepSeek / SiliconFlow 均可） ===
+全文获取失败、PDF 解析失败或超出长度限制会明确失败并保留未读状态；不会只取首页、静默截断正文，或降级成摘要后标成全文解读。可根据模型上下文能力调整上限。只引用第一页或引用不存在页码的模型解读也会被拒绝。
+
+当前读取的是 PDF 中可提取的文字；扫描件和图片型表格/示意图没有 OCR 或视觉解析，不会声称已经理解这些图像。解析信息不足时会报错，表格或公式无法辨认时要求模型明确说明。原始 PDF 和全文文字只在本次运行内存中使用，不提交到公开站点或输出文件；保存来源信息和生成的阅读笔记。
+
+如确实只需要原来的摘要简述，可显式设置 `summary.source: abstract`。`scope: tldr/full/both` 控制要点和详细解读的输出。
+
+## 模型接入
+
+保留千问平台 / 百炼兼容入口，实际模型使用 **DeepSeek 1017**：
+
+```yaml
 llm:
-  base_url: "https://api.deepseek.com"     # 或 "https://api.siliconflow.cn"
-  model: "deepseek-chat"                   # 例：SiliconFlow 可用 "Qwen/Qwen3-8B"
-  api_key_env: "OPENAI_COMPAT_API_KEY"     # 统一密钥环境变量
-  system_prompt_en: |
-    You are a senior paper-reading assistant...
-  system_prompt_zh: |
-    你是资深论文阅读助手...
-
-# === 可选：题目/摘要中文翻译 ===
-translate:
-  enabled: true
-  lang: "zh"
-  fields: ["title", "summary"]
-
-# === 邮件发送（QQ 邮箱示例） ===
-email:
-  enabled: true
-  subject: "[arXiv] Daily Digest"
-  smtp_server: "smtp.qq.com"
-  smtp_port: 465
-  tls: "ssl"                 # auto / ssl / starttls
-  debug: false
-  detail: "full"             # simple / full
-  max_items: 10
-  attach_md: true
-  attach_pdf: false
-
-# === 站点（GitHub Pages） ===
-site:
-  enabled: true
-  dir: "docs"
-  title: "arXiv 论文速递"
-  keep_runs: 1024
-  theme: "light"
-  accent: "#2563eb"
-
-# === 新鲜度 & 去重（成功后落盘） ===
-freshness:
-  since_days: 3               # 近 N 天（若偶尔为空，可暂时改 2~3）
-  unique_only: true           # 开启跨天去重
-  state_path: ".state/seen.json"
-  fallback_when_empty: false  # 当当天无新增时是否回退展示最近 top 若干
+  provider: "dashscope"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "deepseek-v4.1-flash-1017"
+  api_key_env: "DASHSCOPE_API_KEY"
+  fail_on_error: true
 ```
 
-> **搜索逻辑**：`categories` 内部按 OR 合并；`keywords` 内部按 OR 合并；二者之间由 `logic` 决定 AND/OR。比如 `logic: AND` 表示“**属于这些学科** 且 **匹配这些关键词**”。
+平台托管的 DeepSeek 使用 `enable_thinking: false`、`stream: false` 和 JSON 输出。DeepSeek 官方直连则使用其 `thinking` 参数，两种入口分别处理。不会因为平台叫千问就改用 Qwen 模型。
 
----
+`base_url` 应与现有账号/地域对应；北京工作空间也可用 `https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`。如使用其他千问平台域名，保留控制台提供的兼容地址即可。
 
-## 🛠️ 本地运行（macOS/Linux）
+参考：[千问平台 Chat API](https://docs.qwencloud.com/api-reference/chat/openai-chat)、[百炼 DeepSeek 文档](https://docs.bailian.console.aliyun.com/en/model-studio/deepseek-api)。模型和上下文限制以控制台为准。
 
-```bash
-python -m venv .venv && source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+## GitHub Actions
 
-export OPENAI_COMPAT_API_KEY="你的密钥"
-# base_url/模型在 config.yaml 里配置
-export EMAIL_TO="your@qq.com"
-export EMAIL_SENDER="your@qq.com"
-export SMTP_USER="your@qq.com"
-export SMTP_PASS="你的QQ SMTP授权码"
+1. 在 **Settings → Secrets and variables → Actions** 设置 Secret `DASHSCOPE_API_KEY`。
+2. 要发邮件，再设置 Secret `SMTP_PASS`（QQ SMTP 授权码）以及 Variables 或 Secrets `EMAIL_TO`、`EMAIL_SENDER`、`SMTP_USER`。
+3. 在 **Settings → Pages** 选择 **Deploy from a branch**，分支 `main`、目录 `/docs`；允许 Actions 写入仓库。
+4. 手动运行 **arxiv-digest**。默认 `send_email=false`：生成网页/文件，不发邮件、不推进未读状态。正式推送选 `true`。
 
-python -m arxiv_tracker.cli run --config config.yaml --site-dir docs --verbose
-```
+每日任务计划在北京时间 **03:00** 运行，平台可能延迟调度。只保留 `digest.yml` 一个每日任务；同组任务排队，成功后提交网页、输出和状态。原来的 `arxiv_daily.yml` 现在是无外部请求的 **tests** 工作流。没有新论文时不发空邮件。
 
-### Windows（PowerShell）
+## 本地运行
+
+Python 3.10+，在项目目录执行：
 
 ```powershell
-python -m venv .venv; .\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-
-$Env:OPENAI_COMPAT_API_KEY = "你的密钥"
-$Env:EMAIL_TO     = "your@qq.com"
-$Env:EMAIL_SENDER = "your@qq.com"
-$Env:SMTP_USER    = "your@qq.com"
-$Env:SMTP_PASS    = "你的QQ SMTP授权码"
-
-python -m arxiv_tracker.cli run --config config.yaml --site-dir docs --verbose
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+$Env:DASHSCOPE_API_KEY = "你的平台 API Key"
+python test_sf.py
+python main.py --no-email --no-state-update --verbose
 ```
 
----
+`test_sf.py` 读取配置里的模型进行手动连接检查，导入时不联网，不打印密钥。
 
-## ❓ 常见问题（FAQ）
+正式运行前按需设置邮箱变量，然后执行 `python main.py --verbose`。macOS/Linux 使用 `source .venv/bin/activate` 和 `export DASHSCOPE_API_KEY="..."`。
 
-- **检索结果总是相同/逐渐变少？**  
-  已启用**自动分页** + **新鲜度过滤** + **成功后落盘去重**。若当天为空，可将 `since_days` 临时改为 2~3 并观察；或检查关键词是否过窄。
-- **401 Unauthorized（SiliconFlow/DeepSeek）**  
-  请确保 `OPENAI_COMPAT_API_KEY` 填写的是真实可用的 API Key；SiliconFlow 的 Bearer 直接放 Key 即可。
-- **ReadTimeout（arXiv API）**  
-  可能是网络波动，可重试；或稍后再试。
-- **邮件没收到？**  
-  检查 Actions 日志“Show email env (masked)”是否注入完整；QQ 开启 SMTP 并使用**授权码**；必要时切换 465/SSL 与 587/STARTTLS。
+纯预览同时传 `--no-email --no-state-update`。`--no-email` 单独使用仍会将成功的文件/网页输出记为已读。
 
----
+可选的 Markdown 转 PDF 导出另装 `python -m pip install -r requirements-pdf.txt`，再传 `--pdf`；这与用于读取论文的 pypdf 是不同用途。
 
-## 🗺️ 待办清单
-- [x] 解决每天检索到的文献都一样的问题
-- [x] 每次会发送2封邮件的bug
-- [x] 代码链接补全（缺失时抓取 PDF 首页作为兜底）
-- [x] 支持更多LLM，下一步考虑硅基流动的API
-- [x] 支持排除特定关键词（如过滤 LLM 泛滥的论文）
-- [ ] 更多站点主题（暗色、跟随系统） 
-- [ ] 自定义卡片字段开关与顺序 
+本地常驻定时器：
 
-## ✨ Star History
+```powershell
+python -m arxiv_tracker.scheduler --time 09:00 --config config.yaml
+```
 
-[![Star History](https://api.star-history.com/svg?repos=colorfulandcjy0806/Arxiv-tracker&type=Date)](https://star-history.com/#colorfulandcjy0806/Arxiv-tracker&Date)
+它按机器时区每天启动一次完整 CLI，窗口必须保持运行。通常用 GitHub Actions 或操作系统任务计划程序直接运行一次 CLI 就足够。
 
----
+## 状态与重试
 
-## 🤝 Community contributors
+已读记录使用 `.state/seen.json`。HTTP/HTTPS、Abs/PDF URL 和不同版本统一为同一论文，后续版本不重复推送。所有启用的输出成功后才原子保存状态；全文、LLM、邮件或网页失败都会返回非零退出码。
 
-<a href="https://github.com/colorfulandcjy0806/Arxiv-tracker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=colorfulandcjy0806/Arxiv-tracker" alt="Contributors" width="720"/>
-</a>
+发送标记用论文批次、收件人、发件人和主题的稳定指纹保护已保存的发送记录。SMTP 与 Git 提交之间仍不是事务，发送后、标记持久化前崩溃可能重复；本地和 Actions 也需要共享/同步状态才能跨机器去重。
 
-## 🔒 License
+旧网页和历史归档保留，后续运行使用通用站点标题。
 
-本项目基于 **MIT 协议** 开源，详见 [LICENSE](./LICENSE)。
+## 测试
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+测试使用模拟网络/SMTP 和本地生成的多页 PDF。覆盖每页读取、末页实验进入模型输入、五篇分别生成解读并显示于所有输出、平台 DeepSeek 参数、失败不降级/不记已读、长度限制、页面引用、分页去重和调度流程。

@@ -47,15 +47,21 @@ def _extract_from_pdf_head(pdf_url: str, timeout: int, head_bytes: int = 256 * 1
             "Range": f"bytes=0-{head_bytes-1}",
             "Accept": "application/pdf,*/*",
         }
-        r = requests.get(pdf_url, headers=headers, timeout=timeout, allow_redirects=True)
-        # 某些服务器对 Range 不支持会返回 200；也可接受
-        if r.status_code not in (200, 206):
-            return []
-        data = r.content or b""
-        # 字节级匹配，避免解码错误
-        rx = re.compile(rb"https?://(?:" + _CODE_HOSTS.encode() + rb")/" + _URL_TAIL.encode(), re.I)
-        found = [bytes(m.group(0)).decode("latin-1", errors="ignore") for m in rx.finditer(data)]
-        return [_norm_url(u) for u in found]
+        with requests.get(pdf_url, headers=headers, timeout=timeout,
+                          allow_redirects=True, stream=True) as response:
+            # Range 可能被忽略；流式读取并主动截断，避免下载整篇 PDF。
+            if response.status_code not in (200, 206):
+                return []
+            chunks, remaining = [], head_bytes
+            for chunk in response.iter_content(chunk_size=min(head_bytes, 64 * 1024)):
+                piece = chunk[:remaining]
+                chunks.append(piece)
+                remaining -= len(piece)
+                if remaining <= 0:
+                    break
+            data = b"".join(chunks)
+        # Unicode 正则含有 \u 转义，不能直接编译为 bytes 正则；latin-1 可无损映射字节。
+        return _extract_from_text(data.decode("latin-1"))
     except Exception:
         return []
 
@@ -89,6 +95,7 @@ def augment_item_links(
     code_urls += _extract_from_text(item.get("summary") or "")
     code_urls += _extract_from_text(item.get("comments") or "")
     code_urls += _extract_from_text(item.get("title") or "")
+    code_urls += _extract_from_text(item.get("_fulltext") or "")
 
     # 2) 再尝试 HTML 页
     if html and item.get("html_url"):

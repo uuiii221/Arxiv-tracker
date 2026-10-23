@@ -3,19 +3,19 @@ categories:
   - "cs.LG"
   - "cs.AI"
   - "eess.IV"
-  - "physics.med-ph"
 
 keywords:
-  - "medical image segmentation"
-  - "organ segmentation"
-  - "lesion segmentation"
-  - "tumor segmentation"
+  - "segmentation"
+
+# 仅限定：半监督 AND 分割；不额外限定应用领域或方法。
+keyword_groups:
+  - ["semi-supervised", "semisupervised"]  # 自动包含 semi supervised 写法
 
 exclude_keywords: []
   
 logic: "AND"                 # 组间逻辑：categories 与 keywords 间 AND/OR
 max_results: 5
-sort_by: "lastUpdatedDate"  # 还可以是submittedDate 建议改成lastUpdatedDate按更新时间排，能捞到v2/v3的“新增”
+sort_by: "lastUpdatedDate"  # 按更新时间检索；已读论文的 v2/v3 不重复推送
 sort_order: "descending"
 
 # zh / en / both
@@ -25,8 +25,17 @@ lang: "both"
 # mode: none / heuristic / llm
 summary:
   mode: llm # mode: "heuristic"
+  source: "fulltext"  # 下载完整 PDF，逐页解析后分别总结每篇论文
   # scope: tldr / full / both
   scope: "both"
+  max_tokens: 7000
+  timeout: 120
+
+fulltext:
+  timeout: 60
+  max_bytes: 31457280   # 30 MiB；超限明确失败，不截取首页冒充全文
+  max_pages: 150
+  max_chars: 200000    # 超限明确失败，不静默截断正文
 
 # —— 邮件发送（QQ 邮箱） ——
 email:
@@ -42,29 +51,24 @@ email:
   attach_md: true  # 是否开启Markdown附件
   attach_pdf: false  # 是否开启PDF附件
 
-# —— LLM（DeepSeek/OpenAI 兼容） ——
+# —— 千问平台 / 百炼入口，实际调用 DeepSeek ——
 llm:
-  provider: "openai-compatible"     # 兼容 OpenAI SDK 的服务
-  # 硅基流动的版本
-  # base_url: "https://api.siliconflow.cn"
-  # model: "Qwen/Qwen2.5-7B-Instruct"
-  # api_key_env: "OPENAI_COMPAT_API_KEY"
-  
-  # Deepseek的版本
-  base_url: "https://api.deepseek.com"
-  model: "deepseek-flash"
-  api_key_env: "DS_API_KEY"
-  
+  provider: "dashscope"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  # 也可改为 https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
+  # 国际站使用与 API Key 地域一致的 endpoint；不要使用千问聊天网页地址。
+  model: "deepseek-v4.1-flash-1017"
+  api_key_env: "DASHSCOPE_API_KEY"
+  fail_on_error: true      # 摘要/翻译失败时不将论文标记已读，可在修复后重跑
 
   system_prompt_en: |
-    You are a senior paper-reading assistant. Based on the given metadata and abstract,
-    write ONE concise paragraph in English that covers: research motivation, main method,
-    and key experimental findings. Be objective and specific; avoid marketing language.
-    Preserve any provided links, but do NOT repeat them in the paragraph.
+    You are a precise academic reading assistant. Ground your explanations in the
+    supplied paper text. Explain methods and experimental evidence clearly, preserve
+    reported conditions and numbers, distinguish authors' claims from interpretation,
+    and identify missing or unreadable information without guessing.
   system_prompt_zh: |
-    你是资深论文阅读助手。基于给定的论文元信息与摘要，用中文写「一段」简洁的总结，
-    包含研究动机、核心方法与关键实验结果。保持客观、术语准确；避免营销式表述。
-    如有链接请保留，但不要在总结里重复链接。
+    你是严谨的论文阅读助手。依据提供的论文正文解释方法与实验证据，保留结果对应的
+    实验条件和数字，区分作者主张与分析意见；未报告或无法辨认的信息明确说明，不猜测。
 
 # —— 中文翻译设置（用 LLM 翻译 title/summary） ——
 translate:
@@ -81,9 +85,9 @@ site:
   accent: "#2563eb"     # 主题色（可自定义）
 
 freshness:
-  since_days: 365           # 只看最近 N 天内新提交/更新（1=近24h）
+  since_days: 7             # 滚动一周，覆盖周末/短暂失败；首次回溯可临时增大
   unique_only: true       # 开启跨天去重（见过的 arXiv ID 不再重复发）
-  state_path: ".state/seen.json"  # 去重状态文件（会随 docs 一起提交保存）
+  state_path: ".state/seen.json"
   fallback_when_empty: false # 当今天无新增时，是否回退展示最近的Top若干（建议false）
 
 scrape:
