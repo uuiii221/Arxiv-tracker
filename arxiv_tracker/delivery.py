@@ -11,6 +11,7 @@ import click
 from .email_template import render_email_html
 from .mailer import send_email
 from .tracking import paper_key
+from .figures import figure_cid, local_figure_path
 
 
 def send_digest_email(*, items, email_cfg, out_dir, md_path, pdf_path, page_url, lang,
@@ -48,13 +49,20 @@ def send_digest_email(*, items, email_cfg, out_dir, md_path, pdf_path, page_url,
         attachments.append(md_path)
     if email_cfg.get("attach_pdf") and pdf_path:
         attachments.append(pdf_path)
+    inline_images = {}
+    for item in items[:int(email_cfg.get("max_items", 50))]:
+        sid = item.get("id") or ""
+        if not ((summaries_zh.get(sid) or {}).get("full_md") or (summaries_en.get(sid) or {}).get("full_md")):
+            continue
+        for figure in item.get("figures") or []:
+            inline_images[figure_cid(figure)] = str(local_figure_path(item, figure))
     send_email(
         sender=sender, to_list=recipients, subject=subject, html_body=body,
         smtp_server=email_cfg.get("smtp_server") or "smtp.qq.com",
         smtp_port=int(email_cfg.get("smtp_port") or 465),
         smtp_user=os.getenv("SMTP_USER") or email_cfg.get("smtp_user") or sender,
         smtp_pass=password, tls_mode=email_cfg.get("tls", "auto"),
-        attachments=attachments, debug=bool(email_cfg.get("debug", False)), timeout=20,
+        attachments=attachments, inline_images=inline_images, debug=bool(email_cfg.get("debug", False)), timeout=20,
     )
     flag.parent.mkdir(parents=True, exist_ok=True)
     flag.touch()

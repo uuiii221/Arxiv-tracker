@@ -2,6 +2,7 @@
 import os, datetime, html
 from typing import Dict, List, Any, Optional
 from .rendering import render_report
+from .figures import copy_site_figures, render_figures_html
 
 import re
 try:
@@ -130,7 +131,7 @@ def _join_links(it: Dict[str, Any]) -> str:
 def _card(it: Dict[str, Any],
           trans_zh: Optional[Dict[str,str]],
           sum_zh: Optional[Dict[str,str]],
-          sum_en: Optional[Dict[str,str]]) -> str:
+          sum_en: Optional[Dict[str,str]], figure_prefix="assets/figures/") -> str:
     t = it.get("title") or ""
     au = ", ".join(it.get("authors") or [])
     venue = it.get("venue_inferred") or (it.get("journal_ref") or "")
@@ -191,6 +192,7 @@ def _card(it: Dict[str, Any],
         if source:
             parts.append(f'<div class="meta-line">来源：PDF 全文，共 {source["pages"]} 页；'
                          f'{source["text_pages"]} 页可提取文字</div>')
+        parts.append(render_figures_html(it, prefix=figure_prefix))
         if full_zh:
             parts.append('<div class="reading-notes">' + render_report(full_zh) + '</div>')
         if full_en:
@@ -295,16 +297,19 @@ def generate_site(items: List[Dict[str,Any]],
     os.makedirs(archive_dir, exist_ok=True)
     open(os.path.join(site_dir, ".nojekyll"), "w").close()
 
-    cards = []
+    copy_site_figures(items, site_dir)
+    cards, archive_cards = [], []
     for it in items:
         sid = it.get("id") or ""
         cards.append(_card(it, translations.get(sid), summaries_zh.get(sid), summaries_en.get(sid)))
+        archive_cards.append(_card(it, translations.get(sid), summaries_zh.get(sid), summaries_en.get(sid),
+                                   figure_prefix="../assets/figures/"))
     cards_html = "\n".join(cards)
     hist_html = "\n".join(_history_list(archive_dir, keep_runs))
 
     acc = (accent or "#2563eb").strip()
 
-    arch_html = _build_page(site_title, f"Snapshot: {stamp}", cards_html, history_html=hist_html,
+    arch_html = _build_page(site_title, f"Snapshot: {stamp}", "\n".join(archive_cards), history_html=hist_html,
                             theme_mode=theme, accent=acc)
     arch_path = os.path.join(archive_dir, f"{stamp}.html")
     _write(arch_path, arch_html)

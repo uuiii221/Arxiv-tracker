@@ -106,6 +106,7 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
             raise ValueError("summary.source must be abstract or fulltext")
         use_fulltext = mode == "llm" and summary_source == "fulltext"
         fulltext_cfg = raw_cfg.get("fulltext") or {}
+        figure_cfg = raw_cfg.get("figures") or {}
         continue_fulltext_errors = bool(fulltext_cfg.get("continue_on_error", True))
         extra_candidates = max(0, int(fulltext_cfg.get("max_extra_candidates", 5))) if use_fulltext and continue_fulltext_errors else 0
         _BILINGUAL_SUMMARY_CACHE.clear()  # 缓存仅在一次运行内共享，不跨日缓存失败
@@ -224,7 +225,9 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
             for it in items:
                 click.echo(f"[FullText] Reading {it.get('id')}")
                 try:
-                    it["_fulltext"], it["fulltext_source"] = load_paper_fulltext(it, fulltext_cfg)
+                    it["_fulltext"], it["fulltext_source"] = load_paper_fulltext(
+                        it, fulltext_cfg, figure_config=figure_cfg, figure_dir=os.path.join(out_dir, "figures"),
+                    )
                 except FullTextError as exc:
                     if not continue_fulltext_errors:
                         raise
@@ -234,6 +237,12 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
                 augment_item_links(it, html=False, pdf_if_missing=False)
                 info = it["fulltext_source"]
                 click.echo(f"[FullText] Parsed {info['text_pages']}/{info['pages']} pages")
+                if figure_cfg.get("enabled"):
+                    if it.get("figures"):
+                        figure = it["figures"][0]
+                        click.echo(f"[Figure] Figure {figure['number']} on PDF page {figure['page']} ({figure['kind']})")
+                    else:
+                        click.echo("[Figure] No reliable method figure; keeping text notes")
                 ready.append(it)
                 if len(ready) >= cfg.max_results:
                     break

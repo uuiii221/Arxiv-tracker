@@ -126,7 +126,43 @@ class PipelineTests(unittest.TestCase):
     def test_english_override_still_works_with_one_request_per_paper(self, post, get, wait):
         self._assert_five_paper_outputs(post, get, "en")
 
-    def _assert_five_paper_outputs(self, post, get, lang):
+    @patch("arxiv_tracker.fulltext._wait_for_arxiv")
+    @patch("arxiv_tracker.fulltext.requests.get")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_five_original_figures_reach_site_archive_markdown_and_inline_email(self, post, get, wait):
+        from tests.test_figures import diagram_pdf
+        from arxiv_tracker.figures import figure_cid
+        from arxiv_tracker.delivery import send_digest_email
+
+        self.config["figures"] = {"enabled": True}
+        self._assert_five_paper_outputs(post, get, "zh", pdf_bytes=diagram_pdf())
+        records = json.loads(next((self.root / "outputs").glob("arxiv_*.json")).read_text(encoding="utf-8"))
+        site = (self.root / "site" / "index.html").read_text(encoding="utf-8")
+        archive = next((self.root / "site" / "archive").glob("*.html")).read_text(encoding="utf-8")
+        markdown = next((self.root / "outputs").glob("*.md")).read_text(encoding="utf-8")
+        self.assertNotIn("_figure_dir", json.dumps(records))
+        for record in records:
+            figure = record["figures"][0]
+            filename = figure["filename"]
+            self.assertTrue((self.root / "outputs" / "figures" / filename).exists())
+            self.assertTrue((self.root / "site" / "assets" / "figures" / filename).exists())
+            self.assertIn(f'assets/figures/{filename}', site)
+            self.assertIn(f'../assets/figures/{filename}', archive)
+            self.assertIn(f'figures/{filename}', markdown)
+            record["_figure_dir"] = str(self.root / "outputs" / "figures")
+        with patch.dict(os.environ, {"EMAIL_TO": "reader@example.com", "EMAIL_SENDER": "sender@example.com", "SMTP_PASS": "test-only"}), \
+                patch("arxiv_tracker.delivery.send_email") as send:
+            send_digest_email(items=records, email_cfg={"max_items": 3}, out_dir=str(self.root / "outputs"),
+                              md_path="", pdf_path="", page_url=None, lang="zh", translations={},
+                              summaries_zh={item["id"]: item["notes_zh"] for item in records}, summaries_en={})
+        body = send.call_args.kwargs["html_body"]
+        for record in records[:3]:
+            cid = figure_cid(record["figures"][0])
+            self.assertIn(f"cid:{cid}", body)
+            self.assertIn(cid, send.call_args.kwargs["inline_images"])
+        self.assertEqual(body.count("<img "), 3)
+
+    def _assert_five_paper_outputs(self, post, get, lang, pdf_bytes=None):
         self.config["lang"] = lang
         self.config["summary"].update({"mode": "llm", "source": "fulltext"})
         self.config["scrape"]["pdf_if_missing"] = True  # 全文读取会复用正文，不再另取 PDF 首页
@@ -137,7 +173,7 @@ class PipelineTests(unittest.TestCase):
                  for index in range(1, 6)]
         self.collect.return_value = items
         pdf_response = MagicMock(headers={})
-        pdf_response.iter_content.return_value = [make_pdf()]
+        pdf_response.iter_content.return_value = [pdf_bytes or make_pdf()]
         get.return_value.__enter__.return_value = pdf_response
         llm_responses = []
         for index in range(1, 6):

@@ -44,19 +44,26 @@ class QueryTests(unittest.TestCase):
                      "semi-supervised medical classification"):
             self.assertFalse(self.matches(query, text))
 
-    def test_default_config_requires_only_semi_supervision_and_segmentation(self):
-        settings = Settings.from_file(str(Path(__file__).resolve().parents[1] / "config.yaml"))
+    def test_medical_image_segmentation_phrase_requires_semi_supervision(self):
+        settings = Settings(categories=["cs.CV"], keywords=["medical image segmentation"],
+                            keyword_groups=[["semi-supervised", "semisupervised"]], logic="AND")
         query = build_search_query(settings.categories, settings.keywords, settings.exclude_keywords,
                                    settings.logic, keyword_groups=settings.keyword_groups)
-        self.assertTrue(self.matches(query, "Semi-supervised cardiac MRI segmentation"))
+        self.assertTrue(self.matches(query, "Semi-supervised medical image segmentation"))
         self.assertFalse(self.matches(query, "Medical image segmentation with full supervision"))
-        self.assertTrue(self.matches(query, "Semi-supervised natural image segmentation"))
-        self.assertTrue(self.matches(query, "Semi supervised segmentation"))
+        self.assertFalse(self.matches(query, "Semi-supervised natural image segmentation"))
+        self.assertTrue(self.matches(query, "Semi supervised medical image segmentation"))
+        self.assertTrue(self.matches(query, "Semisupervised medical image segmentation"))
         self.assertFalse(self.matches(query, "Semi-supervised medical classification"))
 
-    def test_config_carries_two_topic_requirements(self):
-        settings = Settings.from_file(str(Path(__file__).resolve().parents[1] / "config.yaml"))
-        self.assertEqual(settings.keywords, ["segmentation"])
+    def test_config_loads_topic_requirements_without_adding_terms(self):
+        with TemporaryDirectory() as folder:
+            target = Path(folder) / "config.yaml"
+            target.write_text('keywords: ["medical image segmentation"]\n'
+                              'keyword_groups: [["semi-supervised", "semisupervised"]]\nlogic: "AND"\n',
+                              encoding="utf-8")
+            settings = Settings.from_file(str(target))
+        self.assertEqual(settings.keywords, ["medical image segmentation"])
         self.assertIn("semi-supervised", settings.keyword_groups[0])
         self.assertEqual(len(settings.keyword_groups), 1)
         self.assertEqual(settings.logic, "AND")

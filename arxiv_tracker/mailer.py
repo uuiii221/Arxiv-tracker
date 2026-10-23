@@ -3,8 +3,9 @@ import os, smtplib, ssl, mimetypes
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
+from email.mime.image import MIMEImage
 from email import encoders
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 def _attach_file(msg: MIMEMultipart, filepath: str):
     ctype, encoding = mimetypes.guess_type(filepath)
@@ -48,12 +49,26 @@ def send_email(
     attachments: Optional[List[str]] = None,
     debug: bool = False,
     timeout: int = 20,
+    inline_images: Optional[Dict[str, str]] = None,
 ):
     msg = MIMEMultipart()
     msg["From"] = sender
     msg["To"] = ", ".join(to_list)
     msg["Subject"] = subject
-    msg.attach(MIMEText(html_body, "html", "utf-8"))
+    related = MIMEMultipart("related")
+    related.attach(MIMEText(html_body, "html", "utf-8"))
+    total_image_bytes = 0
+    for cid, filepath in (inline_images or {}).items():
+        with open(filepath, "rb") as image_file:
+            data = image_file.read(2 * 1024 * 1024 + 1)
+        total_image_bytes += len(data)
+        if not data.startswith(b"\x89PNG\r\n\x1a\n") or len(data) > 2 * 1024 * 1024 or total_image_bytes > 8 * 1024 * 1024:
+            raise ValueError("Inline figures must be PNGs, <=2 MiB each and <=8 MiB in total")
+        image = MIMEImage(data, _subtype="png")
+        image.add_header("Content-ID", f"<{cid}>")
+        image.add_header("Content-Disposition", "inline", filename=os.path.basename(filepath))
+        related.attach(image)
+    msg.attach(related)
 
     for fp in (attachments or []):
         if fp and os.path.exists(fp):

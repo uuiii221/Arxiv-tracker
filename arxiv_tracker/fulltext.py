@@ -8,6 +8,9 @@ from pypdf import PdfReader
 import requests
 
 from .client import HEADERS, _wait_for_arxiv
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class FullTextError(RuntimeError):
@@ -53,7 +56,7 @@ def extract_pdf_text(data, *, max_pages=150, max_chars=200000):
         raise FullTextError(f"PDF parsing failed: {exc}") from exc
 
 
-def load_paper_fulltext(item, config=None):
+def load_paper_fulltext(item, config=None, *, figure_config=None, figure_dir=None):
     config = config or {}
     url = _pdf_url(item)
     limit = int(config.get("max_bytes", 128 * 1024 * 1024))
@@ -83,6 +86,17 @@ def load_paper_fulltext(item, config=None):
                 pdf, max_pages=int(config.get("max_pages", 150)),
                 max_chars=int(config.get("max_chars", 200000)),
             )
+            if figure_config and figure_config.get("enabled") and figure_dir:
+                try:
+                    from .figures import extract_framework_figure
+                    figure = extract_framework_figure(pdf, text, pdf_url=url, output_dir=figure_dir, config=figure_config)
+                    item["figures"] = [figure] if figure else []
+                    item["figure_status"] = "found" if figure else "not_found"
+                    if figure:
+                        item["_figure_dir"] = str(figure_dir)
+                except Exception as exc:
+                    logger.warning("[Figure] Could not extract original figure for %s: %s", item.get("id"), exc)
+                    item["figures"], item["figure_status"] = [], "error"
         return text, {"url": url, "format": "pdf", "pages": pages, "text_pages": text_pages,
                       "characters": len(text), "bytes": received, "sha256": digest.hexdigest()}
     except FullTextError:
