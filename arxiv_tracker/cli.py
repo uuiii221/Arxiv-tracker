@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, re, sys, traceback, click
+from dataclasses import replace
 from .config import Settings
 from .query import build_search_query
 from .client import fetch_arxiv_feed
@@ -104,6 +105,9 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
         if summary_source not in ("abstract", "fulltext"):
             raise ValueError("summary.source must be abstract or fulltext")
         use_fulltext = mode == "llm" and summary_source == "fulltext"
+        fulltext_cfg = raw_cfg.get("fulltext") or {}
+        continue_fulltext_errors = bool(fulltext_cfg.get("continue_on_error", True))
+        extra_candidates = max(0, int(fulltext_cfg.get("max_extra_candidates", 5))) if use_fulltext and continue_fulltext_errors else 0
         _BILINGUAL_SUMMARY_CACHE.clear()  # 缓存仅在一次运行内共享，不跨日缓存失败
         strict_llm = bool(llm_cfg.get("fail_on_error", False))
 
@@ -166,12 +170,13 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
 
         # 读取已见集合（兼容 list / {"ids":[...]} / {id: timestamp} 三种格式）
         seen_ids = load_seen(state_path) if unique_only else set()
-        collected = collect_papers(q, cfg, seen_ids, since_days=since_days, unique_only=unique_only)
+        selection_cfg = replace(cfg, max_results=cfg.max_results + extra_candidates)
+        collected = collect_papers(q, selection_cfg, seen_ids, since_days=since_days, unique_only=unique_only)
 
         # Fallback：若空且允许回退，则给最新一页（不考虑去重/时间窗）
         if not collected and fallback_when_empty:
             xml = fetch_arxiv_feed(
-                q, start=0, max_results=cfg.max_results,
+                q, start=0, max_results=selection_cfg.max_results,
                 sort_by=cfg.sort_by, sort_order=cfg.sort_order
             )
             collected = parse_feed(xml) or []
@@ -180,7 +185,7 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
         if not items:
             click.secho("[Info] No new items after pagination/freshness/dedup filter.", fg="yellow")
         else:
-            click.echo(f"[Info] Fetched {len(items)} new item(s) after pagination/dedup.")
+            click.echo(f"[Info] Fetched {len(items)} candidate(s); targeting up to {cfg.max_results} paper(s).")
 
         # 先从已有文本/HTML提取；若仍没有再扫 PDF 头部兜底
         scrape_cfg = (raw_cfg.get("scrape") or {})
@@ -214,13 +219,37 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
 
         # 3) 逐篇读取完整 PDF，不以首页/摘要代替全文。
         if use_fulltext:
-            from .fulltext import load_paper_fulltext
+            from .fulltext import FullTextError, load_paper_fulltext
+            ready, failures = [], []
             for it in items:
                 click.echo(f"[FullText] Reading {it.get('id')}")
-                it["_fulltext"], it["fulltext_source"] = load_paper_fulltext(it, raw_cfg.get("fulltext"))
+                try:
+                    it["_fulltext"], it["fulltext_source"] = load_paper_fulltext(it, fulltext_cfg)
+                except FullTextError as exc:
+                    if not continue_fulltext_errors:
+                        raise
+                    failures.append({"id": it.get("id"), "title": it.get("title"), "error": str(exc)})
+                    click.secho(f"[FullText] Skipped {it.get('id')}: {exc}; remains unread", fg="yellow")
+                    continue
                 augment_item_links(it, html=False, pdf_if_missing=False)
                 info = it["fulltext_source"]
                 click.echo(f"[FullText] Parsed {info['text_pages']}/{info['pages']} pages")
+                ready.append(it)
+                if len(ready) >= cfg.max_results:
+                    break
+            from pathlib import Path
+            failure_path = Path(out_dir) / "fulltext_failures.json"
+            if failures or failure_path.exists():
+                import json
+                failure_path.parent.mkdir(parents=True, exist_ok=True)
+                failure_path.write_text(json.dumps(failures, ensure_ascii=False, indent=2), encoding="utf-8")
+                if failures:
+                    click.echo(f"[FullText] Saved skipped-paper diagnostics: {failure_path}")
+            if items and not ready:
+                raise FullTextError(f"No readable full text among {len(items)} candidate(s); dedup state was not advanced")
+            items = ready
+            if items:
+                click.echo(f"[FullText] Ready: {len(items)}/{cfg.max_results} paper(s); skipped {len(failures)}")
 
         # 每篇独立生成解读；中英文共用一次模型调用。
         summaries_zh, summaries_en = {}, {}

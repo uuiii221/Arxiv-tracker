@@ -20,7 +20,7 @@ sort_by: "lastUpdatedDate"
 sort_order: "descending"
 ```
 
-`keywords` 内部 OR；`keyword_groups` 每组内部 OR，组间及与原查询之间 AND。`semi-supervised` 自动包含 `semi supervised` 写法。默认从最近 7 天找到最多 5 篇未读论文，跳过已读条目后继续分页。首次回溯可增大 `freshness.since_days`。这是关键词检索，仍需阅读论文判断相关性。
+`keywords` 内部 OR；`keyword_groups` 每组内部 OR，组间及与原查询之间 AND。`semi-supervised` 自动包含 `semi supervised` 写法。当前从最近 365 天找到最多 5 篇未读论文，跳过已读条目后继续分页。首次回溯可增大 `freshness.since_days`。这是关键词检索，仍需阅读论文判断相关性。
 
 ## 全文解读
 
@@ -41,14 +41,16 @@ summary:
   timeout: 120
 fulltext:
   timeout: 60
-  max_bytes: 31457280
+  max_bytes: 134217728
   max_pages: 150
   max_chars: 200000
+  continue_on_error: true
+  max_extra_candidates: 5
 ```
 
-全文获取失败、PDF 解析失败或超出长度限制会明确失败并保留未读状态；不会只取首页、静默截断正文，或降级成摘要后标成全文解读。可根据模型上下文能力调整上限。只引用第一页或引用不存在页码的模型解读也会被拒绝。
+PDF 下载默认上限为 128 MiB，完整文件流式写入临时文件后解析，结束后自动清理。单篇全文获取/解析失败或超限时，记录原因并保留该篇未读，继续尝试后续候选；最多额外尝试 5 篇，尽量补足五篇。候选不足时推送实际成功的篇数，全部失败时明确报错。不会只取首页、静默截断正文，或降级成摘要后标成全文解读。可根据模型上下文能力调整上限。只引用第一页或引用不存在页码的模型解读也会被拒绝。
 
-当前读取的是 PDF 中可提取的文字；扫描件和图片型表格/示意图没有 OCR 或视觉解析，不会声称已经理解这些图像。解析信息不足时会报错，表格或公式无法辨认时要求模型明确说明。原始 PDF 和全文文字只在本次运行内存中使用，不提交到公开站点或输出文件；保存来源信息和生成的阅读笔记。
+当前读取的是 PDF 中可提取的文字；扫描件和图片型表格/示意图没有 OCR 或视觉解析，不会声称已经理解这些图像。解析信息不足时会报错，表格或公式无法辨认时要求模型明确说明。原始 PDF 使用本次运行的临时文件，提取的文字保存在内存中，不提交到公开站点或输出文件；保存来源信息和生成的阅读笔记。
 
 如确实只需要原来的摘要简述，可显式设置 `summary.source: abstract`。`scope: tldr/full/both` 控制要点和详细解读的输出。
 
@@ -59,7 +61,7 @@ fulltext:
 ```yaml
 llm:
   provider: "dashscope"
-  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  base_url: "https://maas.qianwenaiapi.com/compatible-mode/v1"
   model: "deepseek-v4.1-flash-1017"
   api_key_env: "DASHSCOPE_API_KEY"
   fail_on_error: true
@@ -111,7 +113,7 @@ python -m arxiv_tracker.scheduler --time 09:00 --config config.yaml
 
 ## 状态与重试
 
-已读记录使用 `.state/seen.json`。HTTP/HTTPS、Abs/PDF URL 和不同版本统一为同一论文，后续版本不重复推送。所有启用的输出成功后才原子保存状态；全文、LLM、邮件或网页失败都会返回非零退出码。
+已读记录使用 `.state/seen.json`。HTTP/HTTPS、Abs/PDF URL 和不同版本统一为同一论文，后续版本不重复推送。所有启用的输出成功后才原子保存成功论文的状态。被跳过的全文始终保留未读，原因写入 `outputs/fulltext_failures.json`；全部全文失败或 LLM、邮件、网页失败会返回非零退出码。若希望单篇全文失败就停止，可设 `fulltext.continue_on_error: false`。
 
 发送标记用论文批次、收件人、发件人和主题的稳定指纹保护已保存的发送记录。SMTP 与 Git 提交之间仍不是事务，发送后、标记持久化前崩溃可能重复；本地和 Actions 也需要共享/同步状态才能跨机器去重。
 

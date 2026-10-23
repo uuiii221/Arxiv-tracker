@@ -15,6 +15,7 @@ from arxiv_tracker.delivery import send_digest_email
 from arxiv_tracker.scheduler import _job
 from arxiv_tracker.tracking import load_seen
 from arxiv_tracker.email_template import render_email_html
+from arxiv_tracker.fulltext import FullTextError
 from tests.test_fulltext import make_pdf
 from tests.test_reading_notes import report
 
@@ -162,6 +163,78 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("Full text unavailable", result.output)
         self.assertFalse(self.state.exists())
         self.assertFalse((self.root / "site" / "index.html").exists())
+
+    @patch("arxiv_tracker.fulltext.load_paper_fulltext")
+    @patch("arxiv_tracker.summarizer.call_llm_full_paper_summary", return_value=report())
+    def test_failed_first_paper_is_replaced_and_remains_unread(self, summary, load):
+        self.config["summary"].update({"mode": "llm", "source": "fulltext"})
+        self.config["llm"] = {"api_key": "test-only", "fail_on_error": True}
+        items = [dict(self.item, id=f"https://arxiv.org/abs/2601.{index:05d}v1") for index in range(1, 7)]
+        self.collect.return_value = items
+        load.side_effect = [FullTextError("Full PDF exceeds download limit")] + [
+            ("[Page 1] Introduction\n[Page 2] Method\n[Page 3] Results",
+             {"url": f"https://arxiv.org/pdf/2601.{index:05d}v1", "pages": 3, "text_pages": 3})
+            for index in range(2, 7)
+        ]
+        result = self.invoke()
+        self.assertEqual(result.exit_code, 0, result.output)
+        self.assertEqual(summary.call_count, 5)
+        self.assertEqual(load.call_count, 6)
+        self.assertEqual(self.collect.call_args.args[1].max_results, 10)
+        seen = load_seen(self.state)
+        self.assertEqual(len(seen), 5)
+        self.assertNotIn("2601.00001", seen)
+        self.assertIn("2601.00006", seen)
+        failures = json.loads((self.root / "outputs" / "fulltext_failures.json").read_text(encoding="utf-8"))
+        self.assertEqual(failures[0]["id"], items[0]["id"])
+        records = json.loads(next((self.root / "outputs").glob("arxiv_*.json")).read_text(encoding="utf-8"))
+        self.assertEqual(len(records), 5)
+        self.assertNotIn(items[0]["id"], [item["id"] for item in records])
+
+    @patch("arxiv_tracker.fulltext.load_paper_fulltext", side_effect=FullTextError("PDF unavailable"))
+    def test_all_fulltext_candidates_failing_is_visible_and_preserves_state(self, load):
+        self.config["summary"].update({"mode": "llm", "source": "fulltext"})
+        self.config["llm"] = {"api_key": "test-only", "fail_on_error": True}
+        result = self.invoke()
+        self.assertNotEqual(result.exit_code, 0)
+        self.assertIn("No readable full text", result.output)
+        self.assertFalse(self.state.exists())
+        self.assertFalse((self.root / "site" / "index.html").exists())
+        self.assertTrue((self.root / "outputs" / "fulltext_failures.json").exists())
+
+    @patch("arxiv_tracker.fulltext.load_paper_fulltext")
+    @patch("arxiv_tracker.summarizer.call_llm_full_paper_summary", return_value=report())
+    def test_partial_batch_delivers_only_readable_papers_and_clears_old_diagnostics(self, summary, load):
+        self.config["summary"].update({"mode": "llm", "source": "fulltext"})
+        self.config["llm"] = {"api_key": "test-only", "fail_on_error": True}
+        failed = dict(self.item, id="2601.00001v1")
+        readable = dict(self.item, id="2601.00002v1")
+        self.collect.return_value = [failed, readable]
+        full = ("[Page 1] Introduction\n[Page 2] Method\n[Page 3] Results",
+                {"url": "https://arxiv.org/pdf/2601.00002v1", "pages": 3, "text_pages": 3})
+        load.side_effect = [FullTextError("PDF unavailable"), full]
+        first = self.invoke()
+        self.assertEqual(first.exit_code, 0, first.output)
+        self.assertEqual(load_seen(self.state), {"2601.00002"})
+        diagnostics = self.root / "outputs" / "fulltext_failures.json"
+        self.assertEqual(len(json.loads(diagnostics.read_text(encoding="utf-8"))), 1)
+        self.collect.return_value = [dict(self.item, id="2601.00003v1")]
+        load.side_effect = None
+        load.return_value = full
+        second = self.invoke()
+        self.assertEqual(second.exit_code, 0, second.output)
+        self.assertEqual(json.loads(diagnostics.read_text(encoding="utf-8")), [])
+
+    @patch("arxiv_tracker.fulltext.load_paper_fulltext", side_effect=FullTextError("PDF unavailable"))
+    def test_strict_fulltext_mode_can_still_fail_on_first_paper(self, load):
+        self.config["summary"].update({"mode": "llm", "source": "fulltext"})
+        self.config["llm"] = {"api_key": "test-only", "fail_on_error": True}
+        self.config["fulltext"] = {"continue_on_error": False}
+        result = self.invoke()
+        self.assertNotEqual(result.exit_code, 0)
+        self.assertIn("PDF unavailable", result.output)
+        self.assertEqual(self.collect.call_args.args[1].max_results, 5)
+        self.assertFalse(self.state.exists())
 
 
 class DeliveryTests(unittest.TestCase):
