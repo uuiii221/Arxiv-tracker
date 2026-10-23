@@ -6,16 +6,21 @@ categories:
   - "physics.med-ph"
 
 keywords:
-  - "medical image segmentation"
-  - "organ segmentation"
-  - "lesion segmentation"
-  - "tumor segmentation"
+  - "segmentation"
+
+# 组内 OR、组间 AND：分割 AND 半监督 AND 医学场景。
+# 不以 self-supervised / few-shot / weakly-supervised 替代半监督条件。
+keyword_groups:
+  - ["semi-supervised", "semisupervised"]  # 自动包含 semi supervised 写法
+  - ["medical", "biomedical", "organ", "lesion", "tumor", "tumour",
+     "cardiac", "brain", "liver", "prostate", "pancreas", "retinal",
+     "polyp", "MRI", "CT", "ultrasound", "histopathology"]
 
 exclude_keywords: []
   
 logic: "AND"                 # 组间逻辑：categories 与 keywords 间 AND/OR
 max_results: 5
-sort_by: "lastUpdatedDate"  # 还可以是submittedDate 建议改成lastUpdatedDate按更新时间排，能捞到v2/v3的“新增”
+sort_by: "lastUpdatedDate"  # 按更新时间检索；已读论文的 v2/v3 不重复推送
 sort_order: "descending"
 
 # zh / en / both
@@ -31,7 +36,7 @@ summary:
 # —— 邮件发送（QQ 邮箱） ——
 email:
   enabled: true
-  subject: "[arXiv] Daily Digest"
+  subject: "[arXiv] 半监督医学图像分割论文速递"
   smtp_server: "smtp.qq.com"
   smtp_port: 587
   smtp_pass_env: "SMTP_PASS"
@@ -42,29 +47,28 @@ email:
   attach_md: true  # 是否开启Markdown附件
   attach_pdf: false  # 是否开启PDF附件
 
-# —— LLM（DeepSeek/OpenAI 兼容） ——
+# —— 千问：阿里云百炼 / DashScope（OpenAI 兼容接口） ——
 llm:
-  provider: "openai-compatible"     # 兼容 OpenAI SDK 的服务
-  # 硅基流动的版本
-  # base_url: "https://api.siliconflow.cn"
-  # model: "Qwen/Qwen2.5-7B-Instruct"
-  # api_key_env: "OPENAI_COMPAT_API_KEY"
-  
-  # Deepseek的版本
-  base_url: "https://api.deepseek.com"
-  model: "deepseek-flash"
-  api_key_env: "DS_API_KEY"
-  
+  provider: "dashscope"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  # 也可改为 https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
+  # 国际站使用与 API Key 地域一致的 endpoint；不要使用千问聊天网页地址。
+  model: "qwen-plus"
+  api_key_env: "DASHSCOPE_API_KEY"
+  fail_on_error: true      # 摘要/翻译失败时不将论文标记已读，可在修复后重跑
 
   system_prompt_en: |
-    You are a senior paper-reading assistant. Based on the given metadata and abstract,
-    write ONE concise paragraph in English that covers: research motivation, main method,
-    and key experimental findings. Be objective and specific; avoid marketing language.
-    Preserve any provided links, but do NOT repeat them in the paragraph.
+    You are a researcher in semi-supervised medical image segmentation. Based only on
+    the supplied metadata and abstract, summarize the motivation, method and results.
+    Include the use of labeled and unlabeled images, pseudo-labeling, teacher-student
+    learning or consistency regularization when stated. Preserve reported label budgets,
+    modalities, datasets, Dice and HD95 values. Never invent missing numbers, results,
+    clinical claims or experimental details. State when these are not reported.
   system_prompt_zh: |
-    你是资深论文阅读助手。基于给定的论文元信息与摘要，用中文写「一段」简洁的总结，
-    包含研究动机、核心方法与关键实验结果。保持客观、术语准确；避免营销式表述。
-    如有链接请保留，但不要在总结里重复链接。
+    你是半监督医学图像分割方向的研究助手。仅依据给定元信息与摘要，总结动机、方法和结果。
+    关注标注与未标注样本的利用、伪标签、师生模型和一致性约束，但仅在原文涉及时描述。
+    保留原文报告的标注比例、成像模态、数据集及 Dice、HD95 等指标；未报告的内容明确说明，
+    不编造实验数字、临床效果或实验设置。
 
 # —— 中文翻译设置（用 LLM 翻译 title/summary） ——
 translate:
@@ -75,15 +79,15 @@ translate:
 site:
   enabled: true
   dir: "docs" 
-  title: "arXiv 论文速递"
+  title: "半监督医学图像分割 · arXiv 论文速递"
   keep_runs: 1024         # 历史保留期（按页面份数）
   theme: "light"        # "light" | "dark" | "auto"
   accent: "#2563eb"     # 主题色（可自定义）
 
 freshness:
-  since_days: 365           # 只看最近 N 天内新提交/更新（1=近24h）
+  since_days: 7             # 滚动一周，覆盖周末/短暂失败；首次回溯可临时增大
   unique_only: true       # 开启跨天去重（见过的 arXiv ID 不再重复发）
-  state_path: ".state/seen.json"  # 去重状态文件（会随 docs 一起提交保存）
+  state_path: ".state/seen_semi_supervised_medical.json"  # 独立方向，避免旧方向状态干扰
   fallback_when_empty: false # 当今天无新增时，是否回退展示最近的Top若干（建议false）
 
 scrape:

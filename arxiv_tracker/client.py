@@ -28,6 +28,18 @@ HEADERS = {
 }
 
 _session = requests.Session()
+_last_request_at = None
+
+
+def _wait_for_arxiv():
+    """arXiv asks single-connection clients to leave at least three seconds between calls."""
+    global _last_request_at
+    if _last_request_at is not None:
+        remaining = 3.0 - (time.monotonic() - _last_request_at)
+        if remaining > 0:
+            time.sleep(remaining)
+    _last_request_at = time.monotonic()
+
 
 
 def _sleep_backoff(attempt: int, retry_after: Optional[float] = None) -> None:
@@ -56,6 +68,7 @@ def _do_get(
         retry_after = None
 
         try:
+            _wait_for_arxiv()
             resp = _session.get(
                 base_url,
                 params=params,
@@ -146,7 +159,10 @@ def fetch_arxiv_feed(query: str,
             r = _do_get(base, params, timeout=DEFAULT_TIMEOUT)
             r.raise_for_status()
             return r.text
-        except Exception as e:
+        except requests.exceptions.HTTPError:
+            # HTTP errors, including exhausted 429s, must not be repeated over HTTP.
+            raise
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
             last_err = e
             # 换下一个 base 继续
             continue

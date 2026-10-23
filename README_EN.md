@@ -1,320 +1,90 @@
-# Arxiv-tracker · Daily arXiv Paper Tracker
+# Arxiv-tracker · Semi-supervised Medical Image Segmentation
 
-[![Stars](https://img.shields.io/github/stars/colorfulandcjy0806/Arxiv-tracker?style=flat-square)](https://github.com/colorfulandcjy0806/Arxiv-tracker/stargazers)
-[![CI](https://img.shields.io/github/actions/workflow/status/colorfulandcjy0806/Arxiv-tracker/digest.yml?label=Arxiv%20Digest&style=flat-square)](../../actions)
-[![Pages](https://img.shields.io/badge/GitHub%20Pages-online-2ea44f?style=flat-square)](https://colorfulandcjy0806.github.io/Arxiv-tracker/)
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?style=flat-square&logo=python)
-![Last Commit](https://img.shields.io/github/last-commit/colorfulandcjy0806/Arxiv-tracker?style=flat-square)
-![Open Issues](https://img.shields.io/github/issues/colorfulandcjy0806/Arxiv-tracker?style=flat-square)
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=flat-square)](./LICENSE)
+This fork tracks **semi-supervised medical image segmentation** papers on arXiv, summarizes and translates them with Alibaba Cloud Model Studio Qwen, and produces JSON, Markdown, GitHub Pages and optional email digests.
 
-> **If you like this project, please give it a ⭐ star for the latest updates!**  
+[中文说明](README.md) · [Process review (Chinese)](PROCESS_REVIEW.md) · [Upstream project](https://github.com/colorfulandcjy0806/Arxiv-tracker)
 
-**[简体中文](./README.md) | English**
+## Search
 
----
-
-## 😮 Highlights
-
-- 🔎 **Multi-field, multi-topic search**: categories like `cs.CV / cs.LG / cs.AI / cs.CL`; free-form keywords; `logic: AND/OR` controls the relation between the *category-set* and the *keyword-set*
-- 🧠 **Bilingual LLM summaries**: one English + one Chinese paragraph, or **two-stage** (TL;DR + Method Card + Discussion)
-- 🔗 **Auto links**: abstract / PDF / code repo / project page
-- 📨 **Email delivery**: QQ SMTP (465/SSL or 587/STARTTLS), multi-recipient
-- 🌐 **Web page (GitHub Pages)**: nice HTML site with archive & collapse/expand
-- ♻️ **Freshness + Dedup**: only push papers that are *fresh* and *not sent before*; write `seen.json` **after successful output** to keep idempotency
-- 📦 **OpenAI-Compatible LLM**: **DeepSeek / SiliconFlow** supported via the same config (one `base_url` + one `api_key`)
-- 🔁 **Auto pagination**: avoid always taking the same first N results
-
-**Preview (web):**  
-<img src="images/html.png" alt="Preview" width="720">
-
-**Preview (email):**  
-<img src="images/email.png" alt="Preview" width="720">
-
----
-
-## 📰 News
-
-- **2025-12-12**: Support the exclusion of unwanted literature through keywords.
-- **2025-09-15**: Add code link completion. First, crawl the GitHub/Code link from the comments/summary/arXiv page; If it is still missing, you can scan the PDF homepage to try to identify the link and alleviate the problem of "incomplete display of GitHub code".
-- **2025-08-25**
-  - Added **Freshness + persistent dedup** (write to `seen.json` only after a successful output).
-  - Added **OpenAI-Compatible LLM**: besides DeepSeek, now works with **SiliconFlow** (e.g., `Qwen/Qwen3-8B`).
-  - Fixed a bug that **could send duplicate emails**; added Actions **concurrency guard** and a **manual-send toggle**.
-  - Introduced **auto pagination** to avoid reusing the same batch.
-- **2025-08-22**: First public release (search → summarize/translate → email/web).
----
-
-## 🧭 Repository Layout
-
-```
-arxiv_tracker/        # Core logic (client, parser, summarizer, site, mailer)
-docs/                 # GitHub Pages output (auto-generated)
-outputs/              # Per-run JSON/MD (auto-generated)
-.state/               # Dedup state (seen.json, recommend committing it)
-.github/workflows/    # digest.yml (daily 03:00 Beijing time)
-config.yaml           # Search / summary / email / site / dedup config
-requirements.txt      # Dependencies
-```
-
----
-
-## 🚀 Quick Start (Fork & Deploy)
-
-### 1) Fork
-
-Click **Fork** on the top-right.
-
-### 2) Configure Secrets & Variables
-
-> Settings → **Secrets and variables** → **Actions**
-
-**Secrets**
-
-- `OPENAI_COMPAT_API_KEY`: API key for any OpenAI-compatible provider (e.g., **DeepSeek**, **SiliconFlow**)
-- `SMTP_PASS`: QQ **SMTP App Password** (not your login password)
-
-**Variables**
-
-- `EMAIL_TO`: Recipients (comma/semicolon separated)
-- `EMAIL_SENDER`: Sender email (usually equals SMTP user)
-- `SMTP_USER`: SMTP username (usually the same as sender)
-
-### 3) Enable GitHub Pages
-
-Settings → **Pages** → Source: **Deploy from a branch**; Branch `main`, Folder `/docs`.
-
-### 4) Workflow (Support manual triggering of whether to send a message. The code has already written it, so this step can be omitted and run directly)
-
-Example `digest.yml` (excerpt):
+The default query requires categories **AND segmentation AND semi-supervision AND a medical context**. `keywords` are ORed; every `keyword_groups` list is another required AND condition, with alternatives inside that list ORed. Hyphen/space variants are expanded automatically.
 
 ```yaml
-name: arxiv-digest
-
-on:
-  workflow_dispatch:
-    inputs:
-      send_email:
-        description: "Send email for manual run?"
-        required: false
-        default: "false"
-        type: choice
-        options: ["false", "true"]
-  schedule:
-    - cron: "0 19 * * *"  # 19:00 UTC = 03:00 Beijing next day
-
-concurrency:
-  group: arxiv-digest
-  cancel-in-progress: true
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.10" }
-
-      - name: Install deps
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Compute Pages URL
-        id: site
-        run: |
-          REPO="${GITHUB_REPOSITORY}"
-          OWNER="${REPO%%/*}"
-          NAME="${REPO#*/}"
-          echo "url=https://${OWNER}.github.io/${NAME}/" >> $GITHUB_OUTPUT
-
-      - name: Run tracker (schedule-only email unless forced)
-        env:
-          OPENAI_COMPAT_API_KEY: ${{ secrets.OPENAI_COMPAT_API_KEY }}
-          EMAIL_TO:     ${{ secrets.EMAIL_TO   || vars.EMAIL_TO }}
-          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER || vars.EMAIL_SENDER }}
-          SMTP_USER:    ${{ secrets.SMTP_USER  || vars.SMTP_USER }}
-          SMTP_PASS:    ${{ secrets.SMTP_PASS }}
-        run: |
-          set -e
-          EXTRA="--no-email"
-          if { [ "${{ github.event_name }}" = "schedule" ] && [ "${{ github.run_attempt }}" = "1" ]; } || \
-             { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.send_email }}" = "true" ]; }; then
-            EXTRA=""
-          fi
-          python -m arxiv_tracker.cli run \
-            --config config.yaml \
-            --site-dir docs \
-            --site-url "${{ steps.site.outputs.url }}" \
-            $EXTRA \
-            --verbose
-
-      - name: Commit outputs
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update digest & site"
-          file_pattern: |
-            docs/**
-            outputs/**
-            .state/**
-```
-
-**Configuration process is as follows:**
-
-<img src="images/guide.png" alt="Preview" width="720">
-
-> **Note**: include `.state/**` in `file_pattern` to persist dedup state across runs.
-
----
-
-## ⚙️ Configuration (`config.yaml`)
-
-```yaml
-# === Search ===
-categories: ["cs.CV", "cs.LG", "cs.AI"]
-keywords:
-  - "open vocabulary segmentation"
-  - "vision-language grounding"
-# [New] Exclude papers containing these terms
-exclude_keywords:
-  - "Large Language Model"
-  - "Generative AI"
-logic: "AND"                 # categories (OR) combined with keywords (OR) by AND/OR
-max_results: 100             # per-page cap; the runner auto-paginates internally
-sort_by: "lastUpdatedDate"   # or submittedDate
+categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV", "physics.med-ph"]
+keywords: ["segmentation"]
+keyword_groups:
+  - ["semi-supervised", "semisupervised"]
+  - ["medical", "biomedical", "organ", "lesion", "tumor", "MRI", "CT"]
+logic: "AND"
+max_results: 5
+sort_by: "lastUpdatedDate"
 sort_order: "descending"
+```
 
-# === Output language ===
-lang: "both"                 # zh / en / both
+The full configuration includes additional medical terms. It searches the last 7 days and returns up to 5 unseen papers per run, paginating past previously seen results. Temporarily increase `freshness.since_days` for an initial backfill. This remains lexical retrieval; a paper mentioning the topic only in passing may still match.
 
-# === Summaries ===
-summary:
-  mode: "llm"                # none / heuristic / llm
-  scope: "both"              # tldr / full / both
+## Qwen API
 
-# === LLM (OpenAI-Compatible: DeepSeek / SiliconFlow) ===
+Configure Alibaba Cloud Model Studio, using its [official OpenAI-compatible API](https://www.alibabacloud.com/help/en/model-studio/qwen-api-via-openai-chat-completions):
+
+```yaml
 llm:
-  base_url: "https://api.deepseek.com"     # or "https://api.siliconflow.cn"
-  model: "deepseek-chat"                   # e.g., "Qwen/Qwen3-8B" for SiliconFlow
-  api_key_env: "OPENAI_COMPAT_API_KEY"
-  system_prompt_en: |
-    You are a senior paper-reading assistant...
-  system_prompt_zh: |
-    你是资深论文阅读助手...
-
-# === Optional: CN translation for title/abstract ===
-translate:
-  enabled: true
-  lang: "zh"
-  fields: ["title", "summary"]
-
-# === Email (QQ SMTP example) ===
-email:
-  enabled: true
-  subject: "[arXiv] Daily Digest"
-  smtp_server: "smtp.qq.com"
-  smtp_port: 465
-  tls: "ssl"                 # auto / ssl / starttls
-  debug: false
-  detail: "full"
-  max_items: 10
-  attach_md: true
-  attach_pdf: false
-
-# === Site (GitHub Pages) ===
-site:
-  enabled: true
-  dir: "docs"
-  title: "arXiv Daily"
-  keep_runs: 1024
-  theme: "light"
-  accent: "#2563eb"
-
-# === Freshness & Dedup (write after success) ===
-freshness:
-  since_days: 3
-  unique_only: true
-  state_path: ".state/seen.json"
-  fallback_when_empty: false
+  provider: "dashscope"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "qwen-plus"
+  api_key_env: "DASHSCOPE_API_KEY"
+  fail_on_error: true
 ```
 
-> **Query semantics**: within `categories` we OR; within `keywords` we OR; then join the two sets with `logic` (AND/OR). Example: `logic: AND` means *in these categories* **and** *match these keywords*.
+For Beijing you can also use the recommended workspace domain `https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`. Replace the placeholder with your workspace ID. Use an endpoint and API key from the same region. The shared Beijing endpoint remains supported.
 
----
+Direct HTTP requests use Bearer authentication, JSON output, `stream: false` and `enable_thinking: false`. One request produces both summary languages; optional title/abstract translation uses another. Prompts focus on labeled/unlabeled data, pseudo-labels, consistency, datasets, Dice and HD95 without inventing unreported results. Strict failure handling prevents failed summaries or translations from consuming unread papers.
 
-## 🛠️ Run Locally (macOS/Linux)
+## GitHub deployment
 
-```bash
-python -m venv .venv && source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+1. Add `DASHSCOPE_API_KEY` as an Actions **Secret**. The default configuration no longer reads `DS_API_KEY`.
+2. For email, add Secret `SMTP_PASS` and Variables or Secrets `EMAIL_TO`, `EMAIL_SENDER`, `SMTP_USER`.
+3. Enable Pages from `main` / `/docs`, and allow Actions to write repository contents.
+4. Run **arxiv-digest** manually. `send_email=false` generates files/site without sending email or advancing seen state; choose `true` for delivery. The scheduled run is daily at **03:00 Asia/Shanghai**, subject to GitHub scheduling delays.
 
-export OPENAI_COMPAT_API_KEY="your_api_key"
-# base_url/model are in config.yaml
-export EMAIL_TO="your@qq.com"
-export EMAIL_SENDER="your@qq.com"
-export SMTP_USER="your@qq.com"
-export SMTP_PASS="your_qq_smtp_app_password"
+`digest.yml` is the only scheduled workflow. Concurrent runs queue instead of cancelling a run after mail delivery. The former `arxiv_daily.yml` now runs tests on pushes/PRs and performs no retrieval or delivery. The digest commits site, output and state files only after success, and uploads diagnostic artifacts on failure. Scheduled retries may send mail; persistent fingerprints and seen state protect completed deliveries. Empty results send no email.
 
-python -m arxiv_tracker.cli run --config config.yaml --site-dir docs --verbose
-```
+## Local use
 
-### Windows (PowerShell)
+Python 3.10+; from the repository directory:
 
 ```powershell
-python -m venv .venv; .\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-
-$Env:OPENAI_COMPAT_API_KEY = "your_api_key"
-$Env:EMAIL_TO     = "your@qq.com"
-$Env:EMAIL_SENDER = "your@qq.com"
-$Env:SMTP_USER    = "your@qq.com"
-$Env:SMTP_PASS    = "your_qq_smtp_app_password"
-
-python -m arxiv_tracker.cli run --config config.yaml --site-dir docs --verbose
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+$Env:DASHSCOPE_API_KEY = "your Model Studio key"
+python test_sf.py
+python main.py --no-email --no-state-update --verbose
 ```
 
----
+On macOS/Linux use `source .venv/bin/activate` and `export DASHSCOPE_API_KEY="..."` instead. Set email variables if desired, then run `python main.py --verbose` for normal delivery. `--no-email` disables email only; add `--no-state-update` when previewing papers that should remain unread for the next scheduled delivery.
 
-## ❓ FAQ
+The retained `test_sf.py` is now a guarded Qwen smoke check; importing it never makes network requests or prints key prefixes. PDF export is optional: install `requirements-pdf.txt` and use `--pdf` or enable `email.attach_pdf`.
 
-- **Results look stale / empty?**  
-  Auto pagination + freshness filter + post-success dedup are enabled. If a day is empty, try temporarily increasing `since_days` to 2–3; also check if your keywords are too narrow.
-- **401 Unauthorized (SiliconFlow/DeepSeek)**  
-  Ensure `OPENAI_COMPAT_API_KEY` is a valid key for the provider you configured.
-- **ReadTimeout (arXiv API)**  
-  Likely network hiccups; just retry later.
-- **No email received**  
-  Check “Show email env (masked)” in Actions logs; ensure QQ SMTP app password is used and TLS/port matches your settings.
-  
----
+Optional foreground scheduler, using the machine timezone:
 
-##  🗺️  To-do list
+```powershell
+python -m arxiv_tracker.scheduler --time 09:00 --config config.yaml
+```
 
-- [x] Solve the problem of retrieving the same literature every day
-- [x] Bug of sending 2 emails each time
-- [x] Support more LLMs, next step to consider silicon-based flow APIs
-- [x] Code link completion (when missing, grab the PDF homepage as a backup)
-- [x] Logic to exclude specific keywords (e.g., filtering out "LLM" noise).
-- [ ] More site themes (dark color, following system)
-- [ ] Custom card field switch and order
+Each job invokes the full CLI in a new process. Keep the scheduler running, or use GitHub Actions / your operating system's task scheduler to invoke the CLI once per run.
 
-## ✨ Star History
+## State and recovery
 
-[![Star History](https://api.star-history.com/svg?repos=colorfulandcjy0806/Arxiv-tracker&type=Date)](https://star-history.com/#colorfulandcjy0806/Arxiv-tracker&Date)
+The topic has its own `.state/seen_semi_supervised_medical.json`. HTTP/HTTPS, abs/PDF URLs and revisions are normalized to one paper identity; later revisions are not resent. Legacy state formats are supported. Corrupt state causes a visible failure instead of silently resending everything.
 
----
+State advances atomically after all enabled destinations succeed. Email failures fail the run even when the site was generated. Content fingerprints suppress repeat delivery of the same paper batch to the same recipients. SMTP delivery and Git persistence are not one transaction: a crash after SMTP accepts mail but before durable state can still cause a duplicate. Local runs and Actions have separate state unless synchronized.
 
-## 🤝 Community contributors
+Old-topic archives and old state are retained. The first new run updates the homepage; historical pages still contain old topics.
 
-<a href="https://github.com/colorfulandcjy0806/Arxiv-tracker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=colorfulandcjy0806/Arxiv-tracker" alt="Contributors" width="720"/>
-</a>
+## Tests
 
-## 🔒 License
+```powershell
+python -m unittest discover -s tests -v
+```
 
-MIT — see [LICENSE](./LICENSE).
+Tests mock network and email. They cover Qwen/DeepSeek request formats and retries, bilingual request reuse, required search groups, pagination, freshness, state migration, malformed/error feeds, email guards, complete local outputs, and failure recovery.

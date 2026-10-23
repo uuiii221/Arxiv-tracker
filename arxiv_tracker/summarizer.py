@@ -147,7 +147,10 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                         system_prompt_en=cfg.get("system_prompt_en", "")
                     )
                     _cache_bilingual_summary(cache_key, data)
-                return {"digest_en": data.get("digest_en",""), "digest_zh": data.get("digest_zh",""), "tldr":"", "full_md":""}
+                result = {"digest_en": data.get("digest_en",""), "digest_zh": data.get("digest_zh",""), "tldr":"", "full_md":""}
+                if data.get("_llm_failed"):
+                    result["_llm_failed"] = True
+                return result
             except Exception as exc:
                 logger.exception(
                     "LLM summary failed for %s: %s",
@@ -155,11 +158,12 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                     exc,
                 )
                 h = heuristic_paragraphs(item)
+                h["_llm_failed"] = True
                 _cache_bilingual_summary(cache_key, h)
-                return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":""}
+                return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":"", "_llm_failed": True}
         # LLM 不可用时兜底
         h = heuristic_paragraphs(item)
-        return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":""}
+        return {"digest_en": h["digest_en"], "digest_zh": h["digest_zh"], "tldr":"", "full_md":"", "_llm_failed": True}
 
     # 非 llm 模式也输出同样结构（兜底）
     h = heuristic_paragraphs(item)

@@ -1,32 +1,32 @@
 from __future__ import annotations
+from pathlib import Path
+import subprocess
+import sys
 import time
 import click
 import schedule
-from .config import Settings
-from .query import build_search_query
-from .client import fetch_arxiv_feed
-from .parser import parse_feed
-from .output import save_json, save_markdown
 
-def _job(cfg: Settings, out_dir: str):
-    q = build_search_query(cfg.categories, cfg.keywords, cfg.logic)
-    print(f"[Scheduler] Running query: {q}")
-    xml = fetch_arxiv_feed(q, start=0, max_results=cfg.max_results,
-                           sort_by=cfg.sort_by, sort_order=cfg.sort_order)
-    items = parse_feed(xml)
-    jp = save_json(items, out_dir)
-    mp = save_markdown(items, out_dir)
-    print(f"[Scheduler] Saved: {jp}")
-    print(f"[Scheduler] Saved: {mp}")
+def _job(config_path: str, out_dir: str):
+    # 每次运行启动完整 CLI，复用检索/摘要/邮件/站点/去重，且释放上次缓存。
+    root = Path(__file__).resolve().parent.parent
+    result = subprocess.run(
+        [sys.executable, "-m", "arxiv_tracker.cli", "run", "--config", config_path,
+         "--out-dir", out_dir, "--verbose"], cwd=root, check=False,
+    )
+    if result.returncode:
+        click.echo(f"[Scheduler] Job failed with exit code {result.returncode}; next run stays scheduled", err=True)
+    return result.returncode
 
 @click.command()
 @click.option("--time", "time_str", required=True, help="每日触发时间，如 09:00")
-@click.option("--config", "config_path", type=click.Path(exists=True), required=True, help="配置文件路径（YAML）")
-@click.option("--out-dir", default="outputs", help="输出目录")
+@click.option("--config", "config_path", type=click.Path(exists=True, dir_okay=False, resolve_path=True), required=True, help="配置文件路径（YAML）")
+@click.option("--out-dir", type=click.Path(resolve_path=True), default="outputs", help="输出目录")
 def main(time_str, config_path, out_dir):
-    cfg = Settings.from_file(config_path)
-    schedule.every().day.at(time_str).do(_job, cfg=cfg, out_dir=out_dir)
-    print(f"[Scheduler] Registered daily job at {time_str}. Press Ctrl+C to stop.")
+    try:
+        schedule.every().day.at(time_str).do(_job, config_path=config_path, out_dir=out_dir)
+    except schedule.ScheduleValueError as exc:
+        raise click.BadParameter(str(exc), param_hint="--time") from exc
+    print(f"[Scheduler] Daily at {time_str} (machine timezone). Press Ctrl+C to stop.")
     while True:
         schedule.run_pending()
         time.sleep(1)

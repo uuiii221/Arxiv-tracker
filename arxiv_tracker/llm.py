@@ -65,7 +65,7 @@ def _chat_completions_request(
 ) -> str:
     """
     统一的 OpenAI 兼容 Chat Completions 请求（requests 直连）。
-    适配 DeepSeek / SiliconFlow / 其他 OAI 兼容服务。
+    适配 DashScope / DeepSeek / SiliconFlow / 其他 OAI 兼容服务。
     """
     url = _normalize_chat_endpoint(base_url)
     headers = {
@@ -81,11 +81,13 @@ def _chat_completions_request(
     }
     if json_object:
         payload["response_format"] = {"type": "json_object"}
-    
     is_deepseek = "api.deepseek.com" in base_url.lower()
-
-    if disable_thinking and is_deepseek:
+    if disable_thinking and (is_deepseek or model.lower().startswith("deepseek-v4")):
         payload["thinking"] = {"type": "disabled"}
+    elif disable_thinking and model.lower().startswith("qwen"):
+        # requests 直连时此参数位于 JSON 顶层（SDK 的 extra_body 会被展开）。
+        # 非流式 + JSON 输出使用非思考模式，避免仅返回 reasoning_content。
+        payload["enable_thinking"] = False
     for attempt in range(3):
         try:
             resp = requests.post(url, json=payload, headers=headers, timeout=timeout)
@@ -153,7 +155,8 @@ def call_llm_bilingual_summary(
     comments= item.get("comments") or ""
     venue   = item.get("venue_inferred") or (item.get("journal_ref") or "")
 
-    sys_prompt = system_prompt_en or "You are a precise academic assistant. Summarize papers concisely."
+    sys_prompt = "\n\n".join(prompt for prompt in (system_prompt_en, system_prompt_zh) if prompt)
+    sys_prompt = sys_prompt or "You are a precise academic assistant. Summarize papers concisely."
 
     user_payload = {
         "title": title,

@@ -1,25 +1,28 @@
-# test_sf.py 用于测试单个程序能否正确调用硅基流动的API
-import os, requests
+"""Manual Qwen connection check; importing this module never makes a request."""
+import os
+from pathlib import Path
 
-BASE = "https://api.siliconflow.cn"
-MODEL = "Qwen/Qwen2.5-7B-Instruct"
-KEY = os.getenv("OPENAI_COMPAT_API_KEY", "")
+import yaml
 
-print("key prefix:", (KEY[:8] + "****") if KEY else "<EMPTY>")
+from arxiv_tracker.llm import _chat_completions_request
 
-payload = {
-    "model": MODEL,
-    "messages": [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user",   "content": "Say hello in one short sentence."}
-    ],
-    "temperature": 0.2,
-}
-r = requests.post(
-    f"{BASE}/v1/chat/completions",
-    json=payload,
-    headers={"Authorization": f"Bearer {KEY}", "Content-Type": "application/json"},
-    timeout=30,
-)
-print("status:", r.status_code)
-print(r.text)
+
+def main():
+    config = yaml.safe_load((Path(__file__).resolve().parent / "config.yaml").read_text(encoding="utf-8"))
+    llm = config["llm"]
+    key_name = llm.get("api_key_env", "DASHSCOPE_API_KEY")
+    key = os.getenv(key_name, "")
+    if not key:
+        print(f"Missing {key_name}; set the environment variable before running this check.")
+        return 1
+    reply = _chat_completions_request(
+        base_url=llm["base_url"], model=llm["model"], api_key=key,
+        messages=[{"role": "user", "content": "Say hello in one short sentence."}],
+        max_tokens=64, disable_thinking=True,
+    )
+    print(reply)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

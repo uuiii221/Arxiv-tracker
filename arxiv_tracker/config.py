@@ -7,6 +7,7 @@ from typing import List
 class Settings:
     categories: List[str] = field(default_factory=list)
     keywords: List[str] = field(default_factory=list)
+    keyword_groups: List[List[str]] = field(default_factory=list)
     exclude_keywords: List[str] = field(default_factory=list)
     logic: str = "AND"  # AND / OR
     max_results: int = 10

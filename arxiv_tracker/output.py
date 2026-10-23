@@ -30,6 +30,11 @@ def _render_lang_block(lang_label: str, it: Dict[str, Any],
     if summ and summ.get("tldr"):
         lines.append("> **TL;DR**: " + summ["tldr"])
         lines.append("")
+    if summ:
+        digest = summ.get("digest_zh" if lang_label == "中文" else "digest_en")
+        if digest:
+            lines.append(digest)
+            lines.append("")
     if summ and summ.get("full_md"):
         lines.append(summ["full_md"])
         lines.append("")
