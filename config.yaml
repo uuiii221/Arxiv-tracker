@@ -5,7 +5,7 @@ categories:
   - "eess.IV"
 
 keywords:
-  - "segmentation"
+  - "medical image segmentation"
 
 # 仅限定：半监督 AND 分割；不额外限定应用领域或方法。
 keyword_groups:
