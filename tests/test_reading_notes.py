@@ -20,6 +20,21 @@ def full_item():
 
 
 class ReadingNotesTests(unittest.TestCase):
+    @patch("arxiv_tracker.llm.time.sleep")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_existing_7000_token_config_recovers_from_truncated_report(self, post, sleep):
+        partial = MagicMock()
+        partial.json.return_value = {"choices": [{"finish_reason": "length", "message": {"content": '{"full_en":"unfinished'}}]}
+        complete = MagicMock()
+        complete.json.return_value = {"choices": [{"message": {"content": json.dumps(report())}}]}
+        post.side_effect = [partial, complete]
+        result = call_llm_full_paper_summary(
+            full_item(), base_url="https://maas.qianwenaiapi.com/compatible-mode/v1",
+            model="deepseek-v4.1-flash-1017", api_key="test-only", max_tokens=7000,
+        )
+        self.assertEqual([call.kwargs["json"]["max_tokens"] for call in post.call_args_list], [7000, 14000])
+        self.assertIn("87.5", result["full_zh"])
+
     @patch("arxiv_tracker.llm.requests.post")
     def test_hosted_deepseek_1017_receives_all_pages_and_platform_parameters(self, post):
         response = MagicMock()
@@ -34,8 +49,8 @@ class ReadingNotesTests(unittest.TestCase):
         self.assertNotIn("thinking", payload)
         self.assertIn("LAST-PAGE-RESULT", payload["messages"][1]["content"])
         self.assertIn("TRAINING-OBJECTIVE", payload["messages"][1]["content"])
-        self.assertEqual(payload["max_tokens"], 7000)
-        self.assertEqual(post.call_args.kwargs["timeout"], 120)
+        self.assertEqual(payload["max_tokens"], 12000)
+        self.assertEqual(post.call_args.kwargs["timeout"], 180)
         self.assertIn("87.5", result["full_zh"])
 
     @patch("arxiv_tracker.llm._chat_completions_request")

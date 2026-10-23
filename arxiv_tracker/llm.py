@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
 import os, json, re, time, requests
+import logging
 from typing import Dict, Any, List, Optional
 from urllib.parse import urlsplit
+
+logger = logging.getLogger(__name__)
+
+
+class LLMOutputTruncatedError(ValueError):
+    """The provider reached its generation limit before completing the JSON reply."""
 
 # ========== 通用小工具 ==========
 
@@ -63,12 +70,17 @@ def _chat_completions_request(
     json_object: bool = False,
     disable_thinking: bool = False,
     required_json_fields: Optional[List[str]] = None,
+    max_tokens_limit: Optional[int] = None,
 ) -> str:
     """
     统一的 OpenAI 兼容 Chat Completions 请求（requests 直连）。
     适配 DashScope / DeepSeek / SiliconFlow / 其他 OAI 兼容服务。
     """
     url = _normalize_chat_endpoint(base_url)
+    current_max_tokens = int(max_tokens)
+    token_limit = int(max_tokens_limit) if max_tokens_limit is not None else current_max_tokens * 4
+    if current_max_tokens <= 0 or token_limit < current_max_tokens:
+        raise ValueError("max_tokens_limit must be at least max_tokens, and both must be positive")
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
@@ -91,7 +103,9 @@ def _chat_completions_request(
         payload["enable_thinking"] = False
     for attempt in range(3):
         try:
-            resp = requests.post(url, json=payload, headers=headers, timeout=timeout)
+            # A fresh dict preserves each attempt's token budget for logging and testing.
+            request_payload = dict(payload, max_tokens=current_max_tokens)
+            resp = requests.post(url, json=request_payload, headers=headers, timeout=timeout)
             resp.raise_for_status()
             data = resp.json()
 
@@ -113,8 +127,16 @@ def _chat_completions_request(
             content = content if isinstance(content, str) else ""
 
             if required_json_fields is not None:
-                if choices and choices[0].get("finish_reason") == "length":
-                    raise ValueError("LLM output was truncated; increase summary.max_tokens")
+                if choices and isinstance(choices[0], dict) and choices[0].get("finish_reason") == "length":
+                    usage = data.get("usage") or {}
+                    details = usage.get("completion_tokens_details") or {}
+                    raise LLMOutputTruncatedError(
+                        f"LLM output was truncated at max_tokens={current_max_tokens}; "
+                        f"completion_tokens={usage.get('completion_tokens', 'unknown')}, "
+                        f"reasoning_tokens={details.get('reasoning_tokens', 'unknown')}, "
+                        f"content_chars={len(content)}. "
+                        "Increase summary.max_tokens_limit if automatic retries are exhausted."
+                    )
                 if not content.strip():
                     raise ValueError("LLM response content is empty")
                 parsed = _json_loose(content)
@@ -123,6 +145,13 @@ def _chat_completions_request(
                 _require_nonempty_strings(parsed, required_json_fields)
 
             return content
+        except LLMOutputTruncatedError as exc:
+            next_budget = min(current_max_tokens * 2, token_limit)
+            if attempt == 2 or next_budget <= current_max_tokens:
+                raise
+            logger.warning("[LLM] %s Retry %s/3 with max_tokens=%s (model=%s)",
+                           exc, attempt + 2, next_budget, model)
+            current_max_tokens = next_budget
         except (requests.Timeout, requests.ConnectionError):
             if attempt == 2:
                 raise
@@ -197,7 +226,7 @@ def call_llm_bilingual_summary(
 
 def call_llm_full_paper_summary(item, *, base_url, model, api_key,
                                 system_prompt_zh="", system_prompt_en="",
-                                max_tokens=7000, timeout=120):
+                                max_tokens=12000, max_tokens_limit=48000, timeout=180):
     """Generate separate detailed notes for this paper from all extracted PDF pages."""
     text = item.get("_fulltext") or ""
     provenance = item.get("fulltext_source") or {}
@@ -211,6 +240,9 @@ def call_llm_full_paper_summary(item, *, base_url, model, api_key,
         "Return STRICT JSON with four nonempty string fields: digest_en, digest_zh, full_en, full_zh.\n"
         "digest_en and digest_zh are short takeaways. full_en and full_zh are detailed Markdown "
         "reading notes in English and Simplified Chinese respectively, each with these sections:\n"
+        "Keep the notes focused: aim for 600-900 English words and 1600-2400 Chinese characters "
+        "for the detailed reports. Preserve important methods, settings and evidence, but avoid "
+        "repeated background, duplicated paragraphs or translating the whole paper.\n"
         "1. Problem and motivation: what is being solved, and why existing approaches are insufficient.\n"
         "2. Method: explain the actual pipeline, key design choices and objective/loss terms step by step. "
         "Use equations only if readable in the supplied text; explain symbols and their roles.\n"
@@ -235,7 +267,7 @@ def call_llm_full_paper_summary(item, *, base_url, model, api_key,
     fields = ["digest_en", "digest_zh", "full_en", "full_zh"]
     response = _chat_completions_request(
         base_url=base_url, model=model, api_key=api_key, messages=messages,
-        max_tokens=max_tokens, timeout=timeout, json_object=True, disable_thinking=True,
+        max_tokens=max_tokens, max_tokens_limit=max_tokens_limit, timeout=timeout, json_object=True, disable_thinking=True,
         required_json_fields=fields,
     )
     result = _require_nonempty_strings(_json_loose(response), fields)

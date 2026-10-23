@@ -143,13 +143,16 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
             if not item.get("_fulltext"):
                 raise RuntimeError("Full paper text is missing; cannot generate full-paper summary")
             options = summary_cfg or {}
-            cache_key = _summary_cache_key(item, cfg) + ("fulltext", str(options.get("max_tokens", 7000)))
+            cache_key = _summary_cache_key(item, cfg) + ("fulltext", str(options.get("max_tokens", 12000)),
+                                                        str(options.get("max_tokens_limit", 48000)))
             data = _BILINGUAL_SUMMARY_CACHE.get(cache_key)
             if data is None:
                 data = call_llm_full_paper_summary(
                     item, base_url=cfg.get("base_url", ""), model=cfg.get("model", ""), api_key=api_key,
                     system_prompt_zh=cfg.get("system_prompt_zh", ""), system_prompt_en=cfg.get("system_prompt_en", ""),
-                    max_tokens=int(options.get("max_tokens", 7000)), timeout=int(options.get("timeout", 120)),
+                    max_tokens=int(options.get("max_tokens", 12000)),
+                    max_tokens_limit=int(options.get("max_tokens_limit", 48000)),
+                    timeout=int(options.get("timeout", 180)),
                 )
                 _cache_bilingual_summary(cache_key, data)
             return {"digest_en": data["digest_en"] if scope != "full" else "",
