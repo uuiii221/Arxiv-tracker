@@ -67,7 +67,7 @@ def _render_card(it: Dict[str, Any],
     zh_title = (t_zh or {}).get("title_zh")
     zh_sum   = (t_zh or {}).get("summary_zh")
 
-    # 新双语总结
+    # 显示所选语言的要点。
     digest_en = (sum_en or {}).get("digest_en") or (sum_zh or {}).get("digest_en") or ""
     digest_zh = (sum_zh or {}).get("digest_zh") or (sum_en or {}).get("digest_zh") or ""
 
@@ -97,12 +97,14 @@ def _render_card(it: Dict[str, Any],
             inner += "<div style='white-space:pre-wrap'>" + _esc(digest_en) + "</div>"
         if digest_zh:
             inner += "<div style='white-space:pre-wrap;margin-top:8px'>" + _esc(digest_zh) + "</div>"
-        out.append('<div class="section"><h4>Summary / 总结</h4>'+ inner +'</div>')
+        label = "总结" if digest_zh and not digest_en else "Summary / 总结"
+        out.append(f'<div class="section"><h4>{label}</h4>'+ inner +'</div>')
 
     full_zh = (sum_zh or {}).get("full_md") or ""
     full_en = (sum_en or {}).get("full_md") or ""
     if full_zh or full_en:
-        notes = '<div class="section"><h4>Paper notes / 论文解读</h4>'
+        label = "论文解读" if full_zh and not full_en else "Paper notes / 论文解读"
+        notes = f'<div class="section"><h4>{label}</h4>'
         source = it.get("fulltext_source") or {}
         if source:
             notes += (f'<p>来源：PDF 全文，共 {source["pages"]} 页；'

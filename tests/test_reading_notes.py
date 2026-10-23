@@ -20,6 +20,57 @@ def full_item():
 
 
 class ReadingNotesTests(unittest.TestCase):
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_single_language_requests_and_accepts_only_that_report(self, post):
+        for lang, other in (("zh", "en"), ("en", "zh")):
+            with self.subTest(lang=lang):
+                data = {field: value for field, value in report().items() if field.endswith("_" + lang)}
+                response = MagicMock()
+                response.json.return_value = {"choices": [{"message": {"content": json.dumps(data)}}]}
+                post.return_value = response
+                result = call_llm_full_paper_summary(
+                    full_item(), base_url="https://maas.qianwenaiapi.com/compatible-mode/v1",
+                    model="deepseek-v4.1-flash-1017", api_key="test-only", lang=lang,
+                    system_prompt_zh="ZH_SYSTEM", system_prompt_en="EN_SYSTEM",
+                )
+                self.assertEqual(result, data)
+                messages = post.call_args.kwargs["json"]["messages"]
+                self.assertEqual(messages[0]["content"], lang.upper() + "_SYSTEM")
+                self.assertIn(f"full_{lang}", messages[1]["content"])
+                self.assertNotIn(f"full_{other}", messages[1]["content"])
+                self.assertIn("LAST-PAGE-RESULT", messages[1]["content"])
+
+    @patch("arxiv_tracker.llm._chat_completions_request")
+    def test_chinese_only_report_still_requires_valid_full_paper_evidence(self, chat):
+        for reference in (1, 99):
+            with self.subTest(reference=reference):
+                chat.return_value = json.dumps({"digest_zh": "中文要点", "full_zh": f"方法和结果 [p. {reference}]"})
+                with self.assertRaises(ValueError):
+                    call_llm_full_paper_summary(
+                        full_item(), base_url="https://example.com", model="model", api_key="key", lang="zh",
+                    )
+
+    @patch("arxiv_tracker.summarizer.call_llm_full_paper_summary")
+    def test_chinese_only_cache_does_not_satisfy_a_later_bilingual_request(self, chat):
+        summarizer._BILINGUAL_SUMMARY_CACHE.clear()
+        chinese = {field: value for field, value in report().items() if field.endswith("_zh")}
+        chat.side_effect = [chinese, report()]
+        item, cfg = full_item(), {"api_key": "key"}
+        zh = summarizer.build_two_stage_summary(
+            item, "llm", "zh", "both", cfg, source="fulltext", output_lang="zh",
+        )
+        en = summarizer.build_two_stage_summary(
+            item, "llm", "en", "both", cfg, source="fulltext", output_lang="both",
+        )
+        cached = summarizer.build_two_stage_summary(
+            item, "llm", "zh", "both", cfg, source="fulltext", output_lang="zh",
+        )
+        self.assertEqual(zh["digest_en"], "")
+        self.assertEqual(zh, cached)
+        self.assertIn("## Method", en["full_md"])
+        self.assertEqual(chat.call_count, 2)
+        self.assertEqual([call.kwargs["lang"] for call in chat.call_args_list], ["zh", "both"])
+
     @patch("arxiv_tracker.llm.time.sleep")
     @patch("arxiv_tracker.llm.requests.post")
     def test_existing_7000_token_config_recovers_from_truncated_report(self, post, sleep):

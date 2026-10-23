@@ -19,7 +19,7 @@ sort_by: "lastUpdatedDate"  # 按更新时间检索；已读论文的 v2/v3 不�
 sort_order: "descending"
 
 # zh / en / both
-lang: "both"
+lang: "zh"
 
 # —— 摘要设置 ——
 # mode: none / heuristic / llm
@@ -28,7 +28,7 @@ summary:
   source: "fulltext"  # 下载完整 PDF，逐页解析后分别总结每篇论文
   # scope: tldr / full / both
   scope: "both"
-  max_tokens: 12000        # 双语全文解读的初始输出额度
+  max_tokens: 12000        # 全文解读的初始输出额度
   max_tokens_limit: 48000  # 遇到 length 时逐次加倍，最多 3 次请求，且不超过此值
   timeout: 180
 

@@ -142,7 +142,7 @@ def _card(it: Dict[str, Any],
     zh_title = (trans_zh or {}).get("title_zh")
     zh_abs   = (trans_zh or {}).get("summary_zh")
 
-    # 新的双语总结（来自 summarizer）
+    # 显示所选语言的要点。
     digest_en = (sum_en or {}).get("digest_en") or (sum_zh or {}).get("digest_en") or ""
     digest_zh = (sum_zh or {}).get("digest_zh") or (sum_en or {}).get("digest_zh") or ""
 
@@ -174,7 +174,8 @@ def _card(it: Dict[str, Any],
 
     # 简短要点与详细全文解读分别展示。
     if digest_en or digest_zh:
-        parts.append('<details class="detail"><summary>Summary / 总结</summary>')
+        label = "总结" if digest_zh and not digest_en else "Summary / 总结"
+        parts.append(f'<details class="detail"><summary>{label}</summary>')
         if digest_en:
             parts.append(f'<div class="mono">{_esc(digest_en)}</div>')
         if digest_zh:
@@ -184,7 +185,8 @@ def _card(it: Dict[str, Any],
     full_zh = (sum_zh or {}).get("full_md") or ""
     full_en = (sum_en or {}).get("full_md") or ""
     if full_zh or full_en:
-        parts.append('<details class="detail" open><summary>Paper notes / 论文解读</summary>')
+        label = "论文解读" if full_zh and not full_en else "Paper notes / 论文解读"
+        parts.append(f'<details class="detail" open><summary>{label}</summary>')
         source = it.get("fulltext_source") or {}
         if source:
             parts.append(f'<div class="meta-line">来源：PDF 全文，共 {source["pages"]} 页；'

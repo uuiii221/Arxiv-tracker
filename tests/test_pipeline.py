@@ -112,6 +112,22 @@ class PipelineTests(unittest.TestCase):
     @patch("arxiv_tracker.fulltext.requests.get")
     @patch("arxiv_tracker.llm.requests.post")
     def test_five_papers_each_use_full_pdf_and_show_individual_notes_in_all_outputs(self, post, get, wait):
+        self._assert_five_paper_outputs(post, get, "both")
+
+    @patch("arxiv_tracker.fulltext._wait_for_arxiv")
+    @patch("arxiv_tracker.fulltext.requests.get")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_five_chinese_only_papers_never_generate_or_publish_english_notes(self, post, get, wait):
+        self._assert_five_paper_outputs(post, get, "zh")
+
+    @patch("arxiv_tracker.fulltext._wait_for_arxiv")
+    @patch("arxiv_tracker.fulltext.requests.get")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_english_override_still_works_with_one_request_per_paper(self, post, get, wait):
+        self._assert_five_paper_outputs(post, get, "en")
+
+    def _assert_five_paper_outputs(self, post, get, lang):
+        self.config["lang"] = lang
         self.config["summary"].update({"mode": "llm", "source": "fulltext"})
         self.config["scrape"]["pdf_if_missing"] = True  # 全文读取会复用正文，不再另取 PDF 首页
         self.config["llm"] = {"api_key": "test-only", "fail_on_error": True,
@@ -127,6 +143,8 @@ class PipelineTests(unittest.TestCase):
         for index in range(1, 6):
             data = report()
             data["full_zh"] += f"\n论文{index}的独立解读 [p. 3]"
+            if lang != "both":
+                data = {field: value for field, value in data.items() if field.endswith("_" + lang)}
             response = MagicMock()
             response.json.return_value = {"choices": [{"message": {"content": json.dumps(data)}}]}
             llm_responses.append(response)
@@ -134,9 +152,16 @@ class PipelineTests(unittest.TestCase):
         result = self.invoke("--no-email")
         self.assertEqual(result.exit_code, 0, result.output)
         self.assertEqual(get.call_count, 5)
-        self.assertEqual(post.call_count, 5)  # 两种语言共用每篇一次请求
+        self.assertEqual(post.call_count, 5)  # 单语不生成另一语言；双语共用一次请求
         for call in post.call_args_list:
-            self.assertIn("LAST-PAGE-EXPERIMENT", call.kwargs["json"]["messages"][1]["content"])
+            prompt = call.kwargs["json"]["messages"][1]["content"]
+            self.assertIn("LAST-PAGE-EXPERIMENT", prompt)
+            if lang == "zh":
+                self.assertNotIn("full_en", prompt)
+                self.assertNotIn("digest_en", prompt)
+            if lang == "en":
+                self.assertNotIn("full_zh", prompt)
+                self.assertNotIn("digest_zh", prompt)
         path = next((self.root / "outputs").glob("*.json"))
         serialized = path.read_text(encoding="utf-8")
         records = json.loads(serialized)
@@ -145,13 +170,28 @@ class PipelineTests(unittest.TestCase):
         self.assertNotIn("LAST-PAGE-EXPERIMENT", serialized)
         md = next((self.root / "outputs").glob("*.md")).read_text(encoding="utf-8")
         site = (self.root / "site" / "index.html").read_text(encoding="utf-8")
-        email = render_email_html(records, summaries_zh={it["id"]: it["notes_zh"] for it in records},
-                                  summaries_en={it["id"]: it["notes_en"] for it in records})
-        for index in range(1, 6):
-            note = f"论文{index}的独立解读"
-            self.assertIn(note, md)
-            self.assertIn(note, site)
-            self.assertIn(note, email)
+        email = render_email_html(records, lang=lang,
+                                  summaries_zh={it["id"]: it["notes_zh"] for it in records if "notes_zh" in it},
+                                  summaries_en={it["id"]: it["notes_en"] for it in records if "notes_en" in it})
+        if lang in ("zh", "both"):
+            for index in range(1, 6):
+                note = f"论文{index}的独立解读"
+                self.assertIn(note, md)
+                self.assertIn(note, site)
+                self.assertIn(note, email)
+        english_note = "87.5 versus 80.0"
+        if lang == "zh":
+            self.assertNotIn("notes_en", serialized)
+            for output in (md, site, email, serialized):
+                self.assertNotIn(english_note, output)
+            self.assertNotIn("### [English]", md)
+            self.assertNotIn("Paper notes /", site)
+            self.assertNotIn("Paper notes /", email)
+        else:
+            for output in (md, site, email, serialized):
+                self.assertIn(english_note, output)
+        if lang == "en":
+            self.assertNotIn("notes_zh", serialized)
         self.assertEqual(len(load_seen(self.state)), 5)
 
     @patch("arxiv_tracker.fulltext.load_paper_fulltext", side_effect=RuntimeError("Full text unavailable"))

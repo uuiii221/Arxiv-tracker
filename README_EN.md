@@ -26,9 +26,10 @@ Keyword alternatives are ORed. Required groups are ANDed with the original query
 
 Each selected paper gets its **own** detailed report; the five papers are not combined into a survey. The pipeline downloads the complete versioned arXiv PDF, extracts every page with pypdf, adds page markers, and passes the full extracted text to the model.
 
-One request per paper generates bilingual takeaways and detailed notes: problem, method and objective, contribution, experimental setup/baselines/results/ablations, evidence and limitations, and reproduction details. Claims and numbers cite PDF pages. Detailed notes appear in website, email, Markdown and JSON, together with source/page information.
+One request per paper generates Chinese takeaways and detailed notes by default: problem, method and objective, contribution, experimental setup/baselines/results/ablations, evidence and limitations, and reproduction details. Claims and numbers cite PDF pages. Detailed notes appear in website, email, Markdown and JSON, together with source/page information.
 
 ```yaml
+lang: "zh"
 summary:
   mode: "llm"
   source: "fulltext"
@@ -45,7 +46,9 @@ fulltext:
   max_extra_candidates: 5
 ```
 
-`max_tokens` is the initial output budget for each bilingual report. If the model returns `finish_reason: length`, retries double the budget: 12000, 24000, then 48000 by default, with at most three attempts and a `max_tokens_limit` cap. Exhausted retries fail visibly. Logs identify the paper and token budget, plus completion/reasoning token counts when provided. Successful reports normally require one request per paper.
+`lang: zh` requests only Chinese takeaways and notes and uses them across all outputs. Original English paper titles and abstracts remain source metadata. Explicitly use `--lang en` or `--lang both` for other output languages; bilingual mode still shares one request per paper.
+
+`max_tokens` is the initial output budget for each report. If the model returns `finish_reason: length`, retries double the budget: 12000, 24000, then 48000 by default, with at most three attempts and a `max_tokens_limit` cap. Exhausted retries fail visibly. Logs identify the paper and token budget, plus completion/reasoning token counts when provided. Successful reports normally require one request per paper.
 
 The default download limit is 128 MiB. Complete PDFs stream into temporary disk files, which are cleaned up after parsing. A failed or oversized paper stays unread and is recorded in `outputs/fulltext_failures.json`; later candidates are tried, up to 5 extra, to fill the requested batch. If fewer succeed, only those are delivered; if all fail, the run fails visibly. Set `fulltext.continue_on_error: false` to stop on the first failed paper. Text is never silently truncated or replaced by an abstract while claiming a full-paper report. Invalid page references and reports citing only page 1 are rejected. Increase limits according to the configured model's context capacity.
 

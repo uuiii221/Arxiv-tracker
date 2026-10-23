@@ -36,6 +36,19 @@ class _ResponseWithJson(_Response):
 
 
 class LlmRequestTests(unittest.TestCase):
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_chinese_digest_does_not_request_or_require_english(self, post):
+        post.return_value = _Response('{"digest_zh":"中文要点"}')
+        result = call_llm_bilingual_summary(
+            {"title": "Paper", "summary": "Abstract"},
+            base_url="https://maas.qianwenaiapi.com/compatible-mode/v1",
+            model="deepseek-v4.1-flash-1017", api_key="test-only", lang="zh",
+        )
+        self.assertEqual(result, {"digest_zh": "中文要点"})
+        prompt = post.call_args.kwargs["json"]["messages"][1]["content"]
+        self.assertIn("Simplified Chinese", prompt)
+        self.assertNotIn("digest_en", prompt)
+
     def truncated(self, content="partial", reasoning_tokens=0):
         return _ResponseWithJson({
             "choices": [{"finish_reason": "length", "message": {"content": content}}],
