@@ -6,11 +6,11 @@ Find arXiv papers, read their full text, and produce individual reading notes in
 
 ## Search
 
-The default topic is simply **semi-supervised AND segmentation**. There are no additional medical, boundary, dataset or method keywords. Project branding, email/site titles and assistant prompts remain generic.
+The default topic is **semi-supervised AND medical image segmentation**. Project branding, email/site titles and assistant prompts remain generic.
 
 ```yaml
 categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV"]
-keywords: ["segmentation"]
+keywords: ["medical image segmentation"]
 keyword_groups:
   - ["semi-supervised", "semisupervised"]
 exclude_keywords: []
@@ -55,6 +55,14 @@ The default download limit is 128 MiB. Complete PDFs stream into temporary disk 
 The standard dependencies include `fonttools` for pypdf to decode certain CFF Type1 font encodings. Reinstall `requirements.txt` after updating.
 
 This is PDF **text** extraction, not OCR or image/table understanding. Unreadable content must be identified rather than guessed. Original PDFs use temporary files and extracted text remains in memory; neither is published; generated notes and provenance are saved. Explicitly set `summary.source: abstract` to use the legacy abstract digest. `scope` accepts `tldr`, `full` or `both`.
+
+## Original method figures
+
+With `figures.enabled: true`, each detailed report can include one original method/framework diagram. The downloaded PDF is reused, caption candidates are matched, and vector graphics and labels are rendered together into PNG. Uncertain crop layouts use a clearly labelled image of the entire source page. Missing figures or extraction errors keep the text report and show a source-PDF notice; Figure 1 and result charts are not used as unconditional substitutes.
+
+Images are embedded as CID attachments in email and copied to the website, including archive pages. Each includes its figure number, PDF page, caption and source link. PNGs persist in `outputs/figures/` and `docs/assets/figures/`; the original PDF remains temporary. Defaults: `figures.width: 1400`, `figures.max_bytes: 1048576` (1 MiB per image). Email rejects inline images exceeding 8 MiB total. Disable with `figures.enabled: false`.
+
+The language model receives text and figure captions, not image pixels. Automatic matching/cropping can depend on layout. Actual QQ inbox rendering has not been tested.
 
 ## Model
 

@@ -273,10 +273,15 @@ def call_llm_full_paper_summary(item, *, base_url, model, api_key,
         "Place PDF page references such as [p. 3] beside substantive claims and experimental numbers. "
         "Page numbers must correspond to the supplied [Page N] markers. "
         "Each detailed report must reference pages beyond the first page when available. "
+        "If figure metadata is supplied, refer to its figure number and page in the method explanation. "
+        "Use only its caption and the paper text as evidence; the image itself is not a model input. "
         "Do not invent results, fill unreadable tables from memory, or claim to have interpreted images. "
         "Explicitly identify unreadable or missing information. Do not add HTML.\n\n"
     )
     metadata = {"title": item.get("title"), "abstract": item.get("summary"), "source": provenance}
+    if item.get("figures"):
+        metadata["figures"] = [{key: figure[key] for key in ("number", "page", "caption")}
+                               for figure in item["figures"]]
     messages = [
         {"role": "system", "content": prompt},
         {"role": "user", "content": instructions + "METADATA:\n" + json.dumps(metadata, ensure_ascii=False)

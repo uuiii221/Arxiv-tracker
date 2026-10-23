@@ -6,11 +6,11 @@
 
 ## 检索配置
 
-当前只用两个主题条件：**半监督 AND 分割**。不再附加医学场景、边界、数据集或具体方法等关键词，项目名称、邮件标题、网页标题和阅读助手提示词均保持通用。
+当前只用两个主题条件：**半监督 AND 医学图像分割**。项目名称、邮件标题、网页标题和阅读助手提示词均保持通用。
 
 ```yaml
 categories: ["cs.CV", "cs.LG", "cs.AI", "eess.IV"]
-keywords: ["segmentation"]
+keywords: ["medical image segmentation"]
 keyword_groups:
   - ["semi-supervised", "semisupervised"]
 exclude_keywords: []
@@ -21,6 +21,8 @@ sort_order: "descending"
 ```
 
 `keywords` 内部 OR；`keyword_groups` 每组内部 OR，组间及与原查询之间 AND。`semi-supervised` 自动包含 `semi supervised` 写法。当前从最近 365 天找到最多 5 篇未读论文，跳过已读条目后继续分页。首次回溯可增大 `freshness.since_days`。这是关键词检索，仍需阅读论文判断相关性。
+
+当前的 `medical image segmentation` 按完整词组检索。
 
 ## 全文解读
 
@@ -61,6 +63,21 @@ PDF 下载默认上限为 128 MiB，完整文件流式写入临时文件后解�
 当前读取的是 PDF 中可提取的文字；扫描件和图片型表格/示意图没有 OCR 或视觉解析，不会声称已经理解这些图像。解析信息不足时会报错，表格或公式无法辨认时要求模型明确说明。原始 PDF 使用本次运行的临时文件，提取的文字保存在内存中，不提交到公开站点或输出文件；保存来源信息和生成的阅读笔记。
 
 如确实只需要原来的摘要简述，可显式设置 `summary.source: abstract`。`scope: tldr/full/both` 控制要点和详细解读的输出。
+
+## 原论文流程图
+
+默认每篇解读附至多一张原论文的方法框架/流程图。下载完整 PDF 后复用同一个临时文件，按图注寻找 framework、pipeline、architecture 等候选，结合页面图形位置裁出原图；矢量图与文字一起渲染为 PNG。位置不明确时展示原图所在完整页面并注明，不会一律拿 Figure 1 或用结果图替代。没有可靠匹配、解析失败时保留文字解读并提示查看原文。
+
+```yaml
+figures:
+  enabled: true
+  width: 1400
+  max_bytes: 1048576
+```
+
+邮件在每篇详细解读中以 CID 内嵌图片，图片随邮件发送，不依赖外部图床；保留图号、PDF 页码、原始图注和来源链接。网页首页和历史页面也显示原图。PNG 保存于 `outputs/figures/`，网页副本在 `docs/assets/figures/`；原始 PDF 仍在解析后删除。每张默认最多 1 MiB，邮件内嵌图片总量超过 8 MiB 时明确报错。`figures.enabled: false` 可关闭。
+
+图像用于展示，模型仍依据正文和图注解读，不会声称理解图片中不可读的细节。自动图注匹配和裁图可能受 PDF 布局影响，必要时通过来源链接核对原图。未进行真实 QQ 收件客户端的显示测试。
 
 ## 模型接入
 

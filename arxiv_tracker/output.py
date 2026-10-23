@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, json, datetime
 from typing import List, Dict, Any, Optional
+from .figures import render_figures_markdown
 
 def _ensure_dir(p: str):
     os.makedirs(p, exist_ok=True)
@@ -89,6 +90,8 @@ def save_markdown(items: List[Dict[str, Any]], out_dir: str,
             lines.extend(_render_lang_block("中文", it, (summaries_zh or {}).get(sid), trans))
         if lang in ("en", "both"):
             lines.extend(_render_lang_block("English", it, (summaries_en or {}).get(sid), None))
+        if (summaries_zh or {}).get(sid, {}).get("full_md") or (summaries_en or {}).get(sid, {}).get("full_md"):
+            lines.extend(render_figures_markdown(it))
         lines.append("")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))

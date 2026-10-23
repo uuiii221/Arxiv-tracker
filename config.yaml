@@ -7,7 +7,7 @@ categories:
 keywords:
   - "medical image segmentation"
 
-# 仅限定：半监督 AND 分割；不额外限定应用领域或方法。
+# 仅限定：半监督 AND 医学图像分割。
 keyword_groups:
   - ["semi-supervised", "semisupervised"]  # 自动包含 semi supervised 写法
 
@@ -39,6 +39,11 @@ fulltext:
   max_chars: 200000    # 超限明确失败，不静默截断正文
   continue_on_error: true   # 单篇失败保留未读，继续处理后续候选
   max_extra_candidates: 5   # 最多额外尝试 5 篇，尽量补足 max_results
+
+figures:
+  enabled: true       # 每篇至多一张原论文方法框架/流程图
+  width: 1400         # PNG 渲染宽度；布局不明确时保留原图所在整页
+  max_bytes: 1048576  # 每张最多 1 MiB；未找到可靠图注时保留文字解读
 
 # —— 邮件发送（QQ 邮箱） ——
 email:

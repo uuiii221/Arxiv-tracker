@@ -2,6 +2,7 @@
 import html
 from typing import Dict, List, Any, Optional
 from .rendering import render_report
+from .figures import render_figures_html
 
 try:
     from markdown import markdown as _md
@@ -109,6 +110,7 @@ def _render_card(it: Dict[str, Any],
         if source:
             notes += (f'<p>来源：PDF 全文，共 {source["pages"]} 页；'
                       f'{source["text_pages"]} 页可提取文字</p>')
+        notes += render_figures_html(it)
         if full_zh:
             notes += render_report(full_zh)
         if full_en:
