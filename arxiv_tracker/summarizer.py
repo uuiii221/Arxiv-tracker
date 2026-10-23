@@ -127,7 +127,8 @@ def llm_two_stage(item: Dict[str, Any], lang: str, scope: str, cfg: Dict[str, An
     )
 
 def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: str, llm_cfg: Optional[Dict[str, Any]] = None,
-                            source: str = "abstract", summary_cfg: Optional[Dict[str, Any]] = None):
+                            source: str = "abstract", summary_cfg: Optional[Dict[str, Any]] = None,
+                            output_lang: str = "both"):
     """
     兼容旧接口名，但现在输出：
       {"digest_en": "...", "digest_zh": "...", "tldr": "", "full_md": ""}
@@ -143,7 +144,7 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
             if not item.get("_fulltext"):
                 raise RuntimeError("Full paper text is missing; cannot generate full-paper summary")
             options = summary_cfg or {}
-            cache_key = _summary_cache_key(item, cfg) + ("fulltext", str(options.get("max_tokens", 12000)),
+            cache_key = _summary_cache_key(item, cfg) + ("fulltext", output_lang, str(options.get("max_tokens", 12000)),
                                                         str(options.get("max_tokens_limit", 48000)))
             data = _BILINGUAL_SUMMARY_CACHE.get(cache_key)
             if data is None:
@@ -153,15 +154,16 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                     max_tokens=int(options.get("max_tokens", 12000)),
                     max_tokens_limit=int(options.get("max_tokens_limit", 48000)),
                     timeout=int(options.get("timeout", 180)),
+                    lang=output_lang,
                 )
                 _cache_bilingual_summary(cache_key, data)
-            return {"digest_en": data["digest_en"] if scope != "full" else "",
-                    "digest_zh": data["digest_zh"] if scope != "full" else "", "tldr": "",
+            return {"digest_en": data.get("digest_en", "") if scope != "full" else "",
+                    "digest_zh": data.get("digest_zh", "") if scope != "full" else "", "tldr": "",
                     "full_md": data["full_zh" if lang == "zh" else "full_en"] if scope != "tldr" else "",
                     "source": "fulltext"}
         api_key = (cfg.get("api_key") or os.getenv(cfg.get("api_key_env") or "OPENAI_API_KEY", ""))
         if api_key:
-            cache_key = _summary_cache_key(item, cfg)
+            cache_key = _summary_cache_key(item, cfg) + (output_lang,)
             try:
                 data = _BILINGUAL_SUMMARY_CACHE.get(cache_key)
                 if data is None:
@@ -171,7 +173,8 @@ def build_two_stage_summary(item: Dict[str, Any], mode: str, lang: str, scope: s
                         model=cfg.get("model", ""),
                         api_key=api_key,
                         system_prompt_zh=cfg.get("system_prompt_zh", ""),
-                        system_prompt_en=cfg.get("system_prompt_en", "")
+                        system_prompt_en=cfg.get("system_prompt_en", ""),
+                        lang=output_lang,
                     )
                     _cache_bilingual_summary(cache_key, data)
                 result = {"digest_en": data.get("digest_en",""), "digest_zh": data.get("digest_zh",""), "tldr":"", "full_md":""}

@@ -251,7 +251,7 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
             if items:
                 click.echo(f"[FullText] Ready: {len(items)}/{cfg.max_results} paper(s); skipped {len(failures)}")
 
-        # 每篇独立生成解读；中英文共用一次模型调用。
+        # 每篇独立生成所选语言的解读；双语模式共用一次模型调用。
         summaries_zh, summaries_en = {}, {}
         def _sum_for_lang(L):
             out = {}
@@ -260,7 +260,7 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
                 if L == "zh" or lang == "en":
                     click.echo(f"[Summary] Generating notes for {sid}")
                 out[sid] = build_two_stage_summary(item=it, mode=mode, lang=L, scope=scope, llm_cfg=llm_cfg,
-                                                  source=summary_source, summary_cfg=summary_cfg)
+                                                  source=summary_source, summary_cfg=summary_cfg, output_lang=lang)
                 if strict_llm and mode == "llm" and out[sid].get("_llm_failed"):
                     raise RuntimeError("LLM summary failed for {}; dedup state was not advanced".format(sid))
             return out
