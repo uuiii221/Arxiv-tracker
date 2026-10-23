@@ -2,6 +2,7 @@
 from hashlib import sha256
 from io import BytesIO
 import re
+from tempfile import TemporaryFile
 
 from pypdf import PdfReader
 import requests
@@ -22,10 +23,14 @@ def _pdf_url(item):
 
 
 def extract_pdf_text(data, *, max_pages=150, max_chars=200000):
-    if not data.startswith(b"%PDF-"):
+    source = BytesIO(data) if isinstance(data, bytes) else data
+    source.seek(0)
+    signature = source.read(5)
+    source.seek(0)
+    if signature != b"%PDF-":
         raise FullTextError("Full-text response is not a PDF")
     try:
-        reader = PdfReader(BytesIO(data))
+        reader = PdfReader(source)
         if reader.is_encrypted and not reader.decrypt(""):
             raise FullTextError("Cannot read encrypted PDF")
         page_count = len(reader.pages)
@@ -51,28 +56,35 @@ def extract_pdf_text(data, *, max_pages=150, max_chars=200000):
 def load_paper_fulltext(item, config=None):
     config = config or {}
     url = _pdf_url(item)
-    limit = int(config.get("max_bytes", 30 * 1024 * 1024))
+    limit = int(config.get("max_bytes", 128 * 1024 * 1024))
     timeout = int(config.get("timeout", 60))
     try:
         _wait_for_arxiv()
-        with requests.get(url, headers=HEADERS, timeout=(10, timeout), stream=True) as response:
-            response.raise_for_status()
-            size = response.headers.get("Content-Length")
-            if size and int(size) > limit:
-                raise FullTextError(f"Full PDF exceeds download limit ({limit} bytes)")
-            chunks, received = [], 0
-            for chunk in response.iter_content(chunk_size=64 * 1024):
-                received += len(chunk)
-                if received > limit:
-                    raise FullTextError(f"Full PDF exceeds download limit ({limit} bytes)")
-                chunks.append(chunk)
-            data = b"".join(chunks)
-        text, pages, text_pages = extract_pdf_text(
-            data, max_pages=int(config.get("max_pages", 150)),
-            max_chars=int(config.get("max_chars", 200000)),
-        )
+        # Keep large PDF bytes on disk instead of assembling several copies in RAM.
+        digest, received = sha256(), 0
+        with TemporaryFile(mode="w+b") as pdf:
+            with requests.get(url, headers=HEADERS, timeout=(10, timeout), stream=True) as response:
+                response.raise_for_status()
+                size = response.headers.get("Content-Length")
+                if size and int(size) > limit:
+                    raise FullTextError(
+                        f"Full PDF is {int(size) / 1048576:.1f} MiB; download limit is "
+                        f"{limit / 1048576:.1f} MiB ({limit} bytes). Increase fulltext.max_bytes."
+                    )
+                for chunk in response.iter_content(chunk_size=64 * 1024):
+                    received += len(chunk)
+                    if received > limit:
+                        raise FullTextError(
+                            f"Full PDF exceeds download limit ({limit} bytes). Increase fulltext.max_bytes."
+                        )
+                    pdf.write(chunk)
+                    digest.update(chunk)
+            text, pages, text_pages = extract_pdf_text(
+                pdf, max_pages=int(config.get("max_pages", 150)),
+                max_chars=int(config.get("max_chars", 200000)),
+            )
         return text, {"url": url, "format": "pdf", "pages": pages, "text_pages": text_pages,
-                      "characters": len(text), "sha256": sha256(data).hexdigest()}
+                      "characters": len(text), "bytes": received, "sha256": digest.hexdigest()}
     except FullTextError:
         raise
     except Exception as exc:

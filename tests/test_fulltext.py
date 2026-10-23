@@ -39,6 +39,14 @@ class FullTextTests(unittest.TestCase):
         self.assertIn("[Page 3]", text)
         self.assertIn("LAST-PAGE-EXPERIMENT", text)
 
+    def test_extracts_from_seekable_disk_file_without_reloading_bytes(self):
+        from tempfile import TemporaryFile
+        with TemporaryFile(mode="w+b") as source:
+            source.write(make_pdf())
+            text, pages, text_pages = extract_pdf_text(source)
+        self.assertIn("LAST-PAGE-EXPERIMENT", text)
+        self.assertEqual((pages, text_pages), (3, 3))
+
     def test_excessive_length_is_rejected_instead_of_truncated(self):
         with self.assertRaisesRegex(FullTextError, "instead of truncating"):
             extract_pdf_text(make_pdf(), max_chars=100)
@@ -79,6 +87,39 @@ class FullTextTests(unittest.TestCase):
         get.return_value.__enter__.return_value = response
         with self.assertRaisesRegex(FullTextError, "download limit"):
             load_paper_fulltext({"id": "2601.00001v1"}, {"max_bytes": 10})
+
+    @patch("arxiv_tracker.fulltext._wait_for_arxiv")
+    @patch("arxiv_tracker.fulltext.requests.get")
+    def test_default_limit_accepts_reported_46965660_byte_paper(self, get, wait):
+        # Reproduce the exact Content-Length that stopped the user's workflow.
+        pdf = make_pdf()
+        response = MagicMock(headers={"Content-Length": "46965660"})
+        response.iter_content.return_value = [pdf]
+        get.return_value.__enter__.return_value = response
+        text, info = load_paper_fulltext({"id": "2610.31065v1"})
+        self.assertIn("LAST-PAGE-EXPERIMENT", text)
+        self.assertEqual(info["bytes"], len(pdf))
+
+    @patch("arxiv_tracker.fulltext._wait_for_arxiv")
+    @patch("arxiv_tracker.fulltext.requests.get")
+    def test_advertised_limit_error_shows_size_and_config_key(self, get, wait):
+        response = MagicMock(headers={"Content-Length": "46965660"})
+        get.return_value.__enter__.return_value = response
+        with self.assertRaisesRegex(FullTextError, r"44\.8 MiB.*fulltext.max_bytes"):
+            load_paper_fulltext({"id": "2610.31065v1"}, {"max_bytes": 30 * 1024 * 1024})
+        response.iter_content.assert_not_called()
+
+    @patch("arxiv_tracker.fulltext._wait_for_arxiv")
+    @patch("arxiv_tracker.fulltext.requests.get")
+    @patch("arxiv_tracker.fulltext.extract_pdf_text", side_effect=FullTextError("Cannot parse"))
+    @patch("arxiv_tracker.fulltext.TemporaryFile")
+    def test_download_temp_file_is_closed_when_parsing_fails(self, temporary, parse, get, wait):
+        response = MagicMock(headers={})
+        response.iter_content.return_value = [b"%PDF-test"]
+        get.return_value.__enter__.return_value = response
+        with self.assertRaisesRegex(FullTextError, "Cannot parse"):
+            load_paper_fulltext({"id": "2610.31065v1"})
+        temporary.return_value.__exit__.assert_called_once()
 
     @patch("arxiv_tracker.fulltext.requests.get")
     def test_invalid_identifier_does_not_fetch_arbitrary_url(self, get):

@@ -20,7 +20,7 @@ sort_by: "lastUpdatedDate"
 sort_order: "descending"
 ```
 
-Keyword alternatives are ORed. Required groups are ANDed with the original query. Hyphen/space variants are expanded. The default rolling window is 7 days, with up to 5 unseen papers per run and pagination past seen results.
+Keyword alternatives are ORed. Required groups are ANDed with the original query. Hyphen/space variants are expanded. The current rolling window is 365 days, with up to 5 unseen papers per run and pagination past seen results.
 
 ## Read full papers
 
@@ -37,14 +37,16 @@ summary:
   timeout: 120
 fulltext:
   timeout: 60
-  max_bytes: 31457280
+  max_bytes: 134217728
   max_pages: 150
   max_chars: 200000
+  continue_on_error: true
+  max_extra_candidates: 5
 ```
 
-Download/parsing failures, insufficient extractable text and exceeded limits fail visibly without consuming seen state. Text is never silently truncated or replaced by an abstract while claiming a full-paper report. Invalid page references and reports citing only page 1 are rejected. Increase limits according to the configured model's context capacity.
+The default download limit is 128 MiB. Complete PDFs stream into temporary disk files, which are cleaned up after parsing. A failed or oversized paper stays unread and is recorded in `outputs/fulltext_failures.json`; later candidates are tried, up to 5 extra, to fill the requested batch. If fewer succeed, only those are delivered; if all fail, the run fails visibly. Set `fulltext.continue_on_error: false` to stop on the first failed paper. Text is never silently truncated or replaced by an abstract while claiming a full-paper report. Invalid page references and reports citing only page 1 are rejected. Increase limits according to the configured model's context capacity.
 
-This is PDF **text** extraction, not OCR or image/table understanding. Unreadable content must be identified rather than guessed. Original PDFs and extracted paper text remain in memory and are not published; generated notes and provenance are saved. Explicitly set `summary.source: abstract` to use the legacy abstract digest. `scope` accepts `tldr`, `full` or `both`.
+This is PDF **text** extraction, not OCR or image/table understanding. Unreadable content must be identified rather than guessed. Original PDFs use temporary files and extracted text remains in memory; neither is published; generated notes and provenance are saved. Explicitly set `summary.source: abstract` to use the legacy abstract digest. `scope` accepts `tldr`, `full` or `both`.
 
 ## Model
 
@@ -53,7 +55,7 @@ The API entry point remains the Qwen platform / Model Studio compatible endpoint
 ```yaml
 llm:
   provider: "dashscope"
-  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  base_url: "https://maas.qianwenaiapi.com/compatible-mode/v1"
   model: "deepseek-v4.1-flash-1017"
   api_key_env: "DASHSCOPE_API_KEY"
   fail_on_error: true
