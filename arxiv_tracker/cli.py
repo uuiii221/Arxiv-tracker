@@ -257,6 +257,8 @@ def run(config_path, categories, keywords, exclude_keywords, logic, max_results,
             out = {}
             for it in items:
                 sid = it.get("id") or ""
+                if L == "zh" or lang == "en":
+                    click.echo(f"[Summary] Generating notes for {sid}")
                 out[sid] = build_two_stage_summary(item=it, mode=mode, lang=L, scope=scope, llm_cfg=llm_cfg,
                                                   source=summary_source, summary_cfg=summary_cfg)
                 if strict_llm and mode == "llm" and out[sid].get("_llm_failed"):

@@ -3,7 +3,8 @@ from unittest.mock import patch
 
 import requests
 
-from arxiv_tracker.llm import _json_loose, _normalize_chat_endpoint, call_llm_bilingual_summary, call_llm_translate
+from arxiv_tracker.llm import (_json_loose, _normalize_chat_endpoint, _chat_completions_request,
+                               call_llm_bilingual_summary, call_llm_translate, LLMOutputTruncatedError)
 
 
 class _Response:
@@ -35,6 +36,83 @@ class _ResponseWithJson(_Response):
 
 
 class LlmRequestTests(unittest.TestCase):
+    def truncated(self, content="partial", reasoning_tokens=0):
+        return _ResponseWithJson({
+            "choices": [{"finish_reason": "length", "message": {"content": content}}],
+            "usage": {"completion_tokens": 7000, "completion_tokens_details": {"reasoning_tokens": reasoning_tokens}},
+        })
+
+    def chat(self, **options):
+        return _chat_completions_request(
+            base_url="https://maas.qianwenaiapi.com/compatible-mode/v1",
+            api_key="test-only", model="deepseek-v4.1-flash-1017",
+            messages=[{"role": "user", "content": "Return JSON"}],
+            max_tokens=7000, json_object=True, disable_thinking=True,
+            required_json_fields=["digest_en", "digest_zh"], **options,
+        )
+
+    @patch("arxiv_tracker.llm.time.sleep")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_truncation_retries_with_larger_budget_instead_of_same_request(self, post, sleep):
+        post.side_effect = [self.truncated(), self.truncated(), _Response('{"digest_en":"English","digest_zh":"中文"}')]
+        with self.assertLogs("arxiv_tracker.llm", level="WARNING") as logs:
+            result = self.chat()
+        self.assertIn("English", result)
+        self.assertEqual([call.kwargs["json"]["max_tokens"] for call in post.call_args_list], [7000, 14000, 28000])
+        self.assertIn("max_tokens=14000", "\n".join(logs.output))
+        self.assertIn("completion_tokens=7000", "\n".join(logs.output))
+
+    @patch("arxiv_tracker.llm.time.sleep")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_truncation_respects_configured_budget_cap(self, post, sleep):
+        post.return_value = self.truncated()
+        with self.assertRaisesRegex(LLMOutputTruncatedError, "max_tokens=10000"):
+            self.chat(max_tokens_limit=10000)
+        self.assertEqual([call.kwargs["json"]["max_tokens"] for call in post.call_args_list], [7000, 10000])
+
+    @patch("arxiv_tracker.llm.time.sleep")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_truncation_stops_after_three_attempts_even_with_more_budget(self, post, sleep):
+        post.return_value = self.truncated()
+        with self.assertRaises(LLMOutputTruncatedError):
+            self.chat(max_tokens_limit=56000)
+        self.assertEqual(post.call_count, 3)
+
+    @patch("arxiv_tracker.llm.time.sleep")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_reasoning_only_truncation_is_logged_without_chain_of_thought_or_key(self, post, sleep):
+        response = self.truncated("", reasoning_tokens=7000)
+        response._data["choices"][0]["message"]["reasoning_content"] = "private reasoning text"
+        post.side_effect = [response, _Response('{"digest_en":"English","digest_zh":"中文"}')]
+        with self.assertLogs("arxiv_tracker.llm", level="WARNING") as logs:
+            self.chat()
+        logged = "\n".join(logs.output)
+        self.assertIn("reasoning_tokens=7000", logged)
+        self.assertIn("content_chars=0", logged)
+        self.assertNotIn("private reasoning text", logged)
+        self.assertNotIn("test-only", logged)
+
+    @patch("arxiv_tracker.llm.time.sleep")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_complete_json_with_length_finish_is_still_retried(self, post, sleep):
+        content = '{"digest_en":"English","digest_zh":"中文"}'
+        post.side_effect = [self.truncated(content), _Response(content)]
+        self.chat()
+        self.assertEqual(post.call_count, 2)
+
+    @patch("arxiv_tracker.llm.time.sleep")
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_malformed_json_retry_keeps_budget_unchanged(self, post, sleep):
+        post.side_effect = [_Response("not json"), _Response('{"digest_en":"English","digest_zh":"中文"}')]
+        self.chat()
+        self.assertEqual([call.kwargs["json"]["max_tokens"] for call in post.call_args_list], [7000, 7000])
+
+    @patch("arxiv_tracker.llm.requests.post")
+    def test_invalid_output_cap_fails_before_network_request(self, post):
+        with self.assertRaisesRegex(ValueError, "max_tokens_limit"):
+            self.chat(max_tokens_limit=1000)
+        post.assert_not_called()
+
     @patch("arxiv_tracker.llm.requests.post")
     def test_deepseek_flash_disables_thinking(self, post):
         post.return_value = _Response('{"digest_en":"English","digest_zh":"中文"}')

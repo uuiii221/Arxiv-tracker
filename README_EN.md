@@ -33,8 +33,9 @@ summary:
   mode: "llm"
   source: "fulltext"
   scope: "both"
-  max_tokens: 7000
-  timeout: 120
+  max_tokens: 12000
+  max_tokens_limit: 48000
+  timeout: 180
 fulltext:
   timeout: 60
   max_bytes: 134217728
@@ -44,7 +45,11 @@ fulltext:
   max_extra_candidates: 5
 ```
 
+`max_tokens` is the initial output budget for each bilingual report. If the model returns `finish_reason: length`, retries double the budget: 12000, 24000, then 48000 by default, with at most three attempts and a `max_tokens_limit` cap. Exhausted retries fail visibly. Logs identify the paper and token budget, plus completion/reasoning token counts when provided. Successful reports normally require one request per paper.
+
 The default download limit is 128 MiB. Complete PDFs stream into temporary disk files, which are cleaned up after parsing. A failed or oversized paper stays unread and is recorded in `outputs/fulltext_failures.json`; later candidates are tried, up to 5 extra, to fill the requested batch. If fewer succeed, only those are delivered; if all fail, the run fails visibly. Set `fulltext.continue_on_error: false` to stop on the first failed paper. Text is never silently truncated or replaced by an abstract while claiming a full-paper report. Invalid page references and reports citing only page 1 are rejected. Increase limits according to the configured model's context capacity.
+
+The standard dependencies include `fonttools` for pypdf to decode certain CFF Type1 font encodings. Reinstall `requirements.txt` after updating.
 
 This is PDF **text** extraction, not OCR or image/table understanding. Unreadable content must be identified rather than guessed. Original PDFs use temporary files and extracted text remains in memory; neither is published; generated notes and provenance are saved. Explicitly set `summary.source: abstract` to use the legacy abstract digest. `scope` accepts `tldr`, `full` or `both`.
 
