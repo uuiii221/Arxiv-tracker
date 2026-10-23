@@ -54,7 +54,7 @@ email:
 # —— 千问平台 / 百炼入口，实际调用 DeepSeek ——
 llm:
   provider: "dashscope"
-  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  base_url: "https://maas.qianwenaiapi.com/compatible-mode/v1"
   # 也可改为 https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
   # 国际站使用与 API Key 地域一致的 endpoint；不要使用千问聊天网页地址。
   model: "deepseek-v4.1-flash-1017"
@@ -85,7 +85,7 @@ site:
   accent: "#2563eb"     # 主题色（可自定义）
 
 freshness:
-  since_days: 7             # 滚动一周，覆盖周末/短暂失败；首次回溯可临时增大
+  since_days: 365             # 滚动一周，覆盖周末/短暂失败；首次回溯可临时增大
   unique_only: true       # 开启跨天去重（见过的 arXiv ID 不再重复发）
   state_path: ".state/seen.json"
   fallback_when_empty: false # 当今天无新增时，是否回退展示最近的Top若干（建议false）
