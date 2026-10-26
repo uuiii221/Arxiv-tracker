@@ -105,7 +105,11 @@ llm:
 3. 在 **Settings → Pages** 选择 **Deploy from a branch**，分支 `main`、目录 `/docs`；允许 Actions 写入仓库。
 4. 手动运行 **arxiv-digest**。默认 `send_email=false`：生成网页/文件，不发邮件、不推进未读状态。正式推送选 `true`。
 
-每日任务计划在北京时间 **03:00** 运行，平台可能延迟调度。只保留 `digest.yml` 一个每日任务；同组任务排队，成功后提交网页、输出和状态。原来的 `arxiv_daily.yml` 现在是无外部请求的 **tests** 工作流。没有新论文时不发空邮件。
+每日任务计划在北京时间 **03:17** 运行，避开整点高峰。只保留 `digest.yml` 一个每日任务；同组任务排队，成功后提交网页、输出和状态。原来的 `arxiv_daily.yml` 现在是无外部请求的 **tests** 工作流。没有新论文时不发空邮件。
+
+GitHub 定时调度可能延迟或在高负载时丢弃，修改分钟数只能降低风险，不能保证每天准点运行（[官方说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)）。Actions 中查看 **arxiv-digest**，通过 `schedule` / `workflow_dispatch` 区分自动和手动运行；运行 Summary 会记录触发来源、北京时间和手动发信选项。没有运行记录表示尚未触发；红色失败表示已触发但执行失败，两者处理方式不同。
+
+暂停后恢复：进入 Actions → arxiv-digest → **Enable workflow**。若已启用但当天缺少自动记录，可手动 **Run workflow**；需要正式推送时选 `send_email=true`，预览选 `false`。成功日志中的 `[Email] Sent` 表示 SMTP 发信步骤完成，收件情况仍以邮箱为准。
 
 ## 本地运行
 

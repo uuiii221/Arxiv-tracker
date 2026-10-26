@@ -98,7 +98,9 @@ On macOS/Linux use `source .venv/bin/activate` and `export DASHSCOPE_API_KEY="..
 
 For GitHub Actions add Secret `DASHSCOPE_API_KEY`, optionally Secret `SMTP_PASS` and Variables/Secrets `EMAIL_TO`, `EMAIL_SENDER`, `SMTP_USER`. Enable Pages from `main` / `/docs` and repository writes for Actions.
 
-The only scheduled workflow, **arxiv-digest**, runs at 03:00 Asia/Shanghai, subject to GitHub delays. Runs queue. Manual `send_email=false` generates files/site without email or seen-state updates. The former `arxiv_daily.yml` is now **tests** on push/PR. Empty results send no email.
+The only scheduled workflow, **arxiv-digest**, targets 03:17 Asia/Shanghai, avoiding the busy start of the hour. GitHub can delay or drop scheduled runs under high load; changing the minute reduces risk but cannot guarantee daily execution ([official schedule documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)). Runs queue. Manual `send_email=false` generates files/site without email or seen-state updates. The former `arxiv_daily.yml` is now **tests** on push/PR. Empty results send no email.
+
+In Actions, inspect **arxiv-digest** and distinguish `schedule` from `workflow_dispatch`. Each run's Summary records its trigger, start time in Asia/Shanghai, and manual email option. No run means no recorded trigger; a failed run means execution started and failed. Re-enable a paused workflow using **Enable workflow**. If enabled but today's scheduled run is missing, use **Run workflow**, selecting `send_email=true` for delivery or `false` for preview. `[Email] Sent` confirms the SMTP step completed, not receipt in the inbox.
 
 Optional foreground scheduler, using the machine timezone:
 

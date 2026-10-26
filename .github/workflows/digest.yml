@@ -10,7 +10,7 @@ on:
         type: choice
         options: ["false", "true"]
   schedule:
-    - cron: "0 19 * * *"  # 03:00 Asia/Shanghai the next day
+    - cron: "17 19 * * *"  # 03:17 Asia/Shanghai the next day; avoid the busy start of the hour
 
 # Queue runs: never cancel a job between sending mail and persisting state.
 concurrency:
@@ -26,6 +26,22 @@ jobs:
     env:
       TZ: Asia/Shanghai
     steps:
+      - name: Record invocation details
+        env:
+          RUN_EVENT: ${{ github.event_name }}
+          RUN_SCHEDULE: ${{ github.event.schedule || 'manual' }}
+          MANUAL_SEND_EMAIL: ${{ inputs.send_email || 'false' }}
+        shell: bash
+        run: |
+          {
+            printf '### arxiv-digest invocation\n\n'
+            printf -- '- Started (Asia/Shanghai): `%s`\n' "$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')"
+            printf -- '- Trigger: `%s`\n' "$RUN_EVENT"
+            printf -- '- Schedule expression (UTC): `%s`\n' "$RUN_SCHEDULE"
+            printf -- '- Daily target: 03:17 Asia/Shanghai; GitHub may delay scheduled runs.\n'
+            printf -- '- Manual send_email input: `%s` (scheduled runs use the email config).\n' "$MANUAL_SEND_EMAIL"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Checkout latest state on the triggering branch
         uses: actions/checkout@v4
         with:
