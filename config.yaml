@@ -93,7 +93,7 @@ site:
   accent: "#2563eb"     # 主题色（可自定义）
 
 freshness:
-  since_days: 365           # 按当前配置回溯最近 365 天
+  since_days: 1000           # 按当前配置回溯最近 365 天
   unique_only: true       # 开启跨天去重（见过的 arXiv ID 不再重复发）
   state_path: ".state/seen.json"
   fallback_when_empty: false # 当今天无新增时，是否回退展示最近的Top若干（建议false）
