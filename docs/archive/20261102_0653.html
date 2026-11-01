@@ -1,0 +1,855 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-11-02 06:53</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261102_0653</div>
+    <div class="row"><div class="card">
+<div class="title">Leveraging Information Divergence for Robust Semi-Supervised Fetal Ultrasound Image Segmentation</div>
+<div class="meta-line">Authors: Fangyijie Wang, Guénolé Silvestre, Kathleen M. Curran</div>
+<div class="meta-line">First: 2025-09-08T09:55:46+00:00 · Latest: 2025-09-08T09:55:46+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2509.06495v1">Abs</a> · <a href="https://arxiv.org/pdf/2509.06495v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Maternal-fetal Ultrasound is the primary modality for monitoring fetal development, yet automated segmentation remains challenging due to the scarcity of high-quality annotations. To address this limitation, we propose a semi-supervised learning framework that leverages information divergence for robust fetal ultrasound segmentation. Our method employs a lightweight convolutional network (1.47M parameters) and a Transformer-based network, trained jointly with labelled data through standard supervision and with unlabelled data via cross-supervision. To encourage consistent and confident predictions, we introduce an information divergence loss that combines per-pixel Kullback-Leibler divergence and Mutual Information Gap, effectively reducing prediction disagreement between the two models. In addition, we apply mixup on unlabelled samples to further enhance robustness. Experiments on two fetal ultrasound datasets demonstrate that our approach consistently outperforms seven state-of-the-art semi-supervised methods. When only 5% of training data is labelled, our framework improves the Dice score by 2.39%, reduces the 95% Hausdorff distance by 14.90, and decreases the Average Surface Distance by 4.18. These results highlight the effectiveness of leveraging information divergence for annotation-efficient and robust medical image segmentation. Our code is publicly available on GitHub.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>利用信息差异实现稳健的半监督胎儿超声图像分割</div>
+<div class="mono" style="margin-top:8px">母胎超声是监测胎儿发育的主要方式，但由于高质量标注稀缺，自动分割仍具挑战性。为解决这一限制，我们提出一种利用信息差异的半监督学习框架，用于稳健的胎儿超声分割。我们的方法采用轻量级卷积网络（1.47M参数）和基于Transformer的网络，通过标准监督使用有标注数据、通过交叉监督使用无标注数据进行联合训练。为促进一致且置信的预测，我们引入信息差异损失，结合逐像素Kullback-Leibler散度和互信息差，有效减少两个模型之间的预测分歧。此外，我们对无标注样本应用mixup以进一步增强稳健性。在两个胎儿超声数据集上的实验表明，我们的方法始终优于七种最先进的半监督方法。当仅5%的训练数据有标注时，我们的框架将Dice分数提高2.39%，将95% Hausdorff距离降低14.90，并将平均表面距离降低4.18。这些结果凸显了利用信息差异实现标注高效且稳健的医学图像分割的有效性。我们的代码已在GitHub上公开。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出PCCL半监督分割框架，联合轻量CNN（UNeXt，1.47M参数）与Transformer（Swin-Unet）进行交叉监督，并引入像素级KL散度与类别级互信息差（MIG）组成的MAC损失，以及基于mixup的插值一致性学习。在HC18和F-Abd两个胎儿超声数据集上，仅用5%标注数据时，PCCL在HC18上DSC达94.34%、HD95为24.44、ASD为8.50，优于七个半监督基线，并超过全监督UNeXt；在F-Abd上DSC为66.68，仍低于全监督Swin-Unet（93.09）。消融显示三项损失组合最优。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 5 页；5 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>胎儿超声是产前评估的主要模态，但像素级标注需要临床专家，成本高、耗时长，导致高质量标注稀缺 [p. 1]。现有深度学习分割方法多依赖大量标注；半监督学习（SSL）在胎儿超声领域研究仍不充分，尤其缺乏面向轻量模型、在极少标注下保持鲁棒性的方案 [p. 1]。作者因此提出PCCL（Pixel-level and Class-level Consistency Learning），目标是在仅5%训练数据有标注时，让轻量CNN获得接近甚至超过较大Transformer全监督模型的性能 [p. 1][p. 3]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 双网络与预训练设置</h3>
+<p>框架包含两个分割网络：轻量CNN f1θ(·) 采用UNeXt设计，编码通道为{32,64,128,160,256}；Transformer f2ϕ(·) 采用tiny Swin-Unet，输入448×448，shifted window size为7，编码特征维度[96,192,384]，瓶颈768，并使用预训练权重初始化 [p. 2]。表1给出模型规模：Swin-Unet 27.15M参数、71.17 GFLOPs；UNeXt 1.47M参数、7.03 GFLOPs [p. 2]。图1展示了PCCL整体流程（Swin-Unet与UNeXt的交叉监督）[p. 2]。</p>
+<h3>2.2 交叉监督</h3>
+<p>对无标注数据 X_UL，两网络分别预测 f1θ(X_UL) 与 f2ϕ(X_UL)，经one-hot函数 f_OH 生成伪标签 Ỹ1、Ỹ2。关键设计是伪标签不回传梯度到生成它的网络：f1θ 的伪标签来自 f2ϕ，反之亦然 [p. 2]。半监督损失为：</p>
+<p>L1semi = H(f1θ(X_UL), Ỹ2) + D(f1θ(X_UL), Ỹ2)
+L2semi = H(f2ϕ(X_UL), Ỹ1) + D(f2ϕ(X_UL), Ỹ1)</p>
+<p>其中 H 为交叉熵，D 为Dice损失 [p. 2]。Transformer f2ϕ 仅用于辅助训练，不用于最终推理 [p. 2]。</p>
+<h3>2.3 插值一致性学习</h3>
+<p>对无标注样本做mixup：X̂_UL = Mix(X_iUL, X_jUL)，组合比例σ=0.5，i+j等于无标注批大小 B_UL。使用参数为ϕ的EMA教师 f_emaϕ*，约束学生预测与教师对插值输入的预测一致：</p>
+<p>L_con = Σ (f2ϕ(X̂_UL) − Mix(f_emaϕ<em>(X_iUL), f_emaϕ</em>(X_jUL)))² [p. 3]。</p>
+<h3>2.4 互一致损失（MAC）</h3>
+<p>L_mac 同时约束像素级与类别结构一致性，由两项组成：逐像素KL散度，用于缩小两网络在每个空间点上的概率分布差异；互信息差（MIG）损失，用于衡量类间相似性与像素置信度之间的差异，从而对齐全局类别结构 [p. 3]。公式为：</p>
+<p>L_mac = KL(S(f1θ(X_L+X_UL)), S(f2ϕ(X_L+X_UL))) + MIG(S(f1θ(X_L+X_UL)), S(f2ϕ(X_L+X_UL)))</p>
+<p>其中 S(·) 为softmax [p. 3]。</p>
+<h3>2.5 总目标</h3>
+<p>L_total = (L1sup+L2sup) + λ(L1semi+L2semi) + τL_con + βL_mac，其中 λ=5.0、τ=1.0、β=10.0；监督损失 L1sup、L2sup 均为交叉熵与Dice之和 [p. 3]。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有三点：(1) 提出整合伪标签学习、互一致与插值一致性正则的新SSL框架；(2) 显著提升无标注数据在胎儿超声半监督分割中的利用率；(3) 在胎儿头围与腹围超声上优于七个现有半监督方法 [p. 1]。我的解读是：核心新颖点在于将像素级KL与类别级MIG组合成MAC损失，并与CNN-Transformer交叉监督、mixup一致性联合；交叉监督与mean-teacher本身并非新提出，作者也明确借鉴了Deep Co-Training、CPS与ICT [p. 2][p. 3]。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据与设置</h3>
+<p>使用HC18（999张胎儿头部超声，GE设备，荷兰采集）与F-Abd（187例、2141张腹部超声，低成本便携探头、智能手机连接，低收入国家采集）[p. 3]。两数据集均排除多胎、先天畸形与染色体异常病例，ROI由人工标注 [p. 3]。按50:50划分训练/测试：HC18训练500、验证50、测试449；F-Abd训练1084（其中94张有标注）、验证135（17）、测试906（76）[p. 3]。半监督实验仅用5%标注：HC18为25张标注/475张无标注，F-Abd为29/1055 [p. 4]。图像统一转为RGB并缩放至448×448 [p. 3]。标注数据增强包括旋转(−20°,20°)概率0.5、随机亮度对比度0.5、随机模糊0.3、高斯噪声0.3 [p. 3]。</p>
+<p>训练400 epoch，标注批大小1、无标注批大小4，SGD初始学习率0.01、动量0.9、权重衰减0.0001，单张NVIDIA RTX 4090，PyTorch 2.1.2、CUDA 12.2、Python 3.11.5 [p. 3]。每epoch在验证集评估，保存UNeXt验证最优权重；相同设置直接用于所有基线 [p. 3]。评价指标为Dice（DSC）、95% Hausdorff距离（HD95）与平均表面距离（ASD）[p. 4]。</p>
+<h3>4.2 主要结果</h3>
+<p>HC18（5%标注）上，PCCL的DSC为94.34、HD95为24.44、ASD为8.50；最强基线PCPCS为92.26/41.70/14.10，CPS为91.35/45.49/15.75，CTCT为91.50/44.18/15.22 [p. 4]。作者报告PCCL相对基线提升DSC 2.41%、降低HD95 7.49、降低ASD 2.21 [p. 4]。PCCL也超过全监督UNeXt（93.37/39.22/13.43），但低于全监督Swin-Unet（96.94/9.80/3.95）[p. 4]。</p>
+<p>F-Abd（5%标注）上，PCCL为66.68/74.82/35.29，优于所有半监督基线（如CPS 64.71/101.26/43.11、CTCT 64.15/98.93/42.34、PCPCS 63.99/87.35/38.05），但明显低于全监督Swin-Unet（93.09/15.80/6.34）与全监督UNeXt（88.07/45.68/15.43）[p. 4]。作者将差距归因于仅5例标注及低成本探头图像噪声大、用户间差异大 [p. 4]。</p>
+<p>图2对PCCL与GT及前两名半监督方法做定性比较，作者称PCCL在头围与腹围ROI上预测更可靠 [p. 4]。注意：图2为图像，正文未给出逐例数值，无法从文本独立核验其视觉结论。</p>
+<h3>4.3 消融</h3>
+<p>HC18、5%标注下：仅L_semi为91.40/44.88/15.59；加L_con为92.74/34.38/12.10；加L_mac（不含L_con）为93.82/27.68/9.48；三者全用为94.34/24.44/8.50 [p. 4]。该消融支持L_semi、L_con、L_mac各自带来增益且组合最优，但未报告各损失权重的敏感性分析。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在HC18与F-Abd的5%标注设定下，PCCL相对七个半监督基线取得最高DSC与最低HD95/ASD；在HC18上甚至超过全监督UNeXt，说明无标注数据被有效利用 [p. 4]。消融提供了三项损失互补的证据 [p. 4]。</p>
+<p>局限与缺失证据：F-Abd上半监督与全监督差距仍大，作者仅作定性归因，未做控制实验（如增加标注比例）验证 [p. 4]。未报告不同标注预算（如10%、20%）下的结果，也未报告多次运行的均值/方差或统计显著性。未说明MIG的具体实现细节与超参数敏感性。未报告推理时间或轻量模型部署收益的量化结果。表3中部分行列排版在文本中较拥挤，但关键数字可辨认；图2的视觉结论无法从文本独立验证。</p>
+<h2>6. 复现</h2>
+<p>已报告：UNeXt通道{32,64,128,160,256}；Swin-Unet tiny、输入448×448、window 7、编码维度[96,192,384]、瓶颈768、预训练权重 [p. 2]；损失权重λ=5.0、τ=1.0、β=10.0 [p. 3]；400 epoch、标注批1/无标注批4、SGD lr=0.01、动量0.9、权重衰减0.0001、RTX 4090、PyTorch 2.1.2/CUDA 12.2 [p. 3]；数据划分与5%标注数量见表2/表3 [p. 3][p. 4]；mixup比例σ=0.5 [p. 3]；EMA衰减率未在正文报告。未报告：MIG的具体计算实现、KL/MIG在L_mac中的内部加权、学习率调度策略、随机种子与重复次数、推理阶段是否只用UNeXt（正文称Transformer仅辅助训练，但未明确最终推理是否仅用f1θ）[p. 2]。代码称已在GitHub公开，但正文未给出链接 [p. 1]。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Hessian-Based Lightweight Neural Network HessNet for State-of-the-Art Brain Vessel Segmentation on a Minimal Training Dataset</div>
+<div class="meta-line">Authors: Alexandra Bernadotte, Elfimov Nikita, Mikhail Shutov, Ivan Menshikov</div>
+<div class="meta-line">First: 2025-08-21T15:45:19+00:00 · Latest: 2025-09-06T14:12:00+00:00</div>
+<div class="meta-line">Comments: 11 pages, 2 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2508.15660v3">Abs</a> · <a href="https://arxiv.org/pdf/2508.15660v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/fepegar/torchio">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Accurate segmentation of blood vessels in brain magnetic resonance angiography (MRA) is essential for successful surgical procedures, such as aneurysm repair or bypass surgery. Currently, annotation is primarily performed through manual segmentation or classical methods, such as the Frangi filter, which often lack sufficient accuracy. Neural networks have emerged as powerful tools for medical image segmentation, but their development depends on well-annotated training datasets. However, there is a notable lack of publicly available MRA datasets with detailed brain vessel annotations. To address this gap, we propose a novel semi-supervised learning lightweight neural network with Hessian matrices on board for 3D segmentation of complex structures such as tubular structures, which we named HessNet. The solution is a Hessian-based neural network with only 6000 parameters. HessNet can run on the CPU and significantly reduces the resource requirements for training neural networks. The accuracy of vessel segmentation on a minimal training dataset reaches state-of-the-art results. It helps us create a large, semi-manually annotated brain vessel dataset of brain MRA images based on the IXI dataset (annotated 200 images). Annotation was performed by three experts under the supervision of three neurovascular surgeons after applying HessNet. It provides high accuracy of vessel segmentation and allows experts to focus only on the most complex important cases. The dataset is available at https://git.scinalytics.com/terilat/VesselDatasetPartly.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>基于Hessian的轻量级神经网络HessNet用于在最小训练数据集上实现最先进的脑血管分割</div>
+<div class="mono" style="margin-top:8px">脑磁共振血管造影（MRA）中血管的准确分割对于动脉瘤修复或搭桥手术等外科手术的成功至关重要。目前，标注主要通过手动分割或Frangi滤波器等经典方法进行，这些方法往往缺乏足够的准确性。神经网络已成为医学图像分割的强大工具，但其发展依赖于标注良好的训练数据集。然而，目前明显缺乏带有详细脑血管标注的公开MRA数据集。为弥补这一空白，我们提出了一种新颖的半监督学习轻量级神经网络，其内置Hessian矩阵，用于管状结构等复杂结构的三维分割，我们将其命名为HessNet。该方案是一种仅含6000个参数的基于Hessian的神经网络。HessNet可在CPU上运行，并显著降低了训练神经网络的资源需求。在最小训练数据集上的血管分割精度达到了最先进的结果。它帮助我们基于IXI数据集创建了一个大型、半手动标注的脑MRA图像脑血管数据集（标注了200幅图像）。在应用HessNet后，由三名神经血管外科医生监督，三名专家完成了标注。它提供了高精度的血管分割，并使专家能够仅专注于最复杂的重要病例。该数据集可在https://git.scinalytics.com/terilat/VesselDatasetPartly获取。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出HessNet：将Hessian矩阵算子作为网络层嵌入的轻量级3D血管分割网络，参数量约6.6×10^3，可在CPU推理。在IXI MRA数据上，用5张标注图像训练即达DSC 0.778，200张时DSC 0.893；与2D/3D U-Net、nnU-Net、DeepVesselNet、BRAVE-NET等相比，DSC 89.34、Sensitivity 91.47为最高，但Precision 87.41低于BRAVE-NET的87.78。作者据此提出DSCLog参数效率指标并宣称SOTA敏感性。该网络被用于半自动迭代标注200例IXI图像，由3名影像专家标注、3名神经血管外科医生审核。局限包括：缺少拓扑/连通性指标、对比实验细节与数据划分报告不足、DSCLog定义存在歧义。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 11 页；11 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>论文针对脑部MRA血管分割：准确分割脑血管对动脉瘤修复、搭桥等手术规划与个性化手术模拟很重要[p. 1]。作者指出两个缺口：(1) 公开可用的、带详细脑血管标注的MRA数据集很少；IXI等数据集虽含约600例MRA扫描，但缺少分割标注[p. 2][p. 3]。(2) 现有分割方法要么是Otsu阈值、Frangi滤波等经典方法，要么是参数量大、依赖GPU和大数据训练的CNN/U-Net类模型[p. 2]。Frangi滤波基于Hessian矩阵特征值构造“vesselness”，但采用启发式阈值，难以适应强度变化区域[p. 4][p. 9]。因此作者希望得到一个可在少量标注图像上训练、能在医院本地CPU上推理的轻量网络，并用它加速数据集的半自动标注[p. 2][p. 5]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 整体标注闭环</h3>
+<p>作者给出8步流程[p. 5]：数据选择与聚类；颅骨剥离与脑掩膜；对少量图像应用Frangi滤波得到初始分割；专家精修初始分割；用这批标注训练HessNet；用训练好的网络分割下一批图像；专家再精修；重复5–7步直至200例全部标注。作者称HessNet仅用5张图像训练即可获得可用精度（表1）[p. 5][p. 8]。</p>
+<h3>2.2 数据聚类与预处理</h3>
+<p>对每例图像计算归一化强度直方图并去掉零强度值（图1a，[p. 6]）。直方图间距离定义为 d(a,b)=max(a−b)/max(max(a),max(b))，据此构造距离矩阵，再用Ward层次聚类得到簇（图1b，[p. 6]）。作者从第一簇选200例，Guy’s与Hammersmith医院各半[p. 6]。颅骨剥离使用FreeSurfer的mri_synthstrip生成脑掩膜，以去除颅骨血管[p. 6]。</p>
+<h3>2.3 人工标注</h3>
+<p>使用3D Slicer 5.4.2；3名医学影像专家标注，约4小时/例，之后由3名神经血管外科医生审核[p. 6]。标注重点为Willis环及其主要连接血管，并要求保持大血管拓扑连续性；规则是“加入一个体素不得人为连接无关血管，删除标注不得破坏已连接结构的连续性”[p. 6–7]。作者也承认颅骨附近小血管因低强度难以精确分割[p. 7]。</p>
+<h3>2.4 HessNet结构</h3>
+<p>核心思想是把Hessian矩阵（式1，3×3二阶偏导矩阵）作为网络层嵌入，而非像Frangi那样用固定启发式函数[p. 4][p. 8]。HessNet特征块（图2a，[p. 7]）由三部分组成：3D卷积实现的线性投影、Hessian矩阵算子、处理矩阵值的MLP。各特征块独立训练；输入同时经过跳跃连接和若干HessNet特征块，输出经卷积层与Sigmoid得到分割概率（图2b，[p. 7]）。总参数量约6.6×10^3，作者称可在现代PC的CPU上推理[p. 8]。</p>
+<h3>2.5 训练设置</h3>
+<p>数据增强用TorchIO：RandomGamma、RandomElasticDeformation、ZNormalization；增强后每例原图与增强图各一，训练集规模翻倍[p. 7]。优化器AdamW，β1=0.9、β2=0.999；学习率从0.02开始，用CosineAnnealingWarmRestarts调度；训练50个epoch；GPU为RTX 3060 12GB，作者称按所述流程每例训练15秒[p. 8]。损失函数为Exponential Logarithmic Loss[25]的修改版，并结合Tversky Loss[22][p. 8]；论文未给出具体公式与权重。</p>
+<h2>3. 贡献</h2>
+<p>作者主张的贡献有三点：(1) 提出把Hessian矩阵作为可训练网络层的HessNet，参数量仅约6000，可CPU运行[p. 1][p. 8]；(2) 在极小训练集上达到“SOTA”分割精度，尤其Sensitivity最高[p. 1][p. 9]；(3) 用该网络半自动构建并公开部分IXI脑血管标注数据集（200例）[p. 1][p. 9–10]。</p>
+<p>我的解读：真正新颖之处主要是“Hessian算子层+极轻量结构”的组合，以及把轻量模型用于迭代半自动标注的工程闭环；但“SOTA”仅指Sensitivity，DSC并非最高（BRAVE-NET为86.03，HessNet为89.34，见表2，[p. 8]；作者在讨论中也承认其他指标略低[p. 9]）。此外，DSCLog是作者自拟指标，其定义 DSCLog=DSC/log10(#parameters) 在文中排版为分式形式，具体计算方式存在歧义[p. 9]。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据规模实验（表1，[p. 8]）</h3>
+<p>训练集分别为5、10、20、200例。前三种设置各用10个不同训练集取均值；200例设置用5折交叉验证[p. 8]。结果：5例DSC 0.778±0.085、Sensitivity 0.789±0.076、Precision 0.770±0.100、AHD 35.725±2.004；10例DSC 0.834±0.052、SN 0.914±0.057、Precision 0.771±0.069、AHD 33.646±3.002；20例DSC 0.885±0.026、SN 0.929±0.020、Precision 0.847±0.055、AHD 32.720±3.659；200例DSC 0.893±0.019、SN 0.914±0.013、Precision 0.874±0.045、AHD 32.579±3.199。Specificity在各设置均为0.999–1.000，作者明确认为其因类别极度不平衡而信息量低[p. 5]。</p>
+<h3>4.2 与基线对比（表2，[p. 8]）</h3>
+<p>对比网络包括2D U-Net（约2M参数，DSC 82.11、SN 80.02、Precision 85.39）、3D U-Net（约6M，85.47/87.33/84.05）、nnU-Net Full Res（约87M，85.50/87.42/83.82）、DeepVesselNet-UNet（约0.06M，84.59/82.62/85.18）、Context U-Net（约10M，84.25/84.00/85.33）、Deep Vision U-Net（约6M，84.01/83.93/84.84）、BRAVE-NET（约10M，86.03/84.52/87.78）。HessNet（约6K）为DSC 89.34、SN 91.47、Precision 87.41、DSCLog 23.65。作者称这些基线均在其数据集上训练[p. 8]，但未报告各基线的训练轮数、超参搜索、数据划分是否与HessNet一致。</p>
+<h3>4.3 消融与证据强度</h3>
+<p>论文没有报告Hessian层移除、MLP结构、增强策略或损失项的系统消融；表1只提供训练集规模曲线，表2只提供跨模型对比。因此“Hessian层带来提升”主要靠与Frangi的定性对比和最终精度支撑，缺少直接因果证据[p. 8–9]。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在作者的数据与评测条件下，HessNet以约6K参数取得DSC 0.893（200例训练）和最高Sensitivity 91.47，说明极轻量模型在少量标注下具有竞争力[p. 8]。5例训练即达DSC 0.778，支持其用于半自动标注启动的可行性[p. 8]。</p>
+<p>作者报告的局限：网络可能漏掉血管间体素，造成血管不连续；该问题对DSC、ACC、SN影响小，但破坏拓扑/图连通性；作者提出图连通损失、启发式连接或专用修复网络作为未来方向[p. 9]。此外，小血管与颅骨附近分割仍具挑战[p. 7]。</p>
+<p>缺失证据：未报告测试集具体划分、患者级划分方式、预处理重采样与体素间距、推理时间、CPU型号与内存；未报告基线训练细节；未报告统计显著性检验；未报告拓扑指标（如连通分量数、clDice等）；DSCLog的公式与数值对应关系不清晰[p. 8–9]。因此“SOTA”应限定为作者表2条件下Sensitivity最高，而非全面最优。</p>
+<h2>6. 复现</h2>
+<p>已报告：IXI来源；从第一聚类选200例，两医院各半[p. 6]；mri_synthstrip颅骨剥离[p. 6]；TorchIO三种增强[p. 7]；AdamW（β1=0.9，β2=0.999）、初始lr=0.02、CosineAnnealingWarmRestarts、50 epochs、RTX 3060 12GB、每例约15秒[p. 8]；损失为Exponential Logarithmic Loss结合Tversky Loss[p. 8]；5/10/20例各10个训练集，200例5折交叉验证[p. 8]。</p>
+<p>未报告或无法确认：网络各层通道数、Hessian算子离散化与边界处理、MLP层数与激活、Tversky的α/β及两项损失权重、输入patch尺寸与批大小、推理阈值、数据划分随机种子、基线超参、DSCLog的确切计算式。复现时需向作者索取代码或完整数据集；公开仓库仅含部分数据[p. 1][p. 10]。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Dual-Scale Volume Priors with Wasserstein-Based Consistency for Semi-Supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Junying Meng, Gangxuan Zhou, Jun Liu, Weihong Guo</div>
+<div class="meta-line">First: 2025-09-04T14:47:25+00:00 · Latest: 2025-09-04T14:47:25+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2509.04273v1">Abs</a> · <a href="https://arxiv.org/pdf/2509.04273v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Despite signi cant progress in semi-supervised medical image segmentation, most existing segmentation networks overlook e ective methodological guidance for feature extraction and important prior information from
+  datasets. In this paper, we develop a semi-supervised medical image segmentation framework that e ectively integrates spatial regularization methods and volume priors. Speci cally, our approach integrates a strong explicit volume prior at the image scale and Threshold Dynamics spatial regularization, both derived from variational models, into the backbone segmentation network. The target region volumes for each unlabeled image are estimated by a regression network, which e ectively regularizes the backbone segmentation network through an image-scale Wasserstein distance constraint, ensuring that the class ratios in the segmentation results for each unlabeled image match those predicted by the regression network. Additionally, we design a dataset-scale Wasserstein distance loss function based on a weak implicit volume prior, which enforces that the volume distribution predicted for the unlabeled dataset is similar to that of labeled dataset. Experimental results on the 2017 ACDC dataset, PROMISE12 dataset, and thigh muscle MR image dataset show the superiority of the proposed method.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>双尺度体积先验与基于Wasserstein一致性用于半监督医学图像分割</div>
+<div class="mono" style="margin-top:8px">尽管半监督医学图像分割已取得显著进展，但大多数现有分割网络忽视了对特征提取的有效方法学指导以及数据集中的重要先验信息。本文提出了一种半监督医学图像分割框架，有效整合了空间正则化方法与体积先验。具体而言，我们将图像尺度上的强显式体积先验和阈值动力学空间正则化（二者均源自变分模型）集成到主干分割网络中。每张未标注图像的目标区域体积由回归网络估计，该网络通过图像尺度的Wasserstein距离约束有效正则化主干分割网络，确保每张未标注图像分割结果中的类别比例与回归网络预测一致。此外，我们基于弱隐式体积先验设计了数据集尺度的Wasserstein距离损失函数，强制未标注数据集预测的体积分布与标注数据集相似。在2017 ACDC数据集、PROMISE12数据集和大腿肌肉MR图像数据集上的实验结果表明了所提方法的优越性。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出VP-Net半监督医学图像分割框架：在U-Net末端接入VP-STD softmax层，同时引入TD空间正则与体积保持先验；用ResNeXt-101回归网络为每张无标注图像预测类别体积，并以图像尺度Wasserstein损失对齐分割输出的类别比例；再用KR对偶形式的1-Wasserstein损失对齐有/无标注数据的体积分布。在ACDC2017、大腿肌肉MRI、PROMISE12上，VP-Net在多数设置下优于U-Net、自训练、Curriculum、UA-MT、MC-Net+、EVIL；使用真实体积的VP-Netgt通常最好。消融显示去掉数据集尺度损失或改用固定经验体积均下降。但表格排版混乱、部分数字难以可靠对应，且缺少回归网络精度、方差与统计检验等证据。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 26 页；26 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h1>论文阅读笔记：Dual-Scale Volume Priors with Wasserstein-Based Consistency for Semi-Supervised Medical Image Segmentation</h1>
+<h2>1. 问题与动机</h2>
+<p>作者关注标注稀缺条件下的医学图像半监督分割。其出发点是：现有分割网络（如U-Net）缺乏对特征提取的有效方法学引导，也未充分利用数据集中的体积先验；自训练易受伪标签噪声影响，一致性学习/协同训练/对抗学习往往需要多网络或多目标而妨碍收敛；基于分布先验的方法多对齐整体预测分布，忽略体积分布这类具体特征 [p. 3]。在变分模型中，体积约束被证明在图像质量差或标注少时有价值，且即使体积界较粗也能带来收益 [p. 4]。作者进一步指出，Kervadec等和Wang等虽在半监督中引入体积约束，但通过辅助网络而非融入分割网络结构，且只考虑图像尺度、忽略数据集尺度体积分布 [p. 4]。因此论文试图把变分模型导出的TD空间正则、强图像尺度体积先验与弱数据集尺度体积分布先验统一进一个半监督框架 [p. 4-5]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 骨干与VP-STD层</h3>
+<p>方法以U-Net为骨干，把最后一层替换为VP-STD softmax层。该层来自Soft Threshold Dynamics变分模型：在单纯形约束与体积约束下最小化数据保真、熵正则与TD空间正则之和，最终解可写成 h<em>=softmax(g(o_T,u</em>,V))，其中V为各类体积、u*为对偶变量 [p. 6-8]。因此网络可写为 m_T=S_θ(I,V) [p. 8]。原方法在测试时只能用训练集平均体积V_emp，作者认为对所有测试图使用同一体积不合理 [p. 8]。</p>
+<h3>2.2 图像尺度强体积先验</h3>
+<p>对有标注图像，直接把真实体积V_l^gt送入VP-STD层，监督损失为多类交叉熵 L_S(θ1) [p. 9]。对无标注图像，训练回归网络G_θ̂（ResNeXt-101）预测各类体积，先在有标注图像上以平方L2损失拟合真实体积 [p. 11]；再把预测体积送入VP-STD层得到分割。随后定义回归网络给出的类别比例 p_reg(u,k,θ̂)=G_θ̂(I_u)_k/N 与分割输出类别比例 p_seg(u,k,θ1,θ̂)=Σ_n S_θ1(I_u(x_n),G_θ̂(I_u))_k/N，并以图像尺度Wasserstein距离 L_G=W(p_reg,p_seg) 作为正则项 [p. 11]。</p>
+<h3>2.3 数据集尺度弱体积分布先验</h3>
+<p>作者把每张图的体积视为数据集体积分布的一个样本，假设有标注与无标注数据同源，则二者体积分布应相近 [p. 11-12]。采用Kantorovich-Rubinstein对偶的1-Wasserstein距离 L_W=W(ρ_gt,ρ_pred)=(1/M)max_{||f||<em>L≤M}{E</em>{x∼ρ_gt}[f(x)]−E_{z∼ρ_pred}[f(z)]}，其中ρ_gt为有标注集体积分布，ρ_pred为无标注集预测体积分布，f为Lipschitz常数不超过M的函数 [p. 12]。</p>
+<h3>2.4 总损失与优化</h3>
+<p>总损失 L=L_S+αL_G+βL_W，α、β均设为0.01 [p. 13]。用带参数θ2的网络F_θ2近似f，并采用交替优化：固定F训练分割网络最小化L1(θ1)，再固定分割网络最小化L2(θ2) [p. 13-14]。F_θ2被实现为带权重裁剪的简单线性层 [p. 14]。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有三点：把变分模型导出的强图像尺度体积先验创新性地融入骨干网络以提升可解释性；用可学习回归网络替代固定体积估计，并以Wasserstein损失对齐回归与分割的类别比例；首次引入数据集尺度弱体积分布先验并用Wasserstein损失对齐有/无标注集体积分布 [p. 5]。我的理解是：第一点的实质是把已有VP-STD层用于半监督并替换体积来源；第二点是把回归预测接入该层并加一致性约束；第三点是把KR-Wasserstein用于体积分布对齐。论文未给出与“首次”相关的系统文献检索证据，因此该新颖性主张应视为作者主张而非已证实结论。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 设置</h3>
+<p>数据集为ACDC2017（200例短轴 cine-MRI，取2D切片，resize到128×128；140例训练、60例验证；训练集中n例全标注，其余140−n无像素标注）[p. 15]、大腿肌肉MRI（75张256×256切片，45例训练、30例验证，n例标注、45−n无标注）[p. 17]、PROMISE12（50例横断T2 MRI，35训练/15验证，resize到128×128，n例标注、35−n无标注）[p. 17-19]。回归网络ResNeXt-101、平方L2目标、SGD训练200 epochs；分割网络U-Net+VP-STD层、Adam、初始学习率1×10^-3、验证DSC 20 epochs不升则减半、训练100 epochs、batch size 4 [p. 14]。对比方法包括U-Net、自训练S-T、Curriculum C-S、UA-MT、MC-Net+、EVIL；另有VP-Netgt使用无标注图真实体积作为上界式变体 [p. 15]。指标为DSC、Jaccard、ASD、95HD [p. 15]。</p>
+<h3>4.2 主要结果</h3>
+<p>ACDC2017上，60/80设置：VP-Net Dice 76.73%、Jaccard 69.69%、ASD 3.57、95HD 5.82；VP-Netgt Dice 79.93%、Jaccard 75.79%、ASD 4.89、95HD 7.52；U-Net为70.70/64.24/6.91/12.20，MC-Net+为72.95/66.85/5.50/7.64 [p. 16]。100/40设置：VP-Net 81.40/75.42/3.78/5.74，VP-Netgt 82.22/79.34/3.52/4.62；120/20设置：VP-Net 82.51/76.58/4.09/6.13，VP-Netgt 83.66/81.19/3.20/4.30 [p. 16]。注意在120/20下VP-Net的ASD与95HD并非最优（自训练95HD 4.73、Curriculum ASD 4.29等），作者仍以Dice/Jaccard为主要优势叙述。</p>
+<p>大腿肌肉MRI上，15/30设置VP-Net Dice 91.44%、Jaccard 84.97%、ASD 3.17、95HD 11.20；VP-Netgt 92.67/86.72/2.59/9.20；U-Net 85.92/77.01/6.40/21.51 [p. 18]。30/15设置VP-Net 94.98/90.77/1.05/4.32，VP-Netgt 95.09/90.89/0.95/4.67 [p. 18]。PROMISE12上，7/28设置VP-Net 88.76/82.14/1.68/5.06，VP-Netgt 89.12/83.18/1.78/4.57；14/21设置VP-Net 90.35/84.43/1.36/4.13，VP-Netgt 91.78/87.11/0.93/3.07；21/14设置VP-Net 92.86/88.09/0.96/2.86，VP-Netgt 94.00/89.83/0.88/2.75 [p. 20]。</p>
+<h3>4.3 消融</h3>
+<p>去掉L_W的VP-Netrw在三个数据集均下降：ACDC 60/80为77.09/69.46/4.41/7.28（VP-Net为77.28/69.69/3.57/5.82）；大腿15/30为91.08/84.01/3.77/15.12（VP-Net为91.44/84.97/3.17/11.20）；PROMISE12 7/28为88.07/81.64/1.87/5.29（VP-Net为88.76/82.14/1.68/5.06）[p. 19-20]。用固定经验体积V_emp替代回归网络的VP-Netemp也下降：ACDC 75.94/68.52/3.98/6.65；大腿86.99/78.40/8.16/28.14；PROMISE12 85.67/78.20/4.23/9.40 [p. 20]。这些消融支持两个损失/机制各自有贡献，但未报告多次运行方差或显著性检验。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在作者报告的设置下，VP-Net在多数Dice/Jaccard指标上优于所列基线；VP-Netgt通常最好，说明真实体积先验有潜在价值；两个消融方向一致。局限与缺失证据：表格在PDF文本中排版错乱，部分行与列对应关系难以可靠辨认（如Table 1、2、3的完整数值与表头对齐），本文只引用可辨认的数字；未报告回归网络的体积预测误差、α/β敏感性、M取值、F_θ2结构细节、训练/推理时间与显存；未报告随机种子、均值±方差或统计检验；ACDC使用2D切片而非3D体积，与“体积”先验的3D语义存在差距；数据集尺度先验依赖有/无标注同分布假设，论文未做分布偏移实验 [p. 11-12]。此外，VP-Net在部分设置的非Dice指标上并非最优，作者“superiority”的表述应限定于报告的主要指标与设置。</p>
+<h2>6. 复现</h2>
+<p>已报告：U-Net骨干+VP-STD最后一层；ResNeXt-101回归网络、平方L2、SGD、200 epochs；Adam、lr 1e-3、20 epochs验证DSC不升减半、100 epochs、batch 4；α=β=0.01；F_θ2为带权重裁剪的线性层；ACDC 128×128、140/60划分、n=60/100/120；大腿45/30划分、n=15/30；PROMISE12 35/15划分、n=7/14/21；指标DSC/Jaccard/ASD/95HD [p. 14-20]。未报告：VP-STD层中ε、λ、TD核k的具体取值与求解迭代数；回归网络输入尺寸/归一化与数据增强；F_θ2的权重裁剪范围与M；优化器细节（如SGD动量、权重衰减）；随机种子与重复次数；代码与预训练权重链接。复现时应优先向作者索取这些细节，并对表格数值做原始PDF核对。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">MetaSSL: A General Heterogeneous Loss for Semi-Supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Weiren Zhao, Lanfeng Zhong, Xin Liao, Wenjun Liao, Sichuan Zhang, Shaoting Zhang, Guotai Wang</div>
+<div class="meta-line">First: 2025-09-01T05:45:08+00:00 · Latest: 2025-09-01T05:45:08+00:00</div>
+<div class="meta-line">Comments: 13 pages, 12 figures. This work has been accepted by IEEE TMI</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2509.01144v1">Abs</a> · <a href="https://arxiv.org/pdf/2509.01144v1">PDF</a> · <a href="https://github.com/HiLab-git/MetaSSL">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Semi-Supervised Learning (SSL) is important for reducing the annotation cost for medical image segmentation models. State-of-the-art SSL methods such as Mean Teacher, FixMatch and Cross Pseudo Supervision (CPS) are mainly based on consistency regularization or pseudo-label supervision between a reference prediction and a supervised prediction. Despite the effectiveness, they have overlooked the potential noise in the labeled data, and mainly focus on strategies to generate the reference prediction, while ignoring the heterogeneous values of different unlabeled pixels. We argue that effectively mining the rich information contained by the two predictions in the loss function, instead of the specific strategy to obtain a reference prediction, is more essential for SSL, and propose a universal framework MetaSSL based on a spatially heterogeneous loss that assigns different weights to pixels by simultaneously leveraging the uncertainty and consistency information between the reference and supervised predictions. Specifically, we split the predictions on unlabeled data into four regions with decreasing weights in the loss: Unanimous and Confident (UC), Unanimous and Suspicious (US), Discrepant and Confident (DC), and Discrepant and Suspicious (DS), where an adaptive threshold is proposed to distinguish confident predictions from suspicious ones. The heterogeneous loss is also applied to labeled images for robust learning considering the potential annotation noise. Our method is plug-and-play and general to most existing SSL methods. The experimental results showed that it improved the segmentation performance significantly when integrated with existing SSL frameworks on different datasets. Code is available at https://github.com/HiLab-git/MetaSSL.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>MetaSSL：一种用于半监督医学图像分割的通用异构损失</div>
+<div class="mono" style="margin-top:8px">半监督学习（SSL）对于降低医学图像分割模型的标注成本至关重要。Mean Teacher、FixMatch 和交叉伪监督（CPS）等最先进的 SSL 方法主要基于参考预测与监督预测之间的一致性正则化或伪标签监督。尽管这些方法有效，但它们忽略了标注数据中的潜在噪声，并且主要关注生成参考预测的策略，而忽略了不同无标签像素的异构价值。我们认为，有效挖掘损失函数中两个预测所包含的丰富信息，而非获取参考预测的具体策略，对 SSL 更为关键，并提出了一种基于空间异构损失的通用框架 MetaSSL，该损失通过同时利用参考预测与监督预测之间的不确定性和一致性信息，为像素分配不同权重。具体而言，我们将无标签数据上的预测划分为四个区域，在损失中权重递减：一致且置信（UC）、一致且可疑（US）、不一致且置信（DC）以及不一致且可疑（DS），并提出一种自适应阈值来区分置信预测与可疑预测。考虑到潜在的标注噪声，该异构损失也应用于有标签图像以实现鲁棒学习。我们的方法即插即用，且适用于大多数现有 SSL 方法。实验结果表明，在不同数据集上与现有 SSL 框架集成时，该方法显著提升了分割性能。代码可在 https://github.com/HiLab-git/MetaSSL 获取。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">MetaSSL提出一种可插拔的空间异质损失，将参考预测与监督预测按置信度和一致性划分为UC、US、DC、DS四区并赋递减权重，同时用于无标注和有标注图像以抑制伪标签噪声与标注噪声。在ACDC、DigestPath、LA三个数据集上，将其集成到MT、FixMatch、CCT、R-Drop、CPS、BCP六种SSL框架均带来提升；例如ACDC单标注体积下CPS平均DSC从34.47%升至83.17%，LA两体积下MT从73.47%升至81.67%。消融显示四区划分优于仅用置信度或仅用一致性的二分方案，自适应阈值优于固定阈值及FlexMatch/FreeMatch策略。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 13 页；13 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h1>MetaSSL 论文精读笔记</h1>
+<h2>1. 问题与动机</h2>
+<p>半监督医学图像分割（SSL）通常依赖同一输入的多预测：一个参考预测 $\tilde p$ 监督另一个受监督预测 $p$，以一致性正则或伪标签方式利用无标注图像[p. 1]。作者指出既有方法有三点不足[p. 2]：</p>
+<ul>
+<li><strong>损失函数空间同质</strong>：MT、CCT、MixMatch 等用 MSE，FixMatch、CPS、BCP 等用 CE/Dice，逐像素等权，未区分参考预测不同位置的质量；已有不确定性方法忽略了参考与监督预测之间的一致性/差异性信息。</li>
+<li><strong>忽略有标注图像噪声</strong>：医学图像低对比度与观察者差异使标注含噪，且难易像素贡献不同，但现有 SSL 多假设标注完全干净。</li>
+<li><strong>框架专用性强</strong>：多预测的构造方式（不同网络、分辨率、解码器、前向）各自 ad hoc，缺乏可跨框架通用的无监督损失。</li>
+</ul>
+<p>作者的核心假设是：与其设计新的参考预测生成策略，不如在损失函数中充分挖掘两个预测所含信息[p. 2]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 四区划分</h3>
+<p>对无标注图像 $X$，记参考预测为 $\tilde p$、受监督预测为 $p$，$\tilde y=\arg\max\tilde p$，$y=\arg\max p$，$\max(\tilde p_{x,c})$ 为像素 $x$ 的最大类概率，$\gamma_{c^<em>}$ 为对应类 $c^</em>$ 的置信阈值。四区定义为[p. 4]：</p>
+<ul>
+<li>$\Omega_{UC}={x\mid \tilde y_x=y_x,\ \max\tilde p_{x,c}&gt;\gamma_{c^*}}$</li>
+<li>$\Omega_{US}={x\mid \tilde y_x=y_x,\ \max\tilde p_{x,c}\le\gamma_{c^*}}$</li>
+<li>$\Omega_{DC}={x\mid \tilde y_x\ne y_x,\ \max\tilde p_{x,c}&gt;\gamma_{c^*}}$</li>
+<li>$\Omega_{DS}={x\mid \tilde y_x\ne y_x,\ \max\tilde p_{x,c}\le\gamma_{c^*}}$</li>
+</ul>
+<p>权重排序为 $w_{UC}&gt;w_{US}&gt;w_{DC}&gt;w_{DS}$：一致预测比分歧预测可靠，一致区中置信者更可靠；分歧区中置信预测被认为更有互学习价值[p. 4]。</p>
+<h3>2.2 异质损失</h3>
+<p>无标注 CE 形式为 $L_{uqh}(p,\tilde p)=-\frac{1}{Z}\sum_{\Omega_t}\sum_{x\in\Omega_t} w_t\sum_c \tilde y_{x,c}\log p_{x,c}$，其中 $Z=\sum_t w_t|\Omega_t|$ 为归一化因子[p. 4]。</p>
+<p>为减少四个权重分别调参，用单调递减函数 $\phi(u)=e^{-u^\beta}$ 生成权重：$w_{UC}=\phi(0)$、$w_{US}=\phi(\delta_u)$、$w_{DC}=\phi(2\delta_u)$、$w_{DS}=\phi(3\delta_u)$[p. 4]。$\beta$ 控制权重取值范围，$\delta_u$ 控制四者相对差距；例如 $\beta=3,\delta_u=0.5$ 时四权重为 1.0、0.882、0.368、0.034，而 $\delta_u=0.2$ 时为 1.0、0.992、0.938、0.806[p. 4]。</p>
+<h3>2.3 有标注图像</h3>
+<p>对有标注图像，$p$ 由人工标注 $y^<em>$ 监督，$\tilde p$ 为扰动下的另一预测。按 $y^</em>$ 与 $\tilde y$ 是否一致及 $\tilde p$ 置信度同样划分四区，但权重排序改为 $w_{UC}&gt;w_{US}&gt;w_{DS}&gt;w_{DC}$：分歧且置信的 $\tilde p$ 暗示 $y^*$ 可能为噪声，故 DC 权重最低[p. 5]。权重由 $\phi(0),\phi(\delta_l),\phi(2\delta_l),\phi(3\delta_l)$ 给出。异质 CE 与 Dice 分别为式(7)(8)[p. 5]，总监督损失 $L_{lqh}=L_{lqh}^{ce}+L_{lqh}^{dice}$，总损失 $L=L_{lqh}+\lambda L_{uqh}$[p. 5]。</p>
+<h3>2.4 自适应阈值</h3>
+<p>固定阈值需手工调参且难应对类不平衡：易类应高阈值、小目标等难类应低阈值，早期训练整体置信度低[p. 5]。作者定义类 $c$ 的平均预测概率 $O_c=\sum_x(y_x=c)p_{x,c}/\sum_x(y_x=c)$，并用 EMA 更新阈值：$\gamma_{c,i}=\alpha O_{c,i}+(1-\alpha)\gamma_{c,i-1}$，初值 $\gamma_{c,0}=0.5$[p. 5]。作者称该策略对类不平衡不敏感且类间无干扰，区别于 FlexMatch 按类样本比例、FreeMatch 按类间相对分数设阈值[p. 5]。</p>
+<h3>2.5 与现有框架结合</h3>
+<p>图2给出总体框架与可插拔示意[p. 3]。具体映射为[p. 6]：MT 中 $p$ 为学生、$\tilde p$ 为教师；FixMatch 中 $p$ 为强增强、$\tilde p$ 为弱增强预测；CCT 中 $\tilde p$ 为主解码器、$p$ 为某辅助解码器，损失施加于每个辅助解码器；CPS 中两网络互监督，损失为 $L_{uqh}(p,\tilde p)+L_{uqh}(\tilde p,p)$；R-Drop 用同样双向损失替换双向 KL；BCP 在混合图像的标注区用 $L_{lqh}$、无标注区用 $L_{uqh}$。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有三点[p. 2]：提出基于四区异质损失的通用 MetaSSL；将该损失扩展到有标注图像以挖掘难区并抑制标注噪声；提出对类别和训练阶段自适应的置信阈值。</p>
+<p>我的理解：方法的新意主要在于“损失加权”而非“预测生成”，其通用性来自只依赖 $\tilde p$ 与 $p$ 两个张量，因此可套用到多数多预测 SSL 框架；但四区划分本身是置信度与一致性的组合，属于已有信号的重新组织，核心增量在于权重排序、统一函数化权重与自适应阈值。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 设置</h3>
+<ul>
+<li><strong>ACDC</strong>：200 例心脏 MRI，按患者 70%/10%/20% 划分训练/验证/测试；SSL 标注预算为 1 卷和 3 卷（对应 32 与 68 张标注切片）；UNet 切片级训练，尺寸 256×256，指标 DSC 与 HD95[p. 6]。</li>
+<li><strong>DigestPath</strong>：130 张恶性 WSI，100/10/20 划分；标注比例 5% 与 10%；裁剪为 256×256 patch，训练集 9,627 patches，测试在 WSI 级评估，指标 DSC 与 Jaccard Index[p. 6]。</li>
+<li><strong>LA</strong>：100 例 3D GE-MRI，80 训练/20 测试；标注预算 2 卷与 4 卷；指标 DSC 与 HD95[p. 6]。</li>
+<li><strong>训练</strong>：PyTorch + PyMIC，GTX2080TI，SGD，batch size 24（其中 12 张标注），初始学习率 0.01 多项式衰减，$\lambda(t)=0.1e^{-5(1-t/t_{max})^2}$，$t_{max}=600$ epochs，$\alpha=0.99$，$\beta=3$、$\delta_u=0.3$、$\delta_l=0.6$（基于验证集消融）[p. 7]。</li>
+<li><strong>基线</strong>：SL（仅标注数据 CE+Dice）与 FullSup（全数据全监督），对比 12 种 SSL 方法，统一 UNet 骨干；MetaSSL 集成到 MT、FixMatch、CCT、R-Drop、CPS、BCP 六种框架[p. 7]。</li>
+</ul>
+<h3>4.2 主要结果</h3>
+<p><strong>ACDC（表I）</strong>[p. 6]：1 卷标注下 SL 平均 DSC 31.95%；CPS 34.47%→+MetaSSL 83.17%，CCT 37.44%→76.96%，MT 38.15%→71.68%，R-Drop 41.24%→81.27%，FixMatch 48.71%→78.88%，BCP 64.58%→76.90%；FullSup 91.31%。3 卷下 CPS 64.28%→88.31%，MT 62.65%→86.70%，BCP 87.36%→88.22%。HD95 也普遍下降，如 CPS 1 卷从 71.61 mm 降至 2.70 mm。</p>
+<p><strong>DigestPath（表II）</strong>[p. 7]：5% 标注下 SL DSC 60.73%；CCT 63.58%→69.46%（+5.88 为最大绝对提升），CPS 65.32%→70.02%，BCP 69.80%→70.44%；FullSup 74.31%。10% 下 BCP 70.99%→71.96%，R-Drop 提升 3.50% DSC 与 3.86% JI。带 * 表示配对 t 检验 p&lt;0.05。</p>
+<p><strong>LA（表III）</strong>[p. 8]：2 卷下 SL 59.03%；MT 73.47%→81.67%，CPS 77.12%→82.17%，BCP 84.70%→85.64%；4 卷下 MT 77.62%→86.32%，BCP 86.93%→87.82%；FullSup 90.32%。</p>
+<h3>4.3 消融</h3>
+<p>以 CPS 为骨干、ACDC 为数据[p. 9]：</p>
+<ul>
+<li><strong>损失作用范围</strong>：1 卷下 CPS 34.47%，仅加 $L_{uqh}$ 得 73.19%，再加 $L_{lqh}$ 得 83.17%；3 卷下 64.28%→84.76%→88.31%。仅用标注数据时 SL+$L_{lqh}$ 相比 SL 提升 31.44 与 20.78 个百分点。</li>
+<li><strong>置信度 vs 一致性</strong>：仅置信度二分（conf-bh）1 卷 44.19%、3 卷 69.36%；仅一致性二分（cons-bh）56.70%、75.94%；四区组合 83.17%、88.31%，说明两者结合更优。</li>
+<li><strong>阈值策略（表V）</strong>：固定 $\gamma=0.85/0.90/0.95$ 在 1 卷下仅 32.88%–43.00%，3 卷下 77.29%–86.68% 且对取值敏感；自适应阈值 83.17%/88.31%，优于 FlexMatch 与 FreeMatch。</li>
+<li><strong>权重函数（表VI）</strong>：3 卷下线性 69.76%、倒数 74.07%、余弦 77.02%、广义高斯 β=1 56.67%、标准高斯 β=2 79.81%、β=3 84.13%，故取 β=3；$\delta_l,\delta_u$ 在 [0.2,0.7] 调参，图7给出最优为 0.3 与 0.6[p. 9-10]。</li>
+<li><strong>不确定性度量（表VII）</strong>：目标类概率最优，1 卷 83.17%，优于 MAD 78.58%、Variance 80.36%、STD 81.41%[p. 11]。</li>
+<li><strong>区域准确性（图10）</strong>：UC 最高、US 次之、DC 与 DS 递减，支持权重排序[p. 11]。</li>
+</ul>
+<h2>5. 评估</h2>
+<p><strong>受支持的结论</strong>：在三个数据集、六种骨干、多个标注预算下，MetaSSL 一致提升 DSC 并多伴随 HD95 下降；消融较清楚地分离了 $L_{uqh}$、$L_{lqh}$、四区组合与自适应阈值的贡献。</p>
+<p><strong>作者报告的限制</strong>：主要验证于 CNN 类 SSL，未验证 Transformer；权重仍需调 $\beta,\delta_l,\delta_u$；未来关注 3D 分割与标注/无标注分布偏移[p. 12]。作者还指出 DigestPath 上 BCP 提升较小，归因于标注量不算极少（5/10 WSI 对应 481/962 patches）及肿瘤弥散不规则，FullSup JI 上限仅 60.71%[p. 12]。</p>
+<p><strong>缺失或需谨慎的证据</strong>：表I、表III 的完整逐类数值在文本中排版错乱，部分数字（如 MT+MetaSSL 3 卷 HD95 平均 3.87 mm 与分项 2.90/4.33/4.37 的一致性）难以逐项核对；表IV 的消融数值在文本中交错，本文仅引用可辨认的平均 DSC。未报告多随机种子方差、显著性检验仅见于 DigestPath 表II，ACDC/LA 未明确给出 p 值。自适应阈值中 $O_c$ 使用预测自身 argmax 区域统计，存在自我强化风险，论文未讨论。</p>
+<h2>6. 复现</h2>
+<p>已报告：PyTorch + PyMIC；SGD，batch 24（12 标注），lr 0.01 多项式衰减，600 epochs；$\lambda(t)=0.1e^{-5(1-t/600)^2}$；$\alpha=0.99$，$\beta=3$，$\delta_u=0.3$，$\delta_l=0.6$，$\gamma_{c,0}=0.5$；UNet 骨干，ACDC 256×256 切片，DigestPath 256×256 patch，LA 裁剪心脏区并按均值/标准差归一化[p. 6-7]。</p>
+<p>未报告：优化器 momentum/weight decay、数据增强具体参数、各基线各自的学习率与训练轮数是否与 MetaSSL 版本一致、随机种子数量、LA 的 3D 网络细节（文中仅明确 ACDC 用 UNet 切片级）、推理时是否使用教师/集成预测。代码链接为 https://github.com/HiLab-git/MetaSSL[p. 1]，但论文未说明复现所需的具体配置文件。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Diversity-enhanced Collaborative Mamba for Semi-supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Shumeng Li, Jian Zhang, Lei Qi, Luping Zhou, Yinghuan Shi, Yang Gao</div>
+<div class="meta-line">First: 2025-08-19T10:19:15+00:00 · Latest: 2025-08-19T10:19:15+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2508.13712v1">Abs</a> · <a href="https://arxiv.org/pdf/2508.13712v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/ShumengLI/DCMamba">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Acquiring high-quality annotated data for medical image segmentation is tedious and costly. Semi-supervised segmentation techniques alleviate this burden by leveraging unlabeled data to generate pseudo labels. Recently, advanced state space models, represented by Mamba, have shown efficient handling of long-range dependencies. This drives us to explore their potential in semi-supervised medical image segmentation. In this paper, we propose a novel Diversity-enhanced Collaborative Mamba framework (namely DCMamba) for semi-supervised medical image segmentation, which explores and utilizes the diversity from data, network, and feature perspectives. Firstly, from the data perspective, we develop patch-level weak-strong mixing augmentation with Mamba&#x27;s scanning modeling characteristics. Moreover, from the network perspective, we introduce a diverse-scan collaboration module, which could benefit from the prediction discrepancies arising from different scanning directions. Furthermore, from the feature perspective, we adopt an uncertainty-weighted contrastive learning mechanism to enhance the diversity of feature representation. Experiments demonstrate that our DCMamba significantly outperforms other semi-supervised medical image segmentation methods, e.g., yielding the latest SSM-based method by 6.69% on the Synapse dataset with 20% labeled data.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>多样性增强的协同Mamba用于半监督医学图像分割</div>
+<div class="mono" style="margin-top:8px">获取高质量的医学图像分割标注数据既繁琐又昂贵。半监督分割技术通过利用无标签数据生成伪标签来减轻这一负担。近期，以Mamba为代表的先进状态空间模型已展现出对长程依赖的高效处理能力。这促使我们探索其在半监督医学图像分割中的潜力。本文提出了一种新颖的多样性增强协同Mamba框架（即DCMamba）用于半监督医学图像分割，该框架从数据、网络和特征三个视角探索并利用多样性。首先，从数据视角，我们结合Mamba的扫描建模特性，开发了块级弱-强混合增强。此外，从网络视角，我们引入了一个多样扫描协同模块，该模块可从不同扫描方向产生的预测差异中获益。进一步，从特征视角，我们采用不确定性加权对比学习机制来增强特征表示的多样性。实验表明，我们的DCMamba显著优于其他半监督医学图像分割方法，例如，在仅使用20%标注数据的Synapse数据集上，以6.69%的优势超越了最新的基于SSM的方法。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">DCMamba 面向半监督医学图像分割，从数据、网络、特征三个层面引入多样性：1）patch 级弱强混合增强；2）两个 Mamba-UNet 分支采用不同扫描方向（水平/垂直 vs 对角/反对角）协同训练；3）基于不确定性的加权对比学习融合特征。在 Synapse 2D 20% 标注下平均 Dice 67.27%，比 Semi-Mamba-UNet 高 6.69%；10% 标注下 60.41%，高 4.52%。ISIC17、ISIC18、Kvasir 及 3D Synapse、AbdomenCT-1K、FLARE22 上多数指标领先，但部分类别（如胆囊）弱于 CNN 方法。消融显示三组件组合在 Synapse 20% 下将 Dice 从 58.00% 提升到 67.63%，ASD 从 22.55 降至 10.70。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 15 页；15 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>半监督医学图像分割旨在用少量标注数据和大量未标注数据降低标注成本。现有方法多基于 CNN 或 Transformer 的协同训练/一致性正则，但 CNN 受局部感受野限制，Transformer 自注意力随上下文长度二次增长 [p. 2-3]。SSM（以 Mamba/VMamba 为代表）具有线性复杂度与长程建模能力，已被用于全监督医学分割；但 SSM 在半监督分割中的潜力，尤其是 SS2D 多方向扫描带来的预测差异，尚未被充分挖掘 [p. 1-3]。作者观察到：不同扫描方向对不同形态目标表现不同——水平/垂直扫描在垂直目标上比对角/反对角高约 5%，而对角/反对角在倾斜病灶上高约 19% [p. 1, Fig. 1]。这构成其核心动机：把扫描方向差异转化为协同训练中的网络多样性。</p>
+<h2>2. 方法</h2>
+<h3>2.1 整体流程</h3>
+<p>训练集含标注集 D_L={(x_i,y_i)} 与未标注集 D_U={X_i}。每个样本先做 patch 级弱强混合增强，得到两个视图 x'_i 与 x''_i，分别送入两个 SSM 分支 F^a、F^b；两分支互相用对方预测作为伪标签进行交叉监督，并在编码特征上做不确定性加权对比学习 [p. 3, Fig. 3; p. 4-5]。</p>
+<h3>2.2 Patch 级弱强混合增强（diverse-augment）</h3>
+<p>将图像划分为 d×d 个 patch（示例 d=3），对每个 patch 分别施加弱增强 A_w 与强增强 A_s，再随机把各 patch 的弱/强版本放入两个增强图像中，使两视图在不同局部区域混合弱强变换，同时保持目标整体形状与 patch 序列上下文 [p. 2, Fig. 2; p. 4]。弱增强为随机翻转与旋转；强增强为像素级高斯模糊、亮度、对比度、gamma，每个变换施加概率 0.9 [p. 7]。作者称该设计区别于 CutMix/MixUp，因为不混合多个样本、不破坏整体结构 [p. 4]。</p>
+<h3>2.3 多样扫描协同 Mamba（diverse-scan）</h3>
+<p>骨干为 Mamba-UNet，VSS 块内 SS2D 沿四个方向展开序列。两个分支均从左上→右下、右下→左上、右上→左下、左下→右上扫描，但 F^a 沿水平/垂直方向做前向与后向选择性扫描，F^b 沿对角/反对角方向扫描 [p. 4, Fig. 6]。每个 SS2D 内四条路径的特征以像素级方差加权融合 [p. 5, Fig. 6]。两分支独立建模后通过协同训练互补方向信息。</p>
+<h3>2.4 多样特征融合（diverse-feature）</h3>
+<p>对每个网络四条扫描路径的特征 z_i^1…z_i^K，以像素级方差经 logistic 函数生成权重：w_i = 1/(1+exp(−(1/K)Σ_k(z_i^k−z̄<em>i)^2))，不确定性越高权重越大；融合特征 h_i=Σ_k z_i^k⊙w_i [p. 5, Eq. 3-4]。随后在融合特征上做对比学习：同一图像来自两网络的融合特征为正对，其他图像（含其所有变换）为负对，损失 L_dfc=−Σ_i log[exp(sim(P^a(h_i^a),P^b(h_i^b))/τ) / Σ</em>{x_j∈N−} exp(sim(P^a(h_i^a),P^b(h_j^b))/τ)]，sim 为点积，τ 为温度系数 [p. 5, Eq. 5]。</p>
+<h3>2.5 训练目标</h3>
+<p>监督损失 L_sup 为两分支 Dice+CE 的均值（CE 与 Dice 以 1/2 平衡）；无监督损失 L_unsup 用对方预测的 argmax 伪标签 P^b_i、P^a_i 做 Dice+CE 交叉监督；总损失 L=L_sup+λL_unsup+L_dfc，λ(t)=0.1·e^{−5(1−t/t_max)^2} 为时间相关高斯升温函数 [p. 5-6, Eq. 6-8]。</p>
+<h3>2.6 3D 扩展</h3>
+<p>将 3D VSS 块、3D 选择性扫描、3D patch 弱强混合增强与不确定性加权特征融合迁移到 3D 网络；F^a 水平/垂直扫描，F^b 对角/反对角扫描 [p. 6, Fig. 7]。</p>
+<h2>3. 贡献</h2>
+<p>作者主张的贡献：1）提出从数据、网络、特征三视角增强多样性的 DCMamba 框架；2）patch 级弱强混合增强契合视觉 SSM 的 patch 建模；3）多样扫描协同模块利用 Mamba 序列处理能力交叉监督不同扫描方向；4）不确定性加权对比学习提升特征多样性 [p. 2]。我的解读：核心新颖点在于把 SS2D 扫描方向差异当作协同训练的结构性多样性来源，而非依赖不同架构（如 CNN+Transformer）；patch 级混合增强与不确定性对比学习是相对常规的组件，其价值主要体现在与扫描协同的组合消融中。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据集与设置</h3>
+<p>2D：Synapse（30 例，18 训练/12 测试，224×224，8 类器官）、ISIC17（1500 训练/650 测试，256×256）、ISIC18（1886/808）、Kvasir-SEG（80%/20%，256×256）[p. 6-7]。3D：Synapse（96×96×96 patch）、AbdomenCT-1K（900 训练/100 测试，滑窗 stride 32）、FLARE22（42 标注/378 未标注，64×128×128）[p. 7]。标注预算：2D 为 10%/20%（Synapse 为 2/16 与 4/14 例），3D Synapse 20%、AbdomenCT-1K 20%、FLARE22 10% [p. 7, 表 I-VII]。骨干 Mamba-UNet，权重用 ImageNet-1k 预训练 VMamba-Tiny 初始化；2D batch 24（标注 12），3D batch 4（标注 2）；SGD，momentum 0.9，weight decay 1e-4，学习率 0.01；AbdomenCT-1K 训练 10k 迭代，其余 20k；RTX 3090/Tesla V100 [p. 7]。推理时随机选一个网络并丢弃另一个，公平比较统一用水平/垂直扫描分支 [p. 8]。</p>
+<h3>4.2 主要结果</h3>
+<ul>
+<li>Synapse 2D：20% 标注下 DCMamba 平均 Dice 67.27%±0.81、ASD 9.28±0.74；Semi-Mamba-UNet 为 60.58%±3.61、ASD 10.99±5.90，提升 6.69%；10% 下 60.41% vs 55.89%，提升 4.52% [p. 7, 表 I; p. 8]。</li>
+<li>ISIC17：20% 下 mIoU 74.23%、Dice 82.58%，比 BCP（70.83% mIoU）高 3.40%，比 Semi-Mamba-UNet（70.34%）高 3.89%；10% 下 mIoU 72.00%、Dice 81.13% [p. 8, 表 II]。</li>
+<li>ISIC18：20% 下 mIoU 78.02%、Dice 86.10%、ASD 2.17；10% 下 mIoU 77.27%、Dice 85.45% [p. 8, 表 III]。</li>
+<li>Kvasir：20% 下 mIoU 78.70%、Dice 86.31%、ASD 2.10；10% 下 mIoU 74.54%、Dice 83.02% [p. 9, 表 IV]。</li>
+<li>3D Synapse 20%：平均 Dice 66.05%、ASD 11.17，第二 CML 55.92% [p. 10, 表 V]。</li>
+<li>AbdomenCT-1K 20%：平均 Dice 90.21%、ASD 1.19 [p. 10, 表 VII]。</li>
+<li>FLARE22 10%：平均 Dice 84.18%、Jaccard 75.87%，第二 GuidedNet 83.64% [p. 10, 表 VI]。</li>
+</ul>
+<h3>4.3 消融</h3>
+<ul>
+<li>三组件组合（Synapse 20%）：基线 Dice 58.00%、ASD 22.55；仅 diverse-augment 58.53%/15.70；仅 diverse-scan 61.62%/19.81；仅 diverse-feature 59.09%/26.41；三者全开 67.63%/10.70。ISIC17 全开 81.05%/2.11，ISIC18 86.42%/1.66，Kvasir 86.44%/2.04 [p. 11, 表 VIII]。</li>
+<li>协同 vs 单网络内多扫描：Synapse 20% 下协同 67.63% vs 单网络 58.53%；ISIC18 86.42% vs 83.84%；ASD 分别从 15.70 降至 10.70、从 2.47 降至 1.66 [p. 11-12, 表 IX, Fig. 11]。</li>
+<li>不确定性加权对比：ISIC18 20% 下 Dice 从 85.01% 提升到 86.42%，ASD 从 2.04 降至 1.66 [p. 12, 表 X]。</li>
+<li>强增强概率 α 从 0.5 到 1.0 步长 0.1，所有实验 Dice 超 86%，最佳在 0.9 [p. 12, Fig. 12]。随机 patch 尺寸优于固定值 [p. 12, Fig. 12]。</li>
+<li>同骨干对比：将 FixMatch/BCP/CML 骨干换为 Mamba-UNet 后，DCMamba 仍领先（如 Synapse 20% 67.63% vs CML 59.39%）[p. 12, 表 XI]。</li>
+<li>与基础模型比较：SAM-Med2D 在 Synapse 上略高于 DCMamba（67.84% vs 67.63%），但 DCMamba 在 ISIC17/18、Kvasir 上以 20% 标注超过 SAM 系列及 SemiSAM [p. 13, 表 XII]。</li>
+</ul>
+<h2>5. 评估</h2>
+<p>支持的结论：扫描方向差异确实带来可观的协同增益（表 IX），三组件组合在多个数据集上一致提升，且 2D/3D 均有效。作者也报告了局限：FLARE22 上胆囊 Dice 低于 CNN 方法，归因于选择性扫描偏重长程依赖而非局部细节 [p. 11]；diverse-feature 单独使用时可能增加 ASD [p. 11]；与 SAM-Med2D 在 Synapse 上仍有差距 [p. 13]。缺失证据：未报告参数量/推理开销、训练总时长、伪标签置信度阈值（直接 argmax）、对比学习投影头结构、τ 取值、随机种子数量（仅称五次试验取不同未标注样本）[p. 7-8]；表 VIII 中部分行数值在文本中重复出现（如 61.62/19.81 同时对应 diverse-scan 与 diverse-feature 行），需以原表为准，文本无法完全核对。</p>
+<h2>6. 复现</h2>
+<p>已报告：数据划分与预处理、patch 尺寸、增强类型与概率 0.9、骨干与预训练权重、batch 与标注 batch、优化器与超参、迭代数、λ 公式、损失权重 1/2、推理选水平/垂直分支 [p. 6-8]。未报告：对比损失温度 τ、投影头维度、伪标签是否过滤、3D 网络具体通道配置、随机 patch 尺寸的采样分布细节（仅称 H/8 到 H）、GPU 数量与总训练时间。代码链接为 https://github.com/ShumengLI/DCMamba [p. 1]。</p></div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261101_0632.html">20261101_0632</a>
+<a href="archive/20261031_0700.html">20261031_0700</a>
+<a href="archive/20261030_0719.html">20261030_0719</a>
+<a href="archive/20261029_0716.html">20261029_0716</a>
+<a href="archive/20261028_0700.html">20261028_0700</a>
+<a href="archive/20261027_0711.html">20261027_0711</a>
+<a href="archive/20261026_0917.html">20261026_0917</a>
+<a href="archive/20261024_0600.html">20261024_0600</a>
+<a href="archive/20261023_1445.html">20261023_1445</a>
+<a href="archive/20261023_1131.html">20261023_1131</a>
+<a href="archive/20261023_0614.html">20261023_0614</a>
+<a href="archive/20261022_0614.html">20261022_0614</a>
+<a href="archive/20261021_0612.html">20261021_0612</a>
+<a href="archive/20261020_0652.html">20261020_0652</a>
+<a href="archive/20261019_0522.html">20261019_0522</a>
+<a href="archive/20261018_0522.html">20261018_0522</a>
+<a href="archive/20261017_0559.html">20261017_0559</a>
+<a href="archive/20261016_0606.html">20261016_0606</a>
+<a href="archive/20261015_0611.html">20261015_0611</a>
+<a href="archive/20261014_0714.html">20261014_0714</a>
+<a href="archive/20261013_0915.html">20261013_0915</a>
+<a href="archive/20261012_0646.html">20261012_0646</a>
+<a href="archive/20261011_0623.html">20261011_0623</a>
+<a href="archive/20261010_0709.html">20261010_0709</a>
+<a href="archive/20261009_0743.html">20261009_0743</a>
+<a href="archive/20261008_0732.html">20261008_0732</a>
+<a href="archive/20261007_0658.html">20261007_0658</a>
+<a href="archive/20261006_0843.html">20261006_0843</a>
+<a href="archive/20261005_0617.html">20261005_0617</a>
+<a href="archive/20261004_0605.html">20261004_0605</a>
+<a href="archive/20261003_0656.html">20261003_0656</a>
+<a href="archive/20261002_0705.html">20261002_0705</a>
+<a href="archive/20261001_0654.html">20261001_0654</a>
+<a href="archive/20260930_0655.html">20260930_0655</a>
+<a href="archive/20260929_0748.html">20260929_0748</a>
+<a href="archive/20260928_0559.html">20260928_0559</a>
+<a href="archive/20260927_0555.html">20260927_0555</a>
+<a href="archive/20260926_0611.html">20260926_0611</a>
+<a href="archive/20260925_0611.html">20260925_0611</a>
+<a href="archive/20260924_0611.html">20260924_0611</a>
+<a href="archive/20260923_0557.html">20260923_0557</a>
+<a href="archive/20260922_0633.html">20260922_0633</a>
+<a href="archive/20260921_0524.html">20260921_0524</a>
+<a href="archive/20260920_0523.html">20260920_0523</a>
+<a href="archive/20260919_0534.html">20260919_0534</a>
+<a href="archive/20260918_0602.html">20260918_0602</a>
+<a href="archive/20260917_0602.html">20260917_0602</a>
+<a href="archive/20260916_0604.html">20260916_0604</a>
+<a href="archive/20260915_0626.html">20260915_0626</a>
+<a href="archive/20260913_0521.html">20260913_0521</a>
+<a href="archive/20260912_0539.html">20260912_0539</a>
+<a href="archive/20260911_0532.html">20260911_0532</a>
+<a href="archive/20260910_0537.html">20260910_0537</a>
+<a href="archive/20260909_1610.html">20260909_1610</a>
+<a href="archive/20260909_0547.html">20260909_0547</a>
+<a href="archive/20260908_0558.html">20260908_0558</a>
+<a href="archive/20260907_0512.html">20260907_0512</a>
+<a href="archive/20260906_0506.html">20260906_0506</a>
+<a href="archive/20260905_0522.html">20260905_0522</a>
+<a href="archive/20260904_0539.html">20260904_0539</a>
+<a href="archive/20260903_0545.html">20260903_0545</a>
+<a href="archive/20260902_0544.html">20260902_0544</a>
+<a href="archive/20260901_0712.html">20260901_0712</a>
+<a href="archive/20260831_0555.html">20260831_0555</a>
+<a href="archive/20260830_0537.html">20260830_0537</a>
+<a href="archive/20260829_1002.html">20260829_1002</a>
+<a href="archive/20260828_1132.html">20260828_1132</a>
+<a href="archive/20260827_0545.html">20260827_0545</a>
+<a href="archive/20260826_0337.html">20260826_0337</a>
+<a href="archive/20260825_0335.html">20260825_0335</a>
+<a href="archive/20260824_0327.html">20260824_0327</a>
+<a href="archive/20260823_0327.html">20260823_0327</a>
+<a href="archive/20260822_0330.html">20260822_0330</a>
+<a href="archive/20260821_0336.html">20260821_0336</a>
+<a href="archive/20260820_0331.html">20260820_0331</a>
+<a href="archive/20260819_0332.html">20260819_0332</a>
+<a href="archive/20260818_0333.html">20260818_0333</a>
+<a href="archive/20260817_0326.html">20260817_0326</a>
+<a href="archive/20260816_0326.html">20260816_0326</a>
+<a href="archive/20260815_0351.html">20260815_0351</a>
+<a href="archive/20260814_0358.html">20260814_0358</a>
+<a href="archive/20260813_0405.html">20260813_0405</a>
+<a href="archive/20260812_0405.html">20260812_0405</a>
+<a href="archive/20260811_0359.html">20260811_0359</a>
+<a href="archive/20260810_0341.html">20260810_0341</a>
+<a href="archive/20260809_0338.html">20260809_0338</a>
+<a href="archive/20260808_0357.html">20260808_0357</a>
+<a href="archive/20260807_0846.html">20260807_0846</a>
+<a href="archive/20260806_0438.html">20260806_0438</a>
+<a href="archive/20260805_0440.html">20260805_0440</a>
+<a href="archive/20260804_0438.html">20260804_0438</a>
+<a href="archive/20260803_0416.html">20260803_0416</a>
+<a href="archive/20260802_0414.html">20260802_0414</a>
+<a href="archive/20260801_0429.html">20260801_0429</a>
+<a href="archive/20260731_0422.html">20260731_0422</a>
+<a href="archive/20260730_0417.html">20260730_0417</a>
+<a href="archive/20260729_0423.html">20260729_0423</a>
+<a href="archive/20260728_0429.html">20260728_0429</a>
+<a href="archive/20260727_0417.html">20260727_0417</a>
+<a href="archive/20260726_0415.html">20260726_0415</a>
+<a href="archive/20260725_0427.html">20260725_0427</a>
+<a href="archive/20260724_0419.html">20260724_0419</a>
+<a href="archive/20260723_0418.html">20260723_0418</a>
+<a href="archive/20260722_0424.html">20260722_0424</a>
+<a href="archive/20260721_1650.html">20260721_1650</a>
+<a href="archive/20260721_0428.html">20260721_0428</a>
+<a href="archive/20260720_0411.html">20260720_0411</a>
+<a href="archive/20260719_0408.html">20260719_0408</a>
+<a href="archive/20260718_0413.html">20260718_0413</a>
+<a href="archive/20260717_0409.html">20260717_0409</a>
+<a href="archive/20260716_0418.html">20260716_0418</a>
+<a href="archive/20260715_0421.html">20260715_0421</a>
+<a href="archive/20260714_0422.html">20260714_0422</a>
+<a href="archive/20260713_0410.html">20260713_0410</a>
+<a href="archive/20260712_0410.html">20260712_0410</a>
+<a href="archive/20260711_0448.html">20260711_0448</a>
+<a href="archive/20260710_0454.html">20260710_0454</a>
+<a href="archive/20260709_0427.html">20260709_0427</a>
+<a href="archive/20260708_0455.html">20260708_0455</a>
+<a href="archive/20260707_0457.html">20260707_0457</a>
+<a href="archive/20260706_0421.html">20260706_0421</a>
+<a href="archive/20260705_0415.html">20260705_0415</a>
+<a href="archive/20260704_0421.html">20260704_0421</a>
+<a href="archive/20260703_0425.html">20260703_0425</a>
+<a href="archive/20260702_0453.html">20260702_0453</a>
+<a href="archive/20260701_1434.html">20260701_1434</a>
+<a href="archive/20260701_0502.html">20260701_0502</a>
+<a href="archive/20260630_0454.html">20260630_0454</a>
+<a href="archive/20260629_0420.html">20260629_0420</a>
+<a href="archive/20260628_0423.html">20260628_0423</a>
+<a href="archive/20260627_0450.html">20260627_0450</a>
+<a href="archive/20260626_0502.html">20260626_0502</a>
+<a href="archive/20260625_0453.html">20260625_0453</a>
+<a href="archive/20260624_0505.html">20260624_0505</a>
+<a href="archive/20260623_0535.html">20260623_0535</a>
+<a href="archive/20260622_0444.html">20260622_0444</a>
+<a href="archive/20260621_0422.html">20260621_0422</a>
+<a href="archive/20260620_0442.html">20260620_0442</a>
+<a href="archive/20260619_0529.html">20260619_0529</a>
+<a href="archive/20260618_0517.html">20260618_0517</a>
+<a href="archive/20260617_0546.html">20260617_0546</a>
+<a href="archive/20260616_0549.html">20260616_0549</a>
+<a href="archive/20260615_0426.html">20260615_0426</a>
+<a href="archive/20260614_0424.html">20260614_0424</a>
+<a href="archive/20260613_0507.html">20260613_0507</a>
+<a href="archive/20260612_0530.html">20260612_0530</a>
+<a href="archive/20260611_0531.html">20260611_0531</a>
+<a href="archive/20260610_0508.html">20260610_0508</a>
+<a href="archive/20260609_0517.html">20260609_0517</a>
+<a href="archive/20260608_0423.html">20260608_0423</a>
+<a href="archive/20260607_0421.html">20260607_0421</a>
+<a href="archive/20260606_0500.html">20260606_0500</a>
+<a href="archive/20260604_0602.html">20260604_0602</a>
+<a href="archive/20260603_0600.html">20260603_0600</a>
+<a href="archive/20260602_0619.html">20260602_0619</a>
+<a href="archive/20260601_0423.html">20260601_0423</a>
+<a href="archive/20260531_0419.html">20260531_0419</a>
+<a href="archive/20260530_0517.html">20260530_0517</a>
+<a href="archive/20260527_0458.html">20260527_0458</a>
+<a href="archive/20260526_0425.html">20260526_0425</a>
+<a href="archive/20260525_0415.html">20260525_0415</a>
+<a href="archive/20260524_0409.html">20260524_0409</a>
+<a href="archive/20260523_0445.html">20260523_0445</a>
+<a href="archive/20260522_0454.html">20260522_0454</a>
+<a href="archive/20260521_0515.html">20260521_0515</a>
+<a href="archive/20260520_0457.html">20260520_0457</a>
+<a href="archive/20260519_0452.html">20260519_0452</a>
+<a href="archive/20260518_0416.html">20260518_0416</a>
+<a href="archive/20260517_0420.html">20260517_0420</a>
+<a href="archive/20260515_0449.html">20260515_0449</a>
+<a href="archive/20260514_0517.html">20260514_0517</a>
+<a href="archive/20260513_0445.html">20260513_0445</a>
+<a href="archive/20260512_0450.html">20260512_0450</a>
+<a href="archive/20260511_1750.html">20260511_1750</a>
+<a href="archive/20260511_0418.html">20260511_0418</a>
+<a href="archive/20260510_0414.html">20260510_0414</a>
+<a href="archive/20260509_0426.html">20260509_0426</a>
+<a href="archive/20260508_0435.html">20260508_0435</a>
+<a href="archive/20260507_0454.html">20260507_0454</a>
+<a href="archive/20260506_0427.html">20260506_0427</a>
+<a href="archive/20260505_0436.html">20260505_0436</a>
+<a href="archive/20260504_0410.html">20260504_0410</a>
+<a href="archive/20260503_0414.html">20260503_0414</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0429.html">20260501_0429</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>
