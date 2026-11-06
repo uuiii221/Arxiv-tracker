@@ -74,298 +74,295 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-11-05 08:26</span>
+        <span class="badge">2026-11-06 08:21</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
-<div class="title">Semi-Supervised Multi-Modal Medical Image Segmentation for Complex Situations</div>
-<div class="meta-line">Authors: Dongdong Meng, Sheng Li, Hao Wu, Guoping Wang, Xueqing Yan</div>
-<div class="meta-line">Venue: MICCAI 2025</div>
-<div class="meta-line">First: 2025-06-20T16:37:44+00:00 · Latest: 2025-06-20T16:37:44+00:00</div>
-<div class="meta-line">Comments: 10 pages, 2 figures, accepted at MICCAI 2025</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2506.17136v1">Abs</a> · <a href="https://arxiv.org/pdf/2506.17136v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<div class="title">Unleashing the Power of Intermediate Domains for Mixed Domain Semi-Supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Qinghe Ma, Jian Zhang, Lei Qi, Qian Yu, Yinghuan Shi, Yang Gao</div>
+<div class="meta-line">First: 2025-05-30T13:21:05+00:00 · Latest: 2025-05-30T13:21:05+00:00</div>
+<div class="meta-line">Comments: Accepted by IEEE TMI 2025. arXiv admin note: text overlap with arXiv:2404.08951</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.24567v1">Abs</a> · <a href="https://arxiv.org/pdf/2505.24567v1">PDF</a> · <a href="https://github.com/MQinghe/UST-RUN">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
 <details class="detail"><summary>Abstract</summary>
-<div class="mono">Semi-supervised learning addresses the issue of limited annotations in medical images effectively, but its performance is often inadequate for complex backgrounds and challenging tasks. Multi-modal fusion methods can significantly improve the accuracy of medical image segmentation by providing complementary information. However, they face challenges in achieving significant improvements under semi-supervised conditions due to the challenge of effectively leveraging unlabeled data. There is a significant need to create an effective and reliable multi-modal learning strategy for leveraging unlabeled data in semi-supervised segmentation. To address these issues, we propose a novel semi-supervised multi-modal medical image segmentation approach, which leverages complementary multi-modal information to enhance performance with limited labeled data. Our approach employs a multi-stage multi-modal fusion and enhancement strategy to fully utilize complementary multi-modal information, while reducing feature discrepancies and enhancing feature sharing and alignment. Furthermore, we effectively introduce contrastive mutual learning to constrain prediction consistency across modalities, thereby facilitating the robustness of segmentation results in semi-supervised tasks. Experimental results on two multi-modal datasets demonstrate the superior performance and robustness of the proposed framework, establishing its valuable potential for solving medical image segmentation tasks in complex scenarios.</div></details>
+<div class="mono">Both limited annotation and domain shift are prevalent challenges in medical image segmentation. Traditional semi-supervised segmentation and unsupervised domain adaptation methods address one of these issues separately. However, the coexistence of limited annotation and domain shift is quite common, which motivates us to introduce a novel and challenging scenario: Mixed Domain Semi-supervised medical image Segmentation (MiDSS), where limited labeled data from a single domain and a large amount of unlabeled data from multiple domains. To tackle this issue, we propose the UST-RUN framework, which fully leverages intermediate domain information to facilitate knowledge transfer. We employ Unified Copy-paste (UCP) to construct intermediate domains, and propose a Symmetric GuiDance training strategy (SymGD) to supervise unlabeled data by merging pseudo-labels from intermediate samples. Subsequently, we introduce a Training Process aware Random Amplitude MixUp (TP-RAM) to progressively incorporate style-transition components into intermediate samples. To generate more diverse intermediate samples, we further select reliable samples with high-quality pseudo-labels, which are then mixed with other unlabeled data. Additionally, we generate sophisticated intermediate samples with high-quality pseudo-labels for unreliable samples, ensuring effective knowledge transfer for them. Extensive experiments on four public datasets demonstrate the superiority of UST-RUN. Notably, UST-RUN achieves a 12.94% improvement in Dice score on the Prostate dataset. Our code is available at https://github.com/MQinghe/UST-RUN</div></details>
 <details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>复杂情况下的半监督多模态医学图像分割</div>
-<div class="mono" style="margin-top:8px">半监督学习有效缓解了医学图像标注有限的问题，但其在复杂背景和挑战性任务中的性能往往不足。多模态融合方法通过提供互补信息可显著提升医学图像分割的准确性。然而，在半监督条件下，由于难以有效利用未标注数据，这些方法难以取得显著改进。迫切需要一种有效且可靠的多模态学习策略，以在半监督分割中利用未标注数据。为解决这些问题，我们提出了一种新颖的半监督多模态医学图像分割方法，利用互补的多模态信息在有限标注数据下提升性能。我们的方法采用多阶段多模态融合与增强策略，充分利用互补的多模态信息，同时减少特征差异并增强特征共享与对齐。此外，我们有效引入对比互学习以约束跨模态的预测一致性，从而提升半监督任务中分割结果的鲁棒性。在两个多模态数据集上的实验结果表明，所提框架具有优越的性能和鲁棒性，在解决复杂场景下的医学图像分割任务方面具有重要潜力。</div>
+<div class="mono"><b>标题：</b>释放中间域的力量用于混合域半监督医学图像分割</div>
+<div class="mono" style="margin-top:8px">有限的标注和域偏移都是医学图像分割中普遍存在的挑战。传统的半监督分割和无监督域适应方法分别解决其中一个问题。然而，有限标注和域偏移的共存非常普遍，这促使我们引入一个新的且具有挑战性的场景：混合域半监督医学图像分割（MiDSS），其中包含来自单一域的有限标注数据和来自多个域的大量无标注数据。为解决这一问题，我们提出了UST-RUN框架，充分利用中间域信息以促进知识迁移。我们采用统一复制粘贴（UCP）构建中间域，并提出对称引导训练策略（SymGD），通过合并中间样本的伪标签来监督无标注数据。随后，我们引入训练过程感知的随机幅度混合（TP-RAM），逐步将风格转换组件融入中间样本。为生成更多样化的中间样本，我们进一步选择具有高质量伪标签的可靠样本，并将其与其他无标注数据混合。此外，我们为不可靠样本生成具有高质量伪标签的精细中间样本，确保对其实现有效的知识迁移。在四个公开数据集上的大量实验证明了UST-RUN的优越性。值得注意的是，UST-RUN在前列腺数据集上取得了12.94%的Dice分数提升。我们的代码可在https://github.com/MQinghe/UST-RUN获取</div>
 </details>
 <details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">论文提出半监督多模态医学图像分割框架：双分支编码器在多个编码阶段融合两模态特征，模态感知增强模块按通道重加权，并以对比式互学习（用对方模态预测作伪标签、停止梯度）约束无标注数据的一致性。在 BraTS2019（T1ce+T2）与私有 NPC（CT+MR T2）上，5%/10% 标注下 DSC 与 ASD 多数优于 MT、ICT、EM、URPC、MLRPL、MMCML、CMC；BraTS 5% 时 DSC 85.16%、ASD 2.38 mm。消融显示多阶段融合贡献最大（T1ce 分支 DSC 68.44→81.94）。局限：仅单一 α=1.0、无重复种子方差检验、NPC 为私有数据、融合层与增强模块细节报告不足。</div>
+<div class="mono" style="margin-top:8px">论文提出混合域半监督医学图像分割（MiDSS）新场景：仅有一个域少量标注、多个域大量无标注。UST-RUN 通过统一复制粘贴（UCP）构造中间域，用对称引导（SymGD）融合中间样本伪标签监督无标注数据，并用训练进程感知随机幅度 MixUp（TP-RAM）渐进注入风格；进一步筛选可靠样本增加中间样本多样性，并为不可靠样本构造高质量伪标签中间样本。四个公开数据集上优于 SSMIS/UDA/基础模型微调基线；Prostate 上报告 Dice 提升 12.94%。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 13 页；13 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>论文关注一个被作者称为 MiDSS 的新场景：标注数据仅来自单一域且数量很少，无标注数据同时来自源域和多个目标域 [p. 1][p. 2]。传统半监督医学图像分割（SSMIS）通常假设标注与无标注数据同分布；无监督域适应（UDA）虽处理域偏移，却依赖充足源域标注；半监督域适应（SSDA）虽同时有少量标注和域偏移，但标注源域数据较多、目标域单一 [p. 2][p. 4]。作者因此主张 MiDSS 更贴近临床多中心数据收集：少量标注来自一个中心，大量无标注来自多个中心 [p. 1][p. 2]。核心困难是域偏移下伪标签不可靠，自训练误差累积；作者的关键思路是先构造中间域缩小域差，再利用中间域信息改进无标注数据伪标签 [p. 2]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 问题设定与基线</h3>
+<p>设有 K 个数据域 {D_i}，训练集含 N 个来自单一域 D_j 的标注图像 {(x_i,y_i)} 和 M 个来自多个域的无标注图像 {u_i}，M&gt;N；目标是模型在所有域（无论是否有标注）上分割良好 [p. 4]。方法基于 mean-teacher：教师 ^f 对弱增强无标注数据 u_w 产生概率图 ^p_w 和伪标签 ^q_w=argmax(^p_w)，学生 f 对强增强 u_s 预测 p_s；弱增强含裁剪、旋转、翻转、弹性形变，强增强另加颜色抖动和高斯模糊 [p. 4]。</p>
+<h3>2.2 UCP 构造中间样本</h3>
+<p>统一复制粘贴 UCP 同时对标注数据 (x_w,y_w) 与无标注数据 (u_s,^p_w,^q_w) 施加两个方向的 Copy-paste，得到 u_s^in、u_s^out 及其混合概率图/伪标签；掩码 M_α 为随机单中心矩形区域，区域选择沿用 UniMatch 策略 [p. 4][p. 5]。与只做单向嵌入的 CP 相比，UCP 同时生成双向中间样本，以缓解误差累积 [p. 2]。</p>
+<h3>2.3 SymGD 对称引导</h3>
+<p>单向监督 L_in、L_out 用混合伪标签 ^q_w^in、^q_w^out 监督学生在中间样本上的预测，权重 w_i=1(max(^p_w^i)≥τ) 标记伪标签像素是否可靠；损失为加权交叉熵与 Dice 之和 [p. 5]。为反向利用中间域信息，教师对 u_w^in、u_w^out 预测并按 M_α 合并为 ^q_mg（式 5），再与 ^q_w 做像素级 XOR 得到一致性权重 w_ens，最终 L_sym 用 ^q_mg 监督 p_s [p. 5]。L_sym 在早期训练权重较低、后期快速增加，以保证中间域先学好再反哺无标注域 [p. 5]。</p>
+<h3>2.4 TP-RAM 风格迁移</h3>
+<p>UCP 只做局部语义混合，忽略域间风格差异。作者用 FFT 取标注与无标注图像的幅度和相位，将无标注图像的低频幅度按掩码 M_β 混入标注图像幅度、保留标注相位，再 IFFT 得到风格迁移后的 x_u（式 9）；M_β 仅在中心 2βW×2βH 区域非零，混合比例 Φ(t)=t/t_total 随训练步数增大，即渐进注入风格 [p. 5][p. 6]。该操作是样本到样本，不需要域身份或风格聚类 [p. 6]。</p>
+<h3>2.5 UST-RUN：可靠与不可靠样本</h3>
+<p>可靠样本筛选：用教师伪标签 ^q_w 与学生伪标签 q_w 的 Dice 差异定义硬度 h=1−Dice(^q_w,q_w)；h&lt;γ 的样本进入容量 K 的队列 Q，γ 动态更新为队列内最大硬度；若某轮无样本入选，则 γ=max(γ0,δγ)，δ=1.0005 [p. 6]。可靠样本的三元组 (u_w^r,^p_w^r,^q_w^r) 替代标注数据参与式 (2) 的 UCP，从而在任意域之间生成更多样中间样本 [p. 6]。</p>
+<p>不可靠样本：每批选硬度最高者为 u_w^ur；将 ^q_w^ur 的前景与 y_w 前景做像素 OR 后取包围盒 M_ur=Box(^q_w^ur⊕y_w)，只把标注数据区域嵌入不可靠样本，不要求反向 CP，以保留困难样本背景并提供精确前景监督 [p. 7]。</p>
+<h3>2.6 总损失</h3>
+<p>L_s 为标注数据的 CE+Dice；总损失 L_total=L_s+λ(L_in+L_out+λL_sym)，λ(t)=e^{−5(1−t/t_total)}，使 L_sym 的系数 λ² 早期增长较慢 [p. 7]。</p>
+<h2>3. 贡献</h2>
+<p>作者声称：首次研究 MiDSS 场景；提出基于 UCP 的 SymGD 训练策略；提出 TP-RAM 使域知识迁移全面稳定；扩展版相对会议版 UST 增加可靠样本多样性生成与不可靠样本精细训练 [p. 2]。我的理解是：核心新颖性在于把“中间域”从单向 CP 扩展为双向构造、风格渐进混合和可靠/不可靠样本分流，并用 SymGD 把中间域预测反哺无标注数据；这更像对 BCP/UST 思路的系统化扩展，而非全新学习范式。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据与设置</h3>
+<p>四个公开数据集：Fundus（4 中心，视杯/视盘；20 标注、769 无标注、271 测试，256×256）、Prostate（6 源，T2 MRI；40 标注、1470 无标注、357 测试，384×384）、M&amp;Ms（4 厂商，LV/MYO/RV；20 标注、3427 无标注、863 测试，288×288）、BUSI（良/恶性两域；64 标注、454 无标注、129 测试，256×256）[p. 7][p. 8, Table II]。训练用 RTX 3090、SGD 动量 0.9、权重衰减 0.0001、初始学习率 0.03、batch size 8（4 标注+4 无标注），Fundus/BUSI 迭代 30000，Prostate/M&amp;Ms 60000；β=0.01、τ=0.95 [p. 8]。评价指标 DC、JC、95% HD、ASD [p. 9]。</p>
+<h3>4.2 主要结果</h3>
+<p>Fundus 20 标注：UST-RUN 平均 DC 88.09，作者称至少比其它方法高 4.70%；10 标注时仍保持优势 [p. 9][p. 10]。Prostate 40 标注：UST-RUN 平均 DC 88.13，JC 79.47，HD 11.39，ASD 4.80；20 标注时相对 UST 略有下降 [p. 10, Table IV]。M&amp;Ms 20 标注：UST-RUN 平均 DC 85.04，优于对比方法，但与上界 88.28 仍有差距，作者归因于上界使用远多于 20 的标注 [p. 10, Table V]。BUSI 64/129 标注：UST-RUN 相对 UST 的 DC 分别提升 1.93% 和 2.19% [p. 10, Table VI]。摘要称 Prostate 上 Dice 提升 12.94%，正文未在该处给出对应比较对象与条件的完整说明，需以表格为准 [p. 1][p. 10]。</p>
+<h3>4.3 消融与证据</h3>
+<p>Fundus 消融（Table VIII）：#1 仅 UCP 平均 DC 85.78；#3 加 SymGD 86.89；#4 加 TP-RAM 86.95；#5 加 RAM 86.82；#6 加 TP-RAM+SymGD 87.66；#7 再加可靠样本 87.91；#8 再加不可靠样本 88.09（正文一处写 88.15%，与表 88.09 不完全一致）[p. 10][p. 11]。这说明 SymGD 与 TP-RAM 各自有效，可靠/不可靠模块带来进一步增益。参数敏感性：β=0.01、τ=0.95 最佳；Prostate 上 δ=1.0005、K=20 最佳 [p. 11, Table IX/X]。粘贴区域策略：随机区域优于 Label-Guided、Pseudo-Guided、Dual-Guided，作者解释语义不连续反而增加中间样本多样性 [p. 11, Table XI]。随机选可靠/不可靠样本均下降：Rand-RUN 20 标注 DC 77.07，完整 UST-RUN 84.79 [p. 11, Table XII]。可靠样本分析显示其平均 Dice 持续高于全部无标注样本，约每 epoch 选 40 个；1470 个无标注样本中约 500 个从未被选中 [p. 12, Fig. 12]。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在四个数据集、给定标注预算下，UST-RUN 多数设置优于 SSMIS、UDA 和 SAM 微调基线；消融支持 UCP、SymGD、TP-RAM、可靠/不可靠样本模块各自有贡献。作者报告的限制较少；从证据看，M&amp;Ms 与上界差距明显，Prostate 20 标注时相对 UST 退化，说明极少标注下稳定性仍有限。缺失证据：未报告跨数据集统一超参搜索成本、训练时间/显存、多次随机种子以外的统计检验；部分表格数字在正文中难以逐项核对，摘要的 12.94% 提升缺少明确基线条件。</p>
+<h2>6. 复现</h2>
+<p>按文中报告：mean-teacher + U-Net；弱增强裁剪/旋转/翻转/弹性形变，强增强加颜色抖动与高斯模糊；UCP 用 UniMatch 区域选择；β=0.01、τ=0.95、δ=1.0005、K=20；SGD lr=0.03、momentum=0.9、weight decay=0.0001、batch 8（4+4）；Fundus/BUSI 30000 步，Prostate/M&amp;Ms 60000 步；λ(t)=e^{−5(1−t/t_total)} [p. 4][p. 7][p. 8][p. 11]。未报告：具体数据划分文件、EMA 衰减率、U-Net 通道数、随机种子数量、推理是否用测试时增强、可靠队列的初始化细节。代码链接为 https://github.com/MQinghe/UST-RUN [p. 1]。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Semi-Supervised Medical Image Segmentation via Dual Networks</div>
+<div class="meta-line">Authors: Yunyao Lu, Yihang Wu, Reem Kateb, Ahmad Chaddad</div>
+<div class="meta-line">First: 2025-05-23T09:59:26+00:00 · Latest: 2025-05-23T09:59:26+00:00</div>
+<div class="meta-line">Comments: Accepted in ISBI2025</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.17690v1">Abs</a> · <a href="https://arxiv.org/pdf/2505.17690v1">PDF</a> · <a href="https://github.com/AIPMLab/Semi-supervised-Segmentation">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Traditional supervised medical image segmentation models require large amounts of labeled data for training; however, obtaining such large-scale labeled datasets in the real world is extremely challenging. Recent semi-supervised segmentation models also suffer from noisy pseudo-label issue and limited supervision in feature space. To solve these challenges, we propose an innovative semi-supervised 3D medical image segmentation method to reduce the dependency on large, expert-labeled datasets. Furthermore, we introduce a dual-network architecture to address the limitations of existing methods in using contextual information and generating reliable pseudo-labels. In addition, a self-supervised contrastive learning strategy is used to enhance the representation of the network and reduce prediction uncertainty by distinguishing between reliable and unreliable predictions. Experiments on clinical magnetic resonance imaging demonstrate that our approach outperforms state-of-the-art techniques. Our code is available at https://github.com/AIPMLab/Semi-supervised-Segmentation.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>基于双网络的半监督医学图像分割</div>
+<div class="mono" style="margin-top:8px">传统的监督式医学图像分割模型需要大量标注数据进行训练；然而，在现实世界中获取如此大规模标注数据集极具挑战性。近期的半监督分割模型也存在伪标签噪声问题和特征空间监督有限的问题。为解决这些挑战，我们提出一种创新的半监督3D医学图像分割方法，以降低对大规模专家标注数据集的依赖。此外，我们引入双网络架构，以解决现有方法在利用上下文信息和生成可靠伪标签方面的局限。同时，采用自监督对比学习策略，通过区分可靠与不可靠预测来增强网络表示并降低预测不确定性。在临床磁共振成像上的实验表明，我们的方法优于最先进的技术。我们的代码可在 https://github.com/AIPMLab/Semi-supervised-Segmentation 获取。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出一种用于3D医学图像分割的双网络半监督方法：学生-教师网络通过余弦一致性正则化稳定训练；对无标签数据按像素熵的80百分位阈值过滤高不确定伪标签；用KL散度构造不确定性加权损失；并用对比损失将不确定体素特征拉近可靠类原型、推远不同类原型。在LA（5折）和Pancreas-CT（4折）上，Dice分别达90.19%和75.25%；LA上优于所列基线，Pancreas上Dice低于LUSEG（76.40%）但ASD更优（2.49 vs 2.79）。消融显示LA上两项损失均有益，Pancreas上组合损失在Dice/Jaccard上不如单用不确定性损失。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 6 页；6 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图 · Figure 1 · PDF 第 2 页</b></p><img src="assets/figures/072a11fc0c881c1ee23ac761.png" alt="原论文流程图 · Figure 1 · PDF 第 2 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 1. Pipeline of our proposed model. It has three parts: Here,ylrepresentsthemanuallyannotatedmasklabelfor consistencyregularization,uncertaintyestimation,andacon- i thei-thlabeledimage,whilepdenotesthemodelprediction. <a href="https://arxiv.org/pdf/2505.17690v1#page=2">原文来源</a></p></div>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>论文针对3D医学图像分割中像素级标注昂贵、标注数据稀缺的问题，采用半监督学习同时利用少量标注数据和大量无标签数据[p. 1]。作者指出，现有伪标签方法存在两个主要问题：一是伪标签噪声大，模型容易受错误预测误导；二是特征空间监督不足，许多方法只在标签空间施加监督，导致类间可分性不够[p. 1]。</p>
+<p>作者还批评了常见的置信度阈值过滤：低分类分数的预测被丢弃，但部分错误预测仍可能有高分，造成过度自信或校准不良；而提高阈值会显著减少伪标签数量，可能引入类别不平衡并降低分割性能[p. 1]。因此，论文试图用双网络、不确定性估计和对比学习同时缓解伪标签噪声与特征空间监督不足。</p>
+<h2>2. 方法</h2>
+<h3>2.1 总体框架</h3>
+<p>模型由学生网络 fS(x;θ1) 和教师网络 fT(x;θ2) 组成，二者均为3D编码器-解码器结构，性能相近[p. 2]。训练数据包括标注集 Dl={(xli,yli)} 和无标签集 Du={xui}[p. 2]。图1展示了整体流程，包含一致性正则化、不确定性估计和对比学习三部分；图注说明 yli 为第 i 个标注图像的掩码标签，p 为模型预测[p. 2]。</p>
+<p>总损失为：
+L = LSs + LTs + λcLc + Lreg + Lune + LSu + LTu（式1）[p. 2]。
+其中上标 S/T 分别对应学生/教师，下标 s 表示监督损失、u 表示无标签伪监督损失；Lc 为对比损失，Lreg 为一致性正则化，Lune 为不确定性损失，λc 为对比损失权重。式1的排版在PDF中较拥挤，但各分组的含义可由正文和式2—式11推断。</p>
+<h3>2.2 监督损失</h3>
+<p>对标注数据，作者最小化交叉熵和Dice损失：
+Ls = Lce(pli, yli) + Dice(σ(pli), yli)（式2）[p. 2]。
+其中 pli 为第 i 个标注图像的预测，yli 为人工标注掩码，σ 为softmax。</p>
+<h3>2.3 熵过滤与无标签损失</h3>
+<p>对无标签数据，先逐像素计算熵：
+EntS = −Σc pui(c)·log2(pui(c)+ε)（式3）[p. 2]。
+作者以所有像素熵值的第80百分位作为阈值 τ：若像素熵小于 τ，则用 argmax 生成伪标签；否则标记为 ignore[p. 2]。随后用带忽略索引的交叉熵计算无标签损失 Lu（式4），分母为有效像素数，B、H、W、D 分别为批大小、高、宽、深[p. 2]。</p>
+<h3>2.4 一致性正则化</h3>
+<p>基于平滑性假设，同一输入经学生和教师网络应产生相似预测[p. 3]。作者用余弦距离约束两个子网输出：
+Lreg = 1 − cos(pSi, pTi)（式5），
+cos(pSi,pTi)=pSi·pTi/(‖pSi‖‖pTi‖)（式6）[p. 3]。最小化该损失即减小学生与教师预测的余弦距离，以稳定训练。</p>
+<h3>2.5 不确定性估计</h3>
+<p>作者用KL散度衡量学生预测与教师伪标签之间的差异，并构造不确定性损失：
+Lp(pSi,pTi)=Lce(pSi, σ(pTi/Tp))（式7），
+Lune=e^(−DKL(pSi,pTi))·Lp + DKL(pSi,pTi)（式8），
+DKL(pSi,pTi)=pTi·log(pTi/pSi)（式9）[p. 3]。
+其中 Tp 为锐化softmax的温度超参数。直观上，KL散度越大表示越不确定，式8通过指数项降低该样本伪监督项的权重，同时把KL散度本身作为惩罚项。</p>
+<h3>2.6 不确定体素对比损失</h3>
+<p>作者将体素预测分为可靠与不可靠两类，用可靠体素特征均值构造前景原型 cf 和背景原型 cb：
+cf = (1/|Sf|)Σ f(vri)（式10）[p. 3]。
+其中 Sf 为可靠体素集合，f(vri) 为可靠体素的特征嵌入。对比损失为：
+Lc = d(f(vui),cf) + d(f(vui),cb) + d(cf,cb)（式11）[p. 3]。
+作者称该式用于将不确定体素对齐到相应类原型并增大不同类原型间距；但式11同时把不确定体素拉近前景和背景两个原型，且第三项直接拉近 cf 与 cb，这与正文“增大不同类原型距离”的表述存在方向上的不一致，论文未进一步解释符号或距离定义。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有三点：引入一致性正则化项以减小学生-教师预测差异并稳定训练；提出不确定性估计机制动态调整伪标签贡献；使用对比损失对齐不可靠像素特征与可靠类原型并增大类间原型距离[p. 2]。</p>
+<p>从阅读角度看，方法的新颖性主要在于把熵过滤、KL不确定性加权、余弦一致性和原型对比组合进一个学生-教师框架；但各组件在已有半监督分割文献中并不全新，论文未提供与最接近组件的逐项隔离实验来证明组合的必要性。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据集与设置</h3>
+<p>LA数据集：100例3D钆增强MR体积，各向同性分辨率0.625×0.625×0.625 mm³，分5折、每折20例；按零均值单位方差归一化；训练随机裁剪为112×112×80，推理滑窗同尺寸、步长18×18×4[p. 4]。</p>
+<p>Pancreas-CT：82例对比增强3D CT，体积512×512×D，D为181—466层，分4折；采用软组织窗（−120至240 HU），以胰腺为中心保留25体素边距裁剪；训练随机裁剪为96×96×6，推理滑窗16×16×16[p. 4]。</p>
+<p>实现细节：沿用[20,14]采用ResNet和V-Net作为双流骨干；SGD优化器，权重衰减0.0001、动量0.9，初始学习率0.01，每2500次迭代降为1/10，共6000次迭代；每次迭代同时含标注与无标签样本，批大小为2；λc=0.1×e^(4(1−t/tmax)²)[p. 4]。评价指标为Dice、Jaccard、95HD和ASD[p. 4]。论文未明确报告标注数据比例或每折具体标注样本数，这是复现和公平比较的重要缺失信息。</p>
+<h3>4.2 主要结果</h3>
+<p>LA（表1）：本文方法Dice 90.19±0.012%、Jaccard 82.42±0.019%、95HD 5.74±0.757体素、ASD 1.75±0.227体素；对比LUSEG的89.10±0.012%、81.62±0.024%、6.30±0.850、1.80±0.020，Dice提升1.09个百分点[p. 3]。表1中本文方法在四项指标上均为所列方法最优。</p>
+<p>Pancreas-CT（表2）：本文方法Dice 75.25±0.014%、Jaccard 61.65±0.017%、95HD 11.15±1.604、ASD 2.49±0.293；LUSEG为76.40±0.018%、62.96±0.027%、10.69±1.603、2.79±0.0954[p. 3]。因此本文Dice低于LUSEG 1.15个百分点、Jaccard低1.31个百分点、95HD高0.46体素，但ASD低0.30体素。作者在正文中仅称在Pancreas上ASD表现可行，未强调Dice不及LUSEG[p. 4]。</p>
+<p>图2给出LA和Pancreas的可视化对比，作者称在Pancreas上本文模型错误率低于MCF和LUSEG[p. 4]；但该结论仅基于图注和正文描述，未提供像素级误差统计。</p>
+<h3>4.3 消融</h3>
+<p>表3在LA和Pancreas上分别移除Lune、Lreg或两者[p. 4]。LA上：仅Lune时Dice 88.84%、Jaccard 80.38%、95HD 6.76、ASD 2.16；仅Lreg时89.28%、81.02%、6.58、2.06；两者都用为90.19%、82.42%、5.74、1.75；两者都不用为89.03%、80.61%、6.68、2.24。可见LA上两项损失均带来提升，组合最佳。</p>
+<p>Pancreas上：仅Lune时Dice 75.44%、Jaccard 61.80%、95HD 11.37、ASD 3.17；仅Lreg时73.92%、60.10%、10.13、2.17；两者都用为75.25%、61.65%、11.15、2.49；两者都不用为74.62%、60.83%、11.17、2.81。作者指出组合损失在Dice/Jaccard上低于仅用Lune，但在95HD/ASD上优于仅用Lreg，并推测复杂数据集上组合可能过拟合或引入噪声[p. 4]。该消融只覆盖两个损失项，未单独验证熵过滤阈值、对比损失Lc或λc设置的作用。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在LA上，完整模型在Dice、Jaccard、95HD、ASD四项指标上优于表1所列基线；消融支持Lreg和Lune在LA上均有正贡献。在Pancreas上，完整模型ASD优于LUSEG，但Dice和Jaccard不及LUSEG，因此“全面优于SOTA”的说法不适用于该数据集。</p>
+<p>作者报告的局限：Pancreas上组合损失可能因结构复杂而泛化较差；未来将引入域适应处理多模态域偏移[p. 4—5]。</p>
+<p>缺失证据：未报告标注比例/标注样本数；未与无熵过滤、无对比损失、不同τ或Tp的变体比较；未报告训练时间、显存或参数量；未给出统计显著性检验；表3中“✓”列与指标的对应关系在PDF文本中可辨认，但表头排版较乱，需以正文描述为准。式11与“增大类间距离”的文字存在不一致，论文未澄清。</p>
+<h2>6. 复现</h2>
+<p>已报告：LA 5折、Pancreas 4折；预处理与裁剪尺寸；ResNet+V-Net双流骨干；SGD（weight decay 0.0001，momentum 0.9）；初始学习率0.01，每2500次迭代×0.1，共6000次迭代；批大小2；λc=0.1×e^(4(1−t/tmax)²)；熵阈值τ取80百分位；评价指标Dice、Jaccard、95HD、ASD[p. 2—4]。</p>
+<p>未报告：每折标注样本数量或比例、教师网络参数更新方式（如EMA）、Tp具体取值、对比损失中距离d的定义与温度、Lc的权重、数据增强细节、随机种子与重复次数、推理时是否使用教师或学生输出。复现时需向作者代码或补充材料确认这些设置，不能从正文推断。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Background Matters: A Cross-view Bidirectional Modeling Framework for Semi-supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Luyang Cao, Jianwei Li, Yinghuan Shi</div>
+<div class="meta-line">First: 2025-05-22T12:59:45+00:00 · Latest: 2025-05-22T12:59:45+00:00</div>
+<div class="meta-line">Comments: Accepted by IEEE Transactions on Image Processing</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.16625v1">Abs</a> · <a href="https://arxiv.org/pdf/2505.16625v1">PDF</a> · <a href="https://github.com/caoluyang0830/CVBM.git">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Semi-supervised medical image segmentation (SSMIS) leverages unlabeled data to reduce reliance on manually annotated images. However, current SOTA approaches predominantly focus on foreground-oriented modeling (i.e., segmenting only the foreground region) and have largely overlooked the potential benefits of explicitly modeling the background region. Our study theoretically and empirically demonstrates that highly certain predictions in background modeling enhance the confidence of corresponding foreground modeling. Building on this insight, we propose the Cross-view Bidirectional Modeling (CVBM) framework, which introduces a novel perspective by incorporating background modeling to improve foreground modeling performance. Within CVBM, background modeling serves as an auxiliary perspective, providing complementary supervisory signals to enhance the confidence of the foreground model. Additionally, CVBM introduces an innovative bidirectional consistency mechanism, which ensures mutual alignment between foreground predictions and background-guided predictions. Extensive experiments demonstrate that our approach achieves SOTA performance on the LA, Pancreas, ACDC, and HRF datasets. Notably, on the Pancreas dataset, CVBM outperforms fully supervised methods (i.e., DSC: 84.57% vs. 83.89%) while utilizing only 20% of the labeled data. Our code is publicly available at https://github.com/caoluyang0830/CVBM.git.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>背景至关重要：一种用于半监督医学图像分割的跨视角双向建模框架</div>
+<div class="mono" style="margin-top:8px">半监督医学图像分割（SSMIS）利用无标签数据来减少对手工标注图像的依赖。然而，当前最先进（SOTA）方法主要集中于面向前景的建模（即仅分割前景区域），并在很大程度上忽视了显式建模背景区域的潜在益处。我们的研究从理论和实证上表明，背景建模中高置信度的预测会增强相应前景建模的置信度。基于这一洞见，我们提出了跨视角双向建模（CVBM）框架，通过引入背景建模来提升前景建模性能，提供了一种新视角。在CVBM中，背景建模作为辅助视角，为增强前景模型的置信度提供互补的监督信号。此外，CVBM引入了一种创新的双向一致性机制，确保前景预测与背景引导预测之间的相互对齐。大量实验表明，我们的方法在LA、Pancreas、ACDC和HRF数据集上取得了SOTA性能。值得注意的是，在Pancreas数据集上，CVBM仅使用20%的标注数据就优于全监督方法（即DSC：84.57%对83.89%）。我们的代码已公开于https://github.com/caoluyang0830/CVBM.git。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出 CVBM，将背景建模作为辅助视角引入半监督医学图像分割，并用双向一致性约束前景与背景预测。理论部分（附录 B）给出在一致性/反向一致性约束下背景辅助架构的熵上界低于双前景架构的命题，以及背景预测偏离 0.5 时梯度可降低前景熵的条件。方法上采用教师-学生框架：教师仅用标注数据预训练，学生用标注+伪标签的 CutMix 输入训练；共享编码器加前景/背景双解码器，混合层融合两路预测；损失为区域级 Lrw（前景+背景、标注+无监督）与双向一致性 Lbcl（直接一致性+反向一致性）。推理只用前景分支，因此参数量/FLOPs 与 VNet 相同。实验覆盖 LA、Pancreas、ACDC、HRF：LA 8/72 标签下 DSC 91.19%（BCP 89.62%，全监督上界 91.47%）；Pancreas 12/50 下 DSC 84.57%，超过 62 例全监督的 83.89%；ACDC 7/63 下 DSC 89.98%（BCP 88.84%）；HRF 1/26 下 DSC 78.73%（BCP 77.14%）。消融显示双视角优于单视角，混合层与 Lbcl 各自有增益；但部分表格排版错位、附录定理证明较简略，且缺少多随机种子方差与伪标签质量等证据。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 18 页；18 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>论文关注半监督医学图像分割（SSMIS）：标注体素昂贵，现有方法主要做“前景导向建模”，即只分割目标器官/病灶，背景常被视为干扰或仅作为负类。作者观察到在部分切片中，背景建模的预测置信度高于前景建模，尤其在前景与背景体素高度相似的边缘区域；前景伪标签过滤低置信体素会引入与真值的偏差。作者据此主张：显式建模背景可为前景提供互补监督，提升前景预测置信度 [p. 1][p. 2]。</p>
+<p>作者将这一观察与“互补标签”文献联系，但指出互补标签在 3D 医学分割中缺乏统一定义，且现有 SSMIS 工作尚未系统利用背景建模 [p. 2][p. 3]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 背景标签定义</h3>
+<p>单目标分割中，真值 Y∈{0,1}^{w×h×d}，前景为 1、背景为 0；辅助互补背景标签按逐体素反转：Y_bg^i=1 若 Y^i=0，否则为 0（式 1）[p. 3][p. 4]。多目标分割先对多类真值做 one-hot，再对 one-hot 结果反转，得到 Y_{M,bg}∈{0,1}^{w×h×d×c}（式 2）[p. 4]。图 3 展示单目标直接反转、多目标先 one-hot 再反转的流程 [p. 4]。</p>
+<h3>2.2 教师预训练</h3>
+<p>教师仅用标注数据预训练。对标注数据 X_la、X_lb 做 CutMix：X_a=X_la⊙M+X_lb⊙(1−M)，X_b=X_la⊙(1−M)+X_lb⊙M（式 3–4），M 为二值掩码，零值区域尺寸 βw×βh×βd，β=2/3 [p. 4]。教师同时输出前景预测 Q_a^fg、Q_b^fg，背景预测 Q_a^bg、Q_b^bg，以及混合层预测 Q_a^M、Q_b^M；损失 L_fg、L_bg、L_M 分别按掩码区域监督（式 5–7），L_seg 为 Dice 与交叉熵的线性组合 [p. 4][p. 5]。图 4 给出教师预训练流程 [p. 5]。</p>
+<h3>2.3 学生训练与伪标签</h3>
+<p>教师为无标注数据生成前景伪标签 P_fg 与背景伪标签 P_bg。学生输入由标注与无标注数据 CutMix 得到：X̂_a=X_l⊙M+X_u⊙(1−M)，X̂_b=X_l⊙(1−M)+X_u⊙M（式 10–11）；监督标签同样混合真值与伪标签：Ŷ_fg=Y_fg⊙M+P_fg⊙(1−M)，Ŷ_bg=Y_bg⊙(1−M)+P_bg⊙M（式 8–9）[p. 4]。作者称背景建模使教师在约 200 次迭代内完成目标定位，并在约 800 次迭代内帮助修正欠分割/过分割（图 6）[p. 4][p. 5]。</p>
+<h3>2.4 网络结构与混合层</h3>
+<p>学生共享编码器 E，接前景解码器 D_fg 与背景解码器 D_bg；混合层将两路预测沿通道拼接后经 1×1×1 卷积 ψ 得到 Q̂_a^M=ψ(concat(Q̂_a^fg,Q̂_a^bg))（式 12），并约束其接近前景预测 [p. 5]。图 7 展示学生框架 [p. 6]。推理时只用学生的前景分支 E+D_fg，因此不增加推理参数量与 FLOPs [p. 6][p. 7]。</p>
+<h3>2.5 损失函数</h3>
+<p>区域级损失 L_rw 同时监督前景与背景、标注与无标注部分：L_fg^l、L_bg^l 为标注部分（式 13–14），L_fg^u、L_bg^u 为无标注部分（式 15–16），L_rw=L_fg^l+L_bg^l+α(L_fg^u+L_bg^u)（式 17），α 平衡标注与无监督损失 [p. 5][p. 6]。</p>
+<p>双向一致性损失 L_bcl 包含两项：直接一致性 L_mse(Q̂_a^M,Q̂_a^fg) 拉近混合预测与前景预测；反向一致性 L_mse((1−Q̂_a^bg),Q̂_a^fg) 利用背景预测的补集约束前景，L_bcl=L_a^bcl+L_b^bcl（式 18–19）[p. 6]。总损失 L_total=L_rw+λL_bcl（式 20）[p. 6]。</p>
+<h3>2.6 理论分析</h3>
+<p>附录 B 定义架构 A（双前景解码器）与架构 B（前景+背景解码器），在一致性约束 ||D_fg1−D_fg2||_2≤ε1 与反向一致性约束 ||D_fg+D_bg−1||_2≤ε2 下，给出熵界：Lemma 1 为架构 A 的下界（式 21），Lemma 2 为架构 B 的上界（式 24），Theorem 1 主张 H_B(p)≤H_A(p)−C（式 27–29）[p. 17][p. 18]。Theorem 2 给出条件：若 sign(∂L_task/∂μ)=sign(μ+q−1) 且 |q−0.5|&gt;|μ−0.5|，梯度更新会降低前景熵（式 33–35）[p. 18]。这些是作者的理论主张；证明在附录中较简略，且依赖“共享编码器产生相似表示”等假设。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有三点：一是理论洞察——背景建模的高置信预测增强对应前景建模的置信度；二是提出 CVBM 框架，把背景建模作为辅助视角；三是提出双向一致性优化机制，使前景预测与背景引导预测相互对齐 [p. 2]。我的解读：核心新颖点在于把“背景/互补标签”从分类任务迁移到 3D/2D 医学分割，并用教师-学生+CutMix+双解码器实现；与 BCP 等方法的区别在于显式增加背景分支与反向一致性约束，而非仅做前景双分支或复制粘贴。作者称这是首次将背景建模引入 SSMIS [p. 2][p. 3]。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据集与设置</h3>
+<p>LA：100 例 3D 钆增强 MR，80 训练/20 测试，体素间距 0.625×0.625×0.625 mm [p. 7]。Pancreas-CT：82 例 3D 腹部 CT，62 训练/20 测试，分辨率 512×512，层厚 1.5–2.5 mm [p. 7]。ACDC：100 例心脏 MR，70/10/20 训练/验证/测试 [p. 7]。HRF：45 张彩色眼底图，27 训练/18 测试 [p. 7]。</p>
+<p>实现：PyTorch 1.12.1，单张 NVIDIA 3090；总 batch size 8（4 标注+4 无标注）；SGD，初始学习率 0.01；λ 采用时间依赖高斯预热 λ(t)=0.1×e^{−5(1−t/t_max)^2}，β=2/3，α=0.5；3D 体数据零均值单位方差归一化；LA 子卷 112×112×80，Pancreas 96×96×96；LA 预训练/自训练 2k/15k 迭代，Pancreas 3k/15k；ACDC 取 256×256 2D patch，预训练/自训练 10k/30k；测试用滑动窗口，LA 步长 18×18×4，Pancreas 16×16×16 [p. 7]。</p>
+<h3>4.2 主要结果</h3>
+<p>LA（表 I）：4/76 设置下 CVBM DSC 89.50%、Jaccard 81.07%、95HD 5.78、ASD 2.10；8/72 下 DSC 91.19%、Jaccard 83.87%、95HD 5.45、ASD 1.61。对比 BCP 8/72 的 89.62%/81.31%/6.81/1.76；全监督 VNet 80/0 上界为 91.47%/84.36%/5.48/1.50，CVBM 在 8 标签下 95HD 低于该上界 [p. 8]。</p>
+<p>Pancreas（表 II）：6/56 下 CVBM DSC 83.65%、Jaccard 72.16%、95HD 4.48、ASD 1.30；12/50 下 DSC 84.57%、Jaccard 73.56%、95HD 3.90、ASD 1.21。全监督 VNet 62/0 为 83.89%/71.91%/5.08/2.00，因此 12/50 的 CVBM 在 DSC 上超过全监督上界 [p. 9]。</p>
+<p>ACDC（表 III）：3/67 下 CVBM DSC 87.85%、Jaccard 79.03%、95HD 1.82、ASD 0.58；7/63 下 DSC 89.98%、Jaccard 82.30%、95HD 1.37、ASD 0.40。全监督 UNet 70/0 上界为 91.44%/84.59%/4.30/0.99；BCP 7/63 为 88.84%/80.62%/3.98/1.17 [p. 10]。</p>
+<p>HRF（表 IV）：1/26 下 CVBM DSC 78.73%、Jaccard 65.07%、95HD 20.89、ASD 3.21；3/24 下 DSC 79.11%、Jaccard 65.69%、95HD 20.80、ASD 3.12；全监督 27/0 为 80.36%/67.38%/23.96/2.40。作者称 95HD 在 3/24 比 BCP 优 0.24、在 1/26 优 3.26 [p. 11]。</p>
+<h3>4.3 消融</h3>
+<p>组件消融（表 V，LA 与 ACDC 10% 标签）：LA 上监督基线 DSC 82.74%，仅前景+背景双任务（#1）87.14%，加混合层（#2）89.62%，加 L_bcl（#4）91.19%；ACDC 对应 79.41%→81.04%→84.23%→89.98% [p. 12]。表 V 排版有错位，部分行标签与数值需对照正文理解。</p>
+<p>结构消融（表 VI，LA 4/76 与 8/72）：双前景建模 4/76 DSC 88.45%、双背景 88.61%、CVBM 89.50%；8/72 双前景 90.03%、双背景 90.06%、CVBM 91.19% [p. 12]。</p>
+<p>一致性消融（表 VII）：LA 4 标签基线 87.12%，+直接一致性 89.24%，+反向一致性 88.97%，+双向一致性 89.50%；ACDC 3 标签基线 85.73%，+直接 86.86%，+反向 86.03%，+双向 87.85% [p. 13]。</p>
+<p>输出策略（表 VIII）：LA 前景结果 89.50%，混合层 90.12%，平均 (Q_fg+Q_bg)/2 为 90.47%；Pancreas 83.65%→84.02%→84.61%；ACDC 87.85%→87.98%→88.24% [p. 13]。作者为公平比较仍只报告前景分支。</p>
+<p>标签比例（图 15）：LA 从 10% 到 100% 标签，DSC 91.19%→92.02%，Jaccard 83.87%→85.28%，95HD 5.43→5.07，ASD 1.61→1.46；10%→60% DSC 增 0.62%，60%→100% 仅增 0.21% [p. 13]。</p>
+<p>前景比例消融（表 IX）：用真值掩码缩放前景 0.5–1.5，DSC 从 80.98% 升至 91.98%，95HD 从 10.29 降至 4.92 [p. 13][p. 14]。α 敏感性（图 16）：α=0.5 最优，过大或过小均下降 [p. 14]。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在四个数据集、多个标签预算下，CVBM 的 DSC/Jaccard 与部分距离指标优于所列 SOTA；消融支持双视角、混合层与双向一致性各自有贡献；推理只用前景分支，参数量/FLOPs 与 VNet 相同（LA/Pancreas 9.45M/47.17G 或 41.58G，ACDC 1.81M/3.00G）[p. 8][p. 9][p. 10]。</p>
+<p>限制与缺失证据：论文未报告多随机种子均值/方差或显著性检验细节（表中 p-value 仅标 √，未给具体值）；伪标签质量（如前景/背景伪标签的 Dice/噪声率）未量化；理论部分依赖较强假设且证明简略；表 V、VII 等排版错位，部分数值与行标签对应关系需谨慎；HRF 全监督 95HD 反而高于部分半监督结果，作者未解释；未报告失败案例或跨中心泛化。作者在结论中提出未来探索无监督/主动学习，但未给出实验 [p. 14]。</p>
+<h2>6. 复现</h2>
+<p>已报告：PyTorch 1.12.1、单卡 3090、batch 8（4+4）、SGD lr=0.01、α=0.5、β=2/3、λ 高斯预热、3D 归一化、LA/Pancreas 子卷尺寸与迭代数、ACDC 2D patch 与迭代数、滑动窗口步长、CutMix 掩码比例 [p. 7]。未报告：优化器动量/权重衰减、学习率衰减策略、EMA 衰减系数、伪标签是否阈值过滤、数据划分随机种子、推理时是否做后处理、参数量统计是否含背景分支、训练总时长/显存。代码链接已给出（https://github.com/caoluyang0830/CVBM.git），但论文正文未说明超参数搜索范围与选择依据（除 α 外）[p. 1][p. 7][p. 14]。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Efficient Prototype Consistency Learning in Medical Image Segmentation via Joint Uncertainty and Data Augmentation</div>
+<div class="meta-line">Authors: Lijian Li, Yuanpeng He, Chi-Man Pun</div>
+<div class="meta-line">First: 2025-05-22T06:25:32+00:00 · Latest: 2025-05-22T06:25:32+00:00</div>
+<div class="meta-line">Comments: arXiv admin note: substantial text overlap with arXiv:2404.10717</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.16283v1">Abs</a> · <a href="https://arxiv.org/pdf/2505.16283v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Recently, prototype learning has emerged in semi-supervised medical image segmentation and achieved remarkable performance. However, the scarcity of labeled data limits the expressiveness of prototypes in previous methods, potentially hindering the complete representation of prototypes for class embedding. To overcome this issue, we propose an efficient prototype consistency learning via joint uncertainty quantification and data augmentation (EPCL-JUDA) to enhance the semantic expression of prototypes based on the framework of Mean-Teacher. The concatenation of original and augmented labeled data is fed into student network to generate expressive prototypes. Then, a joint uncertainty quantification method is devised to optimize pseudo-labels and generate reliable prototypes for original and augmented unlabeled data separately. High-quality global prototypes for each class are formed by fusing labeled and unlabeled prototypes, which are utilized to generate prototype-to-features to conduct consistency learning. Notably, a prototype network is proposed to reduce high memory requirements brought by the introduction of augmented data. Extensive experiments on Left Atrium, Pancreas-NIH, Type B Aortic Dissection datasets demonstrate EPCL-JUDA&#x27;s superiority over previous state-of-the-art approaches, confirming the effectiveness of our framework. The code will be released soon.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>通过联合不确定性与数据增强的医学图像分割高效原型一致性学习</div>
+<div class="mono" style="margin-top:8px">近年来，原型学习在半监督医学图像分割中崭露头角并取得了显著性能。然而，标注数据的稀缺限制了以往方法中原型的表达能力，可能阻碍原型对类别嵌入的完整表示。为解决这一问题，我们提出了一种通过联合不确定性量化与数据增强的高效原型一致性学习（EPCL-JUDA），在Mean-Teacher框架基础上增强原型的语义表达。将原始与增强的标注数据拼接后输入学生网络以生成具有表达力的原型。随后，设计了一种联合不确定性量化方法，分别针对原始与增强的未标注数据优化伪标签并生成可靠原型。通过融合标注与未标注原型形成每个类别的高质量全局原型，并利用其生成原型到特征以进行一致性学习。值得注意的是，提出了一种原型网络以减少引入增强数据带来的高内存需求。在Left Atrium、Pancreas-NIH、Type B Aortic Dissection数据集上的大量实验表明，EPCL-JUDA优于以往最先进方法，验证了我们框架的有效性。代码即将发布。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出EPCL-JUDA半监督医学图像分割框架，在Mean-Teacher上联合CutMix数据增强、联合不确定性量化（熵+方差）与原型网络，生成更高质量全局原型并做原型-特征一致性学习。在LA、Pancreas-NIH、TBAD三个数据集上，10%/20%标注比例下Dice等指标优于UA-MT、BCP、UPCoL等基线；消融显示数据增强贡献最大，原型网络主要降低显存（如第1解码层18.65GB降至4.21GB）。</div>
 </details>
 <details class="detail" open><summary>论文解读</summary>
 <div class="meta-line">来源：PDF 全文，共 10 页；10 页可提取文字</div>
 <p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
 <div class="reading-notes"><h2>1. 问题与动机</h2>
-<p>论文针对<strong>标注稀缺条件下的多模态医学图像分割</strong>，尤其是复杂肿瘤（形状不规则、邻近组织复杂、边界模糊）场景 [p. 1][p. 2]。作者认为：现有半监督方法多依赖自训练/协同训练或一致性约束，在复杂目标上表现有限；而多模态融合方法虽能利用互补信息，但大多面向全监督，半监督下难以有效利用无标注数据 [p. 2]。作者进一步指出两条相关路线的问题：MMCML 类方法只约束跨模态<strong>预测结果</strong>的一致性，未充分利用多模态信息；CMC 类方法用独立编码器提取模态特异特征再做融合对齐，但独立编码器会加大特征差异，导致不同模态分割精度明显不一致 [p. 2]。因此作者主张在<strong>早期编码阶段</strong>就进行多阶段特征融合与对齐，并配合模态感知增强与跨模态互学习 [p. 2][p. 3]。</p>
+<p>半监督医学图像分割（SS-MIS）旨在用少量标注数据加大量未标注数据训练分割模型，以缓解医学标注昂贵的问题。作者将已有方法归为伪标签、一致性、原型学习三类，并指出原型学习路线的核心瓶颈：标注数据稀缺导致原型数量少、表达力弱，已有方法通常分别生成标注与未标注原型再融合，全局原型对类别嵌入的表示能力受限[p. 1]。此外，引入增强数据后，若沿用“将解码器各层特征上采样后生成原型”的做法，会带来很高的显存开销[p. 2]。论文因此提出EPCL-JUDA，目标是在Mean-Teacher框架下同时提升原型质量与生成效率。</p>
 <h2>2. 方法</h2>
-<p><strong>输入与数据定义。</strong> 两模态数据记为 $D_a^l,D_b^l$（有标注，$M$ 例）与 $D_a^u,D_b^u$（无标注，$N$ 例，$M\ll N$），输入 $x^a,x^b\in\mathbb{R}^{H\times W\times D}$，标签 $y\in\mathbb{R}^{C\times H\times W\times D}$ [p. 3][p. 4]。框架为端到端双分支网络，两模态共享同一标注，同时输出各自预测 [p. 4]。</p>
-<p><strong>多阶段多模态融合（MMF）。</strong> 编码器各阶段低层特征记为 $F^a={f^a_s}<em>{s=1}^4$、$F^b={f^b_s}</em>{s=1}^4$；在每个编码阶段将两模态特征融合为 $F^{ab}$ 并回传至各自编码器的下一阶段，以对齐特征、减小模态差异 [p. 4]。融合层由拼接、两层卷积和一个非线性激活组成，公式为 $f^s_{fused}=F_{sigmoid}(F_{conv2}(F_{conv1}(F_{cat}(f^a_s,f^b_s))))$ [p. 4，式(3)]。注意：式(3) 与正文“融合后传回两个编码器”的具体连接方式在文中未画清，Fig. 1 仅给出总体示意 [p. 3]。</p>
-<p><strong>模态感知增强（MAE）。</strong> 用不同感受野的多个卷积层建模局部与全局信息，再经全局平均池化、全连接、Softmax 得到通道注意力权重：$W^a=F_{softmax}(F_{fc}(F_{gap}(\psi_1(F^a)+\psi_2(F^a))))$，其中 $\psi_1,\psi_2$ 为不同核尺寸的变换 [p. 4，式(2)]；另一模态同法处理，加权后的特征进入解码器生成输出 [p. 4]。文中未报告 $\psi_1,\psi_2$ 的具体核尺寸与通道压缩比。</p>
-<p><strong>对比式互学习（MCML）。</strong> 有标注数据用监督损失：$\mathcal{L}<em>{sup}=\mathbb{E}[\mathcal{L}</em>{CE}(f_\phi(x^a),g_\phi(x^b),y)+\mathcal{L}<em>{DICE}(\cdot,y)]$ [p. 5，式(4)]。无标注数据先由两网络各自生成伪标签 $p^a_l=f</em>\phi(x^a)$、$p^b_l=g_\phi(x^b)$，再最小化 $\mathcal{L}<em>{unsup}=\mathbb{E}[|f</em>\phi(x^a)-p^b_l|<em>2+|g</em>\phi(x^b)-p^a_l|<em>2]$ [p. 5，式(6)]。关键设计是<strong>伪标签侧停止梯度</strong>：$p^a_l$ 与 $f</em>\phi(x^a)$ 之间、$p^b_l$ 与 $g_\phi(x^b)$ 之间不回传梯度 [p. 5]。总损失 $\mathcal{L}<em>{total}=\mathcal{L}</em>{sup}+\alpha\mathcal{L}_{unsup}$，$\alpha$ 为跨模态约束权重 [p. 5]。</p>
+<p>整体流程见Fig. 1 [p. 4]（该图仅依据图注与正文描述，未读取图像内容）。</p>
+<p><strong>问题设定</strong>：数据集D分为标注子集D_l（N张，含标签）与未标注子集D_u（M张），图像尺寸H×W×D，类别数C；标注与未标注批大小均为2（总批大小4）[p. 3][p. 5]。学生网络用SGD/Adam类优化器训练，教师网络参数由学生参数的指数滑动平均（EMA）更新[p. 3]。</p>
+<p><strong>监督损失</strong>：对标注数据同时使用交叉熵、Dice、focal、IoU四种损失，并额外对四个分类器预测的平均值施加交叉熵，得到 L_seg = (L_ce+L_dice+L_focal+L_IoU)/4 + L_f [p. 3, 式(1)]。</p>
+<p><strong>联合不确定性量化（JUQ）</strong>：对未标注图像第p个体素的平均预测，先算熵不确定性 U_entropy = -Σ_c p log p [p. 3, 式(2)]；再用预测方差构造分布不确定性 U_Dis-norm = exp(-Var/ΣVar) [p. 3, 式(3)]，并对熵做归一化 U_entropy-norm = 1 - U/ΣU [p. 3, 式(4)]；两者相乘得 JUQ [p. 3, 式(5)]。JUQ作为逐体素可靠性权重，与原始伪标签逐元素相乘得到可靠伪标签 [p. 4, 式(6)]。作者称熵对噪声敏感，加入分布不确定性可提升对增强数据的鲁棒性[p. 3]。</p>
+<p><strong>增强原型学习</strong>：
+- 标注原型：将原始标注数据与CutMix增强标注数据拼接后送入学生网络，用标签做掩码平均池化（masked average pooling）得到类原型 p_c^l [p. 4, 式(7)]。
+- 未标注原型：对原始与增强未标注数据分别用JUQ得到可靠伪标签与可靠性图，加权掩码池化得到 p_c^{u1} 与 p_c^{u2} [p. 4-5, 式(8)(9)]；再按系数λ1、λ2融合为 p_c^u [p. 5, 式(10)]。
+- 全局原型：采用时间集成与高斯预热系数λ_con，按 p_c = ((2-λ_con)p_c^l + λ_con p_c^u)/2 逐步更新[p. 5, 式(11)]。</p>
+<p><strong>原型网络</strong>：由三层3D卷积组成，将特征逐步降维到类别数后再上采样，替代直接上采样高维解码器特征，以降低显存[p. 4]。</p>
+<p><strong>一致性损失</strong>：用余弦距离计算原型与特征的相似度图，对标注数据以标签监督 L_lc，对未标注数据以增强未标注伪标签监督 L_uc1、L_uc2 [p. 5, 式(12)(13)]；总损失 L = L_seg + L_lc + λ_con(L_uc1+L_uc2) [p. 5, 式(14)]。</p>
 <h2>3. 贡献</h2>
-<p>作者声称的新颖点有三：(1) 多阶段多模态特征融合，在早期编码阶段对齐低层视觉特征以降低模态差异；(2) 模态感知特征增强模块，强调重要模态特异特征、抑制无关信息；(3) 协同互学习目标，保证跨模态预测一致性与鲁棒性 [p. 2][p. 3]。我的解读：核心增量是把“早期逐阶段融合”与“预测级互学习”组合起来，并用停止梯度避免伪标签塌缩；这与 MMCML（仅预测一致性）和 CMC（独立编码器后融合）形成对照 [p. 2]。但各组件本身（通道注意力、伪标签互监督）并非全新，创新主要在组合方式与融合位置。</p>
+<p>作者声称的贡献有三点[p. 2]：(1) 通过联合不确定性量化与数据增强增加原型生成可考虑的样本数，提升全局原型质量；(2) 设计原型网络降低原型生成的显存消耗；(3) 在LA、Pancreas、Aortic Dissection上验证优于此前SOTA。</p>
+<p>我的解读：方法的新意主要在“JUQ（熵×方差）”与“原型网络”两个工程化组件的组合，而非全新的半监督范式；其核心假设是增强数据能补充语义信息、方差能抑制熵的噪声敏感性。论文未从理论上证明JUQ优于单一熵度量，证据主要是消融与可视化。</p>
 <h2>4. 实验与结果</h2>
-<p><strong>数据与划分。</strong> BraTS2019：335 例四模态 MRI，本文用 T1ce 与 T2 做全肿瘤分割，随机取 250/25/60 例为训练/验证/测试；预处理为裁剪零强度区域并逐扫描 min-max 归一化 [p. 5]。NPC 私有数据：161 例放疗患者，CT（512×512，层厚 3.0 mm，像素 1.27×1.27 mm²）与 MR T2（384×384，3.0 mm，1.30×1.30 mm²），随机取 112/17/32 例；CT 转 HU 并按窗宽窗位归一化，MR T2 做 min-max，CT 与 T2 刚性配准 [p. 5][p. 6]。标注预算为 5% 与 10%，另报告 100% 全监督上界 [p. 6][p. 8]。</p>
-<p><strong>训练设置。</strong> PyTorch、单张 NVIDIA A6000，从零训练；SGD，初始学习率 $1\times10^{-2}$，batch size 4，最多 60k 迭代，dropout 0.5，$\alpha=1.0$；随机裁剪 112×112×96（NPC）与 96×96×96（BraTS）[p. 6]。指标为 DSC 与 ASD [p. 6]。<strong>未报告</strong>：backbone 具体网络名、参数量、学习率调度、数据增强细节、随机种子与重复次数。</p>
-<p><strong>对比结果（Table 1）[p. 8]。</strong> 单模态半监督方法（MT、ICT、EM、URPC、MLRPL）按通道拼接多模态输入；多模态方法为 MMCML 与 CMC。BraTS 5%：本文 DSC 85.16±7.10、ASD 2.38±2.83，优于次优 URPC 83.14±8.93 / 3.19±3.70；MMCML 仅 75.83±17.53。BraTS 10%：本文 85.82±7.97 / 2.19±2.73，优于 URPC 84.82±9.35 / 2.33±2.57；100% 全监督为 88.35±6.3 / 1.48±1.53。NPC 5%：本文 69.33±9.16 / 2.19±1.45，URPC 为 69.03±8.57 / 2.29±1.69，差距很小；NPC 10%：本文 72.67±7.56 / 1.74±0.89，优于 ICT 71.48±6.40 / 2.17±2.33；全监督 77.03±6.35 / 1.53±0.98。需注意 Table 1 中“Ours”行在 PDF 文本里出现重复数字串，属排版/抽取伪影，应以单次数值理解，但无法从文本完全确认 [p. 8]。</p>
-<p><strong>消融（Table 2，BraTS 5%）[p. 8]。</strong> 基线（双分支）T1ce 68.44±14.46 / T2 79.28±10.82；加 MMF 后 T1ce 81.94±10.48（+12.5 个百分点，作者称因共享 T2 特征）、T2 82.98±9.64；再加 MAE 为 83.84±8.74 / 83.74±8.63，但 ASD 反而升至 3.66±4.25 / 3.91±4.44；MMF+MCML 为 83.96±8.02 / 84.43±7.56，ASD 2.62±3.54 / 2.70±3.53；三者全用达 85.16±7.10 / 84.95±7.25，ASD 2.38±2.83 / 2.67±3.09。该消融说明 MMF 贡献最大，MAE 与 MCML 主要提升 DSC，MAE 单独加入时 ASD 变差，作者未解释此现象。</p>
-<p><strong>定性结果。</strong> Fig. 2 展示 10% 与 5% 标注下与 SOTA 的视觉对比，作者称本文更贴合真值、能捕捉更多边缘细节并分割分散 NPC 病灶 [p. 6][p. 7]；但图像本身未作为可解析输入，只能依据图注与正文陈述。</p>
+<p><strong>数据集与划分</strong>：LA数据集100例3D MR，80训练/20验证，训练裁剪112×112×80，推理滑窗步长18×18×4 [p. 5]；Pancreas-NIH 82例CT，裁剪96×96×96，推理步长16×16×16 [p. 5]；TBAD 124例CTA，100训练/24测试，三类别（全主动脉、真腔、假腔）[p. 5]。LA与Pancreas用5折交叉验证，TBAD用3折[p. 5]。指标为Dice、Jaccard、95HD、ASD [p. 5]。</p>
+<p><strong>训练设置</strong>：V-Net骨干，学生训练14k迭代，Adam学习率0.001，批大小4（2标注+2未标注），RTX 4090，PyTorch；λ1=λ2=1，原型网络层数取3，一致性损失用交叉熵，标注数据默认CutMix [p. 5-6]。</p>
+<p><strong>主要结果</strong>：
+- LA（10%标注，8/72）：EPCL-JUQ Dice 91.52、Jaccard 83.76、95HD 5.49、ASD 1.73；对比BCP 89.62/81.31/6.81/1.76、Co-BioNet 89.20/80.68/6.44/1.90 [p. 6, Table I]。20%标注（16/64）：Dice 92.24、Jaccard 85.57、95HD 4.63、ASD 1.47，优于UPCoL的91.69/84.69/4.87/1.56 [p. 6]。
+- Pancreas-NIH（10%，6/56）：Dice 83.16、Jaccard 70.49、95HD 5.97、ASD 2.85；20%（12/50）：84.45/73.61/5.12/2.43，优于Co-BioNet的84.01/70.00/5.35/2.75 [p. 6, Table II]。
+- TBAD（20%标注）：Dice 80.89、Jaccard 69.14、95HD 3.45、ASD 0.71，优于UPCoL的76.19/64.45/4.82/1.33 [p. 7, Table III]。</p>
+<p><strong>消融</strong>（LA，20%标注，Table IV [p. 7]）：完整模型92.24/85.57/4.63/1.47；去掉JUQ改用熵为91.88/84.86/4.78/1.66；去掉数据增强降至91.38/84.22/6.59/2.34（降幅最大）；去掉原型网络为91.94/85.02/4.77/1.63。</p>
+<p><strong>显存</strong>（Table V [p. 7]）：解码器特征生成原型在第1/2/3层分别占18.65/15.93/14.51 GB，原型网络为4.21/6.54/6.65 GB。</p>
+<p><strong>未标注数据组合方式</strong>（Table VI [p. 7]）：四种组合中方式2（分别送入教师网络并构建多未标注原型一致性学习）最佳，Dice 92.24；其余为92.03、91.99、91.88，差异不大。</p>
+<p><strong>可视化</strong>：Fig. 2 [p. 6] 展示LA预测与URPC及GT对比，作者称EPCL-JUDA更接近标签；Fig. 3 [p. 8] 展示熵与JUQ可靠性图，作者称JUQ高确定性区域更稳定更广。以上仅依据图注与正文，未读取图像本身。</p>
 <h2>5. 评估</h2>
-<p><strong>有支持的结论。</strong> 在给定划分与 5%/10% 预算下，本文方法在 BraTS 上稳定领先所有对比方法，且消融支持 MMF 是主要增益来源 [p. 8]。NPC 上 5% 时仅略高于 URPC（69.33 vs 69.03），10% 时优势更明显，说明“显著优于 SOTA”的表述在 NPC 5% 条件下证据偏弱 [p. 8]。</p>
-<p><strong>报告的限制与缺失证据。</strong> 作者未设专门局限性章节，仅提出未来扩展到其他任务 [p. 9]。缺失包括：未报告 backbone 架构与融合层通道数；$\alpha$ 仅取 1.0，无敏感性分析；无多随机种子或显著性检验，标准差虽给出但未做统计比较；NPC 为单中心私有数据，外部泛化未知；Table 1 存在文本重复伪影，个别数值可靠性需核对原表 [p. 8]；MAE 导致 ASD 变差的原因未分析 [p. 8]。</p>
-<h2>6. 复现要点</h2>
-<p>按文中可执行步骤：两模态分别输入双分支编码器；在 4 个编码阶段用“拼接+两层卷积+sigmoid”融合并回传；对融合特征做双核卷积+全局池化+全连接+Softmax 的通道加权；解码输出后，有标注数据算 CE+Dice，无标注数据用对方预测作停止梯度伪标签算 L2 一致性，$\alpha=1.0$；SGD，lr $10^{-2}$，batch 4，60k 迭代，dropout 0.5，裁剪尺寸如上 [p. 4][p. 5][p. 6]。<strong>未报告</strong>：编码器/解码器具体结构、融合层卷积核与通道、优化器动量与权重衰减、学习率衰减策略、伪标签是否阈值化、验证集使用方式、硬件以外的时间成本。</p></div>
-</details>
-</div>
-<div class="card">
-<div class="title">SWDL: Stratum-Wise Difference Learning with Deep Laplacian Pyramid for Semi-Supervised 3D Intracranial Hemorrhage Segmentation</div>
-<div class="meta-line">Authors: Cheng Wang, Siqi Chen, Donghua Mi, Yang Chen, Yudong Zhang, Yinsheng Li</div>
-<div class="meta-line">First: 2025-06-12T03:16:49+00:00 · Latest: 2025-06-12T03:16:49+00:00</div>
-<div class="meta-line">Comments: 11 pages, 4 figures, 6 Tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2506.10325v1">Abs</a> · <a href="https://arxiv.org/pdf/2506.10325v1">PDF</a> · <a href="https://github.com/SIAT-CT-LAB/SWDL">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Recent advances in medical imaging have established deep learning-based segmentation as the predominant approach, though it typically requires large amounts of manually annotated data. However, obtaining annotations for intracranial hemorrhage (ICH) remains particularly challenging due to the tedious and costly labeling process. Semi-supervised learning (SSL) has emerged as a promising solution to address the scarcity of labeled data, especially in volumetric medical image segmentation. Unlike conventional SSL methods that primarily focus on high-confidence pseudo-labels or consistency regularization, we propose SWDL-Net, a novel SSL framework that exploits the complementary advantages of Laplacian pyramid and deep convolutional upsampling. The Laplacian pyramid excels at edge sharpening, while deep convolutions enhance detail precision through flexible feature mapping. Our framework achieves superior segmentation of lesion details and boundaries through a difference learning mechanism that effectively integrates these complementary approaches. Extensive experiments on a 271-case ICH dataset and public benchmarks demonstrate that SWDL-Net outperforms current state-of-the-art methods in scenarios with only 2% labeled data. Additional evaluations on the publicly available Brain Hemorrhage Segmentation Dataset (BHSD) with 5% labeled data further confirm the superiority of our approach. Code and data have been released at https://github.com/SIAT-CT-LAB/SWDL.</div></details>
-<details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>SWDL：基于深度拉普拉斯金字塔的分层差异学习用于半监督3D颅内出血分割</div>
-<div class="mono" style="margin-top:8px">医学影像的最新进展已使基于深度学习的分割成为主流方法，但其通常需要大量人工标注数据。然而，由于标注过程繁琐且成本高昂，获取颅内出血（ICH）的标注仍然尤为困难。半监督学习（SSL）已成为解决标注数据稀缺问题的一种有前景的方案，尤其是在体素医学图像分割中。与主要关注高置信度伪标签或一致性正则化的传统SSL方法不同，我们提出了SWDL-Net，一种新颖的SSL框架，其利用拉普拉斯金字塔与深度卷积上采样的互补优势。拉普拉斯金字塔擅长边缘锐化，而深度卷积通过灵活的特征映射提升细节精度。我们的框架通过一种有效整合这些互补方法的差异学习机制，实现了对病灶细节和边界的更优分割。在271例ICH数据集和公开基准上的大量实验表明，在仅有2%标注数据的场景下，SWDL-Net优于当前最先进的方法。在仅有5%标注数据的公开脑出血分割数据集（BHSD）上的进一步评估也证实了我们方法的优越性。代码和数据已在https://github.com/SIAT-CT-LAB/SWDL发布。</div>
-</details>
-<details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">SWDL-Net 是一种面向 3D 颅内出血（ICH）分割的半监督框架，核心是用双解码器（深度转置卷积 DC 与深度拉普拉斯金字塔 DelPU）之间的“分层差异”作为额外学习信号，并把该差异回注编码器。作者在 271 例临床 PBGTH 数据上仅用 2% 标注取得 Dice 89.32%、HD95 2.06 voxel，在公开 BHSD 数据 5% 标注下 Dice 51.81%，均优于 UAMT、URPC、LeFeD；消融显示 T=3、ξ=1e-3、μ=1.5 为最优设置，去掉深度监督或差异学习均导致下降。</div>
-</details>
-<details class="detail" open><summary>论文解读</summary>
-<div class="meta-line">来源：PDF 全文，共 11 页；11 页可提取文字</div>
-<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
-<div class="reading-notes"><h2>1. 问题与动机</h2>
-<p>论文针对非增强 CT（NCCT）上的 3D 颅内出血（ICH）分割。作者指出，全监督方法（U-Net、Swin-UNet、nnFormer、HDC-Net 等）依赖大量专家标注，而 ICH 标注耗时昂贵；现有半监督方法主要分两类：一致性正则（I2CS、URPC、MC-Net+、UniMatch 等）与伪标签（UA-MT、BoostMIS、ComWin 等）。作者认为近期半监督 ICH 方法仍有不足：不确定性引导方法对阈值敏感，弱监督 CAM 方法边界不完整，cut-paste 增强可能产生解剖上不真实的样本，YOLO-SAM 混合方法受检测分辨率限制 [p. 1]。因此论文提出 SWDL-Net，试图利用拉普拉斯金字塔“边缘锐化”与深度卷积上采样“灵活特征映射”的互补性，通过两条解码路径之间的差异学习来利用无标注数据 [p. 1][p. 2]。</p>
-<h2>2. 方法</h2>
-<p>整体流程（Fig. 1(a)，[p. 3]）：先用 DC 编码器提取特征；双解码器在每个层级分别用深度转置卷积（DC decoder）和深度拉普拉斯金字塔上采样（DelPU decoder）生成特征；再计算两条路径在各层的差异，并将差异递归回注编码器。</p>
-<p><strong>分层差异学习（SWDL）</strong>：设迭代周期为 T，第 p 次迭代、第 s 层的特征差异为
-∆(s,p) = f_s^θDC(y_{s+1}^{DC,p}) − f_s^θDelPU(y_{s+1}^{DelPU,p})（式 1）[p. 2]。
-编码器特征更新分三种情况（式 2）：s=1 时直接 y_E,p^s = f_E^s(x)；s&gt;1 且 p=1 时只用上一层编码特征；s&gt;1 且 p&gt;1 时把 ξ∆(s−1,p−1) 加到上一层编码特征上再送入当前层。ξ 控制差异影响强度 [p. 2]。</p>
-<p><strong>DelPU 模块</strong>（Fig. 1(b)，[p. 3]）：四阶段流水线。(1) 高斯金字塔：G_d = DW(G_{d−1}⊗g)，DW 为三线性插值下采样，g 为高斯核（式 3）。(2) 拉普拉斯金字塔：L_d = G_d − UP(G_{d+1})⊗g，UP 为三线性插值上采样（式 4）。(3) 加权重建：y_d = μL_d + UP(y_{d+1})⊗g（d&lt;D），y_D = G_D（式 5）；μ 越大边缘锐化越强。(4) 最终上采样到目标分辨率 [p. 3]。</p>
-<p><strong>分层自适应深度</strong>：D 按输入最大维度选取：≤8 取 0，8–32 取 1，32–64 取 2（式 6），以平衡重建保真度与计算量、避免低分辨率退化 [p. 3]。</p>
-<p><strong>损失</strong>：有标注数据用 Losssup = LossDC + LossDelPU + LossDS（式 7）。正文一处写 DC 解码器用“deeply supervised Dice loss”、DelPU 用 CE [p. 3]，但式 7 下方又写 LossDC 为 Dice、LossDelPU 为 CE，两处表述存在不一致，需以原文为准并注意该歧义。深度监督权重 ωs = {0.8, 0.6, 0.4, 0.2, 0.1}，从低层到高层 [p. 4]。无标注数据用两个解码器输出之间的 MSE：Lossunsup = (1/M)Σ MSE(f_DC(x_i), f_DelPU(x_i))（式 8）；总损失为二者之和（式 9）[p. 4]。推理时只需编码器加主解码器一次前向，不需要差异学习 [p. 4]。</p>
-<h2>3. 贡献</h2>
-<p>作者声称的贡献有三点：双解码器混合架构与路径间差异学习；跳跃连接中的差异特征计算（先算路径差、非线性激活、再加权求和，而非简单拼接）；按输入尺寸动态调整金字塔深度的分层自适应机制 [p. 2]。我的理解是：真正区别于现有一致性/伪标签方法的核心在于“把两个解码器的分层特征差作为无监督信号回注编码器”，而 DelPU 本身是拉普拉斯金字塔与深度上采样的结合；论文未给出与“仅双解码器不加差异回注”的严格对照之外的更强因果证据，因此“差异学习优于其他一致性形式”应视为作者主张而非已被完全隔离验证的结论。</p>
-<h2>4. 实验与结果</h2>
-<p><strong>数据与预处理</strong>：北京天坛医院 2020.4–2022.11 回顾性收集 99 名患者、共 271 次颅脑检查；256 层 CT（Philips、GE），体素 0.408×0.408×5 至 1×1×5 mm³ [p. 4]。预处理包括：15 年经验神经放射科医生用 3D Slicer 手工勾画；重采样到 0.5×0.5×5 mm³（三线性插值）；Otsu 阈值 150 HU 加形态学闭运算做颅骨剥离；固定阈值 20–40 HU 加膨胀/腐蚀提取出血 ROI [p. 4]。</p>
-<p><strong>训练设置</strong>：基线为 VNet；sklearn KFold 划分 80% 训练/20% 测试，random_state=367；Python 种子 1337，NumPy/PyTorch 同步固定；SGD，lr=0.01，weight decay=0.0001，momentum=0.9；输入 16×64×64，batch size 32（2 标注 + 30 无标注）；RTX 3090，PyTorch [p. 5]。评价指标为 Dice、HD95、ASD、Accuracy、Precision、Jaccard，均报告 95% 置信区间；统计用 Wilcoxon 符号秩检验（含 tie 校正，式 10）[p. 4][p. 5]。</p>
-<p><strong>PBGTH 2% 标注结果</strong>（Table I，[p. 7]）：SWDL Dice 89.32% [88.40,90.23]，HD95 2.06 [1.58,2.54] voxel，ASD 0.59 [0.45,0.73]，Acc 95.92%，Pre 90.81%，Jac 80.87%。对比 UAMT 84.56/6.23/2.05、URPC 86.73/3.61/1.07、LeFeD 87.53/3.51/1.01；全监督 VNet（100% 标注）为 92.48/1.15/0.29。作者称 SWDL 达到全监督 VNet Dice 的 96.6%，比 LeFeD 高 1.79%，HD95 低 41.3%，Jac 高 3.49%；ASD 相对基线降低 41.6%–71.2%，HD95 降低 41.3%–66.9% [p. 5][p. 7]。Wilcoxon 检验称所有指标显著改善，箱线图 n=55 例 [p. 6]。</p>
-<p><strong>消融</strong>：μ 在 1.3–1.7 间测试，μ=1.5 最优（Dice 89.32，比 μ=1.4 高 1.92%），μ=1.6 降至 88.34（Table II，[p. 7]）。T=2/3/4/5 中 T=3 最优，T=4 下降最明显（Dice 87.75，HD95 3.51）（Table III，[p. 8]）。ξ 从 1e-2 到 1e-4，ξ=1e-3 最优；ξ=1e-4 时 Dice 86.63、HD95 4.04（Table IV，[p. 8]）。组件消融（Table V，[p. 8]）：完整 SWDL 89.32，去 DS 为 88.82，去 DL 为 88.15，两者都去为 87.00；HD95 分别为 2.06、2.65、2.61、3.58，作者称相对 SWDL-DS 改善 22.6%、相对 SWDL-DS-DL 改善 42.5%，并称 DS 与 DL 合计带来 2.32% Dice 提升 [p. 8][p. 9]。</p>
-<p><strong>BHSD 公开数据</strong>：192 例 NCCT，80%/20% 划分（153 训练/39 测试），仅 5% 标注（8 例）[p. 8]。Table VI [p. 9]：SWDL Dice 51.81% [42.39,61.24]，HD95 19.78，ASD 5.62，Acc 97.40%，Pre 63.69%，Jac 40.44%；UAMT 48.70/27.38/10.48，URPC 48.17/27.09/8.43，LeFeD 50.70/23.91/6.85；全监督 VNet 61.00/20.37/7.00。作者称 SWDL 达到全监督 Dice 的 85%，Precision 领先其他方法 7.2–25.5% [p. 8]。注意 BHSD 上 SWDL 的 HD95（19.78）略优于全监督 VNet（20.37），但 Dice 差距仍大，作者将其归因于 BHSD 出血亚型更复杂 [p. 10]。</p>
-<h2>5. 评估</h2>
-<p>支持的结论：在作者设定的 2% PBGTH 与 5% BHSD 条件下，SWDL 的 Dice、HD95、ASD、Precision、Jaccard 均优于所列三种半监督基线，且置信区间较窄；消融一致显示 DS 与 DL 各自有贡献，超参数存在明确峰值。局限与缺失证据：作者自述 3D 深度卷积与拉普拉斯金字塔对层间上下文捕捉可能有限，需在更多出血亚型（蛛网膜下腔、脑室内）验证，且所有方法在 PBGTH 上优于 BHSD，可能因 PBGTH 病灶更一致 [p. 10]。此外，论文未报告与更多近期 SOTA（如 MC-Net+、UniMatch、ComWin）的对比；未说明 2%/5% 标注的具体抽样方式与多次重复实验的方差来源；Table I/II 等表格在文本中排版混杂，部分数值需以原表为准；DC/DelPU 损失分配在正文中存在前后不一致 [p. 3]；推理时“只需主解码器”但未明确主解码器是 DC 还是 DelPU。</p>
+<p>支持的结论：在三个数据集、两种标注比例下，完整模型在Dice/Jaccard上一致优于所列基线；消融支持数据增强是性能提升的主要来源，JUQ与原型网络带来较小但一致的增益；显存对比直接支持原型网络的效率主张。</p>
+<p>局限与缺失证据：(1) 表中“EPCL-JUQ”与正文“EPCL-JUDA”命名混用，Table I-III未明确报告EPCL-JUDA与EPCL-JUQ的区别，易造成混淆[p. 6-7]；(2) 未报告参数量、训练时间、多次运行的均值/方差与显著性检验；(3) JUQ的方差项来源（多预测如何获得）在正文中描述不充分，式(3)的分母写法在文本中难以完全辨认[p. 3]；(4) 原型网络“进一步提升性能”的机制缺少直接证据，消融中去掉它仅下降约0.3 Dice；(5) 组合方式消融差异很小，作者也承认不显著[p. 7-8]；(6) 未讨论失败案例与跨中心泛化。</p>
 <h2>6. 复现</h2>
-<p>已报告：数据来源与预处理阈值、重采样间距、VNet 基线、KFold 80/20、random_state=367、种子 1337、SGD lr=0.01/wd=1e-4/momentum=0.9、输入 16×64×64、batch 32（2 标注+30 无标注）、RTX 3090、PyTorch、ωs 列表、μ=1.5、T=3、ξ=1e-3、深度监督权重 [p. 4][p. 5][p. 7][p. 8]。未报告或无法确认：具体网络层数/通道数、DelPU 每层卷积核设置、无标注数据采样策略、训练总迭代轮数与早停规则、2%/5% 标注样本的选取随机过程、BHSD 的具体病例编号划分、代码运行环境版本；代码与数据链接为 https://github.com/SIAT-CT-LAB/SWDL [p. 1]，但论文正文未给出完整配置文件。</p></div>
+<p>已报告：V-Net骨干；14k迭代；Adam，lr=0.001；批大小4（2+2）；EMA教师；λ1=λ2=1；原型网络3层3D卷积；一致性损失交叉熵；标注数据CutMix；LA/Pancreas 5折、TBAD 3折；LA裁剪112×112×80、滑窗步长18×18×4；Pancreas裁剪96×96×96、步长16×16×16；体素强度零均值单位方差归一化；RTX 4090。</p>
+<p>未报告或无法确认：λ_con的具体预热曲线参数；JUQ中方差的计算方式与预测数量；原型网络各层通道数；优化器具体类型（正文一处写SGD、一处写Adam，存在不一致[p. 3][p. 5]）；TBAD旋转增强的具体参数；随机种子与代码（作者称将公开）。复现时应优先以第5页实现细节为准，并对上述不一致处做敏感性实验。</p></div>
 </details>
 </div>
 <div class="card">
-<div class="title">Co-Evidential Fusion with Information Volume for Medical Image Segmentation</div>
-<div class="meta-line">Authors: Yuanpeng He, Lijian Li, Tianxiang Zhan, Chi-Man Pun, Wenpin Jiao, Zhi Jin</div>
-<div class="meta-line">First: 2025-06-03T06:13:19+00:00 · Latest: 2025-06-03T06:13:19+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2506.02492v1">Abs</a> · <a href="https://arxiv.org/pdf/2506.02492v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<div class="title">P3Net: Progressive and Periodic Perturbation for Semi-Supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Zhenyan Yao, Miao Zhang, Lanhu Wu, Yongri Piao, Feng Tian, Weibing Sun, Huchuan Lu</div>
+<div class="meta-line">First: 2025-05-21T05:35:28+00:00 · Latest: 2025-05-21T05:35:28+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.15861v1">Abs</a> · <a href="https://arxiv.org/pdf/2505.15861v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/HiLab-git/SSL4MIS">Code3</a></div>
 <details class="detail"><summary>Abstract</summary>
-<div class="mono">Although existing semi-supervised image segmentation methods have achieved good performance, they cannot effectively utilize multiple sources of voxel-level uncertainty for targeted learning. Therefore, we propose two main improvements. First, we introduce a novel pignistic co-evidential fusion strategy using generalized evidential deep learning, extended by traditional D-S evidence theory, to obtain a more precise uncertainty measure for each voxel in medical samples. This assists the model in learning mixed labeled information and establishing semantic associations between labeled and unlabeled data. Second, we introduce the concept of information volume of mass function (IVUM) to evaluate the constructed evidence, implementing two evidential learning schemes. One optimizes evidential deep learning by combining the information volume of the mass function with original uncertainty measures. The other integrates the learning pattern based on the co-evidential fusion strategy, using IVUM to design a new optimization objective. Experiments on four datasets demonstrate the competitive performance of our method.</div></details>
+<div class="mono">Perturbation with diverse unlabeled data has proven beneficial for semi-supervised medical image segmentation (SSMIS). While many works have successfully used various perturbation techniques, a deeper understanding of learning perturbations is needed. Excessive or inappropriate perturbation can have negative effects, so we aim to address two challenges: how to use perturbation mechanisms to guide the learning of unlabeled data through labeled data, and how to ensure accurate predictions in boundary regions. Inspired by human progressive and periodic learning, we propose a progressive and periodic perturbation mechanism (P3M) and a boundary-focused loss. P3M enables dynamic adjustment of perturbations, allowing the model to gradually learn them. Our boundary-focused loss encourages the model to concentrate on boundary regions, enhancing sensitivity to intricate details and ensuring accurate predictions. Experimental results demonstrate that our method achieves state-of-the-art performance on two 2D and 3D datasets. Moreover, P3M is extendable to other methods, and the proposed loss serves as a universal tool for improving existing methods, highlighting the scalability and applicability of our approach.</div></details>
 <details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>面向医学图像分割的带信息量的协同证据融合</div>
-<div class="mono" style="margin-top:8px">尽管现有的半监督图像分割方法已取得良好性能，但它们无法有效利用多源体素级不确定性进行针对性学习。因此，我们提出两项主要改进。首先，我们引入一种新颖的基于广义证据深度学习的使用广义证据深度学习扩展的传统D-S证据理论的赌注式协同证据融合策略，以获得医学样本中每个体素更精确的不确定性度量。这有助于模型学习混合标注信息，并在标注数据与未标注数据之间建立语义关联。其次，我们引入质量函数信息量（IVUM）的概念来评估所构建的证据，实现两种证据学习方案。一种通过将质量函数的信息量与原始不确定性度量相结合来优化证据深度学习。另一种则整合基于协同证据融合策略的学习模式，利用IVUM设计新的优化目标。在四个数据集上的实验证明了我们方法的竞争性性能。</div>
+<div class="mono"><b>标题：</b>P3Net：用于半监督医学图像分割的渐进式与周期性扰动</div>
+<div class="mono" style="margin-top:8px">利用多样化未标注数据进行扰动已被证明有益于半监督医学图像分割（SSMIS）。尽管许多工作成功使用了各种扰动技术，但仍需对学习扰动有更深入的理解。过度或不适当的扰动会产生负面影响，因此我们旨在解决两个挑战：如何利用扰动机制通过标注数据引导未标注数据的学习，以及如何确保边界区域的准确预测。受人类渐进式和周期性学习的启发，我们提出了渐进式与周期性扰动机制（P3M）和边界聚焦损失。P3M能够动态调整扰动，使模型逐步学习扰动。我们的边界聚焦损失鼓励模型关注边界区域，增强对复杂细节的敏感性并确保准确预测。实验结果表明，我们的方法在两个2D和3D数据集上达到了最先进的性能。此外，P3M可扩展到其他方法，所提出的损失可作为改进现有方法的通用工具，凸显了我们方法的可扩展性和适用性。</div>
 </details>
 <details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">该论文在半监督医学图像分割中引入D-S证据理论与信息量（IVUM），提出pignistic协同证据融合、不确定性引导学习（UGL）及基于IVUM的两种证据优化目标。在LA、NIH-Pancreas、ACDC和BraTS四个数据集上，5%/10%/20%标注比例下多数指标优于BCP等基线；例如LA 5%标注时Dice达91.63%，较BCP的88.02%提升3.61个百分点。作者报告主要代价是计算资源消耗增加，但未给出运行时间或显存数据。</div>
+<div class="mono" style="margin-top:8px">P3Net 面向半监督医学图像分割，提出渐进且周期性的插值扰动机制 P3M 与边界聚焦损失 Lbf。P3M 用随迭代变化的插值比例 α(iter) 控制无标签数据参与程度，并以周期 T 重复，使扰动由弱到强循环；Lbf 在插值边界带内用邻域一致性权重 μ 加权 CE 与 Dice。作者在 LA、Pancreas-NIH、ACDC、Decathlon Prostate 上报告 SOTA：Pancreas-NIH 6% 标签 Dice 79.69%，ACDC 5% 标签 Dice 89.71%。消融显示 P3M 贡献最大，Lbf 在 ACDC 5% 上再提升 Dice 2.13%。P3M 与 Lbf 也被迁移到 BCP、ClassMix、MUN 等方法上报告增益。</div>
 </details>
 <details class="detail" open><summary>论文解读</summary>
 <div class="meta-line">来源：PDF 全文，共 30 页；30 页可提取文字</div>
 <p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
 <div class="reading-notes"><h2>1. 问题与动机</h2>
-<p>半监督医学图像分割（SSL）旨在利用少量标注体数据和大量无标注体数据提升分割性能。作者指出，现有SSL方法（自训练、GAN、图模型）存在误差传播、训练不稳定、高不确定性与模糊边界难处理等问题[p. 2]。更具体地，现有方法“无法有效利用多源体素级不确定性进行针对性学习”[p. 1]。因此，论文试图将D-S证据理论中的证据融合与信息量度量引入半监督分割，用体素级证据评估来抑制噪声伪标签、建立标注与无标注数据之间的语义关联[p. 2]。</p>
+<p>论文针对半监督医学图像分割（SSMIS）中的插值式扰动。作者指出，扰动是“双刃剑”：过度或不合适的扰动会引入噪声，使模型过拟合噪声并损害泛化 [p. 2]。现有方法要么采用随机比例插值（如 CutMix），要么采用固定比例插值（如 BCP），但作者认为它们没有让网络逐步适应标注与未标注数据之间的域偏移，因而学习效率不足 [p. 3]。作者用每 200 次迭代的 Dice 曲线作为观察证据：固定插值的 BCP 呈边际下降趋势，随机插值的 CutMix 更严重，非插值方法 SSNet 也被对比（图 1-1，[p. 3]）。此外，插值裁剪区域缺乏连贯内容，尤其靠近裁剪边界处，预测边界容易不准（图 1-2，[p. 3]）。据此，作者从“人类学习是渐进且周期性”的认知心理学类比出发，提出两个目标：设计能动态调整扰动的机制，以及让损失更关注边界区域 [p. 4]。</p>
 <h2>2. 方法</h2>
-<h3>2.1 整体框架</h3>
-<p>输入为3D体数据 X∈R^{W×H×L}，输出体素标签 Y∈{0,1,...,S−1}^{W×H×L}。训练集 ζ 由 Q 个标注样本 ζ_l 和 W 个无标注样本 ζ_u 组成，W≫Q[p. 3]。框架包含两个子网络 N_s1、N_s2，采用类似BCP[58]的相互教学训练策略：预训练阶段用标注数据分别得到参数 I_s1、I_s2；自训练阶段 N_s1 先反向传播更新，再由 N_s2 更新[p. 8]。</p>
-<h3>2.2 预训练阶段</h3>
-<p>从两组标注数据 ζ_l1、ζ_l2 中各随机取一个样本，用随机零中心掩码 M1（零值区域尺寸 ηW×ηH×ηL）做copy-paste：</p>
-<p>X_M1 = X_l1a ⊙ M1 + X_l2b ⊙ (1−M1)，Y_M1 同理[p. 8, 式(14)(15)]。</p>
-<p>混合样本与两组原始标注样本分别送入网络，预测经 G（如ReLU）转为非负证据，证据维度沿类别方向，每个体素对应一个证据向量[p. 9, 式(19)]。基础损失为交叉熵加Dice：L_Is1 = L_ce(P_M1,Y_M1)+L_dice(P_M1,Y_M1)[p. 9, 式(17)]。</p>
-<h3>2.3 不确定性引导学习（UGL）</h3>
-<p>对每个体素证据 v_η=[v_η,1,...,v_η,N]，按EDL定义不确定性 U=N/T，T=Σc_k，c_k=v_k+1[p. 5, 式(4)]。将所有体素不确定性排序后，用动态权重函数：</p>
-<p>ϖ(r,t)=ϕ·tanh(ξ(r)λ(h(t)))+1[p. 9, 式(22)]，</p>
-<p>其中 ξ(r)=2r/R−1 随训练轮次变化，λ(h(t))=2h(t)/T−1 随体素不确定性排序位置变化，ϕ 限制权重幅度。作者的设计意图是：先给低不确定性（易学）体素较高权重，再逐步提高高不确定性体素的权重[p. 9]。对应排序损失 L_sort,Is1 为加权后的交叉熵与Dice组合[p. 10, 式(23)]。</p>
-<h3>2.4 协同证据融合与IVUM（CDIF）</h3>
-<p>将混合数据证据 ε1 与两组原始标注数据证据 ε2、ε3 分别融合。作者提出基于pignistic变换的新组合规则：</p>
-<p>ε_ς({P_i}) = ε_d({P_i})·ε_e({P_i}) + |P_i|/(|S|+|P_i|)·(ε_d({P_i})·ε_e({S}) + ε_d({S})·ε_e({P_i}))[p. 10, 式(30)]，</p>
-<p>再做归一化[p. 11, 式(31)]。作者解释：基数较大的命题其信念值变化较小，从而获得更明显的不确定性指标[p. 11]。融合结果为 ε1,2=F(ε1,ε2)、ε1,3=F(ε1,ε3)[p. 11, 式(32)]。</p>
-<p>IVUM定义为融合证据的不确定性分量与信息量之积：IVUM_ε1,2 = ε1,2(P_η^{N+1})·IV(ε1,2)[p. 11, 式(33)]，其中 IV 为mass function的信息量，按Deng熵迭代分离计算，收敛阈值 ρ[p. 7, 式(12)(13)]。归一化后记为 ÎVUM。改进的EDL目标为：</p>
-<p>L_gl,Is1 = Σ_j (1−ÎVUM^j) Σ_k y_jk(logU^j−logc_jk)[p. 11, 式(34)]。</p>
-<h3>2.5 结合IVUM的UGL（ULM）</h3>
-<p>按 ÎVUM 重新排序体素，得到新的动态权重 ϖ(r,t)_ÎVUM[p. 11, 式(35)]，并构造 L_s−gl,Is1 = ϖ(r,t)_ÎVUM·L_gl[p. 11, 式(36)]。最终预训练总损失：</p>
-<p>L_finalIs1 = L_Is1 + λ1L_sort,Is1 + λ2L_gl,Is1 + λ3L_s−gl,Is1[p. 11, 式(37)]；</p>
-<p>N_s2 的总损失为 L_finalIs2 = L_Is1 + E_Is1[p. 12, 式(38)]。</p>
-<h3>2.6 自训练阶段</h3>
-<p>在标注与无标注数据之间做copy-paste：X_M1lu = X_li⊙M + X_um⊙(1−M)，X_M2lu = X_lj⊙(1−M)+X_un⊙M[p. 12, 式(39)(40)]。无标注部分由另一子网络生成伪标签，取最大连通分量作为最终伪标签[p. 12]。基础损失 L_Ns1 为两组混合输入的交叉熵加Dice[p. 13, 式(45)]。UGL、CDIF、ULM分别以 L_sort,Ns1、L_gl,Ns1、L_s−gl,Ns1 形式复用[p. 14, 式(47)(51)(52)]，总损失为：</p>
-<p>L_finalNs1 = L_Ns1 + λ4L_sort,Ns1 + λ5L_gl,Ns1 + λ6L_s−gl,Ns1[p. 14, 式(53)]，N_s2 同理[p. 14, 式(54)]。</p>
+<p>整体沿用 mean-teacher 框架：学生网络参数 θS，教师网络参数 θT 由 EMA 更新，θT^{t+1}=θT^t·δ+θS·(1−δ)，δ=0.99 [p. 7–8]。训练分两阶段。</p>
+<p><strong>预 warm 阶段</strong>：用教师网络对无标签图像 Xuj 生成伪标签 Ŷuj，学生同时用标注数据和无标签数据训练。损失为 Lstep1=Lstep1_s+λLstep1_u；有监督项是 Dice 与 CE 之和，无监督项是学生预测与教师伪标签之间的 Dice 与 CE 之和 [p. 8]。式 (4) 在原文中两项之间缺少加号，属于排版/笔误，按上下文应理解为两项相加。</p>
+<p><strong>第二阶段：P3M</strong>。先由教师网络得到概率图 Puj，二分类以 0.5 阈值、多分类以 argmax 得到伪标签 [p. 9]。插值采用 CutMix 式矩形掩码 Mc(t)∈{0,1}^{W×H}：随机选一个像素作为左上角 (w0,h0)，零值区域大小为 αW×αH，右下角为 (w0+αW,h0+αH) [p. 9–10]。混合图像与混合伪标签分别为：
+Xmix = Xuj⊙Mc(t)+Xsi⊙(1−Mc(t))，
+Ymix = Ŷuj⊙Mc(t)+Ysi⊙(1−Mc(t)) [p. 10]。</p>
+<p>渐进曲线为 α1(iter1)=exp(iter1/S)+γ，其中 iter1 是当前迭代步，α1 表示插值中标注数据所占比例（即使用 CutMix 后无标签数据占据的区域），γ 是调整因子，S 被解释为模型反思并吸收新信息的能力（借自人类学习的遗忘率）[p. 8–9]。γ 与 S 由边界条件 α1(0)=0.25、α1(T)=0.9 解出。周期性形式为 α(iter)=α1(iter−n·T)，n 为当前周期数，T 为周期 [p. 9]。作者强调，合理的上下界比具体函数形式更重要 [p. 9]。</p>
+<p><strong>边界聚焦损失 Lbf</strong>。动机是插值边界缺少上下文纹理与形状信息，边界附近易错 [p. 10]。作者定义加权 CE 与加权 Dice：Lwce 对每个像素乘以 (1+μij)，Lwdice 同样以 (1+μij) 加权，μij 由 5×5 邻域 Ai,j 内预测与伪标签一致像素的比例计算：μij=1−ΣAi,j 1(ysij=psij)/ΣAi,j 1 [p. 10–11]。μij∈[0,1]，越大表示该像素与周围越不一致、越易错，因而惩罚越重。边界带掩码 Ml 由插值框左上/右下坐标 (h0,w0)、(h1,w1) 分别向外扩 ε、向内缩 ε 得到，最终区域为扩区域减缩区域并置 1 [p. 11]。第二阶段损失为 Lstep2=Ml⊙Lbf+(1−Ml)⊙Lseg，其中 Lbf 是边界带内的 wCE+wDice，Lseg 是其余区域的普通 CE+Dice [p. 11]。之后教师按 EMA 更新。</p>
 <h2>3. 贡献</h2>
-<p>作者声称的贡献有四点[p. 2-3]：(1) 提出协同证据融合策略，用原始标注数据辅助学习混合标注特征及标注-无标注关系；(2) 将mass function信息量引入EDL，并结合D-S证据理论提供多维度证据评估；(3) 提出新的证据优化目标，其中一个依赖前述学习模式；(4) 在四个数据集、三种标注比例上验证优越性。</p>
-<p>我的解读：核心新颖点在于把“证据融合后的IVUM”同时用于重加权EDL损失（式34）和体素排序（式35），形成两级体素级学习信号；融合规则式(30)是作者对传统Dempster组合规则的修改，但其理论性质（如结合律、交换律）论文未讨论。</p>
+<p>作者声称的贡献有三点：P3M 系统调节插值扰动，作为标注与未标注数据之间的桥梁；边界聚焦损失提升边界预测置信度；P3M 与 Lbf 可扩展到其他插值扰动方法 [p. 4–5]。我的解读是：核心新颖性在于把插值比例从固定/随机改为“有上下界、随迭代渐进、按周期重置”的调度，而非新的网络结构；Lbf 本质是难像素加权与边界带掩码的组合，其“边界”由插值框几何位置定义，而非真实解剖边界。</p>
 <h2>4. 实验与结果</h2>
-<h3>4.1 数据集与设置</h3>
-<p>四个数据集：LA（154例MRI，100训练/54测试，训练集内80训练/20验证）[p. 17]；NIH Pancreas-CT（80例，18例作验证）[p. 17]；ACDC（100例有标注，7:1:2划分）[p. 19]；MSD BraTS（484例MR体，16:3:1划分）[p. 19]。指标为Dice、Jaccard、95HD、ASD[p. 16]。</p>
-<p>LA：3D V-Net骨干，SGD，初始学习率0.01，每2.5K迭代衰减10%，预训练2K、自训练15K迭代，patch 112×112×80，掩码零值区域74×74×53，批大小4[p. 17]。Pancreas：四层3D V-Net，Adam，学习率0.001，预训练60轮、自训练200轮，patch 96×96×96，批大小4[p. 17-19]。ACDC：2D U-Net，SGD，学习率0.01，patch 256×256，预训练10K、自训练30K迭代，批大小12[p. 19]。BraTS：SGD，学习率0.01，动量0.9，预训练2K、自训练15K迭代，patch 128×128×96，批大小4[p. 19]。每批标注与无标注样本数相等[p. 16]。</p>
-<h3>4.2 主要结果</h3>
-<p>表1[p. 15]：LA 5%标注下，本文方法Dice 91.63、Jaccard 83.58、95HD 5.26、ASD 1.67；BCP为88.02、78.72、7.90、2.15，作者称分别提升3.61、4.86、2.64、0.48[p. 19]。LA 10%：本文91.99/84.22/4.54/1.25，BCP 89.62/81.31/6.81/1.76。LA 20%：本文92.16/84.51/4.69/1.18，BCP 90.34/82.50/6.75/1.77。</p>
-<p>NIH-Pancreas 5%：本文82.36/70.38/7.67/2.31，BCP 80.33/67.65/11.78/4.32；作者指出本文5%标注性能超过BCP 10%标注设置[p. 21]。ACDC 5%：本文90.66/83.37/3.61/0.93，BCP 87.59/78.67/1.90/0.67——注意此处95HD与ASD本文数值高于BCP，与作者“尤其在后两项指标上优于SOTA”的表述[p. 21]不一致，表中BCP的95HD=1.90、ASD=0.67均低于本文的3.61、0.93。ACDC 10%：本文91.17/83.74/2.36/0.70，BCP 88.84/80.62/3.98/1.17；20%：本文91.57/84.83/2.20/0.68，BCP 89.52/81.62/3.69/1.03。</p>
-<p>BraTS表2[p. 16]：第一部分的比较方法数值直接取自Co-BioNet[41][p. 21]。5%标注下本文平均HD 7.29、DSC 79.27，Co-BioNet为9.06、76.82；10%下本文6.31、82.77，Co-BioNet 7.59、80.75；20%下本文5.31、83.69，Co-BioNet 6.87、80.86。第二部分复现V-Net与Co-BioNet，5%标注下本文Dice 81.96、Jaccard 70.19、95HD 5.14、ASD 0.92，Co-BioNet为77.20、67.56、7.81、0.97；100%标注下本文84.54/75.66/4.33/0.33，Co-BioNet 82.53/72.94/5.23/0.44[p. 16]。</p>
-<h3>4.3 消融与参数分析</h3>
-<p>表3[p. 20]在LA 5%标注下网格搜索λ1–λ6。作者报告最优为λ1=1.6、λ2=2.4（预训练），λ4=1.6、λ5=2.4（自训练），此时Dice 91.63、Jaccard 83.58、95HD 5.26、ASD 1.67[p. 22]；并称λ3=λ6时性能最佳[p. 22]。该表数值密集，部分单元格排版错位（如λ3=2.4、λ6=1.6处Jaccard显示90.31，明显异常），无法可靠辨认，不应据此下结论。图9–11[p. 18]展示λ1/λ2、λ4/λ5、λ3/λ6变化曲线，但正文未给出具体数值。</p>
-<h3>4.4 可视化</h3>
-<p>图12[p. 21]对比LA、BraTS、Pancreas，图13[p. 22]对比ACDC上BCP；作者称本文分割更平滑、细节更完整、误判更少。此处仅依据图注与正文描述，未对图像本身作独立判读。</p>
+<p><strong>数据集与划分</strong>：LA 共 100 例 3D 钆增强 MR，按 80-20 划分训练/测试，训练随机裁剪 112×112×80，推理滑窗同尺寸、步长 18×18×4 [p. 12]。Pancreas-NIH 共 82 例 3D CT，按 62-20 划分训练/测试，训练裁剪 96×96×96，推理步长 16×16×4 [p. 12–13]。ACDC 共 100 例心脏 MRI，按 70-10-20 划分训练/验证/测试 [p. 13]。Decathlon Prostate 共 48 例多参数 MRI，其中 32 例有标注，按 24-8 划分训练/测试 [p. 13]。指标为 Dice、Jaccard、95HD、ASD [p. 13]。</p>
+<p><strong>训练设置</strong>：T=8000，ε=13；λ(t)=0.1·e^{−5(1−iter/maxiter)}；NVIDIA 4090，固定随机种子；Adam，初始学习率 3e−4，权重衰减 0.0001，多项式衰减 (1−iter/maxiter)^0.9 [p. 13]。3D 用 3D V-Net，batch size 4，预 warm 5k 迭代，第二阶段 55k；2D 用 U-Net，batch size 16，预 warm 15k，第二阶段 75k [p. 13]。Pancreas-NIH 按 CoraNet 设置学习率 0.001，标签比例 6% 与 10% [p. 13]。</p>
+<p><strong>主要结果</strong>（表 1，[p. 12]）：ACDC 5%（3 例）下 Ours Dice 89.71、Jaccard 81.88、95HD 1.85、ASD 0.64；10%（7 例）下 Dice 91.16、Jaccard 84.15、95HD 1.28、ASD 0.36。Decathlon Prostate 5%（23 例）下 Dice 65.63、Jaccard 58.46、95HD 7.45、ASD 2.45；10%（46 例）下 Dice 74.27、Jaccard 67.57、95HD 4.49、ASD 1.57。LA 5%（4 例）下 Dice 89.57、Jaccard 81.17、95HD 7.83、ASD 2.33；10%（8 例）下 Dice 90.83、Jaccard 83.30、95HD 7.02、ASD 1.92。Pancreas-NIH 6%（4 例）下 Dice 79.69、Jaccard 66.53、95HD 8.61、ASD 2.72；10%（6 例）下 Dice 81.70、Jaccard 69.39、95HD 7.71、ASD 2.10。作者称 Pancreas-NIH 6% 标签下 Dice 比此前 SOTA 高 14.25%（摘要与引言 [p. 4]），但正文 4.3 节又写“提升 11.37%” [p. 14]，两处数字不一致，需以表格或原文核对；表 1 中对应基线为 PMT 的 68.32，差值为 11.37，故 14.25% 的来源在正文中未交代清楚。全监督上界也列出：ACDC/Prostate 全监督 Dice 分别为 92.27/74.81，LA/Pancreas 为 92.26/82.31 [p. 12]。</p>
+<p><strong>消融</strong>（表 2，[p. 16]）：ACDC 5% 下，仅预 warm 为 Dice 60.58、Jaccard 49.64、95HD 26.97、ASD 11.59；加 P3M 后 87.58/78.56/2.85/1.13；再加 Lbf 后 89.71/81.88/1.85/0.64。LA 5% 下对应为 83.87/72.93/15.72/4.78 → 88.59/80.14/7.95/2.59 → 89.57/81.17/7.83/2.33。作者据此称 P3M 在 ACDC 上带来 Dice 约 20%、Jaccard 28.62% 的提升，Lbf 再带来 Dice 2.13%、Jaccard 3.32% 的提升 [p. 16]。</p>
+<p><strong>曲线与周期消融</strong>（表 3、表 4，[p. 17–18]）：作者比较 7 条曲线，红色（本文采用、受记忆曲线启发）在 ACDC 5% 上 Dice 89.71、LA 5% 上 89.57，均为最佳；绿色与黄色两条极端曲线表现较差（ACDC 上 84.11 与 84.99）[p. 17]。周期 T=4000/8000/12000/16000/75000 中，T=8000 在 ACDC 与 LA 上均最佳（ACDC Dice 89.71，LA Dice 89.57）；T=75000（仅一个完整周期）在 ACDC 为 88.52、LA 为 86.22，说明周期性有必要 [p. 18]。上下界消融（表 5，[p. 19]）显示上界 0.9、下界 0.25 最优（Dice 89.71），下界为 0 或上界过高均下降。</p>
+<p><strong>应用实验</strong>：把 P3M 用于 BCP 与 ClassMix，保持其掩码形状不变、仅调整插值比例；ClassMix 在 ACDC 5% 上 Dice 提升 28.30% [p. 20–21]。把 Lbf 用于 MUN 等三种插值方法，MUN 在 ACDC 5% 上 Dice 提升 5.55% [p. 5, p. 21]。图 6、图 7 给出定量对比，但正文未列出完整数值表。</p>
 <h2>5. 评估</h2>
-<p>支持的结论：在作者设定的四个数据集与5%/10%/20%标注比例下，表1和表2显示本文方法在多数Dice/Jaccard指标上优于所列基线，且LA 5%标注下相对BCP的提升有明确数字支撑[p. 15, 19]。参数分析表明λ2、λ5（IVUM相关损失权重）取2.4附近时表现较好，与作者关于IVUM有效性的主张方向一致[p. 22]。</p>
-<p>需要注意的问题：(1) ACDC 5%下95HD/ASD本文劣于BCP，与正文“尤其后两项指标占优”的表述矛盾[p. 15, 21]；(2) BraTS第一部分基线数值直接引用Co-BioNet原文，第二部分自行复现后Co-BioNet数值与第一部分不一致（如5%平均DSC 76.03 vs 77.20），作者承认“存在一定差异”[p. 16, 21]，但未分析原因；(3) 表3部分单元格疑似排版错误，无法完整核验参数结论；(4) 论文未报告运行时间、显存或参数量，仅结论中定性承认计算资源消耗更高[p. 24]；(5) 未报告多次运行的均值/方差或显著性检验；(6) 融合规则式(30)缺乏理论性质分析；(7) 与ETCL、EVIL、BFSSL、EPE、EUA的差异仅在文字层面讨论[p. 23]，无直接实验对比。</p>
+<p>支持的结论：在作者设定的四个数据集与标签预算下，P3Net 的 Dice/Jaccard 多数优于表中基线；消融较清楚地显示 P3M 是主要增益来源，Lbf 有额外但较小的增益；周期 T=8000 与上下界 0.25/0.9 的选择有表 4、表 5 的直接证据。</p>
+<p>需要注意的局限与缺失证据：第一，Pancreas-NIH 的“14.25%”与正文“11.37%”不一致，且表 1 中 6% 标签下最强基线为 PMT 68.32，差值支持 11.37%，14.25% 的比较对象未说明 [p. 4, p. 12, p. 14]。第二，LA 上 Ours 的 HD95/ASD 并非全面最优（5% 时 HD95 7.83 高于 PMT 的 6.45；10% 时 HD95 7.02 高于 PMT 的 5.61），作者也承认在 HD95/ASD 上只是“略优或基本一致” [p. 12, p. 14]。第三，P3M 的曲线函数、上下界、周期均在验证集上选择，论文未报告独立验证集选择协议或多次随机种子方差，固定种子下的单次结果可能高估稳定性 [p. 13]。第四，Lbf 的边界带由插值框几何定义，ε=13 为固定像素值，未讨论其随分辨率/器官尺寸的敏感性；μ 的 5×5 邻域也缺少消融。第五，应用实验的增益（ClassMix +28.30%、MUN +5.55%）只给出图或摘要数字，正文未给完整表格与基线绝对值，复现与核验受限 [p. 20–21]。第六，图 1 的学习曲线仅作为动机示意，未说明统计方式与样本量 [p. 3]。</p>
 <h2>6. 复现</h2>
-<p>已报告：LA用3D V-Net+SGD（lr 0.01，每2.5K迭代×0.1，预训练2K/自训练15K迭代，patch 112×112×80，掩码零值区74×74×53，批大小4）[p. 17]；Pancreas用四层3D V-Net+Adam（lr 0.001，预训练60轮/自训练200轮，patch 96×96×96，掩码64×64×64，批大小4，旋转/缩放/翻转增强）[p. 17-19]；ACDC用2D U-Net+SGD（lr 0.01，patch 256×256，预训练10K/自训练30K迭代，批大小12）[p. 19]；BraTS用SGD（lr 0.01，动量0.9，预训练2K/自训练15K迭代，patch 128×128×96，批大小4）[p. 19]。损失权重最优值λ1=1.6、λ2=2.4、λ4=1.6、λ5=2.4，λ3=λ6[p. 22]。</p>
-<p>未报告或无法辨认：ϕ 的具体取值、IVUM迭代中的允许误差 ρ、证据生成函数 G 的完整定义（仅举例ReLU）、伪标签置信阈值、数据划分随机种子、硬件环境、训练总时长、代码链接。自训练阶段“迭代/轮数设置参考BCP”[p. 16]意味着部分细节需查阅BCP原文。</p></div>
-</details>
-</div>
-<div class="card">
-<div class="title">Translation Consistent Semi-supervised Segmentation for 3D Medical Images</div>
-<div class="meta-line">Authors: Yuyuan Liu, Yu Tian, Chong Wang, Yuanhong Chen, Fengbei Liu, Vasileios Belagiannis, Gustavo Carneiro</div>
-<div class="meta-line">Venue: published in IEEE TRANSACTIONS ON MEDICAL IMAGING, FEB 2025</div>
-<div class="meta-line">First: 2022-03-28T06:31:39+00:00 · Latest: 2025-06-01T14:52:18+00:00</div>
-<div class="meta-line">Comments: 17 pages, 10 Figures and 6 Tables</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2203.14523v3">Abs</a> · <a href="https://arxiv.org/pdf/2203.14523v3">PDF</a> · <a href="https://github.com/yyliu01/TraCoCo">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">3D medical image segmentation methods have been successful, but their dependence on large amounts of voxel-level annotated data is a disadvantage that needs to be addressed given the high cost to obtain such annotation. Semi-supervised learning (SSL) solve this issue by training models with a large unlabelled and a small labelled dataset. The most successful SSL approaches are based on consistency learning that minimises the distance between model responses obtained from perturbed views of the unlabelled data. These perturbations usually keep the spatial input context between views fairly consistent, which may cause the model to learn segmentation patterns from the spatial input contexts instead of the segmented objects. In this paper, we introduce the Translation Consistent Co-training (TraCoCo) which is a consistency learning SSL method that perturbs the input data views by varying their spatial input context, allowing the model to learn segmentation patterns from visual objects. Furthermore, we propose the replacement of the commonly used mean squared error (MSE) semi-supervised loss by a new Cross-model confident Binary Cross entropy (CBC) loss, which improves training convergence and keeps the robustness to co-training pseudo-labelling mistakes. We also extend CutMix augmentation to 3D SSL to further improve generalisation. Our TraCoCo shows state-of-the-art results for the Left Atrium (LA) and Brain Tumor Segmentation (BRaTS19) datasets with different backbones. Our code is available at https://github.com/yyliu01/TraCoCo.</div></details>
-<details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>面向3D医学图像的平移一致半监督分割</div>
-<div class="mono" style="margin-top:8px">3D医学图像分割方法已取得成功，但其对大量体素级标注数据的依赖是一个需要解决的缺点，因为获取此类标注的成本很高。半监督学习（SSL）通过使用大量无标注数据和少量有标注数据训练模型来解决这一问题。最成功的SSL方法基于一致性学习，即最小化从无标注数据的扰动视图获得的模型响应之间的距离。这些扰动通常使视图之间的空间输入上下文保持相当一致，这可能导致模型从空间输入上下文而非分割对象中学习分割模式。在本文中，我们引入了平移一致协同训练（TraCoCo），这是一种一致性学习SSL方法，通过改变空间输入上下文来扰动输入数据视图，使模型能够从视觉对象中学习分割模式。此外，我们提出用新的跨模型置信二值交叉熵（CBC）损失替代常用的均方误差（MSE）半监督损失，这改善了训练收敛性并保持了对协同训练伪标签错误的鲁棒性。我们还将CutMix增强扩展到3D SSL以进一步提高泛化能力。我们的TraCoCo在不同骨干网络下的左心房（LA）和脑肿瘤分割（BRaTS19）数据集上展示了最先进的结果。我们的代码可在https://github.com/yyliu01/TraCoCo获取。</div>
-</details>
-<details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">TraCoCo 是一种面向 3D 医学图像分割的半监督协同训练方法。其核心是用“平移扰动”生成两个具有非空交集且背景上下文不同的子体积，并在交集区域强制两个独立初始化网络（以及同一网络的两个平移视图）的预测一致，从而减少模型对背景器官空间拓扑的“记忆”。同时提出置信区域交叉熵（CRC）损失替代常用的 MSE 半监督损失，只对高置信前景/背景体素施加惩罚，以兼顾收敛速度与伪标签噪声鲁棒性；并将 CutMix 扩展到 3D。作者在 LA、Pancreas-CT、BraTS19 三个 3D 数据集和 ACDC 2D 切片基准上报告了优于多种 SOTA 的 Dice/Jaccard/ASD/95HD 结果，消融显示平移一致性、CRC 和 3D CutMix 各有贡献。需要注意：部分表格在提供的文本中排版错乱，若干数字需以原文表格为准；作者对 ASD 略差的解释属于分析性意见。</div>
-</details>
-<details class="detail" open><summary>论文解读</summary>
-<div class="meta-line">来源：PDF 全文，共 17 页；17 页可提取文字</div>
-<div style="margin:12px 0"><p><b>原论文流程图 · Figure 8 · PDF 第 11 页</b></p><img src="assets/figures/b0823e894703db2fed097298.png" alt="原论文流程图 · Figure 8 · PDF 第 11 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 8: Comparison of Training Time on BraTS19 dataset, where all approaches use the UNet3D architecture and run on a single NVIDIA V100. <a href="https://arxiv.org/pdf/2203.14523v3#page=11">原文来源</a></p></div>
-<div class="reading-notes"><h2>1. 问题与动机</h2>
-<p>3D 医学图像分割依赖大量体素级标注，成本高。半监督学习（SSL）用少量标注加大量未标注数据训练，其中一致性学习最常用：对未标注数据做不同扰动得到不同视图，再最小化视图间预测差异 [p. 1]。作者指出，现有扰动（如数据增强、不同初始化网络、Mean Teacher 的 EMA）通常保持视图间空间输入上下文基本一致，模型可能从“背景器官的空间拓扑”而非前景对象本身学习分割模式；在 3D 医学图像中，目标常被位置相对稳定的背景器官包围（如左心房被肺静脉和二尖瓣包围），这种强背景信号会加剧“记忆”训练样本，导致未标注数据背景稍有变化时预测不一致 [p. 1–2]。图 1 用 LA 原始体积与平移后体积展示 SASSNet、UA-MT、CAC 在重叠区域的分割不一致，作为动机证据 [p. 2]。作者还批评 CAC 的密集对比学习计算昂贵、只覆盖有限正负样本对，且依赖固定解码器产生的可能噪声伪标签，易引入确认偏差 [p. 2]。</p>
-<h2>2. 方法</h2>
-<h3>2.1 总体框架</h3>
-<p>TraCoCo 是双网络协同训练框架：两个分割网络 fθ1、fθ2 结构相同但参数独立初始化 [p. 3–4]。输入为 3D 体积 x，标注集 DL 小、未标注集 DU 大。总目标为</p>
-<p>θ1<em>,θ2</em> = argmin [ ℓsup(DL,θ1,θ2) + λ( ℓsem(DU,θ1,θ2) + ℓtra(DL∪DU,θ1,θ2) ) ]，</p>
-<p>其中 λ 为 cosine ramp-up 函数，控制监督与半监督/一致性损失的权衡 [p. 4, Eq.1]。ℓsup 对标注子体积同时计算两个网络的交叉熵与 Dice 损失 [p. 4, Eq.2]。</p>
-<h3>2.2 平移一致性损失</h3>
-<p>对每个体积（标注或未标注）随机抽取两个中心 f、s 的子体积 x̂f、x̂s，要求其晶格交集 Ω̂f,s 非空；两个子体积分别加均匀噪声 ξ∼U(−0.2,0.2) 后送入两个网络，得到 ŷf1、ŷs1、ŷf2、ŷs2 [p. 4, Fig.2]。平移一致性损失为</p>
-<p>ℓtra = Σ_x [ α1 ℓkl(x̂f,s,θ1,θ2) + α2 ℓreg(x̂f,s,θ1,θ2) ]，</p>
-<p>其中 ℓkl 在交集区域计算同一网络两个平移视图之间的 KL 散度（即 KL(ŷf1,ŷs1)+KL(ŷf2,ŷs2)），ℓreg 用 Shannon 熵平衡前景/背景体素；实验中 α1=1.0、α2=0.1 [p. 5, Eq.3–5]。关键设计是：两个视图来自同一体积但空间上下文不同，交集区域迫使模型对背景变化不敏感。</p>
-<h3>2.3 置信区域交叉熵（CRC）损失</h3>
-<p>半监督损失 ℓsem 用两个网络的预测互为伪标签：</p>
-<p>ℓsem = −Σ_{x∈DU}Σ_ω [ ℓcrc(ŷf1(ω),ŷf2(ω)) + ℓcrc(ŷf2(ω),ŷf1(ω)) ]。</p>
-<p>CRC 定义为：若伪标签 a 的最大类概率 &gt; γ，则对前景类计算交叉熵；若最小类概率 &lt; β，则对背景类计算交叉熵；否则该体素不产生梯度 [p. 5, Eq.6–8]。γ、β 为超参数。作者称 CRC 替代常用 MSE 损失，目的是保持对伪标签错误的鲁棒性同时改善收敛；并给出梯度分析：MSE 梯度随置信度增长过慢，CE 对噪声伪标签梯度过大，CRC 对不自信伪标签梯度为零、对自信且预测不一致的伪标签梯度大 [p. 13–14, Tab.XI]。</p>
-<h3>2.4 3D CutMix</h3>
-<p>在未标注数据上随机生成 3D 二值掩码 m（一个随机位置和大小的 1 盒），将两个样本 i、j 的输入与第二网络伪标签分别混合：νmij=(1−m)⊙x̂fi+m⊙x̂fj，ŷf2,ij=(1−m)⊙ŷf2,i+m⊙ŷf2,j；半监督损失相应改为对混合输入和混合伪标签计算 [p. 5, Eq.9–10]。</p>
-<h2>3. 贡献</h2>
-<p>作者声称的贡献有两点：1）基于平移一致性的协同训练策略，通过变化空间输入上下文促进跨模型预测一致，缓解背景器官导致的过拟合；2）熵驱动的 CRC 损失，只取最自信的正/负伪标签进行协同训练，改善收敛并保持对伪标签错误的鲁棒性 [p. 2]。此外作者将 CutMix 扩展到 3D SSL 以提升泛化 [p. 2]。我的解读：平移一致性是本文最核心的新意，它把“背景上下文变化”显式作为扰动维度；CRC 更像是对 MSE/CE 的折中设计，其增益在消融中相对较小（LA 0.44%、Pancreas 0.54% Dice）[p. 10]。</p>
-<h2>4. 实验与结果</h2>
-<h3>4.1 数据集与划分</h3>
-<ul>
-<li>LA：100 个 3D MRI，各向同性 0.625 mm；80 训练/20 测试，沿用 [6],[11] 的样本 ID；标注预算 8、16（以及图中 32）[p. 5–6]。</li>
-<li>Pancreas-CT：82 个 3D CT；62 训练/20 测试，沿用 [44] 划分；标注预算 6、12（图中 24）[p. 5–6]。</li>
-<li>BraTS19：335 个脑 MRI，仅用 FLAIR 做二分类；250 训练/25 验证/60 测试；标注预算 25、50（图中 125）[p. 6]。</li>
-<li>ACDC：100 个心脏 MRI，70/10/20 训练/验证/测试；用 2D 切片训练与评估，标注预算 3、7、14 [p. 6, p. 9]。</li>
-</ul>
-<h3>4.2 训练设置</h3>
-<p>LA 与 Pancreas 用 VNet，BraTS19 用 3D-UNet，ACDC 用 2D UNet [p. 6]。初始学习率 5e−2，poly 衰减 (1−iter/max_iter)^0.9；LA/Pancreas max_iter=15,000，BraTS19 为 30,000；λ 用 40 次迭代 cosine ramp-up，从 0 开始；SGD momentum 0.9，weight decay 0.0005；每批 2 个标注+2 个未标注体积；LA 裁剪 112×112×80，BraTS19/Pancreas 裁剪 96×96×96；2D 切片 batch size 4、裁剪 256×256 [p. 6]。推理只用 fθ1，滑窗 stride：LA 18×18×4，Pancreas/BraTS19 16×16×16；BraTS19 报告最后 epoch，其余报告最佳结果 [p. 6]。指标为 Dice、Jaccard、ASD、95HD，并报告参数量与 MACs [p. 6]。</p>
-<h3>4.3 主要结果</h3>
-<ul>
-<li>LA（Tab.II）：8 标注最佳结果下，TraCoCo Dice 89.29%、Jaccard 80.82%、ASD 2.28、95HD 6.92；16 标注下 Dice 90.94%、Jaccard 83.47%、ASD 1.79、95HD 5.49 [p. 7]。作者称 8/16 标注下 Dice 分别比 MC-Net+ 高 0.9% 和 0.44%，Jaccard 高 1.45% 和 0.73%，95HD 好 1.12 和 0.21 体素 [p. 6]。但表中 16 标注下 MC-Net+ 最佳 Dice 为 91.07%，高于 TraCoCo 的 90.94%，与正文表述存在不一致；应以表格数字为准并注意该矛盾。</li>
-<li>Pancreas（Tab.III）：6 标注下 Dice 79.22%、Jaccard 66.04%、ASD 2.57、95HD 8.46；12 标注下 Dice 81.80%、Jaccard 69.56%、ASD 1.49、95HD 5.70 [p. 7]。作者称 6 标注下 Dice/Jaccard 比 MC-Net+ 高 5.21%/6.02%，95HD 比 MC-Net+ 和 URPC 分别好 4.13 和 14.11 体素；12 标注下 Dice 和 95HD 比 MC-Net+ 好 1.21% 和 0.77 [p. 6]。</li>
-<li>BraTS19（Tab.IV）：25 标注下 Dice 85.71%、Jaccard 76.39%、ASD 2.27、95HD 9.20；50 标注下 Dice 86.69%、Jaccard 77.69%、ASD 1.93、95HD 8.04 [p. 8]。作者称 50 标注下 Dice 比 SASSNet 和 LG-ER-MT 高 1.09% 和 1.02%，Jaccard 比 URPC 高近 2%；25 标注下 Jaccard 高 1.31% [p. 8]。</li>
-<li>ACDC（Tab.V）：3 标注下 Dice 89.46%、Jaccard 81.51%、ASD 0.71、95HD 2.43；7 标注下 Dice 90.44%、Jaccard 83.01%、ASD 0.42、95HD 1.41；14 标注下 Dice 91.24%、Jaccard 84.32%、ASD 0.36、95HD 1.29 [p. 9]。作者称比 UniMatch 的 Dice 和 95HD 分别高 0.54% 和 2.34% [p. 9]。</li>
-</ul>
-<h3>4.4 消融与证据</h3>
-<ul>
-<li>组件消融（Tab.VI，LA 16 标注、Pancreas 12 标注）：以 CPS 协同训练+3D CutMix 为基线，加入平移一致性 ℓtra 使 Dice 提升 0.83%（LA）和 1.58%（Pancreas）；再用 CRC 替换 CE 提升 0.44% 和 0.54% [p. 10]。</li>
-<li>损失函数消融（Tab.VII）：在 LA 上 CRC 比 KL 高 1.14% Dice、比 CE 高约 0.78%、比 MSE 高约 1.39%；Pancreas 上比 MSE 高 1.51% [p. 10]。</li>
-<li>阈值消融（Fig.7）：BraTS19 上 γ=0.65 比 γ=0.3 高 1.76% Dice；β=0.1 比 β=0.0 和 0.05 分别高 1.39% 和 0.61%，更高 β 会显著下降 [p. 11]。</li>
-<li>重叠区域消融（Tab.XII）：BraTS19 25 标注下，交集为子体积 1/4 到全尺寸随机时 Dice 85.71、ASD 2.27；固定 1/4 时 84.82、2.76；固定 1/2 时 85.00、2.84；全子体积时 84.76、2.36 [p. 15]。</li>
-<li>与 CAC 对比（Tab.IX）：在 LA 8 标注和 BraTS19 25 标注上，TraCo(Co) 比 CAC(Co) Dice 高 1.01% 和 1.26% [p. 11, p. 13]。</li>
-<li>训练效率（Fig.8）：在 BraTS19、UNet3D、单卡 V100 上，CAC 训练成本最高，TraCoCo 约为 CAC 的一半；但比依赖 EMA 的 Mean Teacher 类方法（BCP、UniMatch、UA-MT）更慢，因为另一分支需要反向传播 [p. 11]。注意 Fig.8 图注写 V100，正文写 A6000，存在不一致。</li>
-<li>后处理（Tab.VIII）：连通域阈值（CCT）过滤小于输入体积 1/1500 的孤立假阳性区域，在 LA、BraTS19、Pancreas 上均带来小幅提升；LA 8 标注 Dice 89.29→89.31，16 标注 90.94→90.96；BraTS19 25 标注 85.71→85.79，50 标注 86.69→86.73；Pancreas 6 标注 79.22→79.46，12 标注 81.80→81.99 [p. 11]。</li>
-<li>其他骨干（Tab.X）：BraTS19 25 标注下 3DnnUNet Dice 86.94、TransUNet 87.13，均高于 3DUNet 的 85.71 [p. 13]。</li>
-</ul>
-<h2>5. 评估</h2>
-<p>支持的结论：平移一致性在多个数据集和标注预算下带来稳定增益，且消融显示其贡献不能仅由协同训练+CutMix 解释 [p. 10, p. 13]；CRC 在损失消融中优于 MSE/KL/CE [p. 10]；方法在 2D ACDC 上也有效 [p. 9]。作者报告的限制：ASD 在部分设置下略差于 SOTA，作者解释为模型更依赖前景、对困难内点更敏感，这属于分析性意见而非直接实验证明 [p. 6, p. 10]；训练时间比 Mean Teacher 类方法长 [p. 11]；未来工作提到降低大体积运行时间并保持前景敏感性 [p. 15]。缺失证据：提供的文本中多张表格排版错乱，部分基线数字无法可靠辨认；未报告多次随机种子运行的方差或显著性检验；未报告 CRC 阈值在 LA/Pancreas 上的完整敏感性；Fig.8 的硬件描述存在 V100/A6000 不一致。</p>
-<h2>6. 复现</h2>
-<p>已报告：VNet（LA/Pancreas）、3D-UNet（BraTS19）、2D UNet（ACDC）；学习率 5e−2、poly 衰减指数 0.9、max_iter 15,000/30,000；SGD momentum 0.9、weight decay 0.0005；batch 2 标注+2 未标注；裁剪尺寸 112×112×80 或 96×96×96；λ 40 次 cosine ramp-up；α1=1.0、α2=0.1；ξ∼U(−0.2,0.2)；CRC 默认 γ=0.65、β=0.1（由 Fig.7 消融推断）；滑窗 stride 18×18×4 或 16×16×16；CCT 过滤阈值 1/1500 体积 [p. 5–6, p. 11]。未报告：两个网络的初始化方式细节、优化器具体实现（是否 SGD 带 Nesterov）、数据增强的完整参数、随机种子数量、CRC 在 LA/Pancreas 上的阈值选择依据、CutMix 掩码大小分布、以及表格中部分基线的复现细节。代码链接为 https://github.com/yyliu01/TraCoCo [p. 1]。</p></div>
-</details>
-</div>
-<div class="card">
-<div class="title">Decoupled Competitive Framework for Semi-supervised Medical Image Segmentation</div>
-<div class="meta-line">Authors: Jiahe Chen, Jiahe Ying, Shen Wang, Jianwei Zheng</div>
-<div class="meta-line">First: 2025-05-30T14:56:00+00:00 · Latest: 2025-05-30T14:56:00+00:00</div>
-<div class="meta-line">Comments: Published in ECAI 2024</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2505.24667v1">Abs</a> · <a href="https://arxiv.org/pdf/2505.24667v1">PDF</a> · <a href="https://github.com/JiaheChen2002/DCF">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Confronting the critical challenge of insufficiently annotated samples in medical domain, semi-supervised medical image segmentation (SSMIS) emerges as a promising solution. Specifically, most methodologies following the Mean Teacher (MT) or Dual Students (DS) architecture have achieved commendable results. However, to date, these approaches face a performance bottleneck due to two inherent limitations, \textit{e.g.}, the over-coupling problem within MT structure owing to the employment of exponential moving average (EMA) mechanism, as well as the severe cognitive bias between two students of DS structure, both of which potentially lead to reduced efficacy, or even model collapse eventually. To mitigate these issues, a Decoupled Competitive Framework (DCF) is elaborated in this work, which utilizes a straightforward competition mechanism for the update of EMA, effectively decoupling students and teachers in a dynamical manner. In addition, the seamless exchange of invaluable and precise insights is facilitated among students, guaranteeing a better learning paradigm. The DCF introduced undergoes rigorous validation on three publicly accessible datasets, which encompass both 2D and 3D datasets. The results demonstrate the superiority of our method over previous cutting-edge competitors. Code will be available at https://github.com/JiaheChen2002/DCF.</div></details>
-<details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>解耦竞争框架用于半监督医学图像分割</div>
-<div class="mono" style="margin-top:8px">面对医学领域标注样本不足的关键挑战，半监督医学图像分割（SSMIS）成为一种有前景的解决方案。具体而言，大多数遵循均值教师（MT）或双学生（DS）架构的方法已取得值得称道的结果。然而，迄今为止，这些方法因两个固有局限而面临性能瓶颈，\textit{例如}，由于采用指数移动平均（EMA）机制导致的MT结构内部过度耦合问题，以及DS结构中两个学生之间的严重认知偏差，二者均可能导致效能降低，甚至最终模型崩溃。为缓解这些问题，本工作提出了一种解耦竞争框架（DCF），其利用一种直接的竞争机制进行EMA更新，以动态方式有效解耦学生与教师。此外，学生之间实现了宝贵且精确见解的无缝交换，保证了更好的学习范式。所引入的DCF在三个公开可访问的数据集上进行了严格验证，涵盖2D和3D数据集。结果表明我们的方法优于先前的尖端竞争者。代码将发布于https://github.com/JiaheChen2002/DCF。</div>
-</details>
-<details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">论文提出解耦竞争框架（DCF），用两个学生网络在每次迭代中按Dice等指标竞争，胜者通过EMA更新教师，教师再对落败学生做额外伪标签监督（辅导机制），学生间用交叉伪监督保持一致性。在LA（10%/20%标签）、Pancreas-CT（10%/20%）、ISIC（5%/10%）上报告了优于UA-MT、BCP、UCMT等基线的Dice等指标；消融显示以Dice为竞争指标、仅辅导落败学生效果最好。</div>
-</details>
-<details class="detail" open><summary>论文解读</summary>
-<div class="meta-line">来源：PDF 全文，共 8 页；8 页可提取文字</div>
-<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
-<div class="reading-notes"><h1>论文阅读笔记：Decoupled Competitive Framework for Semi-supervised Medical Image Segmentation</h1>
-<h2>1. 问题与动机</h2>
-<p>半监督医学图像分割（SSMIS）旨在用少量标注数据和大量未标注数据训练分割模型。作者指出当前主流的两类结构存在瓶颈：Mean Teacher（MT）用指数滑动平均（EMA）把教师与学生强耦合，教师难以充分支持学生，常需叠加MagicNet、BCP等复杂模块；Dual Student（DS）虽去掉教师，但两个学生能力不均会产生认知偏差，错误知识交换可能导致模型崩溃，通常还需额外稳定约束 [p. 1]。因此作者希望在不引入复杂模块的前提下，同时缓解“师生过耦合”和“双学生认知偏差”两个问题 [p. 1-2]。</p>
-<h2>2. 方法</h2>
-<h3>2.1 整体流程</h3>
-<p>DCF包含三个同构网络：教师 f(·;θt) 与两个学生 f(·;θs1)、f(·;θs2)，均随机初始化 [p. 3]。对输入 X 施加两次随机增强 ξ、ξ′，分别得到 Yt=f(X;θt)、Ys1=f(X+ξ;θs1)、Ys2=f(X+ξ′;θs2) [p. 3]。整体结构见 Figure 2（p. 3）：Block A 展示双学生交叉伪监督，Block B 展示基于Dice、交叉熵、95HD等指标的竞争机制 [p. 3]。</p>
-<h3>2.2 损失项</h3>
-<ul>
-<li>有标注监督损失：Lseg = Lce(f(xL;θ), y) + Ldice(f(xL;θ), y)，其中 y 为标注，θ 对应当前被训练网络 [p. 3, Eq.1]。</li>
-<li>竞争：每次迭代用Dice、CE、95HD等指标比较两个学生，选出胜者 fw 与败者 fl [p. 3, Algorithm 1]。</li>
-<li>教师EMA更新：θt′ = αθt−1 + (1−α)θt，其中 α 为EMA衰减率，θt 为胜者参数；由于胜者动态变化，教师参数不与任一学生固定耦合 [p. 3]。</li>
-<li>辅导损失：Lms = (1/M)Σ Lseg(f(xUj;θus), ŶUj)，ŶUj 为教师对未标注样本的伪标签，且仅施加于当前表现较差的学生 [p. 4, Eq.2]。</li>
-<li>学生间交叉伪监督：Lcps = (1/M)Σ[Lseg(f(xUj;θs1), ŶUj) + Lseg(f(xUj;θs2), ŶUj)]，其中 ŶUj 来自另一学生的预测 [p. 4, Eq.3]。</li>
-<li>无监督总损失：Lunsup = Lcps + Lms [p. 4, Eq.4]；总损失 Ltotal = Lseg + λLunsup，λ 平衡无监督项，作者称训练早期不确定性高，故引入该权重稳定训练 [p. 4, Eq.5]。</li>
-</ul>
-<h3>2.3 设计分析</h3>
-<p>作者用权重距离（Figure 3a，p. 3）说明教师与两个学生的权重距离呈此消彼长：胜者更新教师后与其更近，另一学生则更远，教师权重在两者间交替，而非被单一学生束缚 [p. 4]。预测距离（Figure 3b，p. 3）显示两个学生预测距离先下降后趋于稳定，教师与学生的预测距离也呈类似趋势，作者据此认为一致性约束有效 [p. 4]。</p>
-<h2>3. 贡献</h2>
-<p>作者声称的贡献有三点：提出DCF框架以突破MT/DS瓶颈；设计竞争与辅导机制缓解师生紧耦合、增强学生知识获取；不依赖复杂模块即在三个基准上取得新的state-of-the-art [p. 2]。我的理解是：核心新颖点在于“用动态竞争结果决定EMA更新源”，把MT中固定的学生-教师对应关系改为在两个学生间切换；辅导机制则是对落败学生的额外伪标签监督。二者组合并不复杂，但作者强调其无需修改网络结构、不增加参数量，且竞争指标本就要在监督训练中计算，因此额外开销小 [p. 3]。</p>
-<h2>4. 实验与结果</h2>
-<h3>4.1 数据集与设置</h3>
-<ul>
-<li>LA：2018 Atrial Segmentation Challenge，100例3D钆增强MRI，分辨率0.625×0.625×0.625 mm³；80例训练、20例评估；训练集中10%（8例）和20%（16例）作为标注 [p. 4]。</li>
-<li>Pancreas-CT：NIH临床中心公开数据，HU调整到[−125,275]或[−120,240]，重采样到1.0×1.0×1.0 mm³；62例训练、20例评估；10%（6例）和20%（12例）标注 [p. 4-5]。</li>
-<li>ISIC：2594张2D皮肤镜图像；1815训练、779验证；5%（91张）和10%（181张）标注 [p. 4]。</li>
-<li>指标：3D用Dice、Jaccard、95HD、ASD；2D主要用Dice [p. 5]。</li>
-<li>实现：PyTorch，NVIDIA 3090；LA用V-Net，500 epochs，batch size 4（2标注+2未标注），随机裁剪112×112×80，推理滑窗同尺寸、步长18×18×4，AdamW，学习率1e-4 [p. 5]。Pancreas-CT裁剪96×96×96，推理步长16×16×16，600 epochs，其余同LA [p. 5]。ISIC用DeepLabv3+加ResNet50，batch size 8（4标注+4未标注），图像resize到256×256，30 epochs，AdamW，学习率1e-4 [p. 5]。</li>
-</ul>
-<h3>4.2 主要结果</h3>
-<ul>
-<li>LA（Table 1，p. 5）：10%标注下DCF Dice 89.94%、Jaccard 81.78%、95HD 6.38、ASD 1.80，优于BCP的89.62%、UCMT的88.13%等；20%标注下Dice 91.44%、Jaccard 84.28%、95HD 5.24、ASD 1.55，优于BCP的90.74%等。作者称相对V-Net基线（10%：78.96%；20%：86.87%）有显著提升 [p. 5-6]。</li>
-<li>Pancreas-CT（Table 2，p. 6）：10%标注下DCF Dice 78.94%、Jaccard 66.05%、95HD 11.69、ASD 1.38，优于RCPS的76.62%等；20%标注下Dice 81.65%、Jaccard 69.48%、95HD 6.77、ASD 1.21，优于RCPS的81.59%等。作者指出DCF在10%与20%间的Dice差距仅2.71%，认为其更充分利用未标注数据 [p. 6]。</li>
-<li>ISIC（Table 3，p. 6）：5%标注下DCF Dice 88.88%，高于UCMT的88.22%；10%标注下89.23%，高于UCMT的88.46% [p. 6]。</li>
-</ul>
-<h3>4.3 消融</h3>
-<ul>
-<li>辅导机制（Table 4，p. 7，LA 20%标注）：无辅导91.10%；教师辅导所有学生90.26%；轮流辅导90.63%；辅导高绩效学生90.70%；仅辅导低绩效学生91.44%（Dice最高，Jaccard 84.28%、95HD 5.24、ASD 1.55）[p. 7]。作者据此认为仅辅导落败学生最有效，同时辅导两者可能加大学生间方差 [p. 7]。</li>
-<li>竞争指标（Table 5，p. 7，LA 20%标注）：仅用Dice时Dice 91.44%最佳；CE 90.50%、Jac 89.32%、ASD 90.80%、95HD 90.72%；组合指标如Dice+Jac 89.07%、CE+Jac+Dice 88.45%反而下降 [p. 7]。作者认为Dice最能准确评价医学分割模型，但也承认不同任务可考虑其他指标 [p. 7]。</li>
-</ul>
-<h2>5. 评估</h2>
-<p>支持的结论：在三个公开数据集、两种标注比例下，DCF的Dice等指标总体优于所列基线；消融支持“仅辅导落败学生”和“Dice作为竞争指标”的设计选择。作者也报告了局限：两个学生的动态互动主要在训练前中期明显，后期逐渐减弱，未来需研究增强学生间一致性 [p. 7]。</p>
-<p>缺失或需谨慎之处：论文未报告α、λ的具体取值，也未说明竞争指标的具体计算频率或是否平滑；未给出多次运行的均值/方差或显著性检验；Pancreas-CT和ISIC的对比结果部分直接采用原论文报告值，训练细节一致性有限 [p. 6]。此外，Table 4/5的消融仅在LA 20%标注下进行，跨数据集泛化性证据不足 [p. 7]。Figure 3、5、6为可视化证据，本文仅依据图注与正文描述，未对图像内容作独立判读 [p. 3, p. 7]。</p>
-<h2>6. 复现</h2>
-<p>已报告：三个网络的同构结构；两次随机增强；LA用V-Net、500 epochs、batch 4、裁剪112×112×80、推理步长18×18×4、AdamW、lr=1e-4；Pancreas-CT 600 epochs、裁剪96×96×96、推理步长16×16×16；ISIC用DeepLabv3+ ResNet50、batch 8、256×256、30 epochs、AdamW、lr=1e-4 [p. 5]。未报告：EMA衰减α、损失权重λ、竞争指标的具体实现细节（如是否用标注数据计算、是否滑动平均）、数据增强的具体类型与强度、随机种子与重复次数、GPU数量与训练总时长。代码链接在摘要中给出，但正文未提供更多实现细节 [p. 1, p. 5]。</p></div>
+<p>已报告的可复现要点：mean-teacher + EMA δ=0.99；两阶段训练；3D V-Net / 2D U-Net；Adam，lr 3e−4（Pancreas 0.001），weight decay 1e−4，多项式衰减指数 0.9；λ(t)=0.1·e^{−5(1−iter/maxiter)}；T=8000，ε=13，α 上下界 0.25/0.9；3D batch 4、预 warm 5k、第二阶段 55k；2D batch 16、预 warm 15k、第二阶段 75k；LA 裁剪 112×112×80、推理步长 18×18×4；Pancreas 裁剪 96×96×96、步长 16×16×4；数据划分如第 4 节 [p. 12–13]。</p>
+<p>未报告或无法从正文确认的细节：γ 与 S 的具体解出数值未给出；伪标签是否经过不确定性过滤未说明；教师网络是单个还是集成（正文写“ensemble of teacher models”，但公式与流程按单教师描述）[p. 7]；插值框随机采样的具体分布与越界处理未说明；Lbf 中 ε 的单位与是否随 α 变化未说明；推理时是否使用 P3M 或仅用学生网络未明确；代码/超参搜索协议未提供。复现时应优先核对表 1 的基线数值与 14.25%/11.37% 的差异来源。</p></div>
 </details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261104_1719.html">20261104_1719</a>
+      <div class="history-list"><a href="archive/20261105_0826.html">20261105_0826</a>
+<a href="archive/20261104_1719.html">20261104_1719</a>
 <a href="archive/20261104_1453.html">20261104_1453</a>
 <a href="archive/20261103_0939.html">20261103_0939</a>
 <a href="archive/20261102_0653.html">20261102_0653</a>
