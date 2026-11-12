@@ -1,0 +1,869 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-11-12 09:36</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261112_0936</div>
+    <div class="row"><div class="card">
+<div class="title">Leveraging Labelled Data Knowledge: A Cooperative Rectification Learning Network for Semi-supervised 3D Medical Image Segmentation</div>
+<div class="meta-line">Authors: Yanyan Wang, Kechen Song, Yuyuan Liu, Shuai Ma, Yunhui Yan, Gustavo Carneiro</div>
+<div class="meta-line">First: 2025-02-17T05:29:50+00:00 · Latest: 2025-02-17T05:29:50+00:00</div>
+<div class="meta-line">Comments: Medical Image Analysis</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2502.11456v1">Abs</a> · <a href="https://arxiv.org/pdf/2502.11456v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/Yaan-Wang/CRLN.git">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Semi-supervised 3D medical image segmentation aims to achieve accurate segmentation using few labelled data and numerous unlabelled data. The main challenge in the design of semi-supervised learning methods consists in the effective use of the unlabelled data for training. A promising solution consists of ensuring consistent predictions across different views of the data, where the efficacy of this strategy depends on the accuracy of the pseudo-labels generated by the model for this consistency learning strategy. In this paper, we introduce a new methodology to produce high-quality pseudo-labels for a consistency learning strategy to address semi-supervised 3D medical image segmentation. The methodology has three important contributions. The first contribution is the Cooperative Rectification Learning Network (CRLN) that learns multiple prototypes per class to be used as external knowledge priors to adaptively rectify pseudo-labels at the voxel level. The second contribution consists of the Dynamic Interaction Module (DIM) to facilitate pairwise and cross-class interactions between prototypes and multi-resolution image features, enabling the production of accurate voxel-level clues for pseudo-label rectification. The third contribution is the Cooperative Positive Supervision (CPS), which optimises uncertain representations to align with unassertive representations of their class distributions, improving the model&#x27;s accuracy in classifying uncertain regions. Extensive experiments on three public 3D medical segmentation datasets demonstrate the effectiveness and superiority of our semi-supervised learning method.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>利用标注数据知识：用于半监督3D医学图像分割的协同校正学习网络</div>
+<div class="mono" style="margin-top:8px">半监督3D医学图像分割旨在利用少量标注数据和大量未标注数据实现准确分割。半监督学习方法设计中的主要挑战在于有效利用未标注数据进行训练。一种有前景的解决方案是确保数据在不同视图下的预测保持一致，而该策略的有效性取决于模型为这种一致性学习策略生成的伪标签的准确性。本文提出了一种新方法，为一致性学习策略生成高质量伪标签，以解决半监督3D医学图像分割问题。该方法有三项重要贡献。第一项贡献是协同校正学习网络（CRLN），它学习每个类别的多个原型，作为外部知识先验，在体素级别自适应地校正伪标签。第二项贡献是动态交互模块（DIM），促进原型与多分辨率图像特征之间的成对交互和跨类别交互，从而生成准确的体素级线索用于伪标签校正。第三项贡献是协同正监督（CPS），它优化不确定表示，使其与其类别分布的非确定性表示对齐，提高模型对不确定区域分类的准确性。在三个公开3D医学分割数据集上的大量实验证明了我们半监督学习方法的有效性和优越性。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出CRLN、DIM与CPS三部分组成的半监督3D医学分割框架：用标注数据学习每类多原型，经跨层跨类交互生成体素级关系图，对教师伪标签做可学习修正（¯yr=¯y+(1−µ)M(x)），并用结合原型与类均值的“非断言”正样本做对比学习。在LA、Pancreas-CT、BraTS19上按10%/20%等标注比例取得优于19种对比方法的Dice与95HD，消融显示各模块均有增益；但表格排版混乱、部分数字难以可靠辨认，且作者承认细小结构与过平滑等局限。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 17 页；17 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h1>论文阅读笔记：CRLN 半监督 3D 医学图像分割</h1>
+<h2>1. 问题与动机</h2>
+<p>半监督 3D 医学分割希望用少量体素级标注加大量无标注体数据取得准确分割。主流做法是 Mean Teacher 式“弱增强教师生成伪标签、强增强学生向其对齐”的一致性学习，但教师伪标签含噪声，会带来确认偏差（confirmation bias）[p. 2]。作者指出两类现有缓解手段的不足：</p>
+<ul>
+<li>多教师/多视角集成：不同视角的伪标签未必都更准，甚至互相冲突，难以稳定提升[p. 2–3]。</li>
+<li>基于不确定性的过滤或降权（如 UA-MT 用熵筛除低置信体素）：图 1(a) 显示训练早期可靠预测占比很低，大量无标注数据被丢弃；图 1(b) 显示被判为“可靠”的体素仍可能错误，仍会引入偏差[p. 2]。</li>
+</ul>
+<p>因此论文的目标不是简单丢弃不可靠体素，而是利用标注数据中的类知识去“修正”伪标签，使更多无标注体素可参与训练，并额外改善边界等不确定区域的判别力[p. 2–4]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 基础框架</h3>
+<p>教师-学生结构：无标注体 x 经弱增强 Aw 输入教师得到伪标签 ¯y=fθtd(fθte(Aw(x)))，强增强 As 输入学生得 ˆy=fθsd(fθse(As(x)))。总损失含标注监督 ℓs 与无监督项 ℓu；ℓu 用指示函数 1(maxĉ ¯y(ω,ĉ)≥τ) 过滤最大概率低于阈值 τ 的体素，再做负对数似然[p. 5, 式(1)(2)]。教师权重由学生权重的 EMA 更新[p. 5]。</p>
+<h3>2.2 CRLN 与 DIM：原型学习与伪标签修正</h3>
+<p>CRLN 分“学习阶段”和“修正阶段”[p. 4 图 3；p. 5]。每类学习 R 个原型 P∈R^{C×R×F}，而非单一原型，理由是医学类内形态差异大[p. 5]。</p>
+<p>DIM（图 4，p. 5）的流程：
+1. 取学生解码器第二层特征 f2，经 1×1×1 卷积得 r2；把原型分成 R 组 {p_i}，每组 C×F，与 r2 做成对交叉注意力，得 m^I_i 与更新原型 p^I_i[p. 6, 式(3)(4)]。
+2. 更新后的原型再与第三层特征 f3（F3&lt;F）做同样交叉注意力，得 m^II_i[p. 6, 式(5)]，使原型逐层吸收纹理与语义信息。
+3. 对 M^II 施加 3×3×3 卷积引入局部空间一致性，再用类间共享参数的 1×1×1 卷积在 R 个原型维度上聚合，上采样得到整体关系图 M(x)∈R^{C×H×W×D}[p. 6, 式(6)(7)]。作者强调共享卷积参数使类间信息可交互。
+4. 修正：ˆy_r = ˆy + (1−µ)×M(x)，µ∈[0,1] 为可学习参数，控制修正强度[p. 6, 式(8)]。学习阶段在标注数据上做此修正并用 ℓs(M(x),y) 与 ℓr 训练 µ[p. 7, 式(15)(16)]；训练 S 次迭代后，在修正阶段把同一流程用于无标注样本，得到 ¯y_r=¯y+(1−µ)M(x)[p. 6]。</p>
+<h3>2.3 CPS：协作正监督</h3>
+<p>CPS 作用于学生解码器第四层特征 f4，用 InfoNCE 形式对比损失[p. 6–7, 式(9)–(14)]：
+- 锚点集 R_c：从“不确定区域”采样，标注数据条件为 y(ω,c)=1 且 ˆy(ω,c)&lt;τ；无标注数据还要求修正后伪标签最大概率&gt;τ_w 且 argmax 为 c，τ_w&lt;τ[p. 7, 式(9)(10)]。
+- 负集 R_c^-：标注数据取 y(ω,c)≠1；无标注数据取修正伪标签置信&gt;τ_w 且 argmax≠c[p. 7, 式(11)(12)]。
+- 正样本：r=(r_m+ξ·mean(P_c))/(1+ξ)，ξ∼U(0,1)，即类均值表示 r_m 与学习原型均值的折中，作者称其为“非断言（unassertive）”正样本，避免正样本离不确定表示过远[p. 7, 式(13)]。
+- 损失为 softmax 形式的 cos 相似度对比损失，温度 t[p. 7, 式(14)]。</p>
+<h3>2.4 总体目标</h3>
+<p>式(15) 合并：标注监督、标注上的 M(x) 监督、无标注上以修正伪标签 ¯y_r 为目标的 ℓu、以及 ℓ_cp；式(16) 单独学习 µ。训练交替最小化 (15)(16) 并 EMA 更新教师[p. 7, 算法 1]。</p>
+<h2>3. 贡献（作者主张与我的解读）</h2>
+<p>作者主张三点新颖性[p. 3]：(1) CRLN 用每类多原型作为外部知识先验做体素级伪标签修正；(2) DIM 以成对与跨类交互提供修正线索；(3) CPS 用原型与类均值组合的非断言正表示提升不确定区域判别。我的解读：核心增量是把“原型/少样本式知识迁移”嵌入 Mean Teacher 的伪标签生成环节，属于对伪标签质量的改进而非新的半监督范式；CPS 本质是带类原型先验的难样本对比学习。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据与设置</h3>
+<ul>
+<li>LA：100 例 3D MRI，裁剪 112×112×80，80 训练/20 验证；10% 与 20% 划分分别对应 8 与 16 例标注[p. 7–8]。</li>
+<li>Pancreas-CT：82 例 CT，裁剪 96×96×96，62 训练/20 验证；6 与 12 例标注[p. 8]。</li>
+<li>BraTS19：335 例，仅用 FLAIR，250 训练/25 验证/60 测试，随机裁剪 96×96×96；25 与 50 例标注[p. 8]。</li>
+<li>骨干：LA 与 Pancreas-CT 用 VNet，BraTS19 用 3D-UNet；SGD，动量 0.9，权重衰减 5e-4，初始学习率 2.5e-3 多项式调度，batch size 4（2 标注+2 无标注）；t=0.5，512 负样本、256 锚点；S=800，ξ=0.6[p. 8]。测试用滑动窗口，步长 LA 18×18×4，其余 16×16×16[p. 8]。指标 Dice、Jaccard、ASD、95HD；本文结果用 100 次 bootstrap 报均值±标准差[p. 8]。</li>
+</ul>
+<h3>4.2 主要对比</h3>
+<ul>
+<li>LA（表 1、表 2，p. 9）：8 标注时本文 Dice 91.74±0.38、Jaccard 84.79±0.64、ASD 1.46±0.09、95HD 4.60±0.33；16 标注时 91.88±0.43 / 85.05±0.72 / 1.46±0.08 / 4.51±0.32。作者称 8 标注下 Jaccard 与 95HD 分别比 RCPS 优 1.69% 与 3.31[p. 9]。注意表 1/2 在 PDF 文本中排版交错，部分对比方法数字难以可靠对应，未逐项引用。</li>
+<li>Pancreas-CT（表 3，p. 10）：6 标注本文 Dice 79.17±1.82（last checkpoint）/81.24±1.23（best checkpoint）；12 标注 82.76±1.01 / 83.52±1.03。作者称相对 MC-Net+ 在 10% 与 20% 协议下 Dice 提升 11.8% 与 4.57%[p. 10]；该 11.8% 与表中数值关系在文本中不易核对。</li>
+<li>BraTS19（表 4，p. 11）：25 标注本文 Dice 86.73±1.46、Jaccard 56.14±3.67、ASD 41.04±3.57、95HD 7.42±1.06；50 标注 87.17±1.24 / 78.19±1.80 / 1.62±0.32 / 6.79±1.05。25 标注行的 Jaccard/ASD 与 Dice 明显不自洽，疑为 PDF 文本抽取错位，无法确认。作者称 Jaccard 比 TraCoCo 提升 1.36% 与 0.5%[p. 10]。</li>
+<li>与 SAM 类方法比较（表 8，p. 14）：LA 10% 下本文 Dice 91.74，AutoSAM 48.94，MA-SAM 89.66；作者称 95HD 分别降低 26.94 与 1.75[p. 14]。</li>
+<li>训练时间：LA 10% 下 0.651 秒/batch（单 RTX 3090）[p. 10, 图 7]。</li>
+</ul>
+<h3>4.3 消融</h3>
+<p>表 5（p. 11）以弱-强一致性为 baseline：LA 上 baseline Dice 84.19，加 CutMix+随机噪声 88.67，再加 CRLN+DIM 89.87，再加 CPS 91.63，完整 91.74；Pancreas-CT 上对应 77.85→76.73→78.58→74.68→79.17（中间项顺序在文本中错位，仅完整模型 79.17 可确认）。作者称 CRLN+DIM 使 LA 95HD 改善 4.33、Pancreas Dice 提升 1.85%[p. 12]；CPS 使 Dice 提升 1.87% 与 0.59%，95HD 降 2.04 与 2.56[p. 12]。</p>
+<p>其他消融：
+- 聚合策略（表 6，p. 13）：仅 SA 90.89，SA+CI 91.04，SA+CI+CR 91.74，说明跨类推理贡献最大。
+- 原型数量（图 10，p. 13）：多原型比单原型 Jaccard 高约 1.86%–3.37%；32 个原型比 16 个下降 1.47% Jaccard、95HD 增 0.55，作者归因于过拟合标注分布。
+- 修正机制（表 7，p. 13）：r-fixed-v1 91.14，r-learnable-v2 90.69，r-learnable-v3（本文）91.74。
+- 超参：S∈{400,800,1200,1600} 性能稳定，S=800 最佳（图 12）；ξ 在 0.2–0.8 有竞争力，取 0.6（图 13）[p. 14]。
+- 伪标签质量（图 1，p. 2；p. 12）：第 1400 次迭代可靠预测比例提升 22.7%；第 1800 次迭代可靠伪标签 Dice 从 88.51% 升至 91.32%。</p>
+<h2>5. 评估</h2>
+<p>支持较好的结论：在三个公开数据集、两种标注预算下，完整模型在 Dice/95HD 上总体优于所列对比方法；消融对 CRLN+DIM、CPS、跨类聚合、多原型与可学习修正均给出了一致的正向证据。</p>
+<p>需谨慎之处：(1) 对比结果多引自原论文，训练/评测协议（last vs best checkpoint）不完全统一，作者也按此分类[p. 8]，横向比较存在混杂。(2) 表 1–5 在 PDF 文本中严重错位，部分数字无法辨认，本文未据此推断。(3) 图 1 的“可靠”定义与阈值细节未在正文展开。(4) 作者自述局限：肺静脉邻近等细小结构分割下降；胰腺表面出现过平滑、对高频变化不敏感；未评估下游临床任务[p. 14]。此外缺少跨数据集泛化、不同骨干与标注比例更细粒度的统计显著性检验。</p>
+<h2>6. 复现要点</h2>
+<p>已报告：VNet/3D-UNet 骨干；SGD（0.9，5e-4，2.5e-3 多项式衰减）；batch 4（2+2）；t=0.5；512 负样本/256 锚点；S=800；ξ=0.6；τ、τ_w 的具体数值未在正文给出；EMA 衰减率未报告；R 的最终取值正文未明说（图 10 暗示 16 较优）；损失 ℓs 的具体组合（Dice+CE 权重）未报告；数据增强的具体参数未报告；代码见 https://github.com/Yaan-Wang/CRLN.git[p. 8]。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Prototype Contrastive Consistency Learning for Semi-Supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Shihuan He, Zhihui Lai, Ruxin Wang, Heng Kong</div>
+<div class="meta-line">First: 2025-02-10T16:40:26+00:00 · Latest: 2025-02-10T16:40:26+00:00</div>
+<div class="meta-line">Comments: 17 pages, 10 figures, 7 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2502.06650v1">Abs</a> · <a href="https://arxiv.org/pdf/2502.06650v1">PDF</a> · <a href="https://github.com/comphsh/PCCS">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Medical image segmentation is a crucial task in medical image analysis, but it can be very challenging especially when there are less labeled data but with large unlabeled data. Contrastive learning has proven to be effective for medical image segmentation in semi-supervised learning by constructing contrastive samples from partial pixels. However, although previous contrastive learning methods can mine semantic information from partial pixels within images, they ignore the whole context information of unlabeled images, which is very important to precise segmentation. In order to solve this problem, we propose a novel prototype contrastive learning method called Prototype Contrastive Consistency Segmentation (PCCS) for semi-supervised medical image segmentation. The core idea is to enforce the prototypes of the same semantic class to be closer and push the prototypes in different semantic classes far away from each other. Specifically, we construct a signed distance map and an uncertainty map from unlabeled images. The signed distance map is used to construct prototypes for contrastive learning, and then we estimate the prototype uncertainty from the uncertainty map as trade-off among prototypes. In order to obtain better prototypes, based on the student-teacher architecture, a new mechanism named prototype updating prototype is designed to assist in updating the prototypes for contrastive learning. In addition, we propose an uncertainty-consistency loss to mine more reliable information from unlabeled data. Extensive experiments on medical image segmentation demonstrate that PCCS achieves better segmentation performance than the state-of-the-art methods. The code is available at https://github.com/comphsh/PCCS.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>用于半监督医学图像分割的原型对比一致性学习</div>
+<div class="mono" style="margin-top:8px">医学图像分割是医学图像分析中的一项关键任务，但尤其当标注数据较少而未标注数据较多时，该任务可能极具挑战性。对比学习通过从部分像素构建对比样本，已被证明在半监督学习中对医学图像分割有效。然而，尽管以往的对比学习方法能够从图像内的部分像素中挖掘语义信息，它们忽略了未标注图像的整体上下文信息，而这对精确分割非常重要。为解决这一问题，我们提出了一种新的原型对比学习方法，称为原型对比一致性分割（PCCS），用于半监督医学图像分割。其核心思想是促使同一语义类的原型彼此更接近，并推动不同语义类中的原型彼此远离。具体而言，我们从无标注图像构建符号距离图与不确定性图。符号距离图用于构建对比学习的原型，随后我们从不确定性图估计原型不确定性，作为原型之间的权衡。为获得更好的原型，基于学生-教师架构，设计了一种名为原型更新原型的新机制，以辅助更新用于对比学习的原型。此外，我们提出了一种不确定性一致性损失，以从无标注数据中挖掘更可靠的信息。在医学图像分割上的大量实验表明，PCCS 相比最先进方法取得了更好的分割性能。代码可在 https://github.com/comphsh/PCCS 获取。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">PCCS 是一种半监督医学图像分割方法，核心是用符号距离图构造边界原型，并用不确定性加权原型对比损失、原型引导原型更新机制和不确定性一致性损失来利用无标注数据。在 BUSI、BML 和 ACDC 上，10%/20% 标注设置下平均 Dice 优于所列 SOTA；例如 BUSI 20% 标注时平均 Dice 66.52%，BML 20% 时 62.06%，ACDC 10% 时 86.38%。消融显示各损失项均有正贡献，但超参数表存在排版/可读性问题，部分设置与正文描述不完全一致。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 17 页；17 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图 · Figure 1 · PDF 第 2 页</b></p><img src="../assets/figures/c852df507ce1977a3fd52dd7.png" alt="原论文流程图 · Figure 1 · PDF 第 2 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Figure 1: Workflow of prototype contrastive learning. We aim to enhance the contrastive ability of prototypes to improvetheeffectivenessofcontrastivelearning. <a href="https://arxiv.org/pdf/2502.06650v1#page=2">原文来源</a></p></div>
+<div class="reading-notes"><h1>PCCS 论文精读笔记</h1>
+<h2>1. 问题与动机</h2>
+<p>论文针对标注数据少、无标注数据多的半监督医学图像分割。作者认为，已有像素级对比学习虽能利用部分像素的语义信息，但忽略了无标注图像的整体上下文，且伪标签错误会导致对比样本噪声和误差累积；像素级对比的计算/内存代价为 O(N²)，需要复杂采样 [p. 2]。作者进一步指出，已有原型对比方法通常把同类像素简单平均为原型，没有充分挖掘图像内部信息，尤其没有探索边界原型之间的判别信息 [p. 2]。因此，PCCS 的目标是构造更具判别力的边界原型，并用不确定性降低错误伪标签的影响 [p. 2]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 总体流程</h3>
+<p>记有标注集 D_l={(x_i,y_i)}、无标注集 D_u={x_j}，分割网络 h=g∘f，f 为编码器、g 为解码器，ŷ=h(x) [p. 4]。训练分两步：第一步仅用标注图像最小化</p>
+<p>l_sup = ½(L_CE(y,ŷ)+L_Dice(y,ŷ))，</p>
+<p>其中 L_CE 为交叉熵、L_Dice 为 Dice 损失 [p. 4]。第二步在已学参数上联合使用标注与无标注图像，总目标为</p>
+<p>l_total = l_sup + λ_c l_c + λ_aux l_aux + λ_pc l_pc，</p>
+<p>λ_aux=0.3、λ_pc=0.1，λ_c=0.1e^{-5(1-t/30000)^2}，t 为当前迭代数 [p. 5]。</p>
+<h3>2.2 原型对比学习</h3>
+<p>编码器输出多尺度特征 M∈R^{H×W×D}，经投影层降到 128 维得到 M_f∈R^{H×W×128}，以降低内存 [p. 5]。原型定义为“到分割边界距离相同的所有像素在嵌入空间中的平均特征” [p. 5]。具体地，由分割掩码 y 构造符号距离图 T(y)：目标内部为负距离、边界为 0、外部为正距离 [p. 5, 式(3)]。对第 c 类，N_{c,j} 统计距离边界为 j 的像素数 [p. 5, 式(4)]，原型</p>
+<p>p_{c,j} = (1/N_{c,j}) Σ_i 1{S_{c,i}=j}·M_f^i，</p>
+<p>即第 c 类中距离边界 j 的像素平均特征 [p. 6, 式(5)]。所有原型构成集合 P；对锚原型 p_{c,j}，正样本集 P_+={p_{c,u}|u∈D_c}−{p_{c,j}}，负样本集 P_-=P−P_+ [p. 6]。</p>
+<p>对比一致性损失为</p>
+<p>L_pc(p_{c,j}) = −Σ_{p+∈P+} S(p+) log[ e^{p_{c,j}·p+/τ} / (e^{p_{c,j}·p+/τ}+Σ_{p−∈P−}e^{p_{c,j}·p−/τ}) ]，</p>
+<p>其中 S(p+)=p_{c,j}·p+ / Σ_{p+∈P+}p_{c,j}·p+，p_{c,j}、p+、p− 归一化到 [0,1]，τ 为温度系数，实验中设为 0.05 [p. 6, 式(7)(8)]。直观上，与锚更相似的正样本权重更大，低相似正样本被抑制，以缓解错误伪标签影响 [p. 5, 图3；p. 6]。</p>
+<p>进一步用不确定性加权：</p>
+<p>l_pc = Σ_{p_{c,j}∈P} [ e^{−H(p_{c,j})} / Σ_{p∈P}e^{−H(p)} ] L_pc(p_{c,j})，</p>
+<p>H(p_{c,j})=−Σ_{i=1}^C v_i log v_i，v_i=g_i(p_{c,j})，g(·) 把原型映射为 C 类概率向量 [p. 6, 式(9)(10)]。不确定性大的原型权重小，以削弱错误伪标签的影响；不确定性小的原型权重大 [p. 6]。</p>
+<h3>2.3 原型引导原型</h3>
+<p>学生原型 p1_c 与教师原型 p2_c 的更新为</p>
+<p>p2_c = (μ+γ)p2_c + (1−μ)p1_c + (1−γ)v_c，</p>
+<p>其中 μ=0.99、γ=0.999，v_c 为教师分支嵌入空间中的历史特征信息 [p. 7, 式(12)]。作者称该机制让教师原型既吸收学生原型，又保留历史信息，避免原型多样性坍缩 [p. 7]。</p>
+<p>像素-原型对比损失为</p>
+<p>L_i^aux = −log[ e^{cos(v_i,p_{c,i})/τ} / (e^{cos(v_i,p_{c,i})/τ}+Σ_{q−∈Q}e^{cos(v_i,q−)/τ}) ]，</p>
+<p>其中 v_i 为学生编码器映射的像素 i 特征，p_{c,i} 为匹配的教师原型正样本，Q 为其他原型负样本集 [p. 7, 式(13)]。图像级辅助损失 l_aux=(1/(H×W))Σ_i L_i^aux [p. 7, 式(14)]。</p>
+<h3>2.4 不确定性引导一致性学习</h3>
+<p>学生与教师分支分别输出概率图 p_s、p_t，一致性损失 l_con=L_dis(p_s,p_t)，L_dis 为均方误差 [p. 7, 式(15)]。像素 i 的预测不确定性 u_i=−Σ_c v_i^c log(v_i^c+ε) [p. 8, 式(16)]。不确定性一致性损失为</p>
+<p>l_c = l_con + λ_u l_u，</p>
+<p>l_u = ½√( (1/(H×W))Σ_i (u_i^s)² + (1/(H×W))Σ_i (u_i^t)² )，</p>
+<p>λ_u=0.01 [p. 8, 式(17)(18)]。</p>
+<h2>3. 贡献</h2>
+<p>作者主张的贡献有三点：提出 PCCS，利用无标注数据的对比一致性提升原型判别力，使类内更紧凑、类间更可分；设计基于学生-教师架构的“原型更新原型”机制，增强原型多样性；设计不确定性一致性损失以降低预测不确定性 [p. 2–3]。我的理解是：核心新颖点在于把符号距离图引入原型构造，使原型按“到边界距离”分层，而不是简单按类别平均；同时用不确定性对原型对比损失加权。不过，这些组件的单独增益需要依赖消融表判断，而消融表排版存在可读性问题（见第 4 节）。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据与设置</h3>
+<p>BUSI 共 647 张乳腺超声图像，训练/验证/测试为 452/64/131 [p. 8, 表1；p. 9]。BML 为作者自采乳腺 MRI，共 1647 张，含 MIP、T1a、T2 三种模态，按 7:1:2 划分为 1176/166/332 [p. 8, 表1；p. 9]。ACDC 含 200 帧心脏 MR，训练/验证/测试为 140/20/40 [p. 8, 表1；p. 9]。预处理包括随机翻转、随机裁剪、加高斯噪声、缩放到 224×224、灰度零均值单位方差归一化 [p. 9]。BUSI/BML 用 Dice 和 Jaccard；ACDC 另加 95HD 和 ASSD [p. 9]。</p>
+<p>实现细节：PyTorch、RTX 4090；2D U-Net 编码器为骨干；输入 224×224；batch size 16（8 标注+8 无标注）；对比采样特征通道数 256；最大训练步数 20000；SGD，weight decay=0.0001，momentum=0.9；学习率初始 0.05，按 (1.0−t/t_max)^0.9 衰减 [p. 9]。对比方法包括 UNet、MT、EM、UA-MT、CCT、CPS、MC-Net、SS-Net、SLC-Net、U2PL、SCP-Net，均使用相同骨干和训练协议 [p. 9]。</p>
+<h3>4.2 主要结果</h3>
+<p>BUSI：20% 标注/80% 无标注时，PCCS 平均 Dice 66.52%、Jaccard 55.53%；恶性类 Dice 63.31%、Jaccard 48.93%，作者称比最佳 SOTA 的恶性类 Dice 53.26%、Jaccard 42.65% 分别高 10.05 和 6.28 个百分点 [p. 9–10, 表2]。10% 标注/90% 无标注时，PCCS 平均 Dice 54.31%、Jaccard 44.33% [p. 10, 表2]。100% 标注的 UNet 平均 Dice 71.63%、Jaccard 60.45% [p. 10, 表2]。</p>
+<p>BML：20% 标注时，PCCS 平均 Dice 62.06%、Jaccard 51.43%；作者称 SLC-Net 为 52.81%/41.52%，提升 10.85/9.91 个百分点 [p. 11, 表3]。10% 标注时，PCCS 平均 Dice 58.08%、Jaccard 46.77% [p. 11, 表3]。100% 标注 UNet 平均 Dice 65.10%、Jaccard 54.48% [p. 11, 表3]。</p>
+<p>ACDC：10% 标注（14 例）/90% 无标注时，PCCS 在 RV/Myo/LV 上 Dice 为 85.07/84.03/90.04%，平均 Dice 86.38%、95HD 5.57；U2PL 平均 Dice 85.87%、95HD 6.22；100% 标注 UNet 平均 Dice 91.53%、95HD 1.26 [p. 12, 表6]。作者指出 PCCS 在 RV 上略低于 U2PL（86.07%），但多类平均更优 [p. 13]。</p>
+<h3>4.3 消融与扩展</h3>
+<p>表4 在 BUSI 上逐项加入 l_con、l_u、l_aux、l_pc：10% 设置下全模型 Dice 54.31%、Jaccard 44.33%；20% 设置下全模型 Dice 66.52%、Jaccard 55.53% [p. 12, 表4]。作者称每个组件均有正贡献 [p. 12]。但该表在正文中排版错位，逐行数值与组件勾选状态的对应关系无法可靠辨认，因此不能据此给出各单项的精确增益。</p>
+<p>表5 测试 λ_pc、λ_u、λ_c 的影响。正文称 λ_pc=1 在 10% 和 20% 设置下均最优；λ_c=10^{-1} 在两种设置下最优；λ_u 在 10% 时 10^{-2} 最优、20% 时 10^{-3} 最优 [p. 12–13]。但表5 的排版同样存在错位，且正文说“λ_pc=1 最优”与总目标中“λ_pc=0.1”的默认设置不一致，需谨慎对待。</p>
+<p>编码器层消融（表7，ACDC）：单层中 Conv3 最好，平均 Dice 84.16%；融合 Conv2–Conv4 的“Fuse Middle”平均 Dice 86.38%、95HD 5.57；融合全部层的“Fuse All”平均 Dice 85.09%、95HD 3.21 [p. 14, 表7]。作者据此选择 Fuse Middle [p. 14]。</p>
+<p>不同标注比例（图7，BUSI）：PCCS 在 50%/40%/30%/20%/10% 标注下 Dice 分别为 74.97%/68.20%/68.11%/66.52%/54.31% [p. 13]。作者指出从 50% 到 20% 平均下降 2.11 个百分点，而从 20% 到 10% 下降 12.21 个百分点，说明标注量仍显著影响性能 [p. 13]。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在作者设定的 2D U-Net、224×224、固定训练步数和相同协议下，PCCS 在 BUSI、BML、ACDC 的平均 Dice 上优于所列基线；ACDC 上多类平均优于 U2PL，但 RV 单类略低 [p. 12–13]。消融整体支持“各组件有正贡献”的方向性结论，但精确单项增益因表格可读性不足而无法核实。</p>
+<p>局限与缺失证据：第一，表4、表5 排版错位，无法可靠读取逐项数值和超参数对应关系；第二，正文默认 λ_pc=0.1，但表5 讨论称 λ_pc=1 最优，存在不一致；第三，BML 为作者自采数据，未报告采集设备、标注者间一致性等细节；第四，未报告多次运行的均值/方差或统计显著性；第五，未与更多原型对比方法在相同设置下做直接比较；第六，ACDC 的 ASSD 在表6 中未列出，尽管正文称使用了该指标 [p. 9, 表6]。</p>
+<h2>6. 复现</h2>
+<p>已报告：2D U-Net 编码器；输入 224×224；batch 16（8 标注+8 无标注）；对比特征通道 256；投影维度 128；t_max=20000；SGD（weight decay 0.0001，momentum 0.9）；初始学习率 0.05，按 (1−t/t_max)^0.9 衰减；λ_aux=0.3、λ_pc=0.1、λ_u=0.01、τ=0.05、μ=0.99、γ=0.999；λ_c 按迭代数动态变化 [p. 5, 7, 8, 9]。数据划分见表1 [p. 8]。</p>
+<p>未报告或无法确认：教师/学生分支的具体初始化方式、数据增强的精确概率与参数、伪标签生成阈值（若有）、原型集合的归一化细节、对比损失中相似度的具体形式（点积或余弦）、ACDC 的 ASSD 数值、表4/表5 的逐项精确数值、随机种子与重复次数。复现时应优先以正文公式和默认超参数为准，并对表5 的 λ_pc 不一致做敏感性验证。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">A Unified Framework for Semi-Supervised Image Segmentation and Registration</div>
+<div class="meta-line">Authors: Ruizhe Li, Grazziela Figueredo, Dorothee Auer, Rob Dineen, Paul Morgan, Xin Chen</div>
+<div class="meta-line">Venue: ISBI</div>
+<div class="meta-line">First: 2025-02-05T14:45:00+00:00 · Latest: 2025-02-05T14:45:00+00:00</div>
+<div class="meta-line">Comments: Accepted for publication at IEEE International Symposium on Biomedical Imaging (ISBI) 2025</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2502.03229v1">Abs</a> · <a href="https://arxiv.org/pdf/2502.03229v1">PDF</a> · <a href="https://github.com/ruizhe-l/UniSegReg">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Semi-supervised learning, which leverages both annotated and unannotated data, is an efficient approach for medical image segmentation, where obtaining annotations for the whole dataset is time-consuming and costly. Traditional semi-supervised methods primarily focus on extracting features and learning data distributions from unannotated data to enhance model training. In this paper, we introduce a novel approach incorporating an image registration model to generate pseudo-labels for the unannotated data, producing more geometrically correct pseudo-labels to improve the model training. Our method was evaluated on a 2D brain data set, showing excellent performance even using only 1\% of the annotated data. The results show that our approach outperforms conventional semi-supervised segmentation methods (e.g. teacher-student model), particularly in a low percentage of annotation scenario. GitHub: https://github.com/ruizhe-l/UniSegReg.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>半监督图像分割与配准的统一框架</div>
+<div class="mono" style="margin-top:8px">半监督学习利用有标注和无标注数据，是医学图像分割的一种高效方法，因为为整个数据集获取标注既耗时又昂贵。传统半监督方法主要侧重于从无标注数据中提取特征和学习数据分布以增强模型训练。本文提出一种新方法，引入图像配准模型为无标注数据生成伪标签，生成几何上更正确的伪标签以改进模型训练。我们的方法在二维脑数据集上进行了评估，即使仅使用1%的标注数据也表现出优异性能。结果表明，我们的方法优于传统半监督分割方法（如教师-学生模型），尤其在低标注比例场景下。GitHub：https://github.com/ruizhe-l/UniSegReg。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">该文提出一个迭代联合训练分割与配准的半监督框架：分割模型（残差U-Net）与无监督配准模型（MrRegNet）互相生成伪掩码，并通过测试时增强与配准变形各产生N=5个伪掩码，平均成2N个软伪掩码（像素值0–1表示置信度）用于下一轮训练。在820张2D脑MRI切片上，仅用1%标注（5张）时，Joint模型DSC=0.85、HD=12.87，Combined软掩码DSC=0.84、HD=11.60，显著优于FS（0.58/32.76）和MT（0.47/80.45）；10%与50%时也保持优势。作者主张配准提供的几何信息能提升低标注下的伪标签质量，但实验仅限单一数据集、单一骨干，且缺少配准精度指标与多数据集验证。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 5 页；5 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图所在页（完整页面） · Figure 1 · PDF 第 2 页</b></p><img src="../assets/figures/ec2423f31a570a371b07b03d.png" alt="原论文流程图所在页（完整页面） · Figure 1 · PDF 第 2 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 1 illustrates the proposed framework to achieve joint both models. The term “soft” means that, instead of a bi- image segmentation and registration. The segmentation and narymask,pixelvaluesinthesoftmaskrangebetween0and registration models are trained iteratively. Initially, a U-Net 1,representingconfidencescores.Theseunannotatedimages, [11]basedsegmentationmodelwithaddedresidualblocksis alongwiththeirsoftpseudo-masks,arethenusedtotrainboth <a href="https://arxiv.org/pdf/2502.03229v1#page=2">原文来源</a></p></div>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>医学图像分割依赖大量像素级标注，成本高。半监督学习利用少量标注加大量未标注数据，常见路线是一致性正则（如Mean Teacher）和伪标签。作者指出，伪标签方法的核心难点是伪掩码质量：错误会持续累积，而在分割中评估置信度、筛选可靠伪掩码尤其困难[p. 1]。已有工作通过教师模型、边界框/掩码打分过滤、动态互训练、集成细化、CRF后处理等策略改进伪标签[p. 1]，但作者认为这些方法仍可能产生“完全错误”的伪标签，且不显式保持几何结构。另一方面，基于空间变换网络（STN）的配准模型能把源图像掩码变形到目标图像，从而保留几何相关信息[p. 1]。作者由此提出：把配准模型引入伪标签生成，用几何变形约束伪掩码，并与分割模型迭代联合训练。</p>
+<h2>2. 方法</h2>
+<h3>2.1 总体流程</h3>
+<p>框架如图1所示[p. 2]：分割模型与配准模型迭代训练。初始阶段，分割模型（在U-Net基础上加残差块）仅用标注图像训练；配准模型基于作者此前的MrRegNet[p. 2]，以无监督方式在标注与未标注图像上训练，不使用分割掩码。随后两个模型分别为未标注图像生成伪掩码，进入下一轮训练。每轮中，未标注图像加软伪掩码与标注数据共同构成新训练集，同时提升两个模型[p. 2]。</p>
+<h3>2.2 软伪掩码生成</h3>
+<p>对每张未标注图像，分割模型通过测试时数据增强（旋转、翻转、对比度调整）生成N个概率伪掩码；配准模型则用N张标注源图像分别配准到该未标注目标图像，得到位移场，再把源掩码变形到目标坐标，生成N个配准伪掩码[p. 2]。最终软伪掩码为这2N个伪掩码的平均值。所谓“软”指像素值在0到1之间，表示置信度，而非二值掩码[p. 2]。这些软掩码用于下一轮训练两个模型，作者称迭代会逐步提升伪掩码质量，降低学习错误信息的风险[p. 2]。</p>
+<h3>2.3 分割模型训练</h3>
+<p>分割模型采用残差U-Net，初始用标注图像训练，后续迭代加入未标注图像及其软伪掩码。损失为软Dice损失，并按V-Net做法对分母中的y′²和y²取平方以平滑损失曲面、加快收敛[p. 3]。公式(1)为：L_dsc(y′, y) = 1 − 2Σ_p(y′_p y_p) / [Σ_p(y′_p²) + Σ_p(y_p²)]，其中p为整幅图像Ω内的像素索引，y为标注掩码或软伪掩码，y′为预测分割图[p. 3]。</p>
+<h3>2.4 配准模型训练</h3>
+<p>配准模型沿用MrRegNet，使用全局归一化互相关（GNCC）衡量变形源图像与目标图像的相似度，公式(2)为L_sim(x, y) = −(1/N)Σ_p (x_p − x̄)(y_p − ȳ)/(σ_x σ_y)，x为变形源图像、y为目标图像，x̄、ȳ为均值，σ_x、σ_y为方差[p. 3]。此外，标注掩码和伪掩码通过软Dice损失引导模型关注掩码ROI，并加L2平滑正则约束位移场。总目标见公式(3)：arg min_D (1/K)Σ_{i=1}^K [L_sim(f_Di(x_S), x_T) + L_dsc(f_Di(y_S), y_T) + λ‖∇D_i‖]，其中D为位移场，D_i为K个分辨率层级中每一级的最终位移场，x_S、x_T为源/目标图像，y_S、y_T为源/目标掩码，f_D(x_S)、f_D(y_S)为变形后的源图像与源掩码[p. 3]。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有两点[p. 1–2]：(1) 提出迭代联合训练分割与配准的框架，在少量标注的医学数据集上同时提升配准与分割；(2) 提出软伪掩码生成过程，融合两个模型的伪掩码以降低局部错误伪掩码的影响，且软掩码可作为最终分割预测的置信图，服务下游任务。</p>
+<p>我的解读：核心新颖点在于把配准的几何变形作为伪标签来源之一，并与分割伪标签平均融合；这不同于仅靠分割模型自身集成或教师-学生的伪标签细化。但“联合训练”本身并非全新，配准辅助分割也已有类似思路；本文的增量主要是软平均融合与迭代流程。作者未给出与“仅用配准伪掩码”或“仅用分割伪掩码”的消融，因此融合的必要性证据有限。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据与设置</h3>
+<p>数据为本地2D脑MRI数据集，共820张T1加权切片，每张有手动标注的中脑区域；图像来自不同受试者和MRI扫描仪，存在明显强度与几何变化[p. 3]。训练/测试按80%/20%划分：620张训练、200张测试，另从训练集取20张作验证[p. 3]。图像统一缩放到256×256像素，并用min-max归一化到0–1[p. 3]。</p>
+<p>标注预算设为1%（5张）、10%（60张）、50%（300张）[p. 3]。基线包括：全监督FS（用相应数量标注图像训练）、Mean Teacher（MT）[p. 3]，以及本文Joint模型和Combined软掩码输出。MT-1%与Joint-1%均使用1%标注加99%未标注数据[p. 3]。</p>
+<p>训练参数：分割网络初始学习率0.0001训练500轮，后续迭代降为0.00001训练100轮；配准网络初始学习率0.001训练200轮，后调整为0.0001训练50轮[p. 3]。配准网络含5级图像分辨率，平滑项权重λ_i逐级减半，从λ1=128到λ5=8[p. 3]。每次迭代每个模型生成N=5个伪掩码[p. 3]。MT使用相同分割架构，学生权重在100轮后由教师模型以指数移动平均（EMA）更新，共500轮[p. 3]。</p>
+<h3>4.2 分割结果</h3>
+<p>表1报告DSC与HD（像素单位），DSC越高、HD越低越好[p. 3–4]。关键数字（均值±标准差）：</p>
+<ul>
+<li>1%标注：FS DSC 0.58±0.27、HD 32.76±45.33；MT DSC 0.47±0.31、HD 80.45±61.74；Joint DSC 0.85±0.05、HD 12.87±17.97；Combined DSC 0.84±0.05、HD 11.60±18.57[p. 4]。</li>
+<li>10%标注：FS 0.83±0.15/14.44±22.39；MT 0.85±0.09/14.16±24.96；Joint 0.86±0.06/11.90±18.47；Combined 0.87±0.04/11.26±18.77[p. 4]。</li>
+<li>50%标注：FS 0.92±0.05/10.06±21.40；MT 0.90±0.06/11.21±22.03；Joint 0.92±0.05/9.84±21.64；Combined 0.92±0.03/8.99±19.56[p. 4]。</li>
+<li>100%标注仅FS报告：DSC 0.93±0.02、HD 8.43±19.70；MT、Joint、Combined均为n/a[p. 4]。</li>
+</ul>
+<p>作者称MT与Combined之间用Wilcoxon符号秩检验，<em>表示p&lt;0.05；表中1%、10%、50%的Combined DSC与HD均带</em>[p. 4]。但表1未给出具体p值或检验样本量，无法判断统计细节。</p>
+<p>定性结果（图2，[p. 4]）：Joint-1%在迭代0时分割预训练模型误差大、配准模型仅粗对齐；随训练推进，2N个伪掩码重叠逐渐增加，软伪掩码置信度提高，Joint模型约在迭代7收敛[p. 4]。MT-1%因标注太少产生不可靠伪掩码，随epoch性能退化；MT-10%更稳定但仍不如本文方法，且MT无法在伪掩码中保留几何信息[p. 4]。</p>
+<h3>4.3 消融与证据</h3>
+<p>本文没有标准消融表。可视为对照的证据包括：FS随标注量增加的表现、MT在相同预算下的表现、Joint与Combined的对比。Joint与Combined在1%时DSC接近（0.85 vs 0.84），但Combined的HD更低（11.60 vs 12.87），作者称Combined是Joint的后处理输出，进一步改善性能[p. 4]。然而缺少“仅配准伪掩码”“仅分割伪掩码”“不同N值”“有无配准掩码引导”的消融，因此无法量化各组件贡献。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在单一2D脑MRI数据集上，1%标注时Joint与Combined明显优于FS和MT，尤其MT-1%出现退化；10%与50%时本文方法仍保持较高DSC和较低HD[p. 4]。定性图显示软伪掩码随迭代改善，支持“迭代提升伪标签质量”的说法[p. 4]。</p>
+<p>局限与缺失证据：第一，仅一个数据集、一种分割骨干（残差U-Net）和一种配准骨干（MrRegNet），泛化性未验证。第二，未报告配准模型自身的精度指标（如Dice、TRE或形变场误差），因此“配准提升几何正确性”主要靠分割结果间接推断。第三，统计检验只给出星号，未报告p值、检验单位（图像级还是切片级）及多重比较校正。第四，表1中MT、Joint、Combined在100%标注为n/a，未说明原因。第五，缺少组件消融与N值敏感性分析。第六，作者在结论中称软掩码可用于质量控制和不确定性估计[p. 4]，但本文未做相关实验。</p>
+<h2>6. 复现</h2>
+<p>已报告的可复现要点：数据820张2D脑MRI T1切片，80/20训练测试划分，20张验证；256×256输入，min-max归一化[p. 3]；标注预算1%/10%/50%对应5/60/300张[p. 3]；分割学习率0.0001×500轮、后续0.00001×100轮；配准学习率0.001×200轮、后续0.0001×50轮；配准5级分辨率，λ从128到8逐级减半；N=5；MT的EMA在100轮后启用、共500轮[p. 3]。代码仓库为https://github.com/ruizhe-l/UniSegReg[p. 1]。</p>
+<p>未报告或无法从正文确认的细节：残差U-Net的具体通道数、残差块结构；MrRegNet的网络层数/卷积核设置；优化器类型（如Adam/SGD）、批大小；数据增强的具体参数（旋转角度、对比度范围）；伪掩码平均时是否加权；迭代总轮数及停止准则（仅称Joint约迭代7收敛[p. 4]）；Wilcoxon检验的具体设置；随机种子与重复实验次数。表1中部分单元格为n/a，正文未解释。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Stitching, Fine-tuning, Re-training: A SAM-enabled Framework for Semi-supervised 3D Medical Image Segmentation</div>
+<div class="meta-line">Authors: Shumeng Li, Lei Qi, Qian Yu, Jing Huo, Yinghuan Shi, Yang Gao</div>
+<div class="meta-line">First: 2024-03-17T14:30:56+00:00 · Latest: 2025-01-18T03:01:31+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2403.11229v2">Abs</a> · <a href="https://arxiv.org/pdf/2403.11229v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/ShumengLI/SFR">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Segment Anything Model (SAM) fine-tuning has shown remarkable performance in medical image segmentation in a fully supervised manner, but requires precise annotations. To reduce the annotation cost and maintain satisfactory performance, in this work, we leverage the capabilities of SAM for establishing semi-supervised medical image segmentation models. Rethinking the requirements of effectiveness, efficiency, and compatibility, we propose a three-stage framework, i.e., Stitching, Fine-tuning, and Re-training (SFR). The current fine-tuning approaches mostly involve 2D slice-wise fine-tuning that disregards the contextual information between adjacent slices. Our stitching strategy mitigates the mismatch between natural and 3D medical images. The stitched images are then used for fine-tuning SAM, providing robust initialization of pseudo-labels. Afterwards, we train a 3D semi-supervised segmentation model while maintaining the same parameter size as the conventional segmenter such as V-Net. Our SFR framework is plug-and-play, and easily compatible with various popular semi-supervised methods. We also develop an extended framework SFR$^+$ with selective fine-tuning and re-training through confidence estimation. Extensive experiments validate that our SFR and SFR$^+$ achieve significant improvements in both moderate annotation and scarce annotation across five datasets. In particular, SFR framework improves the Dice score of Mean Teacher from 29.68% to 74.40% with only one labeled data of LA dataset.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>拼接、微调、重训练：一种基于SAM的半监督3D医学图像分割框架</div>
+<div class="mono" style="margin-top:8px">Segment Anything Model（SAM）微调在全监督方式下已在医学图像分割中展现出显著性能，但需要精确标注。为降低标注成本并保持满意性能，本工作利用SAM的能力构建半监督医学图像分割模型。重新审视有效性、效率和兼容性的需求，我们提出一个三阶段框架，即拼接、微调和重训练（SFR）。当前的微调方法大多涉及2D逐切片微调，忽略了相邻切片之间的上下文信息。我们的拼接策略缓解了自然图像与3D医学图像之间的不匹配。拼接后的图像随后用于微调SAM，提供伪标签的稳健初始化。之后，我们训练一个3D半监督分割模型，同时保持与传统分割器（如V-Net）相同的参数规模。我们的SFR框架即插即用，易于与各种流行的半监督方法兼容。我们还开发了一个扩展框架SFR$^+$，通过置信度估计进行选择性微调和重训练。大量实验验证，我们的SFR和SFR$^+$在五个数据集上于中等标注和稀缺标注两种情况下均取得显著改进。特别地，在LA数据集仅有一个标注数据的情况下，SFR框架将Mean Teacher的Dice分数从29.68%提升至74.40%。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出SFR三阶段框架：先将3D医学切片拼接成1024×1024大图以匹配SAM输入，再用LoRA微调SAM生成伪标签，最后用伪标签训练与V-Net同量级的3D半监督模型；扩展SFR+按体素平均置信度阈值0.985选择性更新微调与重训模块。在LA、BraTS、BTCV、MACT、AbdomenCT-1K五个数据集上，中等与稀缺标注下均较MT、ACMT、MagicNet等基线有提升，例如LA仅1个标注时MT Dice由29.68%升至74.40%。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 15 页；15 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图所在页（完整页面） · Figure 11 · PDF 第 12 页</b></p><img src="../assets/figures/3439552b0329f653a09073e1.png" alt="原论文流程图所在页（完整页面） · Figure 11 · PDF 第 12 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 11 shows the segmentation examples of single target supervised segmentation. dataset BraTS and multiple target dataset BTCV with scarce annotation. The effectiveness of our proposed framework can G. Further Analysis <a href="https://arxiv.org/pdf/2403.11229v2#page=12">原文来源</a></p></div>
+<div class="reading-notes"><h2>1. 问题与动机</h2>
+<p>论文关注半监督3D医学图像分割：全监督SAM微调方法（如MedSAM、SAMed）依赖大量精确标注，标注成本高；而现有将SAM适配到医学图像的做法多为逐切片2D微调，忽略相邻切片间的上下文，且推理时仍保留大参数量基础模型。作者提出三个设计诉求：有效初始化伪标签、参数高效、与现有半监督方法兼容[p. 1][p. 2]。</p>
+<p>作者认为，切片级微调存在分辨率与维度错配：SAM预训练输入为1024×1024自然图像，而医学切片分辨率低且3D体数据有层间连续性；直接上采样或缩小输入都会损失信息[p. 2][p. 3]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 符号与总体流程</h3>
+<p>给定m个有标注体数据$(X_l^i,Y_l^i)$和n个无标注体数据$X_u^j$，输入patch为$H\times W\times D$且$H=W$，类别数为K[p. 3]。SFR分三步：Stitching、Fine-tuning、Re-training[p. 3, Fig. 2]。</p>
+<h3>2.2 Stitching模块</h3>
+<p>将3D体数据（原始体或3D patch）逐切片排成$d\times d$网格，$d=\lceil\sqrt{D}\rceil$，不足处补零，得到$M_l^i\in\mathbb{R}^{Hd\times Wd}$，标签同样拼接为$N_l^i$；目标是拼成1024×1024以匹配SAM输入[p. 4, 式(1), Fig. 3]。对LA等切片少的体数据直接用整个3D体；对BTCV等大体数据先切96×96×96 patch再拼接，避免直接缩小大切片[p. 4]。</p>
+<p>作者用两组消融支持该设计：打乱切片顺序或随机旋转翻转单切片会破坏形状连贯性并降低性能（Fig. 4）；将医学切片与PASCAL VOC自然图像混合拼接会破坏解剖结构完整性并降低性能（Fig. 5）[p. 4][p. 5]。</p>
+<h3>2.3 Fine-tuning模块</h3>
+<p>用拼接后的$(M_l^i,N_l^i)$以LoRA微调SAM，记微调函数$F_{LoRA}$，优化$\theta^*=\arg\min_\theta\sum_i F_{LoRA}(M_l^i,N_l^i;\theta)$[p. 4, 式(2)]。损失为Dice与交叉熵各半：$L_{ft}=\frac12[L_{Dice}(P_l,N_l)+L_{ce}(P_l,N_l)]$，其中$P_l=F_{FT}(M_l)$[p. 5, 式(5)]。推理时去掉所有prompt，做自动分割；分类头改为确定性逐类输出[p. 5][p. 7]。</p>
+<p>伪标签由微调SAM预测后经逆拼接$F_C^{-1}$还原为3D：$\hat Y_u^j=F_C^{-1}(F_{FT}(F_C(X_u^j);\theta^*))$[p. 4, 式(3)]。</p>
+<h3>2.4 Re-training模块</h3>
+<p>用伪标签训练3D半监督网络$F_S(\cdot;\omega)$：$\omega^*=\arg\min_\omega\sum_i F_S(X_l^i,Y_l^i;\omega)+\lambda\sum_j F_S(X_u^j,\hat Y_u^j;\omega)$[p. 4, 式(4)]；伪标签监督项为$L_{pl}=\frac12[L_{Dice}(P_u,\hat Y_u)+L_{ce}(P_u,\hat Y_u)]$[p. 6, 式(7)]。作者实例化四种半监督方法：Self-training、Mean Teacher、ACMT、MagicNet[p. 6]。</p>
+<h3>2.5 SFR+扩展</h3>
+<p>SFR+引入置信度估计：对每个无标注样本计算体素级平均置信度$C_u^j=\frac1{N_v}\sum_v\max_c\mathrm{softmax}_c(F_S(X_u^{j,v}))$[p. 6, 式(8)]，阈值$\tau=0.985$[p. 7]。$C_u^j\ge\tau$的高置信样本用于更新微调模块，低置信样本送入重训模块，以缓解单向伪标签传递的误差传播[p. 7, Fig. 8]。</p>
+<h2>3. 贡献</h2>
+<p>作者主张的贡献：三阶段SFR框架；简单有效的拼接伪标签初始化策略；推理时参数量与V-Net等主流分割器同量级；框架即插即用，可兼容多种半监督方法[p. 2]。我的解读：核心创新在“拼接”这一输入重排，使2D SAM能利用层间上下文；SFR+的选择性训练是工程性增强，其增益依赖阈值$\tau$，论文未报告$\tau$的敏感性分析。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 设置</h3>
+<p>五个数据集：LA（100例，0.625mm各向同性）、BraTS 2019（335例，仅用T2-FLAIR）、BTCV（30例，13器官）、MACT（90例，8器官，70训练/20测试）、AbdomenCT-1K（&gt;1000例）[p. 7]。patch设置：LA为112×112×80，BraTS为96×96×96，BTCV/MACT/AbdomenCT-1K为96×96×96[p. 9]。SAM用ViT-B，LoRA rank=4；半监督网络用SGD，初始学习率0.01；指标为Dice、Jaccard、ASD、95HD，多器官数据集仅报Dice[p. 7]。</p>
+<h3>4.2 中等标注</h3>
+<p>LA（16标注/64无标注）：SFR_MT Dice 89.09%，SFR+_MT 90.91%；SFR_ACMT 90.95%，SFR+_ACMT 91.00%，全监督上界V-Net为91.14%[p. 8, Table I]。BraTS：SFR_MT 85.19%，SFR+_MT 86.08%；SFR_ACMT 85.81%，SFR+_ACMT 86.09%[p. 8, Table II]。AbdomenCT-1K（20%标注）：SFR_MT平均Dice 88.73%，较MT的75.16%提升13.57%；SFR+_MT 90.91%[p. 8, Table III][p. 11]。BTCV：SFR_MagicNet超过全监督结果[p. 11]。</p>
+<h3>4.3 稀缺标注</h3>
+<p>LA仅1个标注：MT由29.68%升至SFR_MT 74.40%，SFR+_MT 81.03%[p. 10, Table VII]。BraTS：SFR_MT 78.58%，SFR+_MT 79.04%；SFR_MagicNet 78.47%，SFR+_MagicNet 79.24%[p. 10, Table VIII]。BTCV 1标注：SFR_MT 39.59%，SFR+_MT 43.51%；SFR_MagicNet 53.59%，SFR+_MagicNet 58.84%[p. 11, Table X]。MACT：SFR_MT 36.23%，SFR+_MT 52.54%；SFR_MagicNet 49.08%，SFR+_MagicNet 54.05%[p. 11, Table XI]。AbdomenCT-1K：SFR_MagicNet 66.16%，SFR+_MagicNet 66.16%附近（表中SFR+为66.16，SFR为66.16，需注意表格排版，原文数字辨认存在困难）[p. 10, Table IX]。</p>
+<h3>4.4 消融与分析</h3>
+<p>拼接尺度：LA上9×9网格（整卷不降采样）最佳，尺度过小上下文不足，过大则单切片分辨率过低[p. 8, Fig. 9]。微调vs重训：Table XII显示重训总体提升，但SFR_MT在LA和BTCV稀缺标注下略有下降（LA 74.78→74.40，BTCV 40.98→39.59），而SFR_ACMT/MagicNet提升明显（BTCV +12.61，MACT +13.95）[p. 12, Table XII]。与3DSAM-Adapter比较，SFR_FT在LA上Dice 90.39% vs 82.39%，参数量91M vs 114M[p. 13, Table XIII]。与SAM-Med3D比较，SFR仅用1个标注即超过其2/5/10点prompt结果[p. 13, Table XIV]。与SAM 2/Medical SAM 2比较，在LA和BraTS稀缺标注下SFR更高[p. 13, Table XV]。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：拼接策略确实改善伪标签质量，且在多个数据集、多种半监督基线上一致提升；推理参数量与V-Net同量级。局限与缺失证据：部分表格排版混乱，个别数字（如Table IX中SFR+与SFR的AbdomenCT-1K值）难以精确辨认；未报告$\tau$的敏感性、拼接尺度对多器官数据集的系统消融、训练时长与显存开销；SFR+在稀缺标注下的增益部分来自与SFR不同的训练动态，归因不够清晰。作者也承认伪标签误差传播风险，并以一致性损失和置信度选择缓解[p. 13]。</p>
+<h2>6. 复现</h2>
+<p>已报告：SAM ViT-B、LoRA rank=4、SGD lr=0.01、patch尺寸、$\tau=0.985$、各数据集划分与预处理沿用[16][17][20]、推理丢弃微调模块仅保留重训模块[p. 7]。未报告：LoRA具体注入层、微调迭代次数与batch size、半监督训练的epoch数、$\lambda$取值（称沿用基线官方值）、数据增强具体参数、GPU训练时长[p. 7]。代码链接为https://github.com/ShumengLI/SFR[p. 1]。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Neighbor Does Matter: Density-Aware Contrastive Learning for Medical Semi-supervised Segmentation</div>
+<div class="meta-line">Authors: Feilong Tang, Zhongxing Xu, Ming Hu, Wenxue Li, Peng Xia, Yiheng Zhong, Hanjun Wu, Jionglong Su, Zongyuan Ge</div>
+<div class="meta-line">First: 2024-12-27T13:57:57+00:00 · Latest: 2024-12-27T13:57:57+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2412.19871v1">Abs</a> · <a href="https://arxiv.org/pdf/2412.19871v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">In medical image analysis, multi-organ semi-supervised segmentation faces challenges such as insufficient labels and low contrast in soft tissues. To address these issues, existing studies typically employ semi-supervised segmentation techniques using pseudo-labeling and consistency regularization. However, these methods mainly rely on individual data samples for training, ignoring the rich neighborhood information present in the feature space. In this work, we argue that supervisory information can be directly extracted from the geometry of the feature space. Inspired by the density-based clustering hypothesis, we propose using feature density to locate sparse regions within feature clusters. Our goal is to increase intra-class compactness by addressing sparsity issues. To achieve this, we propose a Density-Aware Contrastive Learning (DACL) strategy, pushing anchored features in sparse regions towards cluster centers approximated by high-density positive samples, resulting in more compact clusters. Specifically, our method constructs density-aware neighbor graphs using labeled and unlabeled data samples to estimate feature density and locate sparse regions. We also combine label-guided co-training with density-guided geometric regularization to form complementary supervision for unlabeled data. Experiments on the Multi-Organ Segmentation Challenge dataset demonstrate that our proposed method outperforms state-of-the-art methods, highlighting its efficacy in medical image segmentation tasks.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>邻居确实重要：面向医学半监督分割的密度感知对比学习</div>
+<div class="mono" style="margin-top:8px">在医学图像分析中，多器官半监督分割面临标签不足和软组织对比度低等挑战。为解决这些问题，现有研究通常采用基于伪标签和一致性正则化的半监督分割技术。然而，这些方法主要依赖单个数据样本进行训练，忽略了特征空间中丰富的邻域信息。在本工作中，我们认为监督信息可以直接从特征空间的几何结构中提取。受基于密度的聚类假设启发，我们提出利用特征密度来定位特征簇内的稀疏区域。我们的目标是通过解决稀疏性问题来提高类内紧凑性。为此，我们提出了一种密度感知对比学习（DACL）策略，将稀疏区域中的锚定特征推向由高密度正样本近似得到的簇中心，从而获得更紧凑的簇。具体而言，我们的方法利用有标签和无标签数据样本构建密度感知邻居图，以估计特征密度并定位稀疏区域。我们还将标签引导的协同训练与密度引导的几何正则化相结合，为无标签数据形成互补监督。在多器官分割挑战数据集上的实验表明，我们提出的方法优于最先进的方法，凸显了其在医学图像分割任务中的有效性。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出密度感知对比学习（DACL），用于医学多器官半监督分割。核心是用特征空间中的局部密度识别稀疏区域，将低密度特征作为锚点，拉向由高密度正样本近似的类中心，从而提升类内紧凑性。方法在协同训练框架上叠加密度感知模块与软密度引导对比损失，并在 ACDC 与 Synapse 上取得优于多种半监督方法的 Dice/ASD 结果。消融显示多尺度密度、类别记忆库和正性权重均有贡献；但部分实现细节与附录内容未在正文中给出。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 9 页；9 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图所在页（完整页面） · Figure 2 · PDF 第 3 页</b></p><img src="../assets/figures/0416458b8cc546aae1a0c7a9.png" alt="原论文流程图所在页（完整页面） · Figure 2 · PDF 第 3 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 2 illustrates the overall architecture of our proposed ness.AunifiedlossfunctionLoptimizesthemodel: DACL framework, which builds upon the co-teaching L=L +λ L +λ Lsoft, (1) paradigm. This framework aims to mine effective supervi- sup cross cross CL CL <a href="https://arxiv.org/pdf/2412.19871v1#page=3">原文来源</a></p></div>
+<div class="reading-notes"><h1>论文阅读笔记：Neighbor Does Matter: Density-Aware Contrastive Learning for Medical Semi-supervised Segmentation</h1>
+<h2>1. 问题与动机</h2>
+<p>论文针对医学图像多器官半监督分割：标注昂贵，软组织对比度低、器官边界模糊，使稠密标注困难[p. 1]。现有半监督方法主要依赖伪标签与一致性正则，通常以单个样本为单位训练，忽略特征空间中的邻域信息；作者认为这会导致数据稀缺与特征稀疏问题[p. 1]。作者援引密度聚类假设：同一高密度区域的样本更可能属于同一类，决策边界应位于低密度区域[p. 1]。因此，论文试图直接从特征空间几何中提取监督信号，通过定位类内稀疏区域并增强类内紧凑性来利用无标注数据[p. 1]。作者还指出，直接使用像素级特征做对比学习可能把部分器官像素误判为背景，尤其对小器官[p. 1]。</p>
+<h2>2. 方法</h2>
+<p>整体框架建立在协同训练（co-teaching）范式上，两个分割模型互相预测对方输入的结果[p. 3]。统一损失为：L = L_sup + λ_cross L_cross + λ_CL L_softCL[p. 3]。其中 L_sup 仅用于有标注数据，L_cross 为交叉监督一致性损失，L_softCL 为软密度引导对比损失；λ_cross=1，λ_CL 采用高斯升温函数 λ(t)=0.1×e^{−5(1−t/t_max)^2}[p. 3]。前 1000 次迭代将 λ_cross 与 λ_CL 分别设为 1 和 0，以避免初始化原型导致模型崩溃[p. 5]。</p>
+<p><strong>特征密度感知模块。</strong> 编码器输出特征图 f∈R^{W×H×D}，经投影头 z 得到投影特征 j=z(f)[p. 3]。对第 n 类，用掩码平均池化（MAP）把投影特征汇总为向量 v_n：v_n = Σ_{x,y} T_n(x,y)∗j(x,y) / Σ_{x,y} T(x,y)，其中 T_n=1(M_n&gt;φ) 是仅保留强激活像素的二值掩码，φ 为可靠性阈值[p. 4]。为突破小批量限制，作者维护按类别的动态记忆库 G_n，采用先进先出策略并保持固定大小 L[p. 4]。对每个特征 v，在 G_n∪V 内构造 k 近邻图 NN(v)，密度 d_v 定义为 v 与近邻的平均余弦相似度：d_v = (1/|NN(v)|)Σ_{r∈NN(v)} ~f_r^T ~f_v，其中 ~f 为 L2 归一化特征[p. 4]。由于小邻域只关注局部，作者进一步使用多尺度近邻图 NN_multi-scale={NN_{k_i}}_{i=1}^N，并取各尺度密度的平均作为最终密度[p. 4]。</p>
+<p><strong>软密度引导对比学习。</strong> 对每个类，按密度排序，选取密度最低的 N_q 个特征作为锚点 M_n[p. 4]。正样本键从当前小批量与记忆库中选取密度最高的 N_p^+ 个特征，各取一半，并用其均值近似类中心 p_n^+center[p. 4]。负样本键从当前批次中随机采样 N_p^- 个异类锚点特征[p. 4]。正性分数 w_i 用于软度量低密度锚点与类中心的相关性：w_i = (1/γ_i) softmax([l_1(m_i^n)×l_2(p_n^+center)^T])，其中 l_1、l_2 为无参数恒等映射，γ_i 为缩放因子[p. 4]。对比损失采用 SupCon 形式：L_contra = −Σ_{n∈N}Σ_{m_i∈M_n} log [ w_i·exp(m_i·p_n^+center/τ) / Σ_{p_n^-∈P_n^-} exp(m_i·p_n^-/τ) ]，τ 为温度参数[p. 5]。作者给出 Claim 1：最优相似度 s_i^* 可表示为 Σ_{k=1}^{N_q} w_i / Σ_{k=1}^{N_q} w_k，但正文未给出证明细节[p. 5]。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有三点：提出 DACL 策略，利用特征空间几何结构应对半监督多器官分割中的数据稀缺与特征稀疏；挖掘邻域信息并融入对比学习以增强类内紧凑性；在基准数据集上显著优于先前 SOTA[p. 2]。我的解读是：方法的新意主要在于把“密度”从聚类假设转化为可微的训练信号——用记忆库做全局密度估计、用低密度锚点与高密度类中心构造软对比损失；协同训练与交叉监督本身并非新提出，而是作为承载框架[p. 3]。</p>
+<h2>4. 实验与结果</h2>
+<p><strong>数据集与设置。</strong> 论文在 ACDC 与 Synapse 上评估[p. 5]。ACDC 使用 5% 与 10% 标注数据；Synapse 使用 10% 与 20% 标注数据[p. 5]。评价指标为 Mean Dice、Jaccard（JC）和平均表面距离 ASD[p. 5]。表 1 报告三次随机种子的均值±标准差[p. 5]。</p>
+<p><strong>ACDC 结果。</strong> 5% 标注（3 例有标注、67 例无标注）下，DACL 的 Dice 为 90.12±0.4、JC 为 76.12±1.6、ASD 为 0.55±0.2；10% 标注（7 例有标注、63 例无标注）下，Dice 为 90.91±0.5、JC 为 79.12±1.0、ASD 为 0.38±0.2[p. 5]。作者称在三个分区上相对次优结果分别提升 Dice +1.62%、+1.51%，ASD +0.17mm、+0.21mm，并特别强调 5% 设置下比基于对比学习的 CAML 高 1.62% Dice[p. 6]。</p>
+<p><strong>Synapse 结果。</strong> 10% 标注（2 例有标注、18 例无标注）下，DACL 的 Dice 为 29.88±0.7、JC 为 26.54±1.2、ASD 为 51.32±1.4；20% 标注（4 例有标注、16 例无标注）下，Dice 为 41.32±1.2、JC 为 37.54±1.0、ASD 为 32.65±1.1[p. 5]。作者称相对 SOTA 的 Dice 提升为 +2.47% 与 +1.89%[p. 6]。</p>
+<p><strong>消融。</strong> 表 2 在 ACDC 与 Synapse 的 10% 标注设置下以 CPS 为基线[p. 6][p. 7]。基线 Dice 为 85.71±0.9 / 18.07±1.2；加入普通对比学习（PCL）后为 87.50±0.8 / 24.32±0.6；加入单尺度密度感知锚点与键采样（DA）后为 88.60±0.7 / 25.45±0.6；加入多尺度密度估计（MS）后为 89.30±0.6 / 26.30±0.5；加入类别记忆库（Bank）后为 89.80±0.5 / 27.12±0.5；再加入正性权重 w_i 后达到 90.91±0.5 / 29.88±0.7[p. 6]。作者据此称各组件分别带来约 1.13%、0.85%、0.82% 的 Dice 增益（Synapse 上）[p. 7]。</p>
+<p><strong>对比损失替换。</strong> 表 3 在 10% 标注下比较类级与像素级对比损失：类级方法 ED、IFVD、PLCL 与本文类级变体在 ACDC 上分别为 87.50、88.60、89.30、90.50，在 Synapse 上分别为 22.88、25.00、26.50、27.50；像素级 InfoNCE、PLCT、SCM 与本文像素级方法在 ACDC 上分别为 87.00、88.20、89.10、90.91，在 Synapse 上分别为 23.00、25.50、26.70、29.88[p. 7]。</p>
+<p><strong>超参数。</strong> 图 5 报告：λ_CL=0.5 时有正收益，过高会损害训练；λ_cross=1 最佳；记忆库相比不用至少提升 1.05% Dice，且库大小与性能正相关，长度 1000 时尤其明显；φ 不敏感；τ=0.4 最优[p. 7]。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在报告的数据划分与三次种子下，DACL 的 Dice/ASD 优于所列半监督基线；消融逐步加入密度、多尺度、记忆库与正性权重均带来单调提升，说明这些组件在该设置下有贡献[p. 5][p. 6]。作者还报告 t-SNE 聚类指标（Silhouette、Davies-Boulding、V-Measure）优于基线，但正文只给出定性图与文字结论，未列出具体数值[p. 2]。</p>
+<p>局限与缺失证据：正文未给出网络骨干、输入预处理、ACDC/Synapse 的具体划分来源与患者级划分方式；L_sup 与 L_cross 的公式被放在附录，正文未展开[p. 3]。表 1 中部分基线的方法名与设置可读，但个别单元格排版拥挤，无法确认所有基线是否使用相同骨干与训练轮数。Claim 1 只有陈述，没有证明或实验验证[p. 5]。此外，作者称“无额外计算负担”，但未报告参数量、显存或推理时间对比[p. 7]。</p>
+<h2>6. 复现</h2>
+<p>已报告设置：SGD，初始学习率 0.01，动量 0.9，权重衰减 10^{-4}，训练 30,000 次迭代；前 1,000 次迭代 λ_cross=1、λ_CL=0；N_q=256，N_p^+=512，N_p^-=512，τ=0.4；λ_cross=1，λ_CL 采用高斯升温函数[p. 3][p. 5]。未报告：骨干网络结构、批大小、输入图像尺寸、数据增强、记忆库大小 L 的默认值（图 5 仅显示 1000 附近较优）、投影头维度、φ 的默认值、随机种子具体值、代码与预训练权重链接[p. 5][p. 7]。复现时需先按协同训练框架实现两个分割模型与交叉监督损失，再实现按类记忆库、多尺度 kNN 密度估计、锚点/正负键采样与带正性权重的 SupCon 损失；附录中的 L_sup 与 L_cross 定义需另行获取。</p></div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261111_0810.html">20261111_0810</a>
+<a href="archive/20261110_1013.html">20261110_1013</a>
+<a href="archive/20261108_0650.html">20261108_0650</a>
+<a href="archive/20261107_0747.html">20261107_0747</a>
+<a href="archive/20261106_0821.html">20261106_0821</a>
+<a href="archive/20261105_0826.html">20261105_0826</a>
+<a href="archive/20261104_1719.html">20261104_1719</a>
+<a href="archive/20261104_1453.html">20261104_1453</a>
+<a href="archive/20261103_0939.html">20261103_0939</a>
+<a href="archive/20261102_0653.html">20261102_0653</a>
+<a href="archive/20261101_0632.html">20261101_0632</a>
+<a href="archive/20261031_0700.html">20261031_0700</a>
+<a href="archive/20261030_0719.html">20261030_0719</a>
+<a href="archive/20261029_0716.html">20261029_0716</a>
+<a href="archive/20261028_0700.html">20261028_0700</a>
+<a href="archive/20261027_0711.html">20261027_0711</a>
+<a href="archive/20261026_0917.html">20261026_0917</a>
+<a href="archive/20261024_0600.html">20261024_0600</a>
+<a href="archive/20261023_1445.html">20261023_1445</a>
+<a href="archive/20261023_1131.html">20261023_1131</a>
+<a href="archive/20261023_0614.html">20261023_0614</a>
+<a href="archive/20261022_0614.html">20261022_0614</a>
+<a href="archive/20261021_0612.html">20261021_0612</a>
+<a href="archive/20261020_0652.html">20261020_0652</a>
+<a href="archive/20261019_0522.html">20261019_0522</a>
+<a href="archive/20261018_0522.html">20261018_0522</a>
+<a href="archive/20261017_0559.html">20261017_0559</a>
+<a href="archive/20261016_0606.html">20261016_0606</a>
+<a href="archive/20261015_0611.html">20261015_0611</a>
+<a href="archive/20261014_0714.html">20261014_0714</a>
+<a href="archive/20261013_0915.html">20261013_0915</a>
+<a href="archive/20261012_0646.html">20261012_0646</a>
+<a href="archive/20261011_0623.html">20261011_0623</a>
+<a href="archive/20261010_0709.html">20261010_0709</a>
+<a href="archive/20261009_0743.html">20261009_0743</a>
+<a href="archive/20261008_0732.html">20261008_0732</a>
+<a href="archive/20261007_0658.html">20261007_0658</a>
+<a href="archive/20261006_0843.html">20261006_0843</a>
+<a href="archive/20261005_0617.html">20261005_0617</a>
+<a href="archive/20261004_0605.html">20261004_0605</a>
+<a href="archive/20261003_0656.html">20261003_0656</a>
+<a href="archive/20261002_0705.html">20261002_0705</a>
+<a href="archive/20261001_0654.html">20261001_0654</a>
+<a href="archive/20260930_0655.html">20260930_0655</a>
+<a href="archive/20260929_0748.html">20260929_0748</a>
+<a href="archive/20260928_0559.html">20260928_0559</a>
+<a href="archive/20260927_0555.html">20260927_0555</a>
+<a href="archive/20260926_0611.html">20260926_0611</a>
+<a href="archive/20260925_0611.html">20260925_0611</a>
+<a href="archive/20260924_0611.html">20260924_0611</a>
+<a href="archive/20260923_0557.html">20260923_0557</a>
+<a href="archive/20260922_0633.html">20260922_0633</a>
+<a href="archive/20260921_0524.html">20260921_0524</a>
+<a href="archive/20260920_0523.html">20260920_0523</a>
+<a href="archive/20260919_0534.html">20260919_0534</a>
+<a href="archive/20260918_0602.html">20260918_0602</a>
+<a href="archive/20260917_0602.html">20260917_0602</a>
+<a href="archive/20260916_0604.html">20260916_0604</a>
+<a href="archive/20260915_0626.html">20260915_0626</a>
+<a href="archive/20260913_0521.html">20260913_0521</a>
+<a href="archive/20260912_0539.html">20260912_0539</a>
+<a href="archive/20260911_0532.html">20260911_0532</a>
+<a href="archive/20260910_0537.html">20260910_0537</a>
+<a href="archive/20260909_1610.html">20260909_1610</a>
+<a href="archive/20260909_0547.html">20260909_0547</a>
+<a href="archive/20260908_0558.html">20260908_0558</a>
+<a href="archive/20260907_0512.html">20260907_0512</a>
+<a href="archive/20260906_0506.html">20260906_0506</a>
+<a href="archive/20260905_0522.html">20260905_0522</a>
+<a href="archive/20260904_0539.html">20260904_0539</a>
+<a href="archive/20260903_0545.html">20260903_0545</a>
+<a href="archive/20260902_0544.html">20260902_0544</a>
+<a href="archive/20260901_0712.html">20260901_0712</a>
+<a href="archive/20260831_0555.html">20260831_0555</a>
+<a href="archive/20260830_0537.html">20260830_0537</a>
+<a href="archive/20260829_1002.html">20260829_1002</a>
+<a href="archive/20260828_1132.html">20260828_1132</a>
+<a href="archive/20260827_0545.html">20260827_0545</a>
+<a href="archive/20260826_0337.html">20260826_0337</a>
+<a href="archive/20260825_0335.html">20260825_0335</a>
+<a href="archive/20260824_0327.html">20260824_0327</a>
+<a href="archive/20260823_0327.html">20260823_0327</a>
+<a href="archive/20260822_0330.html">20260822_0330</a>
+<a href="archive/20260821_0336.html">20260821_0336</a>
+<a href="archive/20260820_0331.html">20260820_0331</a>
+<a href="archive/20260819_0332.html">20260819_0332</a>
+<a href="archive/20260818_0333.html">20260818_0333</a>
+<a href="archive/20260817_0326.html">20260817_0326</a>
+<a href="archive/20260816_0326.html">20260816_0326</a>
+<a href="archive/20260815_0351.html">20260815_0351</a>
+<a href="archive/20260814_0358.html">20260814_0358</a>
+<a href="archive/20260813_0405.html">20260813_0405</a>
+<a href="archive/20260812_0405.html">20260812_0405</a>
+<a href="archive/20260811_0359.html">20260811_0359</a>
+<a href="archive/20260810_0341.html">20260810_0341</a>
+<a href="archive/20260809_0338.html">20260809_0338</a>
+<a href="archive/20260808_0357.html">20260808_0357</a>
+<a href="archive/20260807_0846.html">20260807_0846</a>
+<a href="archive/20260806_0438.html">20260806_0438</a>
+<a href="archive/20260805_0440.html">20260805_0440</a>
+<a href="archive/20260804_0438.html">20260804_0438</a>
+<a href="archive/20260803_0416.html">20260803_0416</a>
+<a href="archive/20260802_0414.html">20260802_0414</a>
+<a href="archive/20260801_0429.html">20260801_0429</a>
+<a href="archive/20260731_0422.html">20260731_0422</a>
+<a href="archive/20260730_0417.html">20260730_0417</a>
+<a href="archive/20260729_0423.html">20260729_0423</a>
+<a href="archive/20260728_0429.html">20260728_0429</a>
+<a href="archive/20260727_0417.html">20260727_0417</a>
+<a href="archive/20260726_0415.html">20260726_0415</a>
+<a href="archive/20260725_0427.html">20260725_0427</a>
+<a href="archive/20260724_0419.html">20260724_0419</a>
+<a href="archive/20260723_0418.html">20260723_0418</a>
+<a href="archive/20260722_0424.html">20260722_0424</a>
+<a href="archive/20260721_1650.html">20260721_1650</a>
+<a href="archive/20260721_0428.html">20260721_0428</a>
+<a href="archive/20260720_0411.html">20260720_0411</a>
+<a href="archive/20260719_0408.html">20260719_0408</a>
+<a href="archive/20260718_0413.html">20260718_0413</a>
+<a href="archive/20260717_0409.html">20260717_0409</a>
+<a href="archive/20260716_0418.html">20260716_0418</a>
+<a href="archive/20260715_0421.html">20260715_0421</a>
+<a href="archive/20260714_0422.html">20260714_0422</a>
+<a href="archive/20260713_0410.html">20260713_0410</a>
+<a href="archive/20260712_0410.html">20260712_0410</a>
+<a href="archive/20260711_0448.html">20260711_0448</a>
+<a href="archive/20260710_0454.html">20260710_0454</a>
+<a href="archive/20260709_0427.html">20260709_0427</a>
+<a href="archive/20260708_0455.html">20260708_0455</a>
+<a href="archive/20260707_0457.html">20260707_0457</a>
+<a href="archive/20260706_0421.html">20260706_0421</a>
+<a href="archive/20260705_0415.html">20260705_0415</a>
+<a href="archive/20260704_0421.html">20260704_0421</a>
+<a href="archive/20260703_0425.html">20260703_0425</a>
+<a href="archive/20260702_0453.html">20260702_0453</a>
+<a href="archive/20260701_1434.html">20260701_1434</a>
+<a href="archive/20260701_0502.html">20260701_0502</a>
+<a href="archive/20260630_0454.html">20260630_0454</a>
+<a href="archive/20260629_0420.html">20260629_0420</a>
+<a href="archive/20260628_0423.html">20260628_0423</a>
+<a href="archive/20260627_0450.html">20260627_0450</a>
+<a href="archive/20260626_0502.html">20260626_0502</a>
+<a href="archive/20260625_0453.html">20260625_0453</a>
+<a href="archive/20260624_0505.html">20260624_0505</a>
+<a href="archive/20260623_0535.html">20260623_0535</a>
+<a href="archive/20260622_0444.html">20260622_0444</a>
+<a href="archive/20260621_0422.html">20260621_0422</a>
+<a href="archive/20260620_0442.html">20260620_0442</a>
+<a href="archive/20260619_0529.html">20260619_0529</a>
+<a href="archive/20260618_0517.html">20260618_0517</a>
+<a href="archive/20260617_0546.html">20260617_0546</a>
+<a href="archive/20260616_0549.html">20260616_0549</a>
+<a href="archive/20260615_0426.html">20260615_0426</a>
+<a href="archive/20260614_0424.html">20260614_0424</a>
+<a href="archive/20260613_0507.html">20260613_0507</a>
+<a href="archive/20260612_0530.html">20260612_0530</a>
+<a href="archive/20260611_0531.html">20260611_0531</a>
+<a href="archive/20260610_0508.html">20260610_0508</a>
+<a href="archive/20260609_0517.html">20260609_0517</a>
+<a href="archive/20260608_0423.html">20260608_0423</a>
+<a href="archive/20260607_0421.html">20260607_0421</a>
+<a href="archive/20260606_0500.html">20260606_0500</a>
+<a href="archive/20260604_0602.html">20260604_0602</a>
+<a href="archive/20260603_0600.html">20260603_0600</a>
+<a href="archive/20260602_0619.html">20260602_0619</a>
+<a href="archive/20260601_0423.html">20260601_0423</a>
+<a href="archive/20260531_0419.html">20260531_0419</a>
+<a href="archive/20260530_0517.html">20260530_0517</a>
+<a href="archive/20260527_0458.html">20260527_0458</a>
+<a href="archive/20260526_0425.html">20260526_0425</a>
+<a href="archive/20260525_0415.html">20260525_0415</a>
+<a href="archive/20260524_0409.html">20260524_0409</a>
+<a href="archive/20260523_0445.html">20260523_0445</a>
+<a href="archive/20260522_0454.html">20260522_0454</a>
+<a href="archive/20260521_0515.html">20260521_0515</a>
+<a href="archive/20260520_0457.html">20260520_0457</a>
+<a href="archive/20260519_0452.html">20260519_0452</a>
+<a href="archive/20260518_0416.html">20260518_0416</a>
+<a href="archive/20260517_0420.html">20260517_0420</a>
+<a href="archive/20260515_0449.html">20260515_0449</a>
+<a href="archive/20260514_0517.html">20260514_0517</a>
+<a href="archive/20260513_0445.html">20260513_0445</a>
+<a href="archive/20260512_0450.html">20260512_0450</a>
+<a href="archive/20260511_1750.html">20260511_1750</a>
+<a href="archive/20260511_0418.html">20260511_0418</a>
+<a href="archive/20260510_0414.html">20260510_0414</a>
+<a href="archive/20260509_0426.html">20260509_0426</a>
+<a href="archive/20260508_0435.html">20260508_0435</a>
+<a href="archive/20260507_0454.html">20260507_0454</a>
+<a href="archive/20260506_0427.html">20260506_0427</a>
+<a href="archive/20260505_0436.html">20260505_0436</a>
+<a href="archive/20260504_0410.html">20260504_0410</a>
+<a href="archive/20260503_0414.html">20260503_0414</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0429.html">20260501_0429</a>
+<a href="archive/20260430_0430.html">20260430_0430</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0429.html">20260428_0429</a>
+<a href="archive/20260427_0405.html">20260427_0405</a>
+<a href="archive/20260426_0404.html">20260426_0404</a>
+<a href="archive/20260425_0410.html">20260425_0410</a>
+<a href="archive/20260424_0430.html">20260424_0430</a>
+<a href="archive/20260423_0426.html">20260423_0426</a>
+<a href="archive/20260422_0424.html">20260422_0424</a>
+<a href="archive/20260421_0418.html">20260421_0418</a>
+<a href="archive/20260420_0359.html">20260420_0359</a>
+<a href="archive/20260419_0358.html">20260419_0358</a>
+<a href="archive/20260418_0415.html">20260418_0415</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0425.html">20260416_0425</a>
+<a href="archive/20260415_0426.html">20260415_0426</a>
+<a href="archive/20260414_0423.html">20260414_0423</a>
+<a href="archive/20260413_0352.html">20260413_0352</a>
+<a href="archive/20260412_0347.html">20260412_0347</a>
+<a href="archive/20260411_0356.html">20260411_0356</a>
+<a href="archive/20260410_0412.html">20260410_0412</a>
+<a href="archive/20260409_0411.html">20260409_0411</a>
+<a href="archive/20260407_0404.html">20260407_0404</a>
+<a href="archive/20260406_0347.html">20260406_0347</a>
+<a href="archive/20260405_0344.html">20260405_0344</a>
+<a href="archive/20260404_0350.html">20260404_0350</a>
+<a href="archive/20260403_0400.html">20260403_0400</a>
+<a href="archive/20260401_0408.html">20260401_0408</a>
+<a href="archive/20260331_0407.html">20260331_0407</a>
+<a href="archive/20260329_0347.html">20260329_0347</a>
+<a href="archive/20260328_0350.html">20260328_0350</a>
+<a href="archive/20260326_0357.html">20260326_0357</a>
+<a href="archive/20260325_0405.html">20260325_0405</a>
+<a href="archive/20260324_0400.html">20260324_0400</a>
+<a href="archive/20260323_0342.html">20260323_0342</a>
+<a href="archive/20260322_0340.html">20260322_0340</a>
+<a href="archive/20260321_0347.html">20260321_0347</a>
+<a href="archive/20260320_0356.html">20260320_0356</a>
+<a href="archive/20260319_0358.html">20260319_0358</a>
+<a href="archive/20260318_0405.html">20260318_0405</a>
+<a href="archive/20260317_0401.html">20260317_0401</a>
+<a href="archive/20260316_0343.html">20260316_0343</a>
+<a href="archive/20260315_0341.html">20260315_0341</a>
+<a href="archive/20260314_0344.html">20260314_0344</a>
+<a href="archive/20260313_0352.html">20260313_0352</a>
+<a href="archive/20260312_0352.html">20260312_0352</a>
+<a href="archive/20260311_0347.html">20260311_0347</a>
+<a href="archive/20260310_0350.html">20260310_0350</a>
+<a href="archive/20260309_0338.html">20260309_0338</a>
+<a href="archive/20260308_0337.html">20260308_0337</a>
+<a href="archive/20260307_0347.html">20260307_0347</a>
+<a href="archive/20260306_0402.html">20260306_0402</a>
+<a href="archive/20260305_0348.html">20260305_0348</a>
+<a href="archive/20260304_0348.html">20260304_0348</a>
+<a href="archive/20260303_0348.html">20260303_0348</a>
+<a href="archive/20260302_0336.html">20260302_0336</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0348.html">20260228_0348</a>
+<a href="archive/20260227_0354.html">20260227_0354</a>
+<a href="archive/20260226_0402.html">20260226_0402</a>
+<a href="archive/20260225_0404.html">20260225_0404</a>
+<a href="archive/20260224_0406.html">20260224_0406</a>
+<a href="archive/20260223_0338.html">20260223_0338</a>
+<a href="archive/20260222_0339.html">20260222_0339</a>
+<a href="archive/20260221_0345.html">20260221_0345</a>
+<a href="archive/20260220_0348.html">20260220_0348</a>
+<a href="archive/20260219_0358.html">20260219_0358</a>
+<a href="archive/20260218_0358.html">20260218_0358</a>
+<a href="archive/20260217_0343.html">20260217_0343</a>
+<a href="archive/20260216_0339.html">20260216_0339</a>
+<a href="archive/20260215_0338.html">20260215_0338</a>
+<a href="archive/20260213_0401.html">20260213_0401</a>
+<a href="archive/20260212_0404.html">20260212_0404</a>
+<a href="archive/20260210_0409.html">20260210_0409</a>
+<a href="archive/20260208_0339.html">20260208_0339</a>
+<a href="archive/20260207_0349.html">20260207_0349</a>
+<a href="archive/20260206_0347.html">20260206_0347</a>
+<a href="archive/20260205_0346.html">20260205_0346</a>
+<a href="archive/20260204_0354.html">20260204_0354</a>
+<a href="archive/20260202_0337.html">20260202_0337</a>
+<a href="archive/20260201_0333.html">20260201_0333</a>
+<a href="archive/20260131_0345.html">20260131_0345</a>
+<a href="archive/20260130_0341.html">20260130_0341</a>
+<a href="archive/20260129_0344.html">20260129_0344</a>
+<a href="archive/20260128_0341.html">20260128_0341</a>
+<a href="archive/20260127_0338.html">20260127_0338</a>
+<a href="archive/20260126_0330.html">20260126_0330</a>
+<a href="archive/20260125_0329.html">20260125_0329</a>
+<a href="archive/20260124_0337.html">20260124_0337</a>
+<a href="archive/20260123_0337.html">20260123_0337</a>
+<a href="archive/20260122_0343.html">20260122_0343</a>
+<a href="archive/20260121_0424.html">20260121_0424</a>
+<a href="archive/20260119_0329.html">20260119_0329</a>
+<a href="archive/20260118_0327.html">20260118_0327</a>
+<a href="archive/20260117_0332.html">20260117_0332</a>
+<a href="archive/20260116_0339.html">20260116_0339</a>
+<a href="archive/20260115_0334.html">20260115_0334</a>
+<a href="archive/20260114_0333.html">20260114_0333</a>
+<a href="archive/20260113_0334.html">20260113_0334</a>
+<a href="archive/20260112_0331.html">20260112_0331</a>
+<a href="archive/20260111_0329.html">20260111_0329</a>
+<a href="archive/20260110_0333.html">20260110_0333</a>
+<a href="archive/20260109_0334.html">20260109_0334</a>
+<a href="archive/20260108_0335.html">20260108_0335</a>
+<a href="archive/20260107_0330.html">20260107_0330</a>
+<a href="archive/20260106_0336.html">20260106_0336</a>
+<a href="archive/20260105_0328.html">20260105_0328</a>
+<a href="archive/20260104_0328.html">20260104_0328</a>
+<a href="archive/20260103_0325.html">20260103_0325</a>
+<a href="archive/20260102_0339.html">20260102_0339</a>
+<a href="archive/20260101_0329.html">20260101_0329</a>
+<a href="archive/20251231_0333.html">20251231_0333</a>
+<a href="archive/20251230_0332.html">20251230_0332</a>
+<a href="archive/20251229_0329.html">20251229_0329</a>
+<a href="archive/20251228_0332.html">20251228_0332</a>
+<a href="archive/20251227_0329.html">20251227_0329</a>
+<a href="archive/20251226_0330.html">20251226_0330</a>
+<a href="archive/20251225_0329.html">20251225_0329</a>
+<a href="archive/20251224_0331.html">20251224_0331</a>
+<a href="archive/20251223_0332.html">20251223_0332</a>
+<a href="archive/20251222_0328.html">20251222_0328</a>
+<a href="archive/20251221_0329.html">20251221_0329</a>
+<a href="archive/20251220_0330.html">20251220_0330</a>
+<a href="archive/20251219_0330.html">20251219_0330</a>
+<a href="archive/20251218_0345.html">20251218_0345</a>
+<a href="archive/20251217_0332.html">20251217_0332</a>
+<a href="archive/20251216_0333.html">20251216_0333</a>
+<a href="archive/20251215_0333.html">20251215_0333</a>
+<a href="archive/20251214_0327.html">20251214_0327</a>
+<a href="archive/20251212_0333.html">20251212_0333</a>
+<a href="archive/20251211_0331.html">20251211_0331</a>
+<a href="archive/20251210_0332.html">20251210_0332</a>
+<a href="archive/20251209_0331.html">20251209_0331</a>
+<a href="archive/20251208_0328.html">20251208_0328</a>
+<a href="archive/20251207_0327.html">20251207_0327</a>
+<a href="archive/20251206_0330.html">20251206_0330</a>
+<a href="archive/20251205_0331.html">20251205_0331</a>
+<a href="archive/20251204_0331.html">20251204_0331</a>
+<a href="archive/20251203_0333.html">20251203_0333</a>
+<a href="archive/20251202_0335.html">20251202_0335</a>
+<a href="archive/20251201_0328.html">20251201_0328</a>
+<a href="archive/20251130_0327.html">20251130_0327</a>
+<a href="archive/20251129_0328.html">20251129_0328</a>
+<a href="archive/20251128_0327.html">20251128_0327</a>
+<a href="archive/20251127_0327.html">20251127_0327</a>
+<a href="archive/20251126_0329.html">20251126_0329</a>
+<a href="archive/20251125_0327.html">20251125_0327</a>
+<a href="archive/20251124_0327.html">20251124_0327</a>
+<a href="archive/20251123_0326.html">20251123_0326</a>
+<a href="archive/20251122_0328.html">20251122_0328</a>
+<a href="archive/20251121_0328.html">20251121_0328</a>
+<a href="archive/20251120_0329.html">20251120_0329</a>
+<a href="archive/20251119_0328.html">20251119_0328</a>
+<a href="archive/20251118_0328.html">20251118_0328</a>
+<a href="archive/20251117_0326.html">20251117_0326</a>
+<a href="archive/20251116_0325.html">20251116_0325</a>
+<a href="archive/20251115_0327.html">20251115_0327</a>
+<a href="archive/20251114_0328.html">20251114_0328</a>
+<a href="archive/20251113_0330.html">20251113_0330</a>
+<a href="archive/20251112_0329.html">20251112_0329</a>
+<a href="archive/20251111_0328.html">20251111_0328</a>
+<a href="archive/20251110_0325.html">20251110_0325</a>
+<a href="archive/20251109_0326.html">20251109_0326</a>
+<a href="archive/20251108_0328.html">20251108_0328</a>
+<a href="archive/20251107_0328.html">20251107_0328</a>
+<a href="archive/20251106_0329.html">20251106_0329</a>
+<a href="archive/20251105_0326.html">20251105_0326</a>
+<a href="archive/20251104_0327.html">20251104_0327</a>
+<a href="archive/20251103_0324.html">20251103_0324</a>
+<a href="archive/20251102_0326.html">20251102_0326</a>
+<a href="archive/20251101_0324.html">20251101_0324</a>
+<a href="archive/20251031_0328.html">20251031_0328</a>
+<a href="archive/20251030_0330.html">20251030_0330</a>
+<a href="archive/20251029_0329.html">20251029_0329</a>
+<a href="archive/20251028_0329.html">20251028_0329</a>
+<a href="archive/20251027_0322.html">20251027_0322</a>
+<a href="archive/20251026_0327.html">20251026_0327</a>
+<a href="archive/20251025_0331.html">20251025_0331</a>
+<a href="archive/20251024_0329.html">20251024_0329</a>
+<a href="archive/20251023_0329.html">20251023_0329</a>
+<a href="archive/20251022_0330.html">20251022_0330</a>
+<a href="archive/20251021_0331.html">20251021_0331</a>
+<a href="archive/20251020_0328.html">20251020_0328</a>
+<a href="archive/20251019_0321.html">20251019_0321</a>
+<a href="archive/20251018_0327.html">20251018_0327</a>
+<a href="archive/20251017_0320.html">20251017_0320</a>
+<a href="archive/20251016_0328.html">20251016_0328</a>
+<a href="archive/20251015_0328.html">20251015_0328</a>
+<a href="archive/20251014_0323.html">20251014_0323</a>
+<a href="archive/20251011_0328.html">20251011_0328</a>
+<a href="archive/20251010_0330.html">20251010_0330</a>
+<a href="archive/20251009_0321.html">20251009_0321</a>
+<a href="archive/20251008_0343.html">20251008_0343</a>
+<a href="archive/20251007_0353.html">20251007_0353</a>
+<a href="archive/20251006_0325.html">20251006_0325</a>
+<a href="archive/20251005_0350.html">20251005_0350</a>
+<a href="archive/20251004_0352.html">20251004_0352</a>
+<a href="archive/20251003_0352.html">20251003_0352</a>
+<a href="archive/20251002_0356.html">20251002_0356</a>
+<a href="archive/20251001_0321.html">20251001_0321</a>
+<a href="archive/20250925_0335.html">20250925_0335</a>
+<a href="archive/20250924_0350.html">20250924_0350</a>
+<a href="archive/20250923_0348.html">20250923_0348</a>
+<a href="archive/20250922_0346.html">20250922_0346</a>
+<a href="archive/20250921_0345.html">20250921_0345</a>
+<a href="archive/20250920_0342.html">20250920_0342</a>
+<a href="archive/20250919_0346.html">20250919_0346</a>
+<a href="archive/20250918_0342.html">20250918_0342</a>
+<a href="archive/20250917_0336.html">20250917_0336</a>
+<a href="archive/20250916_0333.html">20250916_0333</a>
+<a href="archive/20250915_0333.html">20250915_0333</a>
+<a href="archive/20250914_0328.html">20250914_0328</a>
+<a href="archive/20250913_0322.html">20250913_0322</a>
+<a href="archive/20250912_0335.html">20250912_0335</a>
+<a href="archive/20250911_0337.html">20250911_0337</a>
+<a href="archive/20250910_0338.html">20250910_0338</a>
+<a href="archive/20250909_0341.html">20250909_0341</a>
+<a href="archive/20250908_0342.html">20250908_0342</a>
+<a href="archive/20250907_0333.html">20250907_0333</a>
+<a href="archive/20250906_0350.html">20250906_0350</a>
+<a href="archive/20250905_0319.html">20250905_0319</a>
+<a href="archive/20250904_0323.html">20250904_0323</a>
+<a href="archive/20250903_0355.html">20250903_0355</a>
+<a href="archive/20250902_0325.html">20250902_0325</a>
+<a href="archive/20250901_0355.html">20250901_0355</a>
+<a href="archive/20250831_0355.html">20250831_0355</a>
+<a href="archive/20250830_0356.html">20250830_0356</a>
+<a href="archive/20250829_0355.html">20250829_0355</a>
+<a href="archive/20250828_0333.html">20250828_0333</a>
+<a href="archive/20250827_1654.html">20250827_1654</a>
+<a href="archive/20250827_1602.html">20250827_1602</a>
+<a href="archive/20250827_1557.html">20250827_1557</a>
+<a href="archive/20250827_0320.html">20250827_0320</a>
+<a href="archive/20250826_0320.html">20250826_0320</a>
+<a href="archive/20250825_1752.html">20250825_1752</a>
+<a href="archive/20250825_1709.html">20250825_1709</a>
+<a href="archive/20250825_1652.html">20250825_1652</a>
+<a href="archive/20250825_1647.html">20250825_1647</a>
+<a href="archive/20250825_1645.html">20250825_1645</a>
+<a href="archive/20250825_1631.html">20250825_1631</a>
+<a href="archive/20250825_1606.html">20250825_1606</a>
+<a href="archive/20250825_1559.html">20250825_1559</a>
+<a href="archive/20250825_1558.html">20250825_1558</a>
+<a href="archive/20250825_1556.html">20250825_1556</a>
+<a href="archive/20250825_1531.html">20250825_1531</a>
+<a href="archive/20250825_1525.html">20250825_1525</a>
+<a href="archive/20250825_1516.html">20250825_1516</a>
+<a href="archive/20250825_1450.html">20250825_1450</a>
+<a href="archive/20250825_1444.html">20250825_1444</a>
+<a href="archive/20250825_1438.html">20250825_1438</a>
+<a href="archive/20250825_1414.html">20250825_1414</a>
+<a href="archive/20250825_1413.html">20250825_1413</a>
+<a href="archive/20250825_1410.html">20250825_1410</a>
+<a href="archive/20250825_1408.html">20250825_1408</a>
+<a href="archive/20250825_1405.html">20250825_1405</a>
+<a href="archive/20250825_1401.html">20250825_1401</a>
+<a href="archive/20250825_1355.html">20250825_1355</a>
+<a href="archive/20250825_1347.html">20250825_1347</a>
+<a href="archive/20250825_1345.html">20250825_1345</a>
+<a href="archive/20250825_1344.html">20250825_1344</a>
+<a href="archive/20250825_1343.html">20250825_1343</a>
+<a href="archive/20250825_1340.html">20250825_1340</a>
+<a href="archive/20250825_1339.html">20250825_1339</a>
+<a href="archive/20250825_1333.html">20250825_1333</a>
+<a href="archive/20250825_1323.html">20250825_1323</a>
+<a href="archive/20250825_1317.html">20250825_1317</a>
+<a href="archive/20250825_1243.html">20250825_1243</a>
+<a href="archive/20250824_0342.html">20250824_0342</a>
+<a href="archive/20250823_0343.html">20250823_0343</a>
+<a href="archive/20250823_0142.html">20250823_0142</a>
+<a href="archive/20250822_2331.html">20250822_2331</a>
+<a href="archive/20250822_2308.html">20250822_2308</a>
+<a href="archive/20250822_2258.html">20250822_2258</a>
+<a href="archive/20250822_2241.html">20250822_2241</a>
+<a href="archive/20250822_2228.html">20250822_2228</a>
+<a href="archive/20250822_2206.html">20250822_2206</a>
+<a href="archive/20250822_2147.html">20250822_2147</a>
+<a href="archive/20250822_2111.html">20250822_2111</a>
+<a href="archive/20250822_1259.html">20250822_1259</a>
+<a href="archive/20250822_1233.html">20250822_1233</a>
+<a href="archive/20250822_1229.html">20250822_1229</a>
+<a href="archive/20250822_1223.html">20250822_1223</a>
+<a href="archive/20250822_1210.html">20250822_1210</a>
+<a href="archive/20250822_1201.html">20250822_1201</a>
+<a href="archive/20250822_1111.html">20250822_1111</a>
+<a href="archive/20250822_1058.html">20250822_1058</a>
+<a href="archive/20250822_1052.html">20250822_1052</a>
+<a href="archive/20250822_1045.html">20250822_1045</a>
+<a href="archive/20250822_0657.html">20250822_0657</a>
+<a href="archive/20250822_0553.html">20250822_0553</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>
