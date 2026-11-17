@@ -74,337 +74,301 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-11-16 07:26</span>
+        <span class="badge">2026-11-17 10:32</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
-<div class="title">SemiSAM: Enhancing Semi-Supervised Medical Image Segmentation via SAM-Assisted Consistency Regularization</div>
-<div class="meta-line">Authors: Yichi Zhang, Jin Yang, Yuchen Liu, Yuan Cheng, Yuan Qi</div>
-<div class="meta-line">First: 2023-12-11T12:03:30+00:00 · Latest: 2024-10-23T05:14:19+00:00</div>
-<div class="meta-line">Comments: Accept for BIBM 2024</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2312.06316v2">Abs</a> · <a href="https://arxiv.org/pdf/2312.06316v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/YichiZhang98/SemiSAM">Code3</a></div>
+<div class="title">Affinity-Graph-Guided Contractive Learning for Pretext-Free Medical Image Segmentation with Minimal Annotation</div>
+<div class="meta-line">Authors: Zehua Cheng, Di Yuan, Thomas Lukasiewicz</div>
+<div class="meta-line">First: 2024-10-14T10:44:47+00:00 · Latest: 2024-10-14T10:44:47+00:00</div>
+<div class="meta-line">Comments: BIBM 2024</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2410.10366v1">Abs</a> · <a href="https://arxiv.org/pdf/2410.10366v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
 <details class="detail"><summary>Abstract</summary>
-<div class="mono">Semi-supervised learning has attracted much attention due to its less dependence on acquiring abundant annotations from experts compared to fully supervised methods, which is especially important for medical image segmentation which typically requires intensive pixel/voxel-wise labeling by domain experts. Although semi-supervised methods can improve the performance by utilizing unlabeled data, there are still gaps between fully supervised methods under extremely limited annotation scenarios. In this paper, we propose a simple yet efficient strategy to explore the usage of the Segment Anything Model (SAM) for enhancing semi-supervised medical image segmentation. Concretely, the segmentation model trained with domain knowledge provides information for localization and generating input prompts to the SAM. Then the generated pseudo-labels of SAM are utilized as additional supervision to assist in the learning procedure of the semi-supervised framework. Extensive experiments demonstrate that SemiSAM significantly improves the performance of existing semi-supervised frameworks when only one or a few labeled images are available and shows strong efficiency as a plug-and-play strategy for semi-supervised medical image segmentation.</div></details>
+<div class="mono">The combination of semi-supervised learning (SemiSL) and contrastive learning (CL) has been successful in medical image segmentation with limited annotations. However, these works often rely on pretext tasks that lack the specificity required for pixel-level segmentation, and still face overfitting issues due to insufficient supervision signals resulting from too few annotations. Therefore, this paper proposes an affinity-graph-guided semi-supervised contrastive learning framework (Semi-AGCL) by establishing additional affinity-graph-based supervision signals between the student and teacher network, to achieve medical image segmentation with minimal annotations without pretext. The framework first designs an average-patch-entropy-driven inter-patch sampling method, which can provide a robust initial feature space without relying on pretext tasks. Furthermore, the framework designs an affinity-graph-guided loss function, which can improve the quality of the learned representation and the model generalization ability by exploiting the inherent structure of the data, thus mitigating overfitting. Our experiments indicate that with merely 10% of the complete annotation set, our model approaches the accuracy of the fully annotated baseline, manifesting a marginal deviation of only 2.52%. Under the stringent conditions where only 5% of the annotations are employed, our model exhibits a significant enhancement in performance surpassing the second best baseline by 23.09% on the dice metric and achieving an improvement of 26.57% on the notably arduous CRAG and ACDC datasets.</div></details>
 <details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>SemiSAM：通过SAM辅助的一致性正则化增强半监督医学图像分割</div>
-<div class="mono" style="margin-top:8px">半监督学习因相比全监督方法对从专家处获取大量标注的依赖更少而备受关注，这对于通常需要领域专家进行密集像素/体素级标注的医学图像分割尤为重要。尽管半监督方法能够利用未标注数据提升性能，但在标注极其有限的场景下，与全监督方法之间仍存在差距。本文提出一种简单而高效的策略，探索利用Segment Anything Model（SAM）来增强半监督医学图像分割。具体而言，使用领域知识训练的分割模型提供定位信息并生成输入提示给SAM。随后，将SAM生成的伪标签作为额外监督，以辅助半监督框架的学习过程。大量实验表明，在仅有少量标注图像可用时，SemiSAM显著提升了现有半监督框架的性能，并作为半监督医学图像分割的即插即用策略展现出很强的有效性。</div>
+<div class="mono"><b>标题：</b>亲和图引导的收缩学习用于极少标注的无 pretext 医学图像分割</div>
+<div class="mono" style="margin-top:8px">半监督学习（SemiSL）与对比学习（CL）的结合在标注有限的医学图像分割中取得了成功。然而，这些工作通常依赖于缺乏像素级分割所需特异性的 pretext 任务，并且由于标注过少导致监督信号不足，仍然面临过拟合问题。因此，本文提出了一种亲和图引导的半监督对比学习框架（Semi-AGCL），通过在师生网络之间建立额外的基于亲和图的监督信号，实现极少标注下的无 pretext 医学图像分割。该框架首先设计了一种平均块熵驱动的块间采样方法，能够在不依赖 pretext 任务的情况下提供稳健的初始特征空间。此外，该框架设计了一种亲和图引导的损失函数，通过利用数据的固有结构来提高所学表示的质量和模型泛化能力，从而缓解过拟合。我们的实验表明，仅使用完整标注集的 10%，我们的模型就接近全标注基线的准确率，仅有 2.52% 的微小偏差。在仅使用 5% 标注的严格条件下，我们的模型表现出显著的性能提升，在 dice 指标上超过第二最佳基线 23.09%，并在极具挑战性的 CRAG 和 ACDC 数据集上实现了 26.57% 的提升。</div>
 </details>
 <details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">SemiSAM 将 SAM-Med3D 作为额外监督分支接入半监督分割框架：先用学生模型粗分割结果生成提示点，经不确定性筛选后送入 SAM-Med3D 得到伪标签，再以一致性损失约束主分支。在 LA 数据集上，以 V-Net 为骨干、仅 1/2/4 个标注病例时，SemiSAM-MT 的 Dice 分别达 41.38%/69.46%/80.42%，较 MT 提升 10.78/11.29/8.02 个百分点；但 8 个标注病例时提升有限（84.45% vs 83.09%）。作者仅在一个数据集上验证，未报告提示点数量、不确定性阈值等关键细节。</div>
+<div class="mono" style="margin-top:8px">论文提出Semi-AGCL框架，用平均块熵驱动的块采样和亲和图引导的对比损失，在无pretext任务下进行极少标注的医学图像分割。在LA、ACDC、CRAG三个数据集上，5%和10%标注比例下多数指标优于UA-MT、SS-Net、ACTION、ARCO等基线；5%标注时ACDC的DSC提升23.09%，CRAG的DSC达84.42%。但部分表格排版混乱、超参数与消融细节报告不完整，需谨慎解读。</div>
 </details>
 <details class="detail" open><summary>论文解读</summary>
-<div class="meta-line">来源：PDF 全文，共 5 页；5 页可提取文字</div>
-<div style="margin:12px 0"><p><b>原论文流程图 · Figure 1 · PDF 第 2 页</b></p><img src="assets/figures/aabe36f93800ff13b16c465e.png" alt="原论文流程图 · Figure 1 · PDF 第 2 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig.1. ThestructureofourproposedSAM-AssistedConsistencyRegulariza- tion framework for semi-supervised medical image segmentation. The illus- Despite existing semi-supervised frameworks can utilize trationinthefigureisSemiSAM-MTbasedonthemeanteacherframework unlabeled data to improve the performance, when only one <a href="https://arxiv.org/pdf/2312.06316v2#page=2">原文来源</a></p></div>
-<div class="reading-notes"><h1>SemiSAM 论文精读笔记</h1>
+<div class="meta-line">来源：PDF 全文，共 9 页；9 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图 · Figure 1 · PDF 第 3 页</b></p><img src="assets/figures/ac646e58e1e4cce666a3de4a.png" alt="原论文流程图 · Figure 1 · PDF 第 3 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 1: The proposed framework. For labeled data, we directly use the supervised loss L to update the student network. sup For unlabeled data, we first slice the image into patches, then bridge an affinity graph loss LPL between pseudo labels of AGG <a href="https://arxiv.org/pdf/2410.10366v1#page=3">原文来源</a></p></div>
+<div class="reading-notes"><h1>论文阅读笔记：Affinity-Graph-Guided Contractive Learning for Pretext-Free Medical Image Segmentation with Minimal Annotation</h1>
 <h2>1. 问题与动机</h2>
-<p>医学图像分割依赖专家逐像素/体素标注，成本高；半监督学习（SSL）虽可利用无标注数据，但在仅 1 个或极少数标注病例时，与全监督方法仍有明显差距。作者指出，一致性正则化在标注极少时可能让模型产生“相似但错误”的预测，忽略目标固有信息 [p. 2]。</p>
-<p>SAM 等分割基础模型具备零样本泛化能力，但直接用于医学图像效果有限；已有工作将其作为伪标签生成器 [p. 1]。本文的动机是：半监督模型的粗分割虽不精确，但足以提供定位信息来生成 SAM 的提示点，从而把 SAM 的伪标签作为额外监督信号，增强一致性正则化 [p. 1–2]。</p>
+<p>论文针对医学图像分割中像素级标注昂贵、标注量极少的问题，试图结合半监督学习（SemiSL）与对比学习（CL）。作者指出既有方法有两个明显不足：其一，依赖pretext任务，存在采样偏差、类冲突和跨数据集域偏移，泛化性差；其二，标注过少导致监督信号不足，常用的回归、逐像素交叉熵或均方误差损失无法强制类内紧凑和类间可分，容易过拟合 [p. 1]。作者认为，SemiSL的有效性依赖流形假设和聚类假设，标注极少时聚类边界模糊，难以刻画流形形状；引入语义图可以把数据点表示为节点、特征相似性表示为边，从而显式编码数据内在结构，帮助标签传播 [p. 1–2]。</p>
 <h2>2. 方法</h2>
-<h3>2.1 基础半监督框架</h3>
-<p>记标注集 $D_L={X_i,Y_i}<em>{i=1}^M$，无标注集 $D_U={X_j}</em>{j=1}^N$，$M \ll N$。采用 mean teacher（MT）框架：学生模型 $f_\theta$ 与教师模型 $f_{\theta'}$，教师权重由学生权重指数滑动平均更新：$\theta'<em>t=\alpha\theta'</em>{t-1}+(1-\alpha)\theta_t$，$\alpha$ 为 EMA 衰减系数 [p. 2]。训练目标为</p>
-<p>$$\min_\theta L_{sup}(f_\theta(X_i),Y_i)+\lambda_c L_{con}(f_\theta(X_j),f_{\theta'}(X_j)) \quad (1)$$</p>
-<p>其中 $L_{sup}$ 为标注数据的监督分割损失，$L_{con}$ 为主分支与教师分支在无标注数据上的一致性损失，$\lambda_c$ 控制其权重 [p. 2]。</p>
-<h3>2.2 SAM 辅助一致性正则化</h3>
-<p>整体结构见 Fig. 1（第 2 页）：在经典 SSL 框架上增加 SAM 监督分支。作者使用 SAM-Med3D 以处理 3D 体数据，其结构包括 ViT 图像编码器 $I$、提示编码器 $P$ 和轻量掩码解码器 $M$ [p. 2]。主分支输出被用作生成提示的 proposal：</p>
-<p>$$F_\Theta(X_j)=M[I(X_j)+P(f_\theta(X_j))] \quad (2)$$</p>
-<p>其中 $\Theta$ 为 SAM 权重，$F_\Theta(X_j)$ 为 SAM 生成的伪标签 [p. 2]。</p>
-<p>为减少粗分割产生的噪声提示，作者采用不确定性感知策略，只从低不确定性区域生成提示点，理由是低不确定性区域定位更可靠 [p. 2]。随后在无标注数据上计算主分支输出与 SAM 伪标签之间的一致性损失 $L_{sam}$，最终目标为</p>
-<p>$$\min_\theta L_{sup}(f_\theta(X_i),Y_i)+\lambda_c L_{con}(f_\theta(X_j),f_{\theta'}(X_j))+\lambda_s L_{con}(f_\theta(X_j),F_\Theta(X_j)) \quad (3)$$</p>
-<p>注意式 (3) 中 SAM 项写作 $L_{con}$，但正文称其为 $L_{sam}$，符号略有不一致 [p. 3]。权重设计为：$\lambda_c=0.1<em>e^{-5(1-t/t_{max})}$ 随训练上升，$\lambda_s=0.1</em>e^{-5(t/t_{max})}$ 随训练下降，即早期强调 SAM 引导、后期减弱以避免误导 [p. 3]。</p>
+<p>整体是教师-学生框架，混合使用有标注集 $D_L$ 和无标注集 $D_U$（$N_L \ll N_U$），学生网络由监督损失和若干无监督/半监督损失共同更新，教师网络提供伪标签 [p. 2–3]。图1（第3页）给出框架：有标注数据直接用 $L_{sup}$ 更新学生；无标注数据先切块，再在师生伪标签之间建立亲和图损失 $L_{PL}^{AGG}$，并基于亲和图边设计重加权难负样本损失 $L_{RW}^{AGG}$；蓝色箭头为有标注数据，黑色箭头为无标注数据，SA表示强增强、WA表示弱增强 [p. 3]。</p>
+<p><strong>（1）块级类中心采样。</strong> 对第 $i$ 张图、类别 $k$，用类别置信图 $C_k^i$ 与原图逐元素相乘得到 $X'^i_k = X_i \odot C_k^i$，再对每个块 $P_{i,j}^k$ 计算平均块熵：</p>
+<p>$$Ent_{i,j}^k = -\frac{1}{|P_{i,j}^k|}\sum_{m\in P_{i,j}^k}\left[X'^i_k(m)\log X'^i_k(m) + (1-X'^i_k(m))\log(1-X'^i_k(m))\right]$$</p>
+<p>对锚块类别 $k$，取熵值Top-n的块为正样本，其余为负样本。作者称高熵表示该块可能含类别 $k$ 目标但与其他类混淆，因此熵比随机选择更有信息量，可避免类冲突 [p. 3–4]。</p>
+<p><strong>（2）伪标签间的亲和图对比损失。</strong> 构造块级亲和图 $A\in\mathbb{R}^{N\times N}$，边权用高斯核：</p>
+<p>$$A_{ij}=\exp\left(-\frac{|\hat y_i^t-\hat y_j^s|_2^2}{2\sigma^2}\right)$$</p>
+<p>其中 $\hat y^t$、$\hat y^s$ 分别为教师、学生伪标签，$\sigma$ 为自适应带宽。损失为</p>
+<p>$$L_{PL}^{AGG}=\sum_{i=1}^{N}\exp\left(-\frac{|\hat y_i^t-\hat y_i^s|<em>2^2}{2\sigma^2}\right)+\gamma|A|</em>*$$</p>
+<p>第一项最大化对角元（师生自相似），第二项用核范数作为秩函数的凸松弛，通过奇异值阈值化抑制噪声维度，防止过拟合 [p. 4]。Listing 1（第5页）给出式3的PyTorch实现，但代码中把 $\gamma$ 用作高斯核带宽，与正文式3中 $\gamma$ 平衡核范数的角色不一致，属于文本与代码的符号冲突。</p>
+<p><strong>（3）亲和图引导的难负样本重加权。</strong> 用式4的InfoNCE式损失，查询 $q$、正键 $k^+$、负样本库 $Q$，温度 $\tau$。作者用动态阈值 $\theta\in(0,1)$ 依据对角元 $A_{ii}$ 识别难负样本，并按式6混合两个负特征：</p>
+<p>$$h_k=\frac{A_{ii}n_i+(1-A_{ii})n_j}{|A_{ii}n_i+(1-A_{ii})n_j|_2}$$</p>
+<p>最终损失为式7，把式4分母中的负样本替换为混合难负样本集合 $H$ [p. 5]。总损失为 $L_{all}=L_{sup}+L_{reg}+L_{PL}^{AGG}+L_{RW}^{AGG}$，其中 $L_{reg}$ 是师生输出间的交叉熵 [p. 5]。</p>
 <h2>3. 贡献</h2>
-<p>作者主张的贡献是：提出一种简单高效的策略，将 SAM 作为额外监督分支接入一致性正则化半监督框架；利用半监督模型输出自动生成提示，无需人工提示；在极少标注场景下显著提升现有框架性能，并可作为即插即用模块 [p. 1, p. 4]。</p>
-<p>我的解读：核心新颖点在于“用弱模型给强基础模型提供定位提示，再用强模型伪标签反哺弱模型”的闭环，而非新的网络结构或损失函数；其有效性高度依赖 SAM-Med3D 在目标上的零样本质量。</p>
+<p>作者声称的贡献有三点：提出Semi-AGCL框架，缓解对pretext的依赖和过拟合；用亲和图作为伪标签的外部约束，配合亲和质量损失增强类判别特征，无需显式pretext训练，并跨多个域验证；采用熵驱动的块级对比学习选择正负样本，避免类冲突 [p. 2]。我的解读是：核心新颖点在于把“师生伪标签一致性”编码为亲和图，并同时用于对比损失和难负样本重加权；但“无pretext”更多指不额外预训练，框架本身仍依赖教师-学生伪标签机制，这与标准SemiSL并无本质断裂。</p>
 <h2>4. 实验与结果</h2>
-<h3>4.1 数据集与设置</h3>
-<ul>
-<li>数据集：Left Atrium Segmentation Challenge，100 例 3D 钆增强 MRI，各向同性分辨率 0.625×0.625×0.625 mm³ [p. 3]。</li>
-<li>划分：80 例训练、20 例测试，沿用 [14] 的设置 [p. 3]。</li>
-<li>骨干：半监督主干为 V-Net，SAM 骨干为 SAM-Med3D [p. 3]。</li>
-<li>训练：PyTorch，NVIDIA A100；SGD，初始学习率 0.01，每 2500 次迭代除以 10，最大 6000 次迭代；patch size 从 112×112×80 改为 128×128×128 以适配 SAM-Med3D [p. 3]。</li>
-<li>指标：Dice、Jaccard、95% Hausdorff Distance（95HD）、Average Surface Distance（ASD）[p. 3]。</li>
-</ul>
-<h3>4.2 与交互式 SAM 及全监督基线比较</h3>
-<p>Table I（第 3 页）显示：2D SAM 在 1/2/5/10 倍切片数提示点下 Dice 为 41.98/46.11/58.90/71.38%；SAM-Med3D 在 1/2/5/10 个提示点下为 56.51/63.96/70.28/73.78%。全监督 V-Net 在 1/2/4/8/80 个标注病例下 Dice 为 17.06/40.48/54.43/76.09/91.14%。SemiSAM-MT 在 1/2/4 个标注病例下 Dice 为 41.38/69.46/80.42%，均高于同标注量的 MT（30.60/58.17/72.40%）[p. 3]。</p>
-<h3>4.3 与其他半监督方法比较</h3>
-<p>Table II（第 4 页）给出 1/79、2/78、4/76、8/72 标注/无标注设置下的结果。以 1 标注病例为例：UA-MT 31.66%、Ent-Mini 31.59%、DTC 36.94%、DTML 37.31%、MT 30.60%，SemiSAM-MT 为 41.38%（Dice），Jaccard 27.95%，ASD 20.60，95HD 45.79 [p. 4]。2 标注病例：SemiSAM-MT Dice 69.46%，低于 DTML 的 67.80%？——实际 69.46% 高于 DTML 67.80%，但 95HD 31.67 高于 DTML 的 22.81，说明边界指标并非全面占优 [p. 4]。4 标注病例：SemiSAM-MT Dice 80.42%，高于 DTML 79.46%；95HD 18.23 优于 DTML 24.81 [p. 4]。8 标注病例：SemiSAM-MT Dice 84.45%，低于 UA-MT 84.25%？——84.45% 略高于 UA-MT 84.25%，但低于 Ent-Mini 86.43%、DTC 86.57%、DTML 87.13% [p. 4]。作者据此承认，标注量较大（如 10%）时简单一致性约束提升有限，因为训练型分割方法已超过 SAM 零样本性能 [p. 4]。</p>
-<h3>4.4 消融与可视化</h3>
-<p>本文没有独立的消融表；Table II 中 MT 与 +SemiSAM 的成对比较可视为消融证据，说明增益来自 SAM 分支而非框架本身 [p. 4]。Fig. 2（第 4 页）展示 3D 重建与 2D 分割的定性比较，但正文未给出对应定量指标 [p. 4]。</p>
+<p><strong>数据集与划分。</strong> LA为100例3D钆增强MRI左心房扫描；ACDC为100例患者心脏MRI，四类（背景、右心室、左心室、心肌）；CRAG为213张H&amp;E结直肠腺癌全切片图像，20×物镜、0.55 µm/pixel，带实例级标注 [p. 6]。LA和ACDC按80%/20%训练/验证；CRAG按80%/10%/10%训练/验证/测试 [p. 6]。指标为DSC、Jaccard、HD95、ASD [p. 6]。</p>
+<p><strong>训练设置。</strong> DGX A100服务器，固定随机种子，Adam优化器，batch size 16，学习率1e-4；$\tau=0.2$、$\lambda=4$（文中写“Equation 5”，但式5是梯度公式，疑为笔误），式3中 $\gamma=-1$；Top-n参数在验证集上确定为0.999、0.25、0.2、20 [p. 6]。ACDC使用2D U-Net，输入块256×256，掩码零值区域170×170，batch size 24，预训练10k迭代、自训练30k迭代 [p. 7]。</p>
+<p><strong>主要结果。</strong> LA（表I，第6页）：5%标注下Semi-AGCL的DSC 88.92、Jaccard 78.84、HD95 1.90、ASD 0.66；10%标注下DSC 90.33、Jaccard 82.53、HD95 6.68、ASD 1.78。作者称5%时相对第二名在DSC、Jaccard、HD95、ASD上分别提升3.11%、2.90%、2.19、0.20 [p. 6–7]。但表I排版严重错乱，部分基线数值与行标签难以可靠对应，例如SASSNet在5%行的DSC显示为81.60而10%行为84.50，需以原表为准。</p>
+<p>ACDC（表II，第6页）：5%标注下DSC 88.92、Jaccard 78.84、HD95 1.90、ASD 0.66；10%标注下DSC 90.33、Jaccard 82.53、HD95 6.68、ASD 1.78。作者称5%时DSC提升最高达23.09%，并指出10%时HD95和ASD反而比5%差，可能因为亲和图损失需要更多迭代来学习复杂边细节 [p. 7]。</p>
+<p>CRAG（表III，第7页）：5%标注下DSC 84.42、Jaccard 70.49、HD95 1.48、ASD 2.88；10%标注下DSC 91.93、Jaccard 83.37、HD95 1.08、ASD 1.76。作者称10%时已优于100%标注的U-Net（DSC 91.10），并归因于2D切片组合更多、组织病理纹理特征丰富 [p. 7]。摘要中“5%时在CRAG和ACDC上提升26.57%”在正文表III/表II中未直接给出对应计算，无法核实。</p>
+<p><strong>消融。</strong> 表IV（第8页）比较不同亲和图损失设置，作者称GK+L<em>与GK+L1差异不大，但加入 $\lambda|A|_</em>$ 后指标提升，且5%标注下提升比10%更明显 [p. 8]。表V（第8页）比较余弦相似度、类置信度和熵采样，作者称熵采样大幅优于前两者 [p. 8]。表VI（第8页）报告LA上参数量与训练时间：Semi-AGCL约9.44M参数、48.6分钟；去掉块级类中心采样（w/cls conf）为46.8分钟，作者称仅差1.8分钟 [p. 7–8]。但表IV、V、VI在提供的文本中排版混乱，具体数值无法可靠辨认，只能依据作者文字描述。</p>
 <h2>5. 评估</h2>
-<p>支持的结论：在 LA 数据集、V-Net + SAM-Med3D、1–4 个标注病例条件下，SemiSAM 确实提升 MT 的 Dice，并在 1 和 4 标注病例下优于所列半监督基线；8 标注病例时优势消失甚至落后于部分基线，与作者“标注较多时提升有限”的陈述一致 [p. 3–4]。</p>
-<p>局限与缺失证据：仅在一个数据集、一个半监督框架（MT）上验证，作者自述实验较简单 [p. 4]；未报告提示点数量、不确定性阈值、SAM 推理频率、$\lambda_s$ 的具体消融；未报告多次运行方差或统计检验；Table II 中 2 标注病例的 95HD 劣于 DTML，说明边界精度并非一致改善 [p. 4]。此外，式 (3) 的符号与正文 $L_{sam}$ 不一致，需注意 [p. 3]。</p>
-<h2>6. 复现要点</h2>
-<p>已报告：LA 数据集 80/20 划分；V-Net 与 SAM-Med3D；SGD，lr=0.01，每 2500 迭代衰减 10 倍，6000 迭代；patch 128×128×128；$\lambda_c$ 与 $\lambda_s$ 的 ramp 公式；A100 GPU；代码链接 [p. 3]。</p>
-<p>未报告或无法确认：batch size、EMA 衰减 $\alpha$ 的具体值、提示点生成的具体规则与数量、不确定性度量方式及阈值、SAM-Med3D 是否冻结、SAM 分支前向频率、数据预处理与增强细节、推理时的集成方式。这些信息在正文中未给出，复现时需自行设定并明确标注为假设。</p></div>
-</details>
-</div>
-<div class="card">
-<div class="title">Leveraging CORAL-Correlation Consistency Network for Semi-Supervised Left Atrium MRI Segmentation</div>
-<div class="meta-line">Authors: Xinze Li, Runlin Huang, Zhenghao Wu, Bohan Yang, Wentao Fan, Chengzhang Zhu, Weifeng Su</div>
-<div class="meta-line">First: 2024-10-21T11:46:28+00:00 · Latest: 2024-10-21T11:46:28+00:00</div>
-<div class="meta-line">Comments: 5 pages, 3 figures, Accepted by 2024 IEEE International Conference on Bioinformatics and Biomedicine (BIBM 2024)</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2410.15916v1">Abs</a> · <a href="https://arxiv.org/pdf/2410.15916v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Semi-supervised learning (SSL) has been widely used to learn from both a few labeled images and many unlabeled images to overcome the scarcity of labeled samples in medical image segmentation. Most current SSL-based segmentation methods use pixel values directly to identify similar features in labeled and unlabeled data. They usually fail to accurately capture the intricate attachment structures in the left atrium, such as the areas of inconsistent density or exhibit outward curvatures, adding to the complexity of the task. In this paper, we delve into this issue and introduce an effective solution, CORAL(Correlation-Aligned)-Correlation Consistency Network (CORN), to capture the global structure shape and local details of Left Atrium. Diverging from previous methods focused on each local pixel value, the CORAL-Correlation Consistency Module (CCM) in the CORN leverages second-order statistical information to capture global structural features by minimizing the distribution discrepancy between labeled and unlabeled samples in feature space. Yet, direct construction of features from unlabeled data frequently results in ``Sample Selection Bias&#x27;&#x27;, leading to flawed supervision. We thus further propose the Dynamic Feature Pool (DFP) for the CCM, which utilizes a confidence-based filtering strategy to remove incorrectly selected features and regularize both teacher and student models by constraining the similarity matrix to be consistent. Extensive experiments on the Left Atrium dataset have shown that the proposed CORN outperforms previous state-of-the-art semi-supervised learning methods.</div></details>
-<details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>利用CORAL-相关性一致性网络进行半监督左心房MRI分割</div>
-<div class="mono" style="margin-top:8px">半监督学习（SSL）已被广泛用于从少量标注图像和大量未标注图像中学习，以克服医学图像分割中标注样本稀缺的问题。当前大多数基于SSL的分割方法直接使用像素值来识别标注数据与未标注数据中的相似特征。它们通常无法准确捕捉左心房中复杂的附着结构，例如密度不一致或呈现向外曲率的区域，这增加了任务的复杂性。本文深入探讨了这一问题，并引入了一种有效的解决方案——CORAL（相关性对齐）-相关性一致性网络（CORN），以捕捉左心房的全局结构形状和局部细节。与以往关注每个局部像素值的方法不同，CORN中的CORAL-相关性一致性模块（CCM）利用二阶统计信息，通过最小化特征空间中标注样本与未标注样本之间的分布差异来捕捉全局结构特征。然而，直接从无标注数据构建特征常常导致“样本选择偏差”，从而产生有缺陷的监督。因此，我们进一步为CCM提出了动态特征池（DFP），它利用基于置信度的过滤策略来移除错误选择的特征，并通过约束相似矩阵保持一致来正则化教师模型和学生模型。在左心房数据集上的大量实验表明，所提出的CORN优于以往最先进的半监督学习方法。</div>
-</details>
-<details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">论文提出 CORN，用于左心房 MRI 半监督分割：以双 V-Net 交叉伪监督为基线，引入基于二阶统计量（协方差）的 CORAL-Correlation 一致性模块（CCM）对齐有/无标签特征分布，并用动态特征池（DFP）做置信度筛选与融合以缓解样本选择偏差。在 LA 数据集 100 例（80 训练/20 测试）上，5%/10%/20% 标注比例下 Dice 分别为 88.23%/89.70%/91.22%，均优于所列 SOTA；消融显示 CCM 与 DFP 各自有效，但部分表格数字排版不清、超参细节与统计显著性未报告。</div>
-</details>
-<details class="detail" open><summary>论文解读</summary>
-<div class="meta-line">来源：PDF 全文，共 5 页；5 页可提取文字</div>
-<div style="margin:12px 0"><p><b>原论文流程图 · Figure 2 · PDF 第 2 页</b></p><img src="assets/figures/086e5da54308b66eb4710452.png" alt="原论文流程图 · Figure 2 · PDF 第 2 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 2. Overview of our segmentation network. The CORN unifies the Dl denotes the given of N labeled images, with S =W ×H DynamicFeaturePoolwithaconsistencyfilteringstrategytocaptureglobal andlocalfeaturesfrombothlabeledandunlabeledimages. as the image size. y 1 ∗ i and y 2 ∗ i indicate the ground truths, while p and p represent the segmentation confidence map <a href="https://arxiv.org/pdf/2410.15916v1#page=2">原文来源</a></p></div>
-<div class="reading-notes"><h1>论文阅读笔记：CORAL-Correlation Consistency Network (CORN) 用于半监督左心房 MRI 分割</h1>
-<h2>1. 问题与动机</h2>
-<p>左心房（LA）在心脏 MRI 中对比度衰减、腔体较小且壁薄，精确分割对心脏疾病诊断与监测很重要 [p. 1]。深度分割依赖大量标注，而医学图像标注稀缺，因此半监督学习（SSL）成为可行路线 [p. 1]。作者指出，现有 SSL 分割方法多直接使用像素值寻找有/无标签数据中的相似特征，难以准确刻画左心房复杂的附着结构（密度不一致区域、向外弯曲区域），并容易产生错误伪标签；错误伪标签累积会误导模型 [p. 1]。此外，以往方法以像素级监督为主，偏重局部信息而忽视全局形状 [p. 1]。作者还强调，直接从无标签数据构造特征会带来“Sample Selection Bias”，导致监督不可靠 [p. 1]。</p>
-<h2>2. 方法</h2>
-<p>整体框架见图 2 [p. 2]：双并行编码器（主编码器 Emain 与辅助编码器 Eaux）分别提取特征并输出分割置信图；分割结果经投影头送入动态特征池（DFP）做特征筛选与动态更新；DFP 输出的高质量锚点特征进入 CORAL-Correlation 一致性模块（CCM），对齐有标签（源域）与无标签（目标域）特征的二阶统计分布。</p>
-<p>总损失为 L = Ls + λc·lc + λd·ld（式 1）[p. 2]。其中 Ls 是仅在标注数据上计算的像素级交叉熵监督（式 2），lc 是 CPS 式双向交叉伪监督损失（式 3），ld 是所提出的 CORAL-Correlation 一致性损失（式 6）。λc、λd 控制后两项权重 [p. 2]。</p>
-<p>CCM 的核心：设投影头 gm、ga 分别接在主/辅编码器后，zm、za ∈ R^{m×c'} 为无标签样本匹配位置上的两组特征嵌入（m 为采样特征数，c' 为投影维度）；zp ∈ R^{n×c'} 为有标签数据采样的锚点特征（n 为锚点数）。CORAL 损失定义为源与目标特征协方差矩阵之差的 Frobenius 范数平方，并除以 4c'^2（式 4）[p. 3]。随后构造 CORAL-Correlation 矩阵 CORRmp ∈ R^{m×n}，其元素为各锚点与各无标签特征之间的 CORAL 距离（式 5）[p. 3]；同理用 za 替换 zm 得到 CORRap。最终 ld 为两个分支相关矩阵之间的交叉熵（式 6），即约束两条分支的相关性分布一致 [p. 3]。</p>
-<p>DFP：为每个有标签训练实例初始化 N 个槽位，用 gm、ga 投影的有标签特征动态更新锚点嵌入；仅从 Emain 与 Eaux 预测一致的像素位置选取特征，以保证可靠性；采用可调权重的旧/新特征平均融合，并借鉴动量对比的 query-like 机制刷新槽位 [p. 3]。锚点采样策略：先找两网络预测一致的像素，再按类别按置信度排序，取每类前 i 个像素特征，共 s = i×C 个（C 为类别数）；同时从特征池 P 中每类随机选 j 个嵌入以增加多样性；并随机选取一部分低置信度特征以防过拟合，最终共 n = j×C 个嵌入 [p. 3]。</p>
-<h2>3. 贡献</h2>
-<p>作者声称的贡献有三点 [p. 2]：(1) 提出 CORN，利用二阶统计特征同时捕捉全局结构与局部细节；(2) 提出 DFP，用置信度过滤与一致性策略减轻无标签数据中不准确特征的负面影响；(3) 在 LA 数据集上广泛实验，证明优于此前 SOTA。我的解读：方法的新意主要在于把 CORAL 的协方差对齐思想从域适应迁移到半监督分割的特征一致性正则，并用 DFP 处理无标签特征筛选；但整体仍建立在 CPS 双网络框架之上，属于模块级创新而非全新范式。</p>
-<h2>4. 实验与结果</h2>
-<p>数据集：LA 数据集 [1]，100 例钆增强 MRI，各向同性分辨率 0.6253 mm；按 [20] 划分 80 例训练、20 例测试 [p. 3]。</p>
-<p>实现：PyTorch 2.4.0 + CUDA 12.1，单张 NVIDIA A100；随机裁剪 112×112×80 子体积；骨干为 V-Net [21]；batch size 4（有/无标签各半）；SGD，学习率 0.01，动量 0.9，权重衰减 1×10^-4，训练 1.5×10^4 次迭代；时间相关高斯函数 λ(t)=β·e^{(-5×(1-t/tmax))^2}，β=1.00，λc 与 λd 初始均为 0.1；CCM 参数 c'=64、j=256、i=12800；推理用滑动窗口、无后处理 [p. 4]。</p>
-<p>评价指标：Dice(%)↑、Jaccard(%)↑、95HD(voxel)↓、ASD(voxel)↓ [p. 4]。</p>
-<p>主要结果（表 I）[p. 4]：5% 标注（4 例有标签/76 例无标签）下，CORN 为 Dice 88.23、Jaccard 79.12、95HD 9.51、ASD 1.73；对比 CAML 86.78/75.97/10.34/2.89、MC-Net+ 83.23/71.70/14.92/3.43、SS-Net 83.33/71.79/15.70/4.33、DTC 80.14/67.88/24.08/7.18。10% 标注（8/72）下 CORN 为 89.70/81.45/7.26/1.62，对比 CAML 89.33/80.17/8.82/2.08、MC-Net+ 87.68/78.27/10.35/1.85、CE-MT 87.34/77.91/8.79/2.12。20% 标注（16/64）下 CORN 为 91.22/83.96/5.34/1.54，对比 CAML 90.37/82.56/5.64/1.72、MC-Net+ 90.60/82.93/6.27/1.58。全监督 V-Net（80 例）为 90.98/83.61/8.58/2.10 [p. 4]。作者称 20% 时 91.22% Dice 已非常接近全监督模型；5% 时 95HD 比此前 SOTA 低 1.31%、ASD 低 1.00% [p. 4]。</p>
-<p>消融（表 II，基线 MC-Net）[p. 5]：5% 标注下 Baseline 为 74.79/61.91/22.93/7.01；+CCM 为 87.67/78.24/10.23/1.83；+DFP 为 87.74/78.33/10.82/1.95；两者合用为 88.23/79.12/9.51/1.73。10% 下 Baseline 79.75/68.82/15.74/4.27，+CCM 89.79/81.62/7.41/1.73，+DFP 89.64/81.42/7.57/1.78，合用 89.70/81.45/7.26/1.62。20% 下 Baseline 86.50/77.50/10.90/2.91，+CCM 90.91/83.47/5.73/1.51，+DFP 89.98/82.56/5.94/1.59，合用 91.22/83.96/5.34/1.54。作者称两模块合用带来 Dice +13.25%、95HD +13.42%、ASD +5.28% 的提升（5% 标注），并称 +CCM 单独带来 95HD 12.7% 提升 [p. 5]。需注意表 II 中部分数字排版粘连（如 10.23 与 1.83），上述数值按可辨认的列位置读取，存在一定不确定性。</p>
-<p>域对齐分析：作者用 CORAL 损失曲线（图 3）说明训练中损失稳定下降对应域对齐改善 [p. 4]；但未给出定量对齐指标。</p>
-<h2>5. 评估</h2>
-<p>支持的结论：在 LA 数据集、给定标注比例与所列基线条件下，CORN 在四项指标上均取得表 I 中的最优值；消融表明 CCM 与 DFP 各自及组合均优于基线，尤其 5% 低标注场景提升明显。作者关于“避免分割断裂、改善边界细节”的说法主要依赖图 1 的可视化与 95HD/ASD 数值，属于间接证据 [p. 1–2, p. 4]。</p>
-<p>局限与缺失证据：仅在一个数据集（LA）上验证，未报告跨数据集或跨中心结果；未报告多次运行的均值/方差或统计显著性检验；未报告参数量、推理时间或显存开销；λc、λd 的敏感性分析缺失；DFP 中 N、融合权重、低置信度采样比例等未明确给出；表 II 部分数字排版不清，个别数值需谨慎对待；图 1 的可视化结论未量化。</p>
+<p>支持的结论：在三个不同模态数据集上，Semi-AGCL在5%和10%标注下多数指标优于所列基线，尤其CRAG和ACDC的5%场景提升明显；消融文字支持亲和图损失和熵采样各自有贡献。局限与缺失证据：表I、IV、V、VI排版错乱，多个数字无法与条件一一对应；$\gamma$ 在正文与Listing 1中含义冲突；式3中 $\gamma=-1$ 与“平衡相对重要性”的常规解释不符；未报告多次运行的均值/方差或显著性检验；未说明教师网络更新方式（如EMA动量）；“26.57%”提升在正文中缺少可核对的计算；ACDC 10%时HD95/ASD变差的解释仅为推测。</p>
 <h2>6. 复现</h2>
-<p>已报告：数据划分 80/20；裁剪 112×112×80；V-Net 骨干；batch 4（有/无标签各半）；SGD lr=0.01、momentum=0.9、weight decay=1e-4；1.5×10^4 迭代；λ(t) 公式与 β=1.00、λc=λd=0.1 初始值；c'=64、j=256、i=12800；滑动窗口推理、无后处理 [p. 3–4]。未报告：DFP 槽位数 N、新旧特征融合权重的具体形式与取值、低置信度特征采样比例、投影头结构、数据预处理/归一化细节、随机种子与硬件以外环境、代码与预训练权重链接。复现时应先按上述设置搭建 CPS 双 V-Net 基线，再依次加入 CCM 与 DFP，并以表 II 的 5% 设置作为对照起点。</p></div>
+<p>已报告：Adam、batch size 16、学习率1e-4、$\tau=0.2$、$\lambda=4$、$\gamma=-1$、Top-n为0.999/0.25/0.2/20、ACDC的2D U-Net与256×256输入、170×170掩码零值区、batch size 24、10k预训练+30k自训练、数据划分比例、评价指标。未报告或无法辨认：教师更新策略与动量系数、数据增强的具体组合、块大小与块数 $N$、内存库大小 $K$、动态阈值 $\theta$ 的取值、$\sigma$ 的自适应计算方式、优化器权重衰减、训练总轮数（LA/CRAG）、随机种子具体值、基线复现的完整配置。复现时应优先核对原PDF中的表I、IV、V、VI，并澄清 $\gamma$ 与 $\lambda$ 的符号定义。</p></div>
 </details>
 </div>
 <div class="card">
-<div class="title">Shape Transformation Driven by Active Contour for Class-Imbalanced Semi-Supervised Medical Image Segmentation</div>
-<div class="meta-line">Authors: Yuliang Gu, Yepeng Liu, Zhichao Sun, Jinchi Zhu, Yongchao Xu, Laurent Najman</div>
-<div class="meta-line">Venue: 2024 IEEE International Conference on Bioinformatics and Biomedicine (BIBM), Dec 2024, Lisbon (Portugal), Portugal</div>
-<div class="meta-line">First: 2024-10-18T06:52:51+00:00 · Latest: 2024-10-18T06:52:51+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2410.14210v1">Abs</a> · <a href="https://arxiv.org/pdf/2410.14210v1">PDF</a> · <a href="https://github.com/GuGuLL123/STAC">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<div class="title">Manifold-Aware Local Feature Modeling for Semi-Supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Sicheng Shen, Jinming Cao, Yifang Yin, Roger Zimmermann</div>
+<div class="meta-line">First: 2024-10-14T08:40:35+00:00 · Latest: 2024-10-14T08:40:35+00:00</div>
+<div class="meta-line">Comments: 11 pages</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2410.10287v1">Abs</a> · <a href="https://arxiv.org/pdf/2410.10287v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/MANet">Code3</a></div>
 <details class="detail"><summary>Abstract</summary>
-<div class="mono">Annotating 3D medical images demands expert knowledge and is time-consuming. As a result, semi-supervised learning (SSL) approaches have gained significant interest in 3D medical image segmentation. The significant size differences among various organs in the human body lead to imbalanced class distribution, which is a major challenge in the real-world application of these SSL approaches. To address this issue, we develop a novel Shape Transformation driven by Active Contour (STAC), that enlarges smaller organs to alleviate imbalanced class distribution across different organs. Inspired by curve evolution theory in active contour methods, STAC employs a signed distance function (SDF) as the level set function, to implicitly represent the shape of organs, and deforms voxels in the direction of the steepest descent of SDF (i.e., the normal vector). To ensure that the voxels far from expansion organs remain unchanged, we design an SDF-based weight function to control the degree of deformation for each voxel. We then use STAC as a data-augmentation process during the training stage. Experimental results on two benchmark datasets demonstrate that the proposed method significantly outperforms some state-of-the-art methods. Source code is publicly available at https://github.com/GuGuLL123/STAC.</div></details>
+<div class="mono">Achieving precise medical image segmentation is vital for effective treatment planning and accurate disease diagnosis. Traditional fully-supervised deep learning methods, though highly precise, are heavily reliant on large volumes of labeled data, which are often difficult to obtain due to the expertise required for medical annotations. This has led to the rise of semi-supervised learning approaches that utilize both labeled and unlabeled data to mitigate the label scarcity issue. In this paper, we introduce the Manifold-Aware Local Feature Modeling Network (MANet), which enhances the U-Net architecture by incorporating manifold supervision signals. This approach focuses on improving boundary accuracy, which is crucial for reliable medical diagnosis. To further extend the versatility of our method, we propose two variants: MA-Sobel and MA-Canny. The MA-Sobel variant employs the Sobel operator, which is effective for both 2D and 3D data, while the MA-Canny variant utilizes the Canny operator, specifically designed for 2D images, to refine boundary detection. These variants allow our method to adapt to various medical image modalities and dimensionalities, ensuring broader applicability. Our extensive experiments on datasets such as ACDC, LA, and Pancreas-NIH demonstrate that MANet consistently surpasses state-of-the-art methods in performance metrics like Dice and Jaccard scores. The proposed method also shows improved generalization across various semi-supervised segmentation networks, highlighting its robustness and effectiveness. Visual analysis of segmentation results confirms that MANet offers clearer and more accurate class boundaries, underscoring the value of manifold information in medical image segmentation.</div></details>
 <details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>主动轮廓驱动的形状变换用于类别不平衡的半监督医学图像分割</div>
-<div class="mono" style="margin-top:8px">标注3D医学图像需要专家知识且耗时。因此，半监督学习（SSL）方法在3D医学图像分割中引起了极大兴趣。人体内不同器官之间的显著尺寸差异导致类别分布不平衡，这是这些SSL方法在实际应用中的主要挑战。为解决此问题，我们提出了一种新颖的主动轮廓驱动的形状变换（STAC），通过放大较小器官来缓解不同器官间的类别分布不平衡。受主动轮廓方法中曲线演化理论的启发，STAC采用符号距离函数（SDF）作为水平集函数来隐式表示器官形状，并沿SDF最速下降方向（即法向量）变形体素。为确保远离扩张器官的体素保持不变，我们设计了一种基于SDF的权重函数来控制每个体素的变形程度。随后，我们在训练阶段将STAC用作数据增强过程。在两个基准数据集上的实验结果表明，所提方法显著优于一些最先进的方法。源代码公开于https://github.com/GuGuLL123/STAC。</div>
+<div class="mono"><b>标题：</b>面向半监督医学图像分割的流形感知局部特征建模</div>
+<div class="mono" style="margin-top:8px">实现精确的医学图像分割对于有效的治疗规划和准确的疾病诊断至关重要。传统的全监督深度学习方法虽然精度很高，但严重依赖大量标注数据，而由于医学标注需要专业知识，这些数据往往难以获取。这促使了利用有标注和无标注数据来缓解标签稀缺问题的半监督学习方法的兴起。本文提出了流形感知局部特征建模网络（MANet），通过引入流形监督信号增强U-Net架构。该方法侧重于提升边界精度，这对于可靠的医学诊断至关重要。为进一步扩展方法的通用性，我们提出了两个变体：MA-Sobel和MA-Canny。MA-Sobel变体采用Sobel算子，对2D和3D数据均有效；MA-Canny变体采用专为2D图像设计的Canny算子来细化边界检测。这些变体使我们的方法能够适应各种医学图像模态和维度，确保更广泛的适用性。我们在ACDC、LA和Pancreas-NIH等数据集上的大量实验表明，MANet在Dice和Jaccard分数等性能指标上持续超越最先进方法。所提方法还在各种半监督分割网络中展现出改进的泛化能力，凸显了其鲁棒性和有效性。分割结果的视觉分析证实，MANet提供了更清晰、更准确的类别边界，强调了流形信息在医学图像分割中的价值。</div>
 </details>
 <details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">论文提出STAC：用有符号距离函数(SDF)隐式表示小器官形状，沿SDF梯度（法向）方向对体素做形变，并用SDF权重函数控制形变范围，从而在训练中把较小器官“放大”以缓解类不平衡。STAC作为即插即用的数据增强，可同时作用于有标注和无标注样本（无标注样本用伪SDF）。在AMOS 2%/5%与Synapse 10%/20%标签预算下，将STAC叠加到CReST、SimiS、CLD、DHC四个基线上，报告Dice一致提升；例如AMOS 2%下DHC+STAC平均Dice由45.8提升至53.9（+8.2），5%下由49.2提升至53.9（+4.7）。消融显示仅对标注数据做形变也有提升，且α=1、β=−1时最佳。</div>
-</details>
-<details class="detail" open><summary>论文解读</summary>
-<div class="meta-line">来源：PDF 全文，共 8 页；8 页可提取文字</div>
-<div style="margin:12px 0"><p><b>原论文流程图 · Figure 2 · PDF 第 3 页</b></p><img src="assets/figures/46042fdf1d73995abe58e1b7.png" alt="原论文流程图 · Figure 2 · PDF 第 3 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 2. The pipeline of the proposed STAC framework, that is used for data-augmentation. For unlabeled samples, the Fastest Descent Direction (FDD) is definedasthegradientoftheSignedDistanceFunction(SDF),whichrepresentsthedirectionofAdaptiveDeformationMap(ADM).ThedegreeoftheADM is SDF-based weight function. The shape transformation for enlarging smaller organs is obtained by interpolating the unlabeled images and pseudo labels accordingtotheADM.Forlabeledsamples,theADMisdirectlyobtainedusingthelabel. <a href="https://arxiv.org/pdf/2410.14210v1#page=3">原文来源</a></p></div>
-<div class="reading-notes"><h1>STAC：主动轮廓驱动的形状变换用于类不平衡半监督医学图像分割</h1>
-<h2>1. 问题与动机</h2>
-<p>论文针对3D医学图像半监督分割中的<strong>跨器官类不平衡</strong>：人体不同器官体素数差异很大，小器官（如肾上腺、胆囊、十二指肠等）在损失中占比低，导致半监督方法对其表征和伪标签质量较差[p. 1]。作者指出，已有类不平衡SSL工作主要从损失重加权、采样、伪标签校正或分类器去偏等角度处理（如CReST、CLD、DHC），但“没有从数据层面的直观角度解决”——即某些器官本身太小、体素太少[p. 1][p. 3]。因此本文的思路是直接在数据层面把小器官“放大”，以平衡各类体素分布。</p>
-<h2>2. 方法</h2>
-<h3>2.1 主动轮廓/水平集基础</h3>
-<p>作者借用主动轮廓的曲线演化：曲线沿法向以速度V演化，∂C/∂t = V·N；水平集用函数φ的零水平集隐式表示曲线，演化方程为 ∂φ/∂t = V||∇φ||[p. 3]。这为“沿法向形变、用SDF作水平集函数”提供依据。</p>
-<h3>2.2 SDF表示与形变图</h3>
-<p>对标注样本(X_l, Y)，设少数类集合为M，待放大的器官区域 O = {p | Y(p) ∈ M}。定义SDF：
-- p在O内部：φ_O(p) = −inf_{q∈∂O} ||p−q||₂；
-- p在边界∂O：φ_O(p)=0；
-- p在O外部：φ_O(p)=+inf_{q∈∂O} ||p−q||₂[p. 4, Eq.(1)]。</p>
-<p>SDF的法向为 N_O = (∂φ_O/∂x, ∂φ_O/∂y, ∂φ_O/∂z)。为让远离器官的体素不被改变，设计基于SDF的权重：
-W_O(x,y,z) = α × exp(β × |φ_O(x,y,z)|)  [p. 4, Eq.(2)]，
-其中α、β为超参数。自适应形变图（ADM）为 D_O = W_O × N_O [p. 4, Eq.(3)]。</p>
-<p>随后按形变图对图像和标签做坐标重采样：
-X_transformed(x,y,z) = X_l(x + (∂φ_O/∂x)·W_O, y + (∂φ_O/∂y)·W_O, z + (∂φ_O/∂z)·W_O) [p. 4, Eq.(4)]，
-Y_transformed同理 [p. 4, Eq.(5)]。对无标注样本X_u，用网络预测的伪SDF φ_pre 计算形变图，再对X_u及其伪标签Ŷ做同样变换[p. 4]。图2（p. 3）给出整体流程：无标注样本的“最快下降方向(FDD)”取SDF梯度，形变程度由SDF权重函数控制；有标注样本直接用标签得到ADM。</p>
-<h3>2.3 网络与训练损失</h3>
-<p>STAC被设计为即插即用，可嵌入任意SSL方法；论文以双网络互监督为示例[p. 4]。每个网络i∈{1,2}含特征提取f_i、分割头h_i，并额外增加一个回归头g_i预测SDF。</p>
-<p>有标注数据损失：
-- 分割：L_l^seg = ℓ_ce(P_l^1, Y) + ℓ_ce(P_l^2, Y) [p. 4, Eq.(6)]；
-- SDF回归：L_l^sdf = ||φ_pre^1 − φ_Y||₂ + ||φ_pre^2 − φ_Y||₂ [p. 4, Eq.(7)]。</p>
-<p>无标注数据互监督损失：
-- 分割：L_u^seg = ℓ_ce(P_u^1, Ŷ^2) + ℓ_dc(P_u^2, Ŷ^1) [p. 4, Eq.(8)]，其中Ŷ^1、Ŷ^2分别来自P_u^1、P_u^2；
-- SDF一致性：L_u^sdf = ||φ_pre^1 − φ_pre^2||₂ [p. 4, Eq.(9)]。</p>
-<p>作者总结：方法本质是在基础网络上增加一个SDF预测头及对应损失，并在训练中用X_transformed与Y_transformed作为数据增强[p. 4]。</p>
-<h2>3. 贡献</h2>
-<p>作者声称的贡献是：提出STAC，用SDF作为水平集函数、沿SDF最速下降方向（法向）形变体素以放大较小器官；设计SDF权重函数使远离器官的体素保持不变；将STAC作为训练期数据增强，并在两个基准上显著优于若干SOTA[p. 1][p. 4][p. 6]。</p>
-<p>我的解读：其新颖点主要在于把主动轮廓/水平集的“沿法向演化”转化为可微/可重采样的数据增强算子，并用SDF权重限制影响范围；与弹性形变等通用增强相比，STAC是<strong>类别定向</strong>的（只放大少数类），这是其与普通形状增强的关键区别。但论文并未从理论上证明形变后分布与真实分布一致，主要证据是经验性消融与对比。</p>
-<h2>4. 实验与结果</h2>
-<h3>4.1 数据与设置</h3>
-<ul>
-<li>数据集：AMOS（360 scans，216/24/120训练/验证/测试，15个前景类）与Synapse（30 scans，20/4/6训练/验证/测试；类别与AMOS略有差异）[p. 4][p. 5]。</li>
-<li>标签预算：AMOS用2%和5%标注；Synapse用10%和20%标注[p. 5]。</li>
-<li>指标：Dice（↑）与平均表面距离ASD（↓）[p. 5]。</li>
-<li>基线：CReST、SimiS、CLD、DHC；STAC分别叠加到这四个方法上[p. 5]。</li>
-<li>训练细节：论文称遵循DHC[15]的实验设置[p. 4][p. 5]；但网络backbone、优化器、学习率、迭代次数、批大小、α/β默认值等具体训练超参在正文中<strong>未明确报告</strong>（仅报告调参结果）。</li>
-</ul>
-<h3>4.2 主要对比结果</h3>
-<ul>
-<li>AMOS 2%：DHC+STAC平均Dice 53.9，较DHC的45.8提升8.2%；CReST+STAC 37.1（+5.0），SimiS+STAC 53.7（+4.1），CLD+STAC 50.9（+1.6）[p. 5][p. 6]。</li>
-<li>AMOS 5%：DHC+STAC 53.9，较DHC的49.2提升4.7%；CReST+STAC 48.0（+1.0），SimiS+STAC 38.0（+0.5），CLD+STAC 40.0（+3.4）[p. 5][p. 6]。</li>
-<li>Synapse 10%：CReST+STAC 38.4（+1.9），SimiS+STAC 43.5（+1.7），CLD+STAC 46.2（+1.2），DHC+STAC 50.7（+2.9）[p. 6]。</li>
-<li>Synapse 20%：CReST+STAC 26.9（+2.6），SimiS+STAC 29.1（+4.6），CLD+STAC 29.7（+5.6），DHC+STAC 34.8（+4.8）[p. 6]。</li>
-<li>正文还概括：Synapse 10%下四个基线分别提升2.6%、4.6%、5.6%、4.8%[p. 6]；该句与表中逐项数字的对应关系在排版上较难完全核对，需以表格为准。</li>
-<li>ASD：表III报告ASD对比，正文未逐项展开；从表III可见STAC组合的ASD总体低于对应基线（如DHC 20.1→13.5等），但表格文本在PDF抽取中较混乱，具体逐类数值<strong>无法可靠辨认</strong>[p. 5]。</li>
-</ul>
-<h3>4.3 消融</h3>
-<ul>
-<li>与其他形状变换比较（AMOS 2%，DHC基线）：随机弹性增强Dice 37.6、ASD 20.1；Anatomy-informed[41] Dice 40.1、ASD 20.7；STAC Dice 45.8、ASD 13.5；作者称STAC比anatomy-informed提升5.8% Dice，且弹性增强虽略提Dice但增大ASD[p. 5][p. 6]。</li>
-<li>超参数α、β：图4展示权重函数曲线，图5为AMOS 5%下DHC基线的Dice热图；最佳为α=1、β=−1，Dice 53.9[p. 6][p. 7]。</li>
-<li>仅对标注数据做形变（STAC(L)）与同时用于标注+无标注（STAC(U+L)）：表V显示两者均优于DHC基线；例如DHC+STAC(L) Dice 48.0（+1.0），DHC+STAC(U+L) 53.9（+4.7）（AMOS 2%）[p. 5][p. 6]。这说明无标注样本上的伪SDF形变带来额外收益，但仅标注形变已有正向效果。</li>
-<li>定性结果：图3展示AMOS上3D视图与2D切片对比[p. 7]；本文仅依据图注与正文，不解读图像内容。</li>
-</ul>
-<h2>5. 评估</h2>
-<p>支持的结论：在作者设定的两个数据集与标签预算下，STAC叠加到四个类不平衡SSL基线上普遍提升Dice，且AMOS 2%下DHC+STAC的+8.2%是报告的最大增益[p. 5][p. 6]。消融支持“沿法向的SDF形变优于随机弹性/解剖先验形变”以及“α=1、β=−1较优”的经验主张[p. 6]。</p>
-<p>局限与缺失证据：
-- 训练细节（backbone、优化器、学习率、训练轮数、批大小、伪标签阈值、α/β是否固定为1/−1用于所有主实验）未在正文明确报告，复现性受限。
-- 表I、II、VI、VII在PDF文本抽取中列对齐严重错乱，逐类数值难以可靠辨认；本文只引用正文明确概括的平均Dice与增益，未逐类核对。
-- 仅在两个腹部多器官数据集上验证，未报告其他模态/器官体系；对“形变后图像是否保持解剖合理性”仅有定性图与ASD间接证据，缺少放射科医生评估或分布检验。
-- 未报告计算开销、形变带来的预处理时间，也未讨论形变可能造成的标签重叠/拓扑错误。</p>
-<h2>6. 复现要点</h2>
-<p>已报告：AMOS 216/24/120划分、15类；Synapse 20/4/6划分；标签比例AMOS 2%/5%、Synapse 10%/20%；指标Dice与ASD；基线CReST、SimiS、CLD、DHC；双网络互监督、交叉熵分割损失、SDF L2回归/一致性损失；形变公式Eq.(1)–(5)；最佳α=1、β=−1（AMOS 5% DHC基线调参）[p. 4][p. 5][p. 6]。代码链接在摘要中给出。</p>
-<p>未报告/需查代码：具体backbone与初始化、优化器与学习率、训练迭代/早停、批大小与patch尺寸、伪标签生成阈值、SDF标签的截断距离、形变插值方式（如三线性）、α/β在主实验中的取值、随机种子与重复次数、显著性检验。上述信息在正文中<strong>未明确说明</strong>，复现时应以作者公开代码为准，不能从本文推断。</p></div>
-</details>
-</div>
-<div class="card">
-<div class="title">SemSim: Revisiting Weak-to-Strong Consistency from a Semantic Similarity Perspective for Semi-supervised Medical Image Segmentation</div>
-<div class="meta-line">Authors: Shiao Xie, Hongyi Wang, Ziwei Niu, Hao Sun, Shuyi Ouyang, Yen-Wei Chen, Lanfen Lin</div>
-<div class="meta-line">First: 2024-10-17T12:31:37+00:00 · Latest: 2024-10-17T12:31:37+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2410.13486v1">Abs</a> · <a href="https://arxiv.org/pdf/2410.13486v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Semi-supervised learning (SSL) for medical image segmentation is a challenging yet highly practical task, which reduces reliance on large-scale labeled dataset by leveraging unlabeled samples. Among SSL techniques, the weak-to-strong consistency framework, popularized by FixMatch, has emerged as a state-of-the-art method in classification tasks. Notably, such a simple pipeline has also shown competitive performance in medical image segmentation. However, two key limitations still persist, impeding its efficient adaptation: (1) the neglect of contextual dependencies results in inconsistent predictions for similar semantic features, leading to incomplete object segmentation; (2) the lack of exploitation of semantic similarity between labeled and unlabeled data induces considerable class-distribution discrepancy. To address these limitations, we propose a novel semi-supervised framework based on FixMatch, named SemSim, powered by two appealing designs from semantic similarity perspective: (1) rectifying pixel-wise prediction by reasoning about the intra-image pair-wise affinity map, thus integrating contextual dependencies explicitly into the final prediction; (2) bridging labeled and unlabeled data via a feature querying mechanism for compact class representation learning, which fully considers cross-image anatomical similarities. As the reliable semantic similarity extraction depends on robust features, we further introduce an effective spatial-aware fusion module (SFM) to explore distinctive information from multiple scales. Extensive experiments show that SemSim yields consistent improvements over the state-of-the-art methods across three public segmentation benchmarks.</div></details>
-<details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>SemSim：从语义相似性视角重新审视弱到强一致性用于半监督医学图像分割</div>
-<div class="mono" style="margin-top:8px">医学图像分割的半监督学习（SSL）是一项具有挑战性但高度实用的任务，它通过利用无标签样本减少对大规模标注数据集的依赖。在SSL技术中，由FixMatch推广的弱到强一致性框架已成为分类任务中的最先进方法。值得注意的是，这种简单的流程在医学图像分割中也表现出有竞争力的性能。然而，仍存在两个关键限制，阻碍了其高效适应：（1）忽视上下文依赖导致相似语义特征的预测不一致，从而造成目标分割不完整；（2）缺乏对标注数据与无标签数据之间语义相似性的利用，导致相当大的类别分布差异。为解决这些限制，我们提出了一种基于FixMatch的新型半监督框架，名为SemSim，其由语义相似性视角下的两个有吸引力的设计驱动：（1）通过推理图像内成对亲和图来校正逐像素预测，从而将上下文依赖显式整合到最终预测中；（2）通过特征查询机制连接标注数据与无标签数据，以实现紧凑的类别表示学习，该机制充分考虑了跨图像的解剖相似性。由于可靠的语义相似性提取依赖于鲁棒特征，我们进一步引入了一种有效的空间感知融合模块（SFM），以从多个尺度探索独特信息。大量实验表明，SemSim在三个公开分割基准上相较于最先进方法取得了持续改进。</div>
-</details>
-<details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">SemSim 在 FixMatch 弱-强一致性框架上，从语义相似性角度增加两项约束：一是用图像内特征亲和图修正像素预测（L_intra），二是用标注数据的局部类原型查询无标注特征（L_cross），并引入空间感知融合模块（SFM）增强多尺度特征。在 ACDC、ISIC、PROMISE12 三个数据集上，SemSim 在 1%/5%/10%、3%/10%、3%/7% 标注比例下均报告了优于 20 个对比方法的 DSC 和表面距离指标；消融显示两项约束互补，SFM 带来额外提升。但部分表格排版错乱、若干实现细节未报告，需谨慎看待其可复现性与统计显著性。</div>
+<div class="mono" style="margin-top:8px">MANet 在 U-Net 解码器上增加一条流形分支，用 Sobel（2D/3D）或 Canny（2D）从分割监督图生成边界/表面监督，训练时与分割损失加权联合优化，推理时移除该分支，因此不增加测试参数与计算量。在 ACDC（5%/10% 标注）、LA（5%/10%）、Pancreas-NIH（20%）上以 BCP 等为基线，Dice/Jaccard 多数设置提升；ACDC 10% 时 MA-Canny 达 Dice 89.96%、Jaccard 82.25%，LA 10% 时 MA-Sobel 达 90.28%/82.37%。消融显示 α=0.05 较优，且 MANet 用于预训练与微调两阶段时最好。</div>
 </details>
 <details class="detail" open><summary>论文解读</summary>
 <div class="meta-line">来源：PDF 全文，共 11 页；11 页可提取文字</div>
 <p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
-<div class="reading-notes"><h1>SemSim 论文详细阅读笔记</h1>
+<div class="reading-notes"><h1>MANet 论文精读笔记</h1>
 <h2>1. 问题与动机</h2>
-<p>半监督医学图像分割旨在利用大量无标注数据降低标注成本。FixMatch 的弱-强一致性（弱增强预测作伪标签约束强增强预测）在分类中表现突出，作者称其在医学分割上也有竞争力，因此选为基线 [p. 1]。作者指出 FixMatch 直接迁移到分割存在两个被忽视的问题：</p>
-<ul>
-<li><strong>图像内问题</strong>：FixMatch 只做逐像素预测，未利用特征空间中隐式的成对相关性；依据标签传播思想，高相似特征应获相同标签，否则会出现分割不连续、目标不完整 [p. 2]。</li>
-<li><strong>跨图像问题</strong>：标注数据有限且监督训练利用不足，导致标注与无标注数据学到的类别分布存在差异 [p. 2]。</li>
-</ul>
-<p>作者用 Grad-CAM 和 Myo 类体素核密度估计展示 FixMatch 的分布不匹配，SemSim 可缩小该差距 [p. 2, Fig. 3]。这是作者的主张与可视化证据，非独立统计检验。</p>
+<p>作者关注半监督医学图像分割中的<strong>边界/局部区域精度</strong>：现有伪标签与一致性正则方法主要优化整体语义，边界处（如右心室腔与背景之间）仍存在明显分类错误，而医学诊断依赖器官边缘与形状的精确刻画 [p. 1][p. 2]。作者将 2D 边界推广为 3D 表面，并统称为“流形（manifold）”，提出在 U-Net 解码器中加入流形监督分支，以额外监督信号强化局部特征建模 [p. 2]。作者主张该分支只在训练期使用，测试期可移除，因此相对基线不增加推理参数或计算量 [p. 2][p. 4]。</p>
 <h2>2. 方法</h2>
-<h3>2.1 基线</h3>
-<p>对无标注图像 x_u，弱增强 A_w 得 p_w=F(A_w(x_u))，强增强 A_s 得 p_s=F(A_s(x_u))。无监督损失为</p>
-<p>L_u = (1/|B_u|) Σ 1(max(p_w)≥τ) ⊙ L_dice(p_w, p_s)，</p>
-<p>其中 B_u 为无标注批，τ 为置信阈值，1(·) 过滤低置信伪标签 [p. 3, Eq.1]。监督损失 L_s = ½(L_ce(p_l,y_l)+L_dice(p_l,y_l)) [p. 3, Eq.2]，总目标 L=λ_s L_s+λ_u L_u [p. 3, Eq.3]。</p>
-<h3>2.2 图像内语义一致性</h3>
-<p>强增强视图 x_s1 经编码器 h_θ 和多尺度 SFM 得增强特征 f̃_s1u∈R^{D×H×W}，reshape 为 D×HW 后计算亲和图 M∈R^{HW×HW}：M(k1,k2)=softmax(⟨f̃(i1,j1), f̃(i2,j2)⟩/(‖f̃(i1,j1)‖₂‖f̃(i2,j2)‖₂)) [p. 3, Eq.4]。修正预测 p_in = I(p_s)+I(p_s)·M，I(·) 为双线性插值以匹配形状 [p. 3, Eq.5]。弱视图同理得 p_w1。约束为 L_intra=(1/|B_u|)Σ1(max(p_w1)≥τ)⊙L_dice(p_w1,p_in) [p. 3, Eq.6]。</p>
-<h3>2.3 跨图像语义一致性</h3>
-<p>1) <strong>标注批类统计</strong>：将标注特征 f̃<em>Bl 划分为 N 个 δ×δ 子区域 Ω={Λ_n}，在每个子区域内按类平均得局部原型 G_c^{Λ_n}=Σ</em>{i∈Λ_n}1(y_Bl(i)=c)⊙f̃<em>Bl(i) / Σ</em>{i∈Λ_n}1(y_Bl(i)=c) [p. 4, Eq.7]。作者认为全局原型会因背景空间异质而不合理平均。</p>
-<p>2) <strong>动态查询</strong>：对无标注特征 f̃_s2u 做相同区域划分，计算与匹配子区域原型集的余弦相似度 m^{Λ_n}(i,j)=cos(f̃_s2u(i), G^{Λ_n}(j)) [p. 4, Eq.8]，得到相似度图 m∈R^{|Bl|×C×H×W}，再经 softmax 聚合为 p_cr(c)=Σ_j e^{m(j,c)} / Σ_c Σ_j e^{m(j,c)} [p. 4, Eq.9]。</p>
-<p>3) <strong>不确定性估计</strong>：计算批平均 m̄=(1/|Bl|)Σ_j m(j) [p. 4, Eq.10]，第 j 个预测不确定性 U(j)=KL[m(j)‖m̄]=Σ_c m(j,c)log(m(j,c)/m̄(c)) [p. 4, Eq.11]；平均不确定性 Ū=(1/|Bl|)Σ_j e^{-r×U(j)} [p. 5, Eq.12]，r 为超参。跨图像损失 L_cross=(1/|B_u|)Σ1(max(p_w2)≥τ)⊙L_ce(p_w2,p_cr)⊙Ū [p. 5, Eq.13]。若某子区域缺少某类原型，则用整图类原型替代 [p. 5]。</p>
-<h3>2.4 空间感知融合模块（SFM）</h3>
-<p>SFM 对第 i 至 i+2 尺度做跨尺度 patch 匹配：将对应位置 patch 展平拼接 T_cat_j=[flatten(T_ij), flatten(T_{i+1,j}), flatten(T_{i+2,j})] [p. 5, Eq.14]，再经 MSA+LN 与 MLP+LN 的 Transformer 块交互 [p. 5, Eq.15]，随后 Reshape/Split 还原各尺度 [p. 5, Eq.16]，插值统一尺寸后卷积融合 f̃=RELU(BN(Conv([I(T̃<em>i),T̃</em>{i+1},I(T̃_{i+2})]))) [p. 5, Eq.17]。作者给出复杂度分析：直接拼接多尺度序列为 O(H²W²D/16^i)，其窗口化方案降为 O(H²W²D/(16^i S²)) [p. 5]。</p>
-<h3>2.5 总损失</h3>
-<p>L̃_u=λL_u+λ_intra L_intra+λ_cross L_cross，权重分别 0.5、0.25、0.25 [p. 5, Eq.18]；总目标 L=½(L_s+L̃_u) [p. 5, Eq.19]。推理时仅需编码器+解码器前向，不经过相似性分支 [p. 6]。</p>
+<h3>2.1 整体流程</h3>
+<p>网络由编码器、双分支解码器（基分支 D_ba 与流形分支 D_mf）、伪标签生成网络和流形生成器组成（图 2，[p. 3]）。标注与未标注数据先按 batch 维拼接，一起送入编码器；解码后两分支输出再按 batch 拆分，分别计算标注/未标注损失 [p. 3][p. 4]。基分支沿用基线解码器与分割头 H_seg（输出 K 类）；流形分支为 U-Net 式结构，流形头 H_mf 输出 2 通道，表示每个像素/体素是否属于流形 [p. 4]。推理时只保留编码器与基分支 [p. 4]。</p>
+<h3>2.2 流形监督信号</h3>
+<p>对标注数据，流形监督为 M^l = M(Y^l)；对未标注数据为 M^U = M(Y_p^pseudo)，其中 Y 为分割监督图（标注真值或伪标签）[p. 4]。流形图与分割图空间尺寸相同但只有 2 通道 [p. 4]。</p>
+<p><strong>MA-Sobel</strong>：2D 时把 one-hot 分割图转为离散表示，用 3×3 Sobel 核计算 Gx、Gy，梯度幅值 G = sqrt(Gx²+Gy²)，得到 M = Sobel(Y)（式 1–3）[p. 5]。3D 时使用三个 3×3×3 核（式 4），按同样原理计算三轴梯度 [p. 5]。</p>
+<p><strong>MA-Canny</strong>：先用高斯滤波平滑分割图（式 5，σ 控制平滑程度），再对平滑图做 Sobel 梯度（式 6），最后用双阈值 T_low、T_high 将像素分为强边缘、弱边缘和非边缘 [p. 6]。实验设置为 σ=1，T_low=0.1，T_high=0.2 [p. 7]。</p>
+<h3>2.3 损失函数</h3>
+<p>基分支损失为 Dice 损失：L_base = DICE(Ŷ^l, Y^l) + DICE(Ŷ^p, Y_p^pseudo)（式 7）[p. 6]。流形分支视为二分类，使用交叉熵：L_mf = CE(M̂^l, M^l) + CE(M̂^p, M_p^pseudo) [p. 7]。总损失 L_total = (1−α)·L_base + α·L_mf，α 平衡两分支贡献 [p. 7]。</p>
 <h2>3. 贡献</h2>
-<p>作者声称的贡献：分析 FixMatch 在分割中的语义不一致问题；提出图像内与跨图像语义一致性；设计轻量 SFM；在三个公开基准上一致优于 SOTA [p. 2]。我的理解：核心新颖点是把标签传播式亲和图与基于局部原型的跨图像查询嵌入 FixMatch 一致性框架，并用不确定性加权跨图像损失；SFM 是支撑特征质量的辅助模块，其本身与多尺度 Transformer 融合思路相近。</p>
+<p>作者声称的贡献包括：提出利用流形信息提供额外监督的 MANet 模块；提出 MA-Sobel（2D/3D 通用）与 MA-Canny（2D 专用）两种变体；流形分支可无缝集成到 U-Net 类半监督基线；推理阶段可移除该分支而不增加测试成本 [p. 2]。我的解读是：核心新颖点在于“从分割监督图自动生成边界/表面监督并作为辅助解码分支”，而非新的半监督范式；其效果依赖伪标签质量与流形算子选择，作者也承认这一点 [p. 9]。</p>
 <h2>4. 实验与结果</h2>
-<h3>4.1 设置</h3>
+<h3>4.1 数据集与设置</h3>
 <ul>
-<li><strong>数据集</strong>：ACDC 心脏 MRI（200 例，70/10/20 患者训练/验证/测试；标注比例 1%（1 例）、5%（3 例）、10%（7 例））[p. 6]；ISIC 皮肤病变（1838 训练/756 验证；3%（55 张）、10%（181 张）标注）[p. 6]；PROMISE12 前列腺 MRI（35/5/10 病例；3%、7% 标注）[p. 6]。</li>
-<li><strong>骨干与训练</strong>：UNet，输入 224×224；强增强为颜色变换+CutMix，弱增强为随机翻转；批大小 16（标注与无标注各半）；SGD，权重衰减 1e-4，动量 0.9，300 epochs，初始学习率 0.01；特征级 channel dropout 50%；D=128；r=1000，τ=0.95 [p. 6]。</li>
-<li><strong>指标</strong>：ACDC/ISIC 用 DSC 与 95HD；PROMISE12 用 DSC 与 ASSD [p. 6]。</li>
+<li><strong>ACDC</strong>：100 例 2D 心脏 MRI，4 类（背景、右心室、左心室、心肌）[p. 7]。采用 5% 与 10% 标注设置 [p. 7]。</li>
+<li><strong>LA</strong>：100 例 3D LGE-MRI，各向同性 0.625×0.625×0.625 mm³ [p. 7]。采用 5% 与 10% 标注 [p. 7]。</li>
+<li><strong>Pancreas-NIH</strong>：82 例增强腹部 3D CT，按 CoraNet 设置使用 12 例（20%）标注、50 例（80%）未标注 [p. 7]。</li>
 </ul>
+<p>评价指标为 Dice、Jaccard、95HD、ASD [p. 7]。所有实验在 NVIDIA A100 上进行；以 BCP、MCF、CAML 等为基线，并严格沿用各基线原始设置，仅增加流形分支 [p. 7]。</p>
 <h3>4.2 主要结果</h3>
+<p><strong>ACDC（表 I，[p. 5]）</strong>：以 BCP 为基线，5% 标注时 MA-Canny 取得 Dice 88.76%、Jaccard 80.28%、95HD 2.28、ASD 0.63；MA-Sobel 为 88.68%/80.22%/2.34/0.76。10% 标注时 MA-Canny 为 89.96%/82.25%/1.60/0.54，MA-Sobel 为 89.82%/82.10%/3.24/0.87。作者指出 MA-Canny 在 10% 设置下较 MA-Sobel 降低 95HD 1.64、ASD 0.33，认为 Canny 更适合 2D 精细边界 [p. 7]。</p>
+<p><strong>LA（表 II，[p. 6]）</strong>：5% 标注时 MA-Sobel 为 Dice 88.03%、Jaccard 78.80%、95HD 8.51、ASD 2.32；10% 标注时为 90.28%/82.37%/6.49/1.66。作者强调 10% 时 Dice 90.28% 已接近全监督 V-Net 的 91.47% [p. 7][p. 8]。</p>
+<p><strong>Pancreas-NIH（表 III，[p. 7]）</strong>：20% 标注下 MA-Sobel 为 Dice 82.75%、Jaccard 70.90%、95HD 11.15、ASD 3.64，作者称在 Dice/Jaccard 上优于所有对比方法 [p. 8]。</p>
+<h3>4.3 跨架构泛化</h3>
+<p>表 IV（[p. 8]）显示将 MANet 结构用于 BCP、CAML、MCF 等不同基线时均带来提升；例如 CAML 上 Dice 从 89.94% 提升至 90.28%（+0.34），MCF 上从 89.79% 提升至 90.64%（+0.85），但表中具体行列对应关系在文本中较难逐项核对，需以原表为准 [p. 8]。</p>
+<h3>4.4 消融</h3>
 <ul>
-<li><strong>ACDC（Table I）</strong>：SemSim 在 1%/5%/10% 下 DSC 为 0.872/0.888/0.896，95HD 为 1.8/1.9/2.3 mm；对比 CPC-SAM 的 0.856/0.880/0.890 与 9.2/5.8/3.1 mm，作者称 5%、10% 下 DSC +0.8%、+0.6%，1% 下 DSC +1.6%、95HD −7.4 mm [p. 6–7]。参数量 2.60M，低于 DiffRect（19.37M）和 CPC-SAM（93.75M）[p. 7]。</li>
-<li><strong>ISIC（Table II）</strong>：SemSim 在 3%/10% 下 DSC 0.774/0.802，95HD 18.9/13.3 mm；对比 BCP-Net 0.769/0.794 与 24.5/18.7 mm，作者称 +0.5%/+0.8% DSC、−5.6/−5.4 mm 95HD [p. 7–8]。</li>
-<li><strong>PROMISE12（Table III）</strong>：SemSim 在 3%/7% 下 DSC 0.758/0.784，ASSD 1.6/1.3 mm；相对 Only sup 提升 +20.6%/+19.7% [p. 7–8]。</li>
+<li><strong>α 选择（表 V，[p. 8]）</strong>：在 LA 10% 标注下比较 α=0.1、0.05、0.01、0.001，α=0.05 取得 Dice 90.28%、Jaccard 82.37%、95HD 6.49、ASD 1.66，作者据此选 α=0.05 [p. 8]。</li>
+<li><strong>训练阶段（表 VI，[p. 8]）</strong>：仅预训练使用 MANet 时最终性能仍提升；仅微调阶段使用 MANet 时性能下降，作者推测随机初始化的流形分支更难收敛；两阶段都使用时最佳 [p. 8][p. 9]。</li>
 </ul>
-<p>需注意：Table II 与 Table III 在 PDF 文本中排版交错，部分数值归属需对照原表；上述数字按文本可辨认部分记录。</p>
-<h3>4.3 消融</h3>
-<ul>
-<li><strong>一致性损失（Table IV，ACDC 1%）</strong>：仅 L_u 为 0.835/7.6；仅 L_intra 0.844/5.0；仅 L_cross 0.824/5.5；L_intra+L_cross 0.861/4.3；三者全用 0.872/1.8 [p. 8]。说明两项约束互补，且与 L_u 联合最佳。</li>
-<li><strong>SFM（SemSim−）</strong>：去掉 SFM 换简单卷积后，ACDC 1%/5%/10% 为 0.861/0.882/0.893，仍优于多数对比方法；SFM 仅 0.79M 参数，1% 下提升最明显 [p. 7]。</li>
-<li><strong>子区域数 N（Table V）</strong>：N=4 在 ACDC 10%、ISIC 10%、PROMISE12 7% 上均最佳（0.896/2.3、0.802/13.3、0.784/1.3）；N 增大精度下降且计算增加 [p. 8]。</li>
-<li><strong>强扰动流（Table VI）</strong>：ACDC/ISIC 10% 下，p_in 与 p_s 同用 S1、p_cr 用 S2 的组合最佳（0.896/2.3、0.802/13.3）[p. 9]。</li>
-<li><strong>损失权重（Fig. 7）</strong>：固定另两项时，λ=0.5、λ_intra=0.25、λ_cross=0.25 最优；λ_cross 增大导致对有限标注过拟合、精度下降 [p. 9]。</li>
-<li><strong>SFM 阶段（Fig. 8）</strong>：在 stage 2、3、4 做多尺度融合最佳（DSC 89.6%，95HD 2.3 mm）；加入 stage 1 会损害特性并增加开销 [p. 9]。</li>
-</ul>
-<h3>4.4 可视化</h3>
-<p>Fig. 6 展示 ACDC/ISIC 10% 标注下的定性分割；Fig. 9 展示 PROMISE12 特征可视化；Fig. 10 的 t-SNE 显示 SemSim 特征比 FixMatch 更紧凑可分 [p. 8–10]。这些为定性证据，未给定量指标。</p>
+<h3>4.5 可视化</h3>
+<p>图 3（[p. 9]）以 BCP 为基线，在 LA 与 ACDC 10% 标注下展示：基线存在缺失突出部分、边界凹陷或误分类像素，MANet 结果边界更完整。作者据此认为流形监督有助于局部特征建模 [p. 8][p. 9]。</p>
 <h2>5. 评估</h2>
-<p><strong>支持的结论</strong>：在作者设定的三个数据集与标注比例下，SemSim 的 DSC 与表面距离指标优于所列 20 个方法；消融支持 L_intra、L_cross 与 L_u 的互补性，以及 N=4、λ 组合、stage 2–4 融合的选择。</p>
-<p><strong>局限与缺失证据</strong>：
-- 未报告多次运行的均值/方差或显著性检验，单次结果可能受随机性影响。
-- 未报告跨数据集统一超参搜索协议、SFM 的详细通道/头数设置、子区域 δ 的具体取值（仅给 N）。
-- 不确定性加权中 r=1000 的选择依据未消融。
-- 表格排版错乱使部分基线数值归属存在辨认风险；作者未提供代码链接。
-- 对比方法众多但未说明是否全部按相同骨干与训练预算复现。</p>
-<h2>6. 复现</h2>
-<p>已报告：UNet 骨干、224×224 输入、批 16（标注/无标注各半）、SGD（wd 1e-4，momentum 0.9）、300 epochs、lr 0.01、channel dropout 50%、D=128、r=1000、τ=0.95、λ/λ_intra/λ_cross=0.5/0.25/0.25、N=4、SFM 用于 stage 2–4、强增强颜色变换+CutMix、弱增强随机翻转 [p. 6, 8–9]。</p>
-<p>未报告：SFM 的注意力头数、MLP 维度、子区域 δ 与 N 的换算关系、优化器调度（是否 warmup/衰减）、随机种子、硬件、训练时长、代码与预训练权重。复现需自行确定这些细节。</p></div>
+<p><strong>支持的结论</strong>：在作者报告的设置下，MANet 在 ACDC、LA、Pancreas-NIH 上多数指标优于所列基线；MA-Canny 在 2D ACDC 的边界指标上优于 MA-Sobel；推理期移除流形分支确实不增加测试参数/计算量（结构上成立）[p. 4][p. 5][p. 6][p. 7]。</p>
+<p><strong>局限与缺失证据</strong>：作者自述方法依赖伪标签质量，且训练阶段计算复杂度增加；未来可将流形操作融入伪标签生成以提升伪标签质量 [p. 9]。论文未报告训练时间/显存开销的定量数据；未给出流形分支单独消融（如去掉流形损失仅保留分支）的对照；表 IV 的具体数值与行列对应在文本中不够清晰；Canny 阈值与 σ 仅给出单一设置，未做敏感性分析 [p. 7][p. 8]。此外，ACDC 10% 设置下 MA-Sobel 的 95HD（3.24）反而高于 5% 设置（2.34），作者未解释该现象 [p. 5]。</p>
+<h2>6. 复现要点</h2>
+<ul>
+<li>编码器/基分支沿用基线（BCP、MCF、CAML 等）原始实现与训练设置 [p. 7]。</li>
+<li>流形分支为 U-Net 式解码器，输出 2 通道；训练时与基分支同时优化，推理时移除 [p. 4]。</li>
+<li>MA-Sobel：2D 用 3×3 Sobel 核，3D 用 3×3×3 核 [p. 5]。MA-Canny：σ=1，T_low=0.1，T_high=0.2 [p. 7]。</li>
+<li>损失：L_base 为 Dice，L_mf 为交叉熵，α=0.05 [p. 6][p. 7][p. 8]。</li>
+<li>未报告：具体学习率、优化器、batch size、训练迭代数、数据增强细节、伪标签生成网络的具体超参；作者称详细实现见补充材料，但正文未给出 [p. 7]。</li>
+</ul></div>
 </details>
 </div>
 <div class="card">
-<div class="title">Dual-Teacher Ensemble Models with Double-Copy-Paste for 3D Semi-Supervised Medical Image Segmentation</div>
-<div class="meta-line">Authors: Zhan Fa, Shumeng Li, Jian Zhang, Lei Qi, Qian Yu, Yinghuan Shi</div>
-<div class="meta-line">First: 2024-10-15T11:23:15+00:00 · Latest: 2024-10-15T11:23:15+00:00</div>
-<div class="meta-line">Comments: 35 pages, 5 figures</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2410.11509v1">Abs</a> · <a href="https://arxiv.org/pdf/2410.11509v1">PDF</a> · <a href="https://github.com/Fazhan-cs/DCP">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<div class="title">SDCL: Students Discrepancy-Informed Correction Learning for Semi-supervised Medical Image Segmentation</div>
+<div class="meta-line">Authors: Bentao Song, Qingfeng Wang</div>
+<div class="meta-line">Venue: MICCAI 2024</div>
+<div class="meta-line">First: 2024-09-25T08:23:53+00:00 · Latest: 2024-10-04T10:17:19+00:00</div>
+<div class="meta-line">Comments: Accepted at MICCAI 2024</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2409.16728v2">Abs</a> · <a href="https://arxiv.org/pdf/2409.16728v2">PDF</a> · <a href="https://github.com/pascalcpp/SDCL">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
 <details class="detail"><summary>Abstract</summary>
-<div class="mono">Semi-supervised learning (SSL) techniques address the high labeling costs in 3D medical image segmentation, with the teacher-student model being a common approach. However, using an exponential moving average (EMA) in single-teacher models may cause coupling issues, where the weights of the student and teacher models become similar, limiting the teacher&#x27;s ability to provide additional knowledge for the student. Dual-teacher models were introduced to address this problem but often neglected the importance of maintaining teacher model diversity, leading to coupling issues among teachers. To address the coupling issue, we incorporate a double-copy-paste (DCP) technique to enhance the diversity among the teachers. Additionally, we introduce the Staged Selective Ensemble (SSE) module, which selects different ensemble methods based on the characteristics of the samples and enables more accurate segmentation of label boundaries, thereby improving the quality of pseudo-labels. Experimental results demonstrate the effectiveness of our proposed method in 3D medical image segmentation tasks. Here is the code link: https://github.com/Fazhan-cs/DCP.</div></details>
+<div class="mono">Semi-supervised medical image segmentation (SSMIS) has been demonstrated the potential to mitigate the issue of limited medical labeled data. However, confirmation and cognitive biases may affect the prevalent teacher-student based SSMIS methods due to erroneous pseudo-labels. To tackle this challenge, we improve the mean teacher approach and propose the Students Discrepancy-Informed Correction Learning (SDCL) framework that includes two students and one non-trainable teacher, which utilizes the segmentation difference between the two students to guide the self-correcting learning. The essence of SDCL is to identify the areas of segmentation discrepancy as the potential bias areas, and then encourage the model to review the correct cognition and rectify their own biases in these areas. To facilitate the bias correction learning with continuous review and rectification, two correction loss functions are employed to minimize the correct segmentation voxel distance and maximize the erroneous segmentation voxel entropy. We conducted experiments on three public medical image datasets: two 3D datasets (CT and MRI) and one 2D dataset (MRI). The results show that our SDCL surpasses the current State-of-the-Art (SOTA) methods by 2.57\%, 3.04\%, and 2.34\% in the Dice score on the Pancreas, LA, and ACDC datasets, respectively. In addition, the accuracy of our method is very close to the fully supervised method on the ACDC dataset, and even exceeds the fully supervised method on the Pancreas and LA dataset. (Code available at \url{https://github.com/pascalcpp/SDCL}).</div></details>
 <details class="detail"><summary>中文标题/摘要</summary>
-<div class="mono"><b>标题：</b>用于3D半监督医学图像分割的双教师集成模型与双重复制粘贴</div>
-<div class="mono" style="margin-top:8px">半监督学习（SSL）技术可应对3D医学图像分割中的高标注成本问题，其中教师-学生模型是一种常见方法。然而，在单教师模型中使用指数移动平均（EMA）可能导致耦合问题，即学生模型和教师模型的权重变得相似，从而限制教师为学生提供额外知识的能力。为缓解该问题，研究者提出了双教师模型，但往往忽视了保持教师模型多样性的重要性，导致教师之间出现耦合问题。为解决耦合问题，我们引入双重复制粘贴（DCP）技术以增强教师之间的多样性。此外，我们引入分阶段选择性集成（SSE）模块，该模块根据样本特征选择不同的集成方法，并能够更准确地分割标签边界，从而提高伪标签质量。实验结果表明，我们提出的方法在3D医学图像分割任务中有效。代码链接：https://github.com/Fazhan-cs/DCP。</div>
+<div class="mono"><b>标题：</b>SDCL：面向半监督医学图像分割的学生差异感知校正学习</div>
+<div class="mono" style="margin-top:8px">半监督医学图像分割（SSMIS）已被证明有潜力缓解医学标注数据有限的问题。然而，由于错误的伪标签，普遍采用的基于教师-学生的SSMIS方法可能会受到确认偏差和认知偏差的影响。为应对这一挑战，我们改进了平均教师方法，提出了学生差异感知校正学习（SDCL）框架，该框架包含两个学生和一个不可训练的教师，利用两个学生之间的分割差异来指导自校正学习。SDCL的核心在于将分割差异区域识别为潜在偏差区域，进而鼓励模型重新审视正确认知并校正其在这些区域中的自身偏差。为便于通过持续审视与校正进行偏差校正学习，采用两个校正损失函数，分别用于最小化正确分割体素距离和最大化错误分割体素熵。我们在三个公开医学图像数据集上进行了实验：两个3D数据集（CT和MRI）和一个2D数据集（MRI）。结果表明，我们的SDCL在Pancreas、LA和ACDC数据集上的Dice分数分别比当前最先进（SOTA）方法高出2.57%、3.04%和2.34%。此外，我们的方法在ACDC数据集上的准确率非常接近全监督方法，在Pancreas和LA数据集上甚至超过了全监督方法。（代码见\url{https://github.com/pascalcpp/SDCL}）。</div>
 </details>
 <details class="detail"><summary>总结</summary>
-<div class="mono" style="margin-top:8px">论文提出双教师半监督3D医学图像分割框架：用双路径Double-Copy-Paste（DCP）增强两位教师输入多样性以缓解教师间耦合，用Staged Selective Ensemble（SSE）按双教师预测相似度阈值自适应选择松/严集成策略生成伪标签，并按路径交替EMA更新教师。在LA、Pancreas-CT、BraTS 2019上以V-Net/3D-Unet为骨干，5%/10%/20%标签设置下多数指标优于UA-MT、DTC、BCP、CauSSL等基线；LA 5% Dice 90.12、10% 91.18、20% 91.82，Pancreas 10% 83.16、20% 83.66，BraTS 10% 85.15、20% 85.61。消融显示双教师、DCP两步、SSE与掩码损失均有贡献，但部分表格排版错乱、统计显著性与计算成本证据不足。</div>
+<div class="mono" style="margin-top:8px">SDCL 在 Mean Teacher 框架上增加一个结构不同的学生，利用两个学生预测的差异区域作为潜在偏差区域，并通过最小化正确体素的 MSE 距离、最大化错误体素对均匀分布的 KL 熵来纠正偏差。在 Pancreas、LA、ACDC 三个数据集上，Dice 分别达到 85.04%、92.35%、90.92%，较 BCP 提升 2.13、2.73、2.08 个百分点；作者报告相对 SOTA 提升 2.57%、3.04%、2.34%。消融显示 Mdiff 与两项纠正损失同时使用收益最大（Dice 85.04%）。</div>
 </details>
 <details class="detail" open><summary>论文解读</summary>
-<div class="meta-line">来源：PDF 全文，共 35 页；35 页可提取文字</div>
-<div style="margin:12px 0"><p><b>原论文流程图 · Figure 1 · PDF 第 10 页</b></p><img src="assets/figures/8fd3ea83fbce752d19dd3565.png" alt="原论文流程图 · Figure 1 · PDF 第 10 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Figure 1: Illustration of the overall workflow of our method. The images processed throughtheDCPoperationarefedintothestudentmodel. Unlabeledimagesarefedinto the teacher models to generate pseudo-labels through the SSE module, and then they are copy-pasted with the ground truth to guide the student model. The weight parameters <a href="https://arxiv.org/pdf/2410.11509v1#page=10">原文来源</a></p></div>
-<div class="reading-notes"><h1>论文阅读笔记：Dual-Teacher Ensemble Models with Double-Copy-Paste for 3D Semi-Supervised Medical Image Segmentation</h1>
+<div class="meta-line">来源：PDF 全文，共 10 页；10 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图 · Figure 1 · PDF 第 3 页</b></p><img src="assets/figures/10e785bef8b9492433b5192b.png" alt="原论文流程图 · Figure 1 · PDF 第 3 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig.1. Overview of the proposed students discrepancy-informed correction learning (SDCL)frameworkforsemi-supervisedmedicalimagesegmentation.TheSDCLframe- workadoptsaBCPstrategy,mergingtwolabeledandtwounlabeledimagestocreate mix images. The teacher uses unlabeled images to generate pseudo-labels. Ground <a href="https://arxiv.org/pdf/2409.16728v2#page=3">原文来源</a></p></div>
+<div class="reading-notes"><h1>SDCL 论文精读笔记</h1>
 <h2>1. 问题与动机</h2>
-<p>论文针对3D医学图像分割中像素级标注昂贵的问题，采用半监督学习（SSL）。作者指出，主流一致性正则与伪标签方法多基于单模型或单教师-学生结构：单模型易受噪声影响、伪标签质量低；单教师EMA结构存在“耦合”问题，即学生与教师权重趋同，教师难以提供额外知识，形成性能瓶颈[p. 3]。双教师模型被用来缓解该问题，但作者认为已有双教师方法（如AD-MT）主要关注教师与学生之间的差异，忽视双教师彼此之间的多样性，导致教师间耦合；同时其伪标签集成方式固定，未考虑输入样本特性，伪标签质量不佳[p. 3][p. 8]。因此论文要解决两个问题：增强双教师多样性，以及按样本特性自适应集成双教师预测。</p>
+<p>半监督医学图像分割（SSMIS）旨在利用少量标注与大量未标注数据。作者指出，主流 teacher-student 方法（如 Mean Teacher、UA-MT、CoraNet、BCP）依赖一致性正则与伪标签，但单一模型结构不可避免地产生噪声或错误伪标签，导致确认偏差与认知偏差；模型很难自行纠正这些偏差 [p. 2]。多学生方法可提供多样性，但缺少 EMA teacher 时训练不稳定；多教师方法受限于单一学生结构，纠正能力有限；已有纠正学习（如 MCF 的 inter-subnet 交互）仍缺少稳定利用多样信息自我纠偏的通用方案 [p. 2]。因此作者提出 SDCL：一个 EMA teacher 加两个结构不同的可训练学生，把学生间分割差异视为潜在偏差区域，并在这些区域做“复习正确认知、修正错误偏差”的纠正学习 [p. 2–3]。</p>
 <h2>2. 方法</h2>
 <h3>2.1 总体流程</h3>
-<p>输入为3D图像 X∈R^{W×H×L}，任务为逐体素预测0到K类。训练集含N个有标注样本D_l与M个无标注样本D_u（N&lt;M）[p. 9]。每次迭代随机取两组图像 I_la、I_ua 与 I_lb、I_ub；按0.5概率选择Path A或Path B，经DCP生成两个增强输入 X_in1、X_in2 送入学生模型；无标注图像送入双教师，经SSE生成伪标签，再与真值一起按相同复制粘贴路径构造监督标签；学生用SGD更新，教师按当前路径用EMA更新[p. 9][p. 10]。图1（第10页）给出整体工作流，图2（第12页）给出DCP的两步操作，图3（第13页）给出SSE流程。</p>
-<h3>2.2 双教师与训练策略</h3>
-<p>框架含教师 F_t1(θ_t1)、F_t2(θ_t2) 与学生 F_s(θ_s)。先用仅标注数据预训练学生，再用其参数初始化两位教师；之后用集成伪标签监督学生，并按EMA更新教师[p. 10-11]。预训练阶段还使用基础Copy-Paste增强标注数据[p. 11]。</p>
-<h3>2.3 Double-Copy-Paste（DCP）</h3>
-<p>DCP分两步。Path A第一步：生成0/1掩码 M_a，对 I_la 与 I_ua 做cutmix式交换：
-I_augla = I_la⊙M_a + I_ua⊙(1−M_a)，I_augua = I_ua⊙M_a + I_la⊙(1−M_a)（式1-2）[p. 12]。第二步：生成掩码 M，做双向Copy-Paste：
-X_in1 = I_augla⊙M + I_ub⊙(1−M)，X_in2 = I_augua⊙M + I_lb⊙(1−M)（式3-4）[p. 12]。Path B第一步用 M_b 得到 I_auglb、I_augub；第二步仍以图像组a为被裁剪部分：X_in1B = I_la⊙M + I_augub⊙(1−M)，X_in2B = I_ua⊙M + I_auglb⊙(1−M)（式5-6）[p. 13]。两条路径的复制粘贴组合不同，从而在输入层面制造教师训练路径差异。</p>
-<h3>2.4 Staged Selective Ensemble（SSE）</h3>
-<p>作者观察到双教师预测的L1距离随训练逐渐下降，即趋于一致[p. 14]。SSE设相似度阈值：当双教师预测差异超过阈值（困难样本）时采用宽松约束，将双教师概率之和&gt;1的体素判为前景；当差异低于阈值（简单样本）时采用严格约束，要求两位教师概率均&gt;0.5才判为前景[p. 14]。伪标签 PLa=φ(R_T1a,R_T2a)、PLb=φ(R_T1b,R_T2b)，再对每个伪标签取最大连通分量得到 p_a、p_b 以去除离群体素[p. 15]。</p>
-<h3>2.5 监督信号与损失</h3>
-<p>标签也按DCP路径复制粘贴：式7-10用 y_a、y_b 与 p_a、p_b 构造 Y_out1、Y_out2[p. 15]。损失掩码按路径不同：Path A为 Mask=M∧M_a，Path B为 Mask=(1−M_b)∨M（式11-12）[p. 16]。损失为：
-L_in1 = L_seg(Q_in1,Y_out1)⊙Mask + α·L_seg(Q_in1,Y_out1)⊙(1−Mask)，
-L_in2 = L_seg(Q_in2,Y_out2)⊙(1−Mask) + α·L_seg(Q_in2,Y_out2)⊙Mask（式13-14），其中α控制无标注像素贡献，L_seg为Dice与交叉熵的线性组合，Q_in1=F(X_in1;θ_s)、Q_in2=F(X_in2;θ_s)[p. 16]。总损失 L_all=L_in1+L_in2（式15）。教师按路径交替EMA：Path A更新θ_t1，Path B更新θ_t2，θ_t(k+1)=λθ_t(k)+(1−λ)θ_s(k)（式16-17）[p. 16-17]。</p>
+<p>SDCL 分两阶段：先用标注数据做 Copy-Paste 增强的预训练；再进入半监督阶段，用预训练模型初始化两个学生与 teacher [p. 4]。半监督阶段包含三部分：基于 BCP 策略的基础分割损失；由两学生分割差异得到 DiffMask；由学生预测与 mix label 的差异得到 ErrMask，再与 DiffMask 相乘得到 DiffErrMask，用于偏差纠正 [p. 4]。3D 任务中学生 A 为 VNet、学生 B 为 ResVNet；2D 任务中 A 为 UNet、B 为 ResUNet。teacher 由学生 A 经 EMA 更新，作者称两学生性能差距很小 [p. 4]。框架见 Fig. 1 [p. 3]。</p>
+<h3>2.2 BCP 混合与基础分割损失</h3>
+<p>生成零中心掩码 M∈(0,1)^{W×H×D}，0 表示前景、1 表示背景，0 区域大小为 βW×βH×βD，β∈(0,1)。混合图像为：</p>
+<p>x_in = x_lj ⊙ M + x_up ⊙ (1−M)，x_out = x_uq ⊙ M + x_li ⊙ (1−M)（式1）。</p>
+<p>未标注图像 x_up、x_uq 送入 teacher 得到伪标签 p_up、p_uq；取最大连通分量得到优化伪标签 ỹ_up、ỹ_uq。混合标签为：</p>
+<p>y_in = y_lj ⊙ M + ỹ_up ⊙ (1−M)，y_out = ỹ_uq ⊙ M + y_li ⊙ (1−M)（式2），其中 i≠j、p≠q，⊙ 为逐元素乘 [p. 4]。</p>
+<p>两个学生分别处理 x_in、x_out 得到 ŷ_in、ŷ_out。BCP 分割损失为：</p>
+<p>L_in^{A/B,seg} = L_seg(ŷ_in, y_in)⊙M + αL_seg(ŷ_in, y_in)⊙(1−M)（式3）；
+L_out^{A/B,seg} = L_seg(ŷ_out, y_out)⊙(1−M) + αL_seg(ŷ_out, y_out)⊙M（式4）。</p>
+<p>L_seg 由 Dice 与交叉熵等比例组成；α 控制真实标签与伪标签之间的权重，因为真实标签通常更准确 [p. 4]。</p>
+<h3>2.3 差异纠正学习</h3>
+<p><strong>最小化差异正确距离。</strong> 对 ŷ_in、ŷ_out 做 argmax 得 ỹ_in、ỹ_out，DiffMask 由两学生预测的 XOR 得到：M_diff = ỹ_A ⊕ ỹ_B。MSE 损失按 BCP 方式计算（式5、式6），再与 M_diff 逐元素相乘（式7），即只在两学生不一致的区域强化对“正确体素”的学习 [p. 5]。</p>
+<p><strong>最大化差异错误熵。</strong> 对每个体素定义熵 H(ŷ(x,y,z)) = −Σ_c ŷ(x,y,z)(c) log ŷ(x,y,z)(c)。作者希望最大化错误分类体素的熵，使其输出分布趋向均匀分布，从而“回到初始状态”再走向正确方向。实现上用 KL 散度 L_kl(ŷ,u)=D_KL(u‖ŷ)，u 为各分量均为 1/K 的均匀分布 [p. 5]。ErrMask 由学生预测与 mix label 的 XOR 得到：M_err = ỹ ⊕ y；DiffErrMask 为 M_diff ⊙ M_err。KL 损失按式8、式9计算后与 DiffErrMask 相乘（式10）[p. 5]。</p>
+<p><strong>总损失。</strong> L^{A/B} = L_in^{A/B,seg}+L_out^{A/B,seg}+γ(L_in^{A/B,mse}+L_out^{A/B,mse})+μ(L_in^{A/B,kl}+L_out^{A/B,kl})（式11）[p. 5]。</p>
 <h2>3. 贡献</h2>
-<p>作者声称的贡献有三点：提出带分阶段集成标注的双教师集成模型，缓解教师间耦合并生成高质量伪标签；深入并扩展Copy-Paste，提出DCP增强双教师多样性；方法简洁、适用于多数据集，在三个经典数据集上部分指标超过全监督[p. 4-5]。我的解读：核心新颖点在于“双路径输入差异”与“按相似度阈值切换集成严格度”的组合；DCP本身是CutMix与双向Copy-Paste的两步组合，SSE是阈值规则而非可学习模块，创新偏工程整合。作者对“耦合”的量化证据主要是预测相似度曲线与特征分布可视化，未给出权重相似度的直接度量。</p>
+<p>作者声称的贡献有三点：(1) 用两个结构不同的学生加 EMA teacher，兼顾多样性与稳定性；(2) 设计在双学生预测差异区域中复习正确认知、修正错误偏差的纠正学习；(3) 在三个数据集上超过 SOTA，并接近或超过全监督 [p. 2–3]。我的理解是：核心新颖点在于把“学生间差异”同时用作正确体素复习的掩码（M_diff）和错误体素熵正则的掩码（M_diff⊙M_err），而非提出全新的网络结构；BCP 混合策略与 EMA teacher 均沿用已有工作。</p>
 <h2>4. 实验与结果</h2>
-<h3>4.1 数据集与划分</h3>
-<p>LA：154例3D MRI，实际用100例标注图像，按先前工作80训练/20验证；5%、10%、20%对应4、8、16例标注[p. 17][p. 20]。Pancreas-CT：82例CT，去除重复后60训练/20评估；10%、20%对应6、12例标注[p. 17][p. 21]。BraTS 2019：335例多模态MRI，250训练/25验证/60测试；10%、20%对应25、50例标注[p. 18][p. 23]。</p>
-<h3>4.2 训练设置</h3>
-<p>LA与Pancreas用V-Net，BraTS用3D-Unet[p. 18]。LA：SGD，初始学习率0.01，momentum 0.9，weight decay 0.0001，patch 112×112×80，batch size 8（4标注+4无标注），预训练2k、主训练15k迭代[p. 18]。Pancreas：patch 96×96×96，batch 8，预训练100、主训练500迭代[p. 18-19]。BraTS：patch 96×96×96，滑窗步长64×64×64，预训练8000、主训练20000迭代，Kaiming初始化[p. 19]。教师EMA衰减0.99，路径选择阈值0.5，两次复制粘贴尺寸比例为1/3与2/3，SSE相似度阈值LA 0.01、Pancreas 0.001、BraTS 0.01[p. 19]。评价指标为Dice、Jaccard、ASD、95HD；PyTorch，RTX 2080Ti[p. 19]。</p>
-<h3>4.3 主要结果</h3>
-<p>LA（表1，第20页）：5%标注下本文Dice 90.12、Jaccard 82.04、95HD 5.55、ASD 1.77，优于BCP（88.02/78.72/7.90/2.15）与GenericSSL（89.93/81.85/5.25/1.86）；10%下91.18/83.84/5.00/1.61，优于GenericSSL的90.31/82.40/5.55/1.64；20%下91.82/84.92/5.11/1.50，优于CC-net的91.14/83.79/5.74/1.57。全监督V-Net为91.47/84.36/5.48/1.51，作者称部分指标超过全监督上界[p. 20]。</p>
-<p>Pancreas（表2，第21页）：10%下本文83.16/71.44/8.04/2.28，优于BCP的81.73/69.37/8.93/2.64；20%下83.66/72.18/7.39/2.57，Dice/Jaccard优于BCP的82.91/70.97，但95HD与ASD劣于BCP（6.43/2.2）及CauSSL（8.11/1.53）[p. 21]。全监督V-Net为83.48/71.99/4.44/1.26。</p>
-<p>BraTS（表3，第23页）：10%下本文85.15/75.30/12.46/3.73，Dice/Jaccard最高，但95HD/ASD劣于AC-MT（11.37/1.93）；20%下85.61/76.00/10.37/2.75，Dice/Jaccard最高，但95HD/ASD劣于AC-MT（9.50/2.11）[p. 23]。全监督3D-Unet为85.93/76.81/9.85/1.93。</p>
-<h3>4.4 消融</h3>
-<p>模块消融（表4，第23页，LA 5%）：单教师Path A为88.02/78.72/7.90/2.15，Path B为88.36/79.29/8.03/2.57；同时更新双教师为85.15/75.30/12.46/3.73；独立教师为89.20/80.58/5.83/2.06；集成教师为89.62/81.28/6.87/1.95；加掩码损失后为90.12/82.04/5.55/1.77。作者据此称双教师集成、交替更新与掩码损失均有效[p. 22-24]。</p>
-<p>集成方法消融（表5，第25页，LA 5%）：平均集成A为89.80/81.57/6.77/2.12，严格集成B为89.72/81.48/6.47/1.83，CCM为89.85/81.63/6.00/1.86，SSE为90.12/82.04/5.55/1.77[p. 25]。相似度阈值消融（表6，第26页）：LA 0.005/0.01/0.02对应Dice 89.94/90.12/89.86；Pancreas 0.0005/0.001/0.002对应82.72/83.16/82.84；BraTS 0.005/0.01/0.02对应84.55/85.15/85.01[p. 26]。</p>
-<p>DCP消融（表7，第27页，LA 5%）：仅Step1为89.62/81.28/6.87/1.95，仅Step2为89.57/81.18/7.23/2.15，不用两步为86.47/76.50/12.48/2.71，完整DCP为90.12/82.04/5.55/1.77[p. 27]。图6（第26页）用核密度估计显示两条路径输入特征分布差异大于原始图像，作者据此称DCP带来更多多样性[p. 26-27]。路径选择消融（表8，第28页）：LA 5%随机选择90.12/82.04/5.55/1.77优于强制切换89.42/80.97/6.22/1.93；10%随机91.18/83.84/5.00/1.61优于强制90.92/83.43/5.91/1.57[p. 28]。</p>
+<h3>4.1 数据集与设置</h3>
+<ul>
+<li>Pancreas-NIH：82 个 CT 体积，12 个标注（20%）、50 个未标注 [p. 6]。</li>
+<li>LA：100 个 3D GE-MRI，8 个标注（10%）、72 个未标注用于训练，20 个测试 [p. 6]。</li>
+<li>ACDC：100 个心脏 MRI，70 训练、10 验证、20 测试，其中 7 个标注（10%）、63 个未标注；ACDC 结果为四类分割测试集平均 [p. 6]。</li>
+</ul>
+<p>实现：PyTorch 2.1.0、单张 RTX 4090；评估时平均学生 A 与 B 的分割结果。预训练迭代 3k（Pancreas）、3k（LA）、11k（ACDC）；SSL 迭代 8k、10k、45k。Adam，学习率 0.001，batch size 8、8、48（标注与未标注各半），α=0.5，β=2/3；γ 与 μ 在 Pancreas 为 0.3 和 0.1，在 LA 与 ACDC 为 0.5 和 0.05。输入 patch 为 96×96×96（Pancreas）、112×112×80（LA）、256×256（ACDC）；测试 stride 为 16×16×4（Pancreas）、18×18×4（LA），无后处理。指标为 Dice、Jac、95HD、ASD [p. 7]。</p>
+<h3>4.2 主要结果</h3>
+<p>Pancreas（12 标注/50 未标注）：SDCL Dice 85.04、Jac 74.22、95HD 5.22、ASD 1.48；BCP 为 82.91、70.97、6.43、2.25；表中最佳对比方法 UPCoL 为 81.78、69.66、3.78、0.63 [p. 6]。注意 SDCL 的 95HD 与 ASD 并非表中最好，UPCoL 的 95HD 更低。</p>
+<p>LA（8 标注/72 未标注）：SDCL Dice 92.35、Jac 85.83、95HD 4.22、ASD 1.44；BCP 为 89.62、81.31、6.81、1.76；DMD 为 89.70、81.42、6.88、1.78 [p. 6]。</p>
+<p>ACDC（7 标注/63 未标注）：SDCL Dice 90.92、Jac 83.83、95HD 1.29、ASD 0.34；BCP 为 88.84、80.62、3.98、1.17；DC-Net 为 89.42、81.37、1.28、0.38；全监督 U-Net（70 标注）为 91.65、84.93、1.89、0.56 [p. 6]。作者称相对全监督 U-Net 上界，ASD 降低 39% [p. 8]；按表中数字 0.34 对 0.56 约为 39%，但 SDCL 的 95HD 1.29 优于全监督 U-Net 的 1.89，而 Dice 仍低 0.73。</p>
+<p>摘要报告相对 SOTA 的 Dice 提升为 Pancreas 2.57%、LA 3.04%、ACDC 2.34% [p. 1]；与表中 BCP 直接相减则分别为 2.13、2.73、2.08 个百分点，差异可能源于“SOTA”所指对比对象不同，正文未明确说明。作者还称在 Pancreas 与 LA 上超过全监督方法 [p. 1]：表中全监督 V-Net（62 标注）Pancreas Dice 82.60、LA 91.47，SDCL 的 85.04 与 92.35 确实更高，但标注量分别为 12 与 8，比较条件不同。</p>
+<h3>4.3 消融</h3>
+<p>Table 3 在 Pancreas（12 标注/50 未标注）上以 Dice 为主：仅 L_seg 为 83.23；加 L_mse 为 83.59（+0.36）；加 L_kl 与 M_diff 为 84.20；加 L_kl 为 83.55；加 L_kl 与 M_diff 为 84.28；同时加 L_mse 与 L_kl（无 M_diff）为 83.67；全部组件为 85.04 [p. 8]。正文表述“Omitting Mdiff, Lmse and Lkl individually resulted in improvements of 0.43% and 0.38%”与表中数字不易一一对应，且“0.43% 和 0.38%”只列了两个数却对应三个被省略项，属于表述不清 [p. 8]。可支持的结论是：M_diff 与两项损失同时使用时收益最大（较仅 L_seg 提升 1.81 个百分点），但各组件单独贡献的归因需谨慎。</p>
 <h2>5. 评估</h2>
-<p>支持的结论：在报告的数字与设置下，完整方法在LA三个标签比例、Pancreas两个比例、BraTS两个比例的Dice/Jaccard上多数领先；消融一致显示双教师集成、DCP两步与SSE优于各自简化版本。作者也承认方法只是“部分”解决耦合问题[p. 28]。</p>
-<p>局限与缺失证据：第一，论文未报告多次运行的均值/方差或显著性检验，无法判断小差距（如LA 5%对GenericSSL的Dice 90.12 vs 89.93）是否稳定。第二，未报告参数量、训练时间、显存等计算成本，双教师+DCP的代价不明。第三，SSE阈值按数据集手工设定（0.01/0.001/0.01），跨数据集泛化依据不足。第四，部分表格在PDF文本中排版错乱（如表3、表4、表7的列对齐），个别数字与正文叙述的对应关系需谨慎；表4中“同时更新双教师”仅85.15，与“双教师集成优于单教师”的叙述并不完全一致，作者未解释。第五，BraTS与Pancreas上95HD/ASD并非最优，作者仅称“表现良好”，边界精度优势有限。第六，图4、图5、图6的可视化结论仅依据图注与正文，未独立核验图像。</p>
+<p>支持的结论：在作者设定的三个数据集与标注预算下，SDCL 的 Dice 一致高于 BCP 及表中多数对比方法；消融支持“差异掩码+两项纠正损失”组合有效。作者报告的局限：未来才考虑用学生信息改进 teacher [p. 8]；正文未给出计算开销、训练稳定性或失败案例分析。缺失证据：未报告多次运行的均值/方差与显著性检验；未说明两学生性能差距的具体数值；未给出 DiffMask/ErrMask 区域随训练变化的定量结果（称在补充材料）；未报告超参数敏感性（也称在补充材料）；Table 1 中部分对比方法缺项（以“-”表示），跨方法比较的公平性受限。此外，“超过全监督”是在标注量不同的条件下得出的，不能直接理解为同等监督水平下的优势。</p>
 <h2>6. 复现</h2>
-<p>已报告：三个数据集划分与标签比例；V-Net/3D-Unet骨干；SGD学习率0.01、momentum 0.9、weight decay 0.0001；各数据集patch、batch、预训练与主训练迭代数；EMA 0.99；路径概率0.5；复制粘贴比例1/3与2/3；SSE阈值；损失为Dice+CE，α存在但正文未给出具体取值；代码链接 https://github.com/Fazhan-cs/DCP [p. 1][p. 18-19]。未报告：α的具体数值、SSE中相似度的精确计算与EMA平滑系数、最大连通分量实现细节、随机种子、硬件数量与训练时长、是否使用深监督、BraTS多模态融合方式、预训练Copy-Paste的具体比例。复现时应先按上述设置实现DCP与SSE，并对表4/表7的错位数字以原始PDF表格为准核对。</p></div>
+<p>已报告：PyTorch 2.1.0、RTX 4090；预训练与 SSL 迭代数；Adam、lr=0.001；batch size 8/8/48；α=0.5、β=2/3；γ/μ 按数据集取值；patch 尺寸与测试 stride；无后处理；评估平均两学生输出；代码链接 https://github.com/pascalcpp/SDCL [p. 1, p. 7]。未报告：EMA 衰减系数、L_seg 中 Dice 与 CE 的具体权重（仅称等比例）、KL 损失的温度或缩放、优化器其他参数（weight decay 等）、数据增强的具体组合、预训练与 SSL 的学习率调度、随机种子与硬件数量、补充材料内容。复现时需先按 BCP 流程实现混合与伪标签最大连通分量处理，再实现两个 XOR 掩码与式(11)总损失；上述未报告项需自行设定并明确标注。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Mine yOur owN Anatomy: Revisiting Medical Image Segmentation with Extremely Limited Labels</div>
+<div class="meta-line">Authors: Chenyu You, Weicheng Dai, Fenglin Liu, Yifei Min, Nicha C. Dvornek, Xiaoxiao Li, David A. Clifton, Lawrence Staib, James S. Duncan</div>
+<div class="meta-line">First: 2022-09-27T15:50:31+00:00 · Latest: 2024-09-22T16:13:30+00:00</div>
+<div class="meta-line">Comments: Accepted by IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE-TPAMI)</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2209.13476v6">Abs</a> · <a href="https://arxiv.org/pdf/2209.13476v6">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://github.com/HiLab-git/SSL4MIS/tree/master/data/">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Recent studies on contrastive learning have achieved remarkable performance solely by leveraging few labels in the context of medical image segmentation. Existing methods mainly focus on instance discrimination and invariant mapping. However, they face three common pitfalls: (1) tailness: medical image data usually follows an implicit long-tail class distribution. Blindly leveraging all pixels in training hence can lead to the data imbalance issues, and cause deteriorated performance; (2) consistency: it remains unclear whether a segmentation model has learned meaningful and yet consistent anatomical features due to the intra-class variations between different anatomical features; and (3) diversity: the intra-slice correlations within the entire dataset have received significantly less attention. This motivates us to seek a principled approach for strategically making use of the dataset itself to discover similar yet distinct samples from different anatomical views. In this paper, we introduce a novel semi-supervised 2D medical image segmentation framework termed Mine yOur owN Anatomy (MONA), and make three contributions. First, prior work argues that every pixel equally matters to the model training; we observe empirically that this alone is unlikely to define meaningful anatomical features, mainly due to lacking the supervision signal. We show two simple solutions towards learning invariances - through the use of stronger data augmentations and nearest neighbors. Second, we construct a set of objectives that encourage the model to be capable of decomposing medical images into a collection of anatomical features in an unsupervised manner. Lastly, we both empirically and theoretically, demonstrate the efficacy of our MONA on three benchmark datasets with different labeled settings, achieving new state-of-the-art under different labeled semi-supervised settings.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>挖掘你自己的解剖结构：以极其有限的标签重新审视医学图像分割</div>
+<div class="mono" style="margin-top:8px">近期关于对比学习的研究仅通过利用少量标签就在医学图像分割中取得了显著性能。现有方法主要关注实例判别和不变映射。然而，它们面临三个常见陷阱：（1）尾部性：医学图像数据通常遵循隐式的长尾类别分布。因此在训练中盲目利用所有像素可能导致数据不平衡问题，并造成性能下降；（2）一致性：由于不同解剖特征之间存在类内变化，分割模型是否学到了有意义且一致的解剖特征仍不清楚；（3）多样性：整个数据集内的切片内相关性受到的关注明显较少。这促使我们寻求一种有原则的方法，策略性地利用数据集本身，从不同解剖视角发现相似但不同的样本。在本文中，我们提出了一种新颖的半监督二维医学图像分割框架，称为Mine yOur owN Anatomy（MONA），并作出三项贡献。首先，先前工作认为每个像素对模型训练同等重要；我们从经验上观察到，仅此一点不太可能定义有意义的解剖特征，主要原因是缺乏监督信号。我们展示了两种简单解决方案来学习不变性——通过使用更强的数据增强和最近邻。其次，我们构建了一组目标，鼓励模型能够以无监督方式将医学图像分解为解剖特征的集合。最后，我们从经验和理论上都证明了我们的MONA在三个具有不同标签设置的基准数据集上的有效性，在不同标签半监督设置下实现了新的最先进性能。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">MONA 是一个面向极少标注（1%/5%/10% 患者级标注）的 2D 医学图像半监督分割框架，分两阶段：GLCon 全局-局部对比预训练（基于 ISD，加入挖掘视图、动量教师、KL 一致性）与解剖对比重建微调（tailness 类感知对比+难样本采样、consistency 等变损失、diversity 最近邻损失）。在 ACDC、LiTS、MMWHS 上以 2D UNet 为骨干，MONA 在三个标注比例下均超过所列 SSL 方法与 UNET-L，并在 10% 时超过全监督 UNET-F（如 LiTS 69.3 vs 68.5，MMWHS 87.6 vs 85.8）；ACDC 1% 达 82.6 DSC。消融显示三原则各自有效且组合最佳，三原则也可迁移到 MOCOv2/kNN-MOCO/SIMCLR/BYOL/ISD。理论部分用 Rademacher 复杂度与自蒸馏稀疏化论证标签效率，但依赖较强假设，属解释性而非严格证明。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 18 页；18 页可提取文字</div>
+<div style="margin:12px 0"><p><b>原论文流程图 · Figure 2 · PDF 第 3 页</b></p><img src="assets/figures/18684180616fbf26c12aaeb3.png" alt="原论文流程图 · Figure 2 · PDF 第 3 页" style="display:block;max-width:100%;height:auto" width="700"><p style="font-size:12px;color:#667085">Fig. 2. Overview of the MONA framework including two stages: (1)GLCon is design to seek both augmented and mined views for instance discriminationL intheglobalandlocalmanners.Heretheglobalinstancediscriminationisdesignedtoexploitthecorrelationsamongviews inst within the latent feature space, which is generated by the encoders. Meanwhile, local instance discrimination aims to leverage the correlations <a href="https://arxiv.org/pdf/2209.13476v6#page=3">原文来源</a></p></div>
+<div class="reading-notes"><h1>MONA：极少标注下的医学图像分割阅读笔记</h1>
+<h2>1. 问题与动机</h2>
+<p>作者针对的是<strong>极少标注的 2D 医学图像半监督分割</strong>：临床中专家标注昂贵，而对比学习（CL）虽能利用无标注数据，却存在三个被作者概括的缺陷[p. 1]：
+- <strong>tailness（长尾）</strong>：医学图像类别分布呈 Zipf 长尾（图 1 给出 ACDC/LiTS/MMWHS 的类别比例不均衡示例）[p. 1–2]，逐像素平等对待会使头类主导、尾类欠学习。
+- <strong>consistency（一致性）</strong>：模型是否学到对解剖变化稳健、语义一致的解剖特征尚不清楚[p. 1–2]。
+- <strong>diversity（多样性）</strong>：数据集中切片间/样本间相关性利用不足，仅靠简单增强难以产生多样而保留解剖结构的视图[p. 2]。
+作者认为现有 CL 主要做实例判别与不变映射，未从医学分割的长尾与解剖结构角度系统处理上述问题[p. 3]。</p>
+<h2>2. 方法</h2>
+<p>MONA 分两阶段（图 2，[p. 3]）：GLCon 预训练 + 解剖对比重建微调。学生/教师网络 Fθ、Fξ 均为 UNet 编码器 E 加解码器 D；教师参数按 ξ = tξ + (1−t)θ 更新，t=0.99[p. 4]。</p>
+<h3>2.1 GLCon 预训练</h3>
+<p>基于 ISD[p. 4]。对无标注样本生成两类视图：两条增强链得到的增强视图 (x, x′)，以及从无标注集随机选取再加增强的 d 个“挖掘视图” x_r。编码器输出全局特征 z_g=Eθ(x)、z′<em>g=Eξ(x′)、z</em>{r,g}=Eξ(x_r)，经投影头得 v_g、v′_g、w_g，学生增强嵌入再投影为 u_g[p. 4]。
+相似度经 softmax 建模关系分布（式 3.1）：sθ = log[exp(sim(u,w)/τθ) / Σ_j exp(sim(u,w_j)/τθ)]，sξ 同理用 v′ 与 w，τθ、τξ 为不同温度，k 为挖掘视图数，sim 为余弦相似度。实例判别损失为 KL 散度 L_inst = KL(sθ‖sξ)（式 3.2）[p. 4]。总损失为 L_global_inst + L_local_inst + L_sup，其中 L_sup 是 Dice 与交叉熵在真实标签上的等权组合；局部实例判别在解码器输出空间做，细节被作者省略[p. 4]。</p>
+<h3>2.2 解剖对比重建微调</h3>
+<p><strong>Tailness（解剖对比公式 ACF，图 3，[p. 4]）</strong>：在 FPN 结构上接表示头，生成 m 维像素表示。对每类 c 采样查询 r_q，拉近到类平均正键 r_{c,+k}，推远其他类负键 r_{−k}，损失见式 3.3：L_contrast = Σ_c Σ_{r_q∼R^c_q} −log[ exp(r_q·r_{c,+k}/τ) / (exp(r_q·r_{c,+k}/τ) + Σ_{r_{−k}∼R^c_k} exp(r_q·r_{−k}/τ)) ]，τ 为温度。式 3.4 定义 R^c_q、R^c_k 与类均值 r_{c,+k} = (1/|R^c_q|)Σ r_q[p. 5]。为控制开销，负键来自 mini-batch 其他图像，并用类间关系图 G[p,q]=r_{p,+k}·r_{q,+k} 经 softmax 自适应采样负类；再按伪标签置信度阈值 δθ 划分易/难查询（式 3.5），并用类感知记忆库存每类固定数量负样本[p. 5]。
+<strong>Consistency（等变损失，图 4，[p. 5]）</strong>：对随机变换 T（仿射、强度、光度增强），L_eqv(x,T(x)) = Σ_x [KL(T(Fθ(x)), Fθ(T(x))) + KL(Fθ(T(x)), T(Fθ(x)))]（式 3.6），在标注与伪标签数据上均施加。
+<strong>Diversity（最近邻损失）</strong>：教师嵌入 v′_g 经 l2 归一化后进入 FIFO 记忆库，检索 K 近邻；用 L_nn 最大化学生嵌入 u_g 与近邻的余弦相似度（以负余弦距离定义）[p. 5]。
+<strong>总损失</strong>：L_sup + λ1L_contrast + λ2L_eqv + λ3L_unsup + λ4L_nn，各项均作用于真实标签与伪标签[p. 5–6]。</p>
+<h2>3. 贡献</h2>
+<p>作者主张的贡献[p. 2]：① 识别极少标注半监督 2D 分割的三原则；② 构造同时改善长尾与解剖特征的目标函数；③ 实证与理论分析关键组件并做充分消融；④ 在三个基准上取得 SSL 最优。
+我的解读：核心工程贡献是把 ISD 式全局-局部对比预训练与“类感知对比 + 等变一致性 + 最近邻”微调组合起来，并用类平均键与难样本采样缓解长尾；理论部分（附录 A）更像对自蒸馏/教师-学生结构降低 Rademacher 复杂度的解释性论证，而非对 MONA 整体的严格保证。</p>
+<h2>4. 实验与结果</h2>
+<p><strong>数据与划分</strong>：ACDC 200 例 3D 心脏 cine MRI，3 类（LV/Myo/RV），120/40/40 训练/验证/测试，固定划分[p. 6]；LiTS 131 例腹部 CT，2 类（肝/瘤），100 训练、31 测试，随机顺序[p. 6]；MMWHS 20 例心脏 MRI，7 类，15 训练、5 测试[p. 6]。1%/5%/10% 均指<strong>患者比例</strong>；预处理为强度归一化到 [0,1]（LiTS 先截断到 [−200,250] HU）并重采样到 256×256[p. 6]。
+<strong>训练设置</strong>：PyTorch，SGD（初始 lr 0.01、momentum 0.9、weight decay 0.0001），batch 6，每 2500 迭代 lr 除以 10；RTX 3090；预训练 100 epoch、微调 200 epoch；τξ=0.01、τθ=0.1、τ=0.5；记忆库 36；全局投影头 512 维，局部投影头取 36 个 64×64 随机裁剪视图；每 mini-batch 采样 256 查询与 512 键；δθ=0.97；K=5；λ1=0.01、λ2=λ3=λ4=1.0；弱增强（教师）为旋转/裁剪/水平翻转，强增强（学生）另加对比度、CutMix、亮度、形态学形变；指标 DSC 与 ASD（3D 结果）[p. 6]。
+<strong>主结果</strong>（表 1、表 2，[p. 7–8]）：
+- ACDC：MONA 在 1%/5%/10% 下 DSC 82.6/88.8/90.7，ASD 2.03/0.622/0.864；1% 时较此前最佳 GCL 的 59.7 提升 22.9 个点（作者表述），5% 时 88.8 高于 UNET-F 的 91.5 以下但优于所有 SSL；10% 时 90.7 接近 UNET-F 91.5。
+- LiTS：MONA 64.1/67.3/69.3 DSC，ASD 20.9/16.4/18.0；1% 时由 59.3 提升到 64.1，10% 时 69.3 超过 UNET-F 68.5[p. 7, p. 10]。
+- MMWHS：MONA 83.9/86.3/87.6 DSC，ASD 9.06/8.22/6.83；1% 时较 GCL 的 71.6 提升 12.3 点，并超过 GCL 5% 的 83.5；10% 时 87.6 超过 UNET-F 85.8[p. 8, p. 10]。
+<strong>组件消融</strong>（表 3，ACDC 5%，[p. 9]）：Vanilla 86.0/3.89；仅 tailness 88.8/0.622；仅 consistency 86.4/1.86；仅 diversity 88.8/2.07；tailness+consistency 88.1/0.864；consistency+diversity 85.0/0.913；tailness+diversity 88.8/0.622；三者组合即 MONA 88.8/0.622。作者解释：仅 tailness 会偏向头类，仅 consistency 可能因解剖变化导致目标塌缩，仅 diversity 过度采样负样本会降性能[p. 9]。
+<strong>增强消融</strong>（表 4，[p. 9]）：弱-强（教师-学生）组合在 ACDC 88.8/0.622、LiTS 67.3/16.4 最佳；同类型增强对收益较小。
+<strong>跨 CL 框架</strong>（表 5、表 6，[p. 10–11]）：仅预训练时 GLCON 在 ACDC 1%/5%/10% 为 49.3/74.2/86.5 DSC；微调后 MONA 82.6/88.8/90.7。将三原则加入 MOCOv2、kNN-MOCO、SIMCLR、BYOL、ISD 均带来提升，例如 1% 下 MOCOv2 由 38.6 升至 77.7，ISD 由 45.8 升至 80.1[p. 11]。
+<strong>超参消融</strong>（图 9–11，[p. 10–12]）：k=5/7/10 接近，k=5 略优；挖掘视图集大小 36 最佳；视图块 64×64 最佳；λ 网格搜索得上述取值；δθ=0.97 最佳；K=5 最佳；输出嵌入 512 维最佳。</p>
+<h2>5. 评估</h2>
+<p><strong>有支持的结论</strong>：在报告条件下，MONA 在三个数据集、三个标注比例上一致优于所列 SSL 基线，且 10% 时在 LiTS/MMWHS 上超过全监督 UNET-F；组件与跨框架消融支持三原则的互补性。
+<strong>局限与缺失证据</strong>：① 表 1/2 的排版在正文中与文字交错，部分基线数字可读但表格结构需谨慎对待；② 理论部分（附录 A）建立在有限基函数类、核正则回归与自蒸馏稀疏化等假设上，作者用它解释教师-学生结构降低复杂度，但未直接给出 MONA 的泛化界；③ 未报告参数量、推理时间、内存开销与多次运行的方差（仅称三次随机种子，未给标准差）；④ LiTS/MMWHS 划分细节放在补充材料，正文未给；⑤ 长尾程度与性能的定量关系未系统分析；⑥ 与全监督 UNET-F 的比较仅在 10% 设置下占优，1%/5% 仍低于全监督上限。</p>
+<h2>6. 复现</h2>
+<p>按正文可复现的步骤：① 预处理：ACDC/MMWHS 强度 min-max 到 [0,1]，LiTS 截断 [−200,250] HU 后归一化，全部重采样 256×256；② 以 2D UNet 为学生/教师，按患者比例抽取 1%/5%/10% 标注；③ 预训练 100 epoch，SGD lr 0.01、batch 6、每 2500 迭代降 10 倍，τξ=0.01、τθ=0.1、τ=0.5，记忆库 36，投影头 512 维，局部 36 个 64×64 裁剪；④ 微调 200 epoch，δθ=0.97、K=5、λ1=0.01、λ2=λ3=λ4=1.0，256 查询/512 键，类感知记忆库；⑤ 推理时丢弃投影头、预测器与表示头。<strong>未报告</strong>：优化器具体实现细节之外的随机种子值、数据增强概率与幅度、LiTS/MMWHS 具体患者划分、伪标签生成/更新频率、记忆库更新策略细节、代码链接（正文称将公开）。</p></div>
+</details>
+</div>
+<div class="card">
+<div class="title">Learning Semi-Supervised Medical Image Segmentation from Spatial Registration</div>
+<div class="meta-line">Authors: Qianying Liu, Paul Henderson, Xiao Gu, Hang Dai, Fani Deligianni</div>
+<div class="meta-line">First: 2024-09-16T15:52:41+00:00 · Latest: 2024-09-16T15:52:41+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2409.10422v1">Abs</a> · <a href="https://arxiv.org/pdf/2409.10422v1">PDF</a> · <a href="https://github.com/kathyliu579/ContrastiveCross-teachingWithRegistration">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Semi-supervised medical image segmentation has shown promise in training models with limited labeled data and abundant unlabeled data. However, state-of-the-art methods ignore a potentially valuable source of unsupervised semantic information -- spatial registration transforms between image volumes. To address this, we propose CCT-R, a contrastive cross-teaching framework incorporating registration information. To leverage the semantic information available in registrations between volume pairs, CCT-R incorporates two proposed modules: Registration Supervision Loss (RSL) and Registration-Enhanced Positive Sampling (REPS). The RSL leverages segmentation knowledge derived from transforms between labeled and unlabeled volume pairs, providing an additional source of pseudo-labels. REPS enhances contrastive learning by identifying anatomically-corresponding positives across volumes using registration transforms. Experimental results on two challenging medical segmentation benchmarks demonstrate the effectiveness and superiority of CCT-R across various semi-supervised settings, with as few as one labeled case. Our code is available at https://github.com/kathyliu579/ContrastiveCross-teachingWithRegistration.</div></details>
+<details class="detail"><summary>中文标题/摘要</summary>
+<div class="mono"><b>标题：</b>从空间配准中学习半监督医学图像分割</div>
+<div class="mono" style="margin-top:8px">半监督医学图像分割在利用有限标注数据和大量未标注数据训练模型方面已展现出前景。然而，现有最先进方法忽略了一个潜在有价值的无监督语义信息来源——图像体之间的空间配准变换。为解决这一问题，我们提出CCT-R，一种融合配准信息的对比交叉教学框架。为利用体数据对之间配准中可用的语义信息，CCT-R引入了两个提出的模块：配准监督损失（RSL）和配准增强正采样（REPS）。RSL利用从已标注与未标注体数据对之间的变换中导出的分割知识，提供额外的伪标签来源。REPS通过使用配准变换识别跨体数据在解剖上对应的正样本，增强对比学习。在两个具有挑战性的医学分割基准上的实验结果表明，CCT-R在各种半监督设置下均有效且优越，即使在仅有一个标注样本的情况下也是如此。我们的代码可在 https://github.com/kathyliu579/ContrastiveCross-teachingWithRegistration 获取。</div>
+</details>
+<details class="detail"><summary>总结</summary>
+<div class="mono" style="margin-top:8px">论文提出CCT-R，将空间配准（registration）引入半监督医学图像分割的对比交叉教学框架。核心是两模块：RSL用配准变换把已标注体数据的标签传播到未标注切片，作为额外伪标签监督；REPS用配准找到跨体数据解剖对应点，作为对比学习的正样本，并用记忆库扩大采样范围。另提出基于循环一致性的最佳配准选择（BRS）。在ACDC和Synapse上，以1、2、3、4、7个标注病例等设置评估，CCT-R在极少标注下显著优于CTS、MCSC等基线；例如ACDC 1例标注时DSC 80.4%对MCSC 58.6%，Synapse 1例时47.6%对34.0%。消融显示RSL、SCL、REPS、BRS各有增益，配准质量（仿射vs仿射+形变）影响结果。</div>
+</details>
+<details class="detail" open><summary>论文解读</summary>
+<div class="meta-line">来源：PDF 全文，共 15 页；15 页可提取文字</div>
+<p>本篇未找到可可靠提取的方法流程图，请查看原文 PDF。</p>
+<div class="reading-notes"><h1>CCT-R：从空间配准学习半监督医学图像分割</h1>
+<h2>1. 问题与动机</h2>
+<p>半监督语义分割（S4）旨在用少量标注切片和大量未标注切片训练分割模型。作者指出，现有S4方法主要依赖伪标签或一致性正则，而伪标签在训练早期噪声很大，交叉教学容易产生确认偏差（confirmation bias）[p. 1][p. 2]。另一条线是监督对比学习，但正样本来自（可能错误的）伪标签，同样受噪声影响[p. 1][p. 2]。</p>
+<p>作者的核心观察是：空间配准（spatial registration）能在体数据之间建立稠密对应关系，配准匹配的点原则上应具有相同语义标签；配准可离线计算，精度相对较高，且其误差来源与伪标签误差独立[p. 1][p. 2][p. 5]。因此，配准是一个被现有S4方法忽视的、有价值的无监督语义信息来源。论文要解决的问题是：如何把现成配准变换中的语义信息注入当前SOTA的对比交叉教学框架，从而在极少标注下提升分割性能[p. 1][p. 2]。</p>
+<h2>2. 方法</h2>
+<h3>2.1 基础框架</h3>
+<p>输入为小批量 $X=X_l\cup X_u$，含标注切片 $D_l={(x_i^l,y_i^l)}<em>{i=1}^K$ 与未标注切片 $D_u={x_j^u}</em>{j=1}^M$，$M\gg K$[p. 3]。框架沿用交叉伪监督（CPS/CTS）：两个学生模型 A、B，各自在标注数据上用Dice+交叉熵监督损失 $L_{sup}$ 训练；在未标注数据上互相用对方预测作为伪标签，$L_{cps}(A)=L_{dice}(P_A^u,Y_B^u)$，$L_{cps}(B)=L_{dice}(P_B^u,Y_A^u)$，且伪标签分支不回传梯度[p. 3]。</p>
+<p>可选地加入监督对比损失 $L_{cl}$：对每个类采样高置信度像素作为锚点（top-1概率阈值 $h=0.5$），正键为该类其他像素的平均特征，负键从其他类随机采样（每类 $N=1000$ 锚点、$O=500$ 负样本），温度 $\tau$ 控制锐度；背景类负样本数受限以防主导[p. 4]。总损失 $L_A=L_{sup}(A)+w_{cps}L_{cps}(A)+w_{cl}L_{cl}$，推理时平均两模型logits[p. 4]。</p>
+<h3>2.2 配准监督损失（RSL）</h3>
+<p>假设所有体数据两两之间存在配准变换 $T={T_{ij}}$，$T_{ij}$ 把体 $v_i$ 的点映射到 $v_j$[p. 5]。对未标注切片 $x_i^u$（属于体 $v_j^u$），用从已标注体 $v_q^l$ 到 $v_j^u$ 的变换 $T_{qj}$ 传播标签：$r_i^u=T_{qj}(y_i^l)$，得到配准伪标签[p. 5]。RSL定义为 $L_{rs}=-\frac{1}{M}\sum_i[L_{dice}(p_i^u,r_i^u)+L_{ce}(p_i^u,r_i^u)]$[p. 5]。作者强调，该伪标签在训练早期比交叉教学伪标签更可靠，可缓解确认偏差[p. 2][p. 5]。</p>
+<h3>2.3 最佳配准选择（BRS）</h3>
+<p>配准常不完美，尤其腹部。BRS用循环一致性选配准对：对未标注体 $v_j^u$ 施加正向 $T_{jq}$ 再反向 $T_{qj}$，得到 $\tilde v_j^u=T_{qj}(T_{jq}(v_j^u))$，理想应等于原体[p. 5]。用互信息（MI）与RMSE组成评分 $S=w_{rmse}\cdot RMSE+w_{mi}\cdot MI$，选使 $S$ 最小的已标注体生成伪标签[p. 5]。该策略不需要真实标签，适配半监督设定[p. 5]。</p>
+<h3>2.4 配准增强正采样（REPS）</h3>
+<p>标准对比学习用（伪）标签选正样本，伪标签错误会带来错误学习信号（图2，[p. 5]）。REPS用配准找锚点 $a_i$ 在体 $v_q$ 中坐标 $p$ 在其他体 $v_j$ 中的对应坐标 $p_j=T_{qj}(p)$，取对应特征作为额外正样本[p. 6]。由于小批量只含2D切片，配准点所在特征图未必在当前批次，作者构建容量为 $K=(M+K)/5$ 的记忆库 $B$ 存切片特征，FIFO更新[p. 6][p. 7]。对记忆库中存在的体索引集合 $J$，配准正特征取平均 $a_{rp}=\frac{1}{|J|}\sum_{j\in J}a_{p_j}$，再与伪标签正键 $a_{lp}$ 加权合并 $a_p=w_1a_{lp}+w_2a_{rp}$，代入原对比损失[p. 6]。</p>
+<h2>3. 贡献</h2>
+<p>作者声称的贡献有三点[p. 2]：(1) 首个将配准与对比交叉教学结合、用于半监督医学分割的配准引导方法CCT-R；(2) 新的配准监督损失，在训练早期提供额外且信息量更大的配准伪标签，并自动选择最佳配准体；(3) 用配准缓解伪标签噪声，通过解剖对应正样本改进对比学习。</p>
+<p>我的解读：方法的新颖性主要在于“把配准当作离线伪标签源和正样本源”这一接口设计，而非新的配准算法或新的分割网络；RSL与REPS都是可插拔模块，论文用表3验证了它们可加到UAMT、CPS、CTS等不同基线上[p. 8]。BRS是工程上合理的质量控制，但依赖MI/RMSE评分权重，论文未报告权重取值。</p>
+<h2>4. 实验与结果</h2>
+<h3>4.1 数据与设置</h3>
+<p>ACDC：200个心脏MRI短轴体数据，100例；训练70例（1930切片）、验证10例、测试20例，按[57]划分并匹配标注病例选择[p. 6]。Synapse：30例腹部CT，8个器官；训练18例（2212切片）、测试12例，按[15]划分[p. 6]。配准用ITK预计算：ACDC用仿射，Synapse用仿射+B样条形变[p. 6]。指标为DSC和95% Hausdorff距离（HD）[p. 6]。</p>
+<p>训练细节：随机裁剪、翻转、旋转增强；训练至收敛或最多40000次迭代；AdamW，权重衰减 $5\times10^{-4}$；学习率多项式调度，U-Net起始 $5\times10^{-4}$，Swin-UNet起始 $1\times10^{-4}$；批大小ACDC为8、Synapse为24，标注与未标注各半；对比投影头两层线性层输出256和128通道；$w_{cps}$ 用高斯预热 $0.1\cdot\exp(-5(1-i/t_{total})^2)$，$w_{cl}=10^{-3}$，$\tau=0.1$；单张RTX 3090[p. 7]。</p>
+<h3>4.2 主要结果</h3>
+<p>ACDC（表1，[p. 7]）：7例标注（10%）时，CCT-R（仿射）DSC 90.3%、HD 1.6mm，优于MCSC的89.4%/2.3mm和CTS的86.4%/8.6mm；3例（5%）时85.7%/2.0mm，MCSC为73.6%/10.5mm；1例（1.4%）时80.4%/3.5mm，MCSC为58.6%/31.2mm，CTS为46.8%/36.3mm。作者称1例时DSC提升33.6%、HD降低32.8mm[p. 2]。</p>
+<p>Synapse（表2，[p. 7]）：4例（20%）时CCT-R（仿射+形变）71.4%/21.1mm，MCSC为68.5%/24.8mm，CTS为64.0%/56.4mm；2例（10%）时66.5%/19.7mm，MCSC为61.1%/32.6mm；1例（5%）时47.6%/38.4mm，MCSC为34.0%/53.8mm，CTS为26.3%/96.5mm。作者称1例时DSC提升21.3%、HD降低58.1mm[p. 2]。仅配准传播（Reg. only）明显差于学习方法，如ACDC 1例时23.4%/19.7mm，Synapse 1例时27.4%/52.2mm[p. 7][p. 15]。</p>
+<h3>4.3 模块与消融</h3>
+<p>表3（Synapse 10%标注，[p. 8]）：在UAMT上仅加RSL从49.5%/62.6mm到52.3%/60.3mm，再加SCL+REPS到54.6%/55.6mm；CPS从48.8%/65.6mm到57.3%/42.4mm再到59.1%/37.5mm；CTS从55.2%/45.4mm到65.4%/28.5mm再到66.5%/19.7mm。说明模块可跨基线迁移，CTS+全部模块最佳。</p>
+<p>表4（[p. 8]）比较对比学习方法：ACDC 3例/1例、Synapse 4例/2例下，CCT-R为85.4%/2.6mm、80.0%/4.2mm、71.4%/21.1mm、66.5%/19.7mm，优于GLCL、MCSC、ReCo及vanilla CTS。</p>
+<p>表5消融（Synapse，[p. 8]）：基线CTS在1例/2例为26.3%/96.5mm和55.2%/45.4mm；加RSL为29.0%/46.9mm和64.2%/33.9mm；加SCL为27.5%/59.8mm和63.1%/29.1mm；SCL+RSL为31.4%/55.2mm和63.9%/29.7mm；SCL+RSL+BRS为28.1%/53.9mm和64.8%/20.6mm；全部（含REPS）为47.6%/38.4mm和66.5%/19.7mm。作者称全模块相对CTS在1例提升21.3% DSC、2例提升11.3%[p. 8]。注意BRS在1例设置不适用（只有一个标注体），表中该行未列1例结果[p. 8]。</p>
+<p>伪标签质量分析（图4，[p. 9]）：作者报告无RSL的交叉教学模型在训练早期伪标签DSC低，且5%标注设置下后期仍收敛到局部最优；RSL提供贯穿训练的稳定监督。该证据为曲线描述，正文未给出具体数值。</p>
+<p>附录表6/7（[p. 14][p. 15]）分别评估CNN与Transformer分支：ACDC上两分支接近；Synapse上Transformer优于CNN，作者归因于长程依赖建模能力[p. 13]。</p>
+<h2>5. 评估</h2>
+<p>支持的结论：在ACDC和Synapse的多种标注预算下，RSL与REPS组合带来一致且幅度较大的提升，尤其在1例标注时；模块可加到多个S4基线上（表3）；配准质量影响结果，Synapse上仿射+形变优于仅仿射（如1例时47.6% vs 43.4%）[p. 7][p. 15]。</p>
+<p>局限与缺失证据：配准由ITK离线预计算，方法依赖配准质量；BRS的MI/RMSE权重未报告；表5中BRS在1例设置不适用，作者未讨论单标注体时如何选配准；伪标签质量分析只有曲线无数字；未报告配准本身精度指标（如TRE）或配准失败案例；未报告推理时间/显存开销；对比学习超参（$w_1,w_2$、记忆库容量具体值）未在正文给出；表1/2部分单元格在PDF文本中排版错乱，个别数字（如ACDC 1例Ours HD 3.5mm）需以原表为准。</p>
+<h2>6. 复现</h2>
+<p>已报告：数据划分与标注病例数[p. 6]；配准工具ITK、ACDC仿射、Synapse仿射+B样条[p. 6]；优化器AdamW、权重衰减 $5\times10^{-4}$、学习率及调度、批大小、迭代上限、投影头通道、$w_{cps}$ 预热公式、$w_{cl}=10^{-3}$、$\tau=0.1$、记忆库容量 $K=(M+K)/5$、单卡RTX 3090[p. 7]；代码链接在摘要[p. 1]。</p>
+<p>未报告或需查代码：BRS中 $w_{rmse}$、$w_{mi}$ 的具体取值；REPS中 $w_1$、$w_2$ 的取值；对比损失中 $N$、$O$ 已在正文给出（1000、500）[p. 4]，但采样实现细节未展开；配准的具体参数（B样条网格、优化迭代数）未报告；数据增强的具体强度未报告；表1/2中部分基线数字在文本中错位，复现时应以原表或作者代码为准。</p></div>
 </details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261115_0702.html">20261115_0702</a>
+      <div class="history-list"><a href="archive/20261116_0726.html">20261116_0726</a>
+<a href="archive/20261115_0702.html">20261115_0702</a>
 <a href="archive/20261114_0823.html">20261114_0823</a>
 <a href="archive/20261113_0831.html">20261113_0831</a>
 <a href="archive/20261112_0936.html">20261112_0936</a>
